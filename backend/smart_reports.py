@@ -9,9 +9,14 @@ _LINE = re.compile(
     r"^\s*(?:\d+\s+)?(?P<stamp>(?:\d{4}[-/]\d{1,2}[-/]\d{1,2}|"
     r"[A-Za-z]{3}/\d{1,2})\s+\d{2}:\d{2}:\d{2}|"
     r"\d{2}:\d{2}:\d{2})\s+(?P<message>.*)$", re.I)
+# Topics may be single ("info") or comma-separated ("interface,info,debug").
+# Interface names may include /, ., @, :, <>, e.g. sfp-sfpplus1, <pppoe-out1>, ether1.
 _LINK_EVENT = re.compile(
-    r"^\s*(?:\[[^]]*\]\s*)?(?:[\w-]+(?:,[\w-]+)+\s+)?"
-    r"(?P<interface>.+?)\s+link\s+(?P<status>up|down)\b", re.I)
+    r"^\s*(?:\[[^]]*\]\s*)?"
+    r"(?:(?P<topics>[\w-]+(?:,[\w-]+)*)\s+)?"
+    r"(?P<interface>[\w./@<>:+-]+?)\s*:?\s+link\s+(?P<status>up|down)\b",
+    re.I,
+)
 _MONTHS = {name.lower(): number for number, name in enumerate(
     ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"), 1)}
 _GREGORIAN_YEAR = 1600
@@ -122,8 +127,13 @@ def parse_device_log(device, now=None, days_back=5, threshold_minutes=5):
         try: when = parse_log_datetime(match.group("stamp"), reference=now)
         except (ValueError, OverflowError): continue
         if when < cutoff or when > now + timedelta(minutes=1): continue
-        iface, status = event.group("interface").strip(), event.group("status").title()
-        if iface: grouped.setdefault(iface, []).append((when, status))
+        iface = event.group("interface").strip().rstrip(":").strip()
+        # Drop accidental topic words captured as interface when topics group missed.
+        if iface.lower() in {"info", "debug", "warning", "error", "critical", "system", "interface", "link", "wireless"}:
+            continue
+        status = event.group("status").title()
+        if iface:
+            grouped.setdefault(iface, []).append((when, status))
     found=[]
     threshold=timedelta(minutes=max(0, int(threshold_minutes)))
     one_hour=timedelta(hours=1)
@@ -238,12 +248,20 @@ def interface_flaps_xlsx(report):
 # ---------------- Smart report: wireless antenna / station disconnects ----------------
 _MAC_ADDRESS = re.compile(r"(?i)\b(?:[0-9a-f]{2}[:-]){5}[0-9a-f]{2}\b")
 _WIRELESS_ISSUE = re.compile(
-    r"(?:signal\s*(?:strength|strength\s*is)\s*[:=]?\s*-?\d+|"
-    r"(?:weak|low|lost|loss(?:\s+of)?|poor)\s+(?:wireless\s+)?signal|"
-    r"signal\s+(?:is\s+)?(?:weak|low|lost|too\s+weak|below)|"
+    r"(?:"
     r"extensive\s+data\s+loss|"
-    r"(?:disconnected|disconnect|disassoc(?:iated|iation)?|deauth(?:enticated|entication)?|"
-    r"lost\s+connection|connection\s+lost|station\s+leaving|not\s+responding))",
+    r"lost\s+connection|connection\s+lost|"
+    r"disassoc(?:iated|iation)?|"
+    r"deauth(?:enticated|entication)?|"
+    r"station\s+leaving|"
+    r"not\s+responding|no\s+response|"
+    r"no\s+beacons?\s+received|"
+    r"failed\s+to\s+connect|"
+    r"registration\s+timeout|authentication\s+timeout|"
+    r"removing\s+from\s+registration\s+table|"
+    r"(?:weak|low|poor)\s+(?:wireless\s+)?signal|"
+    r"signal\s+(?:is\s+)?(?:weak|low|lost|too\s+weak|below)"
+    r")",
     re.I,
 )
 

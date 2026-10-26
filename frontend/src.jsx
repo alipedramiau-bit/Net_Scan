@@ -1250,7 +1250,7 @@ return (
 }
 
 function SmartReports(){
-  const[days,setDays]=useState(5);
+  const[days,setDays]=useState(30);
   const[thresholdMinutes,setThresholdMinutes]=useState(5);
   const[flapResults,setFlapResults]=useState([]);
   const[loadingList,setLoadingList]=useState(false);
@@ -1357,14 +1357,21 @@ function SmartReports(){
               <td style={cellStyle}>{item.last_event||item.last_status||item.event||"—"}</td>
             </tr>)}</tbody>
           </table>
-        </div>:<div style={{padding:14,color:"#64748b"}}>موردی با این بازه و آستانه یافت نشد.</div>}
+        </div>:<div style={{padding:14,color:"#64748b",lineHeight:1.7}}>
+          موردی با این بازه و آستانه یافت نشد.
+          {diag&&diag.withLogs===0&&<div style={{marginTop:8,color:"#b45309"}}>هیچ لاگی در دیتابیس انتخاب‌شده ذخیره نشده است. ابتدا از بخش دستگاه‌ها، لاگ RouterOS را برای دستگاه‌ها دریافت/به‌روز کنید.</div>}
+          {diag&&diag.withLogs>0&&diag.stale&&diag.suggested&&<div style={{marginTop:8}}>لاگ‌ها قدیمی‌تر از بازه فعلی هستند (جدیدترین: {diag.newest||diag.newestG||"—"}).
+            <button type="button" className="tool-btn" style={{marginTop:6,marginRight:8}} onClick={()=>loadList({days:diag.suggested})}>نمایش با بازه {diag.suggested} روزه</button>
+          </div>}
+          {diag&&diag.withLogs>0&&!diag.stale&&<div style={{marginTop:8}}>در بازه انتخابی نوسان (flap) با آستانه فعلی ثبت نشده است. بازه را بزرگ‌تر کنید یا آستانه دقیقه را افزایش دهید.</div>}
+        </div>}
       </div>}
       <AntennaIssuesReport />
     </section>
   );
 }
 function AntennaIssuesReport(){
-  const [days,setDays]=useState(5),[items,setItems]=useState([]),[busy,setBusy]=useState(false),[downloading,setDownloading]=useState(false),[msg,setMsg]=useState(""),[err,setErr]=useState("");
+  const [days,setDays]=useState(30),[items,setItems]=useState([]),[busy,setBusy]=useState(false),[downloading,setDownloading]=useState(false),[msg,setMsg]=useState(""),[err,setErr]=useState("");
   async function load(){
     setBusy(true);setErr("");setMsg("در حال بررسی لاگ‌های وایرلس ذخیره‌شده...");
     try{const r=await fetch(API+"/reports/wireless-antenna-issues?days="+encodeURIComponent(days));const d=await readJson(r);if(!r.ok)throw Error(d.detail||"دریافت گزارش ناموفق بود");setItems(Array.isArray(d)?d:(d.items||d.events||[]));setMsg("گزارش بارگذاری شد؛ MACهای بدون تطبیق نیز نمایش داده می‌شوند.");}

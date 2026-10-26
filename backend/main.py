@@ -903,7 +903,7 @@ def _resolve_report_database(database: str = "") -> str:
 
 
 @app.get("/reports/interface-flaps")
-def report_interface_flaps(days: int = 5, threshold_minutes: int = 5, database: str = Query(default="", max_length=64)):
+def report_interface_flaps(days: int = 30, threshold_minutes: int = 5, database: str = Query(default="", max_length=64)):
     db_name = _resolve_report_database(database)
     error_msg = None
     try:
@@ -929,7 +929,7 @@ def report_interface_flaps(days: int = 5, threshold_minutes: int = 5, database: 
     return report
 
 @app.get("/reports/interface-flaps/export.csv")
-def report_interface_flaps_csv(days: int = 5, threshold_minutes: int = 5, database: str = Query(default="", max_length=64)):
+def report_interface_flaps_csv(days: int = 30, threshold_minutes: int = 5, database: str = Query(default="", max_length=64)):
     db_name = _resolve_report_database(database)
     try:
         fetched = db.query_devices(limit=100000, db_path=str(db.db_path_for(db_name)))
@@ -944,7 +944,7 @@ def report_interface_flaps_csv(days: int = 5, threshold_minutes: int = 5, databa
 
 
 @app.get("/reports/interface-flaps/export.xlsx")
-def report_interface_flaps_xlsx(days: int = 5, threshold_minutes: int = 5, database: str = Query(default="", max_length=64)):
+def report_interface_flaps_xlsx(days: int = 30, threshold_minutes: int = 5, database: str = Query(default="", max_length=64)):
     db_name = _resolve_report_database(database)
     try:
         devices = db.query_devices(limit=100000, db_path=str(db.db_path_for(db_name)))
@@ -962,7 +962,7 @@ def report_interface_flaps_xlsx(days: int = 5, threshold_minutes: int = 5, datab
 
 # ---------------- Smart report: wireless antenna / station issues ----------------
 @app.get("/reports/wireless-antenna-issues")
-def report_wireless_antenna_issues(days: int = 5, database: str = Query(default="", max_length=64)):
+def report_wireless_antenna_issues(days: int = 30, database: str = Query(default="", max_length=64)):
     db_name = _resolve_report_database(database)
     error_msg = None
     try:
@@ -979,7 +979,7 @@ def report_wireless_antenna_issues(days: int = 5, database: str = Query(default=
 
 
 @app.get("/reports/wireless-antenna-issues/export.csv")
-def report_wireless_antenna_issues_csv(days: int = 5, database: str = Query(default="", max_length=64)):
+def report_wireless_antenna_issues_csv(days: int = 30, database: str = Query(default="", max_length=64)):
     db_name = _resolve_report_database(database)
     try:
         result = db.query_devices(limit=100000, db_path=str(db.db_path_for(db_name)))
