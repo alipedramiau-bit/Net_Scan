@@ -1,0 +1,6 @@
+#!/home/parsa/PycharmProjects/PythonProject/.ip_scan_3/bin/python3
+import sys
+from idna.cli import main
+if __name__ == '__main__':
+    sys.argv[0] = sys.argv[0].removesuffix('.exe')
+    sys.exit(main())

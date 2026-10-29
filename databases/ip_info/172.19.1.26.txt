@@ -1,0 +1,105 @@
+IP: 172.19.1.26
+Collected at: 2026-10-21T06:57:33.907141+00:00
+source: RouterOS API
+identity: ParsaRasaneh-Iranol-ACC
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=64:D1:54:83:72:14
+  2  name=wlan1  type=wlan  running=true  mac=64:D1:54:83:72:15
+  3  name=bridge1  type=bridge  running=true  mac=64:D1:54:83:72:14
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=bridge  ssid=10094186161-PR-PTP-Iranol  band=5ghz-a/n  frequency=5250
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.19.1.26/29  interface=ether1  network=172.19.1.24
+  2  address=192.168.22.2/24  interface=wlan1  network=192.168.22.0
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.19.1.25  distance=1
+  2  dst=172.19.1.24/29  gw=bridge1  distance=0
+  3  dst=192.168.22.0/24  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=ParsaRasaneh-Iranol-ACC  address=172.19.1.27  interface=wlan1,bridge1
+  2  identity=ParsaRasaneh-SW-Emam-POP  address=172.17.12.106  interface=ether1,bridge1
+  3  identity=MikroTik  address=172.19.1.25  interface=ether1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:27:14
+# ساعت دستگاه (خام): 2026-10-18 07:19:25
+# افست اصلاحی (سرور − دستگاه): +71:37:49
+  1  1405/05/07 21:04:19  [system,error,critical]  router was rebooted without proper shutdown by watchdog timer
+  2  1405/05/07 21:04:21  [bridge,info]  "bridge1" mac address changed to 64:D1:54:83:72:14
+  3  1405/05/07 21:04:21  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  4  1405/05/07 21:04:21  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/05/07 21:05:15  [wireless,info]  64:D1:54:83:67:35@wlan1: connected, signal strength -70
+  6  1405/05/08 08:16:14  [system,info,account]  user su logged in from 185.110.29.183 via api
+  7  1405/05/08 08:16:14  [system,info,account]  user su logged out from 185.110.29.183 via api
+  8  1405/05/09 08:16:44  [system,info,account]  user su logged in from 185.110.29.183 via api
+  9  1405/05/09 08:16:44  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 10  1405/05/10 08:17:02  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 11  1405/05/10 08:17:02  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 12  1405/05/11 08:17:55  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 13  1405/05/11 08:17:55  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 14  1405/05/12 08:18:20  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 15  1405/05/12 08:18:21  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 16  1405/05/13 08:18:42  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 17  1405/05/13 08:18:42  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 18  1405/05/16 18:47:51  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 19  1405/05/16 18:47:51  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 20  1405/05/17 18:49:01  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 21  1405/05/17 18:49:01  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 22  1405/05/18 18:50:16  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 23  1405/05/18 18:50:16  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 24  1405/05/19 18:51:04  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 25  1405/05/19 18:51:04  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 26  1405/05/20 18:52:09  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 27  1405/05/20 18:52:09  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 28  1405/05/21 18:52:48  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 29  1405/05/21 18:52:48  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 30  1405/05/22 18:53:55  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 31  1405/05/22 18:53:55  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 32  1405/05/23 18:54:24  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 33  1405/05/23 18:54:24  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 34  1405/05/24 18:55:23  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 35  1405/05/24 18:55:23  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 36  1405/05/25 18:56:05  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 37  1405/05/25 18:56:05  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 38  1405/05/26 18:57:21  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 39  1405/05/26 18:57:21  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 40  1405/05/27 18:58:34  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 41  1405/05/27 18:58:34  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 42  1405/05/28 18:59:13  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 43  1405/05/28 18:59:13  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 44  1405/05/29 19:00:12  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 45  1405/05/29 19:00:12  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 46  1405/05/30 19:01:00  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 47  1405/05/30 19:01:00  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 48  1405/05/31 19:01:52  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 49  1405/05/31 19:01:52  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 50  1405/06/01 19:02:49  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 51  1405/06/01 19:02:49  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 52  1405/06/02 19:03:57  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 53  1405/06/02 19:03:57  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 54  1405/06/03 19:05:13  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 55  1405/06/03 19:05:13  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 56  1405/07/26 09:58:53  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 57  1405/07/26 09:58:53  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 58  1405/07/26 10:14:12  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 59  1405/07/26 10:14:12  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 60  1405/07/29 10:27:14  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  64:D1:54:83:72:14  (ether)
+wlan1  64:D1:54:83:72:15  (wlan)
+bridge1  64:D1:54:83:72:14  (bridge)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.19.1.25)

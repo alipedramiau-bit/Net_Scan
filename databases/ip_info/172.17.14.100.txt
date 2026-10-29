@@ -1,0 +1,121 @@
+IP: 172.17.14.100
+Collected at: 2026-10-21T06:57:30.544911+00:00
+source: RouterOS API
+identity: HyperMarket-POP-SW
+device_type: Router
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=false  mac=64:D1:54:4B:B1:C1
+  2  name=ether2  type=ether  running=true  mac=64:D1:54:4B:B1:C2
+  3  name=ether3  type=ether  running=true  mac=64:D1:54:4B:B1:C3
+  4  name=ether4  type=ether  running=true  mac=64:D1:54:4B:B1:C4
+  5  name=ether5  type=ether  running=true  mac=64:D1:54:4B:B1:C5
+  6  name=bridge1  type=bridge  running=true  mac=64:D1:54:4B:B1:C1
+  7  name=bridge2  type=bridge  running=true  mac=96:1E:91:D6:BC:81
+  8  name=vlan-619  type=vlan  running=false  mac=64:D1:54:4B:B1:C2
+
+----- wireless -----
+(empty)
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.14.100/29  interface=ether2  network=172.17.14.96
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.14.97  distance=1
+  2  dst=172.17.14.96/29  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=Net-Kh-Jalilian  address=-  interface=ether2,bridge1
+  2  identity=MikroTik  address=172.17.11.137  interface=ether2,bridge1
+  3  identity=PR-PTP-ShahrakBarbari-ST  address=172.17.11.139  interface=ether2,bridge1
+  4  identity=ParsaRasaneh--ShahrakSanati-KH  address=172.17.14.6  interface=ether2,bridge1
+  5  identity=PR-PTP-HyperMarket-Ap  address=172.17.14.98  interface=ether2,bridge1
+  6  identity=ParsaRasaneh-PTP-HyperMarket-ST  address=172.17.14.99  interface=ether2,bridge1
+  7  identity=PR-PTP-Jahad-KH  address=172.19.1.42  interface=ether2,bridge1
+  8  identity=PR-PTP-Bardia  address=172.19.1.162  interface=ether2,bridge1
+  9  identity=PR-PTP-Bardia  address=172.19.1.162  interface=ether2,bridge1
+ 10  identity=Bardia-MK  address=172.19.1.163  interface=ether2,bridge1
+ 11  identity=BardiaJonoub.Client  address=172.19.1.164  interface=ether2,bridge1
+ 12  identity=PR-PTP-Shiraz-AP  address=172.19.1.246  interface=ether2,bridge1
+ 13  identity=PR-PTP-JahadKH  address=192.168.1.25  interface=ether2,bridge1
+ 14  identity=ParsaRasaneh-Sharak-SW  address=192.168.43.1  interface=ether2,bridge1
+ 15  identity=ParsaRasaneh-Anjoman-Router  address=192.168.43.2  interface=ether2,bridge1
+ 16  identity=NET-AB-Ghanemi  address=fe80::6e3b:6bff:fedd:7ea8  interface=ether3,bridge1
+ 17  identity=ParsaRasaneh-POP-HyperMarket  address=172.17.14.45  interface=ether3,bridge1
+ 18  identity=Avazeh-KH  address=172.19.1.74  interface=ether3,bridge1
+ 19  identity=ParsaRasaneh-POP3-MP  address=172.17.14.58  interface=ether4,bridge1
+ 20  identity=ParsaRasaneh-KH-PoP2  address=172.17.14.101  interface=ether5,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:38
+# ساعت دستگاه (خام): 2026-06-27 21:16:49
+# افست اصلاحی (سرور − دستگاه): +2769:39:49
+  1  1405/06/04 14:09:51  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/06/04 14:09:52  [poe-out,warning]  Failed to upgrade poe FW on /dev/poe, diag code -778/0
+  3  1405/06/04 14:09:52  [poe-out,info]  ether2 detected poe-out status: on
+  4  1405/06/04 14:09:52  [bridge,info]  "bridge1" mac address changed to 64:D1:54:4B:B1:C1
+  5  1405/06/04 14:09:52  [poe-out,info]  ether3 detected poe-out status: on
+  6  1405/06/04 14:09:52  [poe-out,info]  ether5 detected poe-out status: on
+  7  1405/06/04 14:09:52  [poe-out,info]  ether4 detected poe-out status: on
+  8  1405/06/04 14:09:53  [interface,info]  ether2 link up (speed 100M, full duplex)
+  9  1405/06/04 14:09:53  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 10  1405/06/04 14:09:53  [interface,info]  ether4 link up (speed 100M, full duplex)
+ 11  1405/06/04 14:09:53  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 12  1405/06/04 14:09:58  [interface,info]  ether2 link down
+ 13  1405/06/04 14:10:00  [interface,info]  ether3 link down
+ 14  1405/06/04 14:10:00  [interface,info]  ether4 link down
+ 15  1405/06/04 14:10:02  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 16  1405/06/04 14:10:02  [interface,info]  ether4 link up (speed 100M, full duplex)
+ 17  1405/06/04 14:10:08  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 18  1405/06/14 21:32:22  [interface,warning]  ether2: bridge port received packet with own address as source address (64:d1:54:4b:b1:c1), probably loop
+ 19  1405/07/14 19:54:46  [poe-out,warning]  ether3 detected poe-out status: voltage_too_low
+ 20  1405/07/14 19:54:46  [poe-out,warning]  ether2 detected poe-out status: voltage_too_low
+ 21  1405/07/14 19:54:46  [poe-out,warning]  ether5 detected poe-out status: voltage_too_low
+ 22  1405/07/14 19:54:46  [poe-out,warning]  ether4 detected poe-out status: voltage_too_low
+ 23  1405/07/14 19:54:46  [interface,info]  ether2 link down
+ 24  1405/07/14 19:54:46  [interface,info]  ether3 link down
+ 25  1405/07/14 19:54:46  [interface,info]  ether4 link down
+ 26  1405/07/14 19:54:46  [interface,info]  ether5 link down
+ 27  1405/07/14 19:54:47  [poe-out,info]  ether4 detected poe-out status: wait_for_load
+ 28  1405/07/14 19:54:47  [poe-out,info]  ether3 detected poe-out status: on
+ 29  1405/07/14 19:54:47  [poe-out,info]  ether2 detected poe-out status: wait_for_load
+ 30  1405/07/14 19:54:47  [poe-out,info]  ether5 detected poe-out status: on
+ 31  1405/07/14 19:54:47  [poe-out,info]  ether4 detected poe-out status: on
+ 32  1405/07/14 19:54:48  [poe-out,info]  ether2 detected poe-out status: on
+ 33  1405/07/14 19:54:49  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 34  1405/07/14 19:54:49  [interface,info]  ether4 link up (speed 100M, full duplex)
+ 35  1405/07/14 19:54:50  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 36  1405/07/14 19:54:51  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 37  1405/07/14 19:55:08  [interface,info]  ether5 link down
+ 38  1405/07/14 19:55:09  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 39  1405/07/14 19:55:15  [interface,info]  ether2 link down
+ 40  1405/07/14 19:55:15  [interface,info]  ether3 link down
+ 41  1405/07/14 19:55:17  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 42  1405/07/14 19:55:17  [interface,info]  ether4 link down
+ 43  1405/07/14 19:55:18  [interface,info]  ether4 link up (speed 100M, full duplex)
+ 44  1405/07/14 19:55:24  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 45  1405/07/26 09:49:57  [system,info,account]  user su logged in from 185.110.29.153 via winbox
+ 46  1405/07/26 09:50:05  [system,info]  ip service changed by su
+ 47  1405/07/26 09:50:06  [system,info,account]  user su logged out from 185.110.29.153 via winbox
+ 48  1405/07/26 09:58:19  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 49  1405/07/26 09:58:20  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 50  1405/07/26 10:13:48  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 51  1405/07/26 10:13:49  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 52  1405/07/29 10:26:38  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  64:D1:54:4B:B1:C1  (ether)
+ether2  64:D1:54:4B:B1:C2  (ether)
+ether3  64:D1:54:4B:B1:C3  (ether)
+ether4  64:D1:54:4B:B1:C4  (ether)
+ether5  64:D1:54:4B:B1:C5  (ether)
+bridge1  64:D1:54:4B:B1:C1  (bridge)
+bridge2  96:1E:91:D6:BC:81  (bridge)
+vlan-619  64:D1:54:4B:B1:C2  (vlan)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.17.14.97)

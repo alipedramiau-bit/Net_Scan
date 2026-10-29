@@ -1,0 +1,65 @@
+IP: 172.17.13.6
+Collected at: 2026-10-21T06:57:30.306275+00:00
+source: RouterOS API
+identity: PArsaRasaneh farhabad2
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=6C:3B:6B:9D:76:9C
+  2  name=10094186132-PR-FarahAbad2  type=wlan  running=false  mac=6E:3B:6B:9D:76:9D
+  3  name=wlan1  type=wlan  running=true  mac=6C:3B:6B:9D:76:9D
+  4  name=bridge1  type=bridge  running=true  mac=6C:3B:6B:9D:76:9C
+
+----- wireless -----
+=== /interface wireless ===
+name=10094186132-PR-FarahAbad2  mode=ap-bridge  ssid=10094186132-PR-FarahAbad2  band=-  frequency=-
+name=wlan1  mode=ap-bridge  ssid=10094186132-PR-FarahAbad2  band=5ghz-a/n  frequency=5540
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.13.6/29  interface=ether1  network=172.17.13.0
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.13.1  distance=1
+  2  dst=172.17.13.0/29  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=AB-Dehdari  address=-  interface=wlan1,bridge1
+  2  identity=REZAIIPOOR  address=-  interface=ether1,bridge1
+  3  identity=AB-Ansari7  address=-  interface=ether1,bridge1
+  4  identity=MikroTik  address=172.17.12.189  interface=ether1,bridge1
+  5  identity=ParsaRasaneh-SW-Hamid  address=172.17.12.226  interface=ether1,bridge1
+  6  identity=ParsaRasaneh-PTP-FarahAbad  address=172.17.13.2  interface=ether1,bridge1
+  7  identity=Hamid-Tower-ST  address=172.17.13.3  interface=ether1,bridge1
+  8  identity=ParsaRasaneh-PNU  address=172.17.13.5  interface=ether1,bridge1
+  9  identity=HastiPOP-SW  address=172.17.15.34  interface=ether1,bridge1
+ 10  identity=PR-PS-PTP-Nobat-ST  address=172.19.2.70  interface=ether1,bridge1
+ 11  identity=PR-PTP-Abdolahnezhad  address=192.168.2.1  interface=ether1,bridge1
+ 12  identity=Abdolahnezhad  address=192.168.2.2  interface=ether1,bridge1
+ 13  identity=MikroTik  address=192.168.88.1  interface=ether1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:35
+# ساعت دستگاه (خام): 2008-03-29 01:53:14
+# افست اصلاحی (سرور − دستگاه): +162725:03:21
+  1  1405/07/29 09:53:35  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/29 09:53:36  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:9D:76:9C
+  3  1405/07/29 09:53:37  [wireless,info]  wlan1: pre-shared key authentication not enabled, disable WPS
+  4  1405/07/29 09:53:38  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/07/29 09:54:15  [wireless,info]  D4:01:C3:7E:87:5B@wlan1: connected, signal strength -43, wants bridge
+  6  1405/07/29 09:54:32  [wireless,info]  2C:C8:1B:A7:7A:17@wlan1: connected, signal strength -59, wants bridge
+  7  1405/07/29 09:54:36  [wireless,info]  18:FD:74:2D:17:4C@wlan1: connected, signal strength -44, wants bridge
+  8  1405/07/29 09:57:55  [wireless,info]  E4:8D:8C:E4:CC:F5@wlan1: connected, signal strength -56, wants bridge
+  9  1405/07/29 10:26:35  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  6C:3B:6B:9D:76:9C  (ether)
+10094186132-PR-FarahAbad2  6E:3B:6B:9D:76:9D  (wlan)
+wlan1  6C:3B:6B:9D:76:9D  (wlan)
+bridge1  6C:3B:6B:9D:76:9C  (bridge)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.17.13.1)

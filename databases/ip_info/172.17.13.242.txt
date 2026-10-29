@@ -1,0 +1,134 @@
+IP: 172.17.13.242
+Collected at: 2026-10-21T06:57:29.960440+00:00
+source: RouterOS API
+identity: SW-Farhangian
+device_type: Router
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=false  mac=64:D1:54:4B:B2:7A
+  2  name=ether2  type=ether  running=true  mac=64:D1:54:4B:B2:7B
+  3  name=ether3  type=ether  running=false  mac=64:D1:54:4B:B2:7C
+  4  name=ether4  type=ether  running=true  mac=64:D1:54:4B:B2:7D
+  5  name=ether5  type=ether  running=true  mac=64:D1:54:4B:B2:7E
+  6  name=bridge1  type=bridge  running=true  mac=D6:29:F7:71:D6:40
+  7  name=bridge2  type=bridge  running=true  mac=64:D1:54:4B:B2:7B
+  8  name=bridge3  type=bridge  running=true  mac=62:8D:8C:12:C1:D7
+  9  name=bridge4  type=bridge  running=true  mac=64:D1:54:4B:B2:7A
+ 10  name=bridge5  type=bridge  running=true  mac=64:D1:54:4B:B2:7E
+ 11  name=bridge6  type=bridge  running=true  mac=64:D1:54:4B:B2:7B
+ 12  name=vlan1  type=vlan  running=true  mac=64:D1:54:4B:B2:7B
+ 13  name=vlan2  type=vlan  running=true  mac=64:D1:54:4B:B2:7B
+ 14  name=vlan3  type=vlan  running=true  mac=64:D1:54:4B:B2:7B
+ 15  name=vlan4  type=vlan  running=true  mac=64:D1:54:4B:B2:7B
+ 16  name=vlan5  type=vlan  running=true  mac=64:D1:54:4B:B2:7B
+ 17  name=vlan38  type=vlan  running=true  mac=64:D1:54:4B:B2:7B
+ 18  name=vlan45  type=vlan  running=true  mac=64:D1:54:4B:B2:7B
+ 19  name=vlan46  type=vlan  running=true  mac=64:D1:54:4B:B2:7B
+
+----- wireless -----
+(empty)
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.13.242/30  interface=vlan45  network=172.17.13.240
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.13.241  distance=1
+  2  dst=172.17.13.240/30  gw=bridge4  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=ParsaRasaneh-Farhangyan-PTP  address=-  interface=ether2,bridge2
+  2  identity=ParsaRasaneh-Farhangyan-ST  address=-  interface=ether2,bridge2
+  3  identity=MikroTik  address=fe80::4e5e:cff:fec5:c827  interface=ether2,bridge2
+  4  identity=AB-Gas  address=-  interface=ether4,bridge4
+  5  identity=ParsaRasaneh-Nasirizadeh  address=-  interface=ether4,bridge4
+  6  identity=ParsaRasaneh-Terminal  address=172.17.12.250  interface=ether4,bridge4
+  7  identity=ParsaRasaneh-Arman  address=-  interface=ether5,bridge5
+  8  identity=MikroTik  address=fe80::6f4:1cff:fe11:d70e  interface=ether5,bridge5
+  9  identity=ParsaRasaneh-Badri1  address=fe80::66d1:54ff:febc:1810  interface=ether5,bridge5
+ 10  identity=ParsaRasaneh-Sangor-PTP  address=172.17.13.147  interface=ether5,bridge5
+ 11  identity=MikroTik  address=172.17.12.249  interface=vlan45,bridge4
+ 12  identity=ParsaRasaneh-Farhangyan-PTP  address=172.17.13.26  interface=vlan45,bridge4
+ 13  identity=ParsaRasaneh-Farhangyan-ST  address=172.17.13.27  interface=vlan45,bridge4
+ 14  identity=MikroTik  address=172.17.13.145  interface=vlan46,bridge5
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:31
+# ساعت دستگاه (خام): 2026-10-21 10:24:09
+# افست اصلاحی (سرور − دستگاه): -03:27:37
+  1  1388/07/21 17:45:58  [system,info]  installed system-6.49.21
+  2  1388/07/21 17:45:58  [system,info]  installed openflow-6.49.21
+  3  1388/07/21 17:45:58  [system,info]  installed ppp-6.49.21
+  4  1388/07/21 17:45:58  [system,info]  installed routing-6.49.21
+  5  1388/07/21 17:45:58  [system,info]  installed tr069-client-6.49.21
+  6  1388/07/21 17:45:58  [system,info]  installed advanced-tools-6.49.21
+  7  1388/07/21 17:45:58  [system,info]  installed calea-6.49.21
+  8  1388/07/21 17:45:58  [system,info]  installed dhcp-6.49.21
+  9  1388/07/21 17:45:58  [system,info]  installed security-6.49.21
+ 10  1388/07/21 17:45:58  [system,info]  installed mpls-6.49.21
+ 11  1388/07/21 17:45:58  [system,info]  installed multicast-6.49.21
+ 12  1388/07/21 17:45:58  [system,info]  installed ntp-6.49.21
+ 13  1388/07/21 17:45:58  [system,info]  router rebooted
+ 14  1388/07/21 17:46:06  [bridge,info]  "bridge4" mac address changed to 64:D1:54:4B:B2:7A
+ 15  1388/07/21 17:46:06  [bridge,info]  "bridge2" mac address changed to 64:D1:54:4B:B2:7B
+ 16  1388/07/21 17:46:06  [interface,info]  vlan38 link up
+ 17  1388/07/21 17:46:06  [interface,info]  vlan45 link up
+ 18  1388/07/21 17:46:06  [interface,info]  vlan46 link up
+ 19  1388/07/21 17:46:06  [interface,info]  vlan1 link up
+ 20  1388/07/21 17:46:06  [interface,info]  vlan2 link up
+ 21  1388/07/21 17:46:06  [interface,info]  vlan3 link up
+ 22  1388/07/21 17:46:06  [interface,info]  vlan4 link up
+ 23  1388/07/21 17:46:06  [interface,info]  vlan5 link up
+ 24  1388/07/21 17:46:06  [bridge,info]  hardware offloading activated on bridge "bridge2" ports: ether2
+ 25  1388/07/21 17:46:06  [bridge,info]  "bridge5" mac address changed to 64:D1:54:4B:B2:7E
+ 26  1388/07/21 17:46:06  [bridge,info]  "bridge6" mac address changed to 64:D1:54:4B:B2:7B
+ 27  1388/07/21 17:46:07  [poe-out,info]  ether2 detected poe-out status: on
+ 28  1388/07/21 17:46:07  [poe-out,info]  ether4 detected poe-out status: on
+ 29  1388/07/21 17:46:07  [poe-out,info]  ether5 detected poe-out status: on
+ 30  1388/07/21 17:46:08  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 31  1388/07/21 17:46:08  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 32  1388/07/21 17:46:08  [interface,info]  ether4 link up (speed 100M, full duplex)
+ 33  1388/07/21 17:46:08  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 34  1388/07/21 17:47:01  [system,info,account]  user garnaf logged in from 185.110.29.249 via winbox
+ 35  1405/06/23 09:52:52  [system,info,account]  user garnaf logged out from 185.110.29.249 via winbox
+ 36  1405/06/23 18:44:06  [system,info,account]  user garnaf logged in from 185.110.29.249 via winbox
+ 37  1405/06/23 19:21:13  [system,info,account]  user garnaf logged out from 185.110.29.249 via winbox
+ 38  1405/06/23 20:32:33  [system,info,account]  user garnaf logged in from 185.110.29.249 via winbox
+ 39  1405/06/23 21:14:18  [system,info,account]  user garnaf logged out from 185.110.29.249 via winbox
+ 40  1405/07/11 08:07:27  [interface,info]  ether1 link down
+ 41  1405/07/11 11:55:44  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 42  1405/07/25 09:15:05  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 43  1405/07/25 09:15:05  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 44  1405/07/26 09:58:12  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 45  1405/07/26 09:58:12  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 46  1405/07/26 10:13:40  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 47  1405/07/26 10:13:41  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 48  1405/07/29 08:12:17  [interface,info]  ether1 link down
+ 49  1405/07/29 10:26:31  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  64:D1:54:4B:B2:7A  (ether)
+ether2  64:D1:54:4B:B2:7B  (ether)
+ether3  64:D1:54:4B:B2:7C  (ether)
+ether4  64:D1:54:4B:B2:7D  (ether)
+ether5  64:D1:54:4B:B2:7E  (ether)
+bridge1  D6:29:F7:71:D6:40  (bridge)
+bridge2  64:D1:54:4B:B2:7B  (bridge)
+bridge3  62:8D:8C:12:C1:D7  (bridge)
+bridge4  64:D1:54:4B:B2:7A  (bridge)
+bridge5  64:D1:54:4B:B2:7E  (bridge)
+bridge6  64:D1:54:4B:B2:7B  (bridge)
+vlan1  64:D1:54:4B:B2:7B  (vlan)
+vlan2  64:D1:54:4B:B2:7B  (vlan)
+vlan3  64:D1:54:4B:B2:7B  (vlan)
+vlan4  64:D1:54:4B:B2:7B  (vlan)
+vlan5  64:D1:54:4B:B2:7B  (vlan)
+vlan38  64:D1:54:4B:B2:7B  (vlan)
+vlan45  64:D1:54:4B:B2:7B  (vlan)
+vlan46  64:D1:54:4B:B2:7B  (vlan)
+--- /ip arp ---
+bridge4  4C:5E:0C:C5:C8:27  (arp 172.17.13.241)

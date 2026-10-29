@@ -1,0 +1,64 @@
+IP: 172.17.12.27
+Collected at: 2026-10-21T06:57:28.852705+00:00
+source: RouterOS API
+identity: ParsaRasaneh-PTP-MM
+device_type: ST
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=6C:3B:6B:02:4A:90
+  2  name=wlan1  type=wlan  running=true  mac=6C:3B:6B:02:4A:91
+  3  name=bridge1  type=bridge  running=true  mac=6C:3B:6B:02:4A:91
+  4  name=vlan1  type=vlan  running=true  mac=6C:3B:6B:02:4A:91
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=station-wds  ssid=10094186171-PR-PTP-MM  band=5ghz-a/n  frequency=5770
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=192.168.22.1/24  interface=wlan1  network=192.168.22.0
+  2  address=172.17.12.27/29  interface=vlan1  network=172.17.12.24
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.12.25  distance=1
+  2  dst=172.17.12.24/29  gw=vlan1  distance=0
+  3  dst=192.168.22.0/24  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=Parsa-SW-Zand  address=172.17.11.234  interface=wlan1,bridge1
+  2  identity=ParsaRasaneh-PTP-Toba-ST  address=192.168.22.6  interface=wlan1,bridge1
+  3  identity=ParsaRasaneh-Omghazlan  address=192.168.42.99  interface=ether1,bridge1
+  4  identity=MikroTik  address=172.17.12.25  interface=vlan1
+  5  identity=ParsaRasaneh-PTP-Toba-ST  address=172.17.12.26  interface=vlan1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:21
+# ساعت دستگاه (خام): 2026-06-03 23:30:35
+# افست اصلاحی (سرور − دستگاه): +3343:25:46
+  1  1405/07/03 11:55:47  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/03 11:55:50  [interface,info]  vlan1 link up
+  3  1405/07/03 11:55:50  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:02:4A:91
+  4  1405/07/03 11:55:54  [wireless,info]  4C:5E:0C:A7:F5:61@wlan1 established connection on 5340000, SSID 10094186171-PR-PTP-MM
+  5  1405/07/03 11:55:55  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  6  1405/07/03 11:55:57  [interface,info]  ether1 link up (speed 100M, full duplex)
+  7  1405/07/15 19:31:09  [wireless,info]  4C:5E:0C:A7:F5:61@wlan1: lost connection, synchronization timeout
+  8  1405/07/15 19:31:41  [wireless,info]  4C:5E:0C:A7:F5:61@wlan1 established connection on 5340000, SSID 10094186171-PR-PTP-MM
+  9  1405/07/15 19:40:20  [wireless,info]  4C:5E:0C:A7:F5:61@wlan1: lost connection, synchronization timeout
+ 10  1405/07/15 19:41:11  [wireless,info]  4C:5E:0C:A7:F5:61@wlan1 established connection on 5340000, SSID 10094186171-PR-PTP-MM
+ 11  1405/07/26 09:57:53  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 12  1405/07/26 09:57:53  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 13  1405/07/26 10:13:21  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 14  1405/07/26 10:13:21  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 15  1405/07/29 10:26:21  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  6C:3B:6B:02:4A:90  (ether)
+wlan1  6C:3B:6B:02:4A:91  (wlan)
+bridge1  6C:3B:6B:02:4A:91  (bridge)
+vlan1  6C:3B:6B:02:4A:91  (vlan)
+--- /ip arp ---
+vlan1  4C:5E:0C:C5:C8:24  (arp 172.17.12.25)

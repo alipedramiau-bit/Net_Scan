@@ -1,0 +1,176 @@
+IP: 172.17.11.70
+Collected at: 2026-10-21T06:57:27.767688+00:00
+source: RouterOS API
+identity: ParsaRasaneh-ZT
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=E4:8D:8C:77:FC:D4
+  2  name=wlan1  type=wlan  running=false  mac=E4:8D:8C:77:FC:D5
+  3  name=bridge1  type=bridge  running=true  mac=E4:8D:8C:77:FC:D5
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=ap-bridge  ssid=ParsaRasaneh-ZT  band=5ghz-a/n  frequency=5825
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.11.70/30  interface=ether1  network=172.17.11.68
+  2  address=192.168.4.1/24  interface=wlan1  network=192.168.4.0
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.11.69  distance=1
+  2  dst=172.17.11.68/30  gw=bridge1  distance=0
+  3  dst=192.168.4.0/24  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=MikroTik  address=172.17.11.69  interface=ether1
+  2  identity=ParsaRasaneh-Omghazlan  address=192.168.31.1  interface=ether1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:11
+# ساعت دستگاه (خام): 2002-10-14 23:32:25
+# افست اصلاحی (سرور − دستگاه): +210535:23:46
+  1  1405/07/03 11:55:38  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/03 11:55:41  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:77:FC:D5
+  3  1405/07/03 11:55:47  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/04 18:19:43  [wireless,info]  EA:4E:0B:34:61:09@wlan1: connected, signal strength -72
+  5  1405/07/04 18:19:48  [wireless,info]  EA:4E:0B:34:61:09@wlan1: disconnected, unicast key exchange timeout
+  6  1405/07/05 14:25:36  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -86
+  7  1405/07/05 14:25:41  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+  8  1405/07/05 14:39:15  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -83
+  9  1405/07/05 14:39:20  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+ 10  1405/07/05 15:42:27  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -86
+ 11  1405/07/05 15:42:32  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+ 12  1405/07/05 16:19:27  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -84
+ 13  1405/07/05 16:19:32  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+ 14  1405/07/05 17:42:43  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -72
+ 15  1405/07/05 17:42:48  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+ 16  1405/07/05 19:42:54  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -83
+ 17  1405/07/05 19:42:59  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+ 18  1405/07/06 11:20:31  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -81
+ 19  1405/07/06 11:20:36  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+ 20  1405/07/06 11:29:22  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -84
+ 21  1405/07/06 11:29:27  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+ 22  1405/07/06 11:43:41  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -83
+ 23  1405/07/06 11:43:46  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+ 24  1405/07/06 12:15:54  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -84
+ 25  1405/07/06 12:15:59  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+ 26  1405/07/06 19:19:08  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -86
+ 27  1405/07/06 19:19:13  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+ 28  1405/07/06 19:26:06  [wireless,info]  AA:50:0A:99:69:C2@wlan1: connected, signal strength -70
+ 29  1405/07/06 19:26:11  [wireless,info]  AA:50:0A:99:69:C2@wlan1: disconnected, unicast key exchange timeout
+ 30  1405/07/06 19:26:15  [wireless,info]  AA:50:0A:99:69:C2@wlan1: connected, signal strength -79
+ 31  1405/07/06 19:26:20  [wireless,info]  AA:50:0A:99:69:C2@wlan1: disconnected, unicast key exchange timeout
+ 32  1405/07/07 07:26:44  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -85
+ 33  1405/07/07 07:26:49  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+ 34  1405/07/07 11:45:07  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -86
+ 35  1405/07/07 11:45:12  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+ 36  1405/07/07 12:01:20  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -85
+ 37  1405/07/07 12:01:25  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+ 38  1405/07/07 15:16:30  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -89
+ 39  1405/07/07 15:16:35  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+ 40  1405/07/08 02:05:23  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -88
+ 41  1405/07/08 02:05:28  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+ 42  1405/07/08 03:20:04  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -84
+ 43  1405/07/08 03:20:09  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+ 44  1405/07/08 08:43:38  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -87
+ 45  1405/07/08 08:43:43  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+ 46  1405/07/11 06:16:18  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -86
+ 47  1405/07/11 06:16:23  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+ 48  1405/07/11 06:22:24  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -87
+ 49  1405/07/11 06:22:29  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+ 50  1405/07/11 07:00:24  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -85
+ 51  1405/07/11 07:00:29  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+ 52  1405/07/11 07:09:14  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -84
+ 53  1405/07/11 07:09:19  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+ 54  1405/07/11 07:18:41  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -80
+ 55  1405/07/11 07:18:46  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+ 56  1405/07/12 22:16:45  [system,info,account]  user su logged in from 185.110.29.249 via winbox
+ 57  1405/07/12 22:16:47  [system,info,account]  user su logged in from 185.110.29.249 via telnet
+ 58  1405/07/12 22:17:31  [system,info]  device changed by su
+ 59  1405/07/12 22:17:36  [system,info,account]  user su logged out from 185.110.29.249 via winbox
+ 60  1405/07/12 22:17:36  [system,info,account]  user su logged out from 185.110.29.249 via telnet
+ 61  1405/07/12 22:17:44  [system,info,account]  user su logged in from 185.110.29.249 via winbox
+ 62  1405/07/12 22:17:45  [system,info,account]  user su logged in from 185.110.29.249 via telnet
+ 63  1405/07/12 22:17:54  [system,info]  config changed by su
+ 64  1405/07/12 22:18:06  [system,info,account]  user su logged out from 185.110.29.249 via winbox
+ 65  1405/07/12 22:18:06  [system,info,account]  user su logged out from 185.110.29.249 via telnet
+ 66  1405/07/14 15:42:26  [wireless,info]  8E:D0:65:FC:60:55@wlan1: connected, signal strength -83
+ 67  1405/07/14 15:42:31  [wireless,info]  8E:D0:65:FC:60:55@wlan1: disconnected, unicast key exchange timeout
+ 68  1405/07/17 12:49:48  [wireless,info]  2A:C4:E7:E9:C8:98@wlan1: connected, signal strength -80
+ 69  1405/07/17 12:49:53  [wireless,info]  2A:C4:E7:E9:C8:98@wlan1: disconnected, unicast key exchange timeout
+ 70  1405/07/20 11:58:37  [wireless,info]  2A:C4:E7:E9:C8:98@wlan1: connected, signal strength -75
+ 71  1405/07/20 11:58:42  [wireless,info]  2A:C4:E7:E9:C8:98@wlan1: disconnected, unicast key exchange timeout
+ 72  1405/07/20 11:58:55  [wireless,info]  2A:C4:E7:E9:C8:98@wlan1: connected, signal strength -72
+ 73  1405/07/20 11:59:00  [wireless,info]  2A:C4:E7:E9:C8:98@wlan1: disconnected, unicast key exchange timeout
+ 74  1405/07/20 11:59:10  [wireless,info]  2A:C4:E7:E9:C8:98@wlan1: connected, signal strength -78
+ 75  1405/07/20 11:59:15  [wireless,info]  2A:C4:E7:E9:C8:98@wlan1: disconnected, unicast key exchange timeout
+ 76  1405/07/20 11:59:36  [wireless,info]  2A:C4:E7:E9:C8:98@wlan1: connected, signal strength -67
+ 77  1405/07/20 11:59:41  [wireless,info]  2A:C4:E7:E9:C8:98@wlan1: disconnected, unicast key exchange timeout
+ 78  1405/07/20 12:00:14  [wireless,info]  2A:C4:E7:E9:C8:98@wlan1: connected, signal strength -76
+ 79  1405/07/20 12:00:19  [wireless,info]  2A:C4:E7:E9:C8:98@wlan1: disconnected, unicast key exchange timeout
+ 80  1405/07/20 12:01:35  [wireless,info]  2A:C4:E7:E9:C8:98@wlan1: connected, signal strength -72
+ 81  1405/07/20 12:01:38  [wireless,info]  2A:C4:E7:E9:C8:98@wlan1: disconnected, received deauth: sending station leaving (3)
+ 82  1405/07/21 06:34:03  [wireless,info]  E4:E3:3D:F8:E0:B8@wlan1: connected, signal strength -69
+ 83  1405/07/21 06:34:08  [wireless,info]  E4:E3:3D:F8:E0:B8@wlan1: disconnected, unicast key exchange timeout
+ 84  1405/07/21 06:34:53  [wireless,info]  E4:E3:3D:F8:E0:B8@wlan1: connected, signal strength -72
+ 85  1405/07/21 06:34:58  [wireless,info]  E4:E3:3D:F8:E0:B8@wlan1: disconnected, unicast key exchange timeout
+ 86  1405/07/23 18:42:39  [wireless,info]  EA:4E:0B:34:61:09@wlan1: connected, signal strength -70
+ 87  1405/07/23 18:42:44  [wireless,info]  EA:4E:0B:34:61:09@wlan1: disconnected, unicast key exchange timeout
+ 88  1405/07/23 18:42:51  [wireless,info]  EA:4E:0B:34:61:09@wlan1: connected, signal strength -77
+ 89  1405/07/23 18:42:56  [wireless,info]  EA:4E:0B:34:61:09@wlan1: disconnected, unicast key exchange timeout
+ 90  1405/07/23 18:43:03  [wireless,info]  EA:4E:0B:34:61:09@wlan1: connected, signal strength -74
+ 91  1405/07/23 18:43:08  [wireless,info]  EA:4E:0B:34:61:09@wlan1: disconnected, unicast key exchange timeout
+ 92  1405/07/24 13:33:34  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -75
+ 93  1405/07/24 13:33:39  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+ 94  1405/07/24 20:49:48  [wireless,info]  2A:C4:E7:E9:C8:98@wlan1: connected, signal strength -82
+ 95  1405/07/24 20:49:53  [wireless,info]  2A:C4:E7:E9:C8:98@wlan1: disconnected, unicast key exchange timeout
+ 96  1405/07/25 21:59:06  [wireless,info]  E4:E3:3D:F8:E0:B8@wlan1: connected, signal strength -79
+ 97  1405/07/25 21:59:11  [wireless,info]  E4:E3:3D:F8:E0:B8@wlan1: disconnected, unicast key exchange timeout
+ 98  1405/07/26 00:39:02  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -86
+ 99  1405/07/26 00:39:07  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+100  1405/07/26 02:50:48  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -87
+101  1405/07/26 02:50:53  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+102  1405/07/26 04:52:13  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -85
+103  1405/07/26 04:52:18  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+104  1405/07/26 09:57:39  [system,info,account]  user su logged in from 185.110.29.189 via api
+105  1405/07/26 09:57:40  [system,info,account]  user su logged out from 185.110.29.189 via api
+106  1405/07/26 10:13:10  [system,info,account]  user su logged in from 185.110.29.189 via api
+107  1405/07/26 10:13:11  [system,info,account]  user su logged out from 185.110.29.189 via api
+108  1405/07/26 11:48:51  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -84
+109  1405/07/26 11:48:56  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+110  1405/07/26 12:01:06  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -81
+111  1405/07/26 12:01:11  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+112  1405/07/26 12:31:16  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -82
+113  1405/07/26 12:31:21  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+114  1405/07/26 12:40:16  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -85
+115  1405/07/26 12:40:21  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+116  1405/07/26 13:00:16  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -84
+117  1405/07/26 13:00:21  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+118  1405/07/26 13:40:23  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -82
+119  1405/07/26 13:40:28  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+120  1405/07/26 14:31:23  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -86
+121  1405/07/26 14:31:28  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+122  1405/07/29 00:44:40  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: connected, signal strength -90
+123  1405/07/29 00:44:45  [wireless,info]  60:A4:D0:7B:E1:6A@wlan1: disconnected, unicast key exchange timeout
+124  1405/07/29 00:45:43  [wireless,info]  06:74:1D:37:38:4D@wlan1: connected, signal strength -87
+125  1405/07/29 00:45:43  [wireless,info]  06:74:1D:37:38:4D@wlan1: disconnected, received deauth: sending station leaving (3)
+126  1405/07/29 00:52:01  [wireless,info]  06:74:1D:37:38:4D@wlan1: connected, signal strength -85
+127  1405/07/29 00:52:01  [wireless,info]  06:74:1D:37:38:4D@wlan1: disconnected, received deauth: sending station leaving (3)
+128  1405/07/29 10:22:08  [wireless,info]  2A:C4:E7:E9:C8:98@wlan1: connected, signal strength -74
+129  1405/07/29 10:22:13  [wireless,info]  2A:C4:E7:E9:C8:98@wlan1: disconnected, unicast key exchange timeout
+130  1405/07/29 10:22:16  [wireless,info]  2A:C4:E7:E9:C8:98@wlan1: connected, signal strength -72
+131  1405/07/29 10:22:21  [wireless,info]  2A:C4:E7:E9:C8:98@wlan1: disconnected, unicast key exchange timeout
+132  1405/07/29 10:26:11  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  E4:8D:8C:77:FC:D4  (ether)
+wlan1  E4:8D:8C:77:FC:D5  (wlan)
+bridge1  E4:8D:8C:77:FC:D5  (bridge)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.17.11.69)

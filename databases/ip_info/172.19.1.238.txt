@@ -1,0 +1,112 @@
+IP: 172.19.1.238
+Collected at: 2026-10-21T06:57:33.750952+00:00
+source: RouterOS API
+identity: PR-PTP-HNezhadian_Bridge
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=2C:C8:1B:18:5D:4B
+  2  name=wlan1  type=wlan  running=false  mac=2C:C8:1B:18:5D:4C
+  3  name=bridge1  type=bridge  running=true  mac=2C:C8:1B:18:5D:4C
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=bridge  ssid=PR-PTP-HNezhadian  band=5ghz-onlyn  frequency=5730
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.19.1.238/30  interface=ether1  network=172.19.1.236
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.19.1.237  distance=1
+  2  dst=172.19.1.236/30  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=Parsa-SW-Zand  address=172.17.11.234  interface=ether1,bridge1
+  2  identity=MikroTik  address=172.17.12.41  interface=ether1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:27:13
+# ساعت دستگاه (خام): 1972-06-19 22:31:18
+# افست اصلاحی (سرور − دستگاه): +476312:25:55
+  1  1405/07/03 11:55:42  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/03 11:55:43  [bridge,info]  "bridge1" mac address changed to 2C:C8:1B:18:5D:4C
+  3  1405/07/03 11:55:43  [wireless,info]  wlan1: pre-shared key authentication not enabled, disable WPS
+  4  1405/07/03 11:55:50  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  5  1405/07/03 11:57:52  [interface,info]  ether1 link up (speed 100M, full duplex)
+  6  1405/07/03 18:26:16  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -53, wants bridge
+  7  1405/07/04 01:00:15  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, too many poll timeouts
+  8  1405/07/04 18:39:43  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -58, wants bridge
+  9  1405/07/05 01:15:44  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, too many poll timeouts
+ 10  1405/07/05 17:54:32  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -56, wants bridge
+ 11  1405/07/06 01:37:21  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, too many poll timeouts
+ 12  1405/07/06 14:52:12  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -56, wants bridge
+ 13  1405/07/07 01:09:36  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, too many poll timeouts
+ 14  1405/07/07 14:03:43  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -58, wants bridge
+ 15  1405/07/08 03:07:00  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, too many poll timeouts
+ 16  1405/07/09 09:39:57  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -54, wants bridge
+ 17  1405/07/10 03:19:25  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, too many poll timeouts
+ 18  1405/07/10 10:23:52  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -53, wants bridge
+ 19  1405/07/11 01:22:01  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, extensive data loss
+ 20  1405/07/11 15:29:00  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -56, wants bridge
+ 21  1405/07/12 02:00:11  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, too many poll timeouts
+ 22  1405/07/12 18:49:38  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -57, wants bridge
+ 23  1405/07/13 04:46:04  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, too many poll timeouts
+ 24  1405/07/13 17:40:35  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -56, wants bridge
+ 25  1405/07/14 02:00:46  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, too many poll timeouts
+ 26  1405/07/14 12:19:44  [interface,info]  ether1 link down
+ 27  1405/07/14 12:22:15  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 28  1405/07/14 14:51:11  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -54, wants bridge
+ 29  1405/07/15 01:40:56  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, too many poll timeouts
+ 30  1405/07/15 14:59:57  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -59, wants bridge
+ 31  1405/07/15 19:31:07  [interface,info]  ether1 link down
+ 32  1405/07/15 19:33:48  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 33  1405/07/16 01:01:51  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, too many poll timeouts
+ 34  1405/07/16 09:59:24  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -53, wants bridge
+ 35  1405/07/17 02:10:51  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, too many poll timeouts
+ 36  1405/07/17 12:14:37  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -53, wants bridge
+ 37  1405/07/18 02:14:50  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, too many poll timeouts
+ 38  1405/07/18 14:22:29  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -58, wants bridge
+ 39  1405/07/19 02:33:31  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, too many poll timeouts
+ 40  1405/07/19 16:12:37  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -56, wants bridge
+ 41  1405/07/20 02:53:22  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, too many poll timeouts
+ 42  1405/07/20 14:51:10  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -54, wants bridge
+ 43  1405/07/21 02:12:13  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, too many poll timeouts
+ 44  1405/07/21 14:49:53  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -56, wants bridge
+ 45  1405/07/22 03:06:25  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, too many poll timeouts
+ 46  1405/07/22 16:00:31  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -57, wants bridge
+ 47  1405/07/23 01:31:46  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, too many poll timeouts
+ 48  1405/07/23 09:58:27  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -54, wants bridge
+ 49  1405/07/24 08:03:07  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, too many poll timeouts
+ 50  1405/07/24 09:44:21  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -57, wants bridge
+ 51  1405/07/24 21:57:37  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, extensive data loss
+ 52  1405/07/24 21:57:40  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -60, wants bridge
+ 53  1405/07/25 02:10:39  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, too many poll timeouts
+ 54  1405/07/25 14:49:04  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -56, wants bridge
+ 55  1405/07/25 18:10:52  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, too many poll timeouts
+ 56  1405/07/25 18:25:38  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -58, wants bridge
+ 57  1405/07/25 18:54:48  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, too many poll timeouts
+ 58  1405/07/25 19:17:14  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -58, wants bridge
+ 59  1405/07/26 01:30:40  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, too many poll timeouts
+ 60  1405/07/26 09:58:52  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 61  1405/07/26 09:58:53  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 62  1405/07/26 10:14:12  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 63  1405/07/26 10:14:12  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 64  1405/07/26 16:48:30  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -57, wants bridge
+ 65  1405/07/27 01:43:24  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, too many poll timeouts
+ 66  1405/07/27 14:38:36  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -57, wants bridge
+ 67  1405/07/28 02:03:26  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, too many poll timeouts
+ 68  1405/07/28 16:59:04  [wireless,info]  74:4D:28:70:04:9D@wlan1: connected, signal strength -56, wants bridge
+ 69  1405/07/29 01:42:02  [wireless,info]  74:4D:28:70:04:9D@wlan1: disconnected, too many poll timeouts
+ 70  1405/07/29 10:27:13  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  2C:C8:1B:18:5D:4B  (ether)
+wlan1  2C:C8:1B:18:5D:4C  (wlan)
+bridge1  2C:C8:1B:18:5D:4C  (bridge)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.19.1.237)

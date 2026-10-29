@@ -1,0 +1,77 @@
+IP: 172.17.12.226
+Collected at: 2026-10-21T06:57:28.684879+00:00
+source: RouterOS API
+identity: ParsaRasaneh-SW-Hamid
+device_type: Router
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=64:D1:54:34:71:B2
+  2  name=ether2  type=ether  running=false  mac=64:D1:54:34:71:B3
+  3  name=ether3  type=ether  running=true  mac=64:D1:54:34:71:B4
+  4  name=ether4  type=ether  running=true  mac=64:D1:54:34:71:B5
+  5  name=ether5  type=ether  running=true  mac=64:D1:54:34:71:B6
+  6  name=bridge1  type=bridge  running=true  mac=64:D1:54:34:71:B2
+
+----- wireless -----
+(empty)
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.12.226/30  interface=bridge1  network=172.17.12.224
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.12.225  distance=1
+  2  dst=172.17.12.224/30  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=MikroTik  address=172.17.12.189  interface=ether1,bridge1
+  2  identity=ParsaRasaneh-PTP-FarahAbad  address=172.17.13.2  interface=ether1,bridge1
+  3  identity=Hamid-Tower-ST  address=172.17.13.3  interface=ether1,bridge1
+  4  identity=HastiPOP-SW  address=172.17.15.34  interface=ether1,bridge1
+  5  identity=PR-PTP-Abdolahnezhad  address=192.168.2.1  interface=ether1,bridge1
+  6  identity=Abdolahnezhad  address=192.168.2.2  interface=ether1,bridge1
+  7  identity=MikroTik  address=192.168.88.1  interface=ether3,bridge1
+  8  identity=AB-Dehdari  address=-  interface=ether4,bridge1
+  9  identity=PArsaRasaneh farhabad2  address=172.17.13.6  interface=ether4,bridge1
+ 10  identity=REZAIIPOOR  address=-  interface=ether5,bridge1
+ 11  identity=AB-Ansari7  address=-  interface=ether5,bridge1
+ 12  identity=ParsaRasaneh-PNU  address=172.17.13.5  interface=ether5,bridge1
+ 13  identity=PR-PS-PTP-Nobat-ST  address=172.19.2.70  interface=ether5,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:19
+# ساعت دستگاه (خام): 2009-04-21 21:10:50
+# افست اصلاحی (سرور − دستگاه): +153393:45:29
+  1  1405/07/29 09:53:25  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/29 09:53:25  [poe-out,warning]  Failed to upgrade poe FW on /dev/poe, diag code -778/0
+  3  1405/07/29 09:53:26  [bridge,info]  "bridge1" mac address changed to 64:D1:54:34:71:B2
+  4  1405/07/29 09:53:26  [poe-out,info]  ether3 detected poe-out status: on
+  5  1405/07/29 09:53:27  [poe-out,info]  ether4 detected poe-out status: on
+  6  1405/07/29 09:53:27  [poe-out,info]  ether5 detected poe-out status: on
+  7  1405/07/29 09:53:27  [interface,info]  ether1 link up (speed 100M, full duplex)
+  8  1405/07/29 09:53:27  [interface,info]  ether3 link up (speed 100M, full duplex)
+  9  1405/07/29 09:53:27  [interface,info]  ether4 link up (speed 100M, full duplex)
+ 10  1405/07/29 09:53:27  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 11  1405/07/29 09:53:35  [interface,info]  ether3 link down
+ 12  1405/07/29 09:53:35  [interface,info]  ether4 link down
+ 13  1405/07/29 09:53:35  [interface,info]  ether5 link down
+ 14  1405/07/29 09:53:36  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 15  1405/07/29 09:53:37  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 16  1405/07/29 09:53:37  [interface,info]  ether4 link up (speed 100M, full duplex)
+ 17  1405/07/29 09:53:38  [interface,info]  ether1 link down
+ 18  1405/07/29 09:53:46  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 19  1405/07/29 10:26:18  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  64:D1:54:34:71:B2  (ether)
+ether2  64:D1:54:34:71:B3  (ether)
+ether3  64:D1:54:34:71:B4  (ether)
+ether4  64:D1:54:34:71:B5  (ether)
+ether5  64:D1:54:34:71:B6  (ether)
+bridge1  64:D1:54:34:71:B2  (bridge)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.17.12.225)

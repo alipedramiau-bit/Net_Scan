@@ -1,0 +1,248 @@
+IP: 172.19.1.10
+Collected at: 2026-10-21T06:57:33.166638+00:00
+source: RouterOS API
+identity: SH-ZamZam
+device_type: ST
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=6C:3B:6B:02:4A:E4
+  2  name=wlan1  type=wlan  running=true  mac=6C:3B:6B:02:4A:E5
+  3  name=bridge1  type=bridge  running=true  mac=6C:3B:6B:02:4A:E4
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=station-bridge  ssid=10094186132-PR-ShahrakSanati-AB1  band=5ghz-a/n  frequency=5370
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=185.110.29.202/32  interface=wlan1  network=185.110.29.202
+  2  address=172.19.1.10/30  interface=wlan1  network=172.19.1.8
+  3  address=192.168.1.1/24  interface=bridge1  network=192.168.1.0
+  4  address=100.78.30.253/32  interface=wlan1  network=100.78.30.253
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.19.1.9  distance=1
+  2  dst=0.0.0.0/0  gw=172.19.1.9  distance=1
+  3  dst=100.78.30.253/32  gw=wlan1  distance=0
+  4  dst=172.19.1.8/30  gw=wlan1  distance=0
+  5  dst=185.110.29.202/32  gw=wlan1  distance=0
+  6  dst=192.168.1.0/24  gw=bridge1  distance=0
+
+----- neighbors -----
+(empty)
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:27:07
+# ساعت دستگاه (خام): 2003-10-05 14:22:34
+# افست اصلاحی (سرور − دستگاه): +202000:34:33
+  1  1405/07/25 20:59:42  [l2tp,ppp,error]  <141.255.165.66>: user cisco authentication failed
+  2  1405/07/25 20:59:43  [l2tp,info]  first L2TP UDP packet received from 209.99.185.54
+  3  1405/07/25 20:59:43  [l2tp,ppp,error]  <209.99.185.54>: user test authentication failed
+  4  1405/07/25 20:59:44  [l2tp,info]  first L2TP UDP packet received from 141.255.165.66
+  5  1405/07/25 20:59:44  [l2tp,ppp,error]  <141.255.165.66>: user test authentication failed
+  6  1405/07/25 20:59:46  [l2tp,info]  first L2TP UDP packet received from 209.99.185.54
+  7  1405/07/25 20:59:48  [l2tp,ppp,error]  <141.255.165.66>: user cisco authentication failed
+  8  1405/07/25 20:59:49  [l2tp,ppp,error]  <209.99.185.54>: user test authentication failed
+  9  1405/07/25 20:59:50  [l2tp,ppp,error]  <141.255.165.66>: user test authentication failed
+ 10  1405/07/25 20:59:52  [l2tp,info]  first L2TP UDP packet received from 141.255.165.66
+ 11  1405/07/25 20:59:53  [l2tp,ppp,error]  <141.255.165.66>: user vpn authentication failed
+ 12  1405/07/25 20:59:54  [l2tp,info]  first L2TP UDP packet received from 141.255.165.66
+ 13  1405/07/25 20:59:54  [l2tp,ppp,error]  <141.255.165.66>: user vpn authentication failed
+ 14  1405/07/25 20:59:54  [l2tp,ppp,error]  <209.99.185.54>: user test authentication failed
+ 15  1405/07/25 20:59:55  [l2tp,info]  first L2TP UDP packet received from 141.255.165.66
+ 16  1405/07/25 20:59:55  [l2tp,ppp,error]  <141.255.165.66>: user service authentication failed
+ 17  1405/07/25 20:59:56  [l2tp,ppp,error]  <141.255.165.66>: user test authentication failed
+ 18  1405/07/25 20:59:58  [l2tp,ppp,error]  <141.255.165.66>: user vpn authentication failed
+ 19  1405/07/25 21:00:00  [l2tp,ppp,error]  <141.255.165.66>: user vpn authentication failed
+ 20  1405/07/25 21:00:00  [l2tp,ppp,error]  <209.99.185.54>: user test authentication failed
+ 21  1405/07/25 21:00:02  [l2tp,ppp,error]  <141.255.165.66>: user test authentication failed
+ 22  1405/07/25 21:00:04  [l2tp,ppp,error]  <141.255.165.66>: user service authentication failed
+ 23  1405/07/25 21:00:04  [l2tp,ppp,error]  <141.255.165.66>: user vpn authentication failed
+ 24  1405/07/25 21:00:06  [l2tp,ppp,error]  <141.255.165.66>: user vpn authentication failed
+ 25  1405/07/25 21:00:06  [l2tp,ppp,error]  <209.99.185.54>: user test authentication failed
+ 26  1405/07/25 21:00:08  [l2tp,ppp,error]  <141.255.165.66>: user test authentication failed
+ 27  1405/07/25 21:00:09  [l2tp,ppp,error]  <141.255.165.66>: user vpn authentication failed
+ 28  1405/07/25 21:00:11  [l2tp,ppp,error]  <141.255.165.66>: user vpn authentication failed
+ 29  1405/07/25 21:00:12  [l2tp,ppp,error]  <141.255.165.66>: user service authentication failed
+ 30  1405/07/25 21:00:12  [l2tp,ppp,error]  <209.99.185.54>: user test authentication failed
+ 31  1405/07/25 21:00:13  [l2tp,ppp,error]  <141.255.165.66>: user test authentication failed
+ 32  1405/07/25 21:00:15  [l2tp,ppp,error]  <141.255.165.66>: user vpn authentication failed
+ 33  1405/07/25 21:00:17  [l2tp,ppp,error]  <141.255.165.66>: user vpn authentication failed
+ 34  1405/07/25 21:00:18  [l2tp,ppp,error]  <141.255.165.66>: user service authentication failed
+ 35  1405/07/25 21:00:18  [l2tp,ppp,error]  <209.99.185.54>: user test authentication failed
+ 36  1405/07/25 21:00:19  [l2tp,ppp,error]  <141.255.165.66>: user test authentication failed
+ 37  1405/07/25 21:00:20  [l2tp,ppp,error]  <209.99.185.54>: user admin123 authentication failed
+ 38  1405/07/25 21:00:21  [l2tp,ppp,error]  <141.255.165.66>: user vpn authentication failed
+ 39  1405/07/25 21:00:22  [l2tp,ppp,error]  <141.255.165.66>: user vpn authentication failed
+ 40  1405/07/25 21:00:23  [l2tp,ppp,error]  <141.255.165.66>: user service authentication failed
+ 41  1405/07/25 21:00:26  [l2tp,ppp,error]  <141.255.165.66>: user vpn authentication failed
+ 42  1405/07/25 21:00:28  [l2tp,ppp,error]  <141.255.165.66>: user vpn authentication failed
+ 43  1405/07/25 21:00:30  [l2tp,ppp,error]  <141.255.165.66>: user service authentication failed
+ 44  1405/07/25 22:40:29  [l2tp,info]  first L2TP UDP packet received from 193.163.125.77
+ 45  1405/07/25 22:44:21  [l2tp,info]  first L2TP UDP packet received from 81.19.219.253
+ 46  1405/07/25 22:44:33  [l2tp,info]  first L2TP UDP packet received from 154.16.44.106
+ 47  1405/07/25 22:58:17  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[4500]<=>69.5.169.253[51640]
+ 48  1405/07/25 22:58:33  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[4500]<=>5.252.83.225[8972]
+ 49  1405/07/25 22:59:17  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[4500]<=>69.5.169.253[51640] 255c0e8b7f324590:7bfe10072e333abe
+ 50  1405/07/25 22:59:33  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[4500]<=>5.252.83.225[8972] c50969a1a60b18fe:c34e7bbb5cbced27
+ 51  1405/07/25 23:29:34  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>193.124.20.251[16670]
+ 52  1405/07/25 23:29:45  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>2.57.17.18[6783]
+ 53  1405/07/25 23:30:34  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>193.124.20.251[16670] 5d2299d3c32341a9:c365e1b641cac2e0
+ 54  1405/07/25 23:30:45  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>2.57.17.18[6783] 8ed498d20a8f6d86:6ae23f9e027b7c5c
+ 55  1405/07/26 03:10:07  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>193.163.125.103[20583]
+ 56  1405/07/26 03:11:07  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>193.163.125.103[20583] bea0713cc14b68c1:e9d69313e982ab47
+ 57  1405/07/26 03:39:07  [l2tp,info]  first L2TP UDP packet received from 66.132.186.254
+ 58  1405/07/26 03:39:27  [l2tp,info]  first L2TP UDP packet received from 66.132.172.37
+ 59  1405/07/26 03:52:13  [l2tp,info]  first L2TP UDP packet received from 146.88.241.70
+ 60  1405/07/26 06:44:56  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>86.54.31.34[500]
+ 61  1405/07/26 06:44:57  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>86.54.31.34[39236]
+ 62  1405/07/26 06:45:07  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>86.54.31.34[50859]
+ 63  1405/07/26 06:45:27  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>86.54.31.34[48196]
+ 64  1405/07/26 06:45:47  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>86.54.31.34[47080]
+ 65  1405/07/26 06:45:56  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>86.54.31.34[500] 620a1271fd317fe0:48ae85bd44f3ba22
+ 66  1405/07/26 06:45:57  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>86.54.31.34[39236] 88b950028bf19d44:55b315c11bb051d1
+ 67  1405/07/26 06:46:07  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>86.54.31.34[50859] 0d4563ee83636c26:772afac02407cb6b
+ 68  1405/07/26 06:46:27  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>86.54.31.34[48196] 8e212b653ecf3282:192ba1b3080171b5
+ 69  1405/07/26 06:46:47  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>86.54.31.34[47080] 23b0d67cee459849:2347e977223a702f
+ 70  1405/07/26 09:58:42  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 71  1405/07/26 09:58:43  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 72  1405/07/26 10:14:02  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 73  1405/07/26 10:14:03  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 74  1405/07/26 10:17:59  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>66.132.172.228[55065]
+ 75  1405/07/26 10:18:35  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>66.132.172.185[34481]
+ 76  1405/07/26 10:18:59  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>66.132.172.228[55065] 4d65822107fcfd52:d91c8f537daec1a4
+ 77  1405/07/26 10:19:35  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>66.132.172.185[34481] 1564c2363ba035e6:4ae2fadcd951fc66
+ 78  1405/07/26 10:55:49  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>64.62.197.43[10015]
+ 79  1405/07/26 10:56:49  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>64.62.197.43[10015] 3e35c70729dfedef:7391ddc0d9e68e49
+ 80  1405/07/26 11:42:28  [l2tp,info]  first L2TP UDP packet received from 100.29.192.25
+ 81  1405/07/26 14:09:57  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>20.80.105.137[49779]
+ 82  1405/07/26 14:10:57  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>20.80.105.137[49779] 111555f681d524ef:679ac629864ba459
+ 83  1405/07/26 16:34:31  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[4500]<=>170.130.187.26[49832]
+ 84  1405/07/26 16:35:31  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[4500]<=>170.130.187.26[49832] 89ece2de1886e4b9:22f527a8daa49dc3
+ 85  1405/07/26 16:36:45  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[4500]<=>170.130.187.26[57444]
+ 86  1405/07/26 16:36:45  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[4500]<=>170.130.187.26[57444]
+ 87  1405/07/26 16:36:45  [ipsec,error]  170.130.187.26 failed to get valid proposal.
+ 88  1405/07/26 16:36:45  [ipsec,error]  170.130.187.26 failed to pre-process ph1 packet (side: 1, status 1).
+ 89  1405/07/26 16:36:45  [ipsec,error]  170.130.187.26 phase1 negotiation failed.
+ 90  1405/07/26 16:37:45  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[4500]<=>170.130.187.26[57444] 80b4e40a84afb5f7:abc309e1e5b252ad
+ 91  1405/07/26 16:48:24  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>104.206.128.42[56135]
+ 92  1405/07/26 16:49:24  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>104.206.128.42[56135] f24f2cdd171cb3d5:058c0ba76059d481
+ 93  1405/07/26 16:50:40  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>104.206.128.42[64961]
+ 94  1405/07/26 16:50:40  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>104.206.128.42[64961]
+ 95  1405/07/26 16:50:40  [ipsec,error]  104.206.128.42 failed to get valid proposal.
+ 96  1405/07/26 16:50:40  [ipsec,error]  104.206.128.42 failed to pre-process ph1 packet (side: 1, status 1).
+ 97  1405/07/26 16:50:40  [ipsec,error]  104.206.128.42 phase1 negotiation failed.
+ 98  1405/07/26 16:51:40  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>104.206.128.42[64961] 13d83fa00797a749:e4d1744eb7d81355
+ 99  1405/07/26 22:51:47  [l2tp,info]  first L2TP UDP packet received from 64.205.72.96
+100  1405/07/26 22:52:25  [l2tp,info]  first L2TP UDP packet received from 5.252.83.3
+101  1405/07/26 23:04:12  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[4500]<=>77.67.26.23[19873]
+102  1405/07/26 23:04:18  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[4500]<=>45.133.173.251[3898]
+103  1405/07/26 23:05:12  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[4500]<=>77.67.26.23[19873] 0657e411fa54b10c:84ac61581d314549
+104  1405/07/26 23:05:18  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[4500]<=>45.133.173.251[3898] c5ccb917830ef115:84ca7abc68033fdf
+105  1405/07/26 23:23:27  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>77.67.26.112[42148]
+106  1405/07/26 23:23:29  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>45.133.173.28[1248]
+107  1405/07/26 23:24:27  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>77.67.26.112[42148] 37fa4f1628c13e26:ad1a9927c70d0ce6
+108  1405/07/26 23:24:29  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>45.133.173.28[1248] 6df43a137c5abc5d:ed243973f35325f3
+109  1405/07/27 00:42:01  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>66.132.186.242[42904]
+110  1405/07/27 00:42:09  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>66.132.172.213[37408]
+111  1405/07/27 00:43:01  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>66.132.186.242[42904] 4d65822107fcfd52:b0e3a2c6637fde3b
+112  1405/07/27 00:43:09  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>66.132.172.213[37408] f1c416fc679b4e83:425b1bf353081f79
+113  1405/07/27 03:56:33  [l2tp,info]  first L2TP UDP packet received from 66.132.186.244
+114  1405/07/27 03:56:41  [l2tp,info]  first L2TP UDP packet received from 66.132.172.202
+115  1405/07/27 04:12:52  [l2tp,info]  first L2TP UDP packet received from 66.132.224.235
+116  1405/07/27 05:39:01  [l2tp,info]  first L2TP UDP packet received from 185.247.137.47
+117  1405/07/27 08:09:34  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>64.62.197.44[62465]
+118  1405/07/27 08:10:34  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>64.62.197.44[62465] 3e35c70729dfedef:8a919a82e83f3379
+119  1405/07/27 16:41:09  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[4500]<=>170.130.187.46[53759]
+120  1405/07/27 16:42:09  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[4500]<=>170.130.187.46[53759] 89ece2de1886e4b9:aee0bba21f25f946
+121  1405/07/27 16:42:17  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[4500]<=>170.130.187.46[58762]
+122  1405/07/27 16:42:17  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[4500]<=>170.130.187.46[58762]
+123  1405/07/27 16:42:17  [ipsec,error]  170.130.187.46 failed to get valid proposal.
+124  1405/07/27 16:42:17  [ipsec,error]  170.130.187.46 failed to pre-process ph1 packet (side: 1, status 1).
+125  1405/07/27 16:42:17  [ipsec,error]  170.130.187.46 phase1 negotiation failed.
+126  1405/07/27 16:43:17  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[4500]<=>170.130.187.46[58762] 86bb75b60a1efd03:fc2bd3603cba4573
+127  1405/07/27 17:18:02  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>104.206.128.38[56737]
+128  1405/07/27 17:19:02  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>104.206.128.38[56737] f24f2cdd171cb3d5:30066527bdb88d30
+129  1405/07/27 17:19:10  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>104.206.128.38[60086]
+130  1405/07/27 17:19:10  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>104.206.128.38[60086]
+131  1405/07/27 17:19:10  [ipsec,error]  104.206.128.38 failed to get valid proposal.
+132  1405/07/27 17:19:10  [ipsec,error]  104.206.128.38 failed to pre-process ph1 packet (side: 1, status 1).
+133  1405/07/27 17:19:10  [ipsec,error]  104.206.128.38 phase1 negotiation failed.
+134  1405/07/27 17:20:10  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>104.206.128.38[60086] 8c659f58c9d1ea6a:93991e419d5dcf55
+135  1405/07/27 17:34:20  [l2tp,info]  first L2TP UDP packet received from 66.132.224.25
+136  1405/07/27 17:34:25  [l2tp,info]  first L2TP UDP packet received from 66.132.195.53
+137  1405/07/27 20:17:08  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[4500]<=>193.163.125.84[24073]
+138  1405/07/27 20:18:08  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[4500]<=>193.163.125.84[24073] 8ce1142d6df11310:2d2bf8d6443f2023
+139  1405/07/27 20:55:16  [l2tp,info]  first L2TP UDP packet received from 47.89.129.125
+140  1405/07/27 22:44:52  [l2tp,info]  first L2TP UDP packet received from 77.67.26.59
+141  1405/07/27 22:45:02  [l2tp,info]  first L2TP UDP packet received from 5.252.83.152
+142  1405/07/27 23:05:33  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[4500]<=>89.21.67.138[40495]
+143  1405/07/27 23:05:35  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[4500]<=>45.133.173.192[12041]
+144  1405/07/27 23:05:47  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>91.231.89.163[7516]
+145  1405/07/27 23:05:47  [ipsec,info]  the packet is retransmitted by 91.230.168.115[7516].
+146  1405/07/27 23:06:33  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[4500]<=>89.21.67.138[40495] b903102adce56a6b:f3c1a65945282df7
+147  1405/07/27 23:06:35  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[4500]<=>45.133.173.192[12041] 99213aafa656dfa4:cee850391fb52933
+148  1405/07/27 23:06:47  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>91.231.89.163[7516] 0011223344556677:2f090cd3acd4b0d3
+149  1405/07/27 23:38:54  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>89.21.67.137[21615]
+150  1405/07/27 23:38:59  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>45.133.173.182[14980]
+151  1405/07/27 23:39:54  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>89.21.67.137[21615] 79459c3e81dc7354:bc294a5d7a8b7c8c
+152  1405/07/27 23:39:59  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>45.133.173.182[14980] 241ecef5e879f7e4:d8d382029912a472
+153  1405/07/28 01:08:04  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>66.132.172.177[6430]
+154  1405/07/28 01:09:04  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>66.132.172.177[6430] e98823bd0fa9e918:5780bcc8c2da9cb8
+155  1405/07/28 04:27:08  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>64.62.197.221[33591]
+156  1405/07/28 04:28:08  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>64.62.197.221[33591] 3e35c70729dfedef:f54752b46a7aefa3
+157  1405/07/28 09:29:12  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>20.80.87.101[43796]
+158  1405/07/28 09:30:12  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>20.80.87.101[43796] 111555f681d524ef:c9b85fa9c25451f9
+159  1405/07/28 09:33:44  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[4500]<=>185.242.226.62[54836]
+160  1405/07/28 09:33:44  [ipsec,error]  no suitable proposal found.
+161  1405/07/28 09:33:44  [ipsec,error]  185.242.226.62 failed to get valid proposal.
+162  1405/07/28 09:33:44  [ipsec,error]  185.242.226.62 failed to pre-process ph1 packet (side: 1, status 1).
+163  1405/07/28 09:33:44  [ipsec,error]  185.242.226.62 phase1 negotiation failed.
+164  1405/07/28 14:36:13  [l2tp,info]  first L2TP UDP packet received from 167.71.131.131
+165  1405/07/28 16:13:25  [l2tp,info]  first L2TP UDP packet received from 170.130.187.50
+166  1405/07/28 16:14:08  [l2tp,info]  first L2TP UDP packet received from 170.130.187.50
+167  1405/07/28 16:24:30  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>104.206.128.10[55512]
+168  1405/07/28 16:25:30  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>104.206.128.10[55512] f24f2cdd171cb3d5:4928cbe2ac730bb2
+169  1405/07/28 16:26:45  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>104.206.128.10[61063]
+170  1405/07/28 16:26:45  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>104.206.128.10[61063]
+171  1405/07/28 16:26:45  [ipsec,error]  104.206.128.10 failed to get valid proposal.
+172  1405/07/28 16:26:45  [ipsec,error]  104.206.128.10 failed to pre-process ph1 packet (side: 1, status 1).
+173  1405/07/28 16:26:45  [ipsec,error]  104.206.128.10 phase1 negotiation failed.
+174  1405/07/28 16:27:45  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>104.206.128.10[61063] 55f23fd8924c2cdf:c8a18f0bfbe9e5a3
+175  1405/07/28 16:39:42  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[4500]<=>157.245.131.206[4500]
+176  1405/07/28 16:40:42  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[4500]<=>157.245.131.206[4500] a8b527c04d88b7cc:35e7b97964a4197f
+177  1405/07/28 18:02:44  [l2tp,info]  first L2TP UDP packet received from 66.132.195.95
+178  1405/07/28 22:46:12  [l2tp,info]  first L2TP UDP packet received from 5.226.140.47
+179  1405/07/28 22:46:25  [l2tp,info]  first L2TP UDP packet received from 45.133.173.125
+180  1405/07/28 22:56:58  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[4500]<=>69.5.169.187[41802]
+181  1405/07/28 22:57:07  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[4500]<=>45.133.173.149[15037]
+182  1405/07/28 22:57:58  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[4500]<=>69.5.169.187[41802] 9632f54b107a97cf:a39f715665a560b2
+183  1405/07/28 22:58:07  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[4500]<=>45.133.173.149[15037] 97d7bb642569e5d0:58621bb408dfd8fa
+184  1405/07/28 23:02:37  [l2tp,info]  first L2TP UDP packet received from 193.163.125.90
+185  1405/07/28 23:04:10  [l2tp,info]  first L2TP UDP packet received from 8.209.114.206
+186  1405/07/28 23:29:41  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>69.5.169.236[59463]
+187  1405/07/28 23:29:54  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>45.133.173.188[2406]
+188  1405/07/28 23:30:41  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>69.5.169.236[59463] 89dd45b8cd6c4044:86ad2ee342f3a2a4
+189  1405/07/28 23:30:54  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>45.133.173.188[2406] dc13125e798183c6:fdfbe33ac6ff5fc9
+190  1405/07/29 01:23:41  [l2tp,info]  first L2TP UDP packet received from 66.132.186.207
+191  1405/07/29 01:24:19  [l2tp,info]  first L2TP UDP packet received from 66.132.195.65
+192  1405/07/29 02:07:46  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>66.132.172.138[38063]
+193  1405/07/29 02:08:46  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>66.132.172.138[38063] f63f481a91905927:19db9147d4117887
+194  1405/07/29 03:13:27  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>157.230.11.189[500]
+195  1405/07/29 03:14:27  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>157.230.11.189[500] 88d66634dfc9e840:5514d8c003b27c1a
+196  1405/07/29 03:31:14  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>193.163.125.105[21760]
+197  1405/07/29 03:32:14  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>193.163.125.105[21760] 3815980a452c0b0e:6e9d3c5ad7b7046c
+198  1405/07/29 06:03:11  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.202[500]<=>71.6.158.166[500]
+199  1405/07/29 06:04:11  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.202[500]<=>71.6.158.166[500] ee945b5c91192a74:55d8be1adc4c8fb3
+200  1405/07/29 10:27:07  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  6C:3B:6B:02:4A:E4  (ether)
+wlan1  6C:3B:6B:02:4A:E5  (wlan)
+bridge1  6C:3B:6B:02:4A:E4  (bridge)
+--- /ip arp ---
+wlan1  4C:5E:0C:C5:C8:24  (arp 172.19.1.9)
+bridge1  50:E5:49:11:8C:6A  (arp 192.168.1.253)

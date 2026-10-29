@@ -1,0 +1,62 @@
+IP: 172.17.11.122
+Collected at: 2026-10-21T06:57:26.565620+00:00
+source: RouterOS API
+identity: PR-PTP-Z2R-AP
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=E4:8D:8C:F9:5A:D0
+  2  name=wlan1  type=wlan  running=true  mac=E4:8D:8C:F9:5A:D1
+  3  name=93  type=vlan  running=true  mac=E4:8D:8C:F9:5A:D0
+  4  name=bridge1  type=bridge  running=true  mac=E4:8D:8C:F9:5A:D0
+  5  name=wds2  type=wds  running=true  mac=E4:8D:8C:F9:5A:D1
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=bridge  ssid=PR-PTP-Z2R  band=5ghz-onlyac  frequency=5920
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.11.122/29  interface=93  network=172.17.11.120
+  2  address=172.17.11.229/30  interface=*5  network=172.17.11.228
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.11.121  distance=1
+  2  dst=172.17.11.120/29  gw=93  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=Parsa-SW-Zand  address=172.17.11.234  interface=ether1,bridge1
+  2  identity=MikroTik  address=172.17.11.121  interface=93
+  3  identity=PR-PTP-Zol2Rumaila  address=172.17.11.123  interface=93
+  4  identity=PR-PTP-Zol2Rumaila  address=-  interface=wds2,bridge1
+  5  identity=Parsa-SW-Rumaila  address=172.17.11.230  interface=wds2,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:03
+# ساعت دستگاه (خام): 2002-07-13 17:43:32
+# افست اصلاحی (سرور − دستگاه): +212773:12:31
+  1  1405/07/15 19:32:06  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/15 19:32:06  [interface,info]  93 link up
+  3  1405/07/15 19:32:06  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:F9:5A:D0
+  4  1405/07/15 19:32:08  [wireless,info]  64:D1:54:7C:71:34@wlan1: connected, signal strength -56
+  5  1405/07/15 19:34:17  [interface,info]  ether1 link up (speed 1G, full duplex)
+  6  1405/07/25 07:47:45  [wireless,info]  64:D1:54:7C:71:34@wlan1: disconnected, control frame timeout
+  7  1405/07/25 10:07:43  [wireless,info]  64:D1:54:7C:71:34@wlan1: connected, signal strength -52
+  8  1405/07/26 09:57:36  [system,info,account]  user su logged in from 185.110.29.189 via api
+  9  1405/07/26 09:57:36  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 10  1405/07/26 10:13:10  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 11  1405/07/26 10:13:10  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 12  1405/07/29 10:26:03  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  E4:8D:8C:F9:5A:D0  (ether)
+wlan1  E4:8D:8C:F9:5A:D1  (wlan)
+93  E4:8D:8C:F9:5A:D0  (vlan)
+bridge1  E4:8D:8C:F9:5A:D0  (bridge)
+wds2  E4:8D:8C:F9:5A:D1  (wds)
+--- /ip arp ---
+93  4C:5E:0C:C5:C8:24  (arp 172.17.11.121)

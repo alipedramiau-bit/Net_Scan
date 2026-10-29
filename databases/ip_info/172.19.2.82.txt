@@ -1,0 +1,59 @@
+IP: 172.19.2.82
+Collected at: 2026-10-21T06:57:35.145802+00:00
+source: RouterOS API
+identity: PR-PTP-Farhanigi
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=D4:01:C3:C8:E2:40
+  2  name=wlan1  type=wlan  running=true  mac=D4:01:C3:C8:E2:41
+  3  name=bridge1  type=bridge  running=true  mac=D4:01:C3:C8:E2:41
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=bridge  ssid=PR-PTP-Farhangi  band=5ghz-a/n  frequency=5130
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.19.2.82/29  interface=ether1  network=172.19.2.80
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.19.2.81  distance=1
+  2  dst=172.19.2.80/29  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=PR-PTP-Farhangi-ST  address=172.19.2.83  interface=wlan1,bridge1
+  2  identity=PR-SW-Kargar  address=-  interface=ether1,bridge1
+  3  identity=MikroTik  address=172.19.2.81  interface=ether1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:27:24
+# ساعت دستگاه (خام): 1970-09-01 05:18:36
+# افست اصلاحی (سرور − دستگاه): +492097:38:48
+  1  1405/07/22 05:09:05  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/22 05:09:07  [bridge,info]  "bridge1" mac address changed to D4:01:C3:C8:E2:41
+  3  1405/07/22 05:09:07  [wireless,info]  wlan1: pre-shared key authentication not enabled, disable WPS
+  4  1405/07/22 05:09:08  [wireless,info]  D4:01:C3:C8:E2:61@wlan1: connected, signal strength -58
+  5  1405/07/22 05:09:08  [dhcp,error]  temporary moving client wlan1 from slave to master port, update your config!!!
+  6  1405/07/22 05:09:13  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  7  1405/07/22 05:09:15  [interface,info]  ether1 link up (speed 100M, full duplex)
+  8  1405/07/22 05:09:19  [interface,info]  ether1 link down
+  9  1405/07/22 05:09:21  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 10  1405/07/22 05:09:32  [interface,info]  ether1 link down
+ 11  1405/07/22 05:09:56  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 12  1405/07/26 09:59:08  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 13  1405/07/26 09:59:09  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 14  1405/07/26 10:14:25  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 15  1405/07/26 10:14:26  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 16  1405/07/29 10:27:24  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  D4:01:C3:C8:E2:40  (ether)
+wlan1  D4:01:C3:C8:E2:41  (wlan)
+bridge1  D4:01:C3:C8:E2:41  (bridge)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.19.2.81)

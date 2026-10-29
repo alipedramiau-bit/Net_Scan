@@ -1,0 +1,192 @@
+IP: 172.172.172.115
+Collected at: 2026-10-21T06:57:31.973926+00:00
+source: RouterOS API
+identity: ParsaRasaneh-PTP-ICT-AP
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=4C:5E:0C:5A:DB:2C
+  2  name=wlan1  type=wlan  running=true  mac=4C:5E:0C:5A:DB:2D
+  3  name=131  type=vlan  running=true  mac=4C:5E:0C:5A:DB:2C
+  4  name=bridge1  type=bridge  running=true  mac=4C:5E:0C:5A:DB:2C
+  5  name=vlan1  type=vlan  running=true  mac=4C:5E:0C:5A:DB:2C
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=bridge  ssid=10094186111-PR-PTP-Manyohi  band=5ghz-onlyn  frequency=5120
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.172.172.115/29  interface=131  network=172.172.172.112
+  2  address=172.172.177.106/29  interface=vlan1  network=172.172.177.104
+  3  address=192.168.1.1/29  interface=ether1  network=192.168.1.0
+  4  address=192.168.1.1/29  interface=ether1  network=192.168.1.0
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.172.172.113  distance=1
+  2  dst=0.0.0.0/0  gw=172.172.172.113  distance=1
+  3  dst=172.172.172.112/29  gw=131  distance=0
+  4  dst=172.172.177.104/29  gw=vlan1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=Marjan-SW  address=172.17.12.49  interface=ether1,bridge1
+  2  identity=ParsaRasaneh-PTP-Manyohi-N-ST  address=-  interface=wlan1,bridge1
+  3  identity=Parsa-SW-Manyouhi  address=172.172.172.250  interface=wlan1,bridge1
+  4  identity=MikroTik  address=-  interface=131
+  5  identity=MikroTik  address=170.17.11.9  interface=131
+  6  identity=ParsaRasaneh-PTP-Hasti-St  address=172.17.12.10  interface=131
+  7  identity=PR-PTP-NaftKav-!01-Dakal-AP  address=172.17.12.11  interface=131
+  8  identity=PR-ROuter-Koteshanof  address=172.17.12.12  interface=131
+  9  identity=ParsaRasaneh-Man-K3  address=172.17.12.86  interface=131
+ 10  identity=PR-PTP-Khazalabad  address=172.19.2.98  interface=131
+ 11  identity=PR-Choebdeh  address=172.172.171.2  interface=131
+ 12  identity=PR-Choebdeh5  address=172.172.171.6  interface=131
+ 13  identity=PR-PTP-CH-DSL-AP  address=172.172.171.10  interface=131
+ 14  identity=Router-Manage-Dslam-CH-Shahrak  address=172.172.171.12  interface=131
+ 15  identity=ParsaRasaneh-Choebdeh3  address=172.172.171.18  interface=131
+ 16  identity=Parsa-POWERBOX-CH  address=172.172.171.19  interface=131
+ 17  identity=ParsaRasaneh-Choebdeh10-MP  address=172.172.171.38  interface=131
+ 18  identity=ParsaRasaneh-Choebdeh8  address=172.172.171.54  interface=131
+ 19  identity=PR-Choebdeh15  address=172.172.171.78  interface=131
+ 20  identity=PR-PTP-Bazar-ST  address=172.172.172.27  interface=131
+ 21  identity=ParsaRasaneh-Arvand-ACC  address=172.172.172.50  interface=131
+ 22  identity=ParsaRasaneh-PTP-Arvand-ST  address=172.172.172.51  interface=131
+ 23  identity=ParsaRasaneh-Arvand-MP  address=172.172.172.66  interface=131
+ 24  identity=MikroTik  address=172.172.172.70  interface=131
+ 25  identity=ParsaRasaneh-PTP-Manyohi-N-ST  address=172.172.172.116  interface=131
+ 26  identity=PR-MAN-K  address=172.172.172.117  interface=131
+ 27  identity=POP-Center-ST  address=172.172.172.146  interface=131
+ 28  identity=ParsaRasanerh-Man-K1  address=172.172.177.46  interface=131
+ 29  identity=PR-Man-K2  address=172.172.177.50  interface=131
+ 30  identity=PR-PTP-MNEW_Bridge  address=172.172.177.58  interface=131
+ 31  identity=ParsaRasaneh-PTP-CH-ST  address=172.172.177.59  interface=131
+ 32  identity=ParsaRasaneh-khezr  address=172.172.177.90  interface=131
+ 33  identity=ParsaRasaneh-Khezr2  address=172.172.177.98  interface=131
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:56
+# ساعت دستگاه (خام): 2002-02-05 07:04:14
+# افست اصلاحی (سرور − دستگاه): +216575:52:42
+  1  1405/07/21 09:34:18  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/21 09:34:19  [interface,info]  131 link up
+  3  1405/07/21 09:34:19  [interface,info]  vlan1 link up
+  4  1405/07/21 09:34:20  [bridge,info]  "bridge1" mac address changed to 4C:5E:0C:5A:DB:2C
+  5  1405/07/21 09:34:21  [wireless,info]  wlan1: pre-shared key authentication not enabled, disable WPS
+  6  1405/07/21 09:34:21  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -44, wants bridge
+  7  1405/07/21 09:36:51  [interface,info]  ether1 link up (speed 1G, full duplex)
+  8  1405/07/21 16:16:38  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, too many poll timeouts, signal strength -44
+  9  1405/07/21 16:19:17  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -45, wants bridge
+ 10  1405/07/21 20:19:13  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: reassociating
+ 11  1405/07/21 20:19:13  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, ok, signal strength -47
+ 12  1405/07/21 20:19:13  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -64, wants bridge
+ 13  1405/07/21 22:52:18  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: reassociating
+ 14  1405/07/21 22:52:18  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, ok, signal strength -47
+ 15  1405/07/21 22:52:18  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -67, wants bridge
+ 16  1405/07/21 22:52:22  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: reassociating
+ 17  1405/07/21 22:52:22  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, ok, signal strength -47
+ 18  1405/07/21 22:52:22  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -68, wants bridge
+ 19  1405/07/22 05:21:54  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, extensive data loss, signal strength -47
+ 20  1405/07/22 05:21:57  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -72, wants bridge
+ 21  1405/07/22 18:59:47  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -72
+ 22  1405/07/22 18:59:47  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -74, wants bridge
+ 23  1405/07/22 22:32:10  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -74
+ 24  1405/07/22 22:32:11  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -66, wants bridge
+ 25  1405/07/22 22:32:45  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, extensive data loss, signal strength -66
+ 26  1405/07/22 22:32:47  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -63, wants bridge
+ 27  1405/07/22 23:18:55  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, extensive data loss, signal strength -63
+ 28  1405/07/22 23:18:58  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -73, wants bridge
+ 29  1405/07/23 09:04:05  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, too many poll timeouts, signal strength -49
+ 30  1405/07/23 09:07:09  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -44, wants bridge
+ 31  1405/07/24 02:09:43  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, extensive data loss, signal strength -56
+ 32  1405/07/24 02:09:46  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -80, wants bridge
+ 33  1405/07/24 04:36:32  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: reassociating
+ 34  1405/07/24 04:36:32  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, ok, signal strength -80
+ 35  1405/07/24 04:36:32  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -66, wants bridge
+ 36  1405/07/24 04:50:10  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, extensive data loss, signal strength -66
+ 37  1405/07/24 04:50:12  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -69, wants bridge
+ 38  1405/07/24 04:50:31  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: reassociating
+ 39  1405/07/24 04:50:31  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, ok, signal strength -69
+ 40  1405/07/24 04:50:31  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -73, wants bridge
+ 41  1405/07/24 05:18:04  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -73
+ 42  1405/07/24 05:18:04  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -79, wants bridge
+ 43  1405/07/24 05:18:15  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, extensive data loss, signal strength -79
+ 44  1405/07/24 05:18:18  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -81, wants bridge
+ 45  1405/07/24 05:18:22  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -81
+ 46  1405/07/24 05:18:22  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -80, wants bridge
+ 47  1405/07/24 05:18:59  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: reassociating
+ 48  1405/07/24 05:18:59  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, ok, signal strength -80
+ 49  1405/07/24 05:18:59  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -80, wants bridge
+ 50  1405/07/24 05:19:07  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, extensive data loss, signal strength -80
+ 51  1405/07/24 05:19:10  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -77, wants bridge
+ 52  1405/07/24 05:19:36  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, extensive data loss, signal strength -77
+ 53  1405/07/24 05:19:38  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -79, wants bridge
+ 54  1405/07/24 05:20:00  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: reassociating
+ 55  1405/07/24 05:20:00  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, ok, signal strength -79
+ 56  1405/07/24 05:20:00  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -83, wants bridge
+ 57  1405/07/24 05:34:43  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -83
+ 58  1405/07/24 05:34:44  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -76, wants bridge
+ 59  1405/07/24 05:35:41  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, extensive data loss, signal strength -76
+ 60  1405/07/24 05:35:43  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -71, wants bridge
+ 61  1405/07/24 05:36:06  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, extensive data loss, signal strength -71
+ 62  1405/07/24 05:36:09  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -78, wants bridge
+ 63  1405/07/24 05:36:25  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, extensive data loss, signal strength -78
+ 64  1405/07/24 05:36:27  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -84, wants bridge
+ 65  1405/07/24 05:36:48  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -84
+ 66  1405/07/24 05:36:49  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -77, wants bridge
+ 67  1405/07/24 05:37:32  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, extensive data loss, signal strength -77
+ 68  1405/07/24 05:37:35  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -75, wants bridge
+ 69  1405/07/24 05:38:05  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, extensive data loss, signal strength -75
+ 70  1405/07/24 05:38:07  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -80, wants bridge
+ 71  1405/07/24 05:38:10  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, extensive data loss, signal strength -80
+ 72  1405/07/24 05:38:12  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -81, wants bridge
+ 73  1405/07/24 05:38:44  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, extensive data loss, signal strength -81
+ 74  1405/07/24 05:38:46  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -82, wants bridge
+ 75  1405/07/25 10:22:36  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, too many poll timeouts, signal strength -43
+ 76  1405/07/25 10:24:02  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -46, wants bridge
+ 77  1405/07/26 09:58:32  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 78  1405/07/26 09:58:33  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 79  1405/07/26 10:13:55  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 80  1405/07/26 10:13:55  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 81  1405/07/26 19:37:20  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, extensive data loss, signal strength -46
+ 82  1405/07/26 19:37:23  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -75, wants bridge
+ 83  1405/07/26 20:45:59  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, extensive data loss, signal strength -75
+ 84  1405/07/26 20:46:02  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -68, wants bridge
+ 85  1405/07/27 00:51:47  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: reassociating
+ 86  1405/07/27 00:51:47  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, ok, signal strength -68
+ 87  1405/07/27 00:51:47  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -67, wants bridge
+ 88  1405/07/27 01:12:16  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, extensive data loss, signal strength -61
+ 89  1405/07/27 01:12:18  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -66, wants bridge
+ 90  1405/07/27 01:12:27  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -66
+ 91  1405/07/27 01:12:27  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -70, wants bridge
+ 92  1405/07/27 04:43:00  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -70
+ 93  1405/07/27 04:43:00  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -73, wants bridge
+ 94  1405/07/27 05:01:21  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: reassociating
+ 95  1405/07/27 05:01:21  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, ok, signal strength -73
+ 96  1405/07/27 05:01:21  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -69, wants bridge
+ 97  1405/07/28 01:46:40  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: reassociating
+ 98  1405/07/28 01:46:40  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, ok, signal strength -69
+ 99  1405/07/28 01:46:40  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -73, wants bridge
+100  1405/07/28 01:46:55  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: reassociating
+101  1405/07/28 01:46:55  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, ok, signal strength -73
+102  1405/07/28 01:46:55  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -70, wants bridge
+103  1405/07/29 02:45:30  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, extensive data loss, signal strength -46
+104  1405/07/29 02:45:32  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -67, wants bridge
+105  1405/07/29 04:25:07  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, extensive data loss, signal strength -67
+106  1405/07/29 04:25:10  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -71, wants bridge
+107  1405/07/29 06:06:20  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: reassociating
+108  1405/07/29 06:06:20  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: disconnected, ok, signal strength -71
+109  1405/07/29 06:06:20  [wireless,info]  4C:5E:0C:49:B5:56@wlan1: connected, signal strength -73, wants bridge
+110  1405/07/29 10:26:56  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  4C:5E:0C:5A:DB:2C  (ether)
+wlan1  4C:5E:0C:5A:DB:2D  (wlan)
+131  4C:5E:0C:5A:DB:2C  (vlan)
+bridge1  4C:5E:0C:5A:DB:2C  (bridge)
+vlan1  4C:5E:0C:5A:DB:2C  (vlan)
+--- /ip arp ---
+131  4C:5E:0C:C5:C8:24  (arp 172.172.172.113)

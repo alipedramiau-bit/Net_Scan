@@ -1,0 +1,300 @@
+IP: 172.17.12.34
+Collected at: 2026-10-21T06:57:28.936589+00:00
+source: RouterOS API
+identity: ParsaRasaneh-PTP-Sonati
+device_type: ST
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=E4:8D:8C:71:6E:BA
+  2  name=wlan1  type=wlan  running=true  mac=E4:8D:8C:71:6E:BB
+  3  name=6eoip-tunnelFakhr  type=eoip  running=false  mac=02:9E:5F:74:E0:F9
+  4  name=62eoip-tunnelPrtg  type=eoip  running=true  mac=02:D0:F6:62:5C:AF
+  5  name=67eoip-tunnelShadegan  type=eoip  running=true  mac=02:63:92:28:65:0A
+  6  name=70eoip-tunnelfakhr  type=eoip  running=true  mac=02:FA:6D:9F:A8:73
+  7  name=101eoip-tunnel1  type=eoip  running=true  mac=02:35:31:94:BD:C3
+  8  name=Fakhr  type=bridge  running=true  mac=02:07:60:A6:F3:ED
+  9  name=Shadegan  type=bridge  running=true  mac=02:35:31:94:BD:C3
+ 10  name=bridge1  type=bridge  running=true  mac=E4:8D:8C:71:6E:BB
+ 11  name=eoip-olom  type=eoip  running=true  mac=02:5C:F0:58:8F:81
+ 12  name=eoip-tunnel1  type=eoip  running=false  mac=02:07:60:A6:F3:ED
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=station-bridge  ssid=AbadanSetad-Zol30  band=5ghz-a/n  frequency=5825
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.12.34/30  interface=ether1  network=172.17.12.32
+  2  address=172.29.40.1/26  interface=eoip-olom  network=172.29.40.0
+  3  address=172.18.4.76/28  interface=wlan1  network=172.18.4.64
+  4  address=192.168.86.1/24  interface=eoip-olom  network=192.168.86.0
+  5  address=185.110.29.205/32  interface=ether1  network=185.110.29.205
+  6  address=172.29.40.61/30  interface=62eoip-tunnelPrtg  network=172.29.40.60
+  7  address=192.168.96.2/24  interface=eoip-tunnel1  network=192.168.96.0
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.18.4.65  distance=1
+  2  dst=0.0.0.0/0  gw=172.17.12.33  distance=1
+  3  dst=172.17.12.32/30  gw=ether1  distance=0
+  4  dst=172.18.4.64/28  gw=bridge1  distance=0
+  5  dst=172.18.16.62/32  gw=172.18.4.65  distance=1
+  6  dst=172.19.1.6/32  gw=172.18.4.65  distance=1
+  7  dst=172.29.35.98/32  gw=172.18.4.65  distance=1
+  8  dst=172.29.40.0/26  gw=eoip-olom  distance=0
+  9  dst=172.29.40.60/30  gw=62eoip-tunnelPrtg  distance=0
+ 10  dst=185.110.29.205/32  gw=ether1  distance=0
+ 11  dst=192.168.86.0/24  gw=eoip-olom  distance=0
+ 12  dst=192.168.96.0/24  gw=Fakhr  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=Parsa-SW-Zand  address=172.17.11.234  interface=ether1
+  2  identity=MikroTik  address=172.17.12.33  interface=ether1
+  3  identity=AbadanSetad-Zol30.AP  address=172.18.4.66  interface=wlan1,bridge1
+  4  identity=Chamran  address=172.18.4.67  interface=wlan1,bridge1
+  5  identity=Farabi  address=172.18.4.69  interface=wlan1,bridge1
+  6  identity=AlboEbadi  address=172.18.4.72  interface=wlan1,bridge1
+  7  identity=EbneSina.Client  address=172.18.4.73  interface=wlan1,bridge1
+  8  identity=Mob  address=172.18.4.75  interface=wlan1,bridge1
+  9  identity=Kanani.Home.Client  address=172.18.4.78  interface=wlan1,bridge1
+ 10  identity=SW-Wireless3.test.local  address=172.19.1.51  interface=wlan1,bridge1
+ 11  identity=RB951Ui  address=-  interface=eoip-olom
+ 12  identity=MikroTik  address=172.19.2.73  interface=eoip-olom
+ 13  identity=Tull-OX  address=172.20.20.253  interface=eoip-olom
+ 14  identity=NET-AB-Daftar13  address=185.180.131.162  interface=eoip-olom
+ 15  identity=FE  address=192.168.24.3  interface=eoip-olom
+ 16  identity=Tull-OUT  address=192.168.24.66  interface=eoip-olom
+ 17  identity=RouterOS  address=192.168.61.1  interface=eoip-olom
+ 18  identity=Tull-Mik-OV  address=192.168.61.10  interface=eoip-olom
+ 19  identity=RB951Ui  address=192.168.75.2  interface=eoip-olom
+ 20  identity=ParsaRasaneh-Pishkhan1294  address=192.168.88.1  interface=eoip-olom
+ 21  identity=MikroTik  address=fe80::4e5e:cff:fec5:c824  interface=62eoip-tunnelPrtg
+ 22  identity=MikroTik  address=172.19.1.129  interface=67eoip-tunnelShadegan,Shadegan
+ 23  identity=MikroTik  address=fe80::4e5e:cff:fec5:c824  interface=70eoip-tunnelfakhr,Fakhr
+ 24  identity=FE  address=170.19.1.33  interface=70eoip-tunnelfakhr,Fakhr
+ 25  identity=Router-MikroTik  address=172.19.2.52  interface=70eoip-tunnelfakhr,Fakhr
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:21
+# ساعت دستگاه (خام): 2026-06-08 15:45:28
+# افست اصلاحی (سرور − دستگاه): +3231:10:53
+  1  1405/07/27 14:28:29  [pptp,ppp,info]  <pptp-pedram>: connected
+  2  1405/07/27 14:58:07  [pptp,ppp,info]  <pptp-pedram>: terminating...
+  3  1405/07/27 14:58:07  [pptp,ppp,info,account]  pedram logged out, 1779 909589 1863770 9813 3446 from 89.32.106.38
+  4  1405/07/27 14:58:07  [pptp,ppp,info]  <pptp-pedram>: disconnected
+  5  1405/07/27 16:42:05  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[4500]<=>170.130.187.46[53759]
+  6  1405/07/27 16:43:05  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.205[4500]<=>170.130.187.46[53759] 89ece2de1886e4b9:58dcacf98524d028
+  7  1405/07/27 16:44:45  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[4500]<=>170.130.187.46[62040]
+  8  1405/07/27 16:44:46  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[4500]<=>170.130.187.46[62040]
+  9  1405/07/27 16:44:46  [ipsec,error]  170.130.187.46 failed to get valid proposal.
+ 10  1405/07/27 16:44:46  [ipsec,error]  170.130.187.46 failed to pre-process ph1 packet (side: 1, status 1).
+ 11  1405/07/27 16:44:46  [ipsec,error]  170.130.187.46 phase1 negotiation failed.
+ 12  1405/07/27 16:45:45  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.205[4500]<=>170.130.187.46[62040] b1138d22ceb8db68:44c4f0b47d882f53
+ 13  1405/07/27 17:18:58  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[500]<=>104.206.128.38[56737]
+ 14  1405/07/27 17:19:58  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.205[500]<=>104.206.128.38[56737] f24f2cdd171cb3d5:d136933e9dd79ac6
+ 15  1405/07/27 17:21:38  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[500]<=>104.206.128.38[59298]
+ 16  1405/07/27 17:21:39  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[500]<=>104.206.128.38[59298]
+ 17  1405/07/27 17:21:39  [ipsec,error]  104.206.128.38 failed to get valid proposal.
+ 18  1405/07/27 17:21:39  [ipsec,error]  104.206.128.38 failed to pre-process ph1 packet (side: 1, status 1).
+ 19  1405/07/27 17:21:39  [ipsec,error]  104.206.128.38 phase1 negotiation failed.
+ 20  1405/07/27 17:22:38  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.205[500]<=>104.206.128.38[59298] bc2f26b71da8cf7b:8210e7dfd291a886
+ 21  1405/07/27 17:51:57  [pptp,info]  TCP connection established from 3.130.168.2
+ 22  1405/07/27 17:52:07  [pptp,info]  TCP connection established from 3.130.168.2
+ 23  1405/07/27 17:53:03  [pptp,info]  TCP connection established from 3.130.168.2
+ 24  1405/07/27 18:02:25  [interface,info]  101eoip-tunnel1 link down
+ 25  1405/07/27 18:27:12  [interface,info]  101eoip-tunnel1 link up
+ 26  1405/07/27 20:17:01  [pptp,info]  TCP connection established from 185.110.29.249
+ 27  1405/07/27 20:17:05  [pptp,ppp,info,account]  mg logged in, 192.168.86.200 from 185.110.29.249
+ 28  1405/07/27 20:17:05  [pptp,ppp,info]  <pptp-mg>: authenticated
+ 29  1405/07/27 20:17:05  [pptp,ppp,info]  <pptp-mg>: connected
+ 30  1405/07/27 20:18:43  [pptp,info]  TCP connection established from 172.212.203.107
+ 31  1405/07/27 20:55:45  [l2tp,info]  first L2TP UDP packet received from 47.85.212.212
+ 32  1405/07/27 21:07:37  [pptp,info]  TCP connection established from 100.78.30.80
+ 33  1405/07/27 21:07:38  [pptp,ppp,info,account]  pedram logged in, 192.168.86.201 from 100.78.30.80
+ 34  1405/07/27 21:07:39  [pptp,ppp,info]  <pptp-pedram>: authenticated
+ 35  1405/07/27 21:07:39  [pptp,ppp,info]  <pptp-pedram>: connected
+ 36  1405/07/27 21:19:17  [pptp,ppp,info]  <pptp-pedram>: terminating...
+ 37  1405/07/27 21:19:17  [pptp,ppp,info,account]  pedram logged out, 699 744760 146701 4088 422 from 100.78.30.80
+ 38  1405/07/27 21:19:17  [pptp,ppp,info]  <pptp-pedram>: disconnected
+ 39  1405/07/27 21:57:32  [pptp,info]  TCP connection established from 40.80.203.142
+ 40  1405/07/27 21:58:35  [pptp,info]  TCP connection established from 87.236.176.112
+ 41  1405/07/27 22:48:36  [l2tp,info]  first L2TP UDP packet received from 200.138.46.102
+ 42  1405/07/27 22:48:43  [l2tp,info]  first L2TP UDP packet received from 77.67.26.232
+ 43  1405/07/27 22:52:54  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[4500]<=>89.21.67.188[37522]
+ 44  1405/07/27 22:53:30  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[4500]<=>64.205.72.137[13246]
+ 45  1405/07/27 22:53:54  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.205[4500]<=>89.21.67.188[37522] 63e85337fe584ab5:daf06de1b6f69080
+ 46  1405/07/27 22:54:30  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.205[4500]<=>64.205.72.137[13246] 2080f805979f2d2e:d35be50b88069947
+ 47  1405/07/27 23:07:26  [l2tp,info]  first L2TP UDP packet received from 66.132.224.235
+ 48  1405/07/27 23:40:32  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[500]<=>193.176.31.209[42695]
+ 49  1405/07/27 23:40:49  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[500]<=>200.138.46.167[4740]
+ 50  1405/07/27 23:41:32  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.205[500]<=>193.176.31.209[42695] 79459c3e81dc7354:1dd896ac7775aa94
+ 51  1405/07/27 23:41:49  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.205[500]<=>200.138.46.167[4740] 3eb71ad85698d604:9a0a6eac2b1703af
+ 52  1405/07/28 00:54:19  [pptp,ppp,info]  <pptp-mg>: terminating... - call cleared
+ 53  1405/07/28 00:54:19  [pptp,ppp,info,account]  mg logged out, 16637 33842072 436177561 447977 429066 from 185.110.29.249
+ 54  1405/07/28 00:54:19  [pptp,ppp,info]  <pptp-mg>: disconnected
+ 55  1405/07/28 01:10:36  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[4500]<=>193.163.125.57[20800]
+ 56  1405/07/28 01:11:36  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.205[4500]<=>193.163.125.57[20800] d913198b0b4e036c:83580df654df1ffc
+ 57  1405/07/28 02:00:39  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[500]<=>66.132.224.224[18003]
+ 58  1405/07/28 02:01:39  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.205[500]<=>66.132.224.224[18003] 0f7eebfe27bbb880:60e8a1d57de3bdce
+ 59  1405/07/28 02:48:07  [pptp,info]  TCP connection established from 91.230.168.247
+ 60  1405/07/28 02:48:11  [pptp,info]  TCP connection established from 91.230.168.241
+ 61  1405/07/28 04:14:13  [pptp,info]  TCP connection established from 91.230.168.182
+ 62  1405/07/28 04:14:17  [pptp,info]  TCP connection established from 91.230.168.177
+ 63  1405/07/28 04:38:45  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[500]<=>64.62.197.225[63066]
+ 64  1405/07/28 04:39:45  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.205[500]<=>64.62.197.225[63066] 3e35c70729dfedef:4832a908017beca7
+ 65  1405/07/28 07:40:20  [pptp,info]  TCP connection established from 85.217.149.10
+ 66  1405/07/28 08:12:44  [pptp,info]  TCP connection established from 172.105.208.132
+ 67  1405/07/28 09:05:23  [l2tp,info]  first L2TP UDP packet received from 167.71.131.131
+ 68  1405/07/28 09:28:31  [pptp,info]  TCP connection established from 134.122.115.119
+ 69  1405/07/28 09:29:40  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[4500]<=>185.242.226.62[37365]
+ 70  1405/07/28 09:29:40  [ipsec,error]  no suitable proposal found.
+ 71  1405/07/28 09:29:40  [ipsec,error]  185.242.226.62 failed to get valid proposal.
+ 72  1405/07/28 09:29:40  [ipsec,error]  185.242.226.62 failed to pre-process ph1 packet (side: 1, status 1).
+ 73  1405/07/28 09:29:40  [ipsec,error]  185.242.226.62 phase1 negotiation failed.
+ 74  1405/07/28 09:31:40  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[500]<=>20.221.74.134[35297]
+ 75  1405/07/28 09:32:40  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.205[500]<=>20.221.74.134[35297] 111555f681d524ef:9216e51df4bfa6f1
+ 76  1405/07/28 11:20:49  [pptp,info]  TCP connection established from 5.62.232.164
+ 77  1405/07/28 11:20:49  [pptp,ppp,info,account]  pedram logged in, 192.168.86.201 from 5.62.232.164
+ 78  1405/07/28 11:20:50  [pptp,ppp,info]  <pptp-pedram>: authenticated
+ 79  1405/07/28 11:20:50  [pptp,ppp,info]  <pptp-pedram>: connected
+ 80  1405/07/28 11:21:47  [pptp,ppp,info]  <pptp-pedram>: terminating...
+ 81  1405/07/28 11:21:47  [pptp,ppp,info,account]  pedram logged out, 59 97141 8756 804 101 from 5.62.232.164
+ 82  1405/07/28 11:21:47  [pptp,ppp,info]  <pptp-pedram>: disconnected
+ 83  1405/07/28 11:26:42  [pptp,info]  TCP connection established from 5.62.232.164
+ 84  1405/07/28 11:26:46  [pptp,ppp,info,account]  pedram logged in, 192.168.86.201 from 5.62.232.164
+ 85  1405/07/28 11:26:46  [pptp,ppp,info]  <pptp-pedram>: authenticated
+ 86  1405/07/28 11:26:46  [pptp,ppp,info]  <pptp-pedram>: connected
+ 87  1405/07/28 11:35:29  [pptp,ppp,info]  <pptp-pedram>: terminating...
+ 88  1405/07/28 11:35:29  [pptp,ppp,info,account]  pedram logged out, 527 927712 12207790 14944 9979 from 5.62.232.164
+ 89  1405/07/28 11:35:29  [pptp,ppp,info]  <pptp-pedram>: disconnected
+ 90  1405/07/28 11:48:12  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[500]<=>46.101.245.237[64016]
+ 91  1405/07/28 11:49:12  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.205[500]<=>46.101.245.237[64016] 696e7465726e6574:9cee5d176eb25dfe
+ 92  1405/07/28 12:16:20  [pptp,info]  TCP connection established from 5.62.232.164
+ 93  1405/07/28 12:16:24  [pptp,ppp,info,account]  pedram logged in, 192.168.86.201 from 5.62.232.164
+ 94  1405/07/28 12:16:24  [pptp,ppp,info]  <pptp-pedram>: terminating...
+ 95  1405/07/28 12:16:24  [pptp,ppp,info,account]  pedram logged out, 4 0 0 0 0 from 5.62.232.164
+ 96  1405/07/28 12:16:24  [pptp,ppp,info]  <pptp-pedram>: disconnected
+ 97  1405/07/28 12:16:30  [pptp,info]  TCP connection established from 5.62.232.164
+ 98  1405/07/28 12:16:33  [pptp,ppp,info,account]  pedram logged in, 192.168.86.201 from 5.62.232.164
+ 99  1405/07/28 12:16:34  [pptp,ppp,info]  <pptp-pedram>: authenticated
+100  1405/07/28 12:16:34  [pptp,ppp,info]  <pptp-pedram>: connected
+101  1405/07/28 12:17:22  [l2tp,info]  first L2TP UDP packet received from 5.127.158.204
+102  1405/07/28 12:17:33  [pptp,info]  TCP connection established from 77.67.26.64
+103  1405/07/28 12:17:42  [pptp,info]  TCP connection established from 64.205.72.245
+104  1405/07/28 12:18:49  [l2tp,info]  first L2TP UDP packet received from 5.127.158.204
+105  1405/07/28 12:19:02  [l2tp,info]  first L2TP UDP packet received from 5.127.158.204
+106  1405/07/28 12:19:15  [l2tp,info]  first L2TP UDP packet received from 5.127.158.204
+107  1405/07/28 12:22:17  [pptp,ppp,info]  <pptp-pedram>: terminating...
+108  1405/07/28 12:22:17  [pptp,ppp,info,account]  pedram logged out, 346 410331 16980 5426 185 from 5.62.232.164
+109  1405/07/28 12:22:17  [pptp,ppp,info]  <pptp-pedram>: disconnected
+110  1405/07/28 12:37:32  [l2tp,info]  first L2TP UDP packet received from 5.127.158.204
+111  1405/07/28 13:08:01  [pptp,info]  TCP connection established from 66.132.224.224
+112  1405/07/28 14:47:09  [pptp,info]  TCP connection established from 66.132.186.182
+113  1405/07/28 15:27:20  [l2tp,info]  first L2TP UDP packet received from 5.127.158.204
+114  1405/07/28 15:27:23  [l2tp,ppp,error]  <5.127.158.204>: user pedram authentication failed
+115  1405/07/28 15:34:10  [l2tp,info]  first L2TP UDP packet received from 5.127.158.204
+116  1405/07/28 15:34:15  [l2tp,info]  first L2TP UDP packet received from 5.127.158.204
+117  1405/07/28 15:34:16  [l2tp,ppp,error]  <5.127.158.204>: user pedram authentication failed
+118  1405/07/28 15:34:27  [l2tp,info]  first L2TP UDP packet received from 5.127.158.204
+119  1405/07/28 15:34:29  [l2tp,ppp,error]  <5.127.158.204>: user pedram authentication failed
+120  1405/07/28 15:35:02  [l2tp,info]  first L2TP UDP packet received from 5.127.158.204
+121  1405/07/28 15:35:05  [l2tp,ppp,error]  <5.127.158.204>: user pedram authentication failed
+122  1405/07/28 15:35:31  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[4500]<=>86.54.31.38[4500]
+123  1405/07/28 15:35:31  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[4500]<=>86.54.31.38[58305]
+124  1405/07/28 15:35:52  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[4500]<=>86.54.31.38[38122]
+125  1405/07/28 15:36:01  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[4500]<=>86.54.31.38[56521]
+126  1405/07/28 15:36:23  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[4500]<=>86.54.31.38[36685]
+127  1405/07/28 15:36:31  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.205[4500]<=>86.54.31.38[4500] c4d9e01d05e22c8e:5ebc0fbe0a8d8f78
+128  1405/07/28 15:36:31  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.205[4500]<=>86.54.31.38[58305] c1a8acb16ac7d90d:2707ac9c3b916e59
+129  1405/07/28 15:36:52  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.205[4500]<=>86.54.31.38[38122] d848b6e521f1af69:9fb5ff8296ce0f1a
+130  1405/07/28 15:37:01  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.205[4500]<=>86.54.31.38[56521] 0c1d48f2f65f1cce:eeda6ce6530e31ec
+131  1405/07/28 15:37:23  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.205[4500]<=>86.54.31.38[36685] 141f3ce5fae8a8dc:13b01855ac677990
+132  1405/07/28 16:05:16  [l2tp,info]  first L2TP UDP packet received from 113.203.86.45
+133  1405/07/28 16:05:20  [l2tp,ppp,error]  <113.203.86.45>: user mg authentication failed
+134  1405/07/28 16:06:12  [l2tp,info]  first L2TP UDP packet received from 113.203.86.45
+135  1405/07/28 16:06:18  [l2tp,info]  first L2TP UDP packet received from 113.203.86.45
+136  1405/07/28 16:13:17  [l2tp,info]  first L2TP UDP packet received from 170.130.187.50
+137  1405/07/28 16:14:03  [l2tp,info]  first L2TP UDP packet received from 170.130.187.50
+138  1405/07/28 16:24:22  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[500]<=>104.206.128.10[55512]
+139  1405/07/28 16:25:22  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.205[500]<=>104.206.128.10[55512] f24f2cdd171cb3d5:dfc485719cad60cc
+140  1405/07/28 16:26:24  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[500]<=>104.206.128.10[64004]
+141  1405/07/28 16:26:24  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[500]<=>104.206.128.10[64004]
+142  1405/07/28 16:26:24  [ipsec,error]  104.206.128.10 failed to get valid proposal.
+143  1405/07/28 16:26:24  [ipsec,error]  104.206.128.10 failed to pre-process ph1 packet (side: 1, status 1).
+144  1405/07/28 16:26:24  [ipsec,error]  104.206.128.10 phase1 negotiation failed.
+145  1405/07/28 16:27:24  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.205[500]<=>104.206.128.10[64004] 6edf1fb1869a4e92:6c0b0cb78b453233
+146  1405/07/28 16:48:10  [pptp,info]  TCP connection established from 3.129.187.38
+147  1405/07/28 16:48:10  [pptp,info]  TCP connection established from 3.129.187.38
+148  1405/07/28 16:48:32  [pptp,info]  TCP connection established from 3.129.187.38
+149  1405/07/28 16:49:38  [pptp,info]  TCP connection established from 4.150.188.181
+150  1405/07/28 16:49:52  [pptp,info]  TCP connection established from 3.129.187.38
+151  1405/07/28 17:09:39  [pptp,info]  TCP connection established from 47.84.143.65
+152  1405/07/28 17:09:49  [pptp,info]  TCP connection established from 47.84.143.65
+153  1405/07/28 17:53:27  [l2tp,info]  first L2TP UDP packet received from 195.96.139.36
+154  1405/07/28 18:53:01  [pptp,info]  TCP connection established from 64.89.160.90
+155  1405/07/28 18:54:06  [l2tp,info]  first L2TP UDP packet received from 5.127.158.204
+156  1405/07/28 18:54:13  [l2tp,info]  first L2TP UDP packet received from 5.127.158.204
+157  1405/07/28 18:54:17  [l2tp,ppp,error]  <5.127.158.204>: user pedram authentication failed
+158  1405/07/28 18:54:25  [l2tp,info]  first L2TP UDP packet received from 5.127.158.204
+159  1405/07/28 18:54:26  [l2tp,ppp,error]  <5.127.158.204>: user pedram authentication failed
+160  1405/07/28 18:54:30  [l2tp,info]  first L2TP UDP packet received from 5.127.158.204
+161  1405/07/28 18:54:33  [l2tp,ppp,error]  <5.127.158.204>: user pedram authentication failed
+162  1405/07/28 18:54:46  [l2tp,info]  first L2TP UDP packet received from 5.127.158.204
+163  1405/07/28 18:55:03  [l2tp,info]  first L2TP UDP packet received from 5.127.158.204
+164  1405/07/28 21:31:46  [pptp,info]  TCP connection established from 45.79.207.110
+165  1405/07/28 21:32:13  [pptp,info]  TCP connection established from 45.79.207.110
+166  1405/07/28 21:32:15  [pptp,info]  TCP connection established from 45.79.207.110
+167  1405/07/28 21:32:43  [pptp,info]  TCP connection established from 45.79.207.110
+168  1405/07/28 21:32:44  [pptp,info]  TCP connection established from 45.79.207.110
+169  1405/07/28 21:32:49  [pptp,info]  TCP connection established from 45.79.207.110
+170  1405/07/28 21:33:17  [pptp,info]  TCP connection established from 45.79.207.110
+171  1405/07/28 21:48:41  [pptp,info]  TCP connection established from 80.66.83.80
+172  1405/07/28 22:37:50  [l2tp,info]  first L2TP UDP packet received from 31.14.254.25
+173  1405/07/28 22:38:14  [l2tp,info]  first L2TP UDP packet received from 200.138.46.207
+174  1405/07/28 23:17:46  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[500]<=>69.5.169.240[46520]
+175  1405/07/28 23:17:54  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[500]<=>200.138.46.163[14655]
+176  1405/07/28 23:18:46  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.205[500]<=>69.5.169.240[46520] ea53c19c0e57ab82:921e37dbdbf0493d
+177  1405/07/28 23:18:54  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.205[500]<=>200.138.46.163[14655] 6f57c663abc5d3d3:d12f3f2ef7538578
+178  1405/07/29 00:00:46  [l2tp,info]  first L2TP UDP packet received from 66.132.172.190
+179  1405/07/29 03:07:07  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[500]<=>66.132.172.128[26664]
+180  1405/07/29 03:08:07  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.205[500]<=>66.132.172.128[26664] dd279b3f157c304a:8d800f63a1b41d90
+181  1405/07/29 03:45:30  [pptp,info]  TCP connection established from 156.225.1.105
+182  1405/07/29 03:56:23  [l2tp,info]  first L2TP UDP packet received from 193.163.125.63
+183  1405/07/29 05:36:17  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[500]<=>64.62.197.136[17646]
+184  1405/07/29 05:37:17  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.205[500]<=>64.62.197.136[17646] 3e35c70729dfedef:c0da83145ab91a8e
+185  1405/07/29 06:15:40  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[4500]<=>157.245.131.206[4500]
+186  1405/07/29 06:16:40  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.205[4500]<=>157.245.131.206[4500] a8b527c04d88b7cc:cd518816ecbd9c7b
+187  1405/07/29 08:24:50  [ipsec,info]  respond new phase 1 (Identity Protection): 185.110.29.205[500]<=>193.163.125.51[18847]
+188  1405/07/29 08:25:50  [ipsec,error]  phase1 negotiation failed due to time up 185.110.29.205[500]<=>193.163.125.51[18847] 39522d48d664fe06:27acbbad9b575f08
+189  1405/07/29 08:58:35  [system,info,account]  user su logged in from 5.216.70.27 via winbox
+190  1405/07/29 08:58:41  [system,info,account]  user su logged in from 5.216.70.27 via telnet
+191  1405/07/29 08:58:43  [system,info,account]  user su logged out from 5.216.70.27 via telnet
+192  1405/07/29 09:07:46  [system,info,account]  user su logged in from 5.216.70.27 via telnet
+193  1405/07/29 09:08:05  [system,info,account]  user su logged out from 5.216.70.27 via telnet
+194  1405/07/29 09:17:17  [pptp,info]  TCP connection established from 139.162.119.61
+195  1405/07/29 09:19:24  [system,info,account]  user su logged out from 5.216.70.27 via winbox
+196  1405/07/29 09:19:30  [system,info,account]  user su logged in from 5.216.70.27 via winbox
+197  1405/07/29 10:02:25  [system,info,account]  user su logged out from 5.216.70.27 via winbox
+198  1405/07/29 10:02:37  [system,info,account]  user su logged in from 5.216.70.27 via winbox
+199  1405/07/29 10:02:49  [system,info,account]  user su logged out from 5.216.70.27 via winbox
+200  1405/07/29 10:26:21  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  E4:8D:8C:71:6E:BA  (ether)
+wlan1  E4:8D:8C:71:6E:BB  (wlan)
+6eoip-tunnelFakhr  02:9E:5F:74:E0:F9  (eoip)
+62eoip-tunnelPrtg  02:D0:F6:62:5C:AF  (eoip)
+67eoip-tunnelShadegan  02:63:92:28:65:0A  (eoip)
+70eoip-tunnelfakhr  02:FA:6D:9F:A8:73  (eoip)
+101eoip-tunnel1  02:35:31:94:BD:C3  (eoip)
+Fakhr  02:07:60:A6:F3:ED  (bridge)
+Shadegan  02:35:31:94:BD:C3  (bridge)
+bridge1  E4:8D:8C:71:6E:BB  (bridge)
+eoip-olom  02:5C:F0:58:8F:81  (eoip)
+eoip-tunnel1  02:07:60:A6:F3:ED  (eoip)
+--- /ip arp ---
+bridge1  10:8C:CF:33:51:5F  (arp 172.18.4.65)
+ether1  4C:5E:0C:C5:C8:24  (arp 172.17.12.33)

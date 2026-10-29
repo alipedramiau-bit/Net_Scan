@@ -1,0 +1,65 @@
+IP: 172.17.13.3
+Collected at: 2026-10-21T06:57:30.095170+00:00
+source: RouterOS API
+identity: Hamid-Tower-ST
+device_type: ST
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=6C:3B:6B:10:80:64
+  2  name=wlan1  type=wlan  running=true  mac=6C:3B:6B:10:80:65
+  3  name=bridge1  type=bridge  running=true  mac=6C:3B:6B:10:80:64
+  4  name=vlan77  type=vlan  running=true  mac=6C:3B:6B:10:80:64
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=station-wds  ssid=10094186131-PR-PTP-FarahAbad  band=5ghz-a/n  frequency=5130
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.13.3/29  interface=vlan77  network=172.17.13.0
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.13.1  distance=1
+  2  dst=172.17.13.0/29  gw=vlan77  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=HastiPOP-SW  address=172.17.15.34  interface=ether1,bridge1
+  2  identity=ParsaRasaneh-PTP-FarahAbad  address=-  interface=wlan1,bridge1
+  3  identity=ParsaRasaneh-SW-Main  address=172.17.11.242  interface=wlan1,bridge1
+  4  identity=AB-Dehdari  address=-  interface=vlan77
+  5  identity=REZAIIPOOR  address=-  interface=vlan77
+  6  identity=AB-Ansari7  address=-  interface=vlan77
+  7  identity=MikroTik  address=172.17.12.189  interface=vlan77
+  8  identity=ParsaRasaneh-SW-Hamid  address=172.17.12.226  interface=vlan77
+  9  identity=ParsaRasaneh-PTP-FarahAbad  address=172.17.13.2  interface=vlan77
+ 10  identity=ParsaRasaneh-PNU  address=172.17.13.5  interface=vlan77
+ 11  identity=PArsaRasaneh farhabad2  address=172.17.13.6  interface=vlan77
+ 12  identity=PR-PS-PTP-Nobat-ST  address=172.19.2.70  interface=vlan77
+ 13  identity=PR-PTP-Abdolahnezhad  address=192.168.2.1  interface=vlan77
+ 14  identity=Abdolahnezhad  address=192.168.2.2  interface=vlan77
+ 15  identity=MikroTik  address=192.168.88.1  interface=vlan77
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:33
+# ساعت دستگاه (خام): 2026-08-03 00:28:22
+# افست اصلاحی (سرور − دستگاه): +1902:28:11
+  1  1405/07/30 09:53:29  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/30 09:53:29  [interface,info]  vlan77 link up
+  3  1405/07/30 09:53:30  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:10:80:64
+  4  1405/07/30 09:53:30  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/07/30 09:53:41  [interface,info]  ether1 link down
+  6  1405/07/30 09:53:47  [interface,info]  ether1 link up (speed 100M, full duplex)
+  7  1405/07/30 09:54:18  [wireless,info]  6C:3B:6B:DD:7D:D0@wlan1 established connection on 5070000, SSID 10094186131-PR-PTP-FarahAbad
+  8  1405/07/29 10:26:33  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  6C:3B:6B:10:80:64  (ether)
+wlan1  6C:3B:6B:10:80:65  (wlan)
+bridge1  6C:3B:6B:10:80:64  (bridge)
+vlan77  6C:3B:6B:10:80:64  (vlan)
+--- /ip arp ---
+vlan77  4C:5E:0C:C5:C8:24  (arp 172.17.13.1)

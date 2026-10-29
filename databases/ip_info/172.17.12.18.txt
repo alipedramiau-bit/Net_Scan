@@ -1,0 +1,256 @@
+IP: 172.17.12.18
+Collected at: 2026-10-21T06:57:28.279071+00:00
+source: RouterOS API
+identity: ParsaRasaneh-Z
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=6C:3B:6B:A6:FA:F4
+  2  name=wlan1  type=wlan  running=true  mac=6C:3B:6B:A6:FA:F5
+  3  name=wlan2  type=wlan  running=false  mac=6E:3B:6B:A6:FA:F5
+  4  name=bridge1  type=bridge  running=true  mac=6C:3B:6B:A6:FA:F4
+  5  name=wds12  type=wds  running=true  mac=6C:3B:6B:A6:FA:F5
+  6  name=wds24  type=wds  running=true  mac=6C:3B:6B:A6:FA:F5
+  7  name=wds50  type=wds  running=true  mac=6C:3B:6B:A6:FA:F5
+  8  name=wds51  type=wds  running=true  mac=6C:3B:6B:A6:FA:F5
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=ap-bridge  ssid=10094186122-PR-Z  band=5ghz-a/n  frequency=5805
+name=wlan2  mode=ap-bridge  ssid=Parsa Rasaneh - Z4  band=-  frequency=-
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.12.18/29  interface=ether1  network=172.17.12.16
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.12.17  distance=1
+  2  dst=172.17.12.16/29  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=Parsa-SW-Zand  address=172.17.11.234  interface=ether1,bridge1
+  2  identity=MikroTik  address=172.17.12.17  interface=ether1,bridge1
+  3  identity=AB-Jafarizadegan  address=fe80::d6ca:6dff:fec5:586b  interface=wds24,bridge1
+  4  identity=ParsaRasaneh-Gobani  address=-  interface=wds50,bridge1
+  5  identity=NetAB-Gobani  address=172.17.17.18  interface=wds50,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:15
+# ساعت دستگاه (خام): 2026-07-01 21:29:46
+# افست اصلاحی (سرور − دستگاه): +2673:26:29
+  1  1405/07/03 11:55:11  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/03 11:55:13  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:A6:FA:F4
+  3  1405/07/03 11:55:14  [wireless,info]  wlan1: pre-shared key authentication not enabled, disable WPS
+  4  1405/07/03 11:55:18  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -66, wants WDS
+  5  1405/07/03 11:55:20  [dhcp,error]  temporary moving client wlan1 from slave to master port, update your config!!!
+  6  1405/07/03 11:55:30  [wireless,info]  80:2A:A8:20:74:70@wlan1: connected, signal strength -56, wants WDS
+  7  1405/07/03 11:55:45  [wireless,info]  80:2A:A8:62:C5:68@wlan1: connected, signal strength -67
+  8  1405/07/03 11:55:52  [wireless,info]  78:9A:18:7A:CD:C9@wlan1: connected, signal strength -50, wants bridge
+  9  1405/07/03 11:55:52  [wireless,info]  D4:CA:6D:C5:58:6B@wlan1: connected, signal strength -64, wants WDS
+ 10  1405/07/03 11:55:55  [wireless,info]  78:9A:18:BA:67:C6@wlan1: connected, signal strength -54, wants bridge
+ 11  1405/07/03 11:56:38  [wireless,info]  D4:01:C3:7B:09:E1@wlan1: connected, signal strength -60, wants WDS
+ 12  1405/07/03 11:57:37  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 13  1405/07/03 20:30:19  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: reassociating
+ 14  1405/07/03 20:30:19  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, ok, signal strength -66
+ 15  1405/07/03 20:30:19  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -64, wants WDS
+ 16  1405/07/03 22:20:00  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: reassociating
+ 17  1405/07/03 22:20:00  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, ok, signal strength -64
+ 18  1405/07/03 22:20:00  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -63, wants WDS
+ 19  1405/07/04 02:09:40  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: reassociating
+ 20  1405/07/04 02:09:40  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, ok, signal strength -63
+ 21  1405/07/04 02:09:40  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -66, wants WDS
+ 22  1405/07/04 07:10:08  [wireless,info]  80:2A:A8:20:74:70@wlan1: reassociating
+ 23  1405/07/04 07:10:08  [wireless,info]  80:2A:A8:20:74:70@wlan1: disconnected, ok, signal strength -56
+ 24  1405/07/04 07:10:08  [wireless,info]  80:2A:A8:20:74:70@wlan1: connected, signal strength -61, wants WDS
+ 25  1405/07/04 07:10:12  [wireless,info]  80:2A:A8:62:C5:68@wlan1: disconnected, extensive data loss, signal strength -67
+ 26  1405/07/04 07:10:39  [wireless,info]  80:2A:A8:62:C5:68@wlan1: connected, signal strength -69
+ 27  1405/07/04 09:02:58  [wireless,info]  80:2A:A8:62:C5:68@wlan1: disconnected, extensive data loss, signal strength -69
+ 28  1405/07/04 09:04:09  [wireless,info]  80:2A:A8:62:C5:68@wlan1: connected, signal strength -68
+ 29  1405/07/04 09:18:49  [wireless,info]  80:2A:A8:62:C5:68@wlan1: disconnected, extensive data loss, signal strength -68
+ 30  1405/07/04 09:19:53  [wireless,info]  80:2A:A8:62:C5:68@wlan1: connected, signal strength -71
+ 31  1405/07/04 11:05:02  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: reassociating
+ 32  1405/07/04 11:05:02  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, ok, signal strength -64
+ 33  1405/07/04 11:05:02  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -62, wants WDS
+ 34  1405/07/04 18:36:51  [wireless,info]  80:2A:A8:62:C5:68@wlan1: reassociating
+ 35  1405/07/04 18:36:51  [wireless,info]  80:2A:A8:62:C5:68@wlan1: disconnected, ok, signal strength -68
+ 36  1405/07/04 18:36:51  [wireless,info]  80:2A:A8:62:C5:68@wlan1: connected, signal strength -73
+ 37  1405/07/05 00:23:54  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, extensive data loss, signal strength -64
+ 38  1405/07/05 00:24:19  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -66, wants WDS
+ 39  1405/07/05 00:37:29  [wireless,info]  80:2A:A8:62:C5:68@wlan1: disconnected, extensive data loss, signal strength -68
+ 40  1405/07/05 00:38:48  [wireless,info]  80:2A:A8:62:C5:68@wlan1: connected, signal strength -73
+ 41  1405/07/05 00:54:40  [wireless,info]  80:2A:A8:20:74:70@wlan1: reassociating
+ 42  1405/07/05 00:54:40  [wireless,info]  80:2A:A8:20:74:70@wlan1: disconnected, ok, signal strength -54
+ 43  1405/07/05 00:54:40  [wireless,info]  80:2A:A8:20:74:70@wlan1: connected, signal strength -60, wants WDS
+ 44  1405/07/05 16:07:40  [wireless,info]  D4:01:C3:7B:09:E1@wlan1: disconnected, extensive data loss, signal strength -80
+ 45  1405/07/05 16:09:37  [wireless,info]  D4:01:C3:7B:09:E1@wlan1: connected, signal strength -61, wants WDS
+ 46  1405/07/07 02:22:54  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: reassociating
+ 47  1405/07/07 02:22:54  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, ok, signal strength -65
+ 48  1405/07/07 02:22:54  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -62, wants WDS
+ 49  1405/07/07 13:00:57  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: reassociating
+ 50  1405/07/07 13:00:57  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, ok, signal strength -67
+ 51  1405/07/07 13:00:57  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -63, wants WDS
+ 52  1405/07/07 22:55:56  [wireless,info]  80:2A:A8:20:74:70@wlan1: reassociating
+ 53  1405/07/07 22:55:56  [wireless,info]  80:2A:A8:20:74:70@wlan1: disconnected, ok, signal strength -56
+ 54  1405/07/07 22:55:56  [wireless,info]  80:2A:A8:20:74:70@wlan1: connected, signal strength -59, wants WDS
+ 55  1405/07/08 00:19:22  [wireless,info]  80:2A:A8:62:C5:68@wlan1: disconnected, extensive data loss, signal strength -73
+ 56  1405/07/08 00:20:02  [wireless,info]  80:2A:A8:62:C5:68@wlan1: connected, signal strength -72
+ 57  1405/07/08 01:22:59  [wireless,info]  80:2A:A8:62:C5:68@wlan1: disconnected, extensive data loss, signal strength -72
+ 58  1405/07/08 01:23:00  [wireless,info]  80:2A:A8:20:74:70@wlan1: reassociating
+ 59  1405/07/08 01:23:00  [wireless,info]  80:2A:A8:20:74:70@wlan1: disconnected, ok, signal strength -56
+ 60  1405/07/08 01:23:00  [wireless,info]  80:2A:A8:20:74:70@wlan1: connected, signal strength -62, wants WDS
+ 61  1405/07/08 01:23:31  [wireless,info]  80:2A:A8:62:C5:68@wlan1: connected, signal strength -72
+ 62  1405/07/09 02:32:36  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: reassociating
+ 63  1405/07/09 02:32:36  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, ok, signal strength -70
+ 64  1405/07/09 02:32:36  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -69, wants WDS
+ 65  1405/07/09 03:29:55  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: reassociating
+ 66  1405/07/09 03:29:55  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, ok, signal strength -70
+ 67  1405/07/09 03:29:55  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -67, wants WDS
+ 68  1405/07/09 14:13:58  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: reassociating
+ 69  1405/07/09 14:13:58  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, ok, signal strength -70
+ 70  1405/07/09 14:13:58  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -67, wants WDS
+ 71  1405/07/09 20:31:07  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: reassociating
+ 72  1405/07/09 20:31:07  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, ok, signal strength -70
+ 73  1405/07/09 20:31:07  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -72, wants WDS
+ 74  1405/07/10 02:32:03  [wireless,info]  80:2A:A8:20:74:70@wlan1: reassociating
+ 75  1405/07/10 02:32:03  [wireless,info]  80:2A:A8:20:74:70@wlan1: disconnected, ok, signal strength -81
+ 76  1405/07/10 02:32:03  [wireless,info]  80:2A:A8:20:74:70@wlan1: connected, signal strength -65, wants WDS
+ 77  1405/07/10 18:55:36  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: reassociating
+ 78  1405/07/10 18:55:36  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, ok, signal strength -86
+ 79  1405/07/10 18:55:36  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -66, wants WDS
+ 80  1405/07/11 00:05:20  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: reassociating
+ 81  1405/07/11 00:05:20  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, ok, signal strength -64
+ 82  1405/07/11 00:05:20  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -69, wants WDS
+ 83  1405/07/11 13:51:10  [wireless,info]  D4:CA:6D:C5:58:6B@wlan1: disconnected, extensive data loss, signal strength -71
+ 84  1405/07/11 21:02:08  [wireless,info]  D4:CA:6D:C5:58:6B@wlan1: connected, signal strength -70, wants WDS
+ 85  1405/07/11 21:59:47  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: reassociating
+ 86  1405/07/11 21:59:47  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, ok, signal strength -67
+ 87  1405/07/11 21:59:47  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -66, wants WDS
+ 88  1405/07/13 21:45:57  [wireless,info]  80:2A:A8:62:C5:68@wlan1: disconnected, extensive data loss, signal strength -75
+ 89  1405/07/13 21:47:26  [wireless,info]  80:2A:A8:62:C5:68@wlan1: connected, signal strength -71
+ 90  1405/07/14 12:19:27  [interface,info]  ether1 link down
+ 91  1405/07/14 12:22:14  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 92  1405/07/14 18:59:35  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: reassociating
+ 93  1405/07/14 18:59:35  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, ok, signal strength -72
+ 94  1405/07/14 18:59:36  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -66, wants WDS
+ 95  1405/07/14 22:34:17  [wireless,info]  80:2A:A8:20:74:70@wlan1: reassociating
+ 96  1405/07/14 22:34:17  [wireless,info]  80:2A:A8:20:74:70@wlan1: disconnected, ok, signal strength -63
+ 97  1405/07/14 22:34:17  [wireless,info]  80:2A:A8:20:74:70@wlan1: connected, signal strength -61, wants WDS
+ 98  1405/07/15 19:30:50  [interface,info]  ether1 link down
+ 99  1405/07/15 19:33:48  [interface,info]  ether1 link up (speed 100M, full duplex)
+100  1405/07/15 21:15:57  [wireless,info]  78:9A:18:BA:67:C6@wlan1: disconnected, extensive data loss, signal strength -62
+101  1405/07/15 21:16:59  [wireless,info]  78:9A:18:BA:67:C6@wlan1: connected, signal strength -60, wants bridge
+102  1405/07/16 12:12:55  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: reassociating
+103  1405/07/16 12:12:55  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, ok, signal strength -65
+104  1405/07/16 12:12:55  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -71, wants WDS
+105  1405/07/16 12:48:46  [wireless,info]  80:2A:A8:62:C5:68@wlan1: disconnected, extensive data loss, signal strength -70
+106  1405/07/16 12:48:54  [wireless,info]  80:2A:A8:20:74:70@wlan1: reassociating
+107  1405/07/16 12:48:54  [wireless,info]  80:2A:A8:20:74:70@wlan1: disconnected, ok, signal strength -57
+108  1405/07/16 12:48:54  [wireless,info]  80:2A:A8:20:74:70@wlan1: connected, signal strength -55, wants WDS
+109  1405/07/16 12:49:26  [wireless,info]  80:2A:A8:62:C5:68@wlan1: connected, signal strength -69
+110  1405/07/17 01:36:11  [wireless,info]  80:2A:A8:62:C5:68@wlan1: disconnected, extensive data loss, signal strength -69
+111  1405/07/17 01:36:14  [wireless,info]  80:2A:A8:20:74:70@wlan1: reassociating
+112  1405/07/17 01:36:14  [wireless,info]  80:2A:A8:20:74:70@wlan1: disconnected, ok, signal strength -57
+113  1405/07/17 01:36:14  [wireless,info]  80:2A:A8:20:74:70@wlan1: connected, signal strength -66, wants WDS
+114  1405/07/17 01:36:45  [wireless,info]  80:2A:A8:62:C5:68@wlan1: connected, signal strength -77
+115  1405/07/17 01:46:38  [wireless,info]  80:2A:A8:62:C5:68@wlan1: disconnected, extensive data loss, signal strength -77
+116  1405/07/17 01:48:00  [wireless,info]  80:2A:A8:62:C5:68@wlan1: connected, signal strength -77
+117  1405/07/17 03:11:20  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: reassociating
+118  1405/07/17 03:11:20  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, ok, signal strength -65
+119  1405/07/17 03:11:20  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -66, wants WDS
+120  1405/07/17 10:36:30  [wireless,info]  78:9A:18:BA:67:C6@wlan1: disconnected, extensive data loss, signal strength -62
+121  1405/07/17 10:37:22  [wireless,info]  78:9A:18:BA:67:C6@wlan1: connected, signal strength -55, wants bridge
+122  1405/07/18 05:50:34  [wireless,info]  80:2A:A8:20:74:70@wlan1: disconnected, extensive data loss, signal strength -55
+123  1405/07/18 10:38:42  [wireless,info]  80:2A:A8:20:74:70@wlan1: connected, signal strength -57, wants WDS
+124  1405/07/18 16:40:37  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, extensive data loss, signal strength -66
+125  1405/07/18 16:40:40  [wireless,info]  78:9A:18:7A:CD:C9@wlan1: disconnected, extensive data loss, signal strength -66
+126  1405/07/18 17:37:16  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -64, wants WDS
+127  1405/07/18 17:38:30  [wireless,info]  78:9A:18:7A:CD:C9@wlan1: connected, signal strength -52, wants bridge
+128  1405/07/18 18:10:17  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, extensive data loss, signal strength -64
+129  1405/07/18 18:10:28  [wireless,info]  78:9A:18:7A:CD:C9@wlan1: disconnected, extensive data loss, signal strength -52
+130  1405/07/18 19:22:45  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -63, wants WDS
+131  1405/07/18 19:24:00  [wireless,info]  78:9A:18:7A:CD:C9@wlan1: connected, signal strength -51, wants bridge
+132  1405/07/18 19:52:49  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: reassociating
+133  1405/07/18 19:52:49  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, ok, signal strength -63
+134  1405/07/18 19:52:49  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -64, wants WDS
+135  1405/07/18 22:35:59  [wireless,info]  80:2A:A8:62:C5:68@wlan1: disconnected, extensive data loss, signal strength -72
+136  1405/07/18 22:37:26  [wireless,info]  80:2A:A8:62:C5:68@wlan1: connected, signal strength -69
+137  1405/07/18 23:01:52  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: reassociating
+138  1405/07/18 23:01:52  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, ok, signal strength -64
+139  1405/07/18 23:01:52  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -69, wants WDS
+140  1405/07/19 00:14:18  [wireless,info]  80:2A:A8:62:C5:68@wlan1: disconnected, extensive data loss, signal strength -69
+141  1405/07/19 00:15:42  [wireless,info]  80:2A:A8:62:C5:68@wlan1: connected, signal strength -74
+142  1405/07/19 00:19:41  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: reassociating
+143  1405/07/19 00:19:41  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, ok, signal strength -69
+144  1405/07/19 00:19:41  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -72, wants WDS
+145  1405/07/19 00:22:55  [wireless,info]  80:2A:A8:20:74:70@wlan1: reassociating
+146  1405/07/19 00:22:55  [wireless,info]  80:2A:A8:20:74:70@wlan1: disconnected, ok, signal strength -57
+147  1405/07/19 00:22:55  [wireless,info]  80:2A:A8:20:74:70@wlan1: connected, signal strength -63, wants WDS
+148  1405/07/19 03:11:25  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: reassociating
+149  1405/07/19 03:11:25  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, ok, signal strength -72
+150  1405/07/19 03:11:25  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -63, wants WDS
+151  1405/07/19 08:49:14  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: reassociating
+152  1405/07/19 08:49:14  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, ok, signal strength -63
+153  1405/07/19 08:49:14  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -62, wants WDS
+154  1405/07/20 23:56:02  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: reassociating
+155  1405/07/20 23:56:02  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, ok, signal strength -68
+156  1405/07/20 23:56:03  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -69, wants WDS
+157  1405/07/21 17:30:19  [wireless,info]  80:2A:A8:20:74:70@wlan1: reassociating
+158  1405/07/21 17:30:19  [wireless,info]  80:2A:A8:20:74:70@wlan1: disconnected, ok, signal strength -55
+159  1405/07/21 17:30:19  [wireless,info]  80:2A:A8:20:74:70@wlan1: connected, signal strength -57, wants WDS
+160  1405/07/21 17:30:24  [wireless,info]  80:2A:A8:62:C5:68@wlan1: disconnected, extensive data loss, signal strength -70
+161  1405/07/21 17:30:51  [wireless,info]  80:2A:A8:62:C5:68@wlan1: connected, signal strength -72
+162  1405/07/22 07:47:36  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, extensive data loss, signal strength -66
+163  1405/07/22 07:47:49  [wireless,info]  78:9A:18:7A:CD:C9@wlan1: disconnected, extensive data loss, signal strength -66
+164  1405/07/22 09:28:07  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -65, wants WDS
+165  1405/07/22 09:29:21  [wireless,info]  78:9A:18:7A:CD:C9@wlan1: connected, signal strength -52, wants bridge
+166  1405/07/24 11:08:52  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: reassociating
+167  1405/07/24 11:08:52  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, ok, signal strength -67
+168  1405/07/24 11:08:52  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -67, wants WDS
+169  1405/07/25 13:02:24  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, extensive data loss, signal strength -73
+170  1405/07/25 13:44:03  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -63, wants WDS
+171  1405/07/25 14:03:06  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, extensive data loss, signal strength -63
+172  1405/07/25 14:28:11  [wireless,info]  78:9A:18:7A:CD:C9@wlan1: disconnected, extensive data loss, signal strength -72
+173  1405/07/25 16:05:53  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -61, wants WDS
+174  1405/07/25 16:07:08  [wireless,info]  78:9A:18:7A:CD:C9@wlan1: connected, signal strength -51, wants bridge
+175  1405/07/25 17:03:45  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, extensive data loss, signal strength -61
+176  1405/07/25 17:05:03  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -65, wants WDS
+177  1405/07/25 17:24:16  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, extensive data loss, signal strength -65
+178  1405/07/25 17:25:06  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -63, wants WDS
+179  1405/07/25 18:02:15  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: reassociating
+180  1405/07/25 18:02:15  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, ok, signal strength -63
+181  1405/07/25 18:02:15  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -70, wants WDS
+182  1405/07/25 21:49:21  [wireless,info]  80:2A:A8:62:C5:68@wlan1: disconnected, extensive data loss, signal strength -77
+183  1405/07/25 21:49:22  [wireless,info]  80:2A:A8:62:C5:68@wlan1: connected, signal strength -77
+184  1405/07/26 09:57:43  [system,info,account]  user su logged in from 185.110.29.189 via api
+185  1405/07/26 09:57:43  [system,info,account]  user su logged out from 185.110.29.189 via api
+186  1405/07/26 10:13:12  [system,info,account]  user su logged in from 185.110.29.189 via api
+187  1405/07/26 10:13:13  [system,info,account]  user su logged out from 185.110.29.189 via api
+188  1405/07/26 22:14:40  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: reassociating
+189  1405/07/26 22:14:40  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: disconnected, ok, signal strength -70
+190  1405/07/26 22:14:40  [wireless,info]  24:A4:3C:A6:4A:B4@wlan1: connected, signal strength -70, wants WDS
+191  1405/07/26 22:16:40  [wireless,info]  80:2A:A8:62:C5:68@wlan1: reassociating
+192  1405/07/26 22:16:40  [wireless,info]  80:2A:A8:62:C5:68@wlan1: disconnected, ok, signal strength -77
+193  1405/07/26 22:16:40  [wireless,info]  80:2A:A8:62:C5:68@wlan1: connected, signal strength -76
+194  1405/07/27 04:20:29  [wireless,info]  80:2A:A8:20:74:70@wlan1: disconnected, extensive data loss, signal strength -67
+195  1405/07/27 07:01:26  [wireless,info]  80:2A:A8:20:74:70@wlan1: connected, signal strength -62, wants WDS
+196  1405/07/28 15:43:50  [wireless,info]  78:9A:18:7A:CD:C9@wlan1: disconnected, extensive data loss, signal strength -59
+197  1405/07/28 16:20:54  [wireless,info]  78:9A:18:BA:67:C6@wlan1: disconnected, extensive data loss, signal strength -59
+198  1405/07/28 16:21:50  [wireless,info]  78:9A:18:BA:67:C6@wlan1: connected, signal strength -53, wants bridge
+199  1405/07/28 20:51:53  [wireless,info]  78:9A:18:7A:CD:C9@wlan1: connected, signal strength -59, wants bridge
+200  1405/07/29 10:26:15  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  6C:3B:6B:A6:FA:F4  (ether)
+wlan1  6C:3B:6B:A6:FA:F5  (wlan)
+wlan2  6E:3B:6B:A6:FA:F5  (wlan)
+bridge1  6C:3B:6B:A6:FA:F4  (bridge)
+wds12  6C:3B:6B:A6:FA:F5  (wds)
+wds24  6C:3B:6B:A6:FA:F5  (wds)
+wds50  6C:3B:6B:A6:FA:F5  (wds)
+wds51  6C:3B:6B:A6:FA:F5  (wds)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.17.12.17)

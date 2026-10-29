@@ -1,0 +1,86 @@
+IP: 172.19.2.70
+Collected at: 2026-10-21T06:57:35.109410+00:00
+source: RouterOS API
+identity: PR-PS-PTP-Nobat-ST
+device_type: ST
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=04:F4:1C:5B:F6:F7
+  2  name=wlan1  type=wlan  running=true  mac=04:F4:1C:5B:F6:F8
+  3  name=bridge1  type=bridge  running=true  mac=04:F4:1C:5B:F6:F7
+  4  name=eoip-tunnel1  type=eoip  running=true  mac=02:CA:C7:9E:E0:AE
+  5  name=lo  type=loopback  running=true  mac=00:00:00:00:00:00
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=station-bridge  ssid=10094186182-PR-PNU  band=5ghz-a/n  frequency=5520
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=192.168.91.8/24  interface=ether1  network=192.168.91.0
+  2  address=172.19.2.70/30  interface=wlan1  network=172.19.2.68
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.19.2.69  distance=1
+  2  dst=192.168.91.0/24  gw=bridge1  distance=0
+  3  dst=172.19.2.68/30  gw=wlan1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=Router-Nobat  address=192.168.91.7  interface=ether1,bridge1
+  2  identity=AB-Dehdari  address=-  interface=wlan1
+  3  identity=REZAIIPOOR  address=-  interface=wlan1
+  4  identity=AB-Ansari7  address=-  interface=wlan1
+  5  identity=MikroTik  address=172.17.12.189  interface=wlan1
+  6  identity=ParsaRasaneh-SW-Hamid  address=172.17.12.226  interface=wlan1
+  7  identity=ParsaRasaneh-PTP-FarahAbad  address=172.17.13.2  interface=wlan1
+  8  identity=Hamid-Tower-ST  address=172.17.13.3  interface=wlan1
+  9  identity=ParsaRasaneh-PNU  address=172.17.13.5  interface=wlan1
+ 10  identity=PArsaRasaneh farhabad2  address=172.17.13.6  interface=wlan1
+ 11  identity=HastiPOP-SW  address=172.17.15.34  interface=wlan1
+ 12  identity=PR-PTP-Abdolahnezhad  address=192.168.2.1  interface=wlan1
+ 13  identity=Abdolahnezhad  address=192.168.2.2  interface=wlan1
+ 14  identity=MikroTik  address=192.168.88.1  interface=wlan1
+ 15  identity=PR-PS-PTP-Sale-AP  address=192.168.91.2  interface=eoip-tunnel1,bridge1
+ 16  identity=Nobat-Pasargad-ST  address=192.168.91.5  interface=eoip-tunnel1,bridge1
+ 17  identity=PR-PS-Ruter-Setad  address=192.168.91.6  interface=eoip-tunnel1,bridge1
+ 18  identity=MikroTik  address=192.168.91.9  interface=eoip-tunnel1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:27:24
+# ساعت دستگاه (خام): 2025-12-31 02:24:56
+# افست اصلاحی (سرور − دستگاه): +7060:32:28
+  1  2025-12-03 11:59:09  [system,error,critical]  router was rebooted without proper shutdown
+  2  2025-12-03 11:59:09  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  3  2025-12-03 11:59:10  [interface,info]  lo link up
+  4  2025-12-03 11:59:10  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  2025-12-03 11:59:11  [wireless,info]  6C:3B:6B:A6:FA:DF@wlan1 established connection on 5520000, SSID 10094186182-PR-PNU
+  6  2025-12-03 11:59:18  [interface,info]  eoip-tunnel1 link up
+  7  2025-12-03 22:12:30  [interface,info]  eoip-tunnel1 link down
+  8  2025-12-03 22:18:17  [interface,info]  eoip-tunnel1 link up
+  9  2025-12-10 02:38:17  [interface,info]  eoip-tunnel1 link down
+ 10  2025-12-10 02:42:31  [interface,info]  eoip-tunnel1 link up
+ 11  2025-12-25 22:12:39  [wireless,info]  6C:3B:6B:A6:FA:DF@wlan1: lost connection, no beacons received
+ 12  2025-12-25 22:12:42  [interface,info]  eoip-tunnel1 link down
+ 13  2025-12-25 22:22:09  [wireless,info]  6C:3B:6B:A6:FA:DF@wlan1 established connection on 5520000, SSID 10094186182-PR-PNU
+ 14  2025-12-25 22:22:56  [interface,info]  eoip-tunnel1 link up
+ 15  2025-12-28 01:56:40  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 16  2025-12-28 01:56:40  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 17  2025-12-28 02:11:57  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 18  2025-12-28 02:11:57  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 19  2025-12-31 01:47:25  [wireless,info]  6C:3B:6B:A6:FA:DF@wlan1: lost connection, no beacons received
+ 20  2025-12-31 01:47:28  [interface,info]  eoip-tunnel1 link down
+ 21  2025-12-31 01:51:10  [wireless,info]  6C:3B:6B:A6:FA:DF@wlan1 established connection on 5520000, SSID 10094186182-PR-PNU
+ 22  2025-12-31 01:51:57  [interface,info]  eoip-tunnel1 link up
+ 23  2025-12-31 02:24:56  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  04:F4:1C:5B:F6:F7  (ether)
+wlan1  04:F4:1C:5B:F6:F8  (wlan)
+bridge1  04:F4:1C:5B:F6:F7  (bridge)
+eoip-tunnel1  02:CA:C7:9E:E0:AE  (eoip)
+--- /ip arp ---
+wlan1  4C:5E:0C:C5:C8:24  (arp 172.19.2.69)

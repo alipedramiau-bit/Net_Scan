@@ -1,0 +1,273 @@
+IP: 172.172.177.90
+Collected at: 2026-10-21T06:57:32.939189+00:00
+source: RouterOS API
+identity: ParsaRasaneh-khezr
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=E4:8D:8C:77:D8:7C
+  2  name=10094186102-PR-Khezr  type=wlan  running=true  mac=E6:8D:8C:77:D8:7D
+  3  name=wlan1  type=wlan  running=true  mac=E4:8D:8C:77:D8:7D
+  4  name=131  type=vlan  running=true  mac=E4:8D:8C:77:D8:7C
+  5  name=1217  type=vlan  running=true  mac=E4:8D:8C:77:D8:7C
+  6  name=bridge1  type=bridge  running=true  mac=E4:8D:8C:77:D8:7C
+
+----- wireless -----
+=== /interface wireless ===
+name=10094186102-PR-Khezr  mode=ap-bridge  ssid=10094186102-PR-Khezr  band=-  frequency=-
+name=wlan1  mode=ap-bridge  ssid=ParsaRasaneh-Khezr  band=5ghz-a/n  frequency=5780
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.172.177.90/30  interface=131  network=172.172.177.88
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.172.177.89  distance=1
+  2  dst=172.172.177.88/30  gw=131  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=Marjan-SW  address=172.17.12.49  interface=ether1
+  2  identity=MikroTik  address=fe80::66d1:54ff:fe0f:92fb  interface=10094186102-PR-Khezr,bridge1
+  3  identity=MikroTik  address=-  interface=131
+  4  identity=MikroTik  address=170.17.11.9  interface=131
+  5  identity=ParsaRasaneh-PTP-Hasti-St  address=172.17.12.10  interface=131
+  6  identity=PR-PTP-NaftKav-!01-Dakal-AP  address=172.17.12.11  interface=131
+  7  identity=PR-ROuter-Koteshanof  address=172.17.12.12  interface=131
+  8  identity=ParsaRasaneh-Man-K3  address=172.17.12.86  interface=131
+  9  identity=PR-PTP-Khazalabad  address=172.19.2.98  interface=131
+ 10  identity=PR-Choebdeh  address=172.172.171.2  interface=131
+ 11  identity=PR-Choebdeh5  address=172.172.171.6  interface=131
+ 12  identity=PR-PTP-CH-DSL-AP  address=172.172.171.10  interface=131
+ 13  identity=Router-Manage-Dslam-CH-Shahrak  address=172.172.171.12  interface=131
+ 14  identity=ParsaRasaneh-Choebdeh3  address=172.172.171.18  interface=131
+ 15  identity=Parsa-POWERBOX-CH  address=172.172.171.19  interface=131
+ 16  identity=ParsaRasaneh-Choebdeh10-MP  address=172.172.171.38  interface=131
+ 17  identity=ParsaRasaneh-Choebdeh8  address=172.172.171.54  interface=131
+ 18  identity=PR-Choebdeh15  address=172.172.171.78  interface=131
+ 19  identity=PR-PTP-Bazar-ST  address=172.172.172.27  interface=131
+ 20  identity=ParsaRasaneh-Arvand-ACC  address=172.172.172.50  interface=131
+ 21  identity=ParsaRasaneh-PTP-Arvand-ST  address=172.172.172.51  interface=131
+ 22  identity=ParsaRasaneh-Arvand-MP  address=172.172.172.66  interface=131
+ 23  identity=MikroTik  address=172.172.172.70  interface=131
+ 24  identity=ParsaRasaneh-PTP-ICT-AP  address=172.172.172.115  interface=131
+ 25  identity=ParsaRasaneh-PTP-Manyohi-N-ST  address=172.172.172.116  interface=131
+ 26  identity=PR-MAN-K  address=172.172.172.117  interface=131
+ 27  identity=POP-Center-ST  address=172.172.172.146  interface=131
+ 28  identity=ParsaRasanerh-Man-K1  address=172.172.177.46  interface=131
+ 29  identity=PR-Man-K2  address=172.172.177.50  interface=131
+ 30  identity=PR-PTP-MNEW_Bridge  address=172.172.177.58  interface=131
+ 31  identity=ParsaRasaneh-PTP-CH-ST  address=172.172.177.59  interface=131
+ 32  identity=ParsaRasaneh-Khezr2  address=172.172.177.98  interface=131
+ 33  identity=Hosein-hendali12  address=-  interface=1217,bridge1
+ 34  identity=MikroTik  address=-  interface=1217,bridge1
+ 35  identity=Mojahed-jasempour11  address=-  interface=1217,bridge1
+ 36  identity=MikroTik  address=-  interface=1217,bridge1
+ 37  identity=PR-Choebdeh  address=-  interface=1217,bridge1
+ 38  identity=ParsaRasaneh-Choebdeh10-MP  address=-  interface=1217,bridge1
+ 39  identity=CHR-Tunnel-PPPoE  address=fe80::af:4cff:fe60:460b  interface=1217,bridge1
+ 40  identity=MikroTik  address=fe80::2ec8:1bff:fe61:61d  interface=1217,bridge1
+ 41  identity=ParsaRasaneh-Khezr2  address=192.168.3.6  interface=1217,bridge1
+ 42  identity=MikroTik  address=192.168.88.1  interface=1217,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:27:05
+# ساعت دستگاه (خام): 2026-10-19 14:48:30
+# افست اصلاحی (سرور − دستگاه): +40:08:35
+  1  1405/07/21 09:34:18  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/21 09:34:18  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:77:D8:7C
+  3  1405/07/21 09:34:19  [interface,info]  131 link up
+  4  1405/07/21 09:34:19  [interface,info]  1217 link up
+  5  1405/07/21 09:34:21  [wireless,info]  wlan1: pre-shared key authentication not enabled, disable WPS
+  6  1405/07/21 09:34:37  [wireless,info]  78:9A:18:B7:FA:FC@wlan1: connected, signal strength -56, wants bridge
+  7  1405/07/21 09:35:04  [wireless,info]  E4:8D:8C:64:82:E9@wlan1: connected, signal strength -71, wants bridge
+  8  1405/07/21 09:35:05  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: connected, signal strength -59
+  9  1405/07/21 09:35:08  [wireless,info]  04:18:D6:5A:74:C4@10094186102-PR-Khezr: connected, signal strength -67
+ 10  1405/07/21 09:35:11  [wireless,info]  64:D1:54:0F:92:FB@10094186102-PR-Khezr: connected, signal strength -59, wants bridge
+ 11  1405/07/21 09:35:20  [wireless,info]  78:9A:18:E8:19:B2@wlan1: connected, signal strength -46, wants bridge
+ 12  1405/07/21 09:35:22  [wireless,info]  2C:C8:1B:3E:53:30@10094186102-PR-Khezr: connected, signal strength -51, wants bridge
+ 13  1405/07/21 09:35:46  [wireless,info]  D4:01:C3:C8:D9:9D@10094186102-PR-Khezr: connected, signal strength -68, wants bridge
+ 14  1405/07/21 09:37:01  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 15  1405/07/21 09:38:16  [wireless,info]  2C:C8:1B:19:AD:34@10094186102-PR-Khezr: connected, signal strength -75, wants bridge
+ 16  1405/07/21 09:38:36  [wireless,info]  64:D1:54:93:4A:DB@wlan1: connected, signal strength -77, wants bridge
+ 17  1405/07/21 09:42:00  [wireless,info]  04:18:D6:5A:74:BC@wlan1: connected, signal strength -72
+ 18  1405/07/21 10:02:49  [wireless,info]  00:15:6D:6B:F2:41@wlan1: connected, signal strength -55, wants bridge
+ 19  1405/07/21 11:20:01  [wireless,info]  D4:01:C3:C8:D9:9D@10094186102-PR-Khezr: disconnected, extensive data loss, signal strength -68
+ 20  1405/07/21 11:51:02  [wireless,info]  2C:C8:1B:3E:53:30@10094186102-PR-Khezr: disconnected, extensive data loss, signal strength -51
+ 21  1405/07/21 12:11:26  [wireless,info]  2C:C8:1B:3E:53:30@10094186102-PR-Khezr: connected, signal strength -52, wants bridge
+ 22  1405/07/21 13:14:02  [wireless,info]  00:15:6D:6B:F2:41@wlan1: disconnected, extensive data loss, signal strength -55
+ 23  1405/07/21 13:15:15  [wireless,info]  00:15:6D:6B:F2:41@wlan1: connected, signal strength -55, wants bridge
+ 24  1405/07/21 14:07:16  [wireless,info]  00:15:6D:6B:F2:41@wlan1: disconnected, extensive data loss, signal strength -55
+ 25  1405/07/21 14:08:28  [wireless,info]  00:15:6D:6B:F2:41@wlan1: connected, signal strength -58, wants bridge
+ 26  1405/07/21 14:47:46  [wireless,info]  00:15:6D:6B:F2:41@wlan1: disconnected, extensive data loss, signal strength -58
+ 27  1405/07/21 14:49:27  [wireless,info]  00:15:6D:6B:F2:41@wlan1: connected, signal strength -56, wants bridge
+ 28  1405/07/21 15:11:18  [wireless,info]  00:15:6D:8C:CB:98@wlan1: connected, signal strength -78
+ 29  1405/07/21 17:56:44  [wireless,info]  00:15:6D:6B:F2:41@wlan1: disconnected, extensive data loss, signal strength -58
+ 30  1405/07/21 19:20:22  [wireless,info]  04:18:D6:5A:74:BC@wlan1: disconnected, extensive data loss, signal strength -68
+ 31  1405/07/21 20:34:12  [wireless,info]  04:18:D6:5A:74:BC@wlan1: connected, signal strength -69
+ 32  1405/07/21 20:35:09  [wireless,info]  04:18:D6:5A:74:BC@wlan1: disconnected, extensive data loss, signal strength -69
+ 33  1405/07/21 23:46:45  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: disconnected, extensive data loss, signal strength -61
+ 34  1405/07/21 23:47:27  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: connected, signal strength -61
+ 35  1405/07/22 09:27:02  [wireless,info]  04:18:D6:5A:74:BC@wlan1: connected, signal strength -71
+ 36  1405/07/22 09:40:00  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: disconnected, extensive data loss, signal strength -61
+ 37  1405/07/22 09:40:57  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: connected, signal strength -60
+ 38  1405/07/22 09:51:26  [wireless,info]  00:15:6D:6B:F2:41@wlan1: connected, signal strength -55, wants bridge
+ 39  1405/07/22 16:10:18  [wireless,info]  00:15:6D:6B:F2:41@wlan1: disconnected, extensive data loss, signal strength -55
+ 40  1405/07/22 16:20:32  [wireless,info]  00:15:6D:6B:F2:41@wlan1: connected, signal strength -56, wants bridge
+ 41  1405/07/22 16:47:50  [wireless,info]  00:15:6D:6B:F2:41@wlan1: disconnected, extensive data loss, signal strength -56
+ 42  1405/07/22 16:54:48  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: disconnected, extensive data loss, signal strength -60
+ 43  1405/07/22 16:55:42  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: connected, signal strength -61
+ 44  1405/07/22 17:24:45  [wireless,info]  D4:01:C3:C8:D9:9D@10094186102-PR-Khezr: connected, signal strength -68, wants bridge
+ 45  1405/07/22 18:49:18  [wireless,info]  04:18:D6:5A:74:BC@wlan1: disconnected, extensive data loss, signal strength -71
+ 46  1405/07/22 18:49:50  [wireless,info]  04:18:D6:5A:74:BC@wlan1: connected, signal strength -67
+ 47  1405/07/22 21:37:39  [wireless,info]  04:18:D6:5A:74:06@wlan1: connected, signal strength -58
+ 48  1405/07/22 21:38:06  [wireless,info]  04:18:D6:5A:74:06@wlan1: disconnected, extensive data loss, signal strength -58
+ 49  1405/07/22 21:38:56  [wireless,info]  04:18:D6:5A:74:06@wlan1: connected, signal strength -57
+ 50  1405/07/22 23:30:51  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: disconnected, extensive data loss, signal strength -61
+ 51  1405/07/22 23:31:33  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: connected, signal strength -63
+ 52  1405/07/23 00:17:11  [wireless,info]  04:18:D6:5A:74:BC@wlan1: disconnected, extensive data loss, signal strength -67
+ 53  1405/07/23 08:14:37  [wireless,info]  04:18:D6:5A:74:06@wlan1: disconnected, extensive data loss, signal strength -57
+ 54  1405/07/23 08:19:37  [wireless,info]  04:18:D6:5A:74:06@wlan1: connected, signal strength -60
+ 55  1405/07/23 08:32:27  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: disconnected, extensive data loss, signal strength -63
+ 56  1405/07/23 08:34:35  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: connected, signal strength -62
+ 57  1405/07/23 08:35:53  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: disconnected, extensive data loss, signal strength -62
+ 58  1405/07/23 08:37:22  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: connected, signal strength -61
+ 59  1405/07/23 09:35:17  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: disconnected, extensive data loss, signal strength -61
+ 60  1405/07/23 09:35:52  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: connected, signal strength -61
+ 61  1405/07/23 10:01:32  [wireless,info]  00:15:6D:6B:F2:41@wlan1: connected, signal strength -57, wants bridge
+ 62  1405/07/23 11:20:12  [wireless,info]  04:18:D6:5A:74:BC@wlan1: connected, signal strength -70
+ 63  1405/07/23 15:01:17  [wireless,info]  00:15:6D:6B:F2:41@wlan1: disconnected, extensive data loss, signal strength -57
+ 64  1405/07/23 15:03:29  [wireless,info]  00:15:6D:6B:F2:41@wlan1: connected, signal strength -54, wants bridge
+ 65  1405/07/23 15:26:28  [wireless,info]  00:15:6D:6B:F2:41@wlan1: disconnected, extensive data loss, signal strength -54
+ 66  1405/07/23 15:28:37  [wireless,info]  00:15:6D:6B:F2:41@wlan1: connected, signal strength -55, wants bridge
+ 67  1405/07/23 17:31:44  [wireless,info]  00:15:6D:6B:F2:41@wlan1: disconnected, extensive data loss, signal strength -55
+ 68  1405/07/23 22:39:00  [wireless,info]  F0:9F:C2:94:CF:B6@wlan1: connected, signal strength -41
+ 69  1405/07/23 23:11:37  [wireless,info]  04:18:D6:5A:74:BC@wlan1: disconnected, extensive data loss, signal strength -73
+ 70  1405/07/23 23:12:06  [wireless,info]  04:18:D6:5A:74:BC@wlan1: connected, signal strength -70
+ 71  1405/07/23 23:12:47  [wireless,info]  04:18:D6:5A:74:BC@wlan1: disconnected, extensive data loss, signal strength -70
+ 72  1405/07/24 00:14:56  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: disconnected, extensive data loss, signal strength -62
+ 73  1405/07/24 00:15:34  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: connected, signal strength -62
+ 74  1405/07/24 01:27:01  [wireless,info]  D4:01:C3:C8:D9:9D@10094186102-PR-Khezr: disconnected, extensive data loss, signal strength -68
+ 75  1405/07/24 01:37:34  [wireless,info]  D4:01:C3:C8:D9:9D@10094186102-PR-Khezr: connected, signal strength -68, wants bridge
+ 76  1405/07/24 07:28:12  [wireless,info]  04:18:D6:5A:74:BC@wlan1: connected, signal strength -70
+ 77  1405/07/24 10:01:17  [wireless,info]  00:15:6D:6B:F2:41@wlan1: connected, signal strength -57, wants bridge
+ 78  1405/07/24 14:59:42  [wireless,info]  00:15:6D:6B:F2:41@wlan1: disconnected, extensive data loss, signal strength -57
+ 79  1405/07/24 15:10:17  [wireless,info]  00:15:6D:6B:F2:41@wlan1: connected, signal strength -56, wants bridge
+ 80  1405/07/24 15:16:22  [wireless,info]  F0:9F:C2:94:CF:B6@wlan1: disconnected, extensive data loss, signal strength -41
+ 81  1405/07/24 15:37:48  [wireless,info]  00:15:6D:6B:F2:41@wlan1: disconnected, extensive data loss, signal strength -56
+ 82  1405/07/24 15:44:48  [wireless,info]  00:15:6D:6B:F2:41@wlan1: connected, signal strength -56, wants bridge
+ 83  1405/07/24 18:58:09  [wireless,info]  F0:9F:C2:94:CF:B6@wlan1: connected, signal strength -42
+ 84  1405/07/24 18:58:36  [wireless,info]  04:18:D6:5A:74:BC@wlan1: disconnected, extensive data loss, signal strength -70
+ 85  1405/07/24 19:37:48  [wireless,info]  00:15:6D:6B:F2:41@wlan1: disconnected, extensive data loss, signal strength -56
+ 86  1405/07/24 19:44:03  [wireless,info]  04:18:D6:5A:74:BC@wlan1: connected, signal strength -80
+ 87  1405/07/24 22:07:34  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: disconnected, extensive data loss, signal strength -62
+ 88  1405/07/24 22:08:14  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: connected, signal strength -63
+ 89  1405/07/24 22:23:03  [wireless,info]  78:9A:18:B7:FA:FC@wlan1: disconnected, extensive data loss, signal strength -59
+ 90  1405/07/24 22:23:53  [wireless,info]  78:9A:18:B7:FA:FC@wlan1: connected, signal strength -61, wants bridge
+ 91  1405/07/24 23:21:12  [wireless,info]  04:18:D6:5A:74:BC@wlan1: disconnected, extensive data loss, signal strength -74
+ 92  1405/07/25 01:40:50  [wireless,info]  D4:01:C3:C8:D9:9D@10094186102-PR-Khezr: disconnected, extensive data loss, signal strength -68
+ 93  1405/07/25 07:26:21  [wireless,info]  04:18:D6:5A:74:BC@wlan1: connected, signal strength -68
+ 94  1405/07/25 08:30:43  [wireless,info]  04:18:D6:5A:74:BC@wlan1: disconnected, extensive data loss, signal strength -68
+ 95  1405/07/25 08:31:24  [wireless,info]  04:18:D6:5A:74:BC@wlan1: connected, signal strength -69
+ 96  1405/07/25 09:02:09  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: disconnected, extensive data loss, signal strength -63
+ 97  1405/07/25 09:02:55  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: connected, signal strength -61
+ 98  1405/07/25 10:08:54  [wireless,info]  04:18:D6:5A:74:BC@wlan1: disconnected, extensive data loss, signal strength -69
+ 99  1405/07/25 11:16:49  [wireless,info]  04:18:D6:5A:74:BC@wlan1: connected, signal strength -69
+100  1405/07/25 11:26:32  [wireless,info]  00:15:6D:6B:F2:41@wlan1: connected, signal strength -56, wants bridge
+101  1405/07/25 11:50:11  [wireless,info]  78:9A:18:B7:FA:FC@wlan1: disconnected, extensive data loss, signal strength -63
+102  1405/07/25 11:51:06  [wireless,info]  78:9A:18:B7:FA:FC@wlan1: connected, signal strength -61, wants bridge
+103  1405/07/25 12:35:44  [wireless,info]  00:15:6D:6B:F2:41@wlan1: disconnected, extensive data loss, signal strength -56
+104  1405/07/25 12:38:17  [wireless,info]  00:15:6D:6B:F2:41@wlan1: connected, signal strength -55, wants bridge
+105  1405/07/25 12:39:12  [wireless,info]  00:15:6D:6B:F2:41@wlan1: disconnected, extensive data loss, signal strength -55
+106  1405/07/25 12:40:25  [wireless,info]  00:15:6D:6B:F2:41@wlan1: connected, signal strength -56, wants bridge
+107  1405/07/25 13:22:05  [wireless,info]  04:18:D6:5A:74:BC@wlan1: disconnected, extensive data loss, signal strength -69
+108  1405/07/25 14:24:16  [wireless,info]  00:15:6D:6B:F2:41@wlan1: disconnected, extensive data loss, signal strength -56
+109  1405/07/25 15:17:34  [wireless,info]  00:15:6D:6B:F2:41@wlan1: connected, signal strength -56, wants bridge
+110  1405/07/25 15:31:35  [wireless,info]  00:15:6D:6B:F2:41@wlan1: disconnected, extensive data loss, signal strength -56
+111  1405/07/25 15:37:06  [wireless,info]  00:15:6D:6B:F2:41@wlan1: connected, signal strength -56, wants bridge
+112  1405/07/25 16:04:08  [wireless,info]  F0:9F:C2:94:CF:B6@wlan1: disconnected, extensive data loss, signal strength -42
+113  1405/07/25 16:10:31  [wireless,info]  00:15:6D:6B:F2:41@wlan1: disconnected, extensive data loss, signal strength -56
+114  1405/07/25 16:21:44  [wireless,info]  64:D1:54:93:4A:DB@wlan1: disconnected, extensive data loss, signal strength -79
+115  1405/07/25 16:51:38  [wireless,info]  64:D1:54:93:4A:DB@wlan1: connected, signal strength -76, wants bridge
+116  1405/07/25 17:14:08  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: disconnected, extensive data loss, signal strength -61
+117  1405/07/25 17:18:13  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: connected, signal strength -60
+118  1405/07/25 17:28:24  [wireless,info]  04:18:D6:5A:74:BC@wlan1: connected, signal strength -67
+119  1405/07/25 18:47:38  [wireless,info]  04:18:D6:5A:74:BC@wlan1: disconnected, extensive data loss, signal strength -67
+120  1405/07/25 19:01:00  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: disconnected, extensive data loss, signal strength -60
+121  1405/07/25 19:02:00  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: connected, signal strength -61
+122  1405/07/25 19:34:20  [wireless,info]  04:18:D6:5A:74:BC@wlan1: connected, signal strength -68
+123  1405/07/25 19:34:38  [wireless,info]  64:D1:54:93:4A:DB@wlan1: reassociating
+124  1405/07/25 19:34:38  [wireless,info]  64:D1:54:93:4A:DB@wlan1: disconnected, ok, signal strength -76
+125  1405/07/25 19:34:38  [wireless,info]  64:D1:54:93:4A:DB@wlan1: connected, signal strength -77, wants bridge
+126  1405/07/25 20:49:17  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: disconnected, extensive data loss, signal strength -61
+127  1405/07/25 20:51:13  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: connected, signal strength -61
+128  1405/07/25 21:01:02  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: disconnected, extensive data loss, signal strength -61
+129  1405/07/25 21:02:01  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: connected, signal strength -61
+130  1405/07/25 22:54:39  [wireless,info]  F0:9F:C2:94:CF:B6@wlan1: connected, signal strength -45
+131  1405/07/25 23:23:57  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: disconnected, extensive data loss, signal strength -61
+132  1405/07/25 23:24:46  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: connected, signal strength -62
+133  1405/07/26 00:05:28  [wireless,info]  04:18:D6:5A:74:BC@wlan1: disconnected, extensive data loss, signal strength -68
+134  1405/07/26 07:12:09  [wireless,info]  04:18:D6:5A:74:BC@wlan1: connected, signal strength -67
+135  1405/07/26 09:58:40  [system,info,account]  user su logged in from 185.110.29.189 via api
+136  1405/07/26 09:58:41  [system,info,account]  user su logged out from 185.110.29.189 via api
+137  1405/07/26 10:14:01  [system,info,account]  user su logged in from 185.110.29.189 via api
+138  1405/07/26 10:14:01  [system,info,account]  user su logged out from 185.110.29.189 via api
+139  1405/07/26 10:30:36  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: disconnected, extensive data loss, signal strength -62
+140  1405/07/26 10:31:13  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: connected, signal strength -59
+141  1405/07/26 11:27:10  [wireless,info]  00:15:6D:6B:F2:41@wlan1: connected, signal strength -55, wants bridge
+142  1405/07/26 13:25:09  [wireless,info]  00:15:6D:6B:F2:41@wlan1: disconnected, extensive data loss, signal strength -55
+143  1405/07/26 13:27:17  [wireless,info]  00:15:6D:6B:F2:41@wlan1: connected, signal strength -56, wants bridge
+144  1405/07/26 16:28:03  [wireless,info]  00:15:6D:6B:F2:41@wlan1: disconnected, extensive data loss, signal strength -56
+145  1405/07/26 21:17:22  [wireless,info]  64:D1:54:93:4A:DB@wlan1: disconnected, extensive data loss, signal strength -77
+146  1405/07/26 21:17:50  [wireless,info]  64:D1:54:93:4A:DB@wlan1: connected, signal strength -74, wants bridge
+147  1405/07/26 23:45:53  [wireless,info]  04:18:D6:5A:74:BC@wlan1: disconnected, extensive data loss, signal strength -67
+148  1405/07/27 02:35:23  [wireless,info]  78:9A:18:B7:FA:FC@wlan1: disconnected, extensive data loss, signal strength -63
+149  1405/07/27 03:31:00  [wireless,info]  78:9A:18:B7:FA:FC@wlan1: connected, signal strength -62, wants bridge
+150  1405/07/27 06:50:10  [wireless,info]  04:18:D6:5A:74:BC@wlan1: connected, signal strength -70
+151  1405/07/27 10:54:52  [wireless,info]  00:15:6D:6B:F2:41@wlan1: connected, signal strength -55, wants bridge
+152  1405/07/27 11:28:32  [wireless,info]  04:18:D6:5A:74:BC@wlan1: disconnected, extensive data loss, signal strength -70
+153  1405/07/27 15:12:43  [wireless,info]  04:18:D6:5A:74:BC@wlan1: connected, signal strength -68
+154  1405/07/27 16:03:14  [wireless,info]  00:15:6D:6B:F2:41@wlan1: disconnected, extensive data loss, signal strength -55
+155  1405/07/27 18:43:15  [wireless,info]  04:18:D6:5A:74:BC@wlan1: disconnected, extensive data loss, signal strength -68
+156  1405/07/27 18:46:46  [wireless,info]  04:18:D6:5A:74:BC@wlan1: connected, signal strength -69
+157  1405/07/27 18:47:42  [wireless,info]  04:18:D6:5A:74:BC@wlan1: disconnected, extensive data loss, signal strength -69
+158  1405/07/27 18:51:34  [wireless,info]  04:18:D6:5A:74:BC@wlan1: connected, signal strength -69
+159  1405/07/27 21:51:52  [wireless,info]  D4:01:C3:C8:D9:9D@10094186102-PR-Khezr: connected, signal strength -71, wants bridge
+160  1405/07/27 22:50:54  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: disconnected, extensive data loss, signal strength -62
+161  1405/07/27 22:51:23  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: connected, signal strength -61
+162  1405/07/28 00:05:46  [wireless,info]  04:18:D6:5A:74:BC@wlan1: disconnected, extensive data loss, signal strength -69
+163  1405/07/28 00:23:02  [wireless,info]  2C:C8:1B:3E:53:30@10094186102-PR-Khezr: disconnected, extensive data loss, signal strength -54
+164  1405/07/28 00:24:56  [wireless,info]  2C:C8:1B:3E:53:30@10094186102-PR-Khezr: connected, signal strength -54, wants bridge
+165  1405/07/28 00:35:26  [wireless,info]  2C:C8:1B:3E:53:30@10094186102-PR-Khezr: disconnected, extensive data loss, signal strength -54
+166  1405/07/28 00:37:27  [wireless,info]  2C:C8:1B:3E:53:30@10094186102-PR-Khezr: connected, signal strength -52, wants bridge
+167  1405/07/28 01:16:36  [wireless,info]  D4:01:C3:C8:D9:9D@10094186102-PR-Khezr: disconnected, extensive data loss, signal strength -71
+168  1405/07/28 02:47:39  [wireless,info]  2C:C8:1B:3E:53:30@10094186102-PR-Khezr: disconnected, extensive data loss, signal strength -52
+169  1405/07/28 02:49:16  [wireless,info]  2C:C8:1B:3E:53:30@10094186102-PR-Khezr: connected, signal strength -52, wants bridge
+170  1405/07/28 07:02:58  [wireless,info]  04:18:D6:5A:74:BC@wlan1: connected, signal strength -71
+171  1405/07/28 09:42:40  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: disconnected, extensive data loss, signal strength -61
+172  1405/07/28 09:43:12  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: connected, signal strength -61
+173  1405/07/28 11:28:59  [wireless,info]  D4:01:C3:C8:D9:9D@10094186102-PR-Khezr: connected, signal strength -70, wants bridge
+174  1405/07/28 21:12:18  [wireless,info]  04:18:D6:5A:74:BC@wlan1: disconnected, extensive data loss, signal strength -71
+175  1405/07/28 22:22:59  [wireless,info]  04:18:D6:5A:74:BC@wlan1: connected, signal strength -73
+176  1405/07/28 22:34:58  [wireless,info]  78:9A:18:E8:19:B2@wlan1: disconnected, extensive data loss, signal strength -53
+177  1405/07/28 23:45:43  [wireless,info]  04:18:D6:5A:74:BC@wlan1: disconnected, extensive data loss, signal strength -73
+178  1405/07/28 23:48:56  [wireless,info]  D4:01:C3:C8:D9:9D@10094186102-PR-Khezr: disconnected, extensive data loss, signal strength -70
+179  1405/07/28 23:49:36  [wireless,info]  D4:01:C3:C8:D9:9D@10094186102-PR-Khezr: connected, signal strength -69, wants bridge
+180  1405/07/29 00:32:31  [wireless,info]  78:9A:18:E8:19:B2@wlan1: connected, signal strength -46, wants bridge
+181  1405/07/29 05:38:04  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: disconnected, extensive data loss, signal strength -60
+182  1405/07/29 05:38:42  [wireless,info]  44:D9:E7:B4:DD:4F@wlan1: connected, signal strength -61
+183  1405/07/29 06:27:27  [wireless,info]  04:18:D6:5A:74:BC@wlan1: connected, signal strength -70
+184  1405/07/29 10:27:05  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  E4:8D:8C:77:D8:7C  (ether)
+10094186102-PR-Khezr  E6:8D:8C:77:D8:7D  (wlan)
+wlan1  E4:8D:8C:77:D8:7D  (wlan)
+131  E4:8D:8C:77:D8:7C  (vlan)
+1217  E4:8D:8C:77:D8:7C  (vlan)
+bridge1  E4:8D:8C:77:D8:7C  (bridge)
+--- /ip arp ---
+131  4C:5E:0C:C5:C8:24  (arp 172.172.177.89)

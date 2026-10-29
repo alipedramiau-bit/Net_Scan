@@ -1,0 +1,301 @@
+IP: 172.19.1.83
+Collected at: 2026-10-21T06:57:34.360564+00:00
+source: RouterOS API
+identity: Avazeh.Client
+device_type: ST
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=08:55:31:38:5D:66
+  2  name=wlan1  type=wlan  running=true  mac=08:55:31:38:5D:67
+  3  name=bridge1  type=bridge  running=true  mac=08:55:31:38:5D:66
+  4  name=eoip-tunnel1  type=eoip  running=true  mac=02:B1:14:38:78:7A
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=station-wds  ssid=10094186191-PR-PTP-Avazeh  band=5ghz-a/n  frequency=5620
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.19.1.83/29  interface=wlan1  network=172.19.1.80
+  2  address=192.168.1.1/24  interface=bridge1  network=192.168.1.0
+  3  address=185.110.29.140/32  interface=wlan1  network=185.110.29.140
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.19.1.81  distance=1
+  2  dst=172.19.1.80/29  gw=wlan1  distance=0
+  3  dst=185.110.29.140/32  gw=wlan1  distance=0
+  4  dst=192.168.1.0/24  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=-  address=-  interface=ether1,bridge1
+  2  identity=-  address=-  interface=ether1,bridge1
+  3  identity=-  address=-  interface=ether1,bridge1
+  4  identity=-  address=-  interface=ether1,bridge1
+  5  identity=-  address=-  interface=ether1,bridge1
+  6  identity=-  address=-  interface=ether1,bridge1
+  7  identity=-  address=-  interface=ether1,bridge1
+  8  identity=-  address=-  interface=ether1,bridge1
+  9  identity=-  address=-  interface=ether1,bridge1
+ 10  identity=-  address=-  interface=ether1,bridge1
+ 11  identity=-  address=-  interface=ether1,bridge1
+ 12  identity=ParsaRasaneh-SW-Emam-POP  address=172.17.12.106  interface=wlan1
+ 13  identity=MikroTik  address=172.19.1.81  interface=wlan1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:27:18
+# ساعت دستگاه (خام): 2026-10-18 12:16:14
+# افست اصلاحی (سرور − دستگاه): +66:41:04
+  1  1405/07/28 19:07:46  [dhcp,info]  dhcp1 assigned 192.168.1.108 to 00:17:6F:20:DB:1C
+  2  1405/07/28 19:17:46  [dhcp,info]  dhcp1 deassigned 192.168.1.108 from 00:17:6F:20:DB:1C
+  3  1405/07/28 19:17:47  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.108 from 00:17:6F:20:DB:1C
+  4  1405/07/28 19:17:52  [dhcp,info]  dhcp1 assigned 192.168.1.110 to 00:17:6F:20:DB:1C
+  5  1405/07/28 19:27:52  [dhcp,info]  dhcp1 deassigned 192.168.1.110 from 00:17:6F:20:DB:1C
+  6  1405/07/28 19:27:52  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.110 from 00:17:6F:20:DB:1C
+  7  1405/07/28 19:27:58  [dhcp,info]  dhcp1 assigned 192.168.1.108 to 00:17:6F:20:DB:1C
+  8  1405/07/28 19:37:58  [dhcp,info]  dhcp1 deassigned 192.168.1.108 from 00:17:6F:20:DB:1C
+  9  1405/07/28 19:37:58  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.108 from 00:17:6F:20:DB:1C
+ 10  1405/07/28 19:38:04  [dhcp,info]  dhcp1 assigned 192.168.1.110 to 00:17:6F:20:DB:1C
+ 11  1405/07/28 19:48:04  [dhcp,info]  dhcp1 deassigned 192.168.1.110 from 00:17:6F:20:DB:1C
+ 12  1405/07/28 19:48:04  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.110 from 00:17:6F:20:DB:1C
+ 13  1405/07/28 19:48:09  [dhcp,info]  dhcp1 assigned 192.168.1.108 to 00:17:6F:20:DB:1C
+ 14  1405/07/28 19:58:09  [dhcp,info]  dhcp1 deassigned 192.168.1.108 from 00:17:6F:20:DB:1C
+ 15  1405/07/28 19:58:09  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.108 from 00:17:6F:20:DB:1C
+ 16  1405/07/28 19:58:15  [dhcp,info]  dhcp1 assigned 192.168.1.110 to 00:17:6F:20:DB:1C
+ 17  1405/07/28 19:58:40  [dhcp,info]  dhcp1 deassigned 192.168.1.75 from 60:45:CB:A5:C6:AB
+ 18  1405/07/28 19:58:47  [dhcp,info]  dhcp1 deassigned 192.168.1.74 from 7C:10:C9:83:91:B6
+ 19  1405/07/28 20:03:48  [dhcp,info]  dhcp1 deassigned 192.168.1.109 from 60:45:CB:A5:C4:9F
+ 20  1405/07/28 20:08:15  [dhcp,info]  dhcp1 deassigned 192.168.1.110 from 00:17:6F:20:DB:1C
+ 21  1405/07/28 20:08:15  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.110 from 00:17:6F:20:DB:1C
+ 22  1405/07/28 20:08:21  [dhcp,info]  dhcp1 assigned 192.168.1.109 to 00:17:6F:20:DB:1C
+ 23  1405/07/28 20:17:04  [dhcp,info]  dhcp1 assigned 192.168.1.106 to B4:29:3D:80:60:67
+ 24  1405/07/28 20:18:21  [dhcp,info]  dhcp1 deassigned 192.168.1.109 from 00:17:6F:20:DB:1C
+ 25  1405/07/28 20:18:21  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.109 from 00:17:6F:20:DB:1C
+ 26  1405/07/28 20:18:26  [dhcp,info]  dhcp1 assigned 192.168.1.110 to 00:17:6F:20:DB:1C
+ 27  1405/07/28 20:28:26  [dhcp,info]  dhcp1 deassigned 192.168.1.110 from 00:17:6F:20:DB:1C
+ 28  1405/07/28 20:28:26  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.110 from 00:17:6F:20:DB:1C
+ 29  1405/07/28 20:28:32  [dhcp,info]  dhcp1 assigned 192.168.1.109 to 00:17:6F:20:DB:1C
+ 30  1405/07/28 20:38:32  [dhcp,info]  dhcp1 deassigned 192.168.1.109 from 00:17:6F:20:DB:1C
+ 31  1405/07/28 20:38:32  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.109 from 00:17:6F:20:DB:1C
+ 32  1405/07/28 20:38:38  [dhcp,info]  dhcp1 assigned 192.168.1.110 to 00:17:6F:20:DB:1C
+ 33  1405/07/28 20:48:38  [dhcp,info]  dhcp1 deassigned 192.168.1.110 from 00:17:6F:20:DB:1C
+ 34  1405/07/28 20:48:38  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.110 from 00:17:6F:20:DB:1C
+ 35  1405/07/28 20:48:43  [dhcp,info]  dhcp1 assigned 192.168.1.109 to 00:17:6F:20:DB:1C
+ 36  1405/07/28 20:56:54  [dhcp,info]  dhcp1 assigned 192.168.1.108 to B6:0F:62:34:A0:13
+ 37  1405/07/28 20:58:43  [dhcp,info]  dhcp1 deassigned 192.168.1.109 from 00:17:6F:20:DB:1C
+ 38  1405/07/28 20:58:43  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.109 from 00:17:6F:20:DB:1C
+ 39  1405/07/28 20:58:49  [dhcp,info]  dhcp1 assigned 192.168.1.110 to 00:17:6F:20:DB:1C
+ 40  1405/07/28 21:08:49  [dhcp,info]  dhcp1 deassigned 192.168.1.110 from 00:17:6F:20:DB:1C
+ 41  1405/07/28 21:08:49  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.110 from 00:17:6F:20:DB:1C
+ 42  1405/07/28 21:08:54  [dhcp,info]  dhcp1 assigned 192.168.1.109 to 00:17:6F:20:DB:1C
+ 43  1405/07/28 21:18:54  [dhcp,info]  dhcp1 deassigned 192.168.1.109 from 00:17:6F:20:DB:1C
+ 44  1405/07/28 21:18:55  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.109 from 00:17:6F:20:DB:1C
+ 45  1405/07/28 21:19:00  [dhcp,info]  dhcp1 assigned 192.168.1.110 to 00:17:6F:20:DB:1C
+ 46  1405/07/28 21:29:00  [dhcp,info]  dhcp1 deassigned 192.168.1.110 from 00:17:6F:20:DB:1C
+ 47  1405/07/28 21:29:00  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.110 from 00:17:6F:20:DB:1C
+ 48  1405/07/28 21:29:06  [dhcp,info]  dhcp1 assigned 192.168.1.109 to 00:17:6F:20:DB:1C
+ 49  1405/07/28 21:39:06  [dhcp,info]  dhcp1 deassigned 192.168.1.109 from 00:17:6F:20:DB:1C
+ 50  1405/07/28 21:39:06  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.109 from 00:17:6F:20:DB:1C
+ 51  1405/07/28 21:39:12  [dhcp,info]  dhcp1 assigned 192.168.1.110 to 00:17:6F:20:DB:1C
+ 52  1405/07/28 21:43:17  [dhcp,info]  dhcp1 assigned 192.168.1.81 to BE:9F:0A:1D:C8:D5
+ 53  1405/07/28 21:43:35  [dhcp,info]  dhcp1 assigned 192.168.1.100 to D6:79:2D:B4:9F:89
+ 54  1405/07/28 21:48:53  [dhcp,info]  dhcp1 deassigned 192.168.1.90 from DE:87:94:C6:F6:DA
+ 55  1405/07/28 21:49:12  [dhcp,info]  dhcp1 deassigned 192.168.1.110 from 00:17:6F:20:DB:1C
+ 56  1405/07/28 21:49:12  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.110 from 00:17:6F:20:DB:1C
+ 57  1405/07/28 21:49:17  [dhcp,info]  dhcp1 assigned 192.168.1.109 to 00:17:6F:20:DB:1C
+ 58  1405/07/28 21:53:17  [dhcp,info]  dhcp1 deassigned 192.168.1.81 from BE:9F:0A:1D:C8:D5
+ 59  1405/07/28 21:53:44  [dhcp,info]  dhcp1 assigned 192.168.1.90 to DE:87:94:C6:F6:DA
+ 60  1405/07/28 21:58:36  [dhcp,info]  dhcp1 deassigned 192.168.1.100 from D6:79:2D:B4:9F:89
+ 61  1405/07/28 21:59:17  [dhcp,info]  dhcp1 deassigned 192.168.1.109 from 00:17:6F:20:DB:1C
+ 62  1405/07/28 21:59:18  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.109 from 00:17:6F:20:DB:1C
+ 63  1405/07/28 21:59:23  [dhcp,info]  dhcp1 assigned 192.168.1.110 to 00:17:6F:20:DB:1C
+ 64  1405/07/28 22:09:23  [dhcp,info]  dhcp1 deassigned 192.168.1.110 from 00:17:6F:20:DB:1C
+ 65  1405/07/28 22:09:23  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.110 from 00:17:6F:20:DB:1C
+ 66  1405/07/28 22:09:29  [dhcp,info]  dhcp1 assigned 192.168.1.109 to 00:17:6F:20:DB:1C
+ 67  1405/07/28 22:19:29  [dhcp,info]  dhcp1 deassigned 192.168.1.109 from 00:17:6F:20:DB:1C
+ 68  1405/07/28 22:19:29  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.109 from 00:17:6F:20:DB:1C
+ 69  1405/07/28 22:19:34  [dhcp,info]  dhcp1 assigned 192.168.1.110 to 00:17:6F:20:DB:1C
+ 70  1405/07/28 22:29:34  [dhcp,info]  dhcp1 deassigned 192.168.1.110 from 00:17:6F:20:DB:1C
+ 71  1405/07/28 22:29:35  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.110 from 00:17:6F:20:DB:1C
+ 72  1405/07/28 22:29:40  [dhcp,info]  dhcp1 assigned 192.168.1.79 to 00:17:6F:20:DB:1C
+ 73  1405/07/28 22:36:21  [dhcp,info]  dhcp1 deassigned 192.168.1.108 from B6:0F:62:34:A0:13
+ 74  1405/07/28 22:37:37  [dhcp,info]  dhcp1 deassigned 192.168.1.106 from B4:29:3D:80:60:67
+ 75  1405/07/28 22:39:40  [dhcp,info]  dhcp1 deassigned 192.168.1.79 from 00:17:6F:20:DB:1C
+ 76  1405/07/28 22:39:40  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.79 from 00:17:6F:20:DB:1C
+ 77  1405/07/28 22:39:46  [dhcp,info]  dhcp1 assigned 192.168.1.110 to 00:17:6F:20:DB:1C
+ 78  1405/07/28 22:49:46  [dhcp,info]  dhcp1 deassigned 192.168.1.110 from 00:17:6F:20:DB:1C
+ 79  1405/07/28 22:49:46  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.110 from 00:17:6F:20:DB:1C
+ 80  1405/07/28 22:49:51  [dhcp,info]  dhcp1 assigned 192.168.1.109 to 00:17:6F:20:DB:1C
+ 81  1405/07/28 22:57:37  [dhcp,info]  dhcp1 assigned 192.168.1.108 to F6:BC:50:86:CD:98
+ 82  1405/07/28 22:59:51  [dhcp,info]  dhcp1 deassigned 192.168.1.109 from 00:17:6F:20:DB:1C
+ 83  1405/07/28 22:59:52  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.109 from 00:17:6F:20:DB:1C
+ 84  1405/07/28 22:59:57  [dhcp,info]  dhcp1 assigned 192.168.1.110 to 00:17:6F:20:DB:1C
+ 85  1405/07/28 23:09:57  [dhcp,info]  dhcp1 deassigned 192.168.1.110 from 00:17:6F:20:DB:1C
+ 86  1405/07/28 23:09:57  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.110 from 00:17:6F:20:DB:1C
+ 87  1405/07/28 23:10:03  [dhcp,info]  dhcp1 assigned 192.168.1.109 to 00:17:6F:20:DB:1C
+ 88  1405/07/28 23:10:30  [dhcp,info]  dhcp1 deassigned 192.168.1.108 from F6:BC:50:86:CD:98
+ 89  1405/07/28 23:10:31  [dhcp,info]  dhcp1 assigned 192.168.1.108 to F6:BC:50:86:CD:98
+ 90  1405/07/28 23:20:03  [dhcp,info]  dhcp1 deassigned 192.168.1.109 from 00:17:6F:20:DB:1C
+ 91  1405/07/28 23:20:03  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.109 from 00:17:6F:20:DB:1C
+ 92  1405/07/28 23:20:08  [dhcp,info]  dhcp1 assigned 192.168.1.110 to 00:17:6F:20:DB:1C
+ 93  1405/07/28 23:20:32  [dhcp,info]  dhcp1 deassigned 192.168.1.108 from F6:BC:50:86:CD:98
+ 94  1405/07/28 23:30:08  [dhcp,info]  dhcp1 deassigned 192.168.1.110 from 00:17:6F:20:DB:1C
+ 95  1405/07/28 23:30:08  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.110 from 00:17:6F:20:DB:1C
+ 96  1405/07/28 23:30:14  [dhcp,info]  dhcp1 assigned 192.168.1.109 to 00:17:6F:20:DB:1C
+ 97  1405/07/28 23:40:14  [dhcp,info]  dhcp1 deassigned 192.168.1.109 from 00:17:6F:20:DB:1C
+ 98  1405/07/28 23:40:14  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.109 from 00:17:6F:20:DB:1C
+ 99  1405/07/28 23:40:19  [dhcp,info]  dhcp1 assigned 192.168.1.110 to 00:17:6F:20:DB:1C
+100  1405/07/28 23:50:19  [dhcp,info]  dhcp1 deassigned 192.168.1.110 from 00:17:6F:20:DB:1C
+101  1405/07/28 23:50:19  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.110 from 00:17:6F:20:DB:1C
+102  1405/07/28 23:50:25  [dhcp,info]  dhcp1 assigned 192.168.1.109 to 00:17:6F:20:DB:1C
+103  1405/07/29 00:00:25  [dhcp,info]  dhcp1 deassigned 192.168.1.109 from 00:17:6F:20:DB:1C
+104  1405/07/29 00:06:24  [dhcp,info]  dhcp1 deassigned 192.168.1.84 from CC:4D:74:23:94:A2
+105  1405/07/29 00:07:36  [dhcp,info]  dhcp1 deassigned 192.168.1.89 from 00:17:6F:F4:02:C4
+106  1405/07/29 00:09:40  [dhcp,info]  dhcp1 deassigned 192.168.1.99 from 74:D0:2B:CB:9F:91
+107  1405/07/29 00:11:18  [dhcp,info]  dhcp1 deassigned 192.168.1.91 from 70:4D:7B:B3:B9:EB
+108  1405/07/29 04:55:30  [dhcp,info]  dhcp1 deassigned 192.168.1.107 from 94:17:00:5B:AC:23
+109  1405/07/29 07:19:15  [dhcp,info]  dhcp1 assigned 192.168.1.74 to 7C:10:C9:83:91:B6
+110  1405/07/29 07:19:17  [dhcp,info]  dhcp1 assigned 192.168.1.75 to 60:45:CB:A5:C6:AB
+111  1405/07/29 07:19:32  [dhcp,info]  dhcp1 assigned 192.168.1.110 to 60:45:CB:A5:C4:9F
+112  1405/07/29 07:29:01  [dhcp,info]  dhcp1 assigned 192.168.1.77 to 34:B9:8D:90:94:C0
+113  1405/07/29 07:32:37  [dhcp,info]  dhcp1 deassigned 192.168.1.77 from 34:B9:8D:90:94:C0
+114  1405/07/29 07:32:38  [dhcp,info]  dhcp1 assigned 192.168.1.77 to 34:B9:8D:90:94:C0
+115  1405/07/29 07:32:45  [dhcp,info]  dhcp1 assigned 192.168.1.109 to 58:11:22:97:70:4C
+116  1405/07/29 07:47:04  [dhcp,info]  dhcp1 assigned 192.168.1.99 to 74:D0:2B:CB:9F:91
+117  1405/07/29 07:52:39  [dhcp,info]  dhcp1 deassigned 192.168.1.77 from 34:B9:8D:90:94:C0
+118  1405/07/29 07:55:08  [dhcp,info]  dhcp1 assigned 192.168.1.76 to A0:36:BC:27:DB:DF
+119  1405/07/29 07:55:08  [dhcp,info]  dhcp1 assigned 192.168.1.103 to 70:4D:7B:67:D0:11
+120  1405/07/29 07:55:23  [dhcp,info]  dhcp1 assigned 192.168.1.87 to 60:45:CB:A5:BE:9D
+121  1405/07/29 07:55:43  [dhcp,info]  dhcp1 assigned 192.168.1.96 to 60:45:CB:A5:C6:C0
+122  1405/07/29 07:56:38  [dhcp,info]  dhcp1 assigned 192.168.1.86 to 60:45:CB:A4:48:4E
+123  1405/07/29 07:57:23  [dhcp,info]  dhcp1 assigned 192.168.1.106 to B4:29:3D:80:60:67
+124  1405/07/29 07:57:24  [dhcp,info]  dhcp1 assigned 192.168.1.108 to CC:4D:74:18:24:3F
+125  1405/07/29 07:57:33  [dhcp,info]  dhcp1 assigned 192.168.1.107 to 00:17:6F:20:DB:1C
+126  1405/07/29 07:57:48  [dhcp,info]  dhcp1 assigned 192.168.1.89 to 00:17:6F:F4:02:C4
+127  1405/07/29 07:57:55  [dhcp,info]  dhcp1 assigned 192.168.1.85 to 4C:ED:FB:6C:31:6D
+128  1405/07/29 07:58:01  [dhcp,info]  dhcp1 assigned 192.168.1.77 to 34:B9:8D:90:94:C0
+129  1405/07/29 07:58:09  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.105 from 84:BA:3B:92:E7:A2
+130  1405/07/29 07:58:11  [dhcp,info]  dhcp1 assigned 192.168.1.104 to B6:0F:62:34:A0:13
+131  1405/07/29 08:00:58  [dhcp,info]  dhcp1 assigned 192.168.1.101 to 70:4D:7B:2D:5E:7F
+132  1405/07/29 08:02:57  [dhcp,info]  dhcp1 assigned 192.168.1.94 to 38:3C:9C:83:A7:9A
+133  1405/07/29 08:05:01  [dhcp,info]  dhcp1 assigned 192.168.1.93 to 50:EB:F6:28:5B:18
+134  1405/07/29 08:07:05  [dhcp,info]  dhcp1 assigned 192.168.1.100 to A0:36:BC:27:D6:6A
+135  1405/07/29 08:07:33  [dhcp,info]  dhcp1 deassigned 192.168.1.107 from 00:17:6F:20:DB:1C
+136  1405/07/29 08:07:33  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.107 from 00:17:6F:20:DB:1C
+137  1405/07/29 08:07:38  [dhcp,info]  dhcp1 assigned 192.168.1.91 to 00:17:6F:20:DB:1C
+138  1405/07/29 08:10:09  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.105 from 84:BA:3B:92:E7:A2
+139  1405/07/29 08:10:17  [dhcp,info]  dhcp1 assigned 192.168.1.84 to 94:17:00:5B:AC:23
+140  1405/07/29 08:13:29  [dhcp,info]  dhcp1 assigned 192.168.1.72 to 60:45:CB:A5:C7:35
+141  1405/07/29 08:16:41  [dhcp,info]  dhcp1 assigned 192.168.1.73 to 60:45:CB:A5:BE:A1
+142  1405/07/29 08:17:38  [dhcp,info]  dhcp1 deassigned 192.168.1.91 from 00:17:6F:20:DB:1C
+143  1405/07/29 08:17:38  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.91 from 00:17:6F:20:DB:1C
+144  1405/07/29 08:17:44  [dhcp,info]  dhcp1 assigned 192.168.1.107 to 00:17:6F:20:DB:1C
+145  1405/07/29 08:27:44  [dhcp,info]  dhcp1 deassigned 192.168.1.107 from 00:17:6F:20:DB:1C
+146  1405/07/29 08:27:44  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.107 from 00:17:6F:20:DB:1C
+147  1405/07/29 08:27:49  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.105 from 84:BA:3B:92:E7:A2
+148  1405/07/29 08:27:54  [dhcp,info]  dhcp1 assigned 192.168.1.91 to 00:17:6F:20:DB:1C
+149  1405/07/29 08:37:54  [dhcp,info]  dhcp1 deassigned 192.168.1.91 from 00:17:6F:20:DB:1C
+150  1405/07/29 08:37:55  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.91 from 00:17:6F:20:DB:1C
+151  1405/07/29 08:38:00  [dhcp,info]  dhcp1 assigned 192.168.1.107 to 00:17:6F:20:DB:1C
+152  1405/07/29 08:38:15  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.105 from 84:BA:3B:92:E7:A2
+153  1405/07/29 08:38:21  [dhcp,info]  dhcp1 assigned 192.168.1.81 to 68:A0:3E:64:56:0E
+154  1405/07/29 08:48:00  [dhcp,info]  dhcp1 deassigned 192.168.1.107 from 00:17:6F:20:DB:1C
+155  1405/07/29 08:48:00  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.107 from 00:17:6F:20:DB:1C
+156  1405/07/29 08:48:06  [dhcp,info]  dhcp1 assigned 192.168.1.91 to 00:17:6F:20:DB:1C
+157  1405/07/29 08:48:35  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.105 from 84:BA:3B:92:E7:A2
+158  1405/07/29 08:48:51  [dhcp,info]  dhcp1 assigned 192.168.1.80 to 38:D5:47:DD:4B:D7
+159  1405/07/29 08:58:06  [dhcp,info]  dhcp1 deassigned 192.168.1.91 from 00:17:6F:20:DB:1C
+160  1405/07/29 08:58:06  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.91 from 00:17:6F:20:DB:1C
+161  1405/07/29 08:58:11  [dhcp,info]  dhcp1 assigned 192.168.1.107 to 00:17:6F:20:DB:1C
+162  1405/07/29 09:08:01  [dhcp,info]  dhcp1 deassigned 192.168.1.77 from 34:B9:8D:90:94:C0
+163  1405/07/29 09:08:11  [dhcp,info]  dhcp1 deassigned 192.168.1.107 from 00:17:6F:20:DB:1C
+164  1405/07/29 09:08:11  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.107 from 00:17:6F:20:DB:1C
+165  1405/07/29 09:08:16  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.105 from 84:BA:3B:92:E7:A2
+166  1405/07/29 09:08:22  [dhcp,info]  dhcp1 assigned 192.168.1.91 to 00:17:6F:20:DB:1C
+167  1405/07/29 09:09:28  [dhcp,info]  dhcp1 assigned 192.168.1.77 to 34:B9:8D:90:94:C0
+168  1405/07/29 09:18:22  [dhcp,info]  dhcp1 deassigned 192.168.1.91 from 00:17:6F:20:DB:1C
+169  1405/07/29 09:18:22  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.91 from 00:17:6F:20:DB:1C
+170  1405/07/29 09:18:27  [dhcp,info]  dhcp1 assigned 192.168.1.107 to 00:17:6F:20:DB:1C
+171  1405/07/29 09:28:27  [dhcp,info]  dhcp1 deassigned 192.168.1.107 from 00:17:6F:20:DB:1C
+172  1405/07/29 09:28:27  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.107 from 00:17:6F:20:DB:1C
+173  1405/07/29 09:28:32  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.105 from 84:BA:3B:92:E7:A2
+174  1405/07/29 09:28:38  [dhcp,info]  dhcp1 assigned 192.168.1.91 to 00:17:6F:20:DB:1C
+175  1405/07/29 09:29:28  [dhcp,info]  dhcp1 deassigned 192.168.1.77 from 34:B9:8D:90:94:C0
+176  1405/07/29 09:35:56  [dhcp,info]  dhcp1 assigned 192.168.1.77 to 34:B9:8D:90:94:C0
+177  1405/07/29 09:36:47  [dhcp,info]  dhcp1 assigned 192.168.1.79 to 70:4D:7B:B3:B9:EB
+178  1405/07/29 09:38:38  [dhcp,info]  dhcp1 deassigned 192.168.1.91 from 00:17:6F:20:DB:1C
+179  1405/07/29 09:38:38  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.91 from 00:17:6F:20:DB:1C
+180  1405/07/29 09:38:43  [dhcp,info]  dhcp1 assigned 192.168.1.107 to 00:17:6F:20:DB:1C
+181  1405/07/29 09:39:03  [dhcp,info]  dhcp1 deassigned 192.168.1.77 from 34:B9:8D:90:94:C0
+182  1405/07/29 09:39:03  [dhcp,info]  dhcp1 assigned 192.168.1.77 to 34:B9:8D:90:94:C0
+183  1405/07/29 09:48:43  [dhcp,info]  dhcp1 deassigned 192.168.1.107 from 00:17:6F:20:DB:1C
+184  1405/07/29 09:48:44  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.107 from 00:17:6F:20:DB:1C
+185  1405/07/29 09:48:49  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.105 from 84:BA:3B:92:E7:A2
+186  1405/07/29 09:48:51  [dhcp,info]  dhcp1 deassigned 192.168.1.81 from 68:A0:3E:64:56:0E
+187  1405/07/29 09:48:54  [dhcp,info]  dhcp1 assigned 192.168.1.91 to 00:17:6F:20:DB:1C
+188  1405/07/29 09:58:54  [dhcp,info]  dhcp1 deassigned 192.168.1.91 from 00:17:6F:20:DB:1C
+189  1405/07/29 09:58:54  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.91 from 00:17:6F:20:DB:1C
+190  1405/07/29 09:59:00  [dhcp,info]  dhcp1 assigned 192.168.1.107 to 00:17:6F:20:DB:1C
+191  1405/07/29 10:09:00  [dhcp,info]  dhcp1 deassigned 192.168.1.107 from 00:17:6F:20:DB:1C
+192  1405/07/29 10:09:00  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.107 from 00:17:6F:20:DB:1C
+193  1405/07/29 10:09:05  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.105 from 84:BA:3B:92:E7:A2
+194  1405/07/29 10:09:10  [dhcp,info]  dhcp1 assigned 192.168.1.91 to 00:17:6F:20:DB:1C
+195  1405/07/29 10:17:51  [dhcp,info]  dhcp1 deassigned 192.168.1.77 from 34:B9:8D:90:94:C0
+196  1405/07/29 10:17:52  [dhcp,info]  dhcp1 assigned 192.168.1.77 to 34:B9:8D:90:94:C0
+197  1405/07/29 10:19:10  [dhcp,info]  dhcp1 deassigned 192.168.1.91 from 00:17:6F:20:DB:1C
+198  1405/07/29 10:19:10  [dhcp,warning]  Detected conflict by ARP response for 192.168.1.91 from 00:17:6F:20:DB:1C
+199  1405/07/29 10:19:16  [dhcp,info]  dhcp1 assigned 192.168.1.107 to 00:17:6F:20:DB:1C
+200  1405/07/29 10:27:18  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  08:55:31:38:5D:66  (ether)
+wlan1  08:55:31:38:5D:67  (wlan)
+bridge1  08:55:31:38:5D:66  (bridge)
+eoip-tunnel1  02:B1:14:38:78:7A  (eoip)
+--- /ip arp ---
+bridge1  B6:B0:24:0B:2A:1E  (arp 192.168.1.98)
+bridge1  00:0C:29:40:2C:69  (arp 192.168.1.6)
+bridge1  10:7B:44:91:55:28  (arp 192.168.1.83)
+bridge1  00:0C:29:D3:A2:EA  (arp 192.168.1.3)
+bridge1  30:E1:71:5C:DD:4C  (arp 192.168.1.4)
+wlan1  4C:5E:0C:C5:C8:24  (arp 172.19.1.81)
+bridge1  00:0C:29:D5:15:5A  (arp 192.168.1.7)
+bridge1  0C:9D:92:18:A1:06  (arp 192.168.1.205)
+bridge1  60:45:CB:9F:FF:0B  (arp 192.168.1.92)
+bridge1  B6:B0:24:0B:2A:1E  (arp 192.168.1.97)
+bridge1  60:45:CB:A5:C6:AB  (arp 192.168.1.75)
+bridge1  7C:10:C9:83:91:B6  (arp 192.168.1.74)
+bridge1  60:45:CB:A5:C4:9F  (arp 192.168.1.110)
+bridge1  B6:B0:24:0B:2A:1E  (arp 192.168.1.77)
+bridge1  58:11:22:97:70:4C  (arp 192.168.1.109)
+bridge1  00:0C:29:3C:40:60  (arp 192.168.1.8)
+bridge1  74:D0:2B:CB:9F:91  (arp 192.168.1.99)
+bridge1  A0:36:BC:27:DB:DF  (arp 192.168.1.76)
+bridge1  70:4D:7B:67:D0:11  (arp 192.168.1.103)
+bridge1  60:45:CB:A5:BE:9D  (arp 192.168.1.87)
+bridge1  60:45:CB:A5:C6:C0  (arp 192.168.1.96)
+bridge1  60:45:CB:A4:48:4E  (arp 192.168.1.86)
+bridge1  00:19:17:32:0B:10  (arp 192.168.1.14)
+bridge1  00:19:17:32:0B:15  (arp 192.168.1.10)
+bridge1  4C:ED:FB:6C:31:6D  (arp 192.168.1.85)
+bridge1  B6:0F:62:34:A0:13  (arp 192.168.1.104)
+bridge1  00:19:17:87:8D:98  (arp 192.168.1.206)
+bridge1  70:4D:7B:2D:5E:7F  (arp 192.168.1.101)
+bridge1  50:EB:F6:28:5B:18  (arp 192.168.1.93)
+bridge1  A0:36:BC:27:D6:6A  (arp 192.168.1.100)
+bridge1  B6:B0:24:0B:2A:1E  (arp 192.168.1.84)
+bridge1  60:45:CB:A5:C7:35  (arp 192.168.1.72)
+bridge1  60:45:CB:A5:BE:A1  (arp 192.168.1.73)
+bridge1  38:D5:47:DD:4B:D7  (arp 192.168.1.80)
+bridge1  60:45:CB:A5:D2:35  (arp 192.168.1.254)
+bridge1  70:4D:7B:B3:B9:EB  (arp 192.168.1.79)
+bridge1  B6:B0:24:0B:2A:1E  (arp 192.168.1.90)
+bridge1  00:17:6F:20:DB:1C  (arp 192.168.1.91)
+bridge1  00:17:6F:F4:02:C4  (arp 192.168.1.89)
+bridge1  B4:29:3D:80:60:67  (arp 192.168.1.106)
+bridge1  00:0C:29:CF:60:5B  (arp 192.168.1.31)
+bridge1  00:17:6F:20:DB:1C  (arp 192.168.1.107)
+bridge1  B6:B0:24:0B:2A:1E  (arp 192.168.1.95)

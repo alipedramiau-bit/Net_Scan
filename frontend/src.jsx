@@ -1,16 +1,100 @@
 import React,{useEffect,useState} from "react";import{createRoot}from"react-dom/client";import"./style.css";
-const API=(()=>{const e=import.meta.env.VITE_API_BASE_URL;if(e!==undefined&&e!==null&&e!=="")return e;if(typeof window!=="undefined"){const h=window.location.hostname;const port=window.location.port;
-// Same-origin: FastAPI serves UI on 8001, or Vite (5001/5173) proxies /health /api /devices /scans
-if((h==="127.0.0.1"||h==="localhost")&&(port==="8001"||port==="5001"||port==="5173"||port==="3000"||port===""))return"";
-return `http://${h}:8001`;}return"http://127.0.0.1:8001";})();
+const API=(()=>{
+  const e=import.meta.env.VITE_API_BASE_URL;
+  if(e!==undefined&&e!==null&&e!=="")return e;
+  // Always use same-origin relative URLs:
+  // - When loaded via Vite (port 5001): Vite proxies /scans, /devices, /health, /api, /reports to 127.0.0.1:8001
+  // - When served via FastAPI directly (port 8001): same-origin relative paths hit FastAPI
+  // - When behind reverse proxies or NAT/public IP (e.g. 185.110.29.189): avoids cross-origin port 8001 firewall blocks
+  return "";
+})();
 async function readJson(r){
   const text=await r.text();
+  if(r.status===401){try{window.dispatchEvent(new CustomEvent("netscan:unauthorized"))}catch(e){}}
   if(!text||!text.trim()){
     throw Error(r.ok?("پاسخ خالی از سرور (HTTP "+r.status+") — آیا بک‌اند روی پورت 8001 در حال اجراست؟"):("خطای سرور بدون متن (HTTP "+r.status+")"));
   }
   try{return JSON.parse(text)}catch(e){
     throw Error("پاسخ JSON نامعتبر (HTTP "+r.status+"): "+text.slice(0,120));
   }
+}
+// --- Creative brand logo: radar sweep + network blips (Net_Scan / شبکه‌بان) ---
+function Logo({size=64}){
+  return (
+    <svg viewBox="0 0 64 64" width={size} height={size} role="img" aria-label="Net_Scan logo" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="nsBg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#10406b"/><stop offset=".55" stopColor="#0b2b48"/><stop offset="1" stopColor="#061a2d"/>
+        </linearGradient>
+        <linearGradient id="nsSweep" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0" stopColor="#34d399" stopOpacity="0"/>
+          <stop offset="1" stopColor="#2fd38a" stopOpacity=".9"/>
+        </linearGradient>
+        <radialGradient id="nsCore" cx=".5" cy=".5" r=".5">
+          <stop offset="0" stopColor="#ffffff"/><stop offset="1" stopColor="#7dd3fc"/>
+        </radialGradient>
+      </defs>
+      <rect x="2" y="2" width="60" height="60" rx="15" fill="url(#nsBg)" stroke="#2b6c93" strokeWidth="1.4"/>
+      <circle cx="32" cy="31" r="23" fill="none" stroke="#1e5d85" strokeWidth="1"/>
+      <circle cx="32" cy="31" r="16" fill="none" stroke="#2b7ea8" strokeWidth="1" strokeDasharray="3 3"/>
+      <circle cx="32" cy="31" r="9.5" fill="none" stroke="#3ea3cc" strokeWidth="1.1"/>
+      <path d="M4 4h4M4 4v4M60 4h-4M60 4v4M4 60h4M4 60v-4M60 60h-4M60 60v-4" stroke="#2b6c93" strokeWidth="1.6" strokeLinecap="round"/>
+      <path d="M32 31 L32 8 A23 23 0 0 1 49.5 15.5 Z" fill="url(#nsSweep)"/>
+      <path d="M32 31 L49.5 15.5" stroke="#34d399" strokeWidth="1.6" strokeLinecap="round"/>
+      <circle cx="44" cy="20" r="3" fill="#34d399"/>
+      <circle cx="44" cy="20" r="6.5" fill="none" stroke="#34d399" strokeWidth="1" opacity=".55"/>
+      <circle cx="44" cy="20" r="9.5" fill="none" stroke="#34d399" strokeWidth=".8" opacity=".28"/>
+      <circle cx="20.5" cy="41" r="2.2" fill="#7dd3fc"/>
+      <circle cx="41.5" cy="42.5" r="1.8" fill="#7dd3fc" opacity=".9"/>
+      <circle cx="26.5" cy="21.5" r="1.5" fill="#7dd3fc" opacity=".7"/>
+      <path d="M20.5 41 L41.5 42.5" stroke="#2b7ea8" strokeWidth=".9" opacity=".7"/>
+      <path d="M20.5 41 L26.5 21.5" stroke="#2b7ea8" strokeWidth=".9" opacity=".5"/>
+      <circle cx="32" cy="31" r="3.4" fill="url(#nsCore)" stroke="#e0f2fe" strokeWidth=".8"/>
+    </svg>
+  );
+}
+// --- Admin login page ---
+function Login({onLogin}){
+  const[user,setUser]=useState("");const[pass,setPass]=useState("");
+  const[showPass,setShowPass]=useState(false);
+  const[busy,setBusy]=useState(false);const[err,setErr]=useState("");
+  async function submit(e){
+    e.preventDefault();if(busy)return;
+    setBusy(true);setErr("");
+    try{
+      const r=await fetch(API+"/api/login",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({username:user,password:pass})});
+      const d=await readJson(r);
+      if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:"ورود ناموفق بود");
+      onLogin(d.username||"admin");
+    }catch(e2){setErr(e2.message||"ورود ناموفق بود")}
+    setBusy(false);
+  }
+  return (
+    <div className="login-shell" dir="rtl">
+      <div className="login-glow" aria-hidden="true"></div>
+      <form className="login-card" onSubmit={submit}>
+        <div className="login-logo"><Logo size={92}/></div>
+        <h1>شبکه‌بان <span className="login-en">Net_Scan</span></h1>
+        <p className="login-sub">پایش، اسکن و مدیریت دستگاه‌های MikroTik</p>
+        <label>نام کاربری
+          <input dir="ltr" value={user} onChange={e=>setUser(e.target.value)} autoComplete="username" autoFocus placeholder="admin"/>
+        </label>
+        <label>گذرواژه
+          <span className="login-pass">
+            <input dir="ltr" type={showPass?"text":"password"} value={pass} onChange={e=>setPass(e.target.value)} autoComplete="current-password" placeholder="••••••••"/>
+            <button type="button" className="login-eye" onClick={()=>setShowPass(v=>!v)} title={showPass?"پنهان کردن گذرواژه":"نمایش گذرواژه"} aria-label={showPass?"پنهان کردن گذرواژه":"نمایش گذرواژه"}>
+              {showPass
+                ?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><path d="M14.12 14.12a3 3 0 1 1-4.24-4.24"/><path d="M1 1l22 22"/></svg>
+                :<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>}
+            </button>
+          </span>
+        </label>
+        {err&&<div className="login-error" role="alert">{err}</div>}
+        <button type="submit" className="login-btn" disabled={busy||!user||!pass}>{busy?"در حال ورود…":"ورود به سامانه"}</button>
+        <p className="login-hint">دسترسی مدیریت — ورود با حساب ادمین سامانه</p>
+      </form>
+    </div>
+  );
 }
 const keys=["ping_responders","mikrotik_candidates","potential_non_mikrotik","winbox_open_api_closed"];const labels={ping_responders:"پاسخ‌گو به پینگ",mikrotik_candidates:"دستگاه MikroTik",potential_non_mikrotik:"احتمالاً غیر MikroTik",winbox_open_api_closed:"Winbox باز / API بسته"};
 // --- Backend controller (dev only; Vite plugin endpoints, loopback-restricted) ---
@@ -171,17 +255,27 @@ function formatDate(value){if(!value)return "—";const d=new Date(value);if(Num
 function DeviceReports({mode="devices"}={}){
   const ALL_COLS=[{id:"select",label:"انتخاب",always:true},{id:"ip",label:"IP",always:true},{id:"device_name",label:"نام دستگاه (identity)",always:true},{id:"device_type",label:"نوع دستگاه"},{id:"tags",label:"تگ"},{id:"ping",label:"پینگ"},{id:"ports",label:"پورت‌های باز"},{id:"classification",label:"دسته‌بندی"},{id:"interfaces",label:"اینترفیس‌ها"},{id:"ip_addresses",label:"آدرس‌های IP"},{id:"ip_neighbors",label:"همسایه‌ها"},{id:"wireless_info",label:"وایرلس"},{id:"device_log",label:"لاگ"},{id:"mac_info",label:"MAC"},{id:"first_seen",label:"اولین مشاهده"},{id:"last_seen",label:"آخرین مشاهده"},{id:"seen_count",label:"تعداد مشاهده"},{id:"winbox",label:"Winbox (ستون جدا)"}];
   const defaultVisible=()=>{try{const s=JSON.parse(localStorage.getItem("device_cols")||"null");if(Array.isArray(s)&&s.length)return s}catch(e){}const hide=["interfaces","ip_addresses","ip_neighbors","wireless_info","device_log","mac_info","winbox"];return ALL_COLS.map(c=>c.id).filter(id=>!hide.includes(id))};
-  const[rows,setRows]=useState([]),[total,setTotal]=useState(0),[classification,setClassification]=useState("mikrotik_candidate"),[deviceTypeFilter,setDeviceTypeFilter]=useState(""),[port,setPort]=useState(""),[q,setQ]=useState(""),[offset,setOffset]=useState(0),[pageSize,setPageSize]=useState(50),[error,setError]=useState(""),[msg,setMsg]=useState("");const[textModal,setTextModal]=useState(null);const[probeProg,setProbeProg]=useState({total:0,done:0,percent:0,current_ip:"",running:false});
+  const[rows,setRows]=useState([]),[total,setTotal]=useState(0),[classification,setClassification]=useState("mikrotik_candidate"),[deviceTypeFilter,setDeviceTypeFilter]=useState(""),[port,setPort]=useState(""),[q,setQ]=useState(""),[qInput,setQInput]=useState(""),[qField,setQField]=useState(""),[offset,setOffset]=useState(0),[pageSize,setPageSize]=useState(50),[error,setError]=useState(""),[msg,setMsg]=useState("");const[textModal,setTextModal]=useState(null);const[probeProg,setProbeProg]=useState({total:0,done:0,percent:0,current_ip:"",running:false});
   const[sortBy,setSortBy]=useState("ip"),[sortOrder,setSortOrder]=useState("asc"),[newOnly,setNewOnly]=useState(false),[showAddModal,setShowAddModal]=useState(false),[newIp,setNewIp]=useState(""),[newPorts,setNewPorts]=useState("");
   const[winboxItems,setWinboxItems]=useState([]),[winboxPath,setWinboxPath]=useState(""),[winboxName,setWinboxName]=useState(""),[showWinboxCfg,setShowWinboxCfg]=useState(false),[busyAction,setBusyAction]=useState(false),[toolsDir,setToolsDir]=useState("");
   const[visibleCols,setVisibleCols]=useState(defaultVisible),[showColCfg,setShowColCfg]=useState(false);
   const[selected,setSelected]=useState({}),[editTagIp,setEditTagIp]=useState(null),[editTagVal,setEditTagVal]=useState(""),[editNameIp,setEditNameIp]=useState(null),[editNameVal,setEditNameVal]=useState("");// selected: { [ip]: true } only — never store false
   const[snmpProfiles,setSnmpProfiles]=useState([]),[snmpId,setSnmpId]=useState(""),[snmpRaw,setSnmpRaw]=useState(""),[snmpName,setSnmpName]=useState(""),[showSnmp,setShowSnmp]=useState(false),[snmpBusy,setSnmpBusy]=useState(false);const[dbList,setDbList]=useState([]),[activeDb,setActiveDb]=useState("default"),[newDbName,setNewDbName]=useState(""),[showDbPanel,setShowDbPanel]=useState(false);const[showGroupCfg,setShowGroupCfg]=useState(false),[groupScript,setGroupScript]=useState(""),[groupUser,setGroupUser]=useState("admin"),[groupPass,setGroupPass]=useState("");const[apiUser,setApiUser]=useState("admin"),[apiPass,setApiPass]=useState(""),[apiBusy,setApiBusy]=useState(false);const apiAbortRef={current:null};
-  const params=new URLSearchParams();if(classification)params.set("classification",classification);if(deviceTypeFilter)params.set("device_type",deviceTypeFilter);if(port)params.set("has_port",port);if(q)params.set("q",q);params.set("sort",sortBy);params.set("order",sortOrder);params.set("new_only",newOnly?"true":"false");params.set("limit",String(pageSize));params.set("offset",String(offset));
-  function reloadRows(){return fetch(`${API}/devices?${params.toString()}`).then(async r=>{const d=await readJson(r);if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:(Array.isArray(d.detail)?d.detail.map(x=>x.msg||JSON.stringify(x)).join("; "):(d.detail&&JSON.stringify(d.detail))||"خطا در دریافت"));setRows(d.devices||[]);setTotal(d.total||0);setError("")})}
-  useEffect(()=>{let active=true;reloadRows().catch(e=>active&&setError(e.message));return()=>{active=false}},[classification,deviceTypeFilter,port,q,offset,pageSize,sortBy,sortOrder,newOnly]);
+  const params=new URLSearchParams();if(classification)params.set("classification",classification);if(deviceTypeFilter)params.set("device_type",deviceTypeFilter);if(port)params.set("has_port",port);if(q)params.set("q",q);if(qField)params.set("q_fields",qField);params.set("sort",sortBy);params.set("order",sortOrder);params.set("new_only",newOnly?"true":"false");params.set("limit",String(pageSize));params.set("offset",String(offset));
+  const searchAbortRef={current:null};
+  function reloadRows(){
+    // Abort any in-flight list request so responses never arrive out of order
+    if(searchAbortRef.current){try{searchAbortRef.current.abort()}catch(e){}}
+    const ctrl=new AbortController();searchAbortRef.current=ctrl;
+    return fetch(`${API}/devices?${params.toString()}`,{signal:ctrl.signal}).then(async r=>{const d=await readJson(r);if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:(Array.isArray(d.detail)?d.detail.map(x=>x.msg||JSON.stringify(x)).join("; "):(d.detail&&JSON.stringify(d.detail))||"خطا در دریافت"));setRows(d.devices||[]);setTotal(d.total||0);setError("")}).catch(e=>{if(e&&e.name==="AbortError")return;throw e})
+  }
+  useEffect(()=>{let active=true;reloadRows().catch(e=>active&&setError(e.message));return()=>{active=false}},[classification,deviceTypeFilter,port,q,qField,offset,pageSize,sortBy,sortOrder,newOnly]);
+  // Debounce the free-text search: wait 350ms after the last keystroke before querying.
+  // Enter in the input clears the pending timer for an immediate search.
+  const searchTimerRef={current:null};
+  useEffect(()=>{if(searchTimerRef.current)clearTimeout(searchTimerRef.current);searchTimerRef.current=setTimeout(()=>{setQ(qInput);setOffset(0)},350);return()=>clearTimeout(searchTimerRef.current)},[qInput]);
   // Clear selection when the visible dataset context changes (not on every poll)
-  useEffect(()=>{setSelected({})},[classification,port,q,pageSize,sortBy,sortOrder,newOnly,activeDb]);
+  useEffect(()=>{setSelected({})},[classification,port,q,qField,pageSize,sortBy,sortOrder,newOnly,activeDb]);
   async function refreshWinbox(){try{const r=await fetch(API+"/api/winbox/list");const d=await r.json();if(r.ok){setWinboxItems(d.items||[]);setToolsDir(d.tools_dir||"")}}catch(e){}}
   async function refreshSnmp(){try{const r=await fetch(API+"/api/snmp/profiles");const d=await r.json();if(r.ok){const list=d.profiles||[];setSnmpProfiles(list);const def=list.find(x=>x.is_default)||list[0];if(def){setSnmpId(def.id);setSnmpRaw(def.raw||"");setSnmpName(def.name||def.community||"")}}}catch(e){}}
   async function refreshDb(){try{const r=await fetch(API+"/api/databases");const d=await readJson(r);if(r.ok){setDbList(d.databases||[]);setActiveDb(d.active||"default")}else{setError(typeof d.detail==="string"?d.detail:"خطا در لیست دیتابیس")}}catch(e){setError(e.message||String(e))}}
@@ -636,11 +730,30 @@ function DeviceReports({mode="devices"}={}){
         <option value="443">443 HTTPS</option>
       </select></label>
       <label className="filter-search">جست‌وجو در فیلدها
-        <input dir="ltr" value={q} onChange={e=>{setQ(e.target.value);setOffset(0)}}
-          placeholder="IP، نام، تگ، نوع، اینترفیس، همسایه…"
-          title="جستجو در: IP، نام دستگاه، تگ، نوع دستگاه، اینترفیس‌ها، آدرس‌های IP، همسایه‌ها، وایرلس"/>
+        <span style={{display:"flex",gap:6,alignItems:"stretch",width:"100%"}}>
+          <select value={qField} onChange={e=>{setQField(e.target.value);setOffset(0)}}
+            style={{width:"auto",minWidth:"9.5em",flex:"0 0 auto",padding:"8px",border:"1px solid #cbd5e1",borderRadius:7,background:"white",font:"inherit"}}
+            title="محدوده جستجو — با انتخاب یک فیلد خاص، جستجو سریع‌تر انجام می‌شود">
+            <option value="">همه فیلدها</option>
+            <option value="ip">فقط IP</option>
+            <option value="device_name">نام دستگاه</option>
+            <option value="tags">تگ</option>
+            <option value="device_type">نوع دستگاه</option>
+            <option value="classification">دسته‌بندی</option>
+            <option value="interfaces">اینترفیس‌ها</option>
+            <option value="ip_addresses">آدرس‌های IP</option>
+            <option value="ip_neighbors">همسایه‌ها</option>
+            <option value="wireless_info">وایرلس</option>
+            <option value="mac_info">MAC</option>
+            <option value="device_log">لاگ دستگاه</option>
+          </select>
+          <input dir="ltr" value={qInput} onChange={e=>setQInput(e.target.value)}
+            onKeyDown={e=>{if(e.key==="Enter"){clearTimeout(searchTimerRef.current);setQ(qInput);setOffset(0)}}}
+            placeholder="واژه‌ها را با فاصله جدا کنید…"
+            title="جستجوی هم‌زمان چند واژه (ترکیب AND)؛ انتخاب فیلد از منوی کناری، جستجو را سریع‌تر می‌کند"/>
+        </span>
       </label>
-      {q&&<button type="button" className="btn-clear-search" title="پاک کردن جستجو" onClick={()=>{setQ("");setOffset(0)}}>✕</button>}
+      {(q||qInput)&&<button type="button" className="btn-clear-search" title="پاک کردن جستجو" onClick={()=>{setQInput("");setQ("");setOffset(0)}}>✕</button>}
     </div>
     {paginationBar}
     {error&&<p className="error">{error}</p>}{msg&&<p className="backend-msg ok">{msg}</p>}
@@ -887,13 +1000,29 @@ function EmailServerCard(){
   );
 }
 
-function App(){const[mainTab,setMainTab]=useState("network");const[targets,setTargets]=useState("");const[ports,setPorts]=useState("22,80,443,8291,8728");const[workers,setWorkers]=useState(32),[ping,setPing]=useState(1000),[timeout,setTimeoutValue]=useState(1);const[job,setJob]=useState(null),[busy,setBusy]=useState(false),[error,setError]=useState("");const[resClass,setResClass]=useState(""),[resQ,setResQ]=useState(""),[resPageSize,setResPageSize]=useState(50),[resPage,setResPage]=useState(1);const[xferDb,setXferDb]=useState("default"),[dbOptions,setDbOptions]=useState([{name:"default"}]),[xferBusy,setXferBusy]=useState(false);
-useEffect(()=>{fetch(API+"/api/databases").then(r=>r.json()).then(d=>{if(d&&d.databases){setDbOptions(d.databases);setXferDb(d.active||"default")}}).catch(()=>{})},[job?.status]);
-async function transferScan(){if(!job?.scan_id)return;setXferBusy(true);setError("");try{const r=await fetch(`${API}/scans/${job.scan_id}/transfer`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({database:xferDb})});const d=await r.json();if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:"انتقال ناموفق");setError("");alert("به دیتابیس «"+d.database+"» منتقل شد: "+d.upserted+" دستگاه")}catch(e){setError(e.message)}setXferBusy(false)}
-async function start(){setError("");setBusy(true);try{const res=await fetch(API+"/scans",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({targets,ports:ports.split(",").map(x=>Number(x.trim())),workers:Number(workers),ping_timeout_ms:Number(ping),port_timeout:Number(timeout)})});const data=await res.json();if(!res.ok)throw Error(data.detail||"خطا در شروع اسکن");setJob({...data,progress:{completed:0,total:data.total_targets,ping_responders:0},records:[],summary:{}})}catch(e){setError(e.message);setBusy(false)}}
-useEffect(()=>{if(!job?.scan_id||["completed","failed","done","error","canceled"].includes(job.status))return;let active=true;const timer=setInterval(async()=>{try{let r=await fetch(`${API}/scans/${job.scan_id}`),d=await r.json();if(active){setJob(d);if(["completed","failed","done","error","canceled"].includes(d.status)){setBusy(false);if(d.error)setError(d.error)}}}catch(e){setError("ارتباط با API قطع شد: "+e.message)}},1200);return()=>{active=false;clearInterval(timer)}},[job?.scan_id,job?.status]);
+function App(){
+const[authState,setAuthState]=useState("checking");const[authUser,setAuthUser]=useState("");
+useEffect(()=>{let active=true;fetch(API+"/api/auth/check").then(async r=>{if(!active)return;if(r.ok){try{const d=await r.json();setAuthUser(d.username||"")}catch(e){}setAuthState("in")}else setAuthState("out")}).catch(()=>{active&&setAuthState("out")});return()=>{active=false}},[]);
+useEffect(()=>{const h=()=>setAuthState("out");window.addEventListener("netscan:unauthorized",h);return()=>window.removeEventListener("netscan:unauthorized",h)},[]);
+async function doLogout(){try{await fetch(API+"/api/logout",{method:"POST"})}catch(e){}setAuthUser("");setAuthState("out")}
+if(authState!=="in")return (
+<main>
+  {authState==="checking"
+    ?<div className="login-shell" dir="rtl"><div className="login-card login-checking">در حال بررسی نشست…</div></div>
+    :<Login onLogin={u=>{setAuthUser(u||"");setAuthState("in")}}/>}
+</main>
+);
+return <MainApp authUser={authUser} onLogout={doLogout}/>;
+}
+
+function MainApp({authUser,onLogout}){
+const[mainTab,setMainTab]=useState("network");const[targets,setTargets]=useState("");const[ports,setPorts]=useState("22,80,443,8291,8728");const[workers,setWorkers]=useState(32),[ping,setPing]=useState(1000),[timeout,setTimeoutValue]=useState(1);const[job,setJob]=useState(null),[busy,setBusy]=useState(false),[error,setError]=useState("");const[resClass,setResClass]=useState(""),[resQ,setResQ]=useState(""),[resPageSize,setResPageSize]=useState(50),[resPage,setResPage]=useState(1);const[xferDb,setXferDb]=useState("default"),[dbOptions,setDbOptions]=useState([{name:"default"}]),[xferBusy,setXferBusy]=useState(false);
+useEffect(()=>{fetch(API+"/api/databases").then(r=>readJson(r)).then(d=>{if(d&&d.databases){setDbOptions(d.databases);setXferDb(d.active||"default")}}).catch(()=>{})},[job?.status]);
+async function transferScan(){if(!job?.scan_id)return;setXferBusy(true);setError("");try{const r=await fetch(`${API}/scans/${job.scan_id}/transfer`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({database:xferDb})});const d=await readJson(r);setError("");alert("به دیتابیس «"+d.database+"» منتقل شد: "+d.upserted+" دستگاه")}catch(e){setError(e.message)}setXferBusy(false)}
+async function start(){setError("");setBusy(true);try{const res=await fetch(API+"/scans",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({targets,ports:ports.split(",").map(x=>Number(x.trim())),workers:Number(workers),ping_timeout_ms:Number(ping),port_timeout:Number(timeout)})});const data=await readJson(res);setJob({...data,progress:{completed:0,total:data.total_targets,ping_responders:0},records:[],summary:{}})}catch(e){setError(e.message);setBusy(false)}}
+useEffect(()=>{if(!job?.scan_id||["completed","failed","done","error","canceled"].includes(job.status))return;let active=true;let errCount=0;const timer=setInterval(async()=>{try{let r=await fetch(`${API}/scans/${job.scan_id}`);if(r.status===401){window.dispatchEvent(new CustomEvent("netscan:unauthorized"));return;}let d=await r.json();if(active){errCount=0;setJob(d);if(["completed","failed","done","error","canceled"].includes(d.status)){setBusy(false);if(d.error)setError(d.error)}}}catch(e){errCount++;if(errCount>2&&active){setError("ارتباط با API قطع شد: "+e.message)}}},1200);return()=>{active=false;clearInterval(timer)}},[job?.scan_id,job?.status]);
 async function upload(e){const f=e.target.files?.[0];if(f)setTargets(await f.text())}const[stopping,setStopping]=useState(false);
-async function stopScan(){if(!job?.scan_id||!busy)return;setStopping(true);try{const r=await fetch(`${API}/scans/${job.scan_id}/cancel`,{method:"POST"});const d=await r.json();if(!r.ok)throw Error(d.detail||"خطا در توقف اسکن");setError("");let tries=0;while(tries<60){const rr=await fetch(`${API}/scans/${job.scan_id}`);const dd=await rr.json();if(rr.ok){setJob(dd);if(["canceled","done","error","completed","failed"].includes(dd.status)){setBusy(false);if(dd.status==="canceled")setError("اسکن با موفقیت متوقف شد.");else if(dd.status==="done"||dd.status==="completed")setError("اسکن در همین حین تکمیل شد.");else if(dd.status==="error"||dd.status==="failed")setError(dd.error||"اسکن ناموفق بود.");break}}await new Promise(res=>setTimeout(res,1200));tries++}if(tries>=60)setError("پاسخ وضعیت توقف دریافت نشد؛ لطفاً بعداً بررسی کنید.")}catch(e){setError(e.message)}setStopping(false)}
+async function stopScan(){if(!job?.scan_id||!busy)return;setStopping(true);try{const r=await fetch(`${API}/scans/${job.scan_id}/cancel`,{method:"POST"});const d=await readJson(r);setError("");let tries=0;while(tries<60){const rr=await fetch(`${API}/scans/${job.scan_id}`);if(rr.status===401){window.dispatchEvent(new CustomEvent("netscan:unauthorized"));break;}const dd=await rr.json();if(rr.ok){setJob(dd);if(["canceled","done","error","completed","failed"].includes(dd.status)){setBusy(false);if(dd.status==="canceled")setError("اسکن با موفقیت متوقف شد.");else if(dd.status==="done"||dd.status==="completed")setError("اسکن در همین حین تکمیل شد.");else if(dd.status==="error"||dd.status==="failed")setError(dd.error||"اسکن ناموفق بود.");break}}await new Promise(res=>setTimeout(res,1200));tries++}if(tries>=60)setError("پاسخ وضعیت توقف دریافت نشد؛ لطفاً بعداً بررسی کنید.")}catch(e){setError(e.message)}setStopping(false)}
 const isTerminal=["completed","done","canceled","error","failed"].includes(job?.status);
 const liveSummary=job?.summary&&Object.keys(job.summary).length?job.summary:
   (job?.status&&!isTerminal?{ping_responders:Number(job.progress?.ping_responders)||0,mikrotik_candidates:0,potential_non_mikrotik:0,winbox_open_api_closed:0}:job?.summary||{});
@@ -917,6 +1046,7 @@ return (
     <h1>شبکه‌بان</h1>
     <p>پایش، اسکن و مدیریت دستگاه‌های MikroTik</p>
   </div>
+  <button type="button" className="logout-btn" onClick={onLogout} title={authUser?("خروج از حساب "+authUser):"خروج از حساب"}>خروج{authUser?` (${authUser})`:""}</button>
 </header>
 {error&&<div className="error">{error}</div>}
 <div className="ribbon-shell" dir="rtl">
@@ -1120,28 +1250,47 @@ return (
 }
 
 function SmartReports(){
-  const[days,setDays]=useState(5);
+  const[days,setDays]=useState(30);
   const[thresholdMinutes,setThresholdMinutes]=useState(5);
   const[flapResults,setFlapResults]=useState([]);
   const[loadingList,setLoadingList]=useState(false);
   const[progress,setProgress]=useState(0);
   const[downloadingCsv,setDownloadingCsv]=useState(false);
   const[msg,setMsg]=useState("");const[err,setErr]=useState("");
-  async function loadList(){
-    setLoadingList(true);setProgress(8);setErr("");setMsg("در حال بررسی لاگ‌ها و بارگذاری فهرست دستگاه‌ها...");
+  const[dbList,setDbList]=useState([{name:"default"}]),[dbSel,setDbSel]=useState(""),[reportDb,setReportDb]=useState("");
+  const[diag,setDiag]=useState(null);
+  useEffect(()=>{(async()=>{
+    try{
+      const r=await fetch(API+"/api/databases");const d=await readJson(r);
+      if(r.ok){
+        const list=(d.databases&&d.databases.length)?d.databases:[{name:"default"}];
+        setDbList(list);const active=d.active||"default";
+        setDbSel(prev=>prev||active);
+      }
+    }catch(e){/* keep fallback list */}
+  })()},[]);
+  async function loadList(overrides){
+    overrides=overrides||{};
+    const dDays=overrides.days!==undefined?overrides.days:days;
+    const dThr=overrides.threshold!==undefined?overrides.threshold:thresholdMinutes;
+    setLoadingList(true);setProgress(8);setErr("");setMsg("در حال بررسی لاگ‌ها و بارگذاری فهرست دستگاه‌ها...");setDiag(null);
     const progressTimer=window.setInterval(()=>setProgress(value=>value>=86?20:value+7),300);
     try{
-      const url=API+"/reports/interface-flaps?days="+encodeURIComponent(days)+"&threshold_minutes="+encodeURIComponent(thresholdMinutes);
+      const url=API+"/reports/interface-flaps?days="+encodeURIComponent(dDays)+"&threshold_minutes="+encodeURIComponent(dThr)+(dbSel?("&database="+encodeURIComponent(dbSel)):"");
       const response=await fetch(url);if(!response.ok)throw Error("دریافت فهرست ناموفق بود ("+response.status+")");
       const data=await readJson(response);const items=Array.isArray(data)?data:(data.items||data.events||data.results||[]);
-      setFlapResults(items);setProgress(100);setMsg("فهرست دستگاه‌ها بارگذاری شد.");
+      setFlapResults(items);setReportDb((data&&data.database)||dbSel||"");setProgress(100);setMsg("فهرست دستگاه‌ها بارگذاری شد.");
+      setDiag({error:(data&&data.error)||"",scanned:data&&data.devices_scanned,withLogs:data&&data.devices_with_logs,
+        newest:data&&data.newest_log_at_jalali,newestG:data&&data.newest_log_at,
+        stale:!!(data&&data.stale_logs),suggested:data&&data.suggested_days});
+      if(data&&data.stale_logs&&data.suggested_days){setDays(data.suggested_days);}
     }catch(e){setErr(e.message||"خطا در بارگذاری فهرست");setMsg("");}
     finally{window.clearInterval(progressTimer);setLoadingList(false);window.setTimeout(()=>setProgress(0),800);}
   }
   async function downloadCsv(){
     setDownloadingCsv(true);setErr("");setMsg("در حال آماده‌سازی فایل CSV...");
     try{
-      const url=API+"/reports/interface-flaps/export.csv?days="+encodeURIComponent(days)+"&threshold_minutes="+encodeURIComponent(thresholdMinutes);
+      const url=API+"/reports/interface-flaps/export.csv?days="+encodeURIComponent(days)+"&threshold_minutes="+encodeURIComponent(thresholdMinutes)+(dbSel?("&database="+encodeURIComponent(dbSel)):"");
       const response=await fetch(url);if(!response.ok)throw Error("دریافت گزارش ناموفق بود ("+response.status+")");
       const blob=await response.blob();const objectUrl=URL.createObjectURL(blob);const a=document.createElement("a");
       a.href=objectUrl;a.download="interface_flaps_report.csv";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(objectUrl);
@@ -1156,6 +1305,12 @@ function SmartReports(){
       <h3>گزارش هوشمند — نوسان (flap) اینترفیس‌ها</h3>
       <label>بازه (روز)<input type="number" min="1" value={days} onChange={e=>setDays(parseInt(e.target.value||"5",10))}/></label>
       <label>آستانه نوسان (دقیقه)<input type="number" min="1" value={thresholdMinutes} onChange={e=>setThresholdMinutes(parseInt(e.target.value||"5",10))}/></label>
+      <label>دیتابیس گزارش
+        <select value={dbSel} onChange={e=>{setDbSel(e.target.value);setFlapResults([]);setReportDb("");setDiag(null);setMsg("دیتابیس تغییر کرد؛ برای گزارش جدید روی «مشاهده و بارگذاری لیست دستگاه‌ها» کلیک کنید.")}}
+          title="گزارش فقط از دیتابیس انتخاب‌شده گرفته می‌شود">
+          {dbList.map(d=><option key={d.name} value={d.name}>{d.name+(typeof d.devices==="number"?" ("+d.devices+" دستگاه)":"")+(d.active?" — فعال":"")}</option>)}
+        </select>
+      </label>
       <div style={{display:"flex",gap:8,flexWrap:"wrap",marginTop:12}}>
         <button type="button" className="tool-btn" disabled={loadingList||downloadingCsv} onClick={loadList}>مشاهده و بارگذاری لیست دستگاه‌ها</button>
         <button type="button" className="tool-btn" disabled={downloadingCsv} onClick={downloadCsv}>دانلود فایل CSV</button>
@@ -1168,24 +1323,76 @@ function SmartReports(){
       </div>}
       {!loadingList&&!downloadingCsv&&msg&&<div className="msg">{msg}</div>}
       {err&&<div className="error" role="alert">{err}</div>}
+      {flapResults.length===0&&diag&&(diag.error||diag.scanned!==undefined)&&<div style={{marginTop:10,borderRadius:8,padding:"10px 14px",lineHeight:2,
+        background:diag.error?"#fef2f2":"#fffbeb",border:("1px solid ")+(diag.error?"#ef4444":"#f59e0b"),color:diag.error?"#991b1b":"#92400e"}}>
+        {diag.error
+          ?<div role="alert"><b>خطا در خواندن دیتابیس:</b> {diag.error}</div>
+          :<>
+            <div>بررسی شد: <b>{diag.scanned}</b> دستگاه{typeof diag.withLogs==="number"?(" — دارای لاگ: "+diag.withLogs+" دستگاه"):""}</div>
+            {diag.newest&&<div>جدیدترین رویداد لینک ثبت‌شده در لاگ‌ها: <b>{diag.newest}</b>{diag.newestG?(" ("+diag.newestG+" میلادی)"):""}</div>}
+            {typeof diag.withLogs==="number"&&diag.withLogs===0&&<div>هیچ دستگاهی در این دیتابیس لاگ ذخیره‌شده ندارد؛ ابتدا از دستگاه‌ها لاگ تهیه کنید (اسکن یا دریافت لاگ).</div>}
+            {diag.stale&&diag.suggested&&<div style={{marginTop:8}}>هیچ نوسانی در بازه انتخابی یافت نشد، اما لاگ‌های قدیمی‌تر موجود است:<br/>
+              <button type="button" className="tool-btn" style={{marginTop:6}} onClick={()=>loadList({days:diag.suggested})}>نمایش گزارش با بازه {diag.suggested} روزه</button>
+            </div>}
+          </>}
+      </div>}
       {flapResults!==null&&flapResults.length>=0&&<div style={{marginTop:16}}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:10,flexWrap:"wrap",gap:8}}>
           <strong style={{background:"#e8f5ee",color:"#176b43",borderRadius:16,padding:"6px 12px"}}>تعداد موارد یافت‌شده: {flapResults.length}</strong>
+          {reportDb&&<span style={{background:"#e0f2fe",color:"#075985",borderRadius:16,padding:"6px 12px",fontSize:13}}>دیتابیس: {reportDb}</span>}
           {flapResults.length>0&&<span style={{color:"#64748b",fontSize:13}}>برای دریافت فایل، روی «دانلود فایل CSV» کلیک کنید.</span>}
         </div>
         {flapResults.length>0?<div style={{overflowX:"auto",border:"1px solid #e5e7eb",borderRadius:8}}>
           <table dir="rtl" style={{width:"100%",borderCollapse:"collapse",minWidth:800}}>
-            <thead><tr>{["ردیف","نام دستگاه","آی‌پی دستگاه","اینترفیس","تاریخ و زمان (میلادی)","تاریخ و زمان (شمسی)","نوع رویداد"].map(h=><th key={h} style={headerStyle}>{h}</th>)}</tr></thead>
+            <thead><tr>{["ردیف","نام دستگاه","آی‌پی دستگاه","تگ دستگاه","اینترفیس","تعداد تکرار لاگ","تاریخ و زمان (میلادی)","تاریخ و زمان (شمسی)","نوع رویداد"].map(h=><th key={h} style={headerStyle}>{h}</th>)}</tr></thead>
             <tbody>{flapResults.map((item,index)=><tr key={item.row||index}>
-              <td style={cellStyle}>{item.row||index+1}</td><td style={cellStyle}>{item.device_name||"—"}</td><td style={cellStyle}>{item.ip||"—"}</td>
-              <td style={cellStyle}>{item.iface||item.interface||"—"}</td><td style={cellStyle}>{item.datetime||item.last_flap_time||item.last_flap||"—"}</td>
+              <td style={cellStyle}>{item.row||index+1}</td>
+              <td style={cellStyle}>{item.device_name||"—"}</td>
+              <td style={cellStyle}>{item.ip||"—"}</td>
+              <td style={cellStyle}>{item.device_tag||item.tags||"—"}</td>
+              <td style={cellStyle}>{item.iface||item.interface||"—"}</td>
+              <td style={cellStyle}>{item.flap_count??1}</td>
+              <td style={cellStyle}>{item.datetime||item.last_flap_time||item.last_flap||"—"}</td>
               <td style={cellStyle}>{item.datetime_jalali||item.last_flap_time_jalali||item.last_flap_jalali||"—"}</td>
               <td style={cellStyle}>{item.last_event||item.last_status||item.event||"—"}</td>
             </tr>)}</tbody>
           </table>
-        </div>:<div style={{padding:14,color:"#64748b"}}>موردی با این بازه و آستانه یافت نشد.</div>}
+        </div>:<div style={{padding:14,color:"#64748b",lineHeight:1.7}}>
+          موردی با این بازه و آستانه یافت نشد.
+          {diag&&diag.withLogs===0&&<div style={{marginTop:8,color:"#b45309"}}>هیچ لاگی در دیتابیس انتخاب‌شده ذخیره نشده است. ابتدا از بخش دستگاه‌ها، لاگ RouterOS را برای دستگاه‌ها دریافت/به‌روز کنید.</div>}
+          {diag&&diag.withLogs>0&&diag.stale&&diag.suggested&&<div style={{marginTop:8}}>لاگ‌ها قدیمی‌تر از بازه فعلی هستند (جدیدترین: {diag.newest||diag.newestG||"—"}).
+            <button type="button" className="tool-btn" style={{marginTop:6,marginRight:8}} onClick={()=>loadList({days:diag.suggested})}>نمایش با بازه {diag.suggested} روزه</button>
+          </div>}
+          {diag&&diag.withLogs>0&&!diag.stale&&<div style={{marginTop:8}}>در بازه انتخابی نوسان (flap) با آستانه فعلی ثبت نشده است. بازه را بزرگ‌تر کنید یا آستانه دقیقه را افزایش دهید.</div>}
+        </div>}
       </div>}
+      <AntennaIssuesReport />
     </section>
   );
 }
+function AntennaIssuesReport(){
+  const [days,setDays]=useState(30),[items,setItems]=useState([]),[busy,setBusy]=useState(false),[downloading,setDownloading]=useState(false),[msg,setMsg]=useState(""),[err,setErr]=useState("");
+  async function load(){
+    setBusy(true);setErr("");setMsg("در حال بررسی لاگ‌های وایرلس ذخیره‌شده...");
+    try{const r=await fetch(API+"/reports/wireless-antenna-issues?days="+encodeURIComponent(days));const d=await readJson(r);if(!r.ok)throw Error(d.detail||"دریافت گزارش ناموفق بود");setItems(Array.isArray(d)?d:(d.items||d.events||[]));setMsg("گزارش بارگذاری شد؛ MACهای بدون تطبیق نیز نمایش داده می‌شوند.");}
+    catch(e){setErr(e.message||"خطا در دریافت گزارش");setMsg("");}finally{setBusy(false);}
+  }
+  async function download(){
+    setDownloading(true);setErr("");try{const r=await fetch(API+"/reports/wireless-antenna-issues/export.csv?days="+encodeURIComponent(days));if(!r.ok)throw Error("دانلود گزارش ناموفق بود ("+r.status+")");const blob=await r.blob(),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="wireless_antenna_issues.csv";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);}
+    catch(e){setErr(e.message||"خطا در دانلود");}finally{setDownloading(false);}
+  }
+  const cell={padding:"9px 10px",borderBottom:"1px solid #e5e7eb",textAlign:"right",verticalAlign:"top"};const head={...cell,background:"#f1f5f9",fontWeight:700,whiteSpace:"nowrap"};
+  return <section className="panel" dir="rtl" style={{marginTop:18}}>
+    <h3>گزارش قطع و وصل شدن آنتن‌ها</h3>
+    <p style={{color:"#64748b",marginTop:0}}>رویدادهای قطع ارتباط، ضعف یا از دست رفتن سیگنال و خطاهای ایستگاه‌های وایرلس از لاگ‌های ذخیره‌شده‌ی RouterOS استخراج می‌شوند.</p>
+    <label>بازه بررسی (روز)<input type="number" min="1" max="365" value={days} onChange={e=>setDays(Math.max(1,Math.min(365,parseInt(e.target.value||"5",10))))}/></label>
+    <div style={{display:"flex",gap:8,flexWrap:"wrap",marginTop:12}}><button type="button" className="tool-btn" disabled={busy||downloading} onClick={load}>{busy?"در حال بررسی…":"ساخت / به‌روزرسانی گزارش"}</button><button type="button" className="tool-btn" disabled={downloading} onClick={download}>{downloading?"در حال آماده‌سازی…":"دانلود CSV"}</button></div>
+    {msg&&<div className="msg" style={{marginTop:10}}>{msg}</div>}{err&&<div className="error" role="alert">{err}</div>}
+    <div style={{marginTop:14,overflowX:"auto",border:"1px solid #e5e7eb",borderRadius:8}}><table dir="rtl" style={{width:"100%",borderCollapse:"collapse",minWidth:1050}}>
+      <thead><tr>{["ردیف","تاریخ شمسی","آنتن/روتر لاگ‌دهنده","IP آنتن","MAC ایستگاه","نام دستگاه متناظر","IP دستگاه متناظر","رویداد ثبت‌شده"].map(x=><th key={x} style={head}>{x}</th>)}</tr></thead>
+      <tbody>{items.map((x,i)=><tr key={x.row||i}><td style={cell}>{x.row||i+1}</td><td style={{...cell,whiteSpace:"nowrap"}}>{x.datetime_jalali||x.datetime||"—"}</td><td style={cell}>{x.antenna_name||"—"}</td><td style={cell} dir="ltr">{x.antenna_ip||"—"}</td><td style={cell} dir="ltr">{x.station_mac||"در لاگ MAC پیدا نشد"}</td><td style={cell}>{x.matched_device_name||"در دیتابیس تطبیق نشد"}</td><td style={cell} dir="ltr">{x.matched_device_ip||"—"}</td><td style={{...cell,whiteSpace:"normal",minWidth:260}}>{x.event||x.raw_line||"—"}</td></tr>)}</tbody>
+    </table>{!items.length&&<p style={{padding:12,color:"#64748b"}}>برای تولید گزارش روی «ساخت / به‌روزرسانی گزارش» کلیک کنید.</p>}</div>
+  </section>;
+}
+
 createRoot(document.getElementById("root")).render(<App/>);

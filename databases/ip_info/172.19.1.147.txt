@@ -1,0 +1,53 @@
+IP: 172.19.1.147
+Collected at: 2026-10-21T06:57:33.281690+00:00
+source: RouterOS API
+identity: ParsaRasaneh-PTP-UNarvandan
+device_type: ST
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=4C:5E:0C:1F:0A:08
+  2  name=wlan1  type=wlan  running=true  mac=4C:5E:0C:1F:0A:09
+  3  name=bridge1  type=bridge  running=true  mac=4C:5E:0C:1F:0A:08
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=station-bridge  ssid=ParsaResaneh-AP-Khoramshahr  band=5ghz-a/n  frequency=5260
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.19.1.147/29  interface=ether1  network=172.19.1.144
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.19.1.145  distance=1
+  2  dst=172.19.1.144/29  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=MikroTik  address=172.17.15.97  interface=wlan1,bridge1
+  2  identity=PTP-Taleghani  address=172.17.15.98  interface=wlan1,bridge1
+  3  identity=ParsaRasaneh-H-To-F-st  address=172.17.15.99  interface=wlan1,bridge1
+  4  identity=SW-POP Taleghani  address=172.17.15.100  interface=wlan1,bridge1
+  5  identity=ParsaResaneh-AP-Khoramshahr  address=172.17.15.101  interface=wlan1,bridge1
+  6  identity=Router MehrArvand  address=172.19.1.148  interface=ether1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:27:10
+# ساعت دستگاه (خام): 2026-06-30 12:57:36
+# افست اصلاحی (سرور − دستگاه): +2705:59:34
+  1  1405/07/28 15:16:20  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/28 15:16:22  [bridge,info]  "bridge1" mac address changed to 4C:5E:0C:1F:0A:08
+  3  1405/07/28 15:16:24  [interface,info]  ether1 link up (speed 1G, full duplex)
+  4  1405/07/28 15:16:25  [interface,info]  ether1 link down
+  5  1405/07/28 15:16:36  [interface,info]  ether1 link up (speed 1G, full duplex)
+  6  1405/07/28 15:17:12  [wireless,info]  6E:3B:6B:9A:99:BF@wlan1 established connection on 5260000, SSID ParsaResaneh-AP-Khoramshahr
+  7  1405/07/29 10:27:09  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  4C:5E:0C:1F:0A:08  (ether)
+wlan1  4C:5E:0C:1F:0A:09  (wlan)
+bridge1  4C:5E:0C:1F:0A:08  (bridge)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.19.1.145)

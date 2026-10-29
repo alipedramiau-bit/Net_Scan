@@ -1,0 +1,62 @@
+IP: 172.17.12.26
+Collected at: 2026-10-21T06:57:28.816497+00:00
+source: RouterOS API
+identity: ParsaRasaneh-PTP-Toba-ST
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=4C:5E:0C:A7:F5:60
+  2  name=wlan1  type=wlan  running=true  mac=4C:5E:0C:A7:F5:61
+  3  name=bridge1  type=bridge  running=true  mac=4C:5E:0C:A7:F5:60
+  4  name=ipip-tunnel1  type=ipip-tunnel  running=false  mac=-
+  5  name=vlan1  type=vlan  running=true  mac=4C:5E:0C:A7:F5:60
+  6  name=wds1  type=wds  running=true  mac=4C:5E:0C:A7:F5:61
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=bridge  ssid=10094186171-PR-PTP-MM  band=5ghz-onlyn  frequency=5340
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.12.26/29  interface=vlan1  network=172.17.12.24
+  2  address=192.168.22.6/24  interface=wlan1  network=192.168.22.0
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.12.25  distance=1
+  2  dst=172.17.12.24/29  gw=vlan1  distance=0
+  3  dst=192.168.22.0/24  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=Parsa-SW-Zand  address=172.17.11.234  interface=ether1,bridge1
+  2  identity=MikroTik  address=172.17.12.25  interface=vlan1
+  3  identity=ParsaRasaneh-PTP-MM  address=172.17.12.27  interface=vlan1
+  4  identity=ParsaRasaneh-PTP-MM  address=192.168.22.1  interface=wds1,bridge1
+  5  identity=ParsaRasaneh-Omghazlan  address=192.168.42.99  interface=wds1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:21
+# ساعت دستگاه (خام): 2026-05-06 00:30:53
+# افست اصلاحی (سرور − دستگاه): +4038:25:28
+  1  1405/07/15 19:41:03  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/15 19:41:04  [interface,info]  vlan1 link up
+  3  1405/07/15 19:41:05  [bridge,info]  "bridge1" mac address changed to 4C:5E:0C:A7:F5:60
+  4  1405/07/15 19:41:05  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/07/15 19:41:06  [wireless,info]  6C:3B:6B:02:4A:91@wlan1: connected, signal strength -48
+  6  1405/07/26 09:57:51  [system,info,account]  user su logged in from 185.110.29.189 via api
+  7  1405/07/26 09:57:52  [system,info,account]  user su logged out from 185.110.29.189 via api
+  8  1405/07/26 10:13:20  [system,info,account]  user su logged in from 185.110.29.189 via api
+  9  1405/07/26 10:13:20  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 10  1405/07/29 10:26:21  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  4C:5E:0C:A7:F5:60  (ether)
+wlan1  4C:5E:0C:A7:F5:61  (wlan)
+bridge1  4C:5E:0C:A7:F5:60  (bridge)
+vlan1  4C:5E:0C:A7:F5:60  (vlan)
+wds1  4C:5E:0C:A7:F5:61  (wds)
+--- /ip arp ---
+vlan1  4C:5E:0C:C5:C8:24  (arp 172.17.12.25)

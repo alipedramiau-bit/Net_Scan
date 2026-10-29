@@ -1,0 +1,90 @@
+IP: 172.17.14.6
+Collected at: 2026-10-21T06:57:30.680042+00:00
+source: RouterOS API
+identity: ParsaRasaneh--ShahrakSanati-KH
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=6C:3B:6B:9D:77:A5
+  2  name=10094186152-PR-ShahrakSanati-KH  type=wlan  running=true  mac=02:00:00:AA:00:00
+  3  name=wlan1  type=wlan  running=true  mac=E4:8D:8C:DB:40:95
+  4  name=bridge1  type=bridge  running=true  mac=6C:3B:6B:9D:77:A5
+  5  name=wds1  type=wds  running=true  mac=E4:8D:8C:DB:40:95
+  6  name=wds2  type=wds  running=true  mac=E4:8D:8C:DB:40:95
+  7  name=wds3  type=wds  running=true  mac=02:00:00:AA:00:00
+
+----- wireless -----
+=== /interface wireless ===
+name=10094186152-PR-ShahrakSanati-KH  mode=ap-bridge  ssid=10094186152-PR-ShahrakSanati-KH  band=-  frequency=-
+name=wlan1  mode=ap-bridge  ssid=ParsaRasaneh-ShahrakSanati-KH  band=5ghz-a/n  frequency=5620
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=192.168.1.1/24  interface=ether1  network=192.168.1.0
+  2  address=172.17.14.6/30  interface=ether1  network=172.17.14.4
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.14.5  distance=1
+  2  dst=172.17.14.4/30  gw=bridge1  distance=0
+  3  dst=192.168.1.0/24  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=NET-AB-Ghanemi  address=fe80::6e3b:6bff:fedd:7ea8  interface=ether1,bridge1
+  2  identity=MikroTik  address=172.17.11.137  interface=ether1,bridge1
+  3  identity=PR-PTP-ShahrakBarbari-AP  address=172.17.11.138  interface=ether1,bridge1
+  4  identity=PR-PTP-ShahrakBarbari-ST  address=172.17.11.139  interface=ether1,bridge1
+  5  identity=Parsa-SW-Shahrak-AB.Alvani-Parsa  address=172.17.11.222  interface=ether1,bridge1
+  6  identity=ParsaRasaneh-POP-HyperMarket  address=172.17.14.45  interface=ether1,bridge1
+  7  identity=ParsaRasaneh-POP3-MP  address=172.17.14.58  interface=ether1,bridge1
+  8  identity=PR-PTP-HyperMarket-Ap  address=172.17.14.98  interface=ether1,bridge1
+  9  identity=ParsaRasaneh-PTP-HyperMarket-ST  address=172.17.14.99  interface=ether1,bridge1
+ 10  identity=HyperMarket-POP-SW  address=172.17.14.100  interface=ether1,bridge1
+ 11  identity=ParsaRasaneh-KH-PoP2  address=172.17.14.101  interface=ether1,bridge1
+ 12  identity=PR-PTP-Jahad-KH  address=172.19.1.42  interface=ether1,bridge1
+ 13  identity=Avazeh-KH  address=172.19.1.74  interface=ether1,bridge1
+ 14  identity=PR-PTP-Bardia  address=172.19.1.162  interface=ether1,bridge1
+ 15  identity=PR-PTP-Bardia  address=172.19.1.162  interface=ether1,bridge1
+ 16  identity=Bardia-MK  address=172.19.1.163  interface=ether1,bridge1
+ 17  identity=BardiaJonoub.Client  address=172.19.1.164  interface=ether1,bridge1
+ 18  identity=PR-PTP-Shiraz-AP  address=172.19.1.246  interface=ether1,bridge1
+ 19  identity=PR-PTP-JahadKH  address=192.168.1.25  interface=ether1,bridge1
+ 20  identity=ParsaRasaneh-Sharak-SW  address=192.168.43.1  interface=ether1,bridge1
+ 21  identity=ParsaRasaneh-Anjoman-Router  address=192.168.43.2  interface=ether1,bridge1
+ 22  identity=Net-Kh-Jalilian  address=-  interface=10094186152-PR-ShahrakSanati-KH,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:40
+# ساعت دستگاه (خام): 1972-01-15 00:36:24
+# افست اصلاحی (سرور − دستگاه): +480078:20:16
+  1  1405/07/29 09:49:37  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/29 09:49:37  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:9D:77:A5
+  3  1405/07/29 09:49:38  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/29 09:49:38  [wireless,info]  wlan1: pre-shared key authentication not enabled, disable WPS
+  5  1405/07/29 09:49:39  [interface,info]  ether1 link down
+  6  1405/07/29 09:49:45  [wireless,info]  44:D9:E7:C4:6E:C5@wlan1: connected, signal strength -55, wants WDS
+  7  1405/07/29 09:49:46  [wireless,info]  44:D9:E7:C4:6D:A4@wlan1: connected, signal strength -78
+  8  1405/07/29 09:49:48  [interface,info]  ether1 link up (speed 100M, full duplex)
+  9  1405/07/29 09:49:58  [wireless,info]  04:18:D6:58:27:E6@wlan1: connected, signal strength -53, wants WDS
+ 10  1405/07/29 09:50:18  [wireless,info]  64:D1:54:55:4F:61@10094186152-PR-ShahrakSanati-KH: connected, signal strength -60, wants WDS
+ 11  1405/07/29 09:50:26  [wireless,info]  B8:69:F4:FB:CB:A7@10094186152-PR-ShahrakSanati-KH: connected, signal strength -58, wants bridge
+ 12  1405/07/29 09:50:27  [wireless,info]  F4:1E:57:82:41:9A@10094186152-PR-ShahrakSanati-KH: connected, signal strength -33, wants bridge
+ 13  1405/07/29 09:50:28  [wireless,info]  D4:01:C3:44:EE:36@10094186152-PR-ShahrakSanati-KH: connected, signal strength -56, wants bridge
+ 14  1405/07/29 09:50:29  [wireless,info]  B8:69:F4:38:3F:45@10094186152-PR-ShahrakSanati-KH: connected, signal strength -49, wants bridge
+ 15  1405/07/29 09:50:29  [wireless,info]  08:55:31:BA:86:A0@10094186152-PR-ShahrakSanati-KH: connected, signal strength -43, wants bridge
+ 16  1405/07/29 09:50:40  [wireless,info]  04:F4:1C:14:89:39@10094186152-PR-ShahrakSanati-KH: connected, signal strength -49, wants bridge
+ 17  1405/07/29 10:26:39  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  6C:3B:6B:9D:77:A5  (ether)
+10094186152-PR-ShahrakSanati-KH  02:00:00:AA:00:00  (wlan)
+wlan1  E4:8D:8C:DB:40:95  (wlan)
+bridge1  6C:3B:6B:9D:77:A5  (bridge)
+wds1  E4:8D:8C:DB:40:95  (wds)
+wds2  E4:8D:8C:DB:40:95  (wds)
+wds3  02:00:00:AA:00:00  (wds)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.17.14.5)

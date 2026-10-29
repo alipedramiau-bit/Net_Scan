@@ -1,0 +1,244 @@
+IP: 172.19.1.82
+Collected at: 2026-10-21T06:57:34.296310+00:00
+source: RouterOS API
+identity: ParsaRasaneh-PTP-Avazaeh
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=48:8F:5A:E5:18:FC
+  2  name=wlan1  type=wlan  running=true  mac=48:8F:5A:E5:18:FD
+  3  name=bridge1  type=bridge  running=true  mac=48:8F:5A:E5:18:FD
+  4  name=wds7  type=wds  running=true  mac=48:8F:5A:E5:18:FD
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=bridge  ssid=10094186191-PR-PTP-Avazeh  band=5ghz-onlyn  frequency=5620
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.19.1.82/29  interface=ether1  network=172.19.1.80
+  2  address=192.168.55.1/29  interface=ether1  network=192.168.55.0
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.19.1.81  distance=1
+  2  dst=172.19.1.80/29  gw=bridge1  distance=0
+  3  dst=192.168.55.0/29  gw=bridge1  distance=0
+
+----- neighbors -----
+(empty)
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:27:17
+# ساعت دستگاه (خام): 1975-07-06 07:39:00
+# افست اصلاحی (سرور − دستگاه): +449639:18:17
+  1  1405/03/03 14:43:57  [system,info,account]  user su logged out from 185.110.29.153 via api
+  2  1405/03/04 10:25:40  [system,info,account]  user su logged in from 185.110.29.153 via api
+  3  1405/03/04 10:25:44  [system,info,account]  user su logged out from 185.110.29.153 via api
+  4  1405/03/31 09:41:47  [interface,info]  ether1 link down
+  5  1405/03/31 09:44:31  [interface,info]  ether1 link up (speed 100M, full duplex)
+  6  1405/04/12 20:53:08  [system,info,account]  user su logged in from 100.78.30.187 via api
+  7  1405/04/12 20:53:08  [system,info,account]  user su logged out from 100.78.30.187 via api
+  8  1405/04/12 21:35:37  [system,info,account]  user su logged in from 100.78.30.187 via api
+  9  1405/04/12 21:35:37  [system,info,account]  user su logged out from 100.78.30.187 via api
+ 10  1405/04/12 21:36:37  [system,info,account]  user su logged in from 100.78.30.187 via api
+ 11  1405/04/12 21:36:37  [system,info,account]  user su logged out from 100.78.30.187 via api
+ 12  1405/04/12 21:43:38  [system,info,account]  user su logged in from 100.78.30.187 via api
+ 13  1405/04/12 21:43:38  [system,info,account]  user su logged out from 100.78.30.187 via api
+ 14  1405/04/13 08:54:12  [system,info,account]  user su logged in from 185.110.29.153 via api
+ 15  1405/04/13 08:54:12  [system,info,account]  user su logged out from 185.110.29.153 via api
+ 16  1405/04/13 10:54:28  [system,info,account]  user su logged in from 185.110.29.153 via api
+ 17  1405/04/13 10:54:28  [system,info,account]  user su logged out from 185.110.29.153 via api
+ 18  1405/04/13 10:59:37  [system,info,account]  user su logged in from 185.110.29.153 via api
+ 19  1405/04/13 10:59:37  [system,info,account]  user su logged out from 185.110.29.153 via api
+ 20  1405/04/13 11:12:48  [system,info,account]  user su logged in from 185.110.29.153 via api
+ 21  1405/04/13 11:12:48  [system,info,account]  user su logged out from 185.110.29.153 via api
+ 22  1405/04/13 11:13:43  [system,info,account]  user su logged in from 185.110.29.153 via api
+ 23  1405/04/13 11:13:43  [system,info,account]  user su logged out from 185.110.29.153 via api
+ 24  1405/04/13 11:14:52  [system,info,account]  user su logged in from 185.110.29.153 via api
+ 25  1405/04/13 11:14:52  [system,info,account]  user su logged out from 185.110.29.153 via api
+ 26  1405/04/29 12:34:24  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 27  1405/04/29 12:34:24  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 28  1405/04/29 12:40:28  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 29  1405/04/29 12:40:28  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 30  1405/04/29 12:41:23  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 31  1405/04/29 12:41:23  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 32  1405/04/29 12:44:32  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 33  1405/04/29 12:44:32  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 34  1405/04/29 13:12:49  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 35  1405/04/29 13:12:49  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 36  1405/04/30 13:13:15  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 37  1405/04/30 13:13:15  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 38  1405/04/30 13:50:30  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 39  1405/04/30 13:50:30  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 40  1405/04/31 11:11:50  [interface,info]  ether1 link down
+ 41  1405/04/31 11:11:59  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 42  1405/04/31 11:14:07  [interface,info]  ether1 link down
+ 43  1405/04/31 11:15:37  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 44  1405/04/31 11:15:38  [interface,info]  ether1 link down
+ 45  1405/04/31 11:15:39  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 46  1405/04/31 11:15:41  [interface,info]  ether1 link down
+ 47  1405/04/31 11:15:42  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 48  1405/04/31 11:15:45  [interface,info]  ether1 link down
+ 49  1405/04/31 11:15:49  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 50  1405/04/31 11:16:08  [interface,info]  ether1 link down
+ 51  1405/04/31 11:16:10  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 52  1405/04/31 11:17:24  [system,info,account]  user garnaf logged in from 185.110.29.153 via winbox
+ 53  1405/04/31 11:17:26  [system,info,account]  user garnaf logged in from 185.110.29.153 via telnet
+ 54  1405/04/31 11:17:26  [system,info,account]  user garnaf logged in from 185.110.29.153 via telnet
+ 55  1405/04/31 12:07:19  [interface,info]  ether1 link down
+ 56  1405/04/31 12:07:21  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 57  1405/04/31 12:07:48  [system,info,account]  user garnaf logged out from 185.110.29.153 via winbox
+ 58  1405/04/31 12:07:48  [system,info,account]  user garnaf logged out from 185.110.29.153 via telnet
+ 59  1405/04/31 12:07:48  [system,info,account]  user garnaf logged out from 185.110.29.153 via telnet
+ 60  1405/04/31 12:07:56  [system,info,account]  user garnaf logged in from 185.110.29.153 via winbox
+ 61  1405/04/31 12:07:57  [system,info,account]  user garnaf logged in from 185.110.29.153 via telnet
+ 62  1405/04/31 12:07:57  [system,info,account]  user garnaf logged in from 185.110.29.153 via telnet
+ 63  1405/04/31 12:11:52  [interface,info]  ether1 link down
+ 64  1405/04/31 12:11:53  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 65  1405/04/31 12:12:02  [interface,info]  ether1 link down
+ 66  1405/04/31 12:12:04  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 67  1405/04/31 12:12:20  [system,info,account]  user garnaf logged out from 185.110.29.153 via winbox
+ 68  1405/04/31 12:12:20  [system,info,account]  user garnaf logged out from 185.110.29.153 via telnet
+ 69  1405/04/31 12:12:20  [system,info,account]  user garnaf logged out from 185.110.29.153 via telnet
+ 70  1405/04/31 12:12:39  [system,info,account]  user garnaf logged in from 185.110.29.153 via winbox
+ 71  1405/04/31 12:12:40  [system,info,account]  user garnaf logged in from 185.110.29.153 via telnet
+ 72  1405/04/31 12:12:40  [system,info,account]  user garnaf logged in from 185.110.29.153 via telnet
+ 73  1405/04/31 13:51:23  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 74  1405/04/31 13:51:23  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 75  1405/04/31 17:21:33  [interface,info]  ether1 link down
+ 76  1405/04/31 17:21:35  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 77  1405/04/31 17:22:02  [system,info,account]  user garnaf logged out from 185.110.29.153 via winbox
+ 78  1405/04/31 17:22:02  [system,info,account]  user garnaf logged out from 185.110.29.153 via telnet
+ 79  1405/04/31 17:22:02  [system,info,account]  user garnaf logged out from 185.110.29.153 via telnet
+ 80  1405/04/31 17:22:12  [system,info,account]  user garnaf logged in from 185.110.29.153 via winbox
+ 81  1405/04/31 17:22:14  [system,info,account]  user garnaf logged in from 185.110.29.153 via telnet
+ 82  1405/04/31 17:22:15  [system,info,account]  user garnaf logged in from 185.110.29.153 via telnet
+ 83  1405/04/31 18:38:17  [interface,info]  ether1 link down
+ 84  1405/04/31 18:38:18  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 85  1405/04/31 18:38:45  [system,info,account]  user garnaf logged out from 185.110.29.153 via winbox
+ 86  1405/04/31 18:38:45  [system,info,account]  user garnaf logged out from 185.110.29.153 via telnet
+ 87  1405/04/31 18:38:45  [system,info,account]  user garnaf logged out from 185.110.29.153 via telnet
+ 88  1405/04/31 18:38:56  [system,info,account]  user garnaf logged in from 185.110.29.153 via winbox
+ 89  1405/04/31 18:38:57  [system,info,account]  user garnaf logged in from 185.110.29.153 via telnet
+ 90  1405/04/31 18:38:57  [system,info,account]  user garnaf logged in from 185.110.29.153 via telnet
+ 91  1405/04/31 21:17:42  [system,info,account]  user garnaf logged out from 185.110.29.153 via winbox
+ 92  1405/04/31 21:17:42  [system,info,account]  user garnaf logged out from 185.110.29.153 via telnet
+ 93  1405/04/31 21:17:42  [system,info,account]  user garnaf logged out from 185.110.29.153 via telnet
+ 94  1405/05/01 01:50:55  [interface,info]  ether1 link down
+ 95  1405/05/01 01:50:56  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 96  1405/05/01 13:51:46  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 97  1405/05/01 13:51:46  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 98  1405/05/02 13:52:06  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 99  1405/05/02 13:52:06  [system,info,account]  user su logged out from 185.110.29.183 via api
+100  1405/05/03 13:52:28  [system,info,account]  user su logged in from 185.110.29.183 via api
+101  1405/05/03 13:52:28  [system,info,account]  user su logged out from 185.110.29.183 via api
+102  1405/05/04 13:52:47  [system,info,account]  user su logged in from 185.110.29.183 via api
+103  1405/05/04 13:52:47  [system,info,account]  user su logged out from 185.110.29.183 via api
+104  1405/05/05 13:53:07  [system,info,account]  user su logged in from 185.110.29.183 via api
+105  1405/05/05 13:53:07  [system,info,account]  user su logged out from 185.110.29.183 via api
+106  1405/05/05 15:27:56  [system,info,account]  user su logged in from 185.110.29.183 via api
+107  1405/05/05 15:27:56  [system,info,account]  user su logged out from 185.110.29.183 via api
+108  1405/05/05 20:12:36  [system,info,account]  user su logged in from 185.110.29.183 via api
+109  1405/05/05 20:12:36  [system,info,account]  user su logged out from 185.110.29.183 via api
+110  1405/05/05 20:29:09  [system,info,account]  user su logged in from 185.110.29.183 via api
+111  1405/05/05 20:29:09  [system,info,account]  user su logged out from 185.110.29.183 via api
+112  1405/05/06 10:24:51  [system,info,account]  user su logged in from 185.110.29.153 via winbox
+113  1405/05/06 10:24:51  [system,info,account]  user su logged in from 185.110.29.153 via telnet
+114  1405/05/06 10:25:02  [system,info,account]  user su logged in from 185.110.29.153 via telnet
+115  1405/05/06 10:25:11  [system,info]  changed snmp settings by su
+116  1405/05/06 10:25:11  [system,info]  item changed by su
+117  1405/05/06 10:25:16  [system,info,account]  user su logged out from 185.110.29.153 via telnet
+118  1405/05/06 10:25:17  [system,info,account]  user su logged out from 185.110.29.153 via winbox
+119  1405/05/06 10:25:17  [system,info,account]  user su logged out from 185.110.29.153 via telnet
+120  1405/05/07 08:15:00  [system,info,account]  user su logged in from 185.110.29.183 via api
+121  1405/05/07 08:15:00  [system,info,account]  user su logged out from 185.110.29.183 via api
+122  1405/05/08 08:15:45  [system,info,account]  user su logged in from 185.110.29.183 via api
+123  1405/05/08 08:15:45  [system,info,account]  user su logged out from 185.110.29.183 via api
+124  1405/05/09 08:16:15  [system,info,account]  user su logged in from 185.110.29.183 via api
+125  1405/05/09 08:16:15  [system,info,account]  user su logged out from 185.110.29.183 via api
+126  1405/05/10 08:16:45  [system,info,account]  user su logged in from 185.110.29.183 via api
+127  1405/05/10 08:16:45  [system,info,account]  user su logged out from 185.110.29.183 via api
+128  1405/05/11 08:17:28  [system,info,account]  user su logged in from 185.110.29.183 via api
+129  1405/05/11 08:17:28  [system,info,account]  user su logged out from 185.110.29.183 via api
+130  1405/05/12 08:17:53  [system,info,account]  user su logged in from 185.110.29.183 via api
+131  1405/05/12 08:17:53  [system,info,account]  user su logged out from 185.110.29.183 via api
+132  1405/05/13 08:18:15  [system,info,account]  user su logged in from 185.110.29.183 via api
+133  1405/05/13 08:18:15  [system,info,account]  user su logged out from 185.110.29.183 via api
+134  1405/05/16 18:47:25  [system,info,account]  user su logged in from 185.110.29.183 via api
+135  1405/05/16 18:47:25  [system,info,account]  user su logged out from 185.110.29.183 via api
+136  1405/05/17 18:48:35  [system,info,account]  user su logged in from 185.110.29.183 via api
+137  1405/05/17 18:48:35  [system,info,account]  user su logged out from 185.110.29.183 via api
+138  1405/05/18 18:49:53  [system,info,account]  user su logged in from 185.110.29.183 via api
+139  1405/05/18 18:49:53  [system,info,account]  user su logged out from 185.110.29.183 via api
+140  1405/05/19 18:50:40  [system,info,account]  user su logged in from 185.110.29.183 via api
+141  1405/05/19 18:50:40  [system,info,account]  user su logged out from 185.110.29.183 via api
+142  1405/05/20 18:51:45  [system,info,account]  user su logged in from 185.110.29.183 via api
+143  1405/05/20 18:51:45  [system,info,account]  user su logged out from 185.110.29.183 via api
+144  1405/05/21 18:52:25  [system,info,account]  user su logged in from 185.110.29.183 via api
+145  1405/05/21 18:52:25  [system,info,account]  user su logged out from 185.110.29.183 via api
+146  1405/05/22 18:53:32  [system,info,account]  user su logged in from 185.110.29.183 via api
+147  1405/05/22 18:53:32  [system,info,account]  user su logged out from 185.110.29.183 via api
+148  1405/05/23 18:54:02  [system,info,account]  user su logged in from 185.110.29.183 via api
+149  1405/05/23 18:54:02  [system,info,account]  user su logged out from 185.110.29.183 via api
+150  1405/05/24 18:55:00  [system,info,account]  user su logged in from 185.110.29.183 via api
+151  1405/05/24 18:55:00  [system,info,account]  user su logged out from 185.110.29.183 via api
+152  1405/05/25 18:55:42  [system,info,account]  user su logged in from 185.110.29.183 via api
+153  1405/05/25 18:55:42  [system,info,account]  user su logged out from 185.110.29.183 via api
+154  1405/05/26 18:57:00  [system,info,account]  user su logged in from 185.110.29.183 via api
+155  1405/05/26 18:57:00  [system,info,account]  user su logged out from 185.110.29.183 via api
+156  1405/05/27 18:58:12  [system,info,account]  user su logged in from 185.110.29.183 via api
+157  1405/05/27 18:58:12  [system,info,account]  user su logged out from 185.110.29.183 via api
+158  1405/05/28 18:58:51  [system,info,account]  user su logged in from 185.110.29.183 via api
+159  1405/05/28 18:58:51  [system,info,account]  user su logged out from 185.110.29.183 via api
+160  1405/05/29 18:59:50  [system,info,account]  user su logged in from 185.110.29.183 via api
+161  1405/05/29 18:59:50  [system,info,account]  user su logged out from 185.110.29.183 via api
+162  1405/05/30 19:00:40  [system,info,account]  user su logged in from 185.110.29.183 via api
+163  1405/05/30 19:00:40  [system,info,account]  user su logged out from 185.110.29.183 via api
+164  1405/05/31 19:01:31  [system,info,account]  user su logged in from 185.110.29.183 via api
+165  1405/05/31 19:01:32  [system,info,account]  user su logged out from 185.110.29.183 via api
+166  1405/06/01 19:02:28  [system,info,account]  user su logged in from 185.110.29.183 via api
+167  1405/06/01 19:02:28  [system,info,account]  user su logged out from 185.110.29.183 via api
+168  1405/06/02 19:03:37  [system,info,account]  user su logged in from 185.110.29.183 via api
+169  1405/06/02 19:03:37  [system,info,account]  user su logged out from 185.110.29.183 via api
+170  1405/06/03 19:04:54  [system,info,account]  user su logged in from 185.110.29.183 via api
+171  1405/06/03 19:04:54  [system,info,account]  user su logged out from 185.110.29.183 via api
+172  1405/07/13 08:13:05  [wireless,info]  08:55:31:38:5D:67@wlan1: disconnected, control frame timeout
+173  1405/07/13 08:14:11  [wireless,info]  08:55:31:38:5D:67@wlan1: connected, signal strength -48
+174  1405/07/18 09:17:41  [interface,info]  ether1 link down
+175  1405/07/18 09:17:46  [interface,info]  ether1 link up (speed 100M, full duplex)
+176  1405/07/18 13:25:42  [interface,info]  ether1 link down
+177  1405/07/18 13:25:48  [interface,info]  ether1 link up (speed 100M, full duplex)
+178  1405/07/21 12:20:24  [interface,info]  ether1 link down
+179  1405/07/21 12:20:27  [interface,info]  ether1 link up (speed 100M, full duplex)
+180  1405/07/21 12:21:38  [interface,info]  ether1 link down
+181  1405/07/21 12:21:40  [interface,info]  ether1 link up (speed 100M, full duplex)
+182  1405/07/26 09:58:56  [system,info,account]  user su logged in from 185.110.29.189 via api
+183  1405/07/26 09:58:56  [system,info,account]  user su logged out from 185.110.29.189 via api
+184  1405/07/26 10:14:14  [system,info,account]  user su logged in from 185.110.29.189 via api
+185  1405/07/26 10:14:14  [system,info,account]  user su logged out from 185.110.29.189 via api
+186  1405/07/26 21:04:31  [interface,info]  ether1 link down
+187  1405/07/26 21:04:33  [interface,info]  ether1 link up (speed 100M, full duplex)
+188  1405/07/26 21:04:36  [interface,info]  ether1 link down
+189  1405/07/26 21:04:38  [interface,info]  ether1 link up (speed 100M, full duplex)
+190  1405/07/26 21:05:07  [interface,info]  ether1 link down
+191  1405/07/26 21:05:10  [interface,info]  ether1 link up (speed 100M, full duplex)
+192  1405/07/26 21:05:11  [interface,info]  ether1 link down
+193  1405/07/26 21:05:18  [interface,info]  ether1 link up (speed 100M, full duplex)
+194  1405/07/26 21:05:19  [interface,info]  ether1 link down
+195  1405/07/26 21:05:20  [interface,info]  ether1 link up (speed 10M, full duplex)
+196  1405/07/26 23:16:03  [interface,info]  ether1 link down
+197  1405/07/26 23:17:27  [interface,info]  ether1 link up (speed 100M, full duplex)
+198  1405/07/26 23:17:28  [interface,info]  ether1 link down
+199  1405/07/26 23:29:45  [interface,info]  ether1 link up (speed 100M, full duplex)
+200  1405/07/29 10:27:17  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  48:8F:5A:E5:18:FC  (ether)
+wlan1  48:8F:5A:E5:18:FD  (wlan)
+bridge1  48:8F:5A:E5:18:FD  (bridge)
+wds7  48:8F:5A:E5:18:FD  (wds)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.19.1.81)

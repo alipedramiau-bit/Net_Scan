@@ -1,0 +1,223 @@
+IP: 172.19.1.178
+Collected at: 2026-10-21T06:57:33.442856+00:00
+source: RouterOS API
+identity: PR-PTP-Fakhr
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=E4:8D:8C:C6:C4:44
+  2  name=wlan1  type=wlan  running=true  mac=E4:8D:8C:C6:C4:45
+  3  name=76  type=vlan  running=true  mac=E4:8D:8C:C6:C4:44
+  4  name=bridge1  type=bridge  running=true  mac=E4:8D:8C:C6:C4:44
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=bridge  ssid=PR-PTP-Fakhr  band=5ghz-a/n  frequency=5320
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.19.2.50/29  interface=ether1  network=172.19.2.48
+  2  address=172.19.1.178/29  interface=76  network=172.19.1.176
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.19.1.177  distance=1
+  2  dst=172.19.1.176/29  gw=76  distance=0
+  3  dst=172.19.2.48/29  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=Parsa-SW-Shahrak-AB.Alvani-Parsa  address=172.17.11.222  interface=ether1,bridge1
+  2  identity=Router-MikroTik  address=10.201.171.1  interface=wlan1,bridge1
+  3  identity=MikroTik  address=172.19.2.51  interface=wlan1,bridge1
+  4  identity=MikroTik  address=-  interface=76
+  5  identity=Router-MikroTik  address=100.78.30.229  interface=76
+  6  identity=MikroTik  address=172.17.13.89  interface=76
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:27:11
+# ساعت دستگاه (خام): 2003-04-15 17:26:15
+# افست اصلاحی (سرور − دستگاه): +206149:30:56
+  1  1405/06/21 18:00:55  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/06/21 18:00:55  [interface,info]  76 link up
+  3  1405/06/21 18:00:55  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:C6:C4:44
+  4  1405/06/21 18:00:55  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  5  1405/06/21 18:00:59  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+  6  1405/06/21 18:00:59  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -67
+  7  1405/06/21 18:01:23  [interface,info]  ether1 link up (speed 100M, full duplex)
+  8  1405/06/21 18:01:36  [interface,info]  ether1 link down
+  9  1405/06/21 18:02:06  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 10  1405/06/22 20:53:04  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+ 11  1405/06/22 20:58:11  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+ 12  1405/06/22 20:58:22  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+ 13  1405/06/22 20:58:25  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -86
+ 14  1405/06/22 20:58:31  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+ 15  1405/06/22 21:01:26  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -76
+ 16  1405/06/22 23:51:36  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+ 17  1405/06/22 23:51:49  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+ 18  1405/06/22 23:51:49  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -82
+ 19  1405/06/22 23:51:56  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+ 20  1405/06/22 23:52:03  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+ 21  1405/06/22 23:52:04  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -80
+ 22  1405/06/23 00:40:13  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+ 23  1405/06/23 00:40:23  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -80
+ 24  1405/06/23 22:04:04  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+ 25  1405/06/23 22:04:47  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -80
+ 26  1405/06/23 22:05:33  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+ 27  1405/06/23 22:05:43  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -78
+ 28  1405/06/23 22:06:39  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, not responding
+ 29  1405/06/23 22:08:24  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -78
+ 30  1405/06/23 22:08:39  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+ 31  1405/06/23 22:09:15  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -76
+ 32  1405/06/23 22:17:08  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+ 33  1405/06/23 22:18:57  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -80
+ 34  1405/06/23 22:19:10  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, not responding
+ 35  1405/06/23 22:19:40  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -80
+ 36  1405/06/24 01:04:45  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+ 37  1405/06/24 01:04:51  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+ 38  1405/06/24 01:04:52  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+ 39  1405/06/24 01:04:52  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+ 40  1405/06/24 01:04:52  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+ 41  1405/06/24 01:04:53  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -84
+ 42  1405/06/24 11:13:18  [interface,info]  ether1 link down
+ 43  1405/06/24 11:14:15  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 44  1405/06/24 11:14:28  [interface,info]  ether1 link down
+ 45  1405/06/24 11:14:58  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 46  1405/06/28 06:37:00  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+ 47  1405/06/28 06:37:07  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -78
+ 48  1405/06/28 06:57:32  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+ 49  1405/06/28 06:57:59  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+ 50  1405/06/28 06:57:59  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -84
+ 51  1405/06/28 07:00:07  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+ 52  1405/06/28 07:00:42  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -80
+ 53  1405/06/28 07:19:14  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+ 54  1405/06/28 07:19:43  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -82
+ 55  1405/06/28 07:24:33  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+ 56  1405/06/28 07:24:46  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+ 57  1405/06/28 07:24:47  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -82
+ 58  1405/07/06 06:29:10  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+ 59  1405/07/06 06:29:15  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -76
+ 60  1405/07/09 21:15:16  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+ 61  1405/07/09 21:16:34  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -82
+ 62  1405/07/09 21:16:48  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+ 63  1405/07/09 21:17:10  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -82
+ 64  1405/07/10 02:49:53  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+ 65  1405/07/10 02:50:33  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -80
+ 66  1405/07/10 04:17:53  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+ 67  1405/07/10 04:18:44  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+ 68  1405/07/10 04:18:45  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -81
+ 69  1405/07/10 04:21:45  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+ 70  1405/07/10 04:21:46  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+ 71  1405/07/10 04:23:18  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -80
+ 72  1405/07/10 04:25:28  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+ 73  1405/07/10 04:26:03  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -82
+ 74  1405/07/10 04:39:10  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+ 75  1405/07/10 04:39:13  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+ 76  1405/07/10 04:39:15  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -82
+ 77  1405/07/10 04:39:21  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+ 78  1405/07/10 04:39:38  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -82
+ 79  1405/07/10 04:41:22  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+ 80  1405/07/10 04:41:32  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+ 81  1405/07/10 04:41:33  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+ 82  1405/07/10 04:41:33  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+ 83  1405/07/10 04:41:45  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -84
+ 84  1405/07/10 04:42:13  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+ 85  1405/07/10 04:42:23  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -84
+ 86  1405/07/10 04:42:39  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+ 87  1405/07/10 04:42:54  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -82
+ 88  1405/07/10 04:44:07  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, not responding
+ 89  1405/07/10 04:44:12  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+ 90  1405/07/10 04:44:12  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+ 91  1405/07/10 04:44:12  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+ 92  1405/07/10 04:44:12  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+ 93  1405/07/10 04:44:13  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+ 94  1405/07/10 04:44:13  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -84
+ 95  1405/07/10 04:44:25  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+ 96  1405/07/10 04:44:44  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+ 97  1405/07/10 04:44:44  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+ 98  1405/07/10 04:44:45  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+ 99  1405/07/10 04:44:46  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -86
+100  1405/07/10 04:45:47  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+101  1405/07/10 04:45:48  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+102  1405/07/10 04:45:48  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+103  1405/07/10 04:45:49  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+104  1405/07/10 04:45:49  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+105  1405/07/10 04:45:50  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -81
+106  1405/07/13 19:05:08  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, not responding
+107  1405/07/13 19:05:28  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -62
+108  1405/07/15 02:02:13  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, not responding
+109  1405/07/15 02:02:24  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -78
+110  1405/07/21 01:56:42  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+111  1405/07/21 01:56:51  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+112  1405/07/21 01:56:52  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+113  1405/07/21 01:56:52  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+114  1405/07/21 01:56:59  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -86
+115  1405/07/21 01:57:06  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+116  1405/07/21 01:57:41  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -80
+117  1405/07/22 23:53:23  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+118  1405/07/22 23:53:39  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -72
+119  1405/07/23 00:02:01  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+120  1405/07/23 00:02:25  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -82
+121  1405/07/23 00:06:19  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+122  1405/07/23 00:06:31  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+123  1405/07/23 00:06:31  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -75
+124  1405/07/23 00:59:12  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+125  1405/07/23 00:59:17  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+126  1405/07/23 00:59:19  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -86
+127  1405/07/23 00:59:31  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+128  1405/07/23 00:59:53  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+129  1405/07/23 00:59:54  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -86
+130  1405/07/23 01:27:19  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+131  1405/07/23 01:27:24  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+132  1405/07/23 01:27:27  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -87
+133  1405/07/23 01:45:37  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+134  1405/07/23 01:45:53  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -82
+135  1405/07/23 02:15:16  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+136  1405/07/23 02:15:20  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+137  1405/07/23 02:15:20  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -82
+138  1405/07/23 02:15:48  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+139  1405/07/23 02:15:52  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -80
+140  1405/07/23 02:16:19  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+141  1405/07/23 02:16:41  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+142  1405/07/23 02:17:09  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+143  1405/07/23 02:17:58  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+144  1405/07/23 02:18:00  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -82
+145  1405/07/24 00:25:28  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+146  1405/07/24 00:25:38  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+147  1405/07/24 00:25:38  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+148  1405/07/24 00:25:38  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+149  1405/07/24 00:25:38  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+150  1405/07/24 00:25:39  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+151  1405/07/24 00:25:39  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+152  1405/07/24 00:25:39  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+153  1405/07/24 00:25:40  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -75
+154  1405/07/24 00:26:00  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+155  1405/07/24 00:26:19  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -70
+156  1405/07/24 00:48:40  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+157  1405/07/24 00:48:43  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+158  1405/07/24 00:48:44  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+159  1405/07/24 00:49:28  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+160  1405/07/24 00:49:28  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -73
+161  1405/07/24 00:56:27  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+162  1405/07/24 00:56:42  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -74
+163  1405/07/24 05:36:26  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+164  1405/07/24 05:36:50  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+165  1405/07/24 05:36:50  [wireless,info]  64:D1:54:6C:55:45@wlan1: reconnecting
+166  1405/07/24 05:36:51  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -80
+167  1405/07/26 09:58:45  [system,info,account]  user su logged in from 185.110.29.189 via api
+168  1405/07/26 09:58:46  [system,info,account]  user su logged out from 185.110.29.189 via api
+169  1405/07/26 10:14:04  [system,info,account]  user su logged in from 185.110.29.189 via api
+170  1405/07/26 10:14:04  [system,info,account]  user su logged out from 185.110.29.189 via api
+171  1405/07/29 04:12:49  [wireless,info]  64:D1:54:6C:55:45@wlan1: disconnected, control frame timeout
+172  1405/07/29 04:13:01  [wireless,info]  64:D1:54:6C:55:45@wlan1: connected, signal strength -72
+173  1405/07/29 10:27:11  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  E4:8D:8C:C6:C4:44  (ether)
+wlan1  E4:8D:8C:C6:C4:45  (wlan)
+76  E4:8D:8C:C6:C4:44  (vlan)
+bridge1  E4:8D:8C:C6:C4:44  (bridge)
+--- /ip arp ---
+76  4C:5E:0C:C5:C8:24  (arp 172.19.1.177)

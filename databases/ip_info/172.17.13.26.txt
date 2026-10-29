@@ -1,0 +1,253 @@
+IP: 172.17.13.26
+Collected at: 2026-10-21T06:57:30.046433+00:00
+source: RouterOS API
+identity: ParsaRasaneh-Farhangyan-PTP
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=6C:3B:6B:91:A6:E1
+  2  name=wlan1  type=wlan  running=true  mac=6C:3B:6B:91:A6:E2
+  3  name=bridge1  type=bridge  running=true  mac=6C:3B:6B:91:A6:E1
+  4  name=vlan-38  type=vlan  running=true  mac=6C:3B:6B:91:A6:E1
+  5  name=wds136  type=wds  running=true  mac=6C:3B:6B:91:A6:E2
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=bridge  ssid=10094186111-PR-PTP-Farhangyan  band=5ghz-a/n  frequency=5655
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.13.26/29  interface=vlan-38  network=172.17.13.24
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.13.25  distance=1
+  2  dst=172.17.13.24/29  gw=vlan-38  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=MikroTik  address=fe80::4e5e:cff:fec5:c827  interface=ether1,bridge1
+  2  identity=AB-Gas  address=-  interface=vlan-38
+  3  identity=ParsaRasaneh-Nasirizadeh  address=-  interface=vlan-38
+  4  identity=MikroTik  address=172.17.12.249  interface=vlan-38
+  5  identity=ParsaRasaneh-Terminal  address=172.17.12.250  interface=vlan-38
+  6  identity=ParsaRasaneh-Farhangyan-ST  address=172.17.13.27  interface=vlan-38
+  7  identity=SW-Farhangian  address=172.17.13.242  interface=vlan-38
+  8  identity=SW-Farhangian  address=-  interface=wds136,bridge1
+  9  identity=ParsaRasaneh-Farhangyan-ST  address=-  interface=wds136,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:32
+# ساعت دستگاه (خام): 2026-08-16 07:50:39
+# افست اصلاحی (سرور − دستگاه): +1583:05:53
+  1  1405/06/24 01:21:29  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -68, wants WDS
+  2  1405/06/24 01:25:35  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+  3  1405/06/24 01:26:30  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -61, wants WDS
+  4  1405/06/24 01:45:03  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+  5  1405/06/24 01:45:58  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -58, wants WDS
+  6  1405/06/24 01:46:31  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+  7  1405/06/24 01:47:26  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -69, wants WDS
+  8  1405/06/24 01:49:51  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+  9  1405/06/24 01:50:46  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -63, wants WDS
+ 10  1405/06/24 01:54:46  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 11  1405/06/24 01:55:41  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -62, wants WDS
+ 12  1405/06/24 01:58:14  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 13  1405/06/24 01:59:09  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -67, wants WDS
+ 14  1405/06/24 05:58:03  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 15  1405/06/24 05:58:58  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -63, wants WDS
+ 16  1405/06/24 19:34:18  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 17  1405/06/24 19:35:13  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -60, wants WDS
+ 18  1405/06/24 21:28:08  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 19  1405/06/24 21:29:02  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -65, wants WDS
+ 20  1405/06/24 22:03:46  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, extensive data loss
+ 21  1405/06/24 22:04:45  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -65, wants WDS
+ 22  1405/06/24 23:45:29  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, extensive data loss
+ 23  1405/06/24 23:46:28  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -63, wants WDS
+ 24  1405/06/25 00:06:22  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 25  1405/06/25 00:07:17  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -63, wants WDS
+ 26  1405/06/25 00:31:10  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 27  1405/06/25 00:32:05  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -67, wants WDS
+ 28  1405/06/25 01:48:55  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 29  1405/06/25 01:49:50  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -60, wants WDS
+ 30  1405/06/25 01:57:50  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 31  1405/06/25 01:58:44  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -59, wants WDS
+ 32  1405/06/25 23:31:52  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, extensive data loss
+ 33  1405/06/25 23:32:50  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -59, wants WDS
+ 34  1405/06/26 02:22:14  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 35  1405/06/26 02:23:08  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -61, wants WDS
+ 36  1405/06/26 03:51:35  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 37  1405/06/26 03:52:29  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -57, wants WDS
+ 38  1405/06/26 09:39:03  [interface,info]  ether1 link down
+ 39  1405/06/26 09:39:27  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 40  1405/06/26 09:39:51  [interface,info]  ether1 link down
+ 41  1405/06/26 09:39:56  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 42  1405/06/26 19:16:38  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 43  1405/06/26 19:17:33  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -59, wants WDS
+ 44  1405/06/26 23:50:32  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 45  1405/06/26 23:51:26  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -60, wants WDS
+ 46  1405/06/27 21:10:13  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 47  1405/06/27 21:11:08  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -66, wants WDS
+ 48  1405/06/27 21:11:20  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 49  1405/06/27 21:12:14  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -65, wants WDS
+ 50  1405/06/27 21:14:37  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 51  1405/06/27 21:15:32  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -67, wants WDS
+ 52  1405/06/27 21:30:17  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 53  1405/06/27 21:31:12  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -64, wants WDS
+ 54  1405/06/27 21:31:45  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 55  1405/06/27 21:32:40  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -66, wants WDS
+ 56  1405/06/27 21:39:24  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 57  1405/06/27 21:40:18  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -58, wants WDS
+ 58  1405/06/27 22:09:17  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 59  1405/06/27 22:10:12  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -62, wants WDS
+ 60  1405/06/27 22:32:27  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 61  1405/06/27 22:33:21  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -63, wants WDS
+ 62  1405/06/27 22:36:50  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 63  1405/06/27 22:37:45  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -72, wants WDS
+ 64  1405/06/27 22:38:23  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 65  1405/06/27 22:39:18  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -68, wants WDS
+ 66  1405/06/27 22:39:47  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 67  1405/06/27 22:40:42  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -69, wants WDS
+ 68  1405/06/27 22:41:17  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 69  1405/06/27 22:42:11  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -71, wants WDS
+ 70  1405/06/27 22:42:49  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 71  1405/06/27 22:43:43  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -65, wants WDS
+ 72  1405/06/27 22:44:24  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 73  1405/06/27 22:45:19  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -67, wants WDS
+ 74  1405/06/27 22:55:05  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, extensive data loss
+ 75  1405/06/27 22:56:04  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -62, wants WDS
+ 76  1405/06/27 23:22:29  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 77  1405/06/27 23:23:24  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -67, wants WDS
+ 78  1405/06/27 23:32:13  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 79  1405/06/27 23:33:07  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -64, wants WDS
+ 80  1405/06/27 23:33:43  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 81  1405/06/27 23:34:38  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -64, wants WDS
+ 82  1405/06/27 23:37:28  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 83  1405/06/27 23:38:23  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -66, wants WDS
+ 84  1405/06/27 23:40:04  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 85  1405/06/27 23:40:58  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -63, wants WDS
+ 86  1405/06/27 23:41:19  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 87  1405/06/27 23:42:13  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -62, wants WDS
+ 88  1405/06/27 23:42:24  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 89  1405/06/27 23:43:19  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -64, wants WDS
+ 90  1405/06/27 23:49:06  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 91  1405/06/27 23:50:00  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -62, wants WDS
+ 92  1405/06/28 00:08:36  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 93  1405/06/28 00:09:31  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -62, wants WDS
+ 94  1405/06/28 00:23:20  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 95  1405/06/28 00:24:15  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -64, wants WDS
+ 96  1405/06/28 00:28:06  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 97  1405/06/28 00:29:01  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -70, wants WDS
+ 98  1405/06/28 00:29:36  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+ 99  1405/06/28 00:30:31  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -64, wants WDS
+100  1405/06/28 00:31:02  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+101  1405/06/28 00:31:57  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -67, wants WDS
+102  1405/06/28 00:33:00  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, extensive data loss
+103  1405/06/28 00:33:59  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -73, wants WDS
+104  1405/06/28 00:34:23  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+105  1405/06/28 00:35:18  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -66, wants WDS
+106  1405/06/28 00:44:04  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+107  1405/06/28 00:44:59  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -64, wants WDS
+108  1405/06/28 02:22:46  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+109  1405/06/28 02:23:41  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -63, wants WDS
+110  1405/06/28 04:59:10  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+111  1405/06/28 05:00:05  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -62, wants WDS
+112  1405/06/28 08:46:35  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+113  1405/06/28 08:47:30  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -62, wants WDS
+114  1405/06/28 14:24:29  [system,info,account]  user su logged in from 185.110.29.153 via winbox
+115  1405/06/28 14:27:29  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, disabling
+116  1405/06/28 14:28:26  [wireless,info]  wlan1: pre-shared key authentication not enabled, disable WPS
+117  1405/06/28 14:29:22  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -60, wants WDS
+118  1405/06/28 14:31:05  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, disabling
+119  1405/06/28 14:31:05  [wireless,info]  wlan1: pre-shared key authentication not enabled, disable WPS
+120  1405/06/28 14:31:05  [system,info]  device changed by su
+121  1405/06/28 14:32:02  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -59, wants WDS
+122  1405/06/28 15:37:07  [system,info,account]  user su logged out from 185.110.29.153 via winbox
+123  1405/06/29 13:51:32  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, extensive data loss
+124  1405/06/29 13:52:31  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -61, wants WDS
+125  1405/06/29 18:02:10  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, extensive data loss
+126  1405/06/29 18:03:08  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -65, wants WDS
+127  1405/06/29 19:26:42  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+128  1405/06/29 19:27:37  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -61, wants WDS
+129  1405/06/30 19:50:16  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+130  1405/06/30 19:51:10  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -58, wants WDS
+131  1405/06/30 19:53:19  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+132  1405/06/30 19:54:13  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -64, wants WDS
+133  1405/06/30 21:45:35  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+134  1405/06/30 21:46:29  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -66, wants WDS
+135  1405/06/30 21:53:07  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+136  1405/06/30 21:54:02  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -64, wants WDS
+137  1405/06/31 16:59:48  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+138  1405/06/31 17:00:42  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -65, wants WDS
+139  1405/07/01 00:04:12  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+140  1405/07/01 00:05:06  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -61, wants WDS
+141  1405/07/02 10:08:26  [interface,info]  ether1 link down
+142  1405/07/02 10:08:27  [interface,info]  ether1 link up (speed 100M, full duplex)
+143  1405/07/02 14:28:13  [interface,info]  ether1 link down
+144  1405/07/02 14:28:14  [interface,info]  ether1 link up (speed 100M, full duplex)
+145  1405/07/03 08:23:01  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+146  1405/07/03 08:23:58  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -56, wants WDS
+147  1405/07/04 23:10:37  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+148  1405/07/04 23:11:34  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -60, wants WDS
+149  1405/07/05 00:18:14  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+150  1405/07/05 00:19:09  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -60, wants WDS
+151  1405/07/06 17:07:49  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, extensive data loss
+152  1405/07/06 17:08:48  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -63, wants WDS
+153  1405/07/07 13:18:08  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, extensive data loss
+154  1405/07/07 13:19:07  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -60, wants WDS
+155  1405/07/08 01:29:10  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+156  1405/07/08 01:30:05  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -62, wants WDS
+157  1405/07/09 15:59:36  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+158  1405/07/09 16:00:31  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -63, wants WDS
+159  1405/07/09 16:02:32  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+160  1405/07/09 16:03:27  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -67, wants WDS
+161  1405/07/09 16:04:11  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, extensive data loss
+162  1405/07/09 16:05:07  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -61, wants WDS
+163  1405/07/09 16:05:42  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+164  1405/07/09 16:06:37  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -63, wants WDS
+165  1405/07/09 21:20:29  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+166  1405/07/09 21:21:24  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -64, wants WDS
+167  1405/07/09 22:00:03  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+168  1405/07/09 22:00:58  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -66, wants WDS
+169  1405/07/09 22:31:45  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+170  1405/07/09 22:32:39  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -66, wants WDS
+171  1405/07/09 23:30:32  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+172  1405/07/09 23:31:27  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -60, wants WDS
+173  1405/07/10 04:42:06  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+174  1405/07/10 04:43:00  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -61, wants WDS
+175  1405/07/10 05:58:19  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+176  1405/07/10 05:59:13  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -62, wants WDS
+177  1405/07/10 14:49:02  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+178  1405/07/10 14:49:57  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -61, wants WDS
+179  1405/07/10 15:08:35  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+180  1405/07/10 15:09:30  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -64, wants WDS
+181  1405/07/10 15:49:08  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+182  1405/07/10 15:50:03  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -60, wants WDS
+183  1405/07/10 16:22:23  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+184  1405/07/10 16:23:18  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -61, wants WDS
+185  1405/07/10 16:28:12  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, too many poll timeouts
+186  1405/07/10 16:29:06  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -64, wants WDS
+187  1405/07/11 13:57:19  [system,error,critical]  login failure for user admin from 185.110.29.153 via winbox
+188  1405/07/11 13:57:21  [system,error,critical]  login failure for user �� from 185.110.29.153 via winbox
+189  1405/07/11 13:57:24  [system,info,account]  user su logged in from 185.110.29.153 via winbox
+190  1405/07/11 13:57:45  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: disconnected, disabling
+191  1405/07/11 13:57:45  [system,info]  device changed by su
+192  1405/07/11 13:58:42  [wireless,info]  E4:8D:8C:B4:EE:2D@wlan1: connected, signal strength -66
+193  1405/07/11 14:00:58  [system,info,account]  user su logged out from 185.110.29.153 via winbox
+194  1405/07/25 09:14:54  [system,info,account]  user su logged in from 185.110.29.189 via api
+195  1405/07/25 09:14:55  [system,info,account]  user su logged out from 185.110.29.189 via api
+196  1405/07/26 09:58:04  [system,info,account]  user su logged in from 185.110.29.189 via api
+197  1405/07/26 09:58:05  [system,info,account]  user su logged out from 185.110.29.189 via api
+198  1405/07/26 10:13:33  [system,info,account]  user su logged in from 185.110.29.189 via api
+199  1405/07/26 10:13:33  [system,info,account]  user su logged out from 185.110.29.189 via api
+200  1405/07/29 10:26:32  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  6C:3B:6B:91:A6:E1  (ether)
+wlan1  6C:3B:6B:91:A6:E2  (wlan)
+bridge1  6C:3B:6B:91:A6:E1  (bridge)
+vlan-38  6C:3B:6B:91:A6:E1  (vlan)
+wds136  6C:3B:6B:91:A6:E2  (wds)
+--- /ip arp ---
+vlan-38  4C:5E:0C:C5:C8:27  (arp 172.17.13.25)

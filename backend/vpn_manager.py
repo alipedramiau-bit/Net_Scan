@@ -38,6 +38,11 @@ DEFAULT_PROFILES = {
 }
 
 
+def _config_path(pid: str) -> Path:
+    """Sidecar file for a profile's VPN config (never inside the JSON)."""
+    return PROFILE_FILE.parent / (PROFILE_FILE.stem + "_configs") / f"{pid}.conf"
+
+
 def _load():
     global PROFILES
     try:
@@ -45,6 +50,16 @@ def _load():
         PROFILES = value if isinstance(value, dict) else {}
     except (OSError, ValueError):
         PROFILES = {}
+    # Re-attach VPN configs stored in sidecar files (kept out of the JSON on purpose:
+    # .ovpn/.conf payloads embed certs and private keys).
+    for pid, meta in PROFILES.items():
+        if isinstance(meta, dict):
+            cfg_file = _config_path(pid)
+            if cfg_file.is_file():
+                try:
+                    meta["config_content"] = cfg_file.read_text(encoding="utf-8")[:200_000]
+                except OSError:
+                    pass
     # Ensure built-in defaults exist without overwriting user edits of same id
     changed = False
     for pid, meta in DEFAULT_PROFILES.items():
@@ -57,13 +72,49 @@ def _load():
 
 def _save():
     PROFILE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    # Persist config_content to per-profile sidecar files instead of the JSON.
+    configs = {}
+    disk_view = {}
+    for pid, meta in PROFILES.items():
+        entry = dict(meta) if isinstance(meta, dict) else meta
+        if isinstance(entry, dict) and "config_content" in entry:
+            content = str(entry.pop("config_content") or "")
+            if content.strip():
+                configs[pid] = content
+        disk_view[pid] = entry
     tmp = PROFILE_FILE.with_suffix(PROFILE_FILE.suffix + ".tmp")
-    tmp.write_text(json.dumps(PROFILES, ensure_ascii=False, indent=2), encoding="utf-8")
+    tmp.write_text(json.dumps(disk_view, ensure_ascii=False, indent=2), encoding="utf-8")
     try:
         os.chmod(tmp, 0o600)
     except OSError:
         pass
     tmp.replace(PROFILE_FILE)
+    # Write sidecar configs with restrictive permissions.
+    if configs:
+        cfg_dir = _config_path("x").parent
+        cfg_dir.mkdir(parents=True, exist_ok=True)
+        try:
+            os.chmod(cfg_dir, 0o700)
+        except OSError:
+            pass
+        for pid, content in configs.items():
+            cfg_file = _config_path(pid)
+            tmp_cfg = cfg_file.with_suffix(cfg_file.suffix + ".tmp")
+            tmp_cfg.write_text(content, encoding="utf-8")
+            try:
+                os.chmod(tmp_cfg, 0o600)
+            except OSError:
+                pass
+            tmp_cfg.replace(cfg_file)
+    # Drop sidecars for profiles that no longer exist or lost their config.
+    cfg_dir = _config_path("x").parent
+    if cfg_dir.is_dir():
+        for old in cfg_dir.glob("*.conf"):
+            if old.stem not in configs:
+                try:
+                    old.unlink()
+                except OSError:
+                    pass
 
 
 def _safe_config(text, suffix):
@@ -714,6 +765,10 @@ def delete_profile(pid):
             raise ValueError("پروفایل پیش‌فرض Olom قابل حذف نیست")
         del PROFILES[pid]
         _save()
+        try:
+            _config_path(pid).unlink(missing_ok=True)
+        except OSError:
+            pass
         return True
 
 

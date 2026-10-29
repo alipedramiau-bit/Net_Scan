@@ -1,0 +1,98 @@
+IP: 172.172.177.58
+Collected at: 2026-10-21T06:57:32.797761+00:00
+source: RouterOS API
+identity: PR-PTP-MNEW_Bridge
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=2C:C8:1B:DB:0A:E4
+  2  name=wlan1  type=wlan  running=true  mac=2C:C8:1B:DB:0A:E5
+  3  name=30  type=vlan  running=false  mac=2C:C8:1B:DB:0A:E4
+  4  name=31  type=vlan  running=false  mac=2C:C8:1B:DB:0A:E4
+  5  name=bridge1  type=bridge  running=true  mac=2C:C8:1B:DB:0A:E4
+  6  name=vlan1  type=vlan  running=false  mac=2C:C8:1B:DB:0A:E4
+  7  name=vlan2  type=vlan  running=true  mac=2C:C8:1B:DB:0A:E4
+  8  name=wds1  type=wds  running=true  mac=2C:C8:1B:DB:0A:E5
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=bridge  ssid=10094186191-PR-PTP-MNEW  band=5ghz-onlyac  frequency=5840
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.172.177.58/29  interface=vlan2  network=172.172.177.56
+  2  address=172.19.2.30/29  interface=wlan1  network=172.19.2.24
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.172.177.57  distance=1
+  2  dst=172.19.2.24/29  gw=bridge1  distance=0
+  3  dst=172.172.177.56/29  gw=vlan2  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=Marjan-SW  address=172.17.12.49  interface=ether1,bridge1
+  2  identity=MikroTik  address=-  interface=vlan2
+  3  identity=MikroTik  address=170.17.11.9  interface=vlan2
+  4  identity=ParsaRasaneh-PTP-Hasti-St  address=172.17.12.10  interface=vlan2
+  5  identity=PR-PTP-NaftKav-!01-Dakal-AP  address=172.17.12.11  interface=vlan2
+  6  identity=PR-ROuter-Koteshanof  address=172.17.12.12  interface=vlan2
+  7  identity=ParsaRasaneh-Man-K3  address=172.17.12.86  interface=vlan2
+  8  identity=PR-PTP-Khazalabad  address=172.19.2.98  interface=vlan2
+  9  identity=PR-Choebdeh  address=172.172.171.2  interface=vlan2
+ 10  identity=PR-Choebdeh5  address=172.172.171.6  interface=vlan2
+ 11  identity=PR-PTP-CH-DSL-AP  address=172.172.171.10  interface=vlan2
+ 12  identity=Router-Manage-Dslam-CH-Shahrak  address=172.172.171.12  interface=vlan2
+ 13  identity=ParsaRasaneh-Choebdeh3  address=172.172.171.18  interface=vlan2
+ 14  identity=Parsa-POWERBOX-CH  address=172.172.171.19  interface=vlan2
+ 15  identity=ParsaRasaneh-Choebdeh10-MP  address=172.172.171.38  interface=vlan2
+ 16  identity=ParsaRasaneh-Choebdeh8  address=172.172.171.54  interface=vlan2
+ 17  identity=PR-Choebdeh15  address=172.172.171.78  interface=vlan2
+ 18  identity=PR-PTP-Bazar-ST  address=172.172.172.27  interface=vlan2
+ 19  identity=ParsaRasaneh-Arvand-ACC  address=172.172.172.50  interface=vlan2
+ 20  identity=ParsaRasaneh-PTP-Arvand-ST  address=172.172.172.51  interface=vlan2
+ 21  identity=ParsaRasaneh-Arvand-MP  address=172.172.172.66  interface=vlan2
+ 22  identity=MikroTik  address=172.172.172.70  interface=vlan2
+ 23  identity=ParsaRasaneh-PTP-ICT-AP  address=172.172.172.115  interface=vlan2
+ 24  identity=ParsaRasaneh-PTP-Manyohi-N-ST  address=172.172.172.116  interface=vlan2
+ 25  identity=PR-MAN-K  address=172.172.172.117  interface=vlan2
+ 26  identity=POP-Center-ST  address=172.172.172.146  interface=vlan2
+ 27  identity=ParsaRasanerh-Man-K1  address=172.172.177.46  interface=vlan2
+ 28  identity=PR-Man-K2  address=172.172.177.50  interface=vlan2
+ 29  identity=ParsaRasaneh-PTP-CH-ST  address=172.172.177.59  interface=vlan2
+ 30  identity=ParsaRasaneh-khezr  address=172.172.177.90  interface=vlan2
+ 31  identity=ParsaRasaneh-Khezr2  address=172.172.177.98  interface=vlan2
+ 32  identity=PR-Choebdeh15  address=-  interface=wds1,bridge1
+ 33  identity=Parsa-SW-CH  address=170.17.11.250  interface=wds1,bridge1
+ 34  identity=PR-Choebdeh5  address=172.172.171.18  interface=wds1,bridge1
+ 35  identity=ParsaRasaneh-Choebdeh3  address=192.168.1.1  interface=wds1,bridge1
+ 36  identity=ParsaRasaneh-PTP-CH-ST  address=192.168.1.2  interface=wds1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:27:04
+# ساعت دستگاه (خام): 2026-06-04 19:06:11
+# افست اصلاحی (سرور − دستگاه): +3323:50:53
+  1  1405/07/21 09:34:27  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/21 09:34:28  [interface,info]  vlan2 link up
+  3  1405/07/21 09:34:29  [bridge,info]  "bridge1" mac address changed to 2C:C8:1B:DB:0A:E4
+  4  1405/07/21 09:34:32  [wireless,info]  E4:8D:8C:FF:DA:69@wlan1: connected, signal strength -38
+  5  1405/07/21 09:37:03  [interface,info]  ether1 link up (speed 1G, full duplex)
+  6  1405/07/26 09:58:45  [system,info,account]  user su logged in from 185.110.29.189 via api
+  7  1405/07/26 09:58:46  [system,info,account]  user su logged out from 185.110.29.189 via api
+  8  1405/07/26 10:14:06  [system,info,account]  user su logged in from 185.110.29.189 via api
+  9  1405/07/26 10:14:06  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 10  1405/07/29 10:27:03  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  2C:C8:1B:DB:0A:E4  (ether)
+wlan1  2C:C8:1B:DB:0A:E5  (wlan)
+30  2C:C8:1B:DB:0A:E4  (vlan)
+31  2C:C8:1B:DB:0A:E4  (vlan)
+bridge1  2C:C8:1B:DB:0A:E4  (bridge)
+vlan1  2C:C8:1B:DB:0A:E4  (vlan)
+vlan2  2C:C8:1B:DB:0A:E4  (vlan)
+wds1  2C:C8:1B:DB:0A:E5  (wds)
+--- /ip arp ---
+vlan2  4C:5E:0C:C5:C8:24  (arp 172.172.177.57)

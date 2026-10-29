@@ -1,0 +1,250 @@
+IP: 172.19.2.83
+Collected at: 2026-10-21T06:57:35.216223+00:00
+source: RouterOS API
+identity: PR-PTP-Farhangi-ST
+device_type: ST
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=D4:01:C3:C8:E2:60
+  2  name=wlan1  type=wlan  running=true  mac=D4:01:C3:C8:E2:61
+  3  name=bridge1  type=bridge  running=true  mac=D4:01:C3:C8:E2:60
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=station  ssid=PR-PTP-Farhangi  band=5ghz-a/n  frequency=5180
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=192.168.1.1/24  interface=bridge1  network=192.168.1.0
+  2  address=172.19.2.83/29  interface=wlan1  network=172.19.2.80
+  3  address=185.110.29.161/32  interface=wlan1  network=185.110.29.161
+  4  address=192.168.87.1/24  interface=ether1  network=192.168.87.0
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.19.2.81  distance=1
+  2  dst=172.19.2.80/29  gw=wlan1  distance=0
+  3  dst=185.110.29.161/32  gw=wlan1  distance=0
+  4  dst=192.168.1.0/24  gw=bridge1  distance=0
+  5  dst=192.168.87.0/24  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=PR-SW-Kargar  address=-  interface=wlan1
+  2  identity=MikroTik  address=172.19.2.81  interface=wlan1
+  3  identity=PR-PTP-Farhanigi  address=172.19.2.82  interface=wlan1
+  4  identity=MikroTik  address=172.19.2.84  interface=ether1,bridge1
+  5  identity=Sw-Farhangpour  address=192.168.1.2  interface=ether1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:27:24
+# ساعت دستگاه (خام): 1970-08-12 03:23:51
+# افست اصلاحی (سرور − دستگاه): +492579:33:33
+  1  1405/07/18 09:28:24  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/18 09:28:27  [wireless,info]  D4:01:C3:C8:E2:41@wlan1 established connection on 5130000, SSID PR-PTP-Farhangi
+  3  1405/07/18 09:28:32  [bridge,info]  "bridge1" mac address changed to D4:01:C3:C8:E2:60
+  4  1405/07/18 09:28:32  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  5  1405/07/18 09:28:34  [interface,info]  ether1 link up (speed 100M, full duplex)
+  6  1405/07/18 09:35:06  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+  7  1405/07/18 10:07:26  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+  8  1405/07/18 10:17:59  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+  9  1405/07/18 10:17:59  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 10  1405/07/18 14:06:45  [dhcp,info]  defconf assigned 192.168.1.253 to 2E:7E:D6:94:69:E2
+ 11  1405/07/18 14:19:25  [dhcp,info]  defconf assigned 192.168.1.252 to CE:33:CC:02:BD:82
+ 12  1405/07/18 14:31:46  [dhcp,info]  defconf deassigned 192.168.1.253 from 2E:7E:D6:94:69:E2
+ 13  1405/07/18 14:34:25  [dhcp,info]  defconf deassigned 192.168.1.252 from CE:33:CC:02:BD:82
+ 14  1405/07/18 17:57:33  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 15  1405/07/18 17:57:34  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 16  1405/07/18 18:07:34  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 17  1405/07/18 18:27:41  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 18  1405/07/18 18:37:41  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 19  1405/07/18 18:51:47  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 20  1405/07/19 08:12:33  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 21  1405/07/19 08:13:42  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 22  1405/07/19 08:23:42  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 23  1405/07/19 08:49:44  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 24  1405/07/19 08:59:44  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 25  1405/07/19 09:57:51  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 26  1405/07/19 10:01:36  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 27  1405/07/19 10:01:36  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 28  1405/07/19 17:37:58  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 29  1405/07/19 17:37:58  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 30  1405/07/19 17:57:35  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 31  1405/07/19 18:01:12  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 32  1405/07/19 18:16:13  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 33  1405/07/19 18:23:18  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 34  1405/07/19 19:27:38  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 35  1405/07/19 19:27:38  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 36  1405/07/19 19:46:17  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 37  1405/07/19 19:46:17  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 38  1405/07/19 19:56:17  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 39  1405/07/19 19:57:19  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 40  1405/07/19 19:58:41  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 41  1405/07/19 19:58:41  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 42  1405/07/19 20:13:17  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 43  1405/07/19 20:13:17  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 44  1405/07/20 08:21:45  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 45  1405/07/20 08:21:45  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 46  1405/07/20 08:36:48  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 47  1405/07/20 09:19:23  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 48  1405/07/20 09:29:23  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 49  1405/07/20 10:38:50  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 50  1405/07/20 10:44:24  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 51  1405/07/20 10:44:24  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 52  1405/07/20 10:47:19  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 53  1405/07/20 10:47:22  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 54  1405/07/20 10:56:32  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 55  1405/07/20 10:56:32  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 56  1405/07/20 11:02:38  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 57  1405/07/20 11:02:38  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 58  1405/07/20 11:40:19  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 59  1405/07/20 11:40:19  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 60  1405/07/20 11:50:19  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 61  1405/07/20 12:07:41  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 62  1405/07/20 13:32:36  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 63  1405/07/20 15:17:27  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 64  1405/07/20 15:25:16  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 65  1405/07/20 15:25:16  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 66  1405/07/20 15:35:16  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 67  1405/07/20 15:47:18  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 68  1405/07/20 15:57:18  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 69  1405/07/20 15:59:18  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 70  1405/07/21 07:18:53  [wireless,info]  D4:01:C3:C8:E2:41@wlan1: lost connection, not polled for too long
+ 71  1405/07/21 07:18:53  [wireless,info]  D4:01:C3:C8:E2:41@wlan1 established connection on 5130000, SSID PR-PTP-Farhangi
+ 72  1405/07/21 07:26:53  [wireless,info]  D4:01:C3:C8:E2:41@wlan1: lost connection, not polled for too long
+ 73  1405/07/21 07:26:53  [wireless,info]  D4:01:C3:C8:E2:41@wlan1 established connection on 5130000, SSID PR-PTP-Farhangi
+ 74  1405/07/21 10:07:31  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 75  1405/07/21 10:08:46  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 76  1405/07/21 12:22:32  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 77  1405/07/21 12:37:56  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 78  1405/07/21 13:20:15  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 79  1405/07/21 14:17:26  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 80  1405/07/21 14:27:26  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 81  1405/07/21 14:34:53  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 82  1405/07/21 14:44:53  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 83  1405/07/21 15:23:53  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 84  1405/07/21 15:33:53  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 85  1405/07/21 16:32:16  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 86  1405/07/21 16:42:16  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 87  1405/07/21 17:18:02  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 88  1405/07/21 17:21:45  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 89  1405/07/21 17:21:45  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 90  1405/07/21 17:32:56  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 91  1405/07/21 17:32:56  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 92  1405/07/21 20:09:21  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 93  1405/07/21 20:09:21  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 94  1405/07/22 05:07:54  [wireless,info]  D4:01:C3:C8:E2:41@wlan1: lost connection, not polled for too long
+ 95  1405/07/22 05:09:05  [wireless,info]  D4:01:C3:C8:E2:41@wlan1 established connection on 5130000, SSID PR-PTP-Farhangi
+ 96  1405/07/22 10:27:44  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 97  1405/07/22 10:52:09  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+ 98  1405/07/22 11:00:30  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+ 99  1405/07/22 11:00:30  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+100  1405/07/22 11:06:41  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+101  1405/07/22 11:06:41  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+102  1405/07/22 11:12:31  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+103  1405/07/22 11:12:31  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+104  1405/07/22 11:37:30  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+105  1405/07/22 11:48:58  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+106  1405/07/22 12:20:08  [dhcp,info]  defconf assigned 192.168.1.251 to 56:6C:E9:59:BF:59
+107  1405/07/22 12:30:08  [dhcp,info]  defconf deassigned 192.168.1.251 from 56:6C:E9:59:BF:59
+108  1405/07/22 18:25:55  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+109  1405/07/22 18:25:55  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+110  1405/07/22 18:32:31  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+111  1405/07/22 18:32:31  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+112  1405/07/22 20:12:33  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+113  1405/07/22 20:38:36  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+114  1405/07/22 20:52:30  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+115  1405/07/22 20:52:30  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+116  1405/07/23 11:12:35  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+117  1405/07/23 11:47:19  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+118  1405/07/23 11:57:19  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+119  1405/07/23 12:19:13  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+120  1405/07/23 12:35:47  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+121  1405/07/23 16:32:35  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+122  1405/07/23 16:32:49  [dhcp,info]  defconf assigned 192.168.1.251 to 56:6C:E9:59:BF:59
+123  1405/07/23 16:42:35  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+124  1405/07/23 17:07:50  [dhcp,info]  defconf deassigned 192.168.1.251 from 56:6C:E9:59:BF:59
+125  1405/07/23 17:22:35  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+126  1405/07/23 17:32:04  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+127  1405/07/23 17:32:04  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+128  1405/07/23 17:42:30  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+129  1405/07/23 17:42:30  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+130  1405/07/23 18:12:13  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+131  1405/07/23 18:12:13  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+132  1405/07/23 18:17:52  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+133  1405/07/23 18:17:52  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+134  1405/07/23 19:36:17  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+135  1405/07/23 19:36:17  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+136  1405/07/23 19:36:42  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+137  1405/07/23 19:36:42  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+138  1405/07/23 19:44:25  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+139  1405/07/23 19:44:25  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+140  1405/07/25 17:42:26  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+141  1405/07/25 17:45:15  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+142  1405/07/25 17:55:15  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+143  1405/07/25 17:57:11  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+144  1405/07/25 18:02:50  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+145  1405/07/25 18:02:50  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+146  1405/07/25 20:07:26  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+147  1405/07/25 20:17:48  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+148  1405/07/25 20:27:48  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+149  1405/07/25 20:31:19  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+150  1405/07/25 20:41:19  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+151  1405/07/25 20:48:10  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+152  1405/07/26 09:33:57  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+153  1405/07/26 09:33:57  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+154  1405/07/26 09:59:07  [system,info,account]  user su logged in from 185.110.29.189 via api
+155  1405/07/26 09:59:08  [system,info,account]  user su logged out from 185.110.29.189 via api
+156  1405/07/26 10:14:24  [system,info,account]  user su logged in from 185.110.29.189 via api
+157  1405/07/26 10:14:24  [system,info,account]  user su logged out from 185.110.29.189 via api
+158  1405/07/26 11:33:53  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+159  1405/07/26 11:33:53  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+160  1405/07/27 10:32:40  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+161  1405/07/27 10:32:40  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+162  1405/07/27 10:42:40  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+163  1405/07/27 10:48:48  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+164  1405/07/27 10:52:30  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+165  1405/07/27 10:52:30  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+166  1405/07/27 11:05:05  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+167  1405/07/27 11:05:05  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+168  1405/07/27 17:27:24  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+169  1405/07/27 17:27:24  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+170  1405/07/27 17:52:22  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+171  1405/07/27 17:59:42  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+172  1405/07/27 18:15:02  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+173  1405/07/27 18:19:07  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+174  1405/07/27 18:35:06  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+175  1405/07/27 18:35:06  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+176  1405/07/27 18:43:06  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+177  1405/07/27 18:43:06  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+178  1405/07/27 20:17:24  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+179  1405/07/27 20:26:40  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+180  1405/07/27 20:32:23  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+181  1405/07/27 20:32:23  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+182  1405/07/28 10:22:22  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+183  1405/07/28 10:33:31  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+184  1405/07/28 12:18:34  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+185  1405/07/28 12:33:33  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+186  1405/07/28 17:07:22  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+187  1405/07/28 17:53:10  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+188  1405/07/28 19:52:21  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+189  1405/07/28 20:22:28  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+190  1405/07/28 20:32:28  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+191  1405/07/28 20:34:43  [dhcp,info]  defconf assigned 192.168.1.254 to BE:38:4B:5C:C5:DC
+192  1405/07/28 20:49:51  [dhcp,info]  defconf deassigned 192.168.1.254 from BE:38:4B:5C:C5:DC
+193  1405/07/29 10:27:23  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  D4:01:C3:C8:E2:60  (ether)
+wlan1  D4:01:C3:C8:E2:61  (wlan)
+bridge1  D4:01:C3:C8:E2:60  (bridge)
+--- /ip arp ---
+bridge1  CC:28:AA:A7:50:C4  (arp 192.168.1.96)
+bridge1  CC:28:AA:A7:51:C0  (arp 192.168.1.250)
+bridge1  D4:43:0E:F5:09:68  (arp 192.168.1.50)
+bridge1  CC:28:AA:A7:51:BB  (arp 192.168.1.137)
+wlan1  4C:5E:0C:C5:C8:24  (arp 172.19.2.81)
+bridge1  60:CF:84:C9:1E:72  (arp 192.168.1.98)
+bridge1  30:DD:AA:66:14:3B  (arp 192.168.1.51)

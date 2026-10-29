@@ -1,0 +1,12 @@
+pty "/usr/sbin/pptp 185.110.29.205 --nolaunchpppd"
+name pedram
+remotename olom
+require-mppe-128
+noauth
+nodefaultroute
+noipdefault
+nodetach
+persist
+maxfail 3
+lcp-echo-failure 4
+lcp-echo-interval 30

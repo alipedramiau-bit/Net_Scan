@@ -1,0 +1,283 @@
+IP: 172.172.172.51
+Collected at: 2026-10-21T06:57:32.400567+00:00
+source: RouterOS API
+identity: ParsaRasaneh-PTP-Arvand-ST
+device_type: ST
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=4C:5E:0C:51:03:47
+  2  name=wlan1  type=wlan  running=true  mac=4C:5E:0C:51:03:48
+  3  name=131  type=vlan  running=true  mac=4C:5E:0C:51:03:47
+  4  name=bridge1  type=bridge  running=true  mac=4C:5E:0C:51:03:47
+  5  name=vlan1  type=vlan  running=true  mac=4C:5E:0C:51:03:47
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=station-bridge  ssid=10094186121-PR-PTP-Arvand  band=5ghz-a/n  frequency=5000
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=192.168.22.2/30  interface=ether1  network=192.168.22.0
+  2  address=172.172.172.51/29  interface=131  network=172.172.172.48
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.172.172.49  distance=1
+  2  dst=172.172.172.48/29  gw=131  distance=0
+  3  dst=192.168.22.0/30  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=MikroTik  address=-  interface=ether1,bridge1
+  2  identity=Parsa-SW-Manyouhi  address=172.172.172.250  interface=wlan1,bridge1
+  3  identity=ParsaRasaneh-Arvand-ACC  address=192.168.22.1  interface=wlan1,bridge1
+  4  identity=ParsaRasaneh-Arvand-ACC  address=-  interface=vlan1
+  5  identity=ParsaRasaneh-PTP-Manyohi-N-ST  address=-  interface=vlan1
+  6  identity=MikroTik  address=100.78.30.249  interface=vlan1
+  7  identity=MikroTik  address=-  interface=131
+  8  identity=MikroTik  address=170.17.11.9  interface=131
+  9  identity=ParsaRasaneh-PTP-Hasti-St  address=172.17.12.10  interface=131
+ 10  identity=PR-PTP-NaftKav-!01-Dakal-AP  address=172.17.12.11  interface=131
+ 11  identity=PR-ROuter-Koteshanof  address=172.17.12.12  interface=131
+ 12  identity=ParsaRasaneh-Man-K3  address=172.17.12.86  interface=131
+ 13  identity=PR-PTP-Khazalabad  address=172.19.2.98  interface=131
+ 14  identity=PR-Choebdeh  address=172.172.171.2  interface=131
+ 15  identity=PR-Choebdeh5  address=172.172.171.6  interface=131
+ 16  identity=PR-PTP-CH-DSL-AP  address=172.172.171.10  interface=131
+ 17  identity=Router-Manage-Dslam-CH-Shahrak  address=172.172.171.12  interface=131
+ 18  identity=ParsaRasaneh-Choebdeh3  address=172.172.171.18  interface=131
+ 19  identity=Parsa-POWERBOX-CH  address=172.172.171.19  interface=131
+ 20  identity=ParsaRasaneh-Choebdeh10-MP  address=172.172.171.38  interface=131
+ 21  identity=ParsaRasaneh-Choebdeh8  address=172.172.171.54  interface=131
+ 22  identity=PR-Choebdeh15  address=172.172.171.78  interface=131
+ 23  identity=PR-PTP-Bazar-ST  address=172.172.172.27  interface=131
+ 24  identity=ParsaRasaneh-Arvand-ACC  address=172.172.172.50  interface=131
+ 25  identity=ParsaRasaneh-PTP-Arvand-ST  address=172.172.172.51  interface=131
+ 26  identity=ParsaRasaneh-Arvand-MP  address=172.172.172.66  interface=131
+ 27  identity=MikroTik  address=172.172.172.70  interface=131
+ 28  identity=ParsaRasaneh-PTP-ICT-AP  address=172.172.172.115  interface=131
+ 29  identity=ParsaRasaneh-PTP-Manyohi-N-ST  address=172.172.172.116  interface=131
+ 30  identity=PR-MAN-K  address=172.172.172.117  interface=131
+ 31  identity=POP-Center-ST  address=172.172.172.146  interface=131
+ 32  identity=ParsaRasanerh-Man-K1  address=172.172.177.46  interface=131
+ 33  identity=PR-Man-K2  address=172.172.177.50  interface=131
+ 34  identity=PR-PTP-MNEW_Bridge  address=172.172.177.58  interface=131
+ 35  identity=ParsaRasaneh-PTP-CH-ST  address=172.172.177.59  interface=131
+ 36  identity=ParsaRasaneh-khezr  address=172.172.177.90  interface=131
+ 37  identity=ParsaRasaneh-Khezr2  address=172.172.177.98  interface=131
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:27:00
+# ساعت دستگاه (خام): 2026-03-31 22:33:51
+# افست اصلاحی (سرور − دستگاه): +4880:23:09
+  1  1405/07/26 02:40:33  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, ranging timeout
+  2  1405/07/26 02:40:47  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+  3  1405/07/26 02:40:56  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+  4  1405/07/26 02:41:01  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+  5  1405/07/26 02:41:21  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, medium-access timeout
+  6  1405/07/26 02:41:37  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+  7  1405/07/26 02:41:45  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+  8  1405/07/26 02:42:02  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+  9  1405/07/26 02:42:25  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, medium-access timeout
+ 10  1405/07/26 02:42:37  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 11  1405/07/26 02:42:50  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 12  1405/07/26 02:43:12  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, medium-access timeout
+ 13  1405/07/26 02:43:17  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 14  1405/07/26 02:44:36  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 15  1405/07/26 02:44:57  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, medium-access timeout
+ 16  1405/07/26 02:45:12  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 17  1405/07/26 02:46:53  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+ 18  1405/07/26 02:47:05  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+ 19  1405/07/26 02:47:28  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+ 20  1405/07/26 02:47:42  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, medium-access timeout
+ 21  1405/07/26 02:48:58  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, medium-access timeout
+ 22  1405/07/26 02:49:48  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, medium-access timeout
+ 23  1405/07/26 02:50:03  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 24  1405/07/26 02:50:19  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, medium-access timeout
+ 25  1405/07/26 03:01:52  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 26  1405/07/26 03:02:07  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+ 27  1405/07/26 03:02:14  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+ 28  1405/07/26 03:02:56  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+ 29  1405/07/26 03:03:02  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+ 30  1405/07/26 03:03:10  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 31  1405/07/26 03:03:41  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, medium-access timeout
+ 32  1405/07/26 03:06:50  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 33  1405/07/26 03:10:54  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 34  1405/07/26 03:14:29  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 35  1405/07/26 03:15:26  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, medium-access timeout
+ 36  1405/07/26 03:18:20  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 37  1405/07/26 03:18:45  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 38  1405/07/26 03:22:43  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, synchronization timeout
+ 39  1405/07/26 03:23:37  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, synchronization timeout
+ 40  1405/07/26 03:26:32  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 41  1405/07/26 03:28:28  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, medium-access timeout
+ 42  1405/07/26 03:28:42  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, medium-access timeout
+ 43  1405/07/26 03:29:12  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 44  1405/07/26 03:30:04  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 45  1405/07/26 03:30:23  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, medium-access timeout
+ 46  1405/07/26 03:30:49  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 47  1405/07/26 03:32:00  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+ 48  1405/07/26 03:32:13  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+ 49  1405/07/26 03:32:32  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+ 50  1405/07/26 03:32:44  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+ 51  1405/07/26 03:32:56  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 52  1405/07/26 03:33:16  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 53  1405/07/26 03:33:53  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+ 54  1405/07/26 03:34:01  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+ 55  1405/07/26 03:34:19  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+ 56  1405/07/26 03:34:29  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+ 57  1405/07/26 03:34:37  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 58  1405/07/26 03:34:50  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 59  1405/07/26 03:35:05  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+ 60  1405/07/26 03:35:32  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, medium-access timeout
+ 61  1405/07/26 03:36:30  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 62  1405/07/26 03:36:43  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+ 63  1405/07/26 03:37:00  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, medium-access timeout
+ 64  1405/07/26 03:37:15  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 65  1405/07/26 03:37:29  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+ 66  1405/07/26 03:37:40  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+ 67  1405/07/26 03:39:11  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 68  1405/07/26 03:39:20  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 69  1405/07/26 03:40:33  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 70  1405/07/26 03:42:31  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+ 71  1405/07/26 03:42:45  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, medium-access timeout
+ 72  1405/07/26 03:45:04  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 73  1405/07/26 03:45:17  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+ 74  1405/07/26 03:45:25  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+ 75  1405/07/26 03:45:37  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+ 76  1405/07/26 03:45:47  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, synchronization timeout
+ 77  1405/07/26 03:45:58  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 78  1405/07/26 03:46:16  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+ 79  1405/07/26 03:46:22  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+ 80  1405/07/26 03:46:54  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 81  1405/07/26 03:47:08  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+ 82  1405/07/26 03:47:38  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, medium-access timeout
+ 83  1405/07/26 03:48:06  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+ 84  1405/07/26 03:48:13  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+ 85  1405/07/26 03:48:19  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+ 86  1405/07/26 03:48:25  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+ 87  1405/07/26 03:48:50  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, medium-access timeout
+ 88  1405/07/26 03:49:06  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, medium-access timeout
+ 89  1405/07/26 03:49:28  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 90  1405/07/26 03:49:41  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 91  1405/07/26 03:49:57  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, medium-access timeout
+ 92  1405/07/26 03:50:03  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 93  1405/07/26 03:50:24  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+ 94  1405/07/26 03:51:03  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, medium-access timeout
+ 95  1405/07/26 03:51:17  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 96  1405/07/26 03:51:30  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+ 97  1405/07/26 03:51:45  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+ 98  1405/07/26 03:52:01  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+ 99  1405/07/26 03:52:33  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+100  1405/07/26 03:52:48  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, medium-access timeout
+101  1405/07/26 03:52:57  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+102  1405/07/26 03:53:13  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+103  1405/07/26 03:53:20  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+104  1405/07/26 03:53:40  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, medium-access timeout
+105  1405/07/26 03:53:43  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+106  1405/07/26 03:53:55  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+107  1405/07/26 03:54:05  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+108  1405/07/26 03:54:08  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+109  1405/07/26 03:54:48  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+110  1405/07/26 03:54:54  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+111  1405/07/26 03:55:08  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+112  1405/07/26 03:55:16  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+113  1405/07/26 03:55:20  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+114  1405/07/26 03:56:57  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+115  1405/07/26 03:57:04  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+116  1405/07/26 03:57:21  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+117  1405/07/26 03:57:26  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+118  1405/07/26 03:57:45  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, medium-access timeout
+119  1405/07/26 03:57:47  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+120  1405/07/26 03:58:05  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+121  1405/07/26 03:58:12  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+122  1405/07/26 03:59:24  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+123  1405/07/26 03:59:47  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+124  1405/07/26 03:59:59  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+125  1405/07/26 04:00:45  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+126  1405/07/26 04:01:00  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+127  1405/07/26 04:01:28  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+128  1405/07/26 04:01:39  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+129  1405/07/26 04:01:51  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, medium-access timeout
+130  1405/07/26 04:02:06  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+131  1405/07/26 04:02:27  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, medium-access timeout
+132  1405/07/26 04:02:41  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+133  1405/07/26 04:02:52  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+134  1405/07/26 04:03:07  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, synchronization timeout
+135  1405/07/26 04:03:12  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+136  1405/07/26 04:03:20  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+137  1405/07/26 04:03:23  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+138  1405/07/26 04:05:54  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, synchronization timeout
+139  1405/07/26 04:06:17  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+140  1405/07/26 04:06:48  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+141  1405/07/26 04:07:05  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, synchronization timeout
+142  1405/07/26 04:07:17  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+143  1405/07/26 04:08:59  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, medium-access timeout
+144  1405/07/26 04:09:07  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+145  1405/07/26 04:09:26  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, medium-access timeout
+146  1405/07/26 04:09:29  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+147  1405/07/26 04:09:40  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+148  1405/07/26 04:09:59  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, synchronization timeout
+149  1405/07/26 04:10:11  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+150  1405/07/26 04:10:21  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+151  1405/07/26 04:10:25  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+152  1405/07/26 04:11:26  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, medium-access timeout
+153  1405/07/26 04:11:28  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+154  1405/07/26 04:12:02  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+155  1405/07/26 04:12:20  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+156  1405/07/26 04:12:33  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+157  1405/07/26 04:13:43  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, medium-access timeout
+158  1405/07/26 04:13:59  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+159  1405/07/26 04:14:12  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+160  1405/07/26 04:14:24  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+161  1405/07/26 04:18:49  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, medium-access timeout
+162  1405/07/26 04:18:52  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+163  1405/07/26 04:19:03  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+164  1405/07/26 04:19:20  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+165  1405/07/26 04:23:19  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+166  1405/07/26 04:23:24  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+167  1405/07/26 04:25:25  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, medium-access timeout
+168  1405/07/26 04:25:29  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+169  1405/07/26 04:26:02  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, medium-access timeout
+170  1405/07/26 04:26:04  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+171  1405/07/26 04:27:55  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+172  1405/07/26 04:28:01  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+173  1405/07/26 04:28:12  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+174  1405/07/26 04:28:20  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+175  1405/07/26 04:28:32  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+176  1405/07/26 04:30:12  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+177  1405/07/26 04:30:18  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+178  1405/07/26 04:31:56  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+179  1405/07/26 04:32:02  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+180  1405/07/26 04:32:47  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, medium-access timeout
+181  1405/07/26 04:32:54  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+182  1405/07/26 09:52:52  [system,info,account]  user su logged in from 185.110.29.153 via winbox
+183  1405/07/26 09:52:56  [system,info]  ip service changed by su
+184  1405/07/26 09:52:57  [system,info,account]  user su logged out from 185.110.29.153 via winbox
+185  1405/07/26 09:58:34  [system,info,account]  user su logged in from 185.110.29.189 via api
+186  1405/07/26 09:58:35  [system,info,account]  user su logged out from 185.110.29.189 via api
+187  1405/07/26 10:13:56  [system,info,account]  user su logged in from 185.110.29.189 via api
+188  1405/07/26 10:13:56  [system,info,account]  user su logged out from 185.110.29.189 via api
+189  1405/07/29 02:12:46  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+190  1405/07/29 02:13:03  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+191  1405/07/29 02:46:04  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+192  1405/07/29 02:46:09  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+193  1405/07/29 02:50:57  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+194  1405/07/29 02:51:05  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+195  1405/07/29 02:59:42  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+196  1405/07/29 02:59:47  [wireless,info]  4C:5E:0C:41:29:75@wlan1: failed to connect, on 5260000, registration timeout
+197  1405/07/29 03:00:00  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+198  1405/07/29 03:20:53  [wireless,info]  4C:5E:0C:41:29:75@wlan1: lost connection, control frame timeout
+199  1405/07/29 03:20:56  [wireless,info]  4C:5E:0C:41:29:75@wlan1 established connection on 5260000, SSID 10094186121-PR-PTP-Arvand
+200  1405/07/29 10:26:59  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  4C:5E:0C:51:03:47  (ether)
+wlan1  4C:5E:0C:51:03:48  (wlan)
+131  4C:5E:0C:51:03:47  (vlan)
+bridge1  4C:5E:0C:51:03:47  (bridge)
+vlan1  4C:5E:0C:51:03:47  (vlan)
+--- /ip arp ---
+131  4C:5E:0C:C5:C8:24  (arp 172.172.172.49)

@@ -1,0 +1,69 @@
+IP: 172.17.11.58
+Collected at: 2026-10-21T06:57:27.558265+00:00
+source: RouterOS API
+identity: ParsaRasaneh-jazireh
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=E4:8D:8C:77:FC:D0
+  2  name=Avaze  type=wlan  running=false  mac=E6:8D:8C:77:FC:D1
+  3  name=Avaze-B  type=wlan  running=true  mac=E6:8D:8C:77:FC:D2
+  4  name=wlan1  type=wlan  running=true  mac=E4:8D:8C:77:FC:D1
+  5  name=bridge1  type=bridge  running=true  mac=E4:8D:8C:77:FC:D0
+  6  name=vlan1  type=vlan  running=true  mac=E4:8D:8C:77:FC:D0
+
+----- wireless -----
+=== /interface wireless ===
+name=Avaze  mode=bridge  ssid=ParsaRasaneh-PTP-Avazeh-B  band=-  frequency=-
+name=Avaze-B  mode=ap-bridge  ssid=10094186181-PR-PTP-Avazeh-B  band=-  frequency=-
+name=wlan1  mode=ap-bridge  ssid=10094186192-PR-Jazireh  band=5ghz-a/n  frequency=5665
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.11.58/30  interface=ether1  network=172.17.11.56
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.11.57  distance=1
+  2  dst=172.17.11.56/30  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=MikroTik  address=172.17.11.57  interface=ether1,bridge1
+  2  identity=PArsaRAsaneh-PTP-POP-Dehkadeh-ST  address=172.17.11.62  interface=ether1,bridge1
+  3  identity=ParsaRasaneh-PTP-Manabe-ST  address=172.17.11.66  interface=ether1,bridge1
+  4  identity=Parsa-Manabe-Sw  address=172.17.11.246  interface=ether1,bridge1
+  5  identity=PTP-avazeh2  address=172.19.1.99  interface=Avaze-B,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:10
+# ساعت دستگاه (خام): 1970-10-27 05:10:43
+# افست اصلاحی (سرور − دستگاه): +490753:45:27
+  1  1405/07/24 05:15:35  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/24 05:15:37  [interface,info]  vlan1 link up
+  3  1405/07/24 05:15:37  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:77:FC:D0
+  4  1405/07/24 05:15:38  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/07/24 05:15:39  [wireless,info]  wlan1: pre-shared key authentication not enabled, disable WPS
+  6  1405/07/24 05:15:56  [wireless,info]  00:27:22:E0:7B:A1@wlan1: connected, signal strength -62
+  7  1405/07/24 05:15:58  [wireless,info]  B8:69:F4:AC:14:FE@Avaze-B: connected, signal strength -54, wants bridge
+  8  1405/07/24 12:25:32  [wireless,info]  00:27:22:E0:7B:A1@wlan1: disconnected, extensive data loss
+  9  1405/07/24 12:26:57  [wireless,info]  00:27:22:E0:7B:A1@wlan1: connected, signal strength -60
+ 10  1405/07/24 15:59:54  [wireless,info]  00:27:22:E0:7B:A1@wlan1: disconnected, extensive data loss
+ 11  1405/07/24 16:01:10  [wireless,info]  00:27:22:E0:7B:A1@wlan1: connected, signal strength -58
+ 12  1405/07/26 09:57:37  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 13  1405/07/26 09:57:38  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 14  1405/07/26 10:13:09  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 15  1405/07/26 10:13:09  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 16  1405/07/29 10:26:10  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  E4:8D:8C:77:FC:D0  (ether)
+Avaze  E6:8D:8C:77:FC:D1  (wlan)
+Avaze-B  E6:8D:8C:77:FC:D2  (wlan)
+wlan1  E4:8D:8C:77:FC:D1  (wlan)
+bridge1  E4:8D:8C:77:FC:D0  (bridge)
+vlan1  E4:8D:8C:77:FC:D0  (vlan)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.17.11.57)

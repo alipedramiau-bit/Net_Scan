@@ -6,6 +6,8 @@ scripts/
 Include/
 include/
 pyvenv.cfg
+.venv/
+venv/
 
 # کش‌های پایتون
 __pycache__/
@@ -13,8 +15,9 @@ __pycache__/
 *$py.class
 *.pyd
 
-# تنظیمات خود PyCharm
+# تنظیمات خود PyCharm و ابزارهای محلی
 .idea/
+.net_scan/
 
 # کتابخانه‌ها و کش فرانت‌اند
 frontend/node_modules/
@@ -23,6 +26,16 @@ frontend/.cache/
 npm-debug.log*
 yarn-debug.log*
 
-# در صورت عدم تمایل به آپلود دیتابیس‌های تستی و کش
+# اسرار و داده‌های حساس
+.env
+
+# گزارش‌ها و کش
 *.log
 .pytest_cache/
+
+# Runtime SQLite device inventory
+devices.db
+
+# پوشه‌های سیستمی ورک‌اسپیس
+skills/
+tool-results/

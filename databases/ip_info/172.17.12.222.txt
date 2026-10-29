@@ -1,0 +1,240 @@
+IP: 172.17.12.222
+Collected at: 2026-10-21T06:57:28.618993+00:00
+source: RouterOS API
+identity: ParsaRasaneh-Site2
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=6C:3B:6B:9A:99:07
+  2  name=10094186172-PR-Site2  type=wlan  running=false  mac=6E:3B:6B:9A:99:09
+  3  name=wlan1  type=wlan  running=true  mac=6C:3B:6B:9A:99:08
+  4  name=wlan2  type=wlan  running=false  mac=6E:3B:6B:9A:99:08
+  5  name=bridge1  type=bridge  running=true  mac=6C:3B:6B:9A:99:07
+  6  name=wds20  type=wds  running=true  mac=6C:3B:6B:9A:99:08
+  7  name=wds28  type=wds  running=true  mac=6C:3B:6B:9A:99:08
+  8  name=wds32  type=wds  running=true  mac=6C:3B:6B:9A:99:08
+  9  name=wds33  type=wds  running=true  mac=6C:3B:6B:9A:99:08
+
+----- wireless -----
+=== /interface wireless ===
+name=10094186172-PR-Site2  mode=ap-bridge  ssid=10094186172-PR-Site2  band=-  frequency=-
+name=wlan1  mode=ap-bridge  ssid=10094186172-PR-Site2  band=5ghz-a/n  frequency=5840
+name=wlan2  mode=ap-bridge  ssid=ParsaRasaneh-Site1  band=-  frequency=-
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.12.222/30  interface=ether1  network=172.17.12.220
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.12.221  distance=1
+  2  dst=172.17.12.220/30  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=ParsaRasaneh-Seydavi  address=-  interface=wlan1,bridge1
+  2  identity=AB-Albomahmoud  address=-  interface=wlan1,bridge1
+  3  identity=AB-Kiani3  address=-  interface=wlan1,bridge1
+  4  identity=Parsa-Manabe-Sw  address=172.17.11.246  interface=ether1,bridge1
+  5  identity=MikroTik  address=172.17.12.221  interface=ether1,bridge1
+  6  identity=ParsaRasaneh-Pishkhan1294  address=-  interface=wds32,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:18
+# ساعت دستگاه (خام): 2009-05-01 03:07:24
+# افست اصلاحی (سرور − دستگاه): +153171:48:54
+  1  1405/07/08 10:42:23  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/08 10:42:24  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:9A:99:07
+  3  1405/07/08 10:42:26  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/08 10:42:30  [wireless,info]  04:18:D6:5A:7A:87@wlan1: connected, signal strength -64, wants WDS
+  5  1405/07/08 10:42:33  [wireless,info]  D4:01:C3:65:F1:6B@wlan1: connected, signal strength -65, wants bridge
+  6  1405/07/08 10:42:34  [wireless,info]  4C:5E:0C:58:40:31@wlan1: connected, signal strength -74, wants WDS
+  7  1405/07/08 10:42:36  [wireless,info]  2C:C8:1B:AD:14:E0@wlan1: connected, signal strength -60, wants bridge
+  8  1405/07/08 10:42:37  [wireless,info]  D4:01:C3:26:A3:17@wlan1: connected, signal strength -56, wants bridge
+  9  1405/07/08 10:42:38  [wireless,info]  80:2A:A8:20:73:D9@wlan1: connected, signal strength -57, wants WDS
+ 10  1405/07/08 10:42:43  [wireless,info]  4C:5E:0C:AD:41:B1@wlan1: connected, signal strength -66, wants bridge
+ 11  1405/07/08 10:42:54  [wireless,info]  24:A4:3C:7E:E4:50@wlan1: connected, signal strength -65, wants WDS
+ 12  1405/07/08 10:42:57  [wireless,info]  F4:1E:57:82:93:0A@wlan1: connected, signal strength -74, wants bridge
+ 13  1405/07/08 10:43:21  [interface,info]  ether1 link down
+ 14  1405/07/08 10:43:29  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 15  1405/07/08 11:17:25  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -70
+ 16  1405/07/08 14:31:47  [wireless,info]  F4:1E:57:82:93:0A@wlan1: disconnected, extensive data loss
+ 17  1405/07/08 14:46:46  [wireless,info]  F4:1E:57:82:93:0A@wlan1: connected, signal strength -74, wants bridge
+ 18  1405/07/08 17:19:05  [wireless,info]  F4:1E:57:82:93:0A@wlan1: disconnected, received deauth: sending station leaving (3)
+ 19  1405/07/08 23:17:07  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 20  1405/07/08 23:17:51  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -71
+ 21  1405/07/09 00:54:12  [wireless,info]  4C:5E:0C:58:40:31@wlan1: disconnected, extensive data loss
+ 22  1405/07/09 07:54:12  [wireless,info]  4C:5E:0C:58:40:31@wlan1: connected, signal strength -75, wants WDS
+ 23  1405/07/09 11:17:32  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 24  1405/07/09 11:18:17  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -70
+ 25  1405/07/09 23:17:58  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 26  1405/07/09 23:18:42  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -76
+ 27  1405/07/10 00:59:23  [wireless,info]  4C:5E:0C:58:40:31@wlan1: disconnected, extensive data loss
+ 28  1405/07/10 04:38:45  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, extensive data loss
+ 29  1405/07/10 08:34:26  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -72
+ 30  1405/07/10 13:46:23  [wireless,info]  D4:01:C3:26:A3:17@wlan1: disconnected, extensive data loss
+ 31  1405/07/10 19:26:37  [wireless,info]  4C:5E:0C:58:40:31@wlan1: connected, signal strength -75, wants WDS
+ 32  1405/07/10 19:40:35  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, extensive data loss
+ 33  1405/07/10 19:42:09  [wireless,info]  4C:5E:0C:58:40:31@wlan1: disconnected, extensive data loss
+ 34  1405/07/10 19:54:40  [wireless,info]  D4:01:C3:26:A3:17@wlan1: connected, signal strength -62, wants bridge
+ 35  1405/07/10 23:34:16  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -69
+ 36  1405/07/11 04:05:54  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, extensive data loss
+ 37  1405/07/11 07:46:59  [wireless,info]  4C:5E:0C:58:40:31@wlan1: connected, signal strength -76, wants WDS
+ 38  1405/07/11 15:09:59  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -72
+ 39  1405/07/12 01:17:07  [wireless,info]  4C:5E:0C:58:40:31@wlan1: disconnected, extensive data loss
+ 40  1405/07/12 03:09:40  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 41  1405/07/12 03:10:24  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -71
+ 42  1405/07/12 07:06:48  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, extensive data loss
+ 43  1405/07/12 07:48:05  [wireless,info]  4C:5E:0C:58:40:31@wlan1: connected, signal strength -75, wants WDS
+ 44  1405/07/12 12:09:09  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -70
+ 45  1405/07/12 13:23:05  [wireless,info]  80:2A:A8:20:73:D9@wlan1: disconnected, extensive data loss
+ 46  1405/07/12 14:03:12  [wireless,info]  80:2A:A8:20:73:D9@wlan1: connected, signal strength -59, wants WDS
+ 47  1405/07/12 22:59:27  [wireless,info]  4C:5E:0C:58:40:31@wlan1: disconnected, extensive data loss
+ 48  1405/07/12 23:00:10  [wireless,info]  4C:5E:0C:58:40:31@wlan1: connected, signal strength -73, wants WDS
+ 49  1405/07/13 00:08:51  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 50  1405/07/13 00:09:36  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -73
+ 51  1405/07/13 00:30:23  [wireless,info]  4C:5E:0C:58:40:31@wlan1: disconnected, extensive data loss
+ 52  1405/07/13 00:49:23  [wireless,info]  D4:01:C3:65:F1:6B@wlan1: disconnected, extensive data loss
+ 53  1405/07/13 00:50:05  [wireless,info]  D4:01:C3:65:F1:6B@wlan1: connected, signal strength -65, wants bridge
+ 54  1405/07/13 00:51:49  [wireless,info]  4C:5E:0C:AD:41:B1@wlan1: disconnected, extensive data loss
+ 55  1405/07/13 00:51:50  [wireless,info]  D4:01:C3:65:F1:6B@wlan1: disconnected, extensive data loss
+ 56  1405/07/13 00:52:31  [wireless,info]  D4:01:C3:65:F1:6B@wlan1: connected, signal strength -65, wants bridge
+ 57  1405/07/13 00:52:31  [wireless,info]  4C:5E:0C:AD:41:B1@wlan1: connected, signal strength -68, wants bridge
+ 58  1405/07/13 07:11:54  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, extensive data loss
+ 59  1405/07/13 07:51:58  [wireless,info]  4C:5E:0C:58:40:31@wlan1: connected, signal strength -78, wants WDS
+ 60  1405/07/13 12:19:39  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -71
+ 61  1405/07/14 00:00:53  [wireless,info]  4C:5E:0C:58:40:31@wlan1: disconnected, extensive data loss
+ 62  1405/07/14 00:19:20  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 63  1405/07/14 00:20:05  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -72
+ 64  1405/07/14 07:22:57  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, extensive data loss
+ 65  1405/07/14 07:52:22  [wireless,info]  4C:5E:0C:58:40:31@wlan1: connected, signal strength -78, wants WDS
+ 66  1405/07/14 11:54:28  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -71
+ 67  1405/07/14 23:54:10  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 68  1405/07/14 23:54:54  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -71
+ 69  1405/07/15 00:36:34  [wireless,info]  4C:5E:0C:58:40:31@wlan1: disconnected, extensive data loss
+ 70  1405/07/15 00:43:28  [wireless,info]  D4:01:C3:26:A3:17@wlan1: disconnected, extensive data loss
+ 71  1405/07/15 00:44:16  [wireless,info]  D4:01:C3:26:A3:17@wlan1: connected, signal strength -56, wants bridge
+ 72  1405/07/15 07:26:43  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, extensive data loss
+ 73  1405/07/15 07:51:37  [wireless,info]  4C:5E:0C:58:40:31@wlan1: connected, signal strength -75, wants WDS
+ 74  1405/07/15 15:36:22  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -71
+ 75  1405/07/16 00:23:44  [wireless,info]  4C:5E:0C:58:40:31@wlan1: disconnected, extensive data loss
+ 76  1405/07/16 03:36:03  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 77  1405/07/16 03:36:47  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -72
+ 78  1405/07/16 07:54:59  [wireless,info]  4C:5E:0C:58:40:31@wlan1: connected, signal strength -77, wants WDS
+ 79  1405/07/16 09:44:34  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, extensive data loss
+ 80  1405/07/16 12:16:29  [wireless,info]  24:A4:3C:7E:E4:50@wlan1: disconnected, extensive data loss
+ 81  1405/07/16 12:17:57  [wireless,info]  24:A4:3C:7E:E4:50@wlan1: connected, signal strength -65, wants WDS
+ 82  1405/07/16 14:15:03  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -74
+ 83  1405/07/16 21:49:15  [wireless,info]  4C:5E:0C:58:40:31@wlan1: disconnected, extensive data loss
+ 84  1405/07/17 02:14:44  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 85  1405/07/17 02:15:28  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -74
+ 86  1405/07/17 06:19:34  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, extensive data loss
+ 87  1405/07/17 10:18:49  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -70
+ 88  1405/07/17 22:18:31  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 89  1405/07/17 22:19:15  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -74
+ 90  1405/07/18 07:48:29  [wireless,info]  4C:5E:0C:58:40:31@wlan1: connected, signal strength -77, wants WDS
+ 91  1405/07/18 08:18:58  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, extensive data loss
+ 92  1405/07/18 15:23:00  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -72
+ 93  1405/07/19 01:11:47  [wireless,info]  4C:5E:0C:58:40:31@wlan1: disconnected, extensive data loss
+ 94  1405/07/19 03:22:41  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 95  1405/07/19 03:23:25  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -73
+ 96  1405/07/19 07:51:32  [wireless,info]  4C:5E:0C:58:40:31@wlan1: connected, signal strength -74, wants WDS
+ 97  1405/07/19 10:31:44  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, extensive data loss
+ 98  1405/07/19 15:27:08  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -71
+ 99  1405/07/20 00:16:52  [wireless,info]  4C:5E:0C:58:40:31@wlan1: disconnected, extensive data loss
+100  1405/07/20 03:26:49  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, received disassoc: sending station leaving (8)
+101  1405/07/20 03:27:34  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -71
+102  1405/07/20 07:46:08  [wireless,info]  4C:5E:0C:58:40:31@wlan1: connected, signal strength -77, wants WDS
+103  1405/07/20 09:39:39  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, extensive data loss
+104  1405/07/20 12:52:19  [wireless,info]  D4:01:C3:26:A3:17@wlan1: disconnected, extensive data loss
+105  1405/07/20 12:54:00  [wireless,info]  D4:01:C3:26:A3:17@wlan1: connected, signal strength -57, wants bridge
+106  1405/07/20 12:55:06  [wireless,info]  D4:01:C3:26:A3:17@wlan1: disconnected, extensive data loss
+107  1405/07/20 12:56:00  [wireless,info]  D4:01:C3:26:A3:17@wlan1: connected, signal strength -59, wants bridge
+108  1405/07/20 14:52:23  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -74
+109  1405/07/21 01:03:30  [wireless,info]  4C:5E:0C:58:40:31@wlan1: disconnected, extensive data loss
+110  1405/07/21 02:52:05  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, received disassoc: sending station leaving (8)
+111  1405/07/21 02:52:49  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -71
+112  1405/07/21 07:42:09  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, extensive data loss
+113  1405/07/21 07:46:54  [wireless,info]  4C:5E:0C:58:40:31@wlan1: connected, signal strength -76, wants WDS
+114  1405/07/21 15:31:01  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -71
+115  1405/07/22 01:15:35  [wireless,info]  4C:5E:0C:58:40:31@wlan1: disconnected, extensive data loss
+116  1405/07/22 01:48:06  [wireless,info]  24:A4:3C:7E:E4:50@wlan1: disconnected, extensive data loss
+117  1405/07/22 01:49:36  [wireless,info]  24:A4:3C:7E:E4:50@wlan1: connected, signal strength -65, wants WDS
+118  1405/07/22 03:30:42  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, received disassoc: sending station leaving (8)
+119  1405/07/22 03:31:26  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -73
+120  1405/07/22 07:18:00  [wireless,info]  4C:5E:0C:58:40:31@wlan1: connected, signal strength -74, wants WDS
+121  1405/07/22 08:26:40  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, extensive data loss
+122  1405/07/22 15:42:20  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -70
+123  1405/07/23 00:50:48  [wireless,info]  4C:5E:0C:58:40:31@wlan1: disconnected, extensive data loss
+124  1405/07/23 03:42:01  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, received disassoc: sending station leaving (8)
+125  1405/07/23 03:42:45  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -72
+126  1405/07/23 06:53:43  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, extensive data loss
+127  1405/07/23 07:54:44  [wireless,info]  4C:5E:0C:58:40:31@wlan1: connected, signal strength -76, wants WDS
+128  1405/07/23 14:04:35  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -71
+129  1405/07/24 00:27:13  [wireless,info]  4C:5E:0C:58:40:31@wlan1: disconnected, extensive data loss
+130  1405/07/24 02:04:16  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, received disassoc: sending station leaving (8)
+131  1405/07/24 02:05:00  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -73
+132  1405/07/24 07:25:58  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, extensive data loss
+133  1405/07/24 07:56:35  [wireless,info]  4C:5E:0C:58:40:31@wlan1: connected, signal strength -77, wants WDS
+134  1405/07/24 13:54:15  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -71
+135  1405/07/24 20:04:29  [wireless,info]  D4:01:C3:26:A3:17@wlan1: disconnected, extensive data loss
+136  1405/07/24 21:06:39  [wireless,info]  D4:01:C3:26:A3:17@wlan1: connected, signal strength -60, wants bridge
+137  1405/07/24 21:13:14  [wireless,info]  4C:5E:0C:58:40:31@wlan1: disconnected, extensive data loss
+138  1405/07/25 01:53:56  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, received disassoc: sending station leaving (8)
+139  1405/07/25 01:54:40  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -76
+140  1405/07/25 06:32:45  [wireless,info]  80:2A:A8:20:73:D9@wlan1: disconnected, extensive data loss
+141  1405/07/25 06:45:23  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, extensive data loss
+142  1405/07/25 07:37:08  [wireless,info]  04:18:D6:5A:7A:87@wlan1: disconnected, extensive data loss
+143  1405/07/25 07:51:53  [wireless,info]  4C:5E:0C:58:40:31@wlan1: connected, signal strength -79, wants WDS
+144  1405/07/25 08:04:00  [wireless,info]  04:18:D6:5A:7A:87@wlan1: connected, signal strength -67, wants WDS
+145  1405/07/25 09:06:14  [wireless,info]  80:2A:A8:20:73:D9@wlan1: connected, signal strength -63, wants WDS
+146  1405/07/25 14:42:04  [wireless,info]  80:2A:A8:20:73:D9@wlan1: disconnected, extensive data loss
+147  1405/07/25 14:48:08  [wireless,info]  80:2A:A8:20:73:D9@wlan1: connected, signal strength -57, wants WDS
+148  1405/07/25 15:36:20  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -71
+149  1405/07/25 16:22:34  [wireless,info]  80:2A:A8:20:73:D9@wlan1: disconnected, extensive data loss
+150  1405/07/25 17:04:12  [wireless,info]  80:2A:A8:20:73:D9@wlan1: connected, signal strength -60, wants WDS
+151  1405/07/26 00:30:43  [wireless,info]  4C:5E:0C:58:40:31@wlan1: disconnected, extensive data loss
+152  1405/07/26 03:36:02  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, received disassoc: sending station leaving (8)
+153  1405/07/26 03:36:46  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -72
+154  1405/07/26 07:51:07  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, extensive data loss
+155  1405/07/26 07:56:27  [wireless,info]  4C:5E:0C:58:40:31@wlan1: connected, signal strength -77, wants WDS
+156  1405/07/26 09:57:47  [system,info,account]  user su logged in from 185.110.29.189 via api
+157  1405/07/26 09:57:48  [system,info,account]  user su logged out from 185.110.29.189 via api
+158  1405/07/26 10:13:16  [system,info,account]  user su logged in from 185.110.29.189 via api
+159  1405/07/26 10:13:16  [system,info,account]  user su logged out from 185.110.29.189 via api
+160  1405/07/26 15:25:46  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -71
+161  1405/07/27 00:37:54  [wireless,info]  4C:5E:0C:58:40:31@wlan1: disconnected, extensive data loss
+162  1405/07/27 03:25:27  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, received disassoc: sending station leaving (8)
+163  1405/07/27 03:26:12  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -71
+164  1405/07/27 07:03:57  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, extensive data loss
+165  1405/07/27 07:51:05  [wireless,info]  4C:5E:0C:58:40:31@wlan1: connected, signal strength -75, wants WDS
+166  1405/07/27 18:56:44  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -72
+167  1405/07/28 01:19:52  [wireless,info]  4C:5E:0C:58:40:31@wlan1: disconnected, extensive data loss
+168  1405/07/28 06:56:25  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, received disassoc: sending station leaving (8)
+169  1405/07/28 06:57:09  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -70
+170  1405/07/28 07:48:48  [wireless,info]  4C:5E:0C:58:40:31@wlan1: connected, signal strength -77, wants WDS
+171  1405/07/28 07:53:58  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, extensive data loss
+172  1405/07/28 15:21:55  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -69
+173  1405/07/29 02:24:26  [wireless,info]  4C:5E:0C:58:40:31@wlan1: disconnected, extensive data loss
+174  1405/07/29 03:21:36  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, received disassoc: sending station leaving (8)
+175  1405/07/29 03:22:20  [wireless,info]  04:18:D6:00:E7:ED@wlan1: connected, signal strength -69
+176  1405/07/29 06:02:12  [wireless,info]  04:18:D6:00:E7:ED@wlan1: disconnected, extensive data loss
+177  1405/07/29 06:35:45  [wireless,info]  04:18:D6:5A:7A:87@wlan1: disconnected, extensive data loss
+178  1405/07/29 07:45:58  [wireless,info]  4C:5E:0C:58:40:31@wlan1: connected, signal strength -75, wants WDS
+179  1405/07/29 09:21:18  [wireless,info]  04:18:D6:5A:7A:87@wlan1: connected, signal strength -66, wants WDS
+180  1405/07/29 10:26:18  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  6C:3B:6B:9A:99:07  (ether)
+10094186172-PR-Site2  6E:3B:6B:9A:99:09  (wlan)
+wlan1  6C:3B:6B:9A:99:08  (wlan)
+wlan2  6E:3B:6B:9A:99:08  (wlan)
+bridge1  6C:3B:6B:9A:99:07  (bridge)
+wds20  6C:3B:6B:9A:99:08  (wds)
+wds28  6C:3B:6B:9A:99:08  (wds)
+wds32  6C:3B:6B:9A:99:08  (wds)
+wds33  6C:3B:6B:9A:99:08  (wds)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.17.12.221)

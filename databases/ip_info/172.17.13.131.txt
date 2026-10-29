@@ -1,0 +1,70 @@
+IP: 172.17.13.131
+Collected at: 2026-10-21T06:57:29.224990+00:00
+source: RouterOS API
+identity: ParsaRasaneh-Line15-POP-st
+device_type: ST
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether2  type=ether  running=true  mac=6C:3B:6B:11:C7:AA
+  2  name=wlan2  type=wlan  running=true  mac=6C:3B:6B:11:C7:AB
+  3  name=bridge1  type=bridge  running=true  mac=6C:3B:6B:11:C7:AA
+  4  name=vlan1  type=vlan  running=true  mac=6C:3B:6B:11:C7:AA
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan2  mode=station-wds  ssid=10094186181-PR-PTP-Mozeh  band=5ghz-onlyn  frequency=4980
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.13.131/29  interface=vlan1  network=172.17.13.128
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.13.129  distance=1
+  2  dst=172.17.13.128/29  gw=vlan1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=POP-Alvares  address=-  interface=ether2,bridge1
+  2  identity=ParsaRasaneh-Alvares-AP  address=-  interface=wlan2,bridge1
+  3  identity=Parsa-SW-Zand  address=172.17.11.234  interface=wlan2,bridge1
+  4  identity=AB-Ashkan  address=-  interface=vlan1
+  5  identity=MikroTik  address=172.17.12.185  interface=vlan1
+  6  identity=POP-Alvares  address=172.17.12.186  interface=vlan1
+  7  identity=ParsaRasaneh-Alvares-AP  address=172.17.13.130  interface=vlan1
+  8  identity=ParsaRasaneh-Taj  address=172.17.13.133  interface=vlan1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:24
+# ساعت دستگاه (خام): 2002-06-23 05:00:12
+# افست اصلاحی (سرور − دستگاه): +213265:56:12
+  1  1405/06/22 09:58:42  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/06/22 09:58:42  [interface,info]  vlan1 link up
+  3  1405/06/22 09:58:43  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:11:C7:AA
+  4  1405/06/22 09:58:45  [interface,info]  ether2 link up (speed 100M, full duplex)
+  5  1405/06/22 09:58:51  [wireless,info]  6C:3B:6B:9D:68:F5@wlan2 established connection on 5625000, SSID 10094186181-PR-PTP-Mozeh
+  6  1405/06/29 08:13:17  [wireless,info]  6C:3B:6B:9D:68:F5@wlan2: lost connection, synchronization timeout
+  7  1405/06/29 08:17:01  [wireless,info]  6C:3B:6B:9D:68:F5@wlan2 established connection on 5625000, SSID 10094186181-PR-PTP-Mozeh
+  8  1405/06/29 13:08:47  [wireless,info]  6C:3B:6B:9D:68:F5@wlan2: lost connection, synchronization timeout
+  9  1405/06/29 13:13:54  [wireless,info]  6C:3B:6B:9D:68:F5@wlan2 established connection on 5625000, SSID 10094186181-PR-PTP-Mozeh
+ 10  1405/07/03 07:06:04  [wireless,info]  6C:3B:6B:9D:68:F5@wlan2: lost connection, synchronization timeout
+ 11  1405/07/03 08:26:01  [wireless,info]  6C:3B:6B:9D:68:F5@wlan2 established connection on 5625000, SSID 10094186181-PR-PTP-Mozeh
+ 12  1405/07/03 11:22:43  [wireless,info]  6C:3B:6B:9D:68:F5@wlan2: lost connection, synchronization timeout
+ 13  1405/07/03 11:55:14  [wireless,info]  6C:3B:6B:9D:68:F5@wlan2 established connection on 5625000, SSID 10094186181-PR-PTP-Mozeh
+ 14  1405/07/25 09:14:40  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 15  1405/07/25 09:14:41  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 16  1405/07/26 09:57:54  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 17  1405/07/26 09:57:54  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 18  1405/07/26 10:13:21  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 19  1405/07/26 10:13:22  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 20  1405/07/29 10:26:24  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether2  6C:3B:6B:11:C7:AA  (ether)
+wlan2  6C:3B:6B:11:C7:AB  (wlan)
+bridge1  6C:3B:6B:11:C7:AA  (bridge)
+vlan1  6C:3B:6B:11:C7:AA  (vlan)
+--- /ip arp ---
+vlan1  4C:5E:0C:C5:C8:24  (arp 172.17.13.129)

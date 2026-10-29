@@ -1,0 +1,74 @@
+IP: 172.17.12.74
+Collected at: 2026-10-21T06:57:28.991432+00:00
+source: RouterOS API
+identity: ParsaRasaneh-Zolfaghari-Tower1
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=E4:8D:8C:8C:C7:34
+  2  name=10094186112-PR-Zolfaghari-Tower  type=wlan  running=false  mac=E6:8D:8C:DA:F5:31
+  3  name=ParsaRasaneh-Zolfaghari-Tower  type=wlan  running=false  mac=E6:8D:8C:DA:F5:32
+  4  name=Tower1  type=wlan  running=false  mac=E6:8D:8C:DA:F5:30
+  5  name=wlan1  type=wlan  running=true  mac=E4:8D:8C:DA:F5:2F
+  6  name=wlan2  type=wlan  running=false  mac=E6:8D:8C:DA:F5:2F
+  7  name=bridge1  type=bridge  running=true  mac=E4:8D:8C:8C:C7:34
+  8  name=wds1  type=wds  running=true  mac=E4:8D:8C:DA:F5:2F
+
+----- wireless -----
+=== /interface wireless ===
+name=10094186112-PR-Zolfaghari-Tower  mode=ap-bridge  ssid=10094186132-PR-Zolfaghari-Tower  band=-  frequency=-
+name=ParsaRasaneh-Zolfaghari-Tower  mode=ap-bridge  ssid=ParsaRasaneh-Zolfaghari-Tower  band=-  frequency=-
+name=Tower1  mode=ap-bridge  ssid=ParsaRasaneh-Zolfaghari-Tower1  band=-  frequency=-
+name=wlan1  mode=ap-bridge  ssid=10094186112-PR-Zolfaghari-Tower1  band=5ghz-a/n  frequency=5180
+name=wlan2  mode=ap-bridge  ssid=ParsaRasaneh-Zolfaghari-Tower  band=-  frequency=-
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.12.74/29  interface=ether1  network=172.17.12.72
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.12.73  distance=1
+  2  dst=172.17.12.72/29  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=Parsa-SW-Zand  address=172.17.11.234  interface=ether1,bridge1
+  2  identity=MikroTik  address=172.17.12.73  interface=ether1,bridge1
+  3  identity=AB-Helfi1  address=-  interface=wlan1,bridge1
+  4  identity=ParsaRasaneh-Jalilian  address=-  interface=wlan1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:22
+# ساعت دستگاه (خام): 2026-10-11 03:44:48
+# افست اصلاحی (سرور − دستگاه): +243:11:34
+  1  1405/07/15 19:37:03  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/15 19:37:04  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:8C:C7:34
+  3  1405/07/15 19:37:06  [wireless,info]  wlan1: pre-shared key authentication not enabled, disable WPS
+  4  1405/07/15 19:37:06  [interface,info]  ether1 link up (speed 1G, full duplex)
+  5  1405/07/15 19:37:55  [wireless,info]  74:83:C2:5E:E2:DD@wlan1: connected, signal strength -60
+  6  1405/07/15 19:38:16  [wireless,info]  48:A9:8A:5D:96:CC@wlan1: connected, signal strength -56, wants bridge
+  7  1405/07/15 19:38:18  [wireless,info]  F4:1E:57:82:74:D8@wlan1: connected, signal strength -48, wants bridge
+  8  1405/07/15 19:38:20  [wireless,info]  4C:5E:0C:F4:16:83@wlan1: connected, signal strength -61, wants WDS
+  9  1405/07/15 19:38:20  [wireless,info]  64:D1:54:0F:93:3B@wlan1: connected, signal strength -56, wants bridge
+ 10  1405/07/26 09:57:50  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 11  1405/07/26 09:57:50  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 12  1405/07/26 10:13:18  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 13  1405/07/26 10:13:18  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 14  1405/07/28 10:21:45  [interface,info]  ether1 link down
+ 15  1405/07/28 10:21:48  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 16  1405/07/29 10:26:22  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  E4:8D:8C:8C:C7:34  (ether)
+10094186112-PR-Zolfaghari-Tower  E6:8D:8C:DA:F5:31  (wlan)
+ParsaRasaneh-Zolfaghari-Tower  E6:8D:8C:DA:F5:32  (wlan)
+Tower1  E6:8D:8C:DA:F5:30  (wlan)
+wlan1  E4:8D:8C:DA:F5:2F  (wlan)
+wlan2  E6:8D:8C:DA:F5:2F  (wlan)
+bridge1  E4:8D:8C:8C:C7:34  (bridge)
+wds1  E4:8D:8C:DA:F5:2F  (wds)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.17.12.73)

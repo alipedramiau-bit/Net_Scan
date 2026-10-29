@@ -1,0 +1,212 @@
+IP: 172.172.172.70
+Collected at: 2026-10-21T06:57:32.575654+00:00
+source: RouterOS API
+identity: MikroTik
+device_type: Router
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=false  mac=64:D1:54:57:30:96
+  2  name=ether2  type=ether  running=true  mac=64:D1:54:57:30:97
+  3  name=ether3  type=ether  running=false  mac=64:D1:54:57:30:98
+  4  name=ether4  type=ether  running=true  mac=64:D1:54:57:30:99
+  5  name=ether5  type=ether  running=true  mac=64:D1:54:57:30:9A
+  6  name=131  type=vlan  running=true  mac=64:D1:54:57:30:97
+  7  name=bridge1  type=bridge  running=true  mac=64:D1:54:57:30:97
+  8  name=bridge2  type=bridge  running=true  mac=32:BC:CF:2D:96:CE
+  9  name=bridge3  type=bridge  running=true  mac=64:D1:54:57:30:98
+ 10  name=bridge4  type=bridge  running=true  mac=64:D1:54:57:30:96
+ 11  name=vlan104Cisco  type=vlan  running=false  mac=64:D1:54:57:30:96
+ 12  name=vlan111-Arvand  type=vlan  running=true  mac=64:D1:54:57:30:97
+ 13  name=vlan112-Arvand1  type=vlan  running=false  mac=64:D1:54:57:30:97
+ 14  name=vlan113Hafari  type=vlan  running=true  mac=64:D1:54:57:30:97
+ 15  name=vlan114-Arvand5  type=vlan  running=false  mac=64:D1:54:57:30:97
+
+----- wireless -----
+(empty)
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=192.168.1.1/24  interface=ether4  network=192.168.1.0
+  2  address=172.172.172.49/29  interface=vlan104Cisco  network=172.172.172.48
+  3  address=172.172.172.52/29  interface=vlan111-Arvand  network=172.172.172.48
+  4  address=172.172.172.70/29  interface=131  network=172.172.172.64
+  5  address=185.110.29.160/32  interface=vlan111-Arvand  network=185.110.29.160
+  6  address=100.78.30.249/32  interface=vlan111-Arvand  network=100.78.30.249
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.172.172.65  distance=1
+  2  dst=100.78.30.249/32  gw=vlan111-Arvand  distance=0
+  3  dst=172.172.172.48/29  gw=vlan111-Arvand  distance=0
+  4  dst=172.172.172.64/29  gw=bridge4  distance=0
+  5  dst=192.168.1.0/24  gw=ether4  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=Parsa-SW-Manyouhi  address=172.172.172.250  interface=ether2,bridge1
+  2  identity=ParsaRasaneh-Arvand-ACC  address=192.168.22.1  interface=ether2,bridge1
+  3  identity=ParsaRasaneh-PTP-Arvand-ST  address=192.168.22.2  interface=ether2,bridge1
+  4  identity=MikroTik  address=-  interface=ether5,bridge4
+  5  identity=ParsaRasaneh-Arvand-MP  address=172.172.172.66  interface=ether5,bridge4
+  6  identity=ParsaRasaneh-Arvand-ACC  address=-  interface=vlan111-Arvand
+  7  identity=ParsaRasaneh-PTP-Manyohi-N-ST  address=-  interface=vlan111-Arvand
+  8  identity=ParsaRasaneh-PTP-Arvand-ST  address=-  interface=vlan111-Arvand
+  9  identity=MikroTik  address=170.17.11.9  interface=131,bridge4
+ 10  identity=ParsaRasaneh-PTP-Hasti-St  address=172.17.12.10  interface=131,bridge4
+ 11  identity=PR-PTP-NaftKav-!01-Dakal-AP  address=172.17.12.11  interface=131,bridge4
+ 12  identity=PR-ROuter-Koteshanof  address=172.17.12.12  interface=131,bridge4
+ 13  identity=ParsaRasaneh-Man-K3  address=172.17.12.86  interface=131,bridge4
+ 14  identity=PR-PTP-Khazalabad  address=172.19.2.98  interface=131,bridge4
+ 15  identity=PR-Choebdeh  address=172.172.171.2  interface=131,bridge4
+ 16  identity=PR-Choebdeh5  address=172.172.171.6  interface=131,bridge4
+ 17  identity=PR-PTP-CH-DSL-AP  address=172.172.171.10  interface=131,bridge4
+ 18  identity=Router-Manage-Dslam-CH-Shahrak  address=172.172.171.12  interface=131,bridge4
+ 19  identity=ParsaRasaneh-Choebdeh3  address=172.172.171.18  interface=131,bridge4
+ 20  identity=Parsa-POWERBOX-CH  address=172.172.171.19  interface=131,bridge4
+ 21  identity=ParsaRasaneh-Choebdeh10-MP  address=172.172.171.38  interface=131,bridge4
+ 22  identity=ParsaRasaneh-Choebdeh8  address=172.172.171.54  interface=131,bridge4
+ 23  identity=PR-Choebdeh15  address=172.172.171.78  interface=131,bridge4
+ 24  identity=PR-PTP-Bazar-ST  address=172.172.172.27  interface=131,bridge4
+ 25  identity=ParsaRasaneh-Arvand-ACC  address=172.172.172.50  interface=131,bridge4
+ 26  identity=ParsaRasaneh-PTP-Arvand-ST  address=172.172.172.51  interface=131,bridge4
+ 27  identity=ParsaRasaneh-PTP-ICT-AP  address=172.172.172.115  interface=131,bridge4
+ 28  identity=ParsaRasaneh-PTP-Manyohi-N-ST  address=172.172.172.116  interface=131,bridge4
+ 29  identity=PR-MAN-K  address=172.172.172.117  interface=131,bridge4
+ 30  identity=POP-Center-ST  address=172.172.172.146  interface=131,bridge4
+ 31  identity=ParsaRasanerh-Man-K1  address=172.172.177.46  interface=131,bridge4
+ 32  identity=PR-Man-K2  address=172.172.177.50  interface=131,bridge4
+ 33  identity=PR-PTP-MNEW_Bridge  address=172.172.177.58  interface=131,bridge4
+ 34  identity=ParsaRasaneh-PTP-CH-ST  address=172.172.177.59  interface=131,bridge4
+ 35  identity=ParsaRasaneh-khezr  address=172.172.177.90  interface=131,bridge4
+ 36  identity=ParsaRasaneh-Khezr2  address=172.172.177.98  interface=131,bridge4
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:27:02
+# ساعت دستگاه (خام): 2026-10-21 10:26:34
+# افست اصلاحی (سرور − دستگاه): -03:29:31
+  1  1405/07/22 08:33:03  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/22 08:33:12  [bridge,info]  "bridge4" mac address changed to 64:D1:54:57:30:96
+  3  1405/07/22 08:33:12  [interface,info]  vlan111-Arvand link up
+  4  1405/07/22 08:33:12  [interface,info]  vlan113Hafari link up
+  5  1405/07/22 08:33:12  [interface,info]  131 link up
+  6  1405/07/22 08:33:12  [bridge,info]  "bridge1" mac address changed to 64:D1:54:57:30:97
+  7  1405/07/22 08:33:12  [bridge,info]  "bridge3" mac address changed to 64:D1:54:57:30:98
+  8  1405/07/22 08:33:12  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether2
+  9  1405/07/22 08:33:13  [poe-out,info]  ether2 detected poe-out status: on
+ 10  1405/07/22 08:33:14  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 11  1405/07/22 08:33:14  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 12  1405/07/22 08:33:25  [interface,info]  ether4 link up (speed 100M, full duplex)
+ 13  1405/07/22 12:54:12  [interface,info]  ether4 link down
+ 14  1405/07/22 12:54:14  [interface,info]  ether4 link up (speed 100M, full duplex)
+ 15  1405/07/22 12:54:38  [interface,info]  ether4 link down
+ 16  1405/07/22 12:54:40  [interface,info]  ether4 link up (speed 100M, full duplex)
+ 17  1405/07/22 22:07:49  [interface,info]  ether5 link down
+ 18  1405/07/22 22:07:52  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 19  1405/07/22 22:08:07  [interface,info]  ether5 link down
+ 20  1405/07/22 22:08:09  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 21  1405/07/24 12:59:41  [interface,info]  ether5 link down
+ 22  1405/07/24 12:59:45  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 23  1405/07/24 13:00:01  [interface,info]  ether5 link down
+ 24  1405/07/24 13:00:02  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 25  1405/07/24 18:34:55  [interface,info]  ether5 link down
+ 26  1405/07/24 18:34:57  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 27  1405/07/24 18:35:13  [interface,info]  ether5 link down
+ 28  1405/07/24 18:35:15  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 29  1405/07/24 18:39:06  [interface,info]  ether5 link down
+ 30  1405/07/24 18:39:08  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 31  1405/07/24 18:39:24  [interface,info]  ether5 link down
+ 32  1405/07/24 18:39:26  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 33  1405/07/25 10:53:29  [interface,info]  ether5 link down
+ 34  1405/07/25 10:53:31  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 35  1405/07/25 10:53:47  [interface,info]  ether5 link down
+ 36  1405/07/25 10:53:49  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 37  1405/07/25 10:54:28  [interface,info]  ether5 link down
+ 38  1405/07/25 10:54:31  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 39  1405/07/25 10:54:46  [interface,info]  ether5 link down
+ 40  1405/07/25 10:54:48  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 41  1405/07/25 10:58:33  [interface,info]  ether5 link down
+ 42  1405/07/25 10:58:36  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 43  1405/07/25 10:58:52  [interface,info]  ether5 link down
+ 44  1405/07/25 10:58:54  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 45  1405/07/26 08:20:08  [interface,info]  ether5 link down
+ 46  1405/07/26 08:20:11  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 47  1405/07/26 08:20:27  [interface,info]  ether5 link down
+ 48  1405/07/26 08:20:29  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 49  1405/07/26 08:31:41  [interface,info]  ether5 link down
+ 50  1405/07/26 08:31:44  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 51  1405/07/26 08:32:00  [interface,info]  ether5 link down
+ 52  1405/07/26 08:32:02  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 53  1405/07/26 08:43:13  [interface,info]  ether5 link down
+ 54  1405/07/26 08:43:16  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 55  1405/07/26 08:43:32  [interface,info]  ether5 link down
+ 56  1405/07/26 08:43:34  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 57  1405/07/26 08:51:12  [interface,info]  ether5 link down
+ 58  1405/07/26 08:51:15  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 59  1405/07/26 08:51:30  [interface,info]  ether5 link down
+ 60  1405/07/26 08:51:32  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 61  1405/07/26 08:54:13  [interface,info]  ether5 link down
+ 62  1405/07/26 08:54:16  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 63  1405/07/26 08:54:31  [interface,info]  ether5 link down
+ 64  1405/07/26 08:54:33  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 65  1405/07/26 08:59:44  [interface,info]  ether5 link down
+ 66  1405/07/26 08:59:47  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 67  1405/07/26 09:00:03  [interface,info]  ether5 link down
+ 68  1405/07/26 09:00:04  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 69  1405/07/26 09:11:23  [interface,info]  ether5 link down
+ 70  1405/07/26 09:11:26  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 71  1405/07/26 09:11:41  [interface,info]  ether5 link down
+ 72  1405/07/26 09:11:43  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 73  1405/07/26 09:53:42  [system,info,account]  user su logged in from 185.110.29.153 via winbox
+ 74  1405/07/26 09:53:49  [system,info]  ip service changed by su
+ 75  1405/07/26 09:53:50  [system,info,account]  user su logged out from 185.110.29.153 via winbox
+ 76  1405/07/26 09:58:47  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 77  1405/07/26 09:58:48  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 78  1405/07/26 10:14:08  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 79  1405/07/26 10:14:09  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 80  1405/07/26 11:23:39  [interface,info]  ether5 link down
+ 81  1405/07/26 11:23:42  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 82  1405/07/26 11:23:58  [interface,info]  ether5 link down
+ 83  1405/07/26 11:24:00  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 84  1405/07/26 12:26:12  [interface,info]  ether5 link down
+ 85  1405/07/26 12:26:15  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 86  1405/07/26 12:26:31  [interface,info]  ether5 link down
+ 87  1405/07/26 12:26:33  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 88  1405/07/26 12:29:48  [interface,info]  ether5 link down
+ 89  1405/07/26 12:29:51  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 90  1405/07/26 12:30:07  [interface,info]  ether5 link down
+ 91  1405/07/26 12:30:09  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 92  1405/07/27 08:46:13  [interface,info]  ether5 link down
+ 93  1405/07/27 08:46:15  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 94  1405/07/27 08:46:32  [interface,info]  ether5 link down
+ 95  1405/07/27 08:46:33  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 96  1405/07/27 10:49:49  [interface,info]  ether5 link down
+ 97  1405/07/27 10:49:52  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 98  1405/07/27 10:50:08  [interface,info]  ether5 link down
+ 99  1405/07/27 10:50:10  [interface,info]  ether5 link up (speed 100M, full duplex)
+100  1405/07/28 12:28:17  [interface,info]  ether5 link down
+101  1405/07/28 12:28:19  [interface,info]  ether5 link up (speed 100M, full duplex)
+102  1405/07/28 12:28:36  [interface,info]  ether5 link down
+103  1405/07/28 12:28:37  [interface,info]  ether5 link up (speed 100M, full duplex)
+104  1405/07/29 10:27:02  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  64:D1:54:57:30:96  (ether)
+ether2  64:D1:54:57:30:97  (ether)
+ether3  64:D1:54:57:30:98  (ether)
+ether4  64:D1:54:57:30:99  (ether)
+ether5  64:D1:54:57:30:9A  (ether)
+131  64:D1:54:57:30:97  (vlan)
+bridge1  64:D1:54:57:30:97  (bridge)
+bridge2  32:BC:CF:2D:96:CE  (bridge)
+bridge3  64:D1:54:57:30:98  (bridge)
+bridge4  64:D1:54:57:30:96  (bridge)
+vlan104Cisco  64:D1:54:57:30:96  (vlan)
+vlan111-Arvand  64:D1:54:57:30:97  (vlan)
+vlan112-Arvand1  64:D1:54:57:30:97  (vlan)
+vlan113Hafari  64:D1:54:57:30:97  (vlan)
+vlan114-Arvand5  64:D1:54:57:30:97  (vlan)
+--- /ip arp ---
+ether4  84:39:8F:97:62:6E  (arp 192.168.1.254)
+bridge4  4C:5E:0C:C5:C8:24  (arp 172.172.172.65)

@@ -1,0 +1,59 @@
+IP: 172.29.9.161
+Collected at: 2026-10-16T12:41:37.329388+00:00
+source: RouterOS API
+identity: KH-B-NEMIEH
+device_type: ST
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=78:9A:18:C0:68:FB
+  2  name=wlan1  type=wlan  running=true  mac=78:9A:18:C0:68:FC
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=station-bridge  ssid=Abadan-Amoozesh2  band=5ghz-a/n  frequency=5500
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.18.8.134/27  interface=wlan1  network=172.18.8.128
+  2  address=172.29.9.161/27  interface=ether1  network=172.29.9.160
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.18.8.129  distance=1
+  2  dst=172.18.8.128/27  gw=wlan1  distance=0
+  3  dst=172.29.9.160/27  gw=ether1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=R2-MA(Router.Amozeshi)  address=172.18.8.129  interface=wlan1
+  2  identity=Abadan-Amoozesh2.AP  address=172.18.8.130  interface=wlan1
+  3  identity=Sadat.Client  address=172.18.8.132  interface=wlan1
+  4  identity=EmamAli.Client  address=172.18.8.133  interface=wlan1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/24 16:09:00
+# ساعت دستگاه (خام): 1971-04-01 04:38:14
+# افست اصلاحی (سرور − دستگاه): +486896:00:46
+  1  1405/07/23 11:30:35  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/23 11:30:44  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/23 11:31:22  [dhcp,info]  dhcp1 deassigned 172.29.9.190 from 1C:1B:0D:3D:A4:01
+  4  1405/07/23 11:31:22  [dhcp,info]  dhcp1 assigned 172.29.9.190 to 1C:1B:0D:3D:A4:01
+  5  1405/07/23 11:31:34  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+  6  1405/07/23 11:46:22  [dhcp,info]  dhcp1 deassigned 172.29.9.190 from 1C:1B:0D:3D:A4:01
+  7  1405/07/23 12:37:04  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  8  1405/07/23 12:54:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  9  1405/07/24 15:32:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 10  1405/07/24 15:32:38  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 11  1405/07/24 15:46:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 12  1405/07/24 15:46:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 13  1405/07/24 16:00:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 14  1405/07/24 16:00:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 15  1405/07/24 16:08:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  78:9A:18:C0:68:FB  (ether)
+wlan1  78:9A:18:C0:68:FC  (wlan)
+--- /ip arp ---
+wlan1  6C:3B:6B:09:28:B7  (arp 172.18.8.129)

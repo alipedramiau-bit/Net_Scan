@@ -1,0 +1,101 @@
+IP: 172.17.11.140
+Collected at: 2026-10-21T06:57:26.736720+00:00
+source: RouterOS API
+identity: ParsaRasaneh-Sharak-SW
+device_type: Router
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=64:D1:54:34:71:4E
+  2  name=ether2-master  type=ether  running=true  mac=64:D1:54:34:71:4F
+  3  name=ether3  type=ether  running=true  mac=64:D1:54:34:71:50
+  4  name=ether4  type=ether  running=true  mac=64:D1:54:34:71:51
+  5  name=ether5  type=ether  running=true  mac=64:D1:54:34:71:52
+  6  name=PR-PTP-Bardia-139  type=vlan  running=true  mac=64:D1:54:34:71:4F
+  7  name=PR-PTP-ShahrakB-140  type=vlan  running=true  mac=64:D1:54:34:71:4F
+  8  name=ParsaRasaneh-ShahrakSanati-KH-130  type=vlan  running=true  mac=64:D1:54:34:71:4F
+  9  name=bridge1  type=bridge  running=true  mac=64:D1:54:34:71:4E
+ 10  name=bridge2  type=bridge  running=true  mac=32:BC:CF:2D:96:CE
+ 11  name=bridge3  type=bridge  running=true  mac=96:D1:2B:B2:7C:5E
+ 12  name=bridge4  type=bridge  running=true  mac=B2:F6:3B:C5:33:36
+ 13  name=bridge5  type=bridge  running=true  mac=E2:F5:26:FD:94:43
+
+----- wireless -----
+(empty)
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=192.168.43.1/24  interface=ether1  network=192.168.43.0
+  2  address=172.17.11.140/29  interface=ether2-master  network=172.17.11.136
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.11.137  distance=1
+  2  dst=172.17.11.136/29  gw=bridge1  distance=0
+  3  dst=192.168.43.0/24  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=PR-PTP-Jahad-KH  address=172.19.1.42  interface=ether1,bridge1
+  2  identity=PR-PTP-Bardia  address=172.19.1.162  interface=ether1,bridge1
+  3  identity=PR-PTP-Bardia  address=172.19.1.162  interface=ether1,bridge1
+  4  identity=Bardia-MK  address=172.19.1.163  interface=ether1,bridge1
+  5  identity=BardiaJonoub.Client  address=172.19.1.164  interface=ether1,bridge1
+  6  identity=PR-PTP-Shiraz-AP  address=172.19.1.246  interface=ether1,bridge1
+  7  identity=ParsaRasaneh-Anjoman-Router  address=192.168.43.2  interface=ether1,bridge1
+  8  identity=PR-PTP-JahadKH  address=192.168.1.25  interface=ether3,bridge1
+  9  identity=NET-AB-Ghanemi  address=fe80::6e3b:6bff:fedd:7ea8  interface=ether4,bridge1
+ 10  identity=ParsaRasaneh-POP-HyperMarket  address=172.17.14.45  interface=ether4,bridge1
+ 11  identity=ParsaRasaneh-POP3-MP  address=172.17.14.58  interface=ether4,bridge1
+ 12  identity=PR-PTP-HyperMarket-Ap  address=172.17.14.98  interface=ether4,bridge1
+ 13  identity=ParsaRasaneh-PTP-HyperMarket-ST  address=172.17.14.99  interface=ether4,bridge1
+ 14  identity=HyperMarket-POP-SW  address=172.17.14.100  interface=ether4,bridge1
+ 15  identity=ParsaRasaneh-KH-PoP2  address=172.17.14.101  interface=ether4,bridge1
+ 16  identity=Avazeh-KH  address=172.19.1.74  interface=ether4,bridge1
+ 17  identity=Net-Kh-Jalilian  address=-  interface=ether5,bridge1
+ 18  identity=ParsaRasaneh--ShahrakSanati-KH  address=172.17.14.6  interface=ether5,bridge1
+ 19  identity=MikroTik  address=172.17.11.137  interface=ether2-master,bridge1
+ 20  identity=PR-PTP-ShahrakBarbari-AP  address=172.17.11.138  interface=ether2-master,bridge1
+ 21  identity=PR-PTP-ShahrakBarbari-ST  address=172.17.11.139  interface=ether2-master,bridge1
+ 22  identity=Parsa-SW-Shahrak-AB.Alvani-Parsa  address=172.17.11.222  interface=ether2-master,bridge1
+ 23  identity=PR-PTP-ShahrakBarbari-AP  address=-  interface=PR-PTP-ShahrakB-140
+ 24  identity=PR-PTP-ShahrakBarbari-ST  address=-  interface=PR-PTP-ShahrakB-140
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:05
+# ساعت دستگاه (خام): 2026-04-18 01:36:26
+# افست اصلاحی (سرور − دستگاه): +4469:19:39
+  1  1405/07/29 09:49:38  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/29 09:49:46  [interface,info]  ParsaRasaneh-ShahrakSanati-KH-130 link up
+  3  1405/07/29 09:49:46  [interface,info]  PR-PTP-Bardia-139 link up
+  4  1405/07/29 09:49:46  [bridge,info]  "bridge1" mac address changed to 64:D1:54:34:71:4E
+  5  1405/07/29 09:49:46  [interface,info]  PR-PTP-ShahrakB-140 link up
+  6  1405/07/29 09:49:46  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1,ether2-master,ether3,ether4,ether5
+  7  1405/07/29 09:49:47  [poe-out,info]  ether2-master detected poe-out status: on
+  8  1405/07/29 09:49:47  [poe-out,info]  ether3 detected poe-out status: on
+  9  1405/07/29 09:49:47  [poe-out,info]  ether5 detected poe-out status: on
+ 10  1405/07/29 09:49:47  [poe-out,info]  ether4 detected poe-out status: on
+ 11  1405/07/29 09:49:48  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 12  1405/07/29 09:49:48  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 13  1405/07/29 09:49:48  [interface,info]  ether4 link up (speed 100M, full duplex)
+ 14  1405/07/29 09:49:48  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 15  1405/07/29 09:49:49  [interface,info]  ether2-master link up (speed 100M, full duplex)
+ 16  1405/07/29 10:26:05  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  64:D1:54:34:71:4E  (ether)
+ether2-master  64:D1:54:34:71:4F  (ether)
+ether3  64:D1:54:34:71:50  (ether)
+ether4  64:D1:54:34:71:51  (ether)
+ether5  64:D1:54:34:71:52  (ether)
+PR-PTP-Bardia-139  64:D1:54:34:71:4F  (vlan)
+PR-PTP-ShahrakB-140  64:D1:54:34:71:4F  (vlan)
+ParsaRasaneh-ShahrakSanati-KH-130  64:D1:54:34:71:4F  (vlan)
+bridge1  64:D1:54:34:71:4E  (bridge)
+bridge2  32:BC:CF:2D:96:CE  (bridge)
+bridge3  96:D1:2B:B2:7C:5E  (bridge)
+bridge4  B2:F6:3B:C5:33:36  (bridge)
+bridge5  E2:F5:26:FD:94:43  (bridge)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.17.11.137)

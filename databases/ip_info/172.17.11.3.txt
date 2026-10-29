@@ -1,0 +1,199 @@
+IP: 172.17.11.3
+Collected at: 2026-10-21T06:57:27.400541+00:00
+source: RouterOS API
+identity: ParsaRasaneh-PTP-Shahrak-ST
+device_type: ST
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=4C:5E:0C:55:7A:33
+  2  name=wlan1  type=wlan  running=true  mac=4C:5E:0C:55:7A:34
+  3  name=bridge  type=bridge  running=true  mac=4C:5E:0C:55:7A:33
+  4  name=vlan1  type=vlan  running=true  mac=4C:5E:0C:55:7A:33
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=station-bridge  ssid=10094186171-PR-PTP-Sh-Ab  band=5ghz-a/n  frequency=5280
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.11.3/29  interface=vlan1  network=172.17.11.0
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.11.1  distance=1
+  2  dst=172.17.11.0/29  gw=vlan1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=ParsaRasaneh-PTP-Shahrak-AP  address=-  interface=wlan1,bridge
+  2  identity=ParsaRasaneh-SW-Main  address=172.17.11.242  interface=wlan1,bridge
+  3  identity=Parsa-SW-Shahrak-AB.Alvani-Parsa  address=172.17.11.222  interface=ether1,bridge
+  4  identity=AB-Dolatiasl  address=-  interface=vlan1
+  5  identity=MikroTik  address=172.17.11.1  interface=vlan1
+  6  identity=ParsaRasaneh-PTP-Shahrak-AP  address=172.17.11.2  interface=vlan1
+  7  identity=PR-AB  address=172.17.13.19  interface=vlan1
+  8  identity=ParsaRasaneh-ShahrakSanati-AB1  address=172.17.13.20  interface=vlan1
+  9  identity=PR-PTP-Karoon  address=172.19.2.38  interface=vlan1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:09
+# ساعت دستگاه (خام): 2008-11-01 11:14:33
+# افست اصلاحی (سرور − دستگاه): +157507:41:36
+  1  1405/06/21 18:01:23  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/06/21 18:01:23  [interface,info]  vlan1 link up
+  3  1405/06/21 18:01:25  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+  4  1405/06/21 18:01:27  [system,info,account]  user garnaf logged in from 185.110.29.249 via winbox
+  5  1405/06/21 18:01:54  [interface,info]  ether1 link up (speed 100M, full duplex)
+  6  1405/06/21 18:02:08  [interface,info]  ether1 link down
+  7  1405/06/21 18:02:37  [interface,info]  ether1 link up (speed 100M, full duplex)
+  8  1405/06/21 19:31:29  [system,info,account]  user garnaf logged out from 185.110.29.249 via winbox
+  9  1405/06/21 19:32:10  [system,info,account]  user garnaf logged in from 185.110.29.249 via winbox
+ 10  1405/06/22 17:35:22  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+ 11  1405/06/22 17:35:22  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 12  1405/06/22 18:14:09  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, extensive data loss
+ 13  1405/06/22 18:14:10  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 14  1405/06/24 11:13:48  [interface,info]  ether1 link down
+ 15  1405/06/24 11:14:44  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 16  1405/06/24 11:14:57  [interface,info]  ether1 link down
+ 17  1405/06/24 11:15:27  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 18  1405/06/25 07:37:45  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+ 19  1405/06/25 07:37:46  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 20  1405/06/25 07:44:36  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+ 21  1405/06/25 07:44:36  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 22  1405/06/25 07:49:05  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, extensive data loss
+ 23  1405/06/25 07:49:06  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 24  1405/06/25 15:24:33  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+ 25  1405/06/25 15:24:33  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 26  1405/06/25 15:24:35  [system,info,account]  user garnaf logged out from 185.110.29.249 via winbox
+ 27  1405/06/25 15:24:40  [system,info,account]  user garnaf logged in from 185.110.29.249 via winbox
+ 28  1405/06/25 17:59:46  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, extensive data loss
+ 29  1405/06/25 17:59:47  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 30  1405/06/25 17:59:51  [system,info,account]  user garnaf logged out from 185.110.29.249 via winbox
+ 31  1405/06/25 17:59:56  [system,info,account]  user garnaf logged in from 185.110.29.249 via winbox
+ 32  1405/06/25 20:25:29  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, extensive data loss
+ 33  1405/06/25 20:25:29  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 34  1405/06/26 08:19:33  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+ 35  1405/06/26 08:19:33  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 36  1405/06/26 08:33:08  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, extensive data loss
+ 37  1405/06/26 08:33:09  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 38  1405/06/26 08:41:32  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+ 39  1405/06/26 08:41:33  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 40  1405/06/26 09:37:34  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, extensive data loss
+ 41  1405/06/26 09:37:34  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 42  1405/06/26 09:39:04  [system,info,account]  user garnaf logged out from 185.110.29.249 via winbox
+ 43  1405/06/26 09:40:21  [system,info,account]  user garnaf logged in from 185.110.29.249 via winbox
+ 44  1405/06/26 10:31:29  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, extensive data loss
+ 45  1405/06/26 10:31:29  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 46  1405/06/27 20:38:50  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, extensive data loss
+ 47  1405/06/27 20:38:52  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 48  1405/06/28 03:07:16  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+ 49  1405/06/28 03:07:16  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 50  1405/06/28 04:11:14  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, extensive data loss
+ 51  1405/06/28 04:11:16  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 52  1405/06/28 05:39:30  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+ 53  1405/06/28 05:39:30  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 54  1405/06/28 08:23:17  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, extensive data loss
+ 55  1405/06/28 08:23:18  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 56  1405/06/29 18:28:06  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, extensive data loss
+ 57  1405/06/29 18:28:07  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 58  1405/06/29 19:54:44  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, extensive data loss
+ 59  1405/06/29 19:54:44  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 60  1405/06/29 19:57:00  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, extensive data loss
+ 61  1405/06/29 19:57:00  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 62  1405/07/02 08:44:08  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+ 63  1405/07/02 08:44:09  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 64  1405/07/02 09:15:08  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+ 65  1405/07/02 09:15:08  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 66  1405/07/02 09:26:42  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+ 67  1405/07/02 09:26:43  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 68  1405/07/02 09:30:30  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+ 69  1405/07/02 09:30:30  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 70  1405/07/02 09:30:32  [system,info,account]  user garnaf logged out from 185.110.29.249 via winbox
+ 71  1405/07/02 09:30:37  [system,info,account]  user garnaf logged in from 185.110.29.249 via winbox
+ 72  1405/07/05 08:54:50  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, extensive data loss
+ 73  1405/07/05 08:54:50  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 74  1405/07/05 09:33:48  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+ 75  1405/07/05 09:33:48  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 76  1405/07/05 10:35:12  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+ 77  1405/07/05 10:35:12  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 78  1405/07/05 11:20:20  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, extensive data loss
+ 79  1405/07/05 11:20:20  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 80  1405/07/09 08:59:11  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+ 81  1405/07/09 08:59:12  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 82  1405/07/09 09:15:00  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+ 83  1405/07/09 09:15:00  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 84  1405/07/13 10:49:34  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+ 85  1405/07/13 10:49:34  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 86  1405/07/13 11:01:39  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+ 87  1405/07/13 11:01:39  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 88  1405/07/14 00:39:54  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, extensive data loss
+ 89  1405/07/14 00:39:54  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 90  1405/07/14 01:31:06  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+ 91  1405/07/14 01:31:07  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 92  1405/07/14 01:31:09  [system,info,account]  user garnaf logged out from 185.110.29.249 via winbox
+ 93  1405/07/14 01:31:14  [system,info,account]  user garnaf logged in from 185.110.29.249 via winbox
+ 94  1405/07/14 11:42:50  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+ 95  1405/07/14 11:42:50  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 96  1405/07/14 12:19:59  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+ 97  1405/07/14 12:20:00  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+ 98  1405/07/14 18:04:42  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, extensive data loss
+ 99  1405/07/14 18:04:43  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+100  1405/07/16 22:35:49  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+101  1405/07/16 22:35:49  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+102  1405/07/19 20:35:57  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, extensive data loss
+103  1405/07/19 20:35:57  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+104  1405/07/20 10:29:32  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+105  1405/07/20 10:29:33  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+106  1405/07/20 10:29:34  [system,info,account]  user garnaf logged out from 185.110.29.249 via winbox
+107  1405/07/20 10:29:39  [system,info,account]  user garnaf logged in from 185.110.29.249 via winbox
+108  1405/07/21 11:55:42  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+109  1405/07/21 11:55:42  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+110  1405/07/21 11:59:20  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, extensive data loss
+111  1405/07/21 11:59:21  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+112  1405/07/22 06:57:14  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+113  1405/07/22 06:57:15  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+114  1405/07/23 12:12:13  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+115  1405/07/23 12:12:13  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+116  1405/07/23 12:12:18  [system,info,account]  user garnaf logged out from 185.110.29.249 via winbox
+117  1405/07/23 12:12:23  [system,info,account]  user garnaf logged in from 185.110.29.249 via winbox
+118  1405/07/23 14:09:39  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, extensive data loss
+119  1405/07/23 14:09:39  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+120  1405/07/23 14:12:21  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, extensive data loss
+121  1405/07/23 14:12:21  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+122  1405/07/23 23:02:25  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+123  1405/07/23 23:02:25  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+124  1405/07/23 23:06:21  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, extensive data loss
+125  1405/07/23 23:06:21  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+126  1405/07/26 09:57:36  [system,info,account]  user su logged in from 185.110.29.189 via api
+127  1405/07/26 09:57:36  [system,info,account]  user su logged out from 185.110.29.189 via api
+128  1405/07/26 10:13:08  [system,info,account]  user su logged in from 185.110.29.189 via api
+129  1405/07/26 10:13:08  [system,info,account]  user su logged out from 185.110.29.189 via api
+130  1405/07/26 10:45:08  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+131  1405/07/26 10:45:08  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+132  1405/07/26 10:47:53  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, extensive data loss
+133  1405/07/26 10:47:54  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+134  1405/07/26 10:54:09  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+135  1405/07/26 10:54:10  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+136  1405/07/26 10:54:11  [system,info,account]  user garnaf logged out from 185.110.29.249 via winbox
+137  1405/07/26 10:54:16  [system,info,account]  user garnaf logged in from 185.110.29.249 via winbox
+138  1405/07/26 10:56:47  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+139  1405/07/26 10:56:47  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+140  1405/07/26 11:03:58  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+141  1405/07/26 11:03:58  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+142  1405/07/26 17:54:55  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, extensive data loss
+143  1405/07/26 17:54:55  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+144  1405/07/28 08:31:46  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+145  1405/07/28 08:31:46  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+146  1405/07/28 18:33:07  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1: lost connection, not polled for too long
+147  1405/07/28 18:33:07  [wireless,info]  E4:8D:8C:F6:20:A3@wlan1 established connection on 5860000, SSID 10094186171-PR-PTP-Sh-Ab
+148  1405/07/29 10:26:09  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  4C:5E:0C:55:7A:33  (ether)
+wlan1  4C:5E:0C:55:7A:34  (wlan)
+bridge  4C:5E:0C:55:7A:33  (bridge)
+vlan1  4C:5E:0C:55:7A:33  (vlan)
+--- /ip arp ---
+vlan1  4C:5E:0C:C5:C8:24  (arp 172.17.11.1)

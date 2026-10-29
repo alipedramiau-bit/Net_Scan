@@ -1,0 +1,146 @@
+IP: 172.17.11.138
+Collected at: 2026-10-21T06:57:26.657062+00:00
+source: RouterOS API
+identity: PR-PTP-ShahrakBarbari-AP
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=4C:5E:0C:1A:BD:86
+  2  name=wlan1  type=wlan  running=true  mac=4C:5E:0C:1A:BD:87
+  3  name=bridge1  type=bridge  running=true  mac=4C:5E:0C:1A:BD:86
+  4  name=vlan140  type=vlan  running=true  mac=4C:5E:0C:1A:BD:86
+  5  name=wds31  type=wds  running=true  mac=4C:5E:0C:1A:BD:87
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=bridge  ssid=PR-PTP-ShahrakB  band=5ghz-a/n  frequency=5440
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.11.138/29  interface=ether1  network=172.17.11.136
+  2  address=192.168.43.4/24  interface=ether1  network=192.168.43.0
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.11.137  distance=1
+  2  dst=172.17.11.136/29  gw=bridge1  distance=0
+  3  dst=192.168.43.0/24  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=MikroTik  address=172.17.11.137  interface=ether1,bridge1
+  2  identity=Parsa-SW-Shahrak-AB.Alvani-Parsa  address=172.17.11.222  interface=ether1,bridge1
+  3  identity=PR-PTP-ShahrakBarbari-ST  address=-  interface=vlan140
+  4  identity=ParsaRasaneh-Sharak-SW  address=-  interface=vlan140
+  5  identity=Net-Kh-Jalilian  address=-  interface=wds31,bridge1
+  6  identity=NET-AB-Ghanemi  address=fe80::6e3b:6bff:fedd:7ea8  interface=wds31,bridge1
+  7  identity=PR-PTP-ShahrakBarbari-ST  address=172.17.11.139  interface=wds31,bridge1
+  8  identity=ParsaRasaneh--ShahrakSanati-KH  address=172.17.14.6  interface=wds31,bridge1
+  9  identity=ParsaRasaneh-POP-HyperMarket  address=172.17.14.45  interface=wds31,bridge1
+ 10  identity=ParsaRasaneh-POP3-MP  address=172.17.14.58  interface=wds31,bridge1
+ 11  identity=PR-PTP-HyperMarket-Ap  address=172.17.14.98  interface=wds31,bridge1
+ 12  identity=ParsaRasaneh-PTP-HyperMarket-ST  address=172.17.14.99  interface=wds31,bridge1
+ 13  identity=HyperMarket-POP-SW  address=172.17.14.100  interface=wds31,bridge1
+ 14  identity=ParsaRasaneh-KH-PoP2  address=172.17.14.101  interface=wds31,bridge1
+ 15  identity=PR-PTP-Jahad-KH  address=172.19.1.42  interface=wds31,bridge1
+ 16  identity=Avazeh-KH  address=172.19.1.74  interface=wds31,bridge1
+ 17  identity=PR-PTP-Bardia  address=172.19.1.162  interface=wds31,bridge1
+ 18  identity=PR-PTP-Bardia  address=172.19.1.162  interface=wds31,bridge1
+ 19  identity=Bardia-MK  address=172.19.1.163  interface=wds31,bridge1
+ 20  identity=BardiaJonoub.Client  address=172.19.1.164  interface=wds31,bridge1
+ 21  identity=PR-PTP-Shiraz-AP  address=172.19.1.246  interface=wds31,bridge1
+ 22  identity=PR-PTP-JahadKH  address=192.168.1.25  interface=wds31,bridge1
+ 23  identity=ParsaRasaneh-Sharak-SW  address=192.168.43.1  interface=wds31,bridge1
+ 24  identity=ParsaRasaneh-Anjoman-Router  address=192.168.43.2  interface=wds31,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:03
+# ساعت دستگاه (خام): 2026-08-28 17:27:45
+# افست اصلاحی (سرور − دستگاه): +1285:28:18
+  1  1405/06/21 18:01:33  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/06/21 18:01:33  [interface,info]  vlan140 link up
+  3  1405/06/21 18:01:34  [bridge,info]  "bridge1" mac address changed to 4C:5E:0C:1A:BD:86
+  4  1405/06/21 18:01:35  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -48
+  5  1405/06/21 18:02:03  [interface,info]  ether1 link up (speed 100M, full duplex)
+  6  1405/06/21 18:02:16  [interface,info]  ether1 link down
+  7  1405/06/21 18:02:45  [interface,info]  ether1 link up (speed 100M, full duplex)
+  8  1405/06/22 11:01:24  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+  9  1405/06/22 12:07:15  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -44
+ 10  1405/06/23 07:41:08  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 11  1405/06/23 07:42:40  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -50
+ 12  1405/06/24 09:36:15  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 13  1405/06/24 09:50:06  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -44
+ 14  1405/06/24 11:13:56  [interface,info]  ether1 link down
+ 15  1405/06/24 11:14:53  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 16  1405/06/24 11:15:06  [interface,info]  ether1 link down
+ 17  1405/06/24 11:15:34  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 18  1405/06/25 08:10:13  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 19  1405/06/25 08:11:39  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -60
+ 20  1405/06/27 00:51:57  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 21  1405/06/27 01:28:48  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -46
+ 22  1405/06/28 15:30:45  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 23  1405/06/28 15:48:53  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -42
+ 24  1405/06/28 21:32:20  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 25  1405/06/28 21:49:57  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -52
+ 26  1405/06/30 08:47:49  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 27  1405/06/30 11:25:40  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -42
+ 28  1405/06/31 02:26:36  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 29  1405/06/31 02:35:49  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -46
+ 30  1405/06/31 14:20:27  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 31  1405/06/31 14:43:04  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -46
+ 32  1405/06/31 14:45:39  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 33  1405/06/31 15:01:13  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -42
+ 34  1405/06/31 15:02:31  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 35  1405/06/31 15:13:51  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -42
+ 36  1405/07/01 03:28:29  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 37  1405/07/01 03:35:53  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -48
+ 38  1405/07/04 15:07:52  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 39  1405/07/04 15:20:35  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -44
+ 40  1405/07/06 14:31:15  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 41  1405/07/06 14:43:21  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -44
+ 42  1405/07/11 07:47:35  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 43  1405/07/11 07:49:05  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -46
+ 44  1405/07/15 10:08:36  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 45  1405/07/15 10:19:03  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -46
+ 46  1405/07/18 08:00:29  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 47  1405/07/18 08:01:58  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -44
+ 48  1405/07/20 12:16:25  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 49  1405/07/20 12:17:51  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -42
+ 50  1405/07/20 13:36:04  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 51  1405/07/20 13:47:59  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -42
+ 52  1405/07/20 22:07:35  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 53  1405/07/20 22:24:52  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -52
+ 54  1405/07/22 07:49:04  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 55  1405/07/22 07:50:34  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -50
+ 56  1405/07/22 08:47:08  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 57  1405/07/22 08:54:04  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -54
+ 58  1405/07/25 07:41:15  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 59  1405/07/25 07:42:41  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -62
+ 60  1405/07/25 14:44:37  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 61  1405/07/25 14:56:00  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -44
+ 62  1405/07/26 05:20:28  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 63  1405/07/26 05:33:10  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -50
+ 64  1405/07/26 09:57:29  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 65  1405/07/26 09:57:30  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 66  1405/07/26 10:13:03  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 67  1405/07/26 10:13:04  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 68  1405/07/26 12:32:24  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 69  1405/07/26 12:38:53  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -44
+ 70  1405/07/28 02:28:06  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 71  1405/07/28 02:28:07  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -78
+ 72  1405/07/29 07:57:29  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 73  1405/07/29 07:58:58  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -50
+ 74  1405/07/29 09:30:28  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: disconnected, control frame timeout
+ 75  1405/07/29 09:49:47  [wireless,info]  4C:5E:0C:54:9F:85@wlan1: connected, signal strength -42
+ 76  1405/07/29 10:26:03  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  4C:5E:0C:1A:BD:86  (ether)
+wlan1  4C:5E:0C:1A:BD:87  (wlan)
+bridge1  4C:5E:0C:1A:BD:86  (bridge)
+vlan140  4C:5E:0C:1A:BD:86  (vlan)
+wds31  4C:5E:0C:1A:BD:87  (wds)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.17.11.137)

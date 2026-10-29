@@ -1,0 +1,64 @@
+IP: 172.17.15.99
+Collected at: 2026-10-21T06:57:31.199491+00:00
+source: RouterOS API
+identity: ParsaRasaneh-H-To-F-st
+device_type: ST
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=4C:5E:0C:B5:C3:00
+  2  name=wlan1  type=wlan  running=true  mac=4C:5E:0C:B5:C3:01
+  3  name=bridge1  type=bridge  running=true  mac=4C:5E:0C:B5:C3:00
+  4  name=vlan-141  type=vlan  running=true  mac=4C:5E:0C:B5:C3:00
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=station-wds  ssid=10094186171-PR-H-To-F  band=5ghz-a/n  frequency=5380
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.15.99/29  interface=vlan-141  network=172.17.15.96
+  2  address=192.168.1.2/30  interface=wlan1  network=192.168.1.0
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.15.97  distance=1
+  2  dst=172.17.15.96/29  gw=vlan-141  distance=0
+  3  dst=192.168.1.0/30  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=SW-POP Taleghani  address=-  interface=ether1,bridge1
+  2  identity=Parsa-Manabe-Sw  address=172.17.11.246  interface=wlan1,bridge1
+  3  identity=PTP-Taleghani  address=172.17.15.66  interface=wlan1,bridge1
+  4  identity=MikroTik  address=172.17.15.97  interface=vlan-141
+  5  identity=PTP-Taleghani  address=172.17.15.98  interface=vlan-141
+  6  identity=SW-POP Taleghani  address=172.17.15.100  interface=vlan-141
+  7  identity=ParsaResaneh-AP-Khoramshahr  address=172.17.15.101  interface=vlan-141
+  8  identity=ParsaRasaneh-PTP-UNarvandan  address=172.19.1.147  interface=vlan-141
+  9  identity=Router MehrArvand  address=172.19.1.148  interface=vlan-141
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:45
+# ساعت دستگاه (خام): 2009-07-27 01:13:14
+# افست اصلاحی (سرور − دستگاه): +151085:43:31
+  1  1405/07/18 13:09:07  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/18 13:09:07  [interface,info]  vlan-141 link up
+  3  1405/07/18 13:09:08  [bridge,info]  "bridge1" mac address changed to 4C:5E:0C:B5:C3:00
+  4  1405/07/18 13:09:08  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  5  1405/07/18 13:09:10  [interface,info]  ether1 link up (speed 100M, full duplex)
+  6  1405/07/18 13:09:56  [wireless,info]  6C:3B:6B:D0:73:06@wlan1 established connection on 5460000, SSID 10094186171-PR-H-To-F
+  7  1405/07/26 09:58:19  [system,info,account]  user su logged in from 185.110.29.189 via api
+  8  1405/07/26 09:58:19  [system,info,account]  user su logged out from 185.110.29.189 via api
+  9  1405/07/26 10:13:44  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 10  1405/07/26 10:13:44  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 11  1405/07/29 10:26:45  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  4C:5E:0C:B5:C3:00  (ether)
+wlan1  4C:5E:0C:B5:C3:01  (wlan)
+bridge1  4C:5E:0C:B5:C3:00  (bridge)
+vlan-141  4C:5E:0C:B5:C3:00  (vlan)
+--- /ip arp ---
+vlan-141  4C:5E:0C:C5:C8:24  (arp 172.17.15.97)

@@ -1,0 +1,257 @@
+IP: 172.19.1.70
+Collected at: 2026-10-21T06:57:34.231121+00:00
+source: RouterOS API
+identity: POP-Zolfaghari-Naseri
+device_type: Router
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=64:D1:54:2E:6B:98
+  2  name=ether2-master  type=ether  running=true  mac=64:D1:54:2E:6B:99
+  3  name=ether3  type=ether  running=true  mac=64:D1:54:2E:6B:9A
+  4  name=ether4  type=ether  running=true  mac=64:D1:54:2E:6B:9B
+  5  name=Kh Naseri  type=eoip  running=true  mac=02:3B:35:62:04:AE
+  6  name=bridge  type=bridge  running=true  mac=64:D1:54:2E:6B:99
+
+----- wireless -----
+(empty)
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=192.168.88.1/24  interface=bridge  network=192.168.88.0
+  2  address=172.19.1.70/30  interface=ether1  network=172.19.1.68
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.19.1.69  distance=1
+  2  dst=172.19.1.68/30  gw=ether1  distance=0
+  3  dst=192.168.88.0/24  gw=bridge  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=Parsa-SW-Zand  address=172.17.11.234  interface=ether1
+  2  identity=MikroTik  address=172.17.11.237  interface=ether1
+  3  identity=naseri-l4  address=192.168.88.50  interface=ether4,bridge
+  4  identity=Parsa-SW-POP-Fatah  address=-  interface=Kh Naseri,bridge
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:27:16
+# ساعت دستگاه (خام): 2026-10-21 10:26:29
+# افست اصلاحی (سرور − دستگاه): -03:29:12
+  1  1405/07/27 10:09:14  [dhcp,info]  defconf deassigned 192.168.88.31 from 1A:33:9F:25:BC:D5
+  2  1405/07/27 10:10:25  [dhcp,info]  defconf deassigned 192.168.88.63 from 16:5C:FE:84:D5:88
+  3  1405/07/27 10:12:49  [dhcp,info]  defconf deassigned 192.168.88.32 from D2:F6:F4:7D:89:FB
+  4  1405/07/27 10:22:12  [dhcp,info]  defconf assigned 192.168.88.13 to 00:E0:2D:0D:1E:A6
+  5  1405/07/27 10:32:12  [dhcp,info]  defconf deassigned 192.168.88.13 from 00:E0:2D:0D:1E:A6
+  6  1405/07/27 10:40:55  [dhcp,info]  defconf assigned 192.168.88.32 to D2:F6:F4:7D:89:FB
+  7  1405/07/27 10:42:11  [dhcp,info]  defconf assigned 192.168.88.31 to 1A:33:9F:25:BC:D5
+  8  1405/07/27 10:50:55  [dhcp,info]  defconf deassigned 192.168.88.32 from D2:F6:F4:7D:89:FB
+  9  1405/07/27 10:57:12  [dhcp,info]  defconf deassigned 192.168.88.31 from 1A:33:9F:25:BC:D5
+ 10  1405/07/27 11:25:41  [dhcp,info]  defconf assigned 192.168.88.31 to 1A:33:9F:25:BC:D5
+ 11  1405/07/27 12:10:25  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+ 12  1405/07/27 12:27:51  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+ 13  1405/07/27 12:53:56  [dhcp,info]  defconf assigned 192.168.88.63 to 16:5C:FE:84:D5:88
+ 14  1405/07/27 12:53:58  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+ 15  1405/07/27 13:09:06  [dhcp,info]  defconf assigned 192.168.88.34 to 8A:CA:1E:38:4A:BE
+ 16  1405/07/27 13:14:18  [dhcp,info]  defconf deassigned 192.168.88.31 from 1A:33:9F:25:BC:D5
+ 17  1405/07/27 13:14:18  [dhcp,info]  defconf assigned 192.168.88.31 to 1A:33:9F:25:BC:D5
+ 18  1405/07/27 13:26:56  [dhcp,info]  defconf assigned 192.168.88.55 to BE:32:F2:DE:F9:EB
+ 19  1405/07/27 13:36:56  [dhcp,info]  defconf deassigned 192.168.88.55 from BE:32:F2:DE:F9:EB
+ 20  1405/07/27 13:37:24  [dhcp,info]  defconf assigned 192.168.88.53 to 9E:C3:70:7F:BF:13
+ 21  1405/07/27 13:41:37  [dhcp,info]  defconf deassigned 192.168.88.34 from 8A:CA:1E:38:4A:BE
+ 22  1405/07/27 13:47:24  [dhcp,info]  defconf deassigned 192.168.88.53 from 9E:C3:70:7F:BF:13
+ 23  1405/07/27 14:33:51  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+ 24  1405/07/27 15:15:01  [dhcp,info]  defconf assigned 192.168.88.17 to 1A:F2:F0:F0:11:A5
+ 25  1405/07/27 15:19:18  [dhcp,info]  defconf assigned 192.168.88.57 to 0E:A1:7B:F4:12:D5
+ 26  1405/07/27 15:37:54  [dhcp,info]  defconf deassigned 192.168.88.63 from 16:5C:FE:84:D5:88
+ 27  1405/07/27 15:39:17  [dhcp,info]  defconf deassigned 192.168.88.31 from 1A:33:9F:25:BC:D5
+ 28  1405/07/27 15:44:34  [dhcp,info]  defconf deassigned 192.168.88.57 from 0E:A1:7B:F4:12:D5
+ 29  1405/07/27 17:05:44  [dhcp,info]  defconf assigned 192.168.88.46 to 06:79:CA:A7:F4:68
+ 30  1405/07/27 17:20:17  [dhcp,info]  defconf deassigned 192.168.88.46 from 06:79:CA:A7:F4:68
+ 31  1405/07/27 17:20:19  [dhcp,info]  defconf assigned 192.168.88.46 to 06:79:CA:A7:F4:68
+ 32  1405/07/27 17:26:22  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+ 33  1405/07/27 17:48:13  [dhcp,info]  defconf assigned 192.168.88.53 to 9E:C3:70:7F:BF:13
+ 34  1405/07/27 17:55:46  [dhcp,info]  defconf assigned 192.168.88.45 to 6A:47:21:AE:2C:91
+ 35  1405/07/27 18:06:19  [dhcp,info]  defconf deassigned 192.168.88.45 from 6A:47:21:AE:2C:91
+ 36  1405/07/27 18:08:14  [dhcp,info]  defconf deassigned 192.168.88.53 from 9E:C3:70:7F:BF:13
+ 37  1405/07/27 18:25:53  [interface,info]  ether3 link down
+ 38  1405/07/27 18:25:59  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 39  1405/07/27 18:26:04  [interface,info]  ether3 link down
+ 40  1405/07/27 18:26:09  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 41  1405/07/27 18:26:19  [interface,info]  ether3 link down
+ 42  1405/07/27 18:26:20  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 43  1405/07/27 18:30:25  [interface,info]  ether3 link down
+ 44  1405/07/27 18:34:02  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 45  1405/07/27 18:34:07  [interface,info]  ether3 link down
+ 46  1405/07/27 18:34:12  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 47  1405/07/27 18:34:21  [interface,info]  ether3 link down
+ 48  1405/07/27 18:34:23  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 49  1405/07/27 18:34:33  [dhcp,info]  defconf assigned 192.168.88.30 to D6:44:E0:E7:F4:75
+ 50  1405/07/27 18:34:50  [dhcp,info]  defconf assigned 192.168.88.31 to 1A:33:9F:25:BC:D5
+ 51  1405/07/27 18:46:03  [dhcp,info]  defconf deassigned 192.168.88.30 from D6:44:E0:E7:F4:75
+ 52  1405/07/27 18:52:22  [dhcp,info]  defconf deassigned 192.168.88.31 from 1A:33:9F:25:BC:D5
+ 53  1405/07/27 18:53:49  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+ 54  1405/07/27 20:02:28  [dhcp,info]  defconf assigned 192.168.88.53 to 9E:C3:70:7F:BF:13
+ 55  1405/07/27 20:02:58  [dhcp,info]  defconf assigned 192.168.88.47 to 46:A4:97:18:83:11
+ 56  1405/07/27 20:07:54  [dhcp,info]  defconf deassigned 192.168.88.46 from 06:79:CA:A7:F4:68
+ 57  1405/07/27 20:12:28  [dhcp,info]  defconf deassigned 192.168.88.53 from 9E:C3:70:7F:BF:13
+ 58  1405/07/27 20:12:58  [dhcp,info]  defconf deassigned 192.168.88.47 from 46:A4:97:18:83:11
+ 59  1405/07/27 21:47:23  [dhcp,info]  defconf assigned 192.168.88.13 to 00:E0:2D:0D:1E:A6
+ 60  1405/07/27 22:28:40  [dhcp,info]  defconf deassigned 192.168.88.17 from 1A:F2:F0:F0:11:A5
+ 61  1405/07/27 23:07:24  [dhcp,info]  defconf deassigned 192.168.88.13 from 00:E0:2D:0D:1E:A6
+ 62  1405/07/27 23:14:30  [dhcp,info]  defconf assigned 192.168.88.17 to 1A:F2:F0:F0:11:A5
+ 63  1405/07/27 23:18:19  [dhcp,info]  defconf assigned 192.168.88.42 to 66:E0:2E:F0:EA:A0
+ 64  1405/07/27 23:23:02  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+ 65  1405/07/27 23:39:30  [dhcp,info]  defconf deassigned 192.168.88.17 from 1A:F2:F0:F0:11:A5
+ 66  1405/07/27 23:41:48  [dhcp,info]  defconf deassigned 192.168.88.42 from 66:E0:2E:F0:EA:A0
+ 67  1405/07/27 23:55:22  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+ 68  1405/07/28 00:07:19  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+ 69  1405/07/28 02:00:02  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+ 70  1405/07/28 05:38:14  [dhcp,info]  defconf assigned 192.168.88.42 to 66:E0:2E:F0:EA:A0
+ 71  1405/07/28 05:50:37  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+ 72  1405/07/28 06:14:43  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+ 73  1405/07/28 06:27:34  [dhcp,info]  defconf assigned 192.168.88.65 to 26:68:D6:E3:0B:B2
+ 74  1405/07/28 06:37:25  [dhcp,info]  defconf deassigned 192.168.88.42 from 66:E0:2E:F0:EA:A0
+ 75  1405/07/28 07:12:37  [dhcp,info]  defconf deassigned 192.168.88.65 from 26:68:D6:E3:0B:B2
+ 76  1405/07/28 07:19:26  [dhcp,info]  defconf assigned 192.168.88.65 to 26:68:D6:E3:0B:B2
+ 77  1405/07/28 07:39:26  [dhcp,info]  defconf deassigned 192.168.88.65 from 26:68:D6:E3:0B:B2
+ 78  1405/07/28 07:40:39  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+ 79  1405/07/28 07:40:41  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+ 80  1405/07/28 07:40:42  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+ 81  1405/07/28 07:40:44  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+ 82  1405/07/28 07:40:45  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+ 83  1405/07/28 07:40:48  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+ 84  1405/07/28 07:40:49  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+ 85  1405/07/28 07:40:58  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+ 86  1405/07/28 07:40:59  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+ 87  1405/07/28 07:41:02  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+ 88  1405/07/28 07:41:04  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+ 89  1405/07/28 07:41:05  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+ 90  1405/07/28 07:41:06  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+ 91  1405/07/28 07:41:09  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+ 92  1405/07/28 07:41:10  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+ 93  1405/07/28 07:41:13  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+ 94  1405/07/28 07:49:35  [dhcp,info]  defconf assigned 192.168.88.42 to 66:E0:2E:F0:EA:A0
+ 95  1405/07/28 08:13:16  [dhcp,info]  defconf assigned 192.168.88.65 to 26:68:D6:E3:0B:B2
+ 96  1405/07/28 08:20:47  [dhcp,info]  defconf assigned 192.168.88.13 to 00:E0:2D:0D:1E:A6
+ 97  1405/07/28 08:53:05  [dhcp,info]  defconf assigned 192.168.88.53 to 9E:C3:70:7F:BF:13
+ 98  1405/07/28 09:00:48  [dhcp,info]  defconf deassigned 192.168.88.13 from 00:E0:2D:0D:1E:A6
+ 99  1405/07/28 09:02:11  [dhcp,info]  defconf deassigned 192.168.88.42 from 66:E0:2E:F0:EA:A0
+100  1405/07/28 09:03:05  [dhcp,info]  defconf deassigned 192.168.88.53 from 9E:C3:70:7F:BF:13
+101  1405/07/28 09:15:38  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+102  1405/07/28 09:15:41  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+103  1405/07/28 09:15:42  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+104  1405/07/28 09:15:44  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+105  1405/07/28 09:15:45  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+106  1405/07/28 09:15:48  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+107  1405/07/28 09:15:49  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+108  1405/07/28 09:15:51  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+109  1405/07/28 09:15:52  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+110  1405/07/28 09:16:02  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+111  1405/07/28 09:16:03  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+112  1405/07/28 09:16:05  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+113  1405/07/28 09:16:06  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+114  1405/07/28 09:16:08  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+115  1405/07/28 09:16:09  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+116  1405/07/28 09:16:12  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+117  1405/07/28 09:16:13  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+118  1405/07/28 09:16:15  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+119  1405/07/28 09:16:16  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+120  1405/07/28 09:26:16  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+121  1405/07/28 09:44:59  [dhcp,info]  defconf assigned 192.168.88.31 to 1A:33:9F:25:BC:D5
+122  1405/07/28 10:12:40  [dhcp,info]  defconf assigned 192.168.88.15 to 22:73:D1:7A:BA:5E
+123  1405/07/28 10:27:40  [dhcp,info]  defconf deassigned 192.168.88.15 from 22:73:D1:7A:BA:5E
+124  1405/07/28 10:29:34  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+125  1405/07/28 10:39:34  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+126  1405/07/28 10:49:11  [dhcp,info]  defconf deassigned 192.168.88.31 from 1A:33:9F:25:BC:D5
+127  1405/07/28 12:01:36  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+128  1405/07/28 12:23:46  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+129  1405/07/28 13:16:14  [dhcp,info]  defconf assigned 192.168.88.15 to 22:73:D1:7A:BA:5E
+130  1405/07/28 13:26:14  [dhcp,info]  defconf deassigned 192.168.88.15 from 22:73:D1:7A:BA:5E
+131  1405/07/28 13:44:45  [dhcp,info]  defconf assigned 192.168.88.16 to E0:33:8E:E7:40:6B
+132  1405/07/28 14:07:14  [dhcp,info]  defconf assigned 192.168.88.13 to 00:E0:2D:0D:1E:A6
+133  1405/07/28 14:23:27  [dhcp,info]  defconf deassigned 192.168.88.65 from 26:68:D6:E3:0B:B2
+134  1405/07/28 14:33:22  [dhcp,info]  defconf deassigned 192.168.88.16 from E0:33:8E:E7:40:6B
+135  1405/07/28 14:43:32  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+136  1405/07/28 15:00:05  [dhcp,info]  defconf assigned 192.168.88.42 to 66:E0:2E:F0:EA:A0
+137  1405/07/28 15:04:45  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+138  1405/07/28 15:07:13  [dhcp,info]  defconf deassigned 192.168.88.13 from 00:E0:2D:0D:1E:A6
+139  1405/07/28 15:15:39  [dhcp,info]  defconf deassigned 192.168.88.42 from 66:E0:2E:F0:EA:A0
+140  1405/07/28 17:34:40  [dhcp,info]  defconf assigned 192.168.88.27 to 1E:CB:17:57:DF:AA
+141  1405/07/28 18:05:22  [dhcp,info]  defconf assigned 192.168.88.15 to 22:73:D1:7A:BA:5E
+142  1405/07/28 18:15:22  [dhcp,info]  defconf deassigned 192.168.88.15 from 22:73:D1:7A:BA:5E
+143  1405/07/28 18:43:53  [dhcp,info]  defconf assigned 192.168.88.65 to 26:68:D6:E3:0B:B2
+144  1405/07/28 19:48:59  [dhcp,info]  defconf assigned 192.168.88.14 to DA:49:FB:65:F4:40
+145  1405/07/28 19:58:59  [dhcp,info]  defconf deassigned 192.168.88.14 from DA:49:FB:65:F4:40
+146  1405/07/28 20:23:54  [dhcp,info]  defconf deassigned 192.168.88.65 from 26:68:D6:E3:0B:B2
+147  1405/07/28 21:17:03  [dhcp,info]  defconf assigned 192.168.88.15 to 22:73:D1:7A:BA:5E
+148  1405/07/28 21:23:38  [dhcp,info]  defconf deassigned 192.168.88.15 from 22:73:D1:7A:BA:5E
+149  1405/07/28 21:23:40  [dhcp,info]  defconf assigned 192.168.88.15 to 22:73:D1:7A:BA:5E
+150  1405/07/28 21:33:40  [dhcp,info]  defconf deassigned 192.168.88.15 from 22:73:D1:7A:BA:5E
+151  1405/07/28 21:39:51  [dhcp,info]  defconf deassigned 192.168.88.27 from 1E:CB:17:57:DF:AA
+152  1405/07/28 22:47:51  [dhcp,info]  defconf assigned 192.168.88.42 to 66:E0:2E:F0:EA:A0
+153  1405/07/28 22:48:00  [dhcp,info]  defconf deassigned 192.168.88.42 from 66:E0:2E:F0:EA:A0
+154  1405/07/28 22:48:01  [dhcp,info]  defconf assigned 192.168.88.42 to 66:E0:2E:F0:EA:A0
+155  1405/07/28 22:50:32  [dhcp,info]  defconf assigned 192.168.88.19 to 22:65:82:F4:52:A9
+156  1405/07/28 23:03:00  [dhcp,info]  defconf deassigned 192.168.88.42 from 66:E0:2E:F0:EA:A0
+157  1405/07/29 01:58:06  [dhcp,info]  defconf assigned 192.168.88.65 to 26:68:D6:E3:0B:B2
+158  1405/07/29 02:58:09  [dhcp,info]  defconf deassigned 192.168.88.65 from 26:68:D6:E3:0B:B2
+159  1405/07/29 04:07:32  [dhcp,info]  defconf assigned 192.168.88.65 to 26:68:D6:E3:0B:B2
+160  1405/07/29 05:40:34  [dhcp,info]  defconf assigned 192.168.88.42 to 66:E0:2E:F0:EA:A0
+161  1405/07/29 05:55:41  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+162  1405/07/29 05:55:43  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+163  1405/07/29 05:55:44  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+164  1405/07/29 05:55:47  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+165  1405/07/29 05:55:48  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+166  1405/07/29 05:55:50  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+167  1405/07/29 05:55:52  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+168  1405/07/29 05:55:54  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+169  1405/07/29 05:55:56  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+170  1405/07/29 05:55:57  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+171  1405/07/29 05:55:58  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+172  1405/07/29 06:13:26  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+173  1405/07/29 07:55:37  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+174  1405/07/29 07:55:39  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+175  1405/07/29 07:55:40  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+176  1405/07/29 07:55:43  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+177  1405/07/29 07:55:44  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+178  1405/07/29 07:55:46  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+179  1405/07/29 07:55:47  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+180  1405/07/29 07:55:50  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+181  1405/07/29 07:55:51  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+182  1405/07/29 07:55:57  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+183  1405/07/29 07:55:58  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+184  1405/07/29 07:56:00  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+185  1405/07/29 07:56:01  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+186  1405/07/29 07:56:04  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+187  1405/07/29 07:56:05  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+188  1405/07/29 07:56:07  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+189  1405/07/29 07:56:08  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+190  1405/07/29 07:56:10  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+191  1405/07/29 07:56:11  [dhcp,info]  defconf assigned 192.168.88.41 to 42:C8:C4:A3:56:C9
+192  1405/07/29 08:06:12  [dhcp,info]  defconf deassigned 192.168.88.41 from 42:C8:C4:A3:56:C9
+193  1405/07/29 08:24:06  [dhcp,info]  defconf assigned 192.168.88.16 to E0:33:8E:E7:40:6B
+194  1405/07/29 08:25:41  [dhcp,info]  defconf deassigned 192.168.88.42 from 66:E0:2E:F0:EA:A0
+195  1405/07/29 08:45:44  [dhcp,info]  defconf deassigned 192.168.88.16 from E0:33:8E:E7:40:6B
+196  1405/07/29 08:46:41  [dhcp,info]  defconf assigned 192.168.88.17 to 1A:F2:F0:F0:11:A5
+197  1405/07/29 08:54:50  [dhcp,info]  defconf assigned 192.168.88.42 to 66:E0:2E:F0:EA:A0
+198  1405/07/29 09:17:05  [dhcp,info]  defconf deassigned 192.168.88.42 from 66:E0:2E:F0:EA:A0
+199  1405/07/29 09:29:24  [dhcp,info]  defconf assigned 192.168.88.31 to 1A:33:9F:25:BC:D5
+200  1405/07/29 10:27:16  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  64:D1:54:2E:6B:98  (ether)
+ether2-master  64:D1:54:2E:6B:99  (ether)
+ether3  64:D1:54:2E:6B:9A  (ether)
+ether4  64:D1:54:2E:6B:9B  (ether)
+Kh Naseri  02:3B:35:62:04:AE  (eoip)
+bridge  64:D1:54:2E:6B:99  (bridge)
+--- /ip arp ---
+bridge  22:65:82:F4:52:A9  (arp 192.168.88.19)
+bridge  1A:F2:F0:F0:11:A5  (arp 192.168.88.17)
+ether1  4C:5E:0C:C5:C8:24  (arp 172.19.1.69)
+bridge  1A:33:9F:25:BC:D5  (arp 192.168.88.31)
+bridge  26:68:D6:E3:0B:B2  (arp 192.168.88.65)
+bridge  16:5C:FE:84:D5:88  (arp 192.168.88.63)
+bridge  90:97:D5:4B:05:BB  (arp 192.168.88.21)

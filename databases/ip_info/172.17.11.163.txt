@@ -1,0 +1,60 @@
+IP: 172.17.11.163
+Collected at: 2026-10-21T06:57:26.965477+00:00
+source: RouterOS API
+identity: AB-Karamnezhad1
+device_type: ST
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=64:D1:54:83:64:8E
+  2  name=wlan1  type=wlan  running=true  mac=64:D1:54:83:64:8F
+  3  name=108  type=vlan  running=true  mac=64:D1:54:83:64:8F
+  4  name=bridge1  type=bridge  running=true  mac=64:D1:54:83:64:8F
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=station-bridge  ssid=10094186171-PR-PTP-HyperMarket  band=5ghz-a/n  frequency=5825
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.11.163/29  interface=108  network=172.17.11.160
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.11.161  distance=1
+  2  dst=172.17.11.160/29  gw=108  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=Parsa-SW-POP-Fatah  address=-  interface=ether1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:06
+# ساعت دستگاه (خام): 2026-08-12 20:50:25
+# افست اصلاحی (سرور − دستگاه): +1666:05:41
+  1  1405/06/10 03:58:56  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/06/10 03:58:59  [interface,info]  108 link up
+  3  1405/06/10 03:58:59  [bridge,info]  "bridge1" mac address changed to 64:D1:54:83:64:8F
+  4  1405/06/10 03:59:04  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  5  1405/06/10 03:59:06  [interface,info]  ether1 link up (speed 100M, full duplex)
+  6  1405/06/10 03:59:46  [wireless,info]  2C:C8:1B:47:9B:79@wlan1 established connection on 5040000, SSID 10094186171-PR-PTP-HyperMarket
+  7  1405/06/10 09:03:26  [wireless,info]  2C:C8:1B:47:9B:79@wlan1: lost connection, not polled for too long
+  8  1405/06/10 10:03:05  [wireless,info]  2C:C8:1B:47:9B:79@wlan1 established connection on 5040000, SSID 10094186171-PR-PTP-HyperMarket
+  9  1405/07/02 06:13:14  [wireless,info]  2C:C8:1B:47:9B:79@wlan1: lost connection, not polled for too long
+ 10  1405/07/02 06:19:31  [wireless,info]  2C:C8:1B:47:9B:79@wlan1 established connection on 5040000, SSID 10094186171-PR-PTP-HyperMarket
+ 11  1405/07/08 10:39:01  [wireless,info]  2C:C8:1B:47:9B:79@wlan1: lost connection, not polled for too long
+ 12  1405/07/08 10:43:44  [wireless,info]  2C:C8:1B:47:9B:79@wlan1 established connection on 5040000, SSID 10094186171-PR-PTP-HyperMarket
+ 13  1405/07/26 09:57:35  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 14  1405/07/26 09:57:35  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 15  1405/07/26 10:13:07  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 16  1405/07/26 10:13:07  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 17  1405/07/29 10:26:06  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  64:D1:54:83:64:8E  (ether)
+wlan1  64:D1:54:83:64:8F  (wlan)
+108  64:D1:54:83:64:8F  (vlan)
+bridge1  64:D1:54:83:64:8F  (bridge)
+--- /ip arp ---
+108  4C:5E:0C:C5:C8:24  (arp 172.17.11.161)

@@ -1,0 +1,264 @@
+IP: 172.17.14.58
+Collected at: 2026-10-21T06:57:30.627786+00:00
+source: RouterOS API
+identity: ParsaRasaneh-POP3-MP
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=6C:3B:6B:02:03:EC
+  2  name=wlan1  type=wlan  running=true  mac=6C:3B:6B:02:03:ED
+  3  name=bridge1  type=bridge  running=true  mac=6C:3B:6B:02:03:EC
+  4  name=wds7  type=wds  running=true  mac=6C:3B:6B:02:03:ED
+  5  name=wds9  type=wds  running=true  mac=6C:3B:6B:02:03:ED
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=ap-bridge  ssid=ParsaRasaneh-POP3  band=5ghz-a/n  frequency=5825
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.14.58/29  interface=ether1  network=172.17.14.56
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.14.57  distance=1
+  2  dst=172.17.14.56/29  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=Net-Kh-Jalilian  address=-  interface=ether1,bridge1
+  2  identity=NET-AB-Ghanemi  address=fe80::6e3b:6bff:fedd:7ea8  interface=ether1,bridge1
+  3  identity=MikroTik  address=172.17.11.137  interface=ether1,bridge1
+  4  identity=PR-PTP-ShahrakBarbari-ST  address=172.17.11.139  interface=ether1,bridge1
+  5  identity=ParsaRasaneh--ShahrakSanati-KH  address=172.17.14.6  interface=ether1,bridge1
+  6  identity=ParsaRasaneh-POP-HyperMarket  address=172.17.14.45  interface=ether1,bridge1
+  7  identity=PR-PTP-HyperMarket-Ap  address=172.17.14.98  interface=ether1,bridge1
+  8  identity=ParsaRasaneh-PTP-HyperMarket-ST  address=172.17.14.99  interface=ether1,bridge1
+  9  identity=HyperMarket-POP-SW  address=172.17.14.100  interface=ether1,bridge1
+ 10  identity=ParsaRasaneh-KH-PoP2  address=172.17.14.101  interface=ether1,bridge1
+ 11  identity=PR-PTP-Jahad-KH  address=172.19.1.42  interface=ether1,bridge1
+ 12  identity=Avazeh-KH  address=172.19.1.74  interface=ether1,bridge1
+ 13  identity=PR-PTP-Bardia  address=172.19.1.162  interface=ether1,bridge1
+ 14  identity=PR-PTP-Bardia  address=172.19.1.162  interface=ether1,bridge1
+ 15  identity=Bardia-MK  address=172.19.1.163  interface=ether1,bridge1
+ 16  identity=BardiaJonoub.Client  address=172.19.1.164  interface=ether1,bridge1
+ 17  identity=PR-PTP-Shiraz-AP  address=172.19.1.246  interface=ether1,bridge1
+ 18  identity=PR-PTP-JahadKH  address=192.168.1.25  interface=ether1,bridge1
+ 19  identity=ParsaRasaneh-Sharak-SW  address=192.168.43.1  interface=ether1,bridge1
+ 20  identity=ParsaRasaneh-Anjoman-Router  address=192.168.43.2  interface=ether1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:38
+# ساعت دستگاه (خام): 2006-06-27 15:31:23
+# افست اصلاحی (سرور − دستگاه): +178095:25:15
+  1  1405/07/29 07:28:45  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+  2  1405/07/29 07:28:54  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -86
+  3  1405/07/29 07:29:57  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: reassociating
+  4  1405/07/29 07:29:57  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, ok
+  5  1405/07/29 07:29:57  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -86
+  6  1405/07/29 07:30:57  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+  7  1405/07/29 07:31:01  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -86
+  8  1405/07/29 07:32:04  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: reassociating
+  9  1405/07/29 07:32:04  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, ok
+ 10  1405/07/29 07:32:04  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -86
+ 11  1405/07/29 07:32:20  [wireless,info]  06:B6:3E:9F:71:90@wlan1: connected, signal strength -69
+ 12  1405/07/29 07:32:38  [wireless,info]  06:B6:3E:9F:71:90@wlan1: disconnected, received deauth: sending station leaving (3)
+ 13  1405/07/29 07:32:40  [wireless,info]  06:B6:3E:9F:71:90@wlan1: connected, signal strength -82
+ 14  1405/07/29 07:33:04  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 15  1405/07/29 07:33:05  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -86
+ 16  1405/07/29 07:33:20  [wireless,info]  06:B6:3E:9F:71:90@wlan1: disconnected, extensive data loss
+ 17  1405/07/29 07:34:08  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: reassociating
+ 18  1405/07/29 07:34:08  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, ok
+ 19  1405/07/29 07:34:08  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -89
+ 20  1405/07/29 07:35:08  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 21  1405/07/29 07:35:09  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -89
+ 22  1405/07/29 07:36:13  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: reassociating
+ 23  1405/07/29 07:36:13  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, ok
+ 24  1405/07/29 07:36:13  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -86
+ 25  1405/07/29 07:37:13  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 26  1405/07/29 07:37:13  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -86
+ 27  1405/07/29 07:38:17  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: reassociating
+ 28  1405/07/29 07:38:17  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, ok
+ 29  1405/07/29 07:38:17  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -88
+ 30  1405/07/29 07:39:17  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: reassociating
+ 31  1405/07/29 07:39:17  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, ok
+ 32  1405/07/29 07:39:17  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -85
+ 33  1405/07/29 07:40:25  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: reassociating
+ 34  1405/07/29 07:40:25  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, ok
+ 35  1405/07/29 07:40:25  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -89
+ 36  1405/07/29 07:41:25  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 37  1405/07/29 07:41:28  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -89
+ 38  1405/07/29 07:42:32  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: reassociating
+ 39  1405/07/29 07:42:32  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, ok
+ 40  1405/07/29 07:42:32  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -87
+ 41  1405/07/29 07:43:40  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: reassociating
+ 42  1405/07/29 07:43:40  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, ok
+ 43  1405/07/29 07:43:40  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -88
+ 44  1405/07/29 07:44:40  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 45  1405/07/29 07:44:44  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -84
+ 46  1405/07/29 07:45:47  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: reassociating
+ 47  1405/07/29 07:45:47  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, ok
+ 48  1405/07/29 07:45:47  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -87
+ 49  1405/07/29 07:46:47  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 50  1405/07/29 07:46:51  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -87
+ 51  1405/07/29 07:47:51  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: reassociating
+ 52  1405/07/29 07:47:51  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, ok
+ 53  1405/07/29 07:47:51  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -87
+ 54  1405/07/29 07:48:55  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: reassociating
+ 55  1405/07/29 07:48:55  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, ok
+ 56  1405/07/29 07:48:55  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -86
+ 57  1405/07/29 07:49:55  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 58  1405/07/29 07:50:03  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -88
+ 59  1405/07/29 07:51:03  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: reassociating
+ 60  1405/07/29 07:51:03  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, ok
+ 61  1405/07/29 07:51:03  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -88
+ 62  1405/07/29 07:52:03  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 63  1405/07/29 07:52:07  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -90
+ 64  1405/07/29 07:53:07  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 65  1405/07/29 07:53:07  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -85
+ 66  1405/07/29 07:54:11  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: reassociating
+ 67  1405/07/29 07:54:11  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, ok
+ 68  1405/07/29 07:54:11  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -85
+ 69  1405/07/29 07:55:11  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 70  1405/07/29 07:55:11  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -86
+ 71  1405/07/29 07:56:11  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 72  1405/07/29 07:56:15  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -86
+ 73  1405/07/29 07:57:15  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 74  1405/07/29 07:57:15  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -86
+ 75  1405/07/29 07:58:15  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 76  1405/07/29 07:58:19  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -87
+ 77  1405/07/29 07:59:19  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 78  1405/07/29 07:59:26  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -86
+ 79  1405/07/29 08:00:26  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 80  1405/07/29 08:00:30  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -86
+ 81  1405/07/29 08:01:30  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 82  1405/07/29 08:01:33  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -84
+ 83  1405/07/29 08:02:34  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 84  1405/07/29 08:02:38  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -85
+ 85  1405/07/29 08:03:39  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: reassociating
+ 86  1405/07/29 08:03:39  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, ok
+ 87  1405/07/29 08:03:39  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -86
+ 88  1405/07/29 08:04:39  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 89  1405/07/29 08:04:39  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -86
+ 90  1405/07/29 08:05:47  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: reassociating
+ 91  1405/07/29 08:05:47  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, ok
+ 92  1405/07/29 08:05:47  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -88
+ 93  1405/07/29 08:06:47  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 94  1405/07/29 08:06:50  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -87
+ 95  1405/07/29 08:07:51  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 96  1405/07/29 08:07:51  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -87
+ 97  1405/07/29 08:08:51  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+ 98  1405/07/29 08:08:55  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -86
+ 99  1405/07/29 08:09:55  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+100  1405/07/29 08:09:55  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -86
+101  1405/07/29 08:11:25  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: reassociating
+102  1405/07/29 08:11:25  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, ok
+103  1405/07/29 08:11:25  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -89
+104  1405/07/29 08:12:25  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+105  1405/07/29 08:12:28  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -88
+106  1405/07/29 08:13:28  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+107  1405/07/29 08:13:29  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -87
+108  1405/07/29 08:14:29  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+109  1405/07/29 08:14:32  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -87
+110  1405/07/29 08:15:33  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: reassociating
+111  1405/07/29 08:15:33  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, ok
+112  1405/07/29 08:15:33  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -89
+113  1405/07/29 08:16:36  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: reassociating
+114  1405/07/29 08:16:36  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, ok
+115  1405/07/29 08:16:36  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -88
+116  1405/07/29 08:17:37  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: reassociating
+117  1405/07/29 08:17:37  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, ok
+118  1405/07/29 08:17:37  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -87
+119  1405/07/29 08:18:40  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: reassociating
+120  1405/07/29 08:18:40  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, ok
+121  1405/07/29 08:18:40  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -87
+122  1405/07/29 08:19:41  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, extensive data loss
+123  1405/07/29 08:21:00  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -87
+124  1405/07/29 08:21:57  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, extensive data loss
+125  1405/07/29 08:27:12  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -87
+126  1405/07/29 08:27:41  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, extensive data loss
+127  1405/07/29 08:31:04  [wireless,info]  52:3F:18:8B:FC:4A@wlan1: connected, signal strength -85
+128  1405/07/29 08:31:22  [wireless,info]  52:3F:18:8B:FC:4A@wlan1: disconnected, received deauth: sending station leaving (3)
+129  1405/07/29 08:43:19  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -86
+130  1405/07/29 08:44:15  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+131  1405/07/29 08:48:19  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -87
+132  1405/07/29 08:48:22  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+133  1405/07/29 08:53:30  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -88
+134  1405/07/29 08:53:33  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+135  1405/07/29 08:58:37  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -85
+136  1405/07/29 08:59:38  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+137  1405/07/29 08:59:38  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -86
+138  1405/07/29 09:00:38  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+139  1405/07/29 09:00:55  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -85
+140  1405/07/29 09:01:55  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+141  1405/07/29 09:02:04  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -86
+142  1405/07/29 09:03:05  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: reassociating
+143  1405/07/29 09:03:05  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, ok
+144  1405/07/29 09:03:05  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -86
+145  1405/07/29 09:04:06  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+146  1405/07/29 09:04:10  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -85
+147  1405/07/29 09:05:10  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+148  1405/07/29 09:05:11  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -87
+149  1405/07/29 09:06:11  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+150  1405/07/29 09:06:12  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -84
+151  1405/07/29 09:07:08  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, extensive data loss
+152  1405/07/29 09:13:42  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -86
+153  1405/07/29 09:13:43  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+154  1405/07/29 09:15:01  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -87
+155  1405/07/29 09:15:04  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+156  1405/07/29 09:18:30  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -86
+157  1405/07/29 09:19:39  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, extensive data loss
+158  1405/07/29 09:20:51  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -88
+159  1405/07/29 09:21:08  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+160  1405/07/29 09:22:52  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -88
+161  1405/07/29 09:22:54  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+162  1405/07/29 09:24:53  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -89
+163  1405/07/29 09:24:56  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+164  1405/07/29 09:31:32  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -90
+165  1405/07/29 09:31:35  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+166  1405/07/29 09:33:53  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -88
+167  1405/07/29 09:34:17  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, extensive data loss
+168  1405/07/29 09:38:15  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -87
+169  1405/07/29 09:38:53  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+170  1405/07/29 09:40:16  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -90
+171  1405/07/29 09:40:52  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, extensive data loss
+172  1405/07/29 09:42:17  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -86
+173  1405/07/29 09:42:41  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, extensive data loss
+174  1405/07/29 09:44:18  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -88
+175  1405/07/29 09:44:21  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+176  1405/07/29 09:48:26  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -89
+177  1405/07/29 09:48:50  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, extensive data loss
+178  1405/07/29 09:53:26  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -90
+179  1405/07/29 09:53:50  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, extensive data loss
+180  1405/07/29 09:58:26  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -87
+181  1405/07/29 09:59:04  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+182  1405/07/29 10:03:26  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -85
+183  1405/07/29 10:03:44  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+184  1405/07/29 10:08:26  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -88
+185  1405/07/29 10:08:31  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+186  1405/07/29 10:10:56  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -88
+187  1405/07/29 10:11:19  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+188  1405/07/29 10:12:57  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -88
+189  1405/07/29 10:13:22  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, extensive data loss
+190  1405/07/29 10:14:58  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -87
+191  1405/07/29 10:15:36  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+192  1405/07/29 10:18:26  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -87
+193  1405/07/29 10:18:29  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+194  1405/07/29 10:21:53  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -87
+195  1405/07/29 10:21:56  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+196  1405/07/29 10:23:26  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -88
+197  1405/07/29 10:23:52  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, extensive data loss
+198  1405/07/29 10:25:57  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: connected, signal strength -89
+199  1405/07/29 10:26:20  [wireless,info]  22:08:B3:EA:6D:A3@wlan1: disconnected, received disassoc: sending station leaving (8)
+200  1405/07/29 10:26:38  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  6C:3B:6B:02:03:EC  (ether)
+wlan1  6C:3B:6B:02:03:ED  (wlan)
+bridge1  6C:3B:6B:02:03:EC  (bridge)
+wds7  6C:3B:6B:02:03:ED  (wds)
+wds9  6C:3B:6B:02:03:ED  (wds)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.17.14.57)

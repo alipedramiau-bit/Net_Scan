@@ -1,0 +1,227 @@
+IP: 172.172.171.19
+Collected at: 2026-10-21T06:57:31.495302+00:00
+source: RouterOS API
+identity: Parsa-POWERBOX-CH
+device_type: Router
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=64:D1:54:4B:B3:92
+  2  name=ether2  type=ether  running=true  mac=64:D1:54:4B:B3:93
+  3  name=ether3  type=ether  running=true  mac=64:D1:54:4B:B3:94
+  4  name=ether4  type=ether  running=true  mac=64:D1:54:4B:B3:95
+  5  name=ether5  type=ether  running=true  mac=64:D1:54:4B:B3:96
+  6  name=131  type=vlan  running=true  mac=64:D1:54:4B:B3:92
+  7  name=1215  type=vlan  running=true  mac=64:D1:54:4B:B3:92
+  8  name=1216  type=vlan  running=true  mac=64:D1:54:4B:B3:92
+  9  name=Choebdeh1-29  type=vlan  running=true  mac=64:D1:54:4B:B3:92
+ 10  name=Choebdeh3-31  type=vlan  running=true  mac=64:D1:54:4B:B3:92
+ 11  name=Choebdeh7-33  type=vlan  running=true  mac=64:D1:54:4B:B3:92
+ 12  name=Choebdeh8  type=vlan  running=true  mac=64:D1:54:4B:B3:92
+ 13  name=Choebdeh14  type=vlan  running=true  mac=64:D1:54:4B:B3:92
+ 14  name=bridge1  type=bridge  running=true  mac=64:D1:54:4B:B3:92
+ 15  name=bridge2  type=bridge  running=true  mac=64:D1:54:4B:B3:92
+ 16  name=bridge3  type=bridge  running=true  mac=64:D1:54:4B:B3:92
+ 17  name=bridge4  type=bridge  running=true  mac=64:D1:54:4B:B3:92
+ 18  name=vlan1  type=vlan  running=true  mac=64:D1:54:4B:B3:92
+ 19  name=vlan2  type=vlan  running=true  mac=64:D1:54:4B:B3:92
+ 20  name=vlan3  type=vlan  running=true  mac=64:D1:54:4B:B3:92
+ 21  name=vlan44  type=vlan  running=true  mac=64:D1:54:4B:B3:92
+ 22  name=vlan289  type=vlan  running=true  mac=64:D1:54:4B:B3:92
+ 23  name=vlan403  type=vlan  running=true  mac=64:D1:54:4B:B3:92
+ 24  name=vlan802  type=vlan  running=true  mac=64:D1:54:4B:B3:92
+
+----- wireless -----
+(empty)
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.172.171.43/29  interface=Choebdeh1-29  network=172.172.171.40
+  2  address=172.172.171.19/29  interface=131  network=172.172.171.16
+  3  address=192.168.88.2/24  interface=1216  network=192.168.88.0
+  4  address=192.168.45.2/30  interface=vlan403  network=192.168.45.0
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.172.171.17  distance=1
+  2  dst=172.172.171.16/29  gw=bridge2  distance=0
+  3  dst=172.172.171.40/29  gw=Choebdeh1-29  distance=0
+  4  dst=192.168.45.0/30  gw=vlan403  distance=0
+  5  dst=192.168.88.0/24  gw=bridge3  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=Parsa-SW-CH  address=170.17.11.250  interface=ether1,bridge1
+  2  identity=-  address=-  interface=ether2,bridge3
+  3  identity=061-53220022  address=172.172.171.66  interface=ether2,bridge3
+  4  identity=nasirizadeh-farhani  address=192.168.1.20  interface=ether2,bridge3
+  5  identity=-  address=-  interface=ether3,bridge3
+  6  identity=061-53220022  address=172.172.171.74  interface=ether3,bridge3
+  7  identity=Moslem-abbasiasl  address=192.168.10.1  interface=ether3,bridge3
+  8  identity=Net-ch-taleb Vahidi27  address=-  interface=ether4,bridge4
+  9  identity=ParsaRasaneh--Choebdeh1  address=172.172.171.44  interface=ether4,bridge4
+ 10  identity=hajiAli tomayer  address=-  interface=ether5,bridge4
+ 11  identity=khaled-sokini  address=-  interface=ether5,bridge4
+ 12  identity=khaled-vahidi33  address=-  interface=ether5,bridge4
+ 13  identity=ParsaRasaneh-Choebdeh11  address=172.172.171.58  interface=ether5,bridge4
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:50
+# ساعت دستگاه (خام): 2026-04-02 09:46:58
+# افست اصلاحی (سرور − دستگاه): +4845:09:52
+  1  1405/07/20 21:34:20  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/20 21:34:21  [bridge,info]  "bridge2" mac address changed to BE:64:A6:48:7B:F7
+  3  1405/07/20 21:34:21  [bridge,info]  "bridge4" mac address changed to BE:64:A6:48:7B:F7
+  4  1405/07/20 21:34:21  [bridge,info]  "bridge3" mac address changed to BE:64:A6:48:7B:F7
+  5  1405/07/20 21:34:21  [interface,info]  1216 link up
+  6  1405/07/20 21:34:21  [interface,info]  1215 link up
+  7  1405/07/20 21:34:21  [interface,info]  131 link up
+  8  1405/07/20 21:34:21  [interface,info]  Choebdeh3-31 link up
+  9  1405/07/20 21:34:21  [bridge,info]  "bridge1" mac address changed to 64:D1:54:4B:B3:92
+ 10  1405/07/20 21:34:21  [interface,info]  Choebdeh1-29 link up
+ 11  1405/07/20 21:34:21  [interface,info]  Choebdeh7-33 link up
+ 12  1405/07/20 21:34:21  [interface,info]  Choebdeh14 link up
+ 13  1405/07/20 21:34:21  [interface,info]  Choebdeh8 link up
+ 14  1405/07/20 21:34:21  [interface,info]  vlan1 link up
+ 15  1405/07/20 21:34:21  [interface,info]  vlan2 link up
+ 16  1405/07/20 21:34:21  [interface,info]  vlan3 link up
+ 17  1405/07/20 21:34:21  [interface,info]  vlan44 link up
+ 18  1405/07/20 21:34:21  [interface,info]  vlan289 link up
+ 19  1405/07/20 21:34:21  [interface,info]  vlan403 link up
+ 20  1405/07/20 21:34:21  [interface,info]  vlan802 link up
+ 21  1405/07/20 21:34:21  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+ 22  1405/07/20 21:34:21  [bridge,info]  "bridge4" mac address changed to 64:D1:54:4B:B3:92
+ 23  1405/07/20 21:34:21  [bridge,info]  "bridge3" mac address changed to 64:D1:54:4B:B3:92
+ 24  1405/07/20 21:34:21  [bridge,info]  "bridge2" mac address changed to 64:D1:54:4B:B3:92
+ 25  1405/07/20 21:34:22  [poe-out,info]  ether5 detected poe-out status: on
+ 26  1405/07/20 21:34:22  [poe-out,info]  ether4 detected poe-out status: on
+ 27  1405/07/20 21:34:22  [poe-out,info]  ether2 detected poe-out status: on
+ 28  1405/07/20 21:34:22  [poe-out,info]  ether3 detected poe-out status: on
+ 29  1405/07/20 21:34:23  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 30  1405/07/20 21:34:23  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 31  1405/07/20 21:34:23  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 32  1405/07/20 21:34:23  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 33  1405/07/20 21:34:25  [interface,info]  ether5 link down
+ 34  1405/07/20 21:34:27  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 35  1405/07/20 21:34:30  [interface,info]  ether2 link down
+ 36  1405/07/20 21:34:30  [interface,info]  ether3 link down
+ 37  1405/07/20 21:34:30  [interface,info]  ether4 link up (speed 100M, full duplex)
+ 38  1405/07/20 21:34:31  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 39  1405/07/20 21:34:31  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 40  1405/07/20 21:34:40  [interface,info]  ether1 link down
+ 41  1405/07/20 21:34:52  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 42  1405/07/21 03:15:55  [interface,info]  ether3 link down
+ 43  1405/07/21 03:15:57  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 44  1405/07/21 03:16:00  [interface,info]  ether3 link down
+ 45  1405/07/21 03:16:01  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 46  1405/07/21 03:16:06  [interface,info]  ether3 link down
+ 47  1405/07/21 03:16:08  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 48  1405/07/21 21:34:45  [interface,info]  ether3 link down
+ 49  1405/07/21 21:34:46  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 50  1405/07/21 21:36:17  [interface,info]  ether3 link down
+ 51  1405/07/21 21:36:19  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 52  1405/07/22 01:03:13  [interface,info]  ether3 link down
+ 53  1405/07/22 01:03:14  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 54  1405/07/22 01:03:28  [interface,info]  ether3 link down
+ 55  1405/07/22 01:03:30  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 56  1405/07/22 01:04:02  [interface,info]  ether3 link down
+ 57  1405/07/22 01:04:04  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 58  1405/07/22 01:04:14  [interface,info]  ether3 link down
+ 59  1405/07/22 01:04:15  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 60  1405/07/22 01:04:24  [interface,info]  ether3 link down
+ 61  1405/07/22 01:04:25  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 62  1405/07/22 01:04:31  [interface,info]  ether3 link down
+ 63  1405/07/22 01:04:32  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 64  1405/07/22 01:04:34  [interface,info]  ether3 link down
+ 65  1405/07/22 01:04:35  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 66  1405/07/22 01:04:54  [interface,info]  ether3 link down
+ 67  1405/07/22 01:04:56  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 68  1405/07/22 01:05:25  [interface,info]  ether3 link down
+ 69  1405/07/22 01:05:27  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 70  1405/07/22 01:05:28  [interface,info]  ether3 link down
+ 71  1405/07/22 01:05:29  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 72  1405/07/22 01:05:39  [interface,info]  ether3 link down
+ 73  1405/07/22 01:05:41  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 74  1405/07/22 01:05:44  [interface,info]  ether3 link down
+ 75  1405/07/22 01:05:46  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 76  1405/07/22 01:06:08  [interface,info]  ether3 link down
+ 77  1405/07/22 01:06:10  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 78  1405/07/22 01:06:15  [interface,info]  ether3 link down
+ 79  1405/07/22 01:06:16  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 80  1405/07/22 01:06:37  [interface,info]  ether3 link down
+ 81  1405/07/22 01:06:39  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 82  1405/07/22 01:07:04  [interface,info]  ether3 link down
+ 83  1405/07/22 01:07:05  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 84  1405/07/22 01:10:12  [interface,info]  ether3 link down
+ 85  1405/07/22 01:10:13  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 86  1405/07/22 01:13:03  [interface,info]  ether3 link down
+ 87  1405/07/22 01:13:05  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 88  1405/07/22 01:45:17  [interface,info]  ether3 link down
+ 89  1405/07/22 01:45:19  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 90  1405/07/22 01:53:35  [interface,info]  ether3 link down
+ 91  1405/07/22 01:53:39  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 92  1405/07/22 02:03:34  [interface,info]  ether3 link down
+ 93  1405/07/22 02:03:36  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 94  1405/07/22 02:03:57  [interface,info]  ether3 link down
+ 95  1405/07/22 02:03:59  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 96  1405/07/22 02:13:31  [interface,info]  ether3 link down
+ 97  1405/07/22 02:13:32  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 98  1405/07/22 02:18:18  [interface,info]  ether3 link down
+ 99  1405/07/22 02:18:20  [interface,info]  ether3 link up (speed 100M, full duplex)
+100  1405/07/22 02:19:25  [interface,info]  ether3 link down
+101  1405/07/22 02:19:26  [interface,info]  ether3 link up (speed 100M, full duplex)
+102  1405/07/22 02:19:29  [interface,info]  ether3 link down
+103  1405/07/22 02:19:30  [interface,info]  ether3 link up (speed 100M, full duplex)
+104  1405/07/22 02:22:43  [interface,info]  ether3 link down
+105  1405/07/22 02:22:44  [interface,info]  ether3 link up (speed 100M, full duplex)
+106  1405/07/22 02:37:20  [interface,info]  ether3 link down
+107  1405/07/22 02:37:22  [interface,info]  ether3 link up (speed 100M, full duplex)
+108  1405/07/22 02:45:56  [interface,info]  ether3 link down
+109  1405/07/22 02:45:58  [interface,info]  ether3 link up (speed 100M, full duplex)
+110  1405/07/22 02:51:07  [interface,info]  ether3 link down
+111  1405/07/22 02:51:08  [interface,info]  ether3 link up (speed 100M, full duplex)
+112  1405/07/22 02:51:43  [interface,info]  ether3 link down
+113  1405/07/22 02:51:45  [interface,info]  ether3 link up (speed 100M, full duplex)
+114  1405/07/22 02:56:31  [interface,info]  ether3 link down
+115  1405/07/22 02:56:32  [interface,info]  ether3 link up (speed 100M, full duplex)
+116  1405/07/22 03:21:33  [interface,info]  ether3 link down
+117  1405/07/22 03:21:34  [interface,info]  ether3 link up (speed 100M, full duplex)
+118  1405/07/22 03:37:15  [interface,info]  ether3 link down
+119  1405/07/22 03:37:19  [interface,info]  ether3 link up (speed 10M, full duplex)
+120  1405/07/26 09:52:23  [system,info,account]  user su logged in from 185.110.29.153 via winbox
+121  1405/07/26 09:52:33  [system,info]  ip service changed by su
+122  1405/07/26 09:52:34  [system,info,account]  user su logged out from 185.110.29.153 via winbox
+123  1405/07/26 09:58:33  [system,info,account]  user su logged in from 185.110.29.189 via api
+124  1405/07/26 09:58:33  [system,info,account]  user su logged out from 185.110.29.189 via api
+125  1405/07/26 10:13:57  [system,info,account]  user su logged in from 185.110.29.189 via api
+126  1405/07/26 10:13:58  [system,info,account]  user su logged out from 185.110.29.189 via api
+127  1405/07/29 10:26:50  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  64:D1:54:4B:B3:92  (ether)
+ether2  64:D1:54:4B:B3:93  (ether)
+ether3  64:D1:54:4B:B3:94  (ether)
+ether4  64:D1:54:4B:B3:95  (ether)
+ether5  64:D1:54:4B:B3:96  (ether)
+131  64:D1:54:4B:B3:92  (vlan)
+1215  64:D1:54:4B:B3:92  (vlan)
+1216  64:D1:54:4B:B3:92  (vlan)
+Choebdeh1-29  64:D1:54:4B:B3:92  (vlan)
+Choebdeh3-31  64:D1:54:4B:B3:92  (vlan)
+Choebdeh7-33  64:D1:54:4B:B3:92  (vlan)
+Choebdeh8  64:D1:54:4B:B3:92  (vlan)
+Choebdeh14  64:D1:54:4B:B3:92  (vlan)
+bridge1  64:D1:54:4B:B3:92  (bridge)
+bridge2  64:D1:54:4B:B3:92  (bridge)
+bridge3  64:D1:54:4B:B3:92  (bridge)
+bridge4  64:D1:54:4B:B3:92  (bridge)
+vlan1  64:D1:54:4B:B3:92  (vlan)
+vlan2  64:D1:54:4B:B3:92  (vlan)
+vlan3  64:D1:54:4B:B3:92  (vlan)
+vlan44  64:D1:54:4B:B3:92  (vlan)
+vlan289  64:D1:54:4B:B3:92  (vlan)
+vlan403  64:D1:54:4B:B3:92  (vlan)
+vlan802  64:D1:54:4B:B3:92  (vlan)
+--- /ip arp ---
+bridge2  4C:5E:0C:C5:C8:24  (arp 172.172.171.17)

@@ -1,0 +1,246 @@
+IP: 172.19.2.114
+Collected at: 2026-10-21T06:57:34.634339+00:00
+source: RouterOS API
+identity: Avazeh-AP
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=D0:EA:11:14:BA:6F
+  2  name=wlan1  type=wlan  running=true  mac=D0:EA:11:14:BA:70
+  3  name=bridge1  type=bridge  running=true  mac=D0:EA:11:14:BA:70
+  4  name=lo  type=loopback  running=true  mac=00:00:00:00:00:00
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=bridge  ssid=PR-PTP-Avazeh-Amiri  band=5ghz-a/n  frequency=5500
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.19.2.114/29  interface=ether1  network=172.19.2.112
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.19.2.113  distance=1
+  2  dst=172.19.2.112/29  gw=bridge1  distance=0
+  3  dst=192.168.7.0/24  gw=192.168.99.1  distance=1
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=Mikrotik  address=fe80::f61e:57ff:fe2f:4e41  interface=ether1,bridge1
+  2  identity=Mikrotik.  address=10.18.99.1  interface=ether1,bridge1
+  3  identity=ParsaRasaneh-SW-Main  address=172.17.11.242  interface=ether1,bridge1
+  4  identity=MikroTik  address=172.19.2.113  interface=ether1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:27:20
+# ساعت دستگاه (خام): 2026-10-21 10:27:18
+# افست اصلاحی (سرور − دستگاه): -03:29:57
+  1  2026-10-01 15:27:43  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+  2  2026-10-01 15:29:48  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+  3  2026-10-01 15:30:32  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+  4  2026-10-01 15:31:01  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+  5  2026-10-01 15:31:07  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+  6  2026-10-01 15:31:53  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+  7  2026-10-01 15:31:53  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+  8  2026-10-01 15:33:02  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+  9  2026-10-01 15:33:23  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 10  2026-10-01 15:51:35  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 11  2026-10-01 15:51:35  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 12  2026-10-01 15:52:11  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 13  2026-10-01 15:52:39  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 14  2026-10-01 15:53:39  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 15  2026-10-01 15:53:39  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 16  2026-10-01 15:54:24  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 17  2026-10-01 15:54:45  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 18  2026-10-01 15:56:38  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 19  2026-10-01 15:56:38  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 20  2026-10-01 15:56:43  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 21  2026-10-01 15:56:48  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 22  2026-10-01 16:05:17  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 23  2026-10-01 16:05:17  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 24  2026-10-01 16:05:52  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 25  2026-10-01 16:06:28  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 26  2026-10-01 16:17:53  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 27  2026-10-01 16:17:53  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 28  2026-10-01 16:18:27  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 29  2026-10-01 16:19:01  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 30  2026-10-01 16:26:31  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 31  2026-10-01 16:26:31  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 32  2026-10-01 16:27:08  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 33  2026-10-01 16:28:07  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 34  2026-10-01 16:28:38  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 35  2026-10-01 16:29:34  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 36  2026-10-01 16:38:38  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 37  2026-10-01 16:38:39  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 38  2026-10-01 16:39:41  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 39  2026-10-01 16:39:57  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 40  2026-10-01 16:46:42  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 41  2026-10-01 16:46:42  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 42  2026-10-01 16:47:10  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 43  2026-10-01 16:47:51  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 44  2026-10-01 16:48:25  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 45  2026-10-01 16:49:22  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 46  2026-10-01 16:50:46  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 47  2026-10-01 16:50:46  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 48  2026-10-01 18:39:21  [interface,info]  ether1 link down
+ 49  2026-10-01 18:39:22  [interface,info]  EoIP-Nouri-Hex link down
+ 50  2026-10-01 18:39:29  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 51  2026-10-01 18:39:30  [interface,info]  EoIP-Nouri-Hex link up
+ 52  2026-10-01 18:39:49  [interface,info]  ether1 link down
+ 53  2026-10-01 18:39:50  [interface,info]  EoIP-Nouri-Hex link down
+ 54  2026-10-01 18:39:56  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 55  2026-10-01 18:39:57  [interface,info]  EoIP-Nouri-Hex link up
+ 56  2026-10-01 18:43:06  [interface,info]  ether1 link down
+ 57  2026-10-01 18:43:07  [interface,info]  EoIP-Nouri-Hex link down
+ 58  2026-10-01 18:43:13  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 59  2026-10-01 18:43:14  [interface,info]  EoIP-Nouri-Hex link up
+ 60  2026-10-01 18:43:36  [interface,info]  ether1 link down
+ 61  2026-10-01 18:43:37  [interface,info]  EoIP-Nouri-Hex link down
+ 62  2026-10-01 18:43:45  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 63  2026-10-01 18:43:45  [interface,info]  EoIP-Nouri-Hex link up
+ 64  2026-10-01 18:48:13  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 65  2026-10-01 18:48:27  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 66  2026-10-01 18:49:00  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 67  2026-10-01 18:49:00  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 68  2026-10-03 08:15:49  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 69  2026-10-03 08:15:51  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 70  2026-10-03 08:17:00  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 71  2026-10-03 08:17:00  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 72  2026-10-03 15:03:11  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 73  2026-10-03 15:03:13  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 74  2026-10-03 15:05:39  [system,info]  address added by winbox-3.43/tcp-msg(winbox):Ashkan@192.168.99.1 (*3 = /ip address add address=172.19.2.114/29 disabled=no interface=EoIP-Nouri-Hex network=0.0.0.0)
+ 75  2026-10-03 15:06:25  [system,info]  route 0.0.0.0/0 added by winbox-3.43/tcp-msg(winbox):Ashkan@192.168.99.1 (*80000003 = /ip route add disabled=no distance=2 dst-address=0.0.0.0/0 gateway=172.19.2.113 routing-table=main suppress-hw-offload=no)
+ 76  2026-10-03 15:08:26  [system,info]  route 172.19.2.112/29 added by winbox-3.43/tcp-msg(winbox):Ashkan@192.168.99.1 (*80000004 = /ip route add disabled=no dst-address=172.19.2.112/29 gateway=172.19.2.113 routing-table=main suppress-hw-offload=no)
+ 77  2026-10-03 15:11:49  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 78  2026-10-03 15:13:18  [system,info]  route 0.0.0.0/0 changed by winbox-3.43/tcp-msg(winbox):Ashkan@192.168.99.1 (/ip route set *80000003 disabled=yes distance=2 dst-address=0.0.0.0/0 gateway=172.19.2.113 routing-table=main scope=30 suppress-hw-offload=no target-scope=10; /routing route set *80000003 disabled=yes)
+ 79  2026-10-03 15:13:20  [system,info]  route 172.19.2.112/29 changed by winbox-3.43/tcp-msg(winbox):Ashkan@192.168.99.1 (/ip route set *80000004 disabled=yes distance=1 dst-address=172.19.2.112/29 gateway=172.19.2.113 routing-table=main scope=30 suppress-hw-offload=no target-scope=10; /routing route set *80000004 disabled=yes)
+ 80  2026-10-03 15:20:28  [system,info]  route 10.11.99.3 added by winbox-3.43/tcp-msg(winbox):Ashkan@192.168.99.1 (*80000005 = /ip route add disabled=no dst-address=10.11.99.3/32 gateway=10.11.99.1 routing-table=main suppress-hw-offload=no)
+ 81  2026-10-03 15:26:50  [interface,info]  EoIP-Nouri-Hex link down
+ 82  2026-10-03 15:26:50  [system,info]  device changed by winbox-3.43/tcp-msg(winbox):Ashkan@192.168.99.1 (/interface set EoIP-Nouri-Hex disabled=yes mtu=auto name=EoIP-Nouri-Hex; /interface eoip set EoIP-Nouri-Hex allow-fast-path=yes arp=enabled arp-timeout=auto clamp-tcp-mss=yes disabled=yes dont-fragment=no dscp=inherit keepalive=10s,10 local-address=192.168.99.2 loop-protect=default loop-protect-disable-time=5m loop-protect-send-interval=5s mac-address=02:AF:17:B1:07:58 mtu=auto name=EoIP-Nouri-Hex remote-address=10.18.99.1 tunnel-id=99; /queue interface set EoIP-Nouri-Hex)
+ 83  2026-10-03 15:29:41  [system,info]  route 10.11.99.3 removed by winbox-3.43/tcp-msg(winbox):Ashkan@192.168.99.1 ()
+ 84  2026-10-03 15:29:49  [system,info]  route 10.18.99.1 changed by winbox-3.43/tcp-msg(winbox):Ashkan@192.168.99.1 (/ip route set *80000002 disabled=yes distance=1 dst-address=10.18.99.1/32 gateway=192.168.99.1 routing-table=main scope=30 suppress-hw-offload=no target-scope=10; /routing route set *80000002 disabled=yes)
+ 85  2026-10-03 15:30:01  [system,info]  address changed by winbox-3.43/tcp-msg(winbox):Ashkan@192.168.99.1 (/ip address set *2 address=10.11.99.2/29 disabled=yes interface=EoIP-Nouri-Hex network=10.11.99.0)
+ 86  2026-10-03 15:30:16  [system,info]  address changed by winbox-3.43/tcp-msg(winbox):Ashkan@192.168.99.1 (/ip address set *3 address=172.19.2.114/29 disabled=no interface=ether1 network=172.19.2.112)
+ 87  2026-10-03 15:50:42  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 88  2026-10-03 15:50:42  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 89  2026-10-03 15:50:42  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 90  2026-10-03 15:51:02  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 91  2026-10-03 15:51:04  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 92  2026-10-03 15:51:04  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 93  2026-10-03 15:51:23  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 94  2026-10-03 15:51:23  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 95  2026-10-03 15:51:23  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+ 96  2026-10-03 15:51:48  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 97  2026-10-03 15:51:50  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 98  2026-10-03 15:51:50  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+ 99  2026-10-03 15:52:26  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+100  2026-10-03 15:52:26  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+101  2026-10-03 15:52:26  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+102  2026-10-03 15:52:44  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+103  2026-10-03 15:52:45  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+104  2026-10-03 15:52:45  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+105  2026-10-03 15:53:05  [system,info]  address added by winbox-3.43/tcp-msg(winbox):Ashkan@192.168.99.1 (*4 = /ip address add address=10.11.99.4/29 disabled=no interface=ether1 network=0.0.0.0)
+106  2026-10-03 15:53:48  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+107  2026-10-03 15:53:48  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+108  2026-10-03 15:53:48  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+109  2026-10-03 15:54:07  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+110  2026-10-03 15:54:09  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+111  2026-10-03 15:54:09  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+112  2026-10-03 15:55:51  [system,info]  nat rule changed by winbox-3.43/tcp-msg(winbox):Ashkan@192.168.99.1 (/ip firewall nat set *1 action=masquerade chain=srcnat disabled=yes log=no log-prefix="")
+113  2026-10-03 16:20:41  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+114  2026-10-03 16:20:41  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+115  2026-10-03 16:20:41  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+116  2026-10-03 16:20:57  [system,info,account]  user admin logged in from F4:1E:57:2F:4E:41 via mac-telnet
+117  2026-10-03 16:21:05  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+118  2026-10-03 16:21:06  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+119  2026-10-03 16:21:06  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+120  2026-10-03 16:22:02  [system,info]  route 0.0.0.0/0 changed by mac-telnet:admin@F4:1E:57:2F:4E:41/action:0 (/ip route set *80000003 disabled=no; /routing route set *80000003 disabled=no)
+121  2026-10-03 16:22:15  [system,info]  route 0.0.0.0/0 removed by mac-telnet:admin@F4:1E:57:2F:4E:41/action:1 (/ip route remove *80000003)
+122  2026-10-03 16:22:23  [system,info]  route 0.0.0.0/0 added by mac-telnet:admin@F4:1E:57:2F:4E:41 (*80000006 = /ip route add gateway=172.19.2.113)
+123  2026-10-03 16:28:04  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+124  2026-10-03 16:28:04  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+125  2026-10-03 16:28:04  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+126  2026-10-03 17:02:28  [system,info,account]  user admin logged out from F4:1E:57:2F:4E:41 via mac-telnet
+127  2026-10-03 18:26:48  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+128  2026-10-03 18:26:49  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+129  2026-10-03 18:28:39  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+130  2026-10-03 18:28:49  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+131  2026-10-03 19:39:32  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+132  2026-10-03 19:39:40  [system,info,account]  user Ashkan logged in from 192.168.99.1 via winbox
+133  2026-10-03 19:40:41  [system,info]  device removed by winbox-3.43/tcp-msg(winbox):Ashkan@192.168.99.1 (/interface eoip remove *4)
+134  2026-10-03 19:41:03  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+135  2026-10-03 19:41:12  [system,info]  address removed by winbox-3.43/tcp-msg(winbox):Ashkan@192.168.99.1 (/ip address remove *2)
+136  2026-10-03 19:41:20  [system,info]  address removed by winbox-3.43/tcp-msg(winbox):Ashkan@192.168.99.1 (/ip address remove *4)
+137  2026-10-03 19:41:33  [system,info]  route 172.19.2.112/29 removed by winbox-3.43/tcp-msg(winbox):Ashkan@192.168.99.1 ()
+138  2026-10-03 19:41:36  [system,info]  route 10.18.99.1 removed by winbox-3.43/tcp-msg(winbox):Ashkan@192.168.99.1 ()
+139  2026-10-03 19:42:51  [system,info,account]  user Ashkan logged out from 192.168.99.1 via winbox
+140  2026-10-03 20:38:18  [system,info,account]  user admin logged in from 100.78.30.76 via winbox
+141  2026-10-03 20:38:40  [system,info,account]  user admin logged in from 100.78.30.76 via winbox
+142  2026-10-03 20:38:48  [system,info]  device changed by winbox-3.43/tcp-msg(winbox):admin@100.78.30.76 (/interface set wlan1 disabled=no l2mtu=1600 mtu=1500 name=wlan1; /queue interface set wlan1; /interface wireless set [ find ] ampdu-priorities=0 amsdu-limit=8192 amsdu-threshold=8192 antenna-gain=25 arp=enabled arp-timeout=auto band=5ghz-a bridge-mode=enabled channel-width=20mhz country=etsi default-ap-tx-limit=0 default-authentication=yes default-client-tx-limit=0 default-forwarding=yes disabled=no frequency=5500 frequency-mode=regulatory-domain frequency-offset=0 guard-interval=any hide-ssid=no installation=outdoor interworking-profile=disabled keepalive-frames=enabled l2mtu=1600 mac-address=D0:EA:11:14:BA:70 mode=station mtu=1500 multicast-buffering=enabled multicast-helper=default name=wlan1 nv2-cell-radius=30 nv2-downlink-ratio=50 nv2-mode=dynamic-downlink nv2-qos=default nv2-queue-count=2 nv2-security=disabled nv2-sync-secret="" prism-cardtype=200mW radio-name=D0EA1114BA70 rx-chains=0,1 scan-list=default secondary-frequency="" security-pro
+143  2026-10-03 20:38:48  [system,info]  file=default skip-dfs-channels=disabled ssid=MikroTik station-roaming=disabled tdma-period-size=2 tx-chains=0,1 vlan-id=1 vlan-mode=no-tag wds-cost-range=50-150 wds-default-bridge=none wds-default-cost=100 wds-ignore-ssid=no wds-mode=disabled wireless-protocol=any wmm-support=disabled wps-mode=push-button; /interface wireless nstreme set wlan1 disable-csma=no enable-nstreme=no enable-polling=yes framer-limit=3200 framer-policy=none; /interface wireless manual-tx-power-table set wlan1)
+144  2026-10-03 20:39:01  [bridge,info]  "bridge1" mac address changed to D2:56:CF:A7:00:42
+145  2026-10-03 20:39:01  [system,info]  device added by winbox-3.43/tcp-msg(winbox):admin@100.78.30.76 (*5 = /interface bridge add ageing-time=5m arp=enabled arp-timeout=auto auto-mac=yes dhcp-snooping=no disabled=no fast-forward=yes forward-reserved-addresses=no igmp-snooping=no max-learned-entries=auto mtu=auto mvrp=no name=bridge1 port-cost-mode=long protocol-mode=none vlan-filtering=no)
+146  2026-10-03 20:39:08  [bridge,info]  "bridge1" mac address changed to D0:EA:11:14:BA:70
+147  2026-10-03 20:39:08  [system,info]  bridge port added by winbox-3.43/tcp-msg(winbox):admin@100.78.30.76 (*0 = /interface bridge port add auto-isolate=no bpdu-guard=no bridge=bridge1 broadcast-flood=yes disabled=no edge=auto fast-leave=no frame-types=admit-all horizon=none hw=yes ingress-filtering=yes interface=wlan1 learn=auto multicast-router=temporary-query mvrp-applicant-state=normal-participant mvrp-registrar-state=normal point-to-point=auto priority=0x80 pvid=1 restricted-role=no restricted-tcn=no tag-stacking=no trusted=no unknown-multicast-flood=yes unknown-unicast-flood=yes)
+148  2026-10-03 20:39:12  [system,info]  bridge port added by winbox-3.43/tcp-msg(winbox):admin@100.78.30.76 (*1 = /interface bridge port add auto-isolate=no bpdu-guard=no bridge=bridge1 broadcast-flood=yes disabled=no edge=auto fast-leave=no frame-types=admit-all horizon=none hw=yes ingress-filtering=yes interface=ether1 learn=auto multicast-router=temporary-query mvrp-applicant-state=normal-participant mvrp-registrar-state=normal point-to-point=auto priority=0x80 pvid=1 restricted-role=no restricted-tcn=no tag-stacking=no trusted=no unknown-multicast-flood=yes unknown-unicast-flood=yes)
+149  2026-10-03 20:39:12  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+150  2026-10-03 20:39:15  [system,info]  bridge port changed by winbox-3.43/tcp-msg(winbox):admin@100.78.30.76 (/interface bridge port set *1 auto-isolate=no bpdu-guard=no bridge=bridge1 broadcast-flood=yes disabled=no edge=auto fast-leave=no frame-types=admit-all horizon=none hw=yes ingress-filtering=yes interface=ether1 learn=auto multicast-router=temporary-query mvrp-applicant-state=normal-participant mvrp-registrar-state=normal point-to-point=auto priority=0x80 pvid=1 restricted-role=no restricted-tcn=no tag-stacking=no trusted=no unknown-multicast-flood=yes unknown-unicast-flood=yes)
+151  2026-10-03 20:39:17  [system,info,account]  user admin logged out from 100.78.30.76 via winbox
+152  2026-10-03 20:39:37  [system,info]  user admin removed by winbox-3.43/tcp-msg(winbox):admin@100.78.30.76 (/user remove *1)
+153  2026-10-03 20:39:47  [system,info]  user su added by winbox-3.43/tcp-msg(winbox):admin@100.78.30.76 (*3 = /user add address="" disabled=no group=full inactivity-policy=none inactivity-timeout=10m name=su)
+154  2026-10-03 20:40:10  [system,info]  user garnaf added by winbox-3.43/tcp-msg(winbox):admin@100.78.30.76 (*4 = /user add address="" disabled=no group=full inactivity-policy=none inactivity-timeout=10m name=garnaf)
+155  2026-10-03 20:40:54  [system,info]  device changed by winbox-3.43/tcp-msg(winbox):admin@100.78.30.76 (/interface set wlan1 disabled=no l2mtu=1600 mtu=1500 name=wlan1; /queue interface set wlan1; /interface wireless set [ find ] adaptive-noise-immunity=none allow-sharedkey=no ampdu-priorities=0 amsdu-limit=8192 amsdu-threshold=8192 antenna-gain=25 area="" arp=enabled arp-timeout=auto band=5ghz-a/n basic-rates-a/g=6Mbps bridge-mode=enabled burst-time=disabled channel-width=20mhz country=no_country_set default-ap-tx-limit=0 default-authentication=yes default-client-tx-limit=0 default-forwarding=yes disabled=no disconnect-timeout=3s distance=dynamic frame-lifetime=0 frequency=5500 frequency-mode=superchannel frequency-offset=0 guard-interval=any hide-ssid=no ht-basic-mcs=mcs-0,mcs-1,mcs-2,mcs-3,mcs-4,mcs-5,mcs-6,mcs-7 ht-supported-mcs=mcs-0,mcs-1,mcs-2,mcs-3,mcs-4,mcs-5,mcs-6,mcs-7,mcs-8,mcs-9,mcs-10,mcs-11,mcs-12,mcs-13,mcs-14,mcs-15,mcs-16,mcs-17,mcs-18,mcs-19,mcs-20,mcs-21,mcs-22,mcs-23 hw-fragmentation-threshold=disabled hw-protection-mode=none 
+156  2026-10-03 20:40:54  [system,info]  hw-protection-threshold=0 hw-retries=7 installation=outdoor interworking-profile=disabled keepalive-frames=enabled l2mtu=1600 mac-address=D0:EA:11:14:BA:70 max-station-count=2007 mode=station mtu=1500 multicast-buffering=enabled multicast-helper=default name=wlan1 noise-floor-threshold=default nv2-cell-radius=30 nv2-downlink-ratio=50 nv2-mode=dynamic-downlink nv2-qos=default nv2-queue-count=2 nv2-security=disabled nv2-sync-secret="" on-fail-retry-time=100ms preamble-mode=both prism-cardtype=200mW radio-name=D0EA1114BA70 rate-set=default rx-chains=0,1 scan-list=default secondary-frequency="" security-profile=default skip-dfs-channels=disabled ssid=MikroTik station-bridge-clone-mac=00:00:00:00:00:00 station-roaming=disabled supported-rates-a/g=6Mbps,9Mbps,12Mbps,18Mbps,24Mbps,36Mbps,48Mbps,54Mbps tdma-period-size=2 tx-chains=0,1 tx-power-mode=default update-stats-interval=disabled vht-basic-mcs="" vht-supported-mcs="" vlan-id=1 vlan-mode=no-tag wds-cost-range=50-150 wds-default-bridge=none wds-default-cost=100 w
+157  2026-10-03 20:40:54  [system,info]  ds-ignore-ssid=no wds-mode=disabled wireless-protocol=any wmm-support=disabled wps-mode=push-button; /interface wireless nstreme set wlan1 disable-csma=no enable-nstreme=no enable-polling=yes framer-limit=3200 framer-policy=none; /interface wireless manual-tx-power-table set wlan1 manual-tx-powers=1Mbps:17,2Mbps:17,5.5Mbps:17,11Mbps:17,6Mbps:17,9Mbps:17,12Mbps:17,18Mbps:17,24Mbps:17,36Mbps:17,48Mbps:17,54Mbps:17,HT20-0:17,HT20-1:17,HT20-2:17,HT20-3:17,HT20-4:17,HT20-5:17,HT20-6:17,HT20-7:17,HT40-0:17,HT40-1:17,HT40-2:17,HT40-3:17,HT40-4:17,HT40-5:17,HT40-6:17,HT40-7:17)
+158  2026-10-03 20:41:06  [system,info]  device changed by winbox-3.43/tcp-msg(winbox):admin@100.78.30.76 (/interface set wlan1 disabled=no l2mtu=1600 mtu=1500 name=wlan1; /queue interface set wlan1; /interface wireless set [ find ] adaptive-noise-immunity=none allow-sharedkey=no ampdu-priorities=0 amsdu-limit=8192 amsdu-threshold=8192 antenna-gain=25 area="" arp=enabled arp-timeout=auto band=5ghz-a/n basic-rates-a/g=6Mbps bridge-mode=enabled burst-time=disabled channel-width=20mhz country=no_country_set default-ap-tx-limit=0 default-authentication=yes default-client-tx-limit=0 default-forwarding=yes disabled=no disconnect-timeout=3s distance=dynamic frame-lifetime=0 frequency=5500 frequency-mode=superchannel frequency-offset=0 guard-interval=any hide-ssid=no ht-basic-mcs=mcs-0,mcs-1,mcs-2,mcs-3,mcs-4,mcs-5,mcs-6,mcs-7 ht-supported-mcs=mcs-0,mcs-1,mcs-2,mcs-3,mcs-4,mcs-5,mcs-6,mcs-7,mcs-8,mcs-9,mcs-10,mcs-11,mcs-12,mcs-13,mcs-14,mcs-15,mcs-16,mcs-17,mcs-18,mcs-19,mcs-20,mcs-21,mcs-22,mcs-23 hw-fragmentation-threshold=disabled hw-protection-mode=none 
+159  2026-10-03 20:41:06  [system,info]  hw-protection-threshold=0 hw-retries=7 installation=outdoor interworking-profile=disabled keepalive-frames=enabled l2mtu=1600 mac-address=D0:EA:11:14:BA:70 max-station-count=2007 mode=station mtu=1500 multicast-buffering=enabled multicast-helper=default name=wlan1 noise-floor-threshold=default nv2-cell-radius=30 nv2-downlink-ratio=50 nv2-mode=dynamic-downlink nv2-qos=default nv2-queue-count=2 nv2-security=disabled nv2-sync-secret="" on-fail-retry-time=100ms preamble-mode=both prism-cardtype=200mW radio-name=06153220022 rate-set=default rx-chains=0,1 scan-list=default secondary-frequency="" security-profile=default skip-dfs-channels=disabled ssid=MikroTik station-bridge-clone-mac=00:00:00:00:00:00 station-roaming=disabled supported-rates-a/g=6Mbps,9Mbps,12Mbps,18Mbps,24Mbps,36Mbps,48Mbps,54Mbps tdma-period-size=2 tx-chains=0,1 tx-power-mode=default update-stats-interval=disabled vht-basic-mcs="" vht-supported-mcs="" vlan-id=1 vlan-mode=no-tag wds-cost-range=50-150 wds-default-bridge=bridge1 wds-default-cost=100
+160  2026-10-03 20:41:06  [system,info]   wds-ignore-ssid=no wds-mode=dynamic wireless-protocol=any wmm-support=disabled wps-mode=push-button; /interface wireless nstreme set wlan1 disable-csma=no enable-nstreme=no enable-polling=yes framer-limit=3200 framer-policy=none; /interface wireless manual-tx-power-table set wlan1 manual-tx-powers=1Mbps:17,2Mbps:17,5.5Mbps:17,11Mbps:17,6Mbps:17,9Mbps:17,12Mbps:17,18Mbps:17,24Mbps:17,36Mbps:17,48Mbps:17,54Mbps:17,HT20-0:17,HT20-1:17,HT20-2:17,HT20-3:17,HT20-4:17,HT20-5:17,HT20-6:17,HT20-7:17,HT40-0:17,HT40-1:17,HT40-2:17,HT40-3:17,HT40-4:17,HT40-5:17,HT40-6:17,HT40-7:17)
+161  2026-10-03 20:43:33  [wireless,info]  D0:EA:11:14:BA:9C@wlan1 established connection on 5500000, SSID PR-PTP-Avazeh-Amiri
+162  2026-10-03 20:43:41  [system,info]  device changed by winbox-3.43/tcp-msg(winbox):admin@100.78.30.76 (/interface set wlan1 disabled=no l2mtu=1600 mtu=1500 name=wlan1; /queue interface set wlan1; /interface wireless set [ find ] adaptive-noise-immunity=none allow-sharedkey=no ampdu-priorities=0 amsdu-limit=8192 amsdu-threshold=8192 antenna-gain=25 area="" arp=enabled arp-timeout=auto band=5ghz-a/n basic-rates-a/g=6Mbps bridge-mode=enabled burst-time=disabled channel-width=20/40mhz-Ce country=no_country_set default-ap-tx-limit=0 default-authentication=yes default-client-tx-limit=0 default-forwarding=yes disabled=no disconnect-timeout=3s distance=dynamic frame-lifetime=0 frequency=5500 frequency-mode=superchannel frequency-offset=0 guard-interval=any hide-ssid=no ht-basic-mcs=mcs-0,mcs-1,mcs-2,mcs-3,mcs-4,mcs-5,mcs-6,mcs-7 ht-supported-mcs=mcs-0,mcs-1,mcs-2,mcs-3,mcs-4,mcs-5,mcs-6,mcs-7,mcs-8,mcs-9,mcs-10,mcs-11,mcs-12,mcs-13,mcs-14,mcs-15,mcs-16,mcs-17,mcs-18,mcs-19,mcs-20,mcs-21,mcs-22,mcs-23 hw-fragmentation-threshold=disabled hw-protection-mode
+163  2026-10-03 20:43:41  [system,info]  =none hw-protection-threshold=0 hw-retries=7 installation=outdoor interworking-profile=disabled keepalive-frames=enabled l2mtu=1600 mac-address=D0:EA:11:14:BA:70 max-station-count=2007 mode=station-bridge mtu=1500 multicast-buffering=enabled multicast-helper=default name=wlan1 noise-floor-threshold=default nv2-cell-radius=30 nv2-downlink-ratio=50 nv2-mode=dynamic-downlink nv2-qos=default nv2-queue-count=2 nv2-security=disabled nv2-sync-secret="" on-fail-retry-time=100ms preamble-mode=both prism-cardtype=200mW radio-name=06153220022 rate-set=default rx-chains=0,1 scan-list=default secondary-frequency="" security-profile=default skip-dfs-channels=disabled ssid=PR-PTP-Avazeh-Amiri station-bridge-clone-mac=00:00:00:00:00:00 station-roaming=disabled supported-rates-a/g=6Mbps,9Mbps,12Mbps,18Mbps,24Mbps,36Mbps,48Mbps,54Mbps tdma-period-size=2 tx-chains=0,1 tx-power-mode=default update-stats-interval=disabled vht-basic-mcs="" vht-supported-mcs="" vlan-id=1 vlan-mode=no-tag wds-cost-range=50-150 wds-default-bridge=brid
+164  2026-10-03 20:43:41  [system,info]  ge1 wds-default-cost=100 wds-ignore-ssid=no wds-mode=dynamic wireless-protocol=any wmm-support=disabled wps-mode=push-button; /interface wireless nstreme set wlan1 disable-csma=no enable-nstreme=no enable-polling=yes framer-limit=3200 framer-policy=none; /interface wireless manual-tx-power-table set wlan1 manual-tx-powers=1Mbps:17,2Mbps:17,5.5Mbps:17,11Mbps:17,6Mbps:17,9Mbps:17,12Mbps:17,18Mbps:17,24Mbps:17,36Mbps:17,48Mbps:17,54Mbps:17,HT20-0:17,HT20-1:17,HT20-2:17,HT20-3:17,HT20-4:17,HT20-5:17,HT20-6:17,HT20-7:17,HT40-0:17,HT40-1:17,HT40-2:17,HT40-3:17,HT40-4:17,HT40-5:17,HT40-6:17,HT40-7:17)
+165  2026-10-03 20:43:46  [wireless,info]  D0:EA:11:14:BA:9C@wlan1 established connection on 5500000, SSID PR-PTP-Avazeh-Amiri
+166  2026-10-03 20:44:07  [system,info]  config changed by winbox-3.43/tcp-msg(winbox):admin@100.78.30.76 (/interface bridge settings set; /interface ethernet switch l3hw-settings set; /interface ethernet switch l3hw-settings advanced set; /ip neighbor discovery-settings set discover-interface-list=all discover-interval=30s lldp-mac-phy-config=no lldp-max-frame-size=no lldp-med-net-policy-vlan=disabled lldp-vlan-info=no mode=tx-and-rx protocol=cdp,lldp,mndp; /ip settings set; /ip firewall connection tracking set; /ipv6 settings set)
+167  2026-10-03 20:45:04  [system,info]  device changed by winbox-3.43/tcp-msg(winbox):admin@100.78.30.76 (/interface set wlan1 disabled=no l2mtu=1600 mtu=1500 name=wlan1; /queue interface set wlan1; /interface wireless set [ find ] adaptive-noise-immunity=none allow-sharedkey=no ampdu-priorities=0 amsdu-limit=8192 amsdu-threshold=8192 antenna-gain=25 area="" arp=enabled arp-timeout=auto band=5ghz-a/n basic-rates-a/g=6Mbps bridge-mode=enabled burst-time=disabled channel-width=20/40mhz-Ce country=no_country_set default-ap-tx-limit=0 default-authentication=yes default-client-tx-limit=0 default-forwarding=yes disabled=no disconnect-timeout=3s distance=dynamic frame-lifetime=0 frequency=5500 frequency-mode=superchannel frequency-offset=0 guard-interval=any hide-ssid=no ht-basic-mcs=mcs-0,mcs-1,mcs-2,mcs-3,mcs-4,mcs-5,mcs-6,mcs-7 ht-supported-mcs=mcs-0,mcs-1,mcs-2,mcs-3,mcs-4,mcs-5,mcs-6,mcs-7,mcs-8,mcs-9,mcs-10,mcs-11,mcs-12,mcs-13,mcs-14,mcs-15,mcs-16,mcs-17,mcs-18,mcs-19,mcs-20,mcs-21,mcs-22,mcs-23 hw-fragmentation-threshold=disabled hw-protection-mode
+168  2026-10-03 20:45:04  [system,info]  =none hw-protection-threshold=0 hw-retries=7 installation=outdoor interworking-profile=disabled keepalive-frames=enabled l2mtu=1600 mac-address=D0:EA:11:14:BA:70 max-station-count=2007 mode=station-wds mtu=1500 multicast-buffering=enabled multicast-helper=default name=wlan1 noise-floor-threshold=default nv2-cell-radius=30 nv2-downlink-ratio=50 nv2-mode=dynamic-downlink nv2-qos=default nv2-queue-count=2 nv2-security=disabled nv2-sync-secret="" on-fail-retry-time=100ms preamble-mode=both prism-cardtype=200mW radio-name=06153220022 rate-set=default rx-chains=0,1 scan-list=default secondary-frequency="" security-profile=default skip-dfs-channels=disabled ssid=PR-PTP-Avazeh-Amiri station-bridge-clone-mac=00:00:00:00:00:00 station-roaming=disabled supported-rates-a/g=6Mbps,9Mbps,12Mbps,18Mbps,24Mbps,36Mbps,48Mbps,54Mbps tdma-period-size=2 tx-chains=0,1 tx-power-mode=default update-stats-interval=disabled vht-basic-mcs="" vht-supported-mcs="" vlan-id=1 vlan-mode=no-tag wds-cost-range=50-150 wds-default-bridge=bridge1
+169  2026-10-03 20:45:04  [system,info]   wds-default-cost=100 wds-ignore-ssid=no wds-mode=dynamic wireless-protocol=any wmm-support=disabled wps-mode=push-button; /interface wireless nstreme set wlan1 disable-csma=no enable-nstreme=no enable-polling=yes framer-limit=3200 framer-policy=none; /interface wireless manual-tx-power-table set wlan1 manual-tx-powers=1Mbps:17,2Mbps:17,5.5Mbps:17,11Mbps:17,6Mbps:17,9Mbps:17,12Mbps:17,18Mbps:17,24Mbps:17,36Mbps:17,48Mbps:17,54Mbps:17,HT20-0:17,HT20-1:17,HT20-2:17,HT20-3:17,HT20-4:17,HT20-5:17,HT20-6:17,HT20-7:17,HT40-0:17,HT40-1:17,HT40-2:17,HT40-3:17,HT40-4:17,HT40-5:17,HT40-6:17,HT40-7:17)
+170  2026-10-03 20:45:09  [wireless,info]  D0:EA:11:14:BA:9C@wlan1 established connection on 5500000, SSID PR-PTP-Avazeh-Amiri
+171  2026-10-03 20:46:13  [system,info]  config changed by winbox-3.43/tcp-msg(winbox):admin@100.78.30.76 (/interface bridge settings set; /interface ethernet switch l3hw-settings set; /interface ethernet switch l3hw-settings advanced set; /ip neighbor discovery-settings set discover-interface-list=dynamic discover-interval=30s lldp-mac-phy-config=no lldp-max-frame-size=no lldp-med-net-policy-vlan=disabled lldp-vlan-info=no mode=tx-and-rx protocol=cdp,lldp,mndp; /ip settings set; /ip firewall connection tracking set; /ipv6 settings set)
+172  2026-10-03 20:49:16  [system,info]  config changed by winbox-3.43/tcp-msg(winbox):admin@100.78.30.76 (/interface bridge settings set; /interface ethernet switch l3hw-settings set; /interface ethernet switch l3hw-settings advanced set; /ip neighbor discovery-settings set discover-interface-list=!dynamic discover-interval=30s lldp-mac-phy-config=no lldp-max-frame-size=no lldp-med-net-policy-vlan=disabled lldp-vlan-info=no mode=tx-and-rx protocol=cdp,lldp,mndp; /ip settings set; /ip firewall connection tracking set; /ipv6 settings set)
+173  2026-10-03 20:49:42  [system,info]  address removed by winbox-3.43/tcp-msg(winbox):admin@100.78.30.76 (/ip address remove *1)
+174  2026-10-03 20:50:24  [system,info,account]  user admin logged out from 100.78.30.76 via winbox
+175  2026-10-04 01:36:22  [wireless,info]  D0:EA:11:14:BA:9C@wlan1: lost connection, synchronization timeout
+176  2026-10-04 08:23:48  [wireless,info]  D0:EA:11:14:BA:9C@wlan1 established connection on 5500000, SSID PR-PTP-Avazeh-Amiri
+177  2026-10-04 08:30:19  [wireless,info]  D0:EA:11:14:BA:9C@wlan1: lost connection, synchronization timeout
+178  2026-10-04 11:25:04  [system,info,account]  user su logged in from 185.110.29.153 via winbox
+179  2026-10-04 11:33:50  [system,info,account]  user su logged out from 185.110.29.153 via winbox
+180  2026-10-04 13:00:07  [wireless,info]  D0:EA:11:14:BA:9C@wlan1 established connection on 5500000, SSID PR-PTP-Avazeh-Amiri
+181  2026-10-04 13:06:41  [system,info,account]  user su logged in from F0:BF:97:1B:74:74 via winbox
+182  2026-10-04 13:07:52  [system,info]  device changed by mac-msg(winbox):su@F0:BF:97:1B:74:74 (/interface set wlan1 disabled=no l2mtu=1600 mtu=1500 name=wlan1; /queue interface set wlan1; /interface wireless set [ find ] adaptive-noise-immunity=none ampdu-priorities=0 amsdu-limit=8192 amsdu-threshold=8192 area="" arp=enabled arp-timeout=auto band=5ghz-a/n basic-rates-a/g=6Mbps bridge-mode=enabled burst-time=disabled channel-width=20/40mhz-Ce country=no_country_set default-ap-tx-limit=0 default-authentication=yes default-client-tx-limit=0 default-forwarding=yes disabled=no frequency=5500 frequency-mode=superchannel frequency-offset=0 guard-interval=any ht-basic-mcs=mcs-0,mcs-1,mcs-2,mcs-3,mcs-4,mcs-5,mcs-6,mcs-7 ht-supported-mcs=mcs-0,mcs-1,mcs-2,mcs-3,mcs-4,mcs-5,mcs-6,mcs-7,mcs-8,mcs-9,mcs-10,mcs-11,mcs-12,mcs-13,mcs-14,mcs-15,mcs-16,mcs-17,mcs-18,mcs-19,mcs-20,mcs-21,mcs-22,mcs-23 hw-retries=7 installation=outdoor interworking-profile=disabled keepalive-frames=enabled l2mtu=1600 mac-address=D0:EA:11:14:BA:70 max-station-count=2007 mode=bridge mtu
+183  2026-10-04 13:07:52  [system,info]  =1500 multicast-buffering=enabled multicast-helper=default name=wlan1 noise-floor-threshold=default nv2-cell-radius=30 nv2-downlink-ratio=50 nv2-mode=dynamic-downlink nv2-qos=default nv2-queue-count=2 nv2-security=disabled nv2-sync-secret="" radio-name=06153220022 rate-set=default rx-chains=0,1 scan-list=default skip-dfs-channels=disabled ssid=PR-PTP-Avazeh-Amiri supported-rates-a/g=6Mbps,9Mbps,12Mbps,18Mbps,24Mbps,36Mbps,48Mbps,54Mbps tdma-period-size=2 tx-chains=0,1 tx-power-mode=default vlan-id=1 vlan-mode=no-tag wds-cost-range=50-150 wds-default-bridge=bridge1 wds-default-cost=100 wds-ignore-ssid=no wds-mode=dynamic wireless-protocol=nv2; /interface wireless nstreme set wlan1 disable-csma=no enable-nstreme=no enable-polling=yes framer-limit=3200 framer-policy=none; /interface wireless manual-tx-power-table set wlan1)
+184  2026-10-04 13:07:53  [system,info,account]  user su logged out from F0:BF:97:1B:74:74 via winbox
+185  2026-10-04 13:09:10  [wireless,info]  D0:EA:11:14:BA:9C@wlan1: connected, signal strength -32
+186  2026-10-04 13:48:21  [wireless,info]  D0:EA:11:14:BA:9C@wlan1: disconnected, control frame timeout
+187  2026-10-04 14:10:58  [wireless,info]  D0:EA:11:14:BA:9C@wlan1: connected, signal strength -28
+188  2026-10-04 14:14:28  [wireless,info]  D0:EA:11:14:BA:9C@wlan1: disconnected, not responding
+189  2026-10-04 16:10:36  [wireless,info]  D0:EA:11:14:BA:9C@wlan1: connected, signal strength -26
+190  2026-10-04 16:18:33  [wireless,info]  D0:EA:11:14:BA:9C@wlan1: disconnected, control frame timeout
+191  2026-10-04 21:08:33  [wireless,info]  D0:EA:11:14:BA:9C@wlan1: connected, signal strength -28
+192  2026-10-13 17:44:08  [interface,info]  ether1 link down
+193  2026-10-13 17:44:13  [interface,info]  ether1 link up (speed 100M, full duplex)
+194  2026-10-13 17:44:38  [interface,info]  ether1 link down
+195  2026-10-13 17:44:46  [interface,info]  ether1 link up (speed 100M, full duplex)
+196  2026-10-18 09:58:57  [system,info,account]  user su logged in from 185.110.29.189 via api
+197  2026-10-18 09:58:58  [system,info,account]  user su logged out from 185.110.29.189 via api
+198  2026-10-18 10:14:16  [system,info,account]  user su logged in from 185.110.29.189 via api
+199  2026-10-18 10:14:16  [system,info,account]  user su logged out from 185.110.29.189 via api
+200  2026-10-21 10:27:18  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  D0:EA:11:14:BA:6F  (ether)
+wlan1  D0:EA:11:14:BA:70  (wlan)
+bridge1  D0:EA:11:14:BA:70  (bridge)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.19.2.113)

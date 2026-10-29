@@ -1,0 +1,68 @@
+IP: 172.17.11.162
+Collected at: 2026-10-21T06:57:26.898900+00:00
+source: RouterOS API
+identity: ParsaRasaneh-PTP-Fatah
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=2C:C8:1B:47:9B:78
+  2  name=wlan1  type=wlan  running=true  mac=2C:C8:1B:47:9B:79
+  3  name=108  type=vlan  running=true  mac=2C:C8:1B:47:9B:79
+  4  name=bridge1  type=bridge  running=true  mac=2C:C8:1B:47:9B:79
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=bridge  ssid=10094186171-PR-PTP-HyperMarket  band=5ghz-a/n  frequency=5040
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.11.162/29  interface=108  network=172.17.11.160
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.11.161  distance=1
+  2  dst=172.17.11.160/29  gw=108  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=Parsa-SW-POP-Fatah  address=-  interface=wlan1,bridge1
+  2  identity=Parsa-Manabe-Sw  address=172.17.11.246  interface=ether1,bridge1
+  3  identity=AB-Mana  address=-  interface=108
+  4  identity=AB-Jalilian2  address=-  interface=108
+  5  identity=MikroTik  address=172.17.11.161  interface=108
+  6  identity=Parsa-SW-POP-Fatah  address=172.17.11.164  interface=108
+  7  identity=PR-Site  address=172.17.12.206  interface=108
+  8  identity=ParsaRasaneh-AmirAbad3  address=172.17.15.18  interface=108
+  9  identity=PR-PTP  address=172.17.17.11  interface=108
+ 10  identity=ParsaRasaneh-PTP-BiZhani  address=172.19.1.50  interface=108
+ 11  identity=MikroTik  address=172.19.2.66  interface=108
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:06
+# ساعت دستگاه (خام): 2026-07-25 20:56:03
+# افست اصلاحی (سرور − دستگاه): +2098:00:03
+  1  1405/07/08 10:42:38  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/08 10:42:41  [interface,info]  108 link up
+  3  1405/07/08 10:42:41  [wireless,info]  wlan1: pre-shared key authentication not enabled, disable WPS
+  4  1405/07/08 10:42:41  [bridge,info]  "bridge1" mac address changed to 2C:C8:1B:47:9B:79
+  5  1405/07/08 10:42:46  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  6  1405/07/08 10:42:48  [interface,info]  ether1 link up (speed 100M, full duplex)
+  7  1405/07/08 10:43:36  [wireless,info]  64:D1:54:83:64:8F@wlan1: connected, signal strength -56, wants bridge
+  8  1405/07/08 10:43:36  [dhcp,error]  temporary moving client wlan1 from slave to master port, update your config!!!
+  9  1405/07/08 10:43:39  [interface,info]  ether1 link down
+ 10  1405/07/08 10:43:48  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 11  1405/07/26 09:57:33  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 12  1405/07/26 09:57:33  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 13  1405/07/26 10:13:05  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 14  1405/07/26 10:13:05  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 15  1405/07/29 10:26:06  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  2C:C8:1B:47:9B:78  (ether)
+wlan1  2C:C8:1B:47:9B:79  (wlan)
+108  2C:C8:1B:47:9B:79  (vlan)
+bridge1  2C:C8:1B:47:9B:79  (bridge)
+--- /ip arp ---
+108  4C:5E:0C:C5:C8:24  (arp 172.17.11.161)

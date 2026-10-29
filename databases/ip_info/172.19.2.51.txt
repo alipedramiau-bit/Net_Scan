@@ -1,0 +1,55 @@
+IP: 172.19.2.51
+Collected at: 2026-10-21T06:57:34.848816+00:00
+source: RouterOS API
+identity: PR-PTP-Abasi-ANBAR
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=64:D1:54:74:E5:48
+  2  name=wlan1  type=wlan  running=true  mac=64:D1:54:74:E5:49
+  3  name=bridge1  type=bridge  running=true  mac=64:D1:54:74:E5:48
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=bridge  ssid=PR-PTP-Abasi-ANB  band=5ghz-a/n  frequency=5700
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.19.2.51/29  interface=ether1  network=172.19.2.48
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.19.2.49  distance=1
+  2  dst=172.19.2.48/29  gw=bridge1  distance=0
+
+----- neighbors -----
+(empty)
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:27:22
+# ساعت دستگاه (خام): 1971-04-01 05:18:33
+# افست اصلاحی (سرور − دستگاه): +487009:38:49
+  1  1405/07/22 05:09:03  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/22 05:09:03  [bridge,info]  "bridge1" mac address changed to 64:D1:54:74:E5:48
+  3  1405/07/22 05:09:03  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  4  1405/07/22 05:09:05  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/07/22 05:09:05  [wireless,info]  wlan1: pre-shared key authentication not enabled, disable WPS
+  6  1405/07/22 05:09:05  [wireless,info]  2C:C8:1B:4E:48:67@wlan1: connected, signal strength -46, wants bridge
+  7  1405/07/22 05:09:15  [interface,info]  ether1 link down
+  8  1405/07/22 05:09:17  [interface,info]  ether1 link up (speed 100M, full duplex)
+  9  1405/07/22 05:09:28  [interface,info]  ether1 link down
+ 10  1405/07/22 05:09:51  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 11  1405/07/26 09:59:03  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 12  1405/07/26 09:59:04  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 13  1405/07/26 10:14:21  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 14  1405/07/26 10:14:22  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 15  1405/07/29 10:27:22  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  64:D1:54:74:E5:48  (ether)
+wlan1  64:D1:54:74:E5:49  (wlan)
+bridge1  64:D1:54:74:E5:48  (bridge)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.19.2.49)

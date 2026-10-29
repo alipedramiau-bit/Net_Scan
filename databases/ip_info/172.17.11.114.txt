@@ -1,0 +1,61 @@
+IP: 172.17.11.114
+Collected at: 2026-10-21T06:57:26.518285+00:00
+source: RouterOS API
+identity: ParsaRasaneh-Tayeb3
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=E4:8D:8C:77:D7:1A
+  2  name=wlan1  type=wlan  running=true  mac=E4:8D:8C:77:D7:1B
+  3  name=bridge1  type=bridge  running=true  mac=E4:8D:8C:77:D7:1B
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=ap-bridge  ssid=10094186102-PR-Tayeb2  band=5ghz-a/n  frequency=5165
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.11.114/30  interface=ether1  network=172.17.11.112
+  2  address=192.168.1.1/24  interface=ether1  network=192.168.1.0
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.11.113  distance=1
+  2  dst=172.17.11.112/30  gw=bridge1  distance=0
+  3  dst=192.168.1.0/24  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=706e6df50b9a  address=172.17.11.100  interface=ether1,bridge1
+  2  identity=MikroTik  address=172.17.11.113  interface=ether1,bridge1
+  3  identity=AB-Shafiei1  address=-  interface=wlan1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:02
+# ساعت دستگاه (خام): 2006-06-23 06:16:37
+# افست اصلاحی (سرور − دستگاه): +178200:39:25
+  1  1405/07/22 05:09:04  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/22 05:09:07  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:77:D7:1B
+  3  1405/07/22 05:09:08  [wireless,info]  wlan1: pre-shared key authentication not enabled, disable WPS
+  4  1405/07/22 05:10:15  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/07/22 05:10:19  [wireless,info]  6C:3B:6B:89:E0:73@wlan1: connected, signal strength -83, wants bridge
+  6  1405/07/22 05:10:21  [dhcp,error]  temporary moving client wlan1 from slave to master port, update your config!!!
+  7  1405/07/22 05:11:06  [wireless,info]  04:18:D6:FC:AD:A4@wlan1: connected, signal strength -66
+  8  1405/07/26 09:57:27  [system,info,account]  user su logged in from 185.110.29.189 via api
+  9  1405/07/26 09:57:27  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 10  1405/07/26 10:13:02  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 11  1405/07/26 10:13:02  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 12  1405/07/28 13:56:13  [wireless,info]  04:18:D6:FC:AD:A4@wlan1: disconnected, extensive data loss
+ 13  1405/07/28 14:02:07  [wireless,info]  04:18:D6:FC:AD:A4@wlan1: connected, signal strength -66
+ 14  1405/07/28 15:14:16  [wireless,info]  04:18:D6:FC:AD:A4@wlan1: disconnected, extensive data loss
+ 15  1405/07/28 15:43:45  [wireless,info]  04:18:D6:FC:AD:A4@wlan1: connected, signal strength -65
+ 16  1405/07/29 10:26:02  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  E4:8D:8C:77:D7:1A  (ether)
+wlan1  E4:8D:8C:77:D7:1B  (wlan)
+bridge1  E4:8D:8C:77:D7:1B  (bridge)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.17.11.113)

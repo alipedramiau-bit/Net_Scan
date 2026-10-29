@@ -1,0 +1,81 @@
+IP: 172.19.2.66
+Collected at: 2026-10-21T06:57:35.045996+00:00
+source: RouterOS API
+identity: MikroTik
+device_type: ST
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=false  mac=6C:3B:6B:04:FE:16
+  2  name=ether2  type=ether  running=true  mac=6C:3B:6B:04:FE:17
+  3  name=ether3  type=ether  running=true  mac=6C:3B:6B:04:FE:18
+  4  name=ether4  type=ether  running=false  mac=6C:3B:6B:04:FE:19
+  5  name=wlan1  type=wlan  running=false  mac=6C:3B:6B:04:FE:1A
+  6  name=bridge1  type=bridge  running=true  mac=6C:3B:6B:04:FE:18
+  7  name=eoip-tunnel1  type=eoip  running=true  mac=02:A7:58:F4:BB:1E
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=station  ssid=MikroTik  band=2ghz-b/g  frequency=2412
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.19.2.66/30  interface=ether2  network=172.19.2.64
+  2  address=192.168.91.9/24  interface=ether3  network=192.168.91.0
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.19.2.65  distance=1
+  2  dst=172.19.2.64/30  gw=ether2  distance=0
+  3  dst=192.168.91.0/24  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=AB-Mana  address=-  interface=ether2
+  2  identity=AB-Jalilian2  address=-  interface=ether2
+  3  identity=MikroTik  address=172.17.11.161  interface=ether2
+  4  identity=ParsaRasaneh-PTP-Fatah  address=172.17.11.162  interface=ether2
+  5  identity=Parsa-SW-POP-Fatah  address=172.17.11.164  interface=ether2
+  6  identity=Parsa-Manabe-Sw  address=172.17.11.246  interface=ether2
+  7  identity=PR-Site  address=172.17.12.206  interface=ether2
+  8  identity=ParsaRasaneh-AmirAbad3  address=172.17.15.18  interface=ether2
+  9  identity=ParsaRasaneh-PTP-BiZhani  address=172.19.1.50  interface=ether2
+ 10  identity=PR-PS-PTP-Sale-AP  address=192.168.91.2  interface=ether3,bridge1
+ 11  identity=Nobat-Pasargad-ST  address=192.168.91.5  interface=ether3,bridge1
+ 12  identity=PR-PS-Ruter-Setad  address=192.168.91.6  interface=ether3,bridge1
+ 13  identity=Router-Nobat  address=192.168.91.7  interface=eoip-tunnel1,bridge1
+ 14  identity=PR-PS-PTP-Nobat-ST  address=192.168.91.8  interface=eoip-tunnel1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:27:23
+# ساعت دستگاه (خام): 1970-10-14 23:44:55
+# افست اصلاحی (سرور − دستگاه): +491047:12:28
+  1  1405/07/08 10:42:37  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/08 10:42:39  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:04:FE:18
+  3  1405/07/08 10:42:39  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether3
+  4  1405/07/08 10:42:41  [interface,info]  ether2 link up (speed 100M, full duplex)
+  5  1405/07/08 10:42:45  [interface,info]  ether3 link up (speed 100M, full duplex)
+  6  1405/07/08 10:43:40  [interface,info]  ether2 link down
+  7  1405/07/08 10:43:51  [interface,info]  ether2 link up (speed 100M, full duplex)
+  8  1405/07/08 10:44:50  [interface,info]  eoip-tunnel1 link up
+  9  1405/07/24 06:16:37  [interface,info]  eoip-tunnel1 link down
+ 10  1405/07/24 06:25:21  [interface,info]  eoip-tunnel1 link up
+ 11  1405/07/26 09:59:05  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 12  1405/07/26 09:59:06  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 13  1405/07/26 10:14:23  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 14  1405/07/26 10:14:23  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 15  1405/07/29 09:51:25  [interface,info]  eoip-tunnel1 link down
+ 16  1405/07/29 09:54:25  [interface,info]  eoip-tunnel1 link up
+ 17  1405/07/29 10:27:23  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  6C:3B:6B:04:FE:16  (ether)
+ether2  6C:3B:6B:04:FE:17  (ether)
+ether3  6C:3B:6B:04:FE:18  (ether)
+ether4  6C:3B:6B:04:FE:19  (ether)
+wlan1  6C:3B:6B:04:FE:1A  (wlan)
+bridge1  6C:3B:6B:04:FE:18  (bridge)
+eoip-tunnel1  02:A7:58:F4:BB:1E  (eoip)
+--- /ip arp ---
+ether2  4C:5E:0C:C5:C8:24  (arp 172.19.2.65)

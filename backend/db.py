@@ -350,9 +350,61 @@ def _sort_clause(sort, order):
     direction = "DESC" if (order or "asc").lower() == "desc" else "ASC"
     return f" ORDER BY {col} {direction}, ip ASC"
 
+
+# Whitelist of fields the free-text search may target. Using a whitelist keeps
+# column names out of user input (SQL-injection safe) and lets the UI request a
+# narrow scope (faster than scanning every text column).
+SEARCH_FIELDS = {
+    "ip": "ip",
+    "device_name": "IFNULL(device_name,'')",
+    "tags": "IFNULL(tags,'')",
+    "device_type": "IFNULL(device_type,'')",
+    "interfaces": "IFNULL(interfaces,'')",
+    "ip_addresses": "IFNULL(ip_addresses,'')",
+    "ip_neighbors": "IFNULL(ip_neighbors,'')",
+    "wireless_info": "IFNULL(wireless_info,'')",
+    "device_log": "IFNULL(device_log,'')",
+    "mac_info": "IFNULL(mac_info,'')",
+    "classification": "IFNULL(classification,'')",
+}
+
+
+def build_search_clause(q, q_fields=None):
+    """Build the WHERE fragment for free-text search.
+
+    - Whitespace-separated terms are AND-ed: every term must match at least
+      one of the searched fields (OR across fields).
+    - q_fields: comma-separated field ids (see SEARCH_FIELDS). None, empty or
+      "all" searches every whitelisted field; unknown ids are ignored.
+    Returns (fragment, params); (None, []) when there is nothing to search.
+    """
+    terms = [t for t in (q or "").split() if t]
+    if not terms:
+        return None, []
+    wanted = (q_fields or "").strip()
+    if wanted and wanted.lower() != "all":
+        picked = []
+        for fid in wanted.split(","):
+            expr = SEARCH_FIELDS.get(fid.strip())
+            if expr and expr not in picked:
+                picked.append(expr)
+    else:
+        picked = []
+    if not picked:
+        picked = list(SEARCH_FIELDS.values())
+    term_clauses, term_params = [], []
+    for term in terms:
+        like = f"%{term}%"
+        term_clauses.append("(" + " OR ".join(f"{col} LIKE ?" for col in picked) + ")")
+        term_params.extend([like] * len(picked))
+    return " AND ".join(term_clauses), term_params
+
 def query_devices(classification=None, has_port=None, q=None, limit=500, offset=0, ping_ok=None,
-                  new_only=False, sort="ip", order="asc", device_type=None, db_path=None):
-    """Filter devices. has_port filters by open port number; q is an ip substring.
+                  new_only=False, sort="ip", order="asc", device_type=None, db_path=None, q_fields=None):
+    """Filter devices. has_port filters by open port number.
+    q: free-text search; whitespace-separated terms are AND-ed and each term
+    matches any of the searched fields.
+    q_fields: comma-separated scope (see SEARCH_FIELDS); None/"all" = every field.
     ping_ok: True -> only ping responders, False -> only non-responders, None -> all.
     new_only: only devices first discovered recently (seen_count == 1 or first_seen
     within NEW_DEVICE_WINDOW seconds) — the "دستگاه‌های جدید" report.
@@ -373,22 +425,11 @@ def query_devices(classification=None, has_port=None, q=None, limit=500, offset=
         clauses.append("EXISTS (SELECT 1 FROM json_each(devices.open_ports) WHERE json_each.value=?)")
         params.append(int(has_port))
     if q:
-        # Search across the main display / filter fields
-        like = f"%{q}%"
-        clauses.append(
-            "("
-            "ip LIKE ? OR "
-            "IFNULL(device_name,'') LIKE ? OR "
-            "IFNULL(tags,'') LIKE ? OR "
-            "IFNULL(device_type,'') LIKE ? OR "
-            "IFNULL(interfaces,'') LIKE ? OR "
-            "IFNULL(ip_addresses,'') LIKE ? OR "
-            "IFNULL(ip_neighbors,'') LIKE ? OR "
-            "IFNULL(wireless_info,'') LIKE ? OR IFNULL(device_log,'') LIKE ? OR IFNULL(mac_info,'') LIKE ? OR "
-            "IFNULL(classification,'') LIKE ?"
-            ")"
-        )
-        params.extend([like] * 11)
+        # Free-text search across the whitelisted display / filter fields
+        frag, q_params = build_search_clause(q, q_fields)
+        if frag:
+            clauses.append(frag)
+            params.extend(q_params)
     if new_only:
         clauses.append("(seen_count = 1 OR first_seen >= ?)")
         params.append(_now()[:10])  # same UTC day granularity as ISO timestamps
@@ -507,8 +548,21 @@ def fetch_devices_by_ips(ips, db_path=None):
 
 
 def _ip_info_dir(db_path=None):
+    """Directory of per-device ip_info files next to the given database.
+
+    `db_path` may be a filesystem path (str/Path, as taken by query_devices)
+    or a database NAME; None means the active database.
+    """
     from pathlib import Path as _P
-    return _P(db_path_for(db_path)).parent / "ip_info"
+    if db_path:
+        p = _P(str(db_path))
+        # A real filesystem path: has a suffix (.db) or spans several parts.
+        # Database names can never contain dots or path separators (they are
+        # sanitized), so this check cannot misclassify a plain name.
+        if p.suffix == ".db" or len(p.parts) > 1:
+            return p.parent / "ip_info"
+        return db_path_for(str(db_path)).parent / "ip_info"
+    return db_path_for().parent / "ip_info"
 
 
 def _parse_ip_info_file(text: str) -> dict:
@@ -1019,6 +1073,13 @@ def list_settings(db_path=None):
         return [dict(r) for r in rows]
 
 
+def get_all_settings(db_path=None) -> dict:
+    """Return all settings as a plain {key: value} mapping."""
+    with _connect(db_path) as conn:
+        rows = conn.execute("SELECT key, value FROM settings ORDER BY key").fetchall()
+        return {r["key"]: r["value"] for r in rows}
+
+
 # ---------------- backup / restore ----------------
 
 def backup_db_bytes(db_path=None) -> bytes:
@@ -1111,6 +1172,99 @@ def restore_db_bytes(data: bytes, db_path=None) -> dict:
         except OSError:
             pass
 
+
+def export_backup_bytes(db_path=None) -> bytes:
+    """Export devices and settings as a validated, portable JSON backup."""
+    with _connect(db_path) as conn:
+        device_rows = conn.execute("SELECT * FROM devices ORDER BY ip").fetchall()
+        settings_rows = conn.execute("SELECT key, value FROM settings ORDER BY key").fetchall()
+    devices = []
+    for row in device_rows:
+        item = dict(row)
+        for key in ("ping_ok",):
+            item[key] = bool(item.get(key))
+        for key in ("open_ports", "port_states"):
+            try:
+                item[key] = json.loads(item.get(key) or ("[]" if key == "open_ports" else "{}"))
+            except (TypeError, ValueError):
+                item[key] = [] if key == "open_ports" else {}
+        devices.append(item)
+    payload = {
+        "app": "mikrotik_scanner",
+        "version": 1,
+        "created_at": _now(),
+        "devices": devices,
+        "settings": {row["key"]: row["value"] for row in settings_rows},
+    }
+    return json.dumps(payload, ensure_ascii=False, indent=2).encode("utf-8")
+
+
+def restore_backup_bytes(data: bytes, db_path=None) -> dict:
+    """Restore a portable JSON backup after validating its complete structure."""
+    if not isinstance(data, (bytes, bytearray)) or not data:
+        raise ValueError("فایل پشتیبان خالی یا نامعتبر است")
+    try:
+        payload = json.loads(bytes(data).decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise ValueError("ساختار JSON فایل پشتیبان معتبر نیست") from exc
+    if not isinstance(payload, dict) or payload.get("app") != "mikrotik_scanner":
+        raise ValueError("نوع فایل پشتیبان معتبر نیست")
+    devices = payload.get("devices")
+    settings = payload.get("settings")
+    if not isinstance(devices, list) or not isinstance(settings, dict):
+        raise ValueError("فایل پشتیبان باید شامل devices و settings معتبر باشد")
+    for item in devices:
+        if not isinstance(item, dict) or not isinstance(item.get("ip"), str) or not item["ip"].strip():
+            raise ValueError("رکورد دستگاه در فایل پشتیبان نامعتبر است")
+    if any(not isinstance(k, str) or not isinstance(v, (str, int, float, bool)) for k, v in settings.items()):
+        raise ValueError("تنظیمات فایل پشتیبان نامعتبر است")
+
+    path = Path(db_path) if db_path is not None else db_path_for()
+    init_db(path)
+    with _connect(path) as conn:
+        # Restore atomically from the validated payload.
+        conn.execute("DELETE FROM devices")
+        conn.execute("DELETE FROM settings")
+        columns = {r[1] for r in conn.execute("PRAGMA table_info(devices)").fetchall()}
+        device_count = 0
+        for item in devices:
+            record = dict(item)
+            record["ip"] = record["ip"].strip()
+            record["ping_ok"] = int(bool(record.get("ping_ok", False)))
+            record["open_ports"] = json.dumps(record.get("open_ports") or [], ensure_ascii=False)
+            record["port_states"] = json.dumps(record.get("port_states") or {}, ensure_ascii=False)
+            record.setdefault("classification", _normalize_classification("", bool(record["ping_ok"])))
+            record.setdefault("first_seen", _now())
+            record.setdefault("last_seen", record["first_seen"])
+            record.setdefault("seen_count", 1)
+            record.setdefault("device_name", "")
+            record.setdefault("tags", "")
+            record.setdefault("ip_addresses", "")
+            record.setdefault("ip_neighbors", "")
+            record.setdefault("interfaces", "")
+            record.setdefault("device_type", "")
+            record.setdefault("wireless_info", "")
+            record.setdefault("device_log", "")
+            record.setdefault("mac_info", "")
+            names = [key for key in record if key in columns]
+            conn.execute(
+                f"INSERT INTO devices ({','.join(names)}) VALUES ({','.join('?' for _ in names)})",
+                [record[key] for key in names],
+            )
+            device_count += 1
+        for key, value in settings.items():
+            conn.execute(
+                "INSERT INTO settings (key, value, updated_at) VALUES (?,?,?)",
+                (key, str(value), _now()),
+            )
+    return {
+        "ok": True,
+        "devices_restored": device_count,
+        "devices_total": device_count,
+        "settings_restored": len(settings),
+        "settings_total": len(settings),
+        "path": str(path),
+    }
 
 
 # ---------------- tag import + full project backup/restore ----------------

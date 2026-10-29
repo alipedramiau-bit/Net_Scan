@@ -1,0 +1,104 @@
+IP: 172.19.2.52
+Collected at: 2026-10-21T06:57:34.922993+00:00
+source: RouterOS API
+identity: AB-Abasi.K
+device_type: ST
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=2C:C8:1B:4E:48:66
+  2  name=wlan1  type=wlan  running=true  mac=2C:C8:1B:4E:48:67
+  3  name=bridge1  type=bridge  running=true  mac=02:FF:21:EF:5F:9D
+  4  name=eoip-tunnel1  type=eoip  running=true  mac=02:FF:21:EF:5F:9D
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=station-bridge  ssid=PR-PTP-Abasi-ANB  band=5ghz-a/n  frequency=5165
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=192.168.1.2/24  interface=ether1  network=192.168.1.0
+  2  address=172.19.1.210/30  interface=wlan1  network=172.19.1.208
+  3  address=172.19.2.52/29  interface=wlan1  network=172.19.2.48
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.19.1.209  distance=1
+  2  dst=172.19.1.208/30  gw=wlan1  distance=0
+  3  dst=172.19.2.48/29  gw=wlan1  distance=0
+  4  dst=192.168.1.0/24  gw=bridge1  distance=0
+
+----- neighbors -----
+(empty)
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:27:22
+# ساعت دستگاه (خام): 1973-02-21 03:05:58
+# افست اصلاحی (سرور − دستگاه): +470403:51:24
+  1  1405/06/19 10:31:57  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/06/19 10:32:00  [wireless,info]  64:D1:54:74:E5:49@wlan1 established connection on 5700000, SSID PR-PTP-Abasi-ANB
+  3  1405/06/19 10:32:01  [interface,info]  eoip-tunnel1 link up
+  4  1405/06/19 10:32:01  [bridge,info]  "bridge1" mac address changed to 02:FF:21:EF:5F:9D
+  5  1405/06/19 10:32:05  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  6  1405/06/19 10:32:07  [interface,info]  ether1 link up (speed 100M, full duplex)
+  7  1405/06/20 20:23:54  [interface,info]  eoip-tunnel1 link down
+  8  1405/06/20 20:43:44  [interface,info]  eoip-tunnel1 link up
+  9  1405/06/21 19:32:53  [interface,info]  eoip-tunnel1 link down
+ 10  1405/06/21 19:35:03  [interface,info]  eoip-tunnel1 link up
+ 11  1405/06/22 11:11:56  [interface,info]  eoip-tunnel1 link down
+ 12  1405/06/22 11:13:24  [interface,info]  eoip-tunnel1 link up
+ 13  1405/06/23 07:26:07  [interface,info]  eoip-tunnel1 link down
+ 14  1405/06/23 08:48:37  [interface,info]  eoip-tunnel1 link up
+ 15  1405/06/25 04:43:36  [interface,info]  eoip-tunnel1 link down
+ 16  1405/06/25 05:04:35  [interface,info]  eoip-tunnel1 link up
+ 17  1405/06/25 05:14:41  [interface,info]  eoip-tunnel1 link down
+ 18  1405/06/25 08:38:00  [interface,info]  eoip-tunnel1 link up
+ 19  1405/06/26 05:12:04  [interface,info]  eoip-tunnel1 link down
+ 20  1405/06/26 07:40:13  [interface,info]  eoip-tunnel1 link up
+ 21  1405/06/26 09:40:27  [interface,info]  eoip-tunnel1 link down
+ 22  1405/06/26 09:42:25  [interface,info]  eoip-tunnel1 link up
+ 23  1405/06/27 03:49:25  [interface,info]  eoip-tunnel1 link down
+ 24  1405/06/27 07:48:55  [interface,info]  eoip-tunnel1 link up
+ 25  1405/06/27 07:54:46  [interface,info]  eoip-tunnel1 link down
+ 26  1405/06/27 09:21:12  [interface,info]  eoip-tunnel1 link up
+ 27  1405/07/04 12:31:36  [interface,info]  eoip-tunnel1 link down
+ 28  1405/07/04 12:31:46  [interface,info]  eoip-tunnel1 link up
+ 29  1405/07/05 18:52:22  [interface,info]  eoip-tunnel1 link down
+ 30  1405/07/05 20:57:51  [interface,info]  eoip-tunnel1 link up
+ 31  1405/07/11 07:27:49  [wireless,info]  64:D1:54:74:E5:49@wlan1: lost connection, not polled for too long
+ 32  1405/07/11 07:27:49  [wireless,info]  64:D1:54:74:E5:49@wlan1 established connection on 5700000, SSID PR-PTP-Abasi-ANB
+ 33  1405/07/22 05:07:55  [wireless,info]  64:D1:54:74:E5:49@wlan1: lost connection, not polled for too long
+ 34  1405/07/22 05:07:58  [interface,info]  eoip-tunnel1 link down
+ 35  1405/07/22 05:09:06  [wireless,info]  64:D1:54:74:E5:49@wlan1 established connection on 5700000, SSID PR-PTP-Abasi-ANB
+ 36  1405/07/22 05:09:06  [interface,info]  eoip-tunnel1 link up
+ 37  1405/07/22 05:09:30  [interface,info]  eoip-tunnel1 link down
+ 38  1405/07/22 05:10:00  [interface,info]  eoip-tunnel1 link up
+ 39  1405/07/24 15:11:36  [interface,info]  ether1 link down
+ 40  1405/07/24 15:11:37  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 41  1405/07/26 09:58:50  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 42  1405/07/26 09:58:50  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 43  1405/07/26 09:59:04  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 44  1405/07/26 09:59:04  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 45  1405/07/26 10:14:10  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 46  1405/07/26 10:14:10  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 47  1405/07/26 10:14:22  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 48  1405/07/26 10:14:22  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 49  1405/07/27 20:44:24  [interface,info]  ether1 link down
+ 50  1405/07/27 20:44:42  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 51  1405/07/29 10:27:12  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 52  1405/07/29 10:27:12  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 53  1405/07/29 10:27:22  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  2C:C8:1B:4E:48:66  (ether)
+wlan1  2C:C8:1B:4E:48:67  (wlan)
+bridge1  02:FF:21:EF:5F:9D  (bridge)
+eoip-tunnel1  02:FF:21:EF:5F:9D  (eoip)
+--- /ip arp ---
+wlan1  4C:5E:0C:C5:C8:24  (arp 172.19.1.209)
+bridge1  DC:2C:6E:97:23:92  (arp 192.168.1.253)
+bridge1  3C:E3:6B:E6:62:F7  (arp 192.168.1.77)
+bridge1  3C:EF:8C:0A:85:D8  (arp 192.168.1.2)
+bridge1  38:6B:1C:CD:8E:7A  (arp 192.168.1.1)
+wlan1  4C:5E:0C:C5:C8:24  (arp 172.19.2.49)

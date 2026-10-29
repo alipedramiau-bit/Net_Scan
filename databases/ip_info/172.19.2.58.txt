@@ -1,0 +1,245 @@
+IP: 172.19.2.58
+Collected at: 2026-10-21T06:57:34.986679+00:00
+source: RouterOS API
+identity: PR-PTP-Halvaei
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=78:9A:18:EF:13:EC
+  2  name=wlan1  type=wlan  running=true  mac=78:9A:18:EF:13:ED
+  3  name=bridge1  type=bridge  running=true  mac=78:9A:18:EF:13:EC
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=bridge  ssid=PR-PTP-Hal  band=5ghz-a/n  frequency=5160
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.19.2.58/30  interface=ether1  network=172.19.2.56
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.19.2.57  distance=1
+  2  dst=172.19.2.56/30  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=AB-Halvaie  address=-  interface=wlan1,bridge1
+  2  identity=AB-Mohamadian1  address=-  interface=ether1,bridge1
+  3  identity=MikroTik  address=170.19.1.25  interface=ether1,bridge1
+  4  identity=ParsaRasaneh-SW-Emam-POP  address=172.17.12.106  interface=ether1,bridge1
+  5  identity=PTP-Mohamadian  address=172.19.1.158  interface=ether1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:27:22
+# ساعت دستگاه (خام): 1971-04-07 05:47:39
+# افست اصلاحی (سرور − دستگاه): +486865:09:43
+  1  1405/05/06 21:40:06  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -54, wants bridge
+  2  1405/05/07 03:52:46  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -54
+  3  1405/05/07 08:15:53  [system,info,account]  user su logged in from 185.110.29.183 via api
+  4  1405/05/07 08:15:53  [system,info,account]  user su logged out from 185.110.29.183 via api
+  5  1405/05/07 09:25:10  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -54, wants bridge
+  6  1405/05/08 03:44:46  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -54
+  7  1405/05/08 08:16:23  [system,info,account]  user su logged in from 185.110.29.183 via api
+  8  1405/05/08 08:16:23  [system,info,account]  user su logged out from 185.110.29.183 via api
+  9  1405/05/08 20:48:25  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -56, wants bridge
+ 10  1405/05/09 08:17:02  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 11  1405/05/09 08:17:02  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 12  1405/05/09 18:03:57  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -56
+ 13  1405/05/09 20:11:14  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -53, wants bridge
+ 14  1405/05/10 07:07:12  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -57
+ 15  1405/05/10 08:17:31  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 16  1405/05/10 08:17:31  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 17  1405/05/11 00:50:19  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -51, wants bridge
+ 18  1405/05/11 08:18:03  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 19  1405/05/11 08:18:03  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 20  1405/05/11 10:27:58  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -51
+ 21  1405/05/11 13:24:22  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -56, wants bridge
+ 22  1405/05/11 16:36:22  [interface,info]  ether1 link down
+ 23  1405/05/11 16:36:24  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 24  1405/05/11 18:21:32  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -56
+ 25  1405/05/11 20:36:45  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -55, wants bridge
+ 26  1405/05/12 08:18:42  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 27  1405/05/12 08:18:42  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 28  1405/05/12 10:39:25  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -57
+ 29  1405/05/12 12:54:16  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -56, wants bridge
+ 30  1405/05/12 20:09:12  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -56
+ 31  1405/05/13 08:19:04  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 32  1405/05/13 08:19:04  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 33  1405/05/16 18:48:11  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 34  1405/05/16 18:48:11  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 35  1405/05/17 18:48:43  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 36  1405/05/17 18:48:43  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 37  1405/05/18 18:50:09  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 38  1405/05/18 18:50:09  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 39  1405/05/19 18:51:04  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 40  1405/05/19 18:51:04  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 41  1405/05/20 18:51:57  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 42  1405/05/20 18:51:57  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 43  1405/05/21 18:52:56  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 44  1405/05/21 18:52:56  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 45  1405/05/22 18:53:34  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 46  1405/05/22 18:53:34  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 47  1405/05/23 18:54:36  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 48  1405/05/23 18:54:36  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 49  1405/05/24 18:55:14  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 50  1405/05/24 18:55:14  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 51  1405/05/25 18:56:11  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 52  1405/05/25 18:56:11  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 53  1405/05/26 18:56:57  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 54  1405/05/26 18:56:57  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 55  1405/05/27 18:58:16  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 56  1405/05/27 18:58:16  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 57  1405/05/28 18:59:16  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 58  1405/05/28 18:59:16  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 59  1405/05/29 18:59:59  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 60  1405/05/29 18:59:59  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 61  1405/05/30 19:00:53  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 62  1405/05/30 19:00:53  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 63  1405/05/31 19:01:45  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 64  1405/05/31 19:01:45  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 65  1405/06/01 06:23:31  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -54, wants bridge
+ 66  1405/06/01 13:04:16  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -54
+ 67  1405/06/01 14:03:02  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -53, wants bridge
+ 68  1405/06/01 15:53:48  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -53
+ 69  1405/06/01 16:36:31  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -55, wants bridge
+ 70  1405/06/01 19:02:37  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 71  1405/06/01 19:02:37  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 72  1405/06/02 10:14:32  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -56
+ 73  1405/06/02 13:10:48  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -52, wants bridge
+ 74  1405/06/02 15:21:35  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -52
+ 75  1405/06/02 19:03:37  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 76  1405/06/02 19:03:37  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 77  1405/06/03 08:46:34  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -53, wants bridge
+ 78  1405/06/03 14:50:49  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -53
+ 79  1405/06/03 19:04:50  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 80  1405/06/03 19:04:50  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 81  1405/06/04 08:45:40  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -55, wants bridge
+ 82  1405/06/04 13:01:45  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -55
+ 83  1405/06/04 14:03:18  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -54, wants bridge
+ 84  1405/06/05 04:45:39  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -58
+ 85  1405/06/06 00:41:07  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -56, wants bridge
+ 86  1405/06/07 14:53:28  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -58
+ 87  1405/06/07 16:37:01  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -55, wants bridge
+ 88  1405/06/08 03:42:14  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -55
+ 89  1405/06/08 20:40:41  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -55, wants bridge
+ 90  1405/06/09 03:41:50  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -55
+ 91  1405/06/09 20:48:05  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -55, wants bridge
+ 92  1405/06/10 09:00:37  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -55
+ 93  1405/06/10 10:19:51  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -55, wants bridge
+ 94  1405/06/10 16:04:04  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -54
+ 95  1405/06/11 08:43:45  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -48, wants bridge
+ 96  1405/06/11 09:00:59  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -48
+ 97  1405/06/11 11:13:21  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -53, wants bridge
+ 98  1405/06/11 15:52:50  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -54
+ 99  1405/06/12 08:39:24  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -51, wants bridge
+100  1405/06/15 09:02:47  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -55
+101  1405/06/15 12:56:32  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -55, wants bridge
+102  1405/06/16 03:55:47  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -55
+103  1405/06/16 20:32:35  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -59, wants bridge
+104  1405/06/17 03:47:20  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -59
+105  1405/06/17 20:32:00  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -57, wants bridge
+106  1405/06/18 05:22:45  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -57
+107  1405/06/18 05:55:40  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -53, wants bridge
+108  1405/06/18 08:46:28  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -53
+109  1405/06/18 11:51:25  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -53, wants bridge
+110  1405/06/18 15:49:28  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -53
+111  1405/06/19 08:41:06  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -55, wants bridge
+112  1405/06/19 16:02:09  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -55
+113  1405/06/20 08:40:43  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -55, wants bridge
+114  1405/06/22 10:51:32  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -55
+115  1405/06/22 12:13:15  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -53, wants bridge
+116  1405/06/22 18:59:37  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -53
+117  1405/06/22 20:01:35  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -54, wants bridge
+118  1405/06/23 05:25:11  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -54
+119  1405/06/23 05:26:22  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -52, wants bridge
+120  1405/06/23 06:03:08  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -52
+121  1405/06/23 06:09:12  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -52, wants bridge
+122  1405/06/23 09:15:02  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -52
+123  1405/06/23 09:34:16  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -53, wants bridge
+124  1405/06/23 10:38:32  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -53
+125  1405/06/24 20:38:07  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -56, wants bridge
+126  1405/06/25 03:55:02  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -61
+127  1405/06/25 20:38:19  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -55, wants bridge
+128  1405/06/26 16:09:15  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -57
+129  1405/06/27 08:40:15  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -53, wants bridge
+130  1405/06/27 15:39:15  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -53
+131  1405/06/28 08:36:42  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -54, wants bridge
+132  1405/06/29 07:24:17  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -55
+133  1405/06/29 15:06:14  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -55, wants bridge
+134  1405/06/30 17:19:27  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -55
+135  1405/06/30 18:23:57  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -55, wants bridge
+136  1405/06/31 17:18:57  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -55
+137  1405/06/31 20:57:18  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -56, wants bridge
+138  1405/07/01 04:05:19  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -56
+139  1405/07/01 20:42:00  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -54, wants bridge
+140  1405/07/02 04:10:35  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -54
+141  1405/07/02 20:34:28  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -54, wants bridge
+142  1405/07/03 15:48:50  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -54
+143  1405/07/04 08:33:39  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -54, wants bridge
+144  1405/07/04 16:06:12  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -53
+145  1405/07/05 08:34:27  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -53, wants bridge
+146  1405/07/06 17:38:57  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -54
+147  1405/07/06 20:49:58  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -53, wants bridge
+148  1405/07/07 09:44:32  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -56
+149  1405/07/07 12:54:52  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -52, wants bridge
+150  1405/07/07 17:26:44  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -52
+151  1405/07/07 19:35:01  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -59, wants bridge
+152  1405/07/08 10:38:40  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -59
+153  1405/07/08 13:09:57  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -53, wants bridge
+154  1405/07/09 04:05:15  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -53
+155  1405/07/09 20:39:58  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -59, wants bridge
+156  1405/07/10 03:37:36  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -58
+157  1405/07/10 20:55:40  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -60, wants bridge
+158  1405/07/11 13:51:26  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -55
+159  1405/07/11 13:52:18  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -56, wants bridge
+160  1405/07/11 15:33:15  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -56
+161  1405/07/12 08:39:08  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -53, wants bridge
+162  1405/07/12 15:35:37  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -53
+163  1405/07/13 08:52:56  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -54, wants bridge
+164  1405/07/14 10:55:20  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -55
+165  1405/07/14 14:57:02  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -55, wants bridge
+166  1405/07/14 17:10:16  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -55
+167  1405/07/14 19:50:06  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -54, wants bridge
+168  1405/07/16 17:06:15  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -55
+169  1405/07/16 19:08:16  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -58, wants bridge
+170  1405/07/17 04:11:45  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -58
+171  1405/07/17 20:59:52  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -54, wants bridge
+172  1405/07/18 04:06:08  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -54
+173  1405/07/18 20:32:21  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -55, wants bridge
+174  1405/07/19 16:10:06  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -55
+175  1405/07/20 08:27:34  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -53, wants bridge
+176  1405/07/20 16:06:26  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -55
+177  1405/07/21 08:36:53  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -55, wants bridge
+178  1405/07/22 17:13:07  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -55
+179  1405/07/22 18:07:45  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -55, wants bridge
+180  1405/07/23 19:21:29  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -53
+181  1405/07/23 23:19:20  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -57, wants bridge
+182  1405/07/24 16:30:41  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -55
+183  1405/07/24 18:04:03  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -53, wants bridge
+184  1405/07/25 04:10:50  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -53
+185  1405/07/25 20:31:35  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -60, wants bridge
+186  1405/07/26 04:09:47  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -60
+187  1405/07/26 09:59:05  [system,info,account]  user su logged in from 185.110.29.189 via api
+188  1405/07/26 09:59:05  [system,info,account]  user su logged out from 185.110.29.189 via api
+189  1405/07/26 10:14:23  [system,info,account]  user su logged in from 185.110.29.189 via api
+190  1405/07/26 10:14:23  [system,info,account]  user su logged out from 185.110.29.189 via api
+191  1405/07/26 20:33:34  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -56, wants bridge
+192  1405/07/27 10:03:17  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -59
+193  1405/07/27 11:47:19  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -54, wants bridge
+194  1405/07/27 14:04:50  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -54
+195  1405/07/27 14:05:51  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -54, wants bridge
+196  1405/07/27 15:56:00  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -54
+197  1405/07/28 08:29:14  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -59, wants bridge
+198  1405/07/28 15:34:00  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: disconnected, too many poll timeouts, signal strength -54
+199  1405/07/29 08:47:45  [wireless,info]  2C:C8:1B:74:DD:9B@wlan1: connected, signal strength -55, wants bridge
+200  1405/07/29 10:27:22  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  78:9A:18:EF:13:EC  (ether)
+wlan1  78:9A:18:EF:13:ED  (wlan)
+bridge1  78:9A:18:EF:13:EC  (bridge)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.19.2.57)

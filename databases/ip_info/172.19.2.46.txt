@@ -1,0 +1,74 @@
+IP: 172.19.2.46
+Collected at: 2026-10-21T06:57:34.743207+00:00
+source: RouterOS API
+identity: AB-Abasi3
+device_type: ST
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=2C:C8:1B:47:C5:28
+  2  name=wlan1  type=wlan  running=true  mac=2C:C8:1B:47:C5:29
+  3  name=bridge1  type=bridge  running=true  mac=2C:C8:1B:47:C5:28
+  4  name=eoip-tunnel1  type=eoip  running=true  mac=02:96:A4:24:49:8A
+  5  name=vlan120  type=vlan  running=false  mac=2C:C8:1B:47:C5:29
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=station-bridge  ssid=10094186111-PR-PTP-Abasi  band=5ghz-a/n  frequency=5740
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.19.2.46/30  interface=wlan1  network=172.19.2.44
+  2  address=192.168.88.254/24  interface=bridge1  network=192.168.88.0
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.19.2.45  distance=1
+  2  dst=0.0.0.0/0  gw=192.168.88.1  distance=1
+  3  dst=172.19.2.44/30  gw=wlan1  distance=0
+  4  dst=192.168.88.0/24  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=NET-AB-Ghorbani1  address=-  interface=wlan1
+  2  identity=MikroTik  address=10.201.178.26  interface=wlan1
+  3  identity=ParsaRasaneh-SW-Emam-POP  address=172.17.12.106  interface=wlan1
+  4  identity=ParsaRasaneh-Emam-MP  address=172.17.13.154  interface=wlan1
+  5  identity=-  address=-  interface=ether1,bridge1
+  6  identity=ParsaRasaneh-SW-Main  address=172.17.11.242  interface=eoip-tunnel1,bridge1
+  7  identity=MikroTik  address=172.19.1.209  interface=eoip-tunnel1,bridge1
+  8  identity=PR-PTP-Abasi-Home-AP  address=172.19.2.50  interface=eoip-tunnel1,bridge1
+  9  identity=PR-Abbasi-Router  address=192.168.1.253  interface=eoip-tunnel1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:27:21
+# ساعت دستگاه (خام): 1973-08-20 06:46:40
+# افست اصلاحی (سرور − دستگاه): +466080:10:41
+  1  1405/06/30 11:32:38  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/06/30 11:32:46  [bridge,info]  "bridge1" mac address changed to 2C:C8:1B:47:C5:28
+  3  1405/06/30 11:32:46  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  4  1405/06/30 11:32:48  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/06/30 11:33:28  [wireless,info]  E6:8D:8C:89:63:E1@wlan1 established connection on 5380000, SSID 10094186111-PR-PTP-Abasi
+  6  1405/06/30 11:33:30  [interface,info]  eoip-tunnel1 link up
+  7  1405/06/30 11:33:37  [dhcp,info]  dhcp-client on bridge1 got IP address 192.168.88.254
+  8  1405/07/04 12:31:44  [interface,info]  eoip-tunnel1 link down
+  9  1405/07/04 12:31:47  [interface,info]  eoip-tunnel1 link up
+ 10  1405/07/05 18:52:28  [interface,info]  eoip-tunnel1 link down
+ 11  1405/07/05 18:57:17  [dhcp,critical,error]  dhcp-client on bridge1 lost IP address 192.168.88.254 - lease expired
+ 12  1405/07/05 20:57:58  [interface,info]  eoip-tunnel1 link up
+ 13  1405/07/05 20:58:08  [dhcp,info]  dhcp-client on bridge1 got IP address 192.168.88.254
+ 14  1405/07/26 09:59:03  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 15  1405/07/26 09:59:04  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 16  1405/07/26 10:14:21  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 17  1405/07/26 10:14:22  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 18  1405/07/29 10:27:21  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  2C:C8:1B:47:C5:28  (ether)
+wlan1  2C:C8:1B:47:C5:29  (wlan)
+bridge1  2C:C8:1B:47:C5:28  (bridge)
+eoip-tunnel1  02:96:A4:24:49:8A  (eoip)
+vlan120  2C:C8:1B:47:C5:29  (vlan)
+--- /ip arp ---
+wlan1  4C:5E:0C:C5:C8:24  (arp 172.19.2.45)

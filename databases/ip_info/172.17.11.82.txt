@@ -1,0 +1,135 @@
+IP: 172.17.11.82
+Collected at: 2026-10-21T06:57:27.826802+00:00
+source: RouterOS API
+identity: ParsaRasaneh-Omghazlan
+device_type: Router
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=64:D1:54:4A:0F:13
+  2  name=ether2  type=ether  running=true  mac=64:D1:54:4A:0F:14
+  3  name=ether3  type=ether  running=true  mac=64:D1:54:4A:0F:15
+  4  name=ether4  type=ether  running=true  mac=64:D1:54:4A:0F:16
+  5  name=ether5  type=ether  running=true  mac=64:D1:54:4A:0F:17
+  6  name=21eoip-tunnel1  type=eoip  running=false  mac=02:D2:83:C5:D1:38
+  7  name=22eoip-tunnel1  type=eoip  running=false  mac=02:0A:A5:42:7F:EF
+  8  name=ZT  type=vlan  running=true  mac=64:D1:54:4A:0F:14
+  9  name=ZT1  type=vlan  running=true  mac=64:D1:54:4A:0F:14
+ 10  name=ZT2  type=vlan  running=true  mac=64:D1:54:4A:0F:14
+ 11  name=ZT3-118  type=vlan  running=true  mac=64:D1:54:4A:0F:14
+ 12  name=bridge1  type=bridge  running=true  mac=64:D1:54:4A:0F:14
+ 13  name=bridge2  type=bridge  running=true  mac=64:D1:54:4A:0F:17
+ 14  name=bridge3  type=bridge  running=true  mac=64:D1:54:4A:0F:16
+ 15  name=bridge4  type=bridge  running=true  mac=64:D1:54:4A:0F:15
+ 16  name=int  type=bridge  running=true  mac=02:D2:83:C5:D1:38
+
+----- wireless -----
+(empty)
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=192.168.42.99/29  interface=bridge1  network=192.168.42.96
+  2  address=172.17.11.82/30  interface=ZT3-118  network=172.17.11.80
+  3  address=192.168.1.21/24  interface=ether3  network=192.168.1.0
+  4  address=172.17.11.77/30  interface=ether5  network=172.17.11.76
+  5  address=172.17.11.69/30  interface=ether5  network=172.17.11.68
+  6  address=192.168.31.1/24  interface=bridge2  network=192.168.31.0
+  7  address=192.168.4.3/24  interface=ether5  network=192.168.4.0
+  8  address=192.168.21.1/30  interface=ZT  network=192.168.21.0
+  9  address=192.168.21.5/30  interface=ether1  network=192.168.21.4
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.11.81  distance=1
+  2  dst=172.17.11.80/30  gw=ZT3-118  distance=0
+  3  dst=192.168.1.0/24  gw=bridge4  distance=0
+  4  dst=192.168.4.0/24  gw=bridge2  distance=0
+  5  dst=192.168.21.0/30  gw=bridge2  distance=0
+  6  dst=192.168.21.4/30  gw=bridge4  distance=0
+  7  dst=192.168.31.0/24  gw=bridge2  distance=0
+  8  dst=192.168.42.96/29  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=PR-WIRE  address=192.168.21.6  interface=ether1,bridge4
+  2  identity=Parsa-SW-Zand  address=172.17.11.234  interface=ether2,bridge1
+  3  identity=ParsaRasaneh-PTP-MM  address=192.168.22.1  interface=ether2,bridge1
+  4  identity=ParsaRasaneh-PTP-Toba-ST  address=192.168.22.6  interface=ether2,bridge1
+  5  identity=-  address=-  interface=ether3,bridge4
+  6  identity=06153220022  address=172.17.11.78  interface=ether3,bridge4
+  7  identity=06153220022  address=172.17.11.74  interface=ether4,bridge3
+  8  identity=ParsaRasaneh-ZT  address=192.168.4.1  interface=ether5,bridge2
+  9  identity=MikroTik  address=172.17.11.69  interface=ZT,bridge2
+ 10  identity=MikroTik  address=172.17.11.73  interface=ZT1,bridge3
+ 11  identity=MikroTik  address=2.188.218.249  interface=ZT2,bridge4
+ 12  identity=MikroTik  address=172.17.11.81  interface=ZT3-118
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:12
+# ساعت دستگاه (خام): 2026-10-12 09:43:08
+# افست اصلاحی (سرور − دستگاه): +213:13:04
+  1  1405/07/03 11:57:00  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/03 11:57:00  [bridge,info]  "int" mac address changed to 02:D2:83:C5:D1:38
+  3  1405/07/03 11:57:08  [interface,info]  ZT link up
+  4  1405/07/03 11:57:08  [interface,info]  ZT1 link up
+  5  1405/07/03 11:57:08  [interface,info]  ZT2 link up
+  6  1405/07/03 11:57:08  [interface,info]  ZT3-118 link up
+  7  1405/07/03 11:57:08  [bridge,info]  "bridge1" mac address changed to 64:D1:54:4A:0F:13
+  8  1405/07/03 11:57:08  [bridge,info]  "bridge4" mac address changed to 64:D1:54:4A:0F:15
+  9  1405/07/03 11:57:08  [bridge,info]  "bridge3" mac address changed to 64:D1:54:4A:0F:16
+ 10  1405/07/03 11:57:08  [bridge,info]  "bridge2" mac address changed to 64:D1:54:4A:0F:17
+ 11  1405/07/03 11:57:09  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1,ether2
+ 12  1405/07/03 11:57:09  [poe-out,info]  ether2 detected poe-out status: on
+ 13  1405/07/03 11:57:10  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 14  1405/07/03 11:57:10  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 15  1405/07/03 11:57:10  [interface,info]  ether4 link up (speed 100M, full duplex)
+ 16  1405/07/03 11:57:12  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 17  1405/07/03 11:57:17  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 18  1405/07/03 11:57:36  [interface,info]  ether1 link down
+ 19  1405/07/03 11:57:39  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 20  1405/07/03 11:58:01  [interface,info]  ether1 link down
+ 21  1405/07/03 11:58:10  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 22  1405/07/12 22:19:31  [system,info,account]  user su logged in from 185.110.29.249 via winbox
+ 23  1405/07/12 22:19:51  [system,info]  device changed by su
+ 24  1405/07/12 22:20:11  [system,info]  config changed by su
+ 25  1405/07/12 22:20:41  [system,info]  device changed by su
+ 26  1405/07/12 22:21:03  [bridge,info]  "bridge1" mac address changed to 64:D1:54:4A:0F:14
+ 27  1405/07/12 22:21:03  [system,info]  bridge port changed by su
+ 28  1405/07/12 22:22:06  [system,info,account]  user su logged out from 185.110.29.249 via winbox
+ 29  1405/07/12 22:24:12  [system,info,account]  user su logged in from 185.110.29.203 via winbox
+ 30  1405/07/12 22:26:06  [system,info,account]  user su logged out from 185.110.29.203 via winbox
+ 31  1405/07/12 22:27:13  [system,info,account]  user su logged in from 185.110.29.203 via winbox
+ 32  1405/07/12 22:27:55  [system,info,account]  user su logged out from 185.110.29.203 via winbox
+ 33  1405/07/25 00:47:45  [poe-out,info]  ether4 detected poe-out status: on
+ 34  1405/07/25 00:47:47  [poe-out,warning]  ether4 detected poe-out status: current_too_low
+ 35  1405/07/25 00:47:48  [poe-out,info]  ether4 detected poe-out status: wait_for_load
+ 36  1405/07/25 10:44:44  [poe-out,info]  ether4 detected poe-out status: on
+ 37  1405/07/25 10:44:47  [poe-out,warning]  ether4 detected poe-out status: current_too_low
+ 38  1405/07/25 10:44:48  [poe-out,info]  ether4 detected poe-out status: wait_for_load
+ 39  1405/07/26 09:57:50  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 40  1405/07/26 09:57:51  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 41  1405/07/26 10:13:21  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 42  1405/07/26 10:13:22  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 43  1405/07/29 10:26:12  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  64:D1:54:4A:0F:13  (ether)
+ether2  64:D1:54:4A:0F:14  (ether)
+ether3  64:D1:54:4A:0F:15  (ether)
+ether4  64:D1:54:4A:0F:16  (ether)
+ether5  64:D1:54:4A:0F:17  (ether)
+21eoip-tunnel1  02:D2:83:C5:D1:38  (eoip)
+22eoip-tunnel1  02:0A:A5:42:7F:EF  (eoip)
+ZT  64:D1:54:4A:0F:14  (vlan)
+ZT1  64:D1:54:4A:0F:14  (vlan)
+ZT2  64:D1:54:4A:0F:14  (vlan)
+ZT3-118  64:D1:54:4A:0F:14  (vlan)
+bridge1  64:D1:54:4A:0F:14  (bridge)
+bridge2  64:D1:54:4A:0F:17  (bridge)
+bridge3  64:D1:54:4A:0F:16  (bridge)
+bridge4  64:D1:54:4A:0F:15  (bridge)
+int  02:D2:83:C5:D1:38  (bridge)
+--- /ip arp ---
+ZT3-118  4C:5E:0C:C5:C8:24  (arp 172.17.11.81)
+bridge4  6C:3B:6B:32:56:CD  (arp 192.168.21.6)

@@ -1,0 +1,63 @@
+IP: 172.17.12.90
+Collected at: 2026-10-21T06:57:29.109757+00:00
+source: RouterOS API
+identity: ParsaRasaneh-PTP-Toba-ST
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=78:9A:18:60:06:23
+  2  name=wlan1  type=wlan  running=true  mac=78:9A:18:60:06:24
+  3  name=bridge1  type=bridge  running=true  mac=78:9A:18:60:06:24
+  4  name=vlan1  type=vlan  running=false  mac=78:9A:18:60:06:24
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=bridge  ssid=PR-PTP-Rumaila-Toba  band=5ghz-onlyn  frequency=5340
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=192.168.22.6/24  interface=wlan1  network=192.168.22.0
+  2  address=172.17.12.90/29  interface=ether1  network=172.17.12.88
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.12.89  distance=1
+  2  dst=172.17.12.88/29  gw=bridge1  distance=0
+  3  dst=192.168.22.0/24  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=PR-PTP-Golestan-AP  address=172.17.12.91  interface=wlan1,bridge1
+  2  identity=RouterOS  address=172.19.2.106  interface=wlan1,bridge1
+  3  identity=121  address=172.19.2.107  interface=wlan1,bridge1
+  4  identity=PR-PTP-MR-ITAp  address=172.19.2.108  interface=wlan1,bridge1
+  5  identity=MIK-HET  address=172.19.2.109  interface=wlan1,bridge1
+  6  identity=PR-WIRE  address=192.168.1.99  interface=wlan1,bridge1
+  7  identity=NET-AB-Farhaniasl1  address=-  interface=ether1,bridge1
+  8  identity=PR-Rumaila  address=172.17.11.154  interface=ether1,bridge1
+  9  identity=Parsa-SW-Rumaila  address=172.17.11.230  interface=ether1,bridge1
+ 10  identity=MikroTik  address=172.17.12.89  interface=ether1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:23
+# ساعت دستگاه (خام): 1970-03-20 00:19:10
+# افست اصلاحی (سرور − دستگاه): +496062:37:13
+  1  1405/07/25 10:07:45  [system,error,critical]  router rebooted without proper shutdown, probably power outage
+  2  1405/07/25 10:07:47  [bridge,info]  "bridge1" mac address changed to 78:9A:18:60:06:24
+  3  1405/07/25 10:07:48  [wireless,info]  78:9A:18:A8:45:15@wlan1: connected, signal strength -44
+  4  1405/07/25 10:09:41  [interface,info]  ether1 link up (speed 1G, full duplex)
+  5  1405/07/26 09:57:54  [system,info,account]  user su logged in from 185.110.29.189 via api
+  6  1405/07/26 09:57:55  [system,info,account]  user su logged out from 185.110.29.189 via api
+  7  1405/07/26 10:13:22  [system,info,account]  user su logged in from 185.110.29.189 via api
+  8  1405/07/26 10:13:22  [system,info,account]  user su logged out from 185.110.29.189 via api
+  9  1405/07/29 10:26:23  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  78:9A:18:60:06:23  (ether)
+wlan1  78:9A:18:60:06:24  (wlan)
+bridge1  78:9A:18:60:06:24  (bridge)
+vlan1  78:9A:18:60:06:24  (vlan)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.17.12.89)

@@ -1,0 +1,135 @@
+IP: 172.172.171.54
+Collected at: 2026-10-21T06:57:31.736342+00:00
+source: RouterOS API
+identity: ParsaRasaneh-Choebdeh8
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=6C:3B:6B:9C:62:E7
+  2  name=10094186102-PR-Choebdeh8  type=wlan  running=true  mac=02:00:00:AA:00:00
+  3  name=wlan1  type=wlan  running=true  mac=6C:3B:6B:9C:62:E8
+  4  name=131  type=vlan  running=true  mac=6C:3B:6B:9C:62:E7
+  5  name=bridge1  type=bridge  running=true  mac=6C:3B:6B:9C:62:E7
+  6  name=smart1216  type=vlan  running=true  mac=6C:3B:6B:9C:62:E7
+  7  name=wds1  type=wds  running=true  mac=02:00:00:AA:00:00
+  8  name=wds2  type=wds  running=true  mac=02:00:00:AA:00:00
+  9  name=wds3  type=wds  running=true  mac=6C:3B:6B:9C:62:E8
+ 10  name=wds4  type=wds  running=true  mac=6C:3B:6B:9C:62:E8
+ 11  name=wds5  type=wds  running=true  mac=6C:3B:6B:9C:62:E8
+ 12  name=wds6  type=wds  running=true  mac=6C:3B:6B:9C:62:E8
+ 13  name=wds7  type=wds  running=true  mac=02:00:00:AA:00:00
+ 14  name=wds8  type=wds  running=true  mac=02:00:00:AA:00:00
+ 15  name=wds9  type=wds  running=true  mac=02:00:00:AA:00:00
+ 16  name=wds10  type=wds  running=true  mac=02:00:00:AA:00:00
+ 17  name=wds11  type=wds  running=true  mac=6C:3B:6B:9C:62:E8
+
+----- wireless -----
+=== /interface wireless ===
+name=10094186102-PR-Choebdeh8  mode=ap-bridge  ssid=10094186102-PR-Choebdeh8  band=-  frequency=-
+name=wlan1  mode=ap-bridge  ssid=ParsaRasaneh-Choebdeh8  band=5ghz-a/n  frequency=5760
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.172.171.54/30  interface=131  network=172.172.171.52
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.172.171.53  distance=1
+  2  dst=172.172.171.52/30  gw=131  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=Parsa-SW-CH  address=170.17.11.250  interface=ether1
+  2  identity=sajad-hasannezhadiyan  address=192.168.1.20  interface=10094186102-PR-Choebdeh8,bridge1
+  3  identity=MikroTik  address=-  interface=131
+  4  identity=MikroTik  address=170.17.11.9  interface=131
+  5  identity=ParsaRasaneh-PTP-Hasti-St  address=172.17.12.10  interface=131
+  6  identity=PR-PTP-NaftKav-!01-Dakal-AP  address=172.17.12.11  interface=131
+  7  identity=PR-ROuter-Koteshanof  address=172.17.12.12  interface=131
+  8  identity=ParsaRasaneh-Man-K3  address=172.17.12.86  interface=131
+  9  identity=PR-PTP-Khazalabad  address=172.19.2.98  interface=131
+ 10  identity=PR-Choebdeh  address=172.172.171.2  interface=131
+ 11  identity=PR-Choebdeh5  address=172.172.171.6  interface=131
+ 12  identity=PR-PTP-CH-DSL-AP  address=172.172.171.10  interface=131
+ 13  identity=Router-Manage-Dslam-CH-Shahrak  address=172.172.171.12  interface=131
+ 14  identity=ParsaRasaneh-Choebdeh3  address=172.172.171.18  interface=131
+ 15  identity=Parsa-POWERBOX-CH  address=172.172.171.19  interface=131
+ 16  identity=ParsaRasaneh-Choebdeh10-MP  address=172.172.171.38  interface=131
+ 17  identity=PR-Choebdeh15  address=172.172.171.78  interface=131
+ 18  identity=PR-PTP-Bazar-ST  address=172.172.172.27  interface=131
+ 19  identity=ParsaRasaneh-Arvand-ACC  address=172.172.172.50  interface=131
+ 20  identity=ParsaRasaneh-PTP-Arvand-ST  address=172.172.172.51  interface=131
+ 21  identity=ParsaRasaneh-Arvand-MP  address=172.172.172.66  interface=131
+ 22  identity=MikroTik  address=172.172.172.70  interface=131
+ 23  identity=ParsaRasaneh-PTP-ICT-AP  address=172.172.172.115  interface=131
+ 24  identity=ParsaRasaneh-PTP-Manyohi-N-ST  address=172.172.172.116  interface=131
+ 25  identity=PR-MAN-K  address=172.172.172.117  interface=131
+ 26  identity=POP-Center-ST  address=172.172.172.146  interface=131
+ 27  identity=ParsaRasanerh-Man-K1  address=172.172.177.46  interface=131
+ 28  identity=PR-Man-K2  address=172.172.177.50  interface=131
+ 29  identity=PR-PTP-MNEW_Bridge  address=172.172.177.58  interface=131
+ 30  identity=ParsaRasaneh-PTP-CH-ST  address=172.172.177.59  interface=131
+ 31  identity=ParsaRasaneh-khezr  address=172.172.177.90  interface=131
+ 32  identity=ParsaRasaneh-Khezr2  address=172.172.177.98  interface=131
+ 33  identity=Hasan-asvadi1  address=-  interface=smart1216,bridge1
+ 34  identity=ParsaRasaneh-Choebdeh3  address=-  interface=smart1216,bridge1
+ 35  identity=mohammad-nejahinezhad  address=-  interface=smart1216,bridge1
+ 36  identity=suryeh-tomayer  address=-  interface=smart1216,bridge1
+ 37  identity=CHR-Tunnel-PPPoE  address=fe80::af:4cff:fe60:460b  interface=smart1216,bridge1
+ 38  identity=mohammadjavad-rezanezhad4  address=fe80::e68d:8cff:fe8b:ce33  interface=smart1216,bridge1
+ 39  identity=Parsa-POWERBOX-CH  address=192.168.88.2  interface=smart1216,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:53
+# ساعت دستگاه (خام): 2026-05-18 12:27:01
+# افست اصلاحی (سرور − دستگاه): +3738:29:52
+  1  1405/07/28 21:36:12  [system,info]  router rebooted
+  2  1405/07/28 21:36:13  [interface,info]  131 link up
+  3  1405/07/28 21:36:13  [interface,info]  smart1216 link up
+  4  1405/07/28 21:36:13  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:9C:62:E7
+  5  1405/07/28 21:36:15  [interface,info]  ether1 link up (speed 100M, full duplex)
+  6  1405/07/28 21:36:15  [wireless,info]  wlan1: pre-shared key authentication not enabled, disable WPS
+  7  1405/07/28 21:36:23  [wireless,info]  04:18:D6:5A:7A:22@10094186102-PR-Choebdeh8: connected, signal strength -66, wants WDS
+  8  1405/07/28 21:36:23  [wireless,info]  44:D9:E7:24:F8:87@10094186102-PR-Choebdeh8: connected, signal strength -61, wants WDS
+  9  1405/07/28 21:36:29  [wireless,info]  80:2A:A8:0C:CC:DA@wlan1: connected, signal strength -52, wants WDS
+ 10  1405/07/28 21:36:37  [wireless,info]  44:D9:E7:24:4E:14@wlan1: connected, signal strength -76, wants WDS
+ 11  1405/07/28 21:36:40  [wireless,info]  80:2A:A8:32:FF:2B@wlan1: connected, signal strength -77, wants WDS
+ 12  1405/07/28 21:36:40  [wireless,info]  80:2A:A8:32:FB:F9@wlan1: connected, signal strength -77, wants WDS
+ 13  1405/07/28 21:36:40  [wireless,info]  04:18:D6:FC:08:E5@10094186102-PR-Choebdeh8: connected, signal strength -67, wants WDS
+ 14  1405/07/28 21:36:40  [wireless,info]  44:D9:E7:D0:0D:69@10094186102-PR-Choebdeh8: connected, signal strength -65, wants WDS
+ 15  1405/07/28 21:36:40  [wireless,info]  C4:AD:34:AA:49:BB@10094186102-PR-Choebdeh8: connected, signal strength -71, wants bridge
+ 16  1405/07/28 21:36:40  [wireless,info]  44:D9:E7:D0:14:A6@10094186102-PR-Choebdeh8: connected, signal strength -78, wants WDS
+ 17  1405/07/28 21:36:41  [wireless,info]  6C:3B:6B:A4:3E:C7@10094186102-PR-Choebdeh8: connected, signal strength -59, wants bridge
+ 18  1405/07/28 21:36:41  [wireless,info]  44:D9:E7:24:4E:8A@10094186102-PR-Choebdeh8: connected, signal strength -78, wants WDS
+ 19  1405/07/28 21:36:42  [wireless,info]  2C:C8:1B:B1:F2:6E@10094186102-PR-Choebdeh8: connected, signal strength -63, wants bridge
+ 20  1405/07/28 21:36:44  [wireless,info]  F4:1E:57:49:69:2F@wlan1: connected, signal strength -63, wants bridge
+ 21  1405/07/28 21:37:01  [wireless,info]  24:A4:3C:BA:9D:AF@wlan1: connected, signal strength -69, wants WDS
+ 22  1405/07/28 21:37:19  [wireless,info]  00:27:22:28:16:E1@10094186102-PR-Choebdeh8: connected, signal strength -67
+ 23  1405/07/28 21:47:31  [wireless,info]  2C:C8:1B:B1:F2:6E@10094186102-PR-Choebdeh8: disconnected, extensive data loss, signal strength -63
+ 24  1405/07/28 21:52:01  [wireless,info]  2C:C8:1B:B1:F2:6E@10094186102-PR-Choebdeh8: connected, signal strength -62, wants bridge
+ 25  1405/07/28 22:35:56  [wireless,info]  2C:C8:1B:B1:F2:6E@10094186102-PR-Choebdeh8: disconnected, extensive data loss, signal strength -62
+ 26  1405/07/29 09:21:54  [wireless,info]  2C:C8:1B:B1:F2:6E@10094186102-PR-Choebdeh8: connected, signal strength -59, wants bridge
+ 27  1405/07/29 10:26:52  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  6C:3B:6B:9C:62:E7  (ether)
+10094186102-PR-Choebdeh8  02:00:00:AA:00:00  (wlan)
+wlan1  6C:3B:6B:9C:62:E8  (wlan)
+131  6C:3B:6B:9C:62:E7  (vlan)
+bridge1  6C:3B:6B:9C:62:E7  (bridge)
+smart1216  6C:3B:6B:9C:62:E7  (vlan)
+wds1  02:00:00:AA:00:00  (wds)
+wds2  02:00:00:AA:00:00  (wds)
+wds3  6C:3B:6B:9C:62:E8  (wds)
+wds4  6C:3B:6B:9C:62:E8  (wds)
+wds5  6C:3B:6B:9C:62:E8  (wds)
+wds6  6C:3B:6B:9C:62:E8  (wds)
+wds7  02:00:00:AA:00:00  (wds)
+wds8  02:00:00:AA:00:00  (wds)
+wds9  02:00:00:AA:00:00  (wds)
+wds10  02:00:00:AA:00:00  (wds)
+wds11  6C:3B:6B:9C:62:E8  (wds)
+--- /ip arp ---
+131  4C:5E:0C:C5:C8:24  (arp 172.172.171.53)

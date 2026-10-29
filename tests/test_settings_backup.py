@@ -24,9 +24,11 @@ class SettingsAndBackupTests(unittest.TestCase):
         self.assertIsNone(db.get_setting("theme", db_path=self.db_path))
         self.assertEqual(db.get_setting("theme", "dark", db_path=self.db_path), "dark")
 
-        # Set and get
+        # Set and get (set_setting also returns an updated_at timestamp)
         res = db.set_setting("theme", "emerald", db_path=self.db_path)
-        self.assertEqual(res, {"key": "theme", "value": "emerald"})
+        self.assertEqual(res["key"], "theme")
+        self.assertEqual(res["value"], "emerald")
+        self.assertIn("updated_at", res)
         self.assertEqual(db.get_setting("theme", db_path=self.db_path), "emerald")
 
         # Update existing

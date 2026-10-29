@@ -1,0 +1,246 @@
+IP: 172.17.13.83
+Collected at: 2026-10-21T06:57:30.420532+00:00
+source: RouterOS API
+identity: ParsaRasaneh-Maghbol-ST
+device_type: ST
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=E4:8D:8C:71:51:38
+  2  name=wlan1  type=wlan  running=true  mac=E4:8D:8C:71:51:39
+  3  name=bridge1  type=bridge  running=true  mac=E4:8D:8C:71:51:38
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=station-bridge  ssid=10094186181-PR-Zol-To-Mag  band=5ghz-a/n  frequency=5500
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.13.83/29  interface=ether1  network=172.17.13.80
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.13.81  distance=1
+  2  dst=172.17.13.80/29  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=Parsa-SW-Zand  address=172.17.11.234  interface=wlan1,bridge1
+  2  identity=MikroTik  address=172.17.13.81  interface=wlan1,bridge1
+  3  identity=ParsaRasaneh-PTP-Zol-To-Maghbol  address=172.17.13.82  interface=wlan1,bridge1
+  4  identity=ParsaRasaneh-Sheteit  address=172.17.13.84  interface=ether1,bridge1
+  5  identity=ParsaRasaneh-Markazi1  address=172.17.13.85  interface=ether1,bridge1
+  6  identity=ParsaRasaneh-SW-Maghbol  address=172.17.13.86  interface=ether1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:36
+# ساعت دستگاه (خام): 2026-07-14 16:30:58
+# افست اصلاحی (سرور − دستگاه): +2366:25:38
+  1  1405/07/07 03:49:58  [interface,info]  ether1 link up (speed 100M, full duplex)
+  2  1405/07/07 07:24:02  [interface,info]  ether1 link down
+  3  1405/07/07 07:24:03  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/07 07:24:04  [interface,info]  ether1 link down
+  5  1405/07/07 07:24:05  [interface,info]  ether1 link up (speed 100M, full duplex)
+  6  1405/07/07 07:25:04  [interface,info]  ether1 link down
+  7  1405/07/07 07:25:07  [interface,info]  ether1 link up (speed 100M, full duplex)
+  8  1405/07/07 07:25:13  [interface,info]  ether1 link down
+  9  1405/07/07 07:25:19  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 10  1405/07/07 07:25:20  [interface,info]  ether1 link down
+ 11  1405/07/07 07:25:24  [interface,info]  ether1 link up (speed 10M, full duplex)
+ 12  1405/07/15 19:28:55  [wireless,info]  6C:3B:6B:C8:CD:59@wlan1: lost connection, synchronization timeout
+ 13  1405/07/15 19:32:04  [wireless,info]  6C:3B:6B:C8:CD:59@wlan1 established connection on 5460000, SSID 10094186181-PR-Zol-To-Mag
+ 14  1405/07/15 19:32:15  [wireless,info]  6C:3B:6B:C8:CD:59@wlan1: lost connection, synchronization timeout
+ 15  1405/07/15 19:41:43  [wireless,info]  6C:3B:6B:C8:CD:59@wlan1 established connection on 5460000, SSID 10094186181-PR-Zol-To-Mag
+ 16  1405/07/21 02:56:01  [interface,info]  ether1 link down
+ 17  1405/07/21 02:56:08  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 18  1405/07/21 02:56:10  [interface,info]  ether1 link down
+ 19  1405/07/21 02:56:13  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 20  1405/07/21 02:56:15  [interface,info]  ether1 link down
+ 21  1405/07/21 02:56:20  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 22  1405/07/21 02:56:21  [interface,info]  ether1 link down
+ 23  1405/07/21 02:59:49  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 24  1405/07/21 07:26:02  [interface,info]  ether1 link down
+ 25  1405/07/21 07:26:06  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 26  1405/07/21 07:33:16  [interface,info]  ether1 link down
+ 27  1405/07/21 07:33:17  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 28  1405/07/21 07:34:21  [interface,info]  ether1 link down
+ 29  1405/07/21 07:34:23  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 30  1405/07/21 07:35:20  [interface,info]  ether1 link down
+ 31  1405/07/21 07:35:24  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 32  1405/07/21 07:35:27  [interface,info]  ether1 link down
+ 33  1405/07/21 07:35:29  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 34  1405/07/21 07:35:31  [interface,info]  ether1 link down
+ 35  1405/07/21 07:35:32  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 36  1405/07/21 07:35:42  [interface,info]  ether1 link down
+ 37  1405/07/21 07:35:43  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 38  1405/07/21 07:36:05  [interface,info]  ether1 link down
+ 39  1405/07/21 07:36:06  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 40  1405/07/21 09:10:15  [interface,info]  ether1 link down
+ 41  1405/07/21 10:38:38  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 42  1405/07/21 10:38:44  [interface,info]  ether1 link down
+ 43  1405/07/21 10:38:45  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 44  1405/07/21 10:39:22  [interface,info]  ether1 link down
+ 45  1405/07/21 10:39:26  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 46  1405/07/21 10:54:51  [interface,info]  ether1 link down
+ 47  1405/07/21 10:57:43  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 48  1405/07/21 10:57:56  [interface,info]  ether1 link down
+ 49  1405/07/21 11:04:46  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 50  1405/07/21 11:04:47  [interface,info]  ether1 link down
+ 51  1405/07/21 11:05:32  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 52  1405/07/21 11:05:34  [interface,info]  ether1 link down
+ 53  1405/07/21 11:06:48  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 54  1405/07/21 11:08:06  [interface,info]  ether1 link down
+ 55  1405/07/21 11:08:14  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 56  1405/07/21 11:08:15  [interface,info]  ether1 link down
+ 57  1405/07/21 11:08:20  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 58  1405/07/21 11:08:21  [interface,info]  ether1 link down
+ 59  1405/07/21 11:08:22  [interface,info]  ether1 link up (speed 10M, full duplex)
+ 60  1405/07/21 11:08:23  [interface,info]  ether1 link down
+ 61  1405/07/21 11:08:24  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 62  1405/07/21 11:08:25  [interface,info]  ether1 link down
+ 63  1405/07/21 11:08:30  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 64  1405/07/21 11:08:31  [interface,info]  ether1 link down
+ 65  1405/07/21 11:08:32  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 66  1405/07/21 11:08:33  [interface,info]  ether1 link down
+ 67  1405/07/21 11:08:40  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 68  1405/07/21 11:08:41  [interface,info]  ether1 link down
+ 69  1405/07/21 11:08:48  [interface,info]  ether1 link up (speed 10M, full duplex)
+ 70  1405/07/21 11:08:49  [interface,info]  ether1 link down
+ 71  1405/07/21 11:08:51  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 72  1405/07/21 11:08:52  [interface,info]  ether1 link down
+ 73  1405/07/21 11:08:54  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 74  1405/07/21 11:21:36  [interface,info]  ether1 link down
+ 75  1405/07/21 11:44:42  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 76  1405/07/21 11:45:40  [interface,info]  ether1 link down
+ 77  1405/07/21 11:45:42  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 78  1405/07/21 12:01:29  [interface,info]  ether1 link down
+ 79  1405/07/21 12:01:32  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 80  1405/07/21 20:04:15  [interface,info]  ether1 link down
+ 81  1405/07/21 20:04:16  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 82  1405/07/21 20:04:25  [interface,info]  ether1 link down
+ 83  1405/07/21 20:04:26  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 84  1405/07/21 20:04:37  [interface,info]  ether1 link down
+ 85  1405/07/21 20:04:39  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 86  1405/07/21 21:53:07  [interface,info]  ether1 link down
+ 87  1405/07/21 21:53:09  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 88  1405/07/21 22:00:02  [interface,info]  ether1 link down
+ 89  1405/07/21 22:00:03  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 90  1405/07/21 22:00:04  [interface,info]  ether1 link down
+ 91  1405/07/21 22:00:05  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 92  1405/07/21 22:00:14  [interface,info]  ether1 link down
+ 93  1405/07/21 22:00:15  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 94  1405/07/21 22:00:16  [interface,info]  ether1 link down
+ 95  1405/07/21 22:00:17  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 96  1405/07/21 22:43:35  [interface,info]  ether1 link down
+ 97  1405/07/21 22:44:48  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 98  1405/07/22 08:57:58  [interface,info]  ether1 link down
+ 99  1405/07/22 08:58:01  [interface,info]  ether1 link up (speed 100M, full duplex)
+100  1405/07/22 08:58:05  [interface,info]  ether1 link down
+101  1405/07/22 08:58:06  [interface,info]  ether1 link up (speed 100M, full duplex)
+102  1405/07/22 08:58:07  [interface,info]  ether1 link down
+103  1405/07/22 08:58:09  [interface,info]  ether1 link up (speed 100M, full duplex)
+104  1405/07/22 08:59:27  [interface,info]  ether1 link down
+105  1405/07/22 08:59:30  [interface,info]  ether1 link up (speed 100M, full duplex)
+106  1405/07/22 08:59:31  [interface,info]  ether1 link down
+107  1405/07/22 08:59:32  [interface,info]  ether1 link up (speed 100M, full duplex)
+108  1405/07/22 08:59:33  [interface,info]  ether1 link down
+109  1405/07/22 08:59:35  [interface,info]  ether1 link up (speed 100M, full duplex)
+110  1405/07/22 08:59:38  [interface,info]  ether1 link down
+111  1405/07/22 08:59:40  [interface,info]  ether1 link up (speed 100M, full duplex)
+112  1405/07/22 09:15:26  [interface,info]  ether1 link down
+113  1405/07/22 10:44:35  [interface,info]  ether1 link up (speed 100M, full duplex)
+114  1405/07/22 12:35:02  [interface,info]  ether1 link down
+115  1405/07/22 12:35:07  [interface,info]  ether1 link up (speed 100M, full duplex)
+116  1405/07/22 12:35:19  [interface,info]  ether1 link down
+117  1405/07/22 12:35:28  [interface,info]  ether1 link up (speed 100M, full duplex)
+118  1405/07/22 12:35:31  [interface,info]  ether1 link down
+119  1405/07/22 12:35:34  [interface,info]  ether1 link up (speed 100M, full duplex)
+120  1405/07/22 12:36:19  [interface,info]  ether1 link down
+121  1405/07/22 12:36:22  [interface,info]  ether1 link up (speed 100M, full duplex)
+122  1405/07/22 12:41:21  [interface,info]  ether1 link down
+123  1405/07/22 12:41:25  [interface,info]  ether1 link up (speed 100M, full duplex)
+124  1405/07/22 12:41:26  [interface,info]  ether1 link down
+125  1405/07/22 12:41:27  [interface,info]  ether1 link up (speed 100M, full duplex)
+126  1405/07/22 12:41:28  [interface,info]  ether1 link down
+127  1405/07/22 12:41:29  [interface,info]  ether1 link up (speed 100M, full duplex)
+128  1405/07/23 11:17:55  [interface,info]  ether1 link down
+129  1405/07/23 11:17:56  [interface,info]  ether1 link up (speed 100M, full duplex)
+130  1405/07/23 11:17:57  [interface,info]  ether1 link down
+131  1405/07/23 11:17:58  [interface,info]  ether1 link up (speed 100M, full duplex)
+132  1405/07/23 11:21:55  [interface,info]  ether1 link down
+133  1405/07/23 11:21:56  [interface,info]  ether1 link up (speed 100M, full duplex)
+134  1405/07/23 11:22:17  [interface,info]  ether1 link down
+135  1405/07/23 11:22:18  [interface,info]  ether1 link up (speed 100M, full duplex)
+136  1405/07/23 11:24:45  [interface,info]  ether1 link down
+137  1405/07/23 11:24:46  [interface,info]  ether1 link up (speed 100M, full duplex)
+138  1405/07/23 11:24:56  [interface,info]  ether1 link down
+139  1405/07/23 11:24:58  [interface,info]  ether1 link up (speed 100M, full duplex)
+140  1405/07/23 11:25:06  [interface,info]  ether1 link down
+141  1405/07/23 11:25:07  [interface,info]  ether1 link up (speed 100M, full duplex)
+142  1405/07/23 11:25:08  [interface,info]  ether1 link down
+143  1405/07/23 11:25:09  [interface,info]  ether1 link up (speed 100M, full duplex)
+144  1405/07/23 11:25:22  [interface,info]  ether1 link down
+145  1405/07/23 11:25:23  [interface,info]  ether1 link up (speed 100M, full duplex)
+146  1405/07/23 11:25:35  [interface,info]  ether1 link down
+147  1405/07/23 11:25:36  [interface,info]  ether1 link up (speed 100M, full duplex)
+148  1405/07/23 11:25:51  [interface,info]  ether1 link down
+149  1405/07/23 11:25:53  [interface,info]  ether1 link up (speed 100M, full duplex)
+150  1405/07/23 11:26:06  [interface,info]  ether1 link down
+151  1405/07/23 11:26:07  [interface,info]  ether1 link up (speed 100M, full duplex)
+152  1405/07/23 11:26:28  [interface,info]  ether1 link down
+153  1405/07/23 11:26:30  [interface,info]  ether1 link up (speed 100M, full duplex)
+154  1405/07/23 11:27:40  [interface,info]  ether1 link down
+155  1405/07/23 11:27:42  [interface,info]  ether1 link up (speed 100M, full duplex)
+156  1405/07/23 11:32:34  [interface,info]  ether1 link down
+157  1405/07/23 11:32:35  [interface,info]  ether1 link up (speed 100M, full duplex)
+158  1405/07/23 11:50:59  [interface,info]  ether1 link down
+159  1405/07/23 11:51:03  [interface,info]  ether1 link up (speed 100M, full duplex)
+160  1405/07/23 11:53:46  [interface,info]  ether1 link down
+161  1405/07/23 11:53:48  [interface,info]  ether1 link up (speed 100M, full duplex)
+162  1405/07/23 11:53:49  [interface,info]  ether1 link down
+163  1405/07/23 11:53:50  [interface,info]  ether1 link up (speed 100M, full duplex)
+164  1405/07/23 12:01:44  [interface,info]  ether1 link down
+165  1405/07/23 12:01:45  [interface,info]  ether1 link up (speed 100M, full duplex)
+166  1405/07/23 12:01:46  [interface,info]  ether1 link down
+167  1405/07/23 12:01:47  [interface,info]  ether1 link up (speed 100M, full duplex)
+168  1405/07/23 12:04:33  [interface,info]  ether1 link down
+169  1405/07/23 12:04:34  [interface,info]  ether1 link up (speed 100M, full duplex)
+170  1405/07/23 12:04:36  [interface,info]  ether1 link down
+171  1405/07/23 12:04:38  [interface,info]  ether1 link up (speed 100M, full duplex)
+172  1405/07/23 12:04:40  [interface,info]  ether1 link down
+173  1405/07/23 12:04:41  [interface,info]  ether1 link up (speed 100M, full duplex)
+174  1405/07/23 12:04:42  [interface,info]  ether1 link down
+175  1405/07/23 12:04:44  [interface,info]  ether1 link up (speed 100M, full duplex)
+176  1405/07/23 12:09:32  [interface,info]  ether1 link down
+177  1405/07/23 12:09:33  [interface,info]  ether1 link up (speed 100M, full duplex)
+178  1405/07/23 12:11:47  [interface,info]  ether1 link down
+179  1405/07/23 12:11:49  [interface,info]  ether1 link up (speed 100M, full duplex)
+180  1405/07/23 12:17:51  [interface,info]  ether1 link down
+181  1405/07/23 12:17:54  [interface,info]  ether1 link up (speed 100M, full duplex)
+182  1405/07/24 11:37:40  [interface,info]  ether1 link down
+183  1405/07/24 11:37:41  [interface,info]  ether1 link up (speed 100M, full duplex)
+184  1405/07/24 11:37:42  [interface,info]  ether1 link down
+185  1405/07/24 11:37:45  [interface,info]  ether1 link up (speed 100M, full duplex)
+186  1405/07/24 11:37:48  [interface,info]  ether1 link down
+187  1405/07/24 11:37:50  [interface,info]  ether1 link up (speed 100M, full duplex)
+188  1405/07/24 11:38:00  [interface,info]  ether1 link down
+189  1405/07/24 11:38:07  [interface,info]  ether1 link up (speed 100M, full duplex)
+190  1405/07/24 11:38:08  [interface,info]  ether1 link down
+191  1405/07/24 11:38:11  [interface,info]  ether1 link up (speed 10M, full duplex)
+192  1405/07/25 09:14:57  [system,info,account]  user su logged in from 185.110.29.189 via api
+193  1405/07/25 09:14:58  [system,info,account]  user su logged out from 185.110.29.189 via api
+194  1405/07/25 09:17:40  [system,info,account]  user su logged in from 185.110.29.153 via winbox
+195  1405/07/25 09:18:08  [system,info,account]  user su logged out from 185.110.29.153 via winbox
+196  1405/07/26 09:58:07  [system,info,account]  user su logged in from 185.110.29.189 via api
+197  1405/07/26 09:58:08  [system,info,account]  user su logged out from 185.110.29.189 via api
+198  1405/07/26 10:13:36  [system,info,account]  user su logged in from 185.110.29.189 via api
+199  1405/07/26 10:13:37  [system,info,account]  user su logged out from 185.110.29.189 via api
+200  1405/07/29 10:26:35  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  E4:8D:8C:71:51:38  (ether)
+wlan1  E4:8D:8C:71:51:39  (wlan)
+bridge1  E4:8D:8C:71:51:38  (bridge)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.17.13.81)

@@ -1,0 +1,73 @@
+IP: 172.17.11.66
+Collected at: 2026-10-21T06:57:27.707418+00:00
+source: RouterOS API
+identity: ParsaRasaneh-PTP-Manabe-ST
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=6C:3B:6B:9B:33:2C
+  2  name=wlan1  type=wlan  running=true  mac=6C:3B:6B:9B:33:2D
+  3  name=bridge1  type=bridge  running=true  mac=6C:3B:6B:9B:33:2C
+  4  name=vlan-54  type=vlan  running=false  mac=6C:3B:6B:9B:33:2C
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=bridge  ssid=PR-PTP-Dehkadeh  band=5ghz-a/n  frequency=5720
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.12.171/29  interface=ether1  network=172.17.12.168
+  2  address=172.17.12.211/29  interface=vlan-54  network=172.17.12.208
+  3  address=192.168.1.10/24  interface=wlan1  network=192.168.1.0
+  4  address=172.17.11.66/30  interface=ether1  network=172.17.11.64
+  5  address=185.110.29.129/28  interface=wlan1  network=185.110.29.128
+  6  address=185.110.29.144/29  interface=wlan1  network=185.110.29.144
+  7  address=185.110.29.152/30  interface=wlan1  network=185.110.29.152
+  8  address=185.110.29.156/30  interface=wlan1  network=185.110.29.156
+  9  address=185.110.29.160/27  interface=wlan1  network=185.110.29.160
+ 10  address=185.110.29.192/26  interface=wlan1  network=185.110.29.192
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.11.65  distance=1
+  2  dst=0.0.0.0/0  gw=172.17.12.169  distance=1
+  3  dst=172.17.11.64/30  gw=bridge1  distance=0
+  4  dst=172.17.12.168/29  gw=bridge1  distance=0
+  5  dst=192.168.1.0/24  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=ParsaRasaneh-jazireh  address=172.17.11.58  interface=wlan1,bridge1
+  2  identity=PArsaRAsaneh-PTP-POP-Dehkadeh-ST  address=172.17.11.62  interface=wlan1,bridge1
+  3  identity=PTP-avazeh2  address=172.19.1.99  interface=wlan1,bridge1
+  4  identity=MikroTik  address=172.17.11.57  interface=ether1,bridge1
+  5  identity=Parsa-Manabe-Sw  address=172.17.11.246  interface=ether1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:11
+# ساعت دستگاه (خام): 2009-05-02 23:39:17
+# افست اصلاحی (سرور − دستگاه): +153127:16:54
+  1  1405/07/08 10:42:35  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/08 10:42:35  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:9B:33:2C
+  3  1405/07/08 10:42:35  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  4  1405/07/08 10:42:36  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/07/08 10:42:41  [wireless,info]  E4:8D:8C:C6:C4:0F@wlan1: connected, signal strength -56
+  6  1405/07/08 10:43:34  [interface,info]  ether1 link down
+  7  1405/07/08 10:43:45  [interface,info]  ether1 link up (speed 100M, full duplex)
+  8  1405/07/24 04:00:36  [wireless,info]  E4:8D:8C:C6:C4:0F@wlan1: disconnected, control frame timeout
+  9  1405/07/24 05:15:16  [wireless,info]  E4:8D:8C:C6:C4:0F@wlan1: connected, signal strength -56
+ 10  1405/07/26 09:57:39  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 11  1405/07/26 09:57:39  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 12  1405/07/26 10:13:10  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 13  1405/07/26 10:13:10  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 14  1405/07/29 10:26:10  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  6C:3B:6B:9B:33:2C  (ether)
+wlan1  6C:3B:6B:9B:33:2D  (wlan)
+bridge1  6C:3B:6B:9B:33:2C  (bridge)
+vlan-54  6C:3B:6B:9B:33:2C  (vlan)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.17.11.65)

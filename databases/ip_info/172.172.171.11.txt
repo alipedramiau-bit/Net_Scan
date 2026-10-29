@@ -1,0 +1,54 @@
+IP: 172.172.171.11
+Collected at: 2026-10-21T06:57:31.284478+00:00
+source: RouterOS API
+identity: PR-PTP-CH-DSL-ST
+device_type: ST
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=6C:3B:6B:02:49:46
+  2  name=wlan1  type=wlan  running=true  mac=6C:3B:6B:02:49:47
+  3  name=131  type=vlan  running=true  mac=6C:3B:6B:02:49:47
+  4  name=bridge1  type=bridge  running=true  mac=6C:3B:6B:02:49:47
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=station-bridge  ssid=PR-PTP-CH-DSL  band=5ghz-a/n  frequency=auto
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.172.171.11/29  interface=131  network=172.172.171.8
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.172.171.9  distance=1
+  2  dst=172.172.171.8/29  gw=131  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=Router-Manage-Dslam-CH-Shahrak  address=-  interface=ether1,bridge1
+  2  identity=Parsa-SW-CH  address=170.17.11.250  interface=wlan1,bridge1
+  3  identity=PR-PTP-CH-DSL-AP  address=172.29.221.110  interface=wlan1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:47
+# ساعت دستگاه (خام): 2026-07-29 02:51:56
+# افست اصلاحی (سرور − دستگاه): +2020:04:51
+  1  1405/07/26 19:18:14  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/26 19:18:16  [interface,info]  131 link up
+  3  1405/07/26 19:18:16  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:02:49:47
+  4  1405/07/26 19:18:22  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  5  1405/07/26 19:18:24  [interface,info]  ether1 link up (speed 100M, full duplex)
+  6  1405/07/26 19:19:04  [wireless,info]  08:55:31:D0:12:FF@wlan1 established connection on 5100000, SSID PR-PTP-CH-DSL
+  7  1405/07/29 20:35:54  [interface,info]  ether1 link down
+  8  1405/07/29 20:35:56  [interface,info]  ether1 link up (speed 100M, full duplex)
+  9  1405/07/29 10:26:46  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  6C:3B:6B:02:49:46  (ether)
+wlan1  6C:3B:6B:02:49:47  (wlan)
+131  6C:3B:6B:02:49:47  (vlan)
+bridge1  6C:3B:6B:02:49:47  (bridge)
+--- /ip arp ---
+131  4C:5E:0C:C5:C8:24  (arp 172.172.171.9)

@@ -1,0 +1,274 @@
+IP: 172.19.1.99
+Collected at: 2026-10-21T06:57:34.446393+00:00
+source: RouterOS API
+identity: PTP-avazeh2
+device_type: ST
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=B8:69:F4:AC:14:FD
+  2  name=wlan1  type=wlan  running=true  mac=B8:69:F4:AC:14:FE
+  3  name=Loopback  type=bridge  running=false  mac=1A:B4:A0:E8:C7:78
+  4  name=bridge1  type=bridge  running=true  mac=B8:69:F4:AC:14:FE
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=station-bridge  ssid=10094186181-PR-PTP-Avazeh-B  band=5ghz-a/n  frequency=5720
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=192.168.1.1/24  interface=ether1  network=192.168.1.0
+  2  address=37.32.45.158/32  interface=Loopback  network=37.32.45.158
+  3  address=172.19.1.99/29  interface=wlan1  network=172.19.1.96
+  4  address=185.110.29.141/32  interface=ether1  network=185.110.29.141
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.19.1.97  distance=1
+  2  dst=0.0.0.0/0  gw=172.28.248.45  distance=1
+  3  dst=172.19.1.96/29  gw=bridge1  distance=0
+  4  dst=185.110.29.141/32  gw=ether1  distance=0
+  5  dst=192.168.1.0/24  gw=ether1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=MikroTik  address=172.17.11.57  interface=wlan1,bridge1
+  2  identity=ParsaRasaneh-jazireh  address=172.17.11.58  interface=wlan1,bridge1
+  3  identity=PArsaRAsaneh-PTP-POP-Dehkadeh-ST  address=172.17.11.62  interface=wlan1,bridge1
+  4  identity=ParsaRasaneh-PTP-Manabe-ST  address=172.17.11.66  interface=wlan1,bridge1
+  5  identity=Parsa-Manabe-Sw  address=172.17.11.246  interface=wlan1,bridge1
+  6  identity=-  address=-  interface=ether1
+  7  identity=-  address=-  interface=ether1
+  8  identity=-  address=-  interface=ether1
+  9  identity=-  address=-  interface=ether1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:27:18
+# ساعت دستگاه (خام): 2026-10-21 10:27:09
+# افست اصلاحی (سرور − دستگاه): -03:29:50
+  1  1405/07/28 07:05:49  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+  2  1405/07/28 07:06:44  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+  3  1405/07/28 07:07:40  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+  4  1405/07/28 07:08:12  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+  5  1405/07/28 07:08:44  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+  6  1405/07/28 07:09:39  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+  7  1405/07/28 07:10:11  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+  8  1405/07/28 07:11:03  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+  9  1405/07/28 07:11:35  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 10  1405/07/28 07:12:07  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 11  1405/07/28 07:12:59  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 12  1405/07/28 07:13:32  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 13  1405/07/28 07:14:04  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 14  1405/07/28 07:14:56  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 15  1405/07/28 07:15:28  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 16  1405/07/28 07:16:00  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 17  1405/07/28 07:16:52  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 18  1405/07/28 07:17:24  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 19  1405/07/28 07:17:56  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 20  1405/07/28 07:18:48  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 21  1405/07/28 07:19:24  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 22  1405/07/28 07:20:16  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 23  1405/07/28 07:20:48  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 24  1405/07/28 07:21:20  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 25  1405/07/28 07:22:12  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 26  1405/07/28 07:22:44  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 27  1405/07/28 07:23:16  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 28  1405/07/28 07:24:08  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 29  1405/07/28 07:24:40  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 30  1405/07/28 07:25:13  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 31  1405/07/28 07:26:05  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 32  1405/07/28 07:26:37  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 33  1405/07/28 07:27:09  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 34  1405/07/28 07:28:01  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 35  1405/07/28 07:28:33  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 36  1405/07/28 07:29:05  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 37  1405/07/28 07:30:00  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 38  1405/07/28 07:30:33  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 39  1405/07/28 07:31:25  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 40  1405/07/28 07:31:57  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 41  1405/07/28 07:32:52  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 42  1405/07/28 07:33:24  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 43  1405/07/28 07:33:56  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 44  1405/07/28 07:34:48  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 45  1405/07/28 07:35:20  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 46  1405/07/28 07:35:52  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 47  1405/07/28 07:36:45  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 48  1405/07/28 07:37:17  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 49  1405/07/28 07:38:12  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 50  1405/07/28 07:38:44  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 51  1405/07/28 07:39:16  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 52  1405/07/28 07:40:08  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 53  1405/07/28 07:40:40  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 54  1405/07/28 07:41:12  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 55  1405/07/28 07:42:04  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 56  1405/07/28 07:42:37  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 57  1405/07/28 07:43:32  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 58  1405/07/28 07:44:04  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 59  1405/07/28 07:44:36  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 60  1405/07/28 07:45:28  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 61  1405/07/28 07:46:00  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 62  1405/07/28 07:46:32  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 63  1405/07/28 07:47:24  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 64  1405/07/28 07:47:57  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 65  1405/07/28 07:48:29  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 66  1405/07/28 07:49:21  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 67  1405/07/28 07:49:53  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 68  1405/07/28 07:50:25  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 69  1405/07/28 07:51:17  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 70  1405/07/28 07:51:49  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 71  1405/07/28 07:52:44  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 72  1405/07/28 07:53:20  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 73  1405/07/28 07:54:12  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 74  1405/07/28 07:54:44  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 75  1405/07/28 07:55:16  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 76  1405/07/28 07:56:08  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 77  1405/07/28 07:56:40  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 78  1405/07/28 07:57:03  [dhcp,info]  dhcp1 assigned 192.168.1.157 to 60:45:CB:A2:FE:BB
+ 79  1405/07/28 07:57:12  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 80  1405/07/28 07:57:55  [dhcp,info]  dhcp1 assigned 192.168.1.141 to A8:5E:45:2E:2E:FA
+ 81  1405/07/28 07:58:04  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 82  1405/07/28 07:58:36  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 83  1405/07/28 07:59:09  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 84  1405/07/28 08:00:01  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 85  1405/07/28 08:00:33  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 86  1405/07/28 08:01:05  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 87  1405/07/28 08:01:57  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 88  1405/07/28 08:02:29  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 89  1405/07/28 08:02:42  [dhcp,info]  dhcp1 assigned 192.168.1.135 to CC:4D:74:08:83:D3
+ 90  1405/07/28 08:03:01  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 91  1405/07/28 08:03:53  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 92  1405/07/28 08:04:28  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 93  1405/07/28 08:05:21  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 94  1405/07/28 08:05:53  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 95  1405/07/28 08:06:25  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 96  1405/07/28 08:07:17  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 97  1405/07/28 08:07:49  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 98  1405/07/28 08:08:21  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+ 99  1405/07/28 08:09:16  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+100  1405/07/28 08:09:48  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+101  1405/07/28 08:10:41  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+102  1405/07/28 08:11:13  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+103  1405/07/28 08:11:45  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+104  1405/07/28 08:12:40  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+105  1405/07/28 08:13:04  [dhcp,info]  dhcp1 assigned 192.168.1.139 to 00:17:23:E6:13:EC
+106  1405/07/28 08:13:12  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+107  1405/07/28 08:14:04  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+108  1405/07/28 08:14:36  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+109  1405/07/28 08:15:08  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+110  1405/07/28 08:16:00  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+111  1405/07/28 08:16:33  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+112  1405/07/28 08:17:28  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+113  1405/07/28 08:18:00  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+114  1405/07/28 08:18:32  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+115  1405/07/28 08:19:24  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+116  1405/07/28 08:19:56  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+117  1405/07/28 08:20:28  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+118  1405/07/28 08:21:20  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+119  1405/07/28 08:21:52  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+120  1405/07/28 08:22:15  [dhcp,info]  dhcp1 assigned 192.168.1.137 to 00:17:23:E6:12:12
+121  1405/07/28 08:22:24  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+122  1405/07/28 08:23:17  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+123  1405/07/28 08:23:49  [dhcp,warning]  dhcp1 offering lease 192.168.1.145 for 38:3C:9C:83:8E:C9 without success
+124  1405/07/28 08:27:14  [dhcp,info]  dhcp1 assigned 192.168.1.145 to 38:3C:9C:83:8E:C9
+125  1405/07/28 08:32:42  [dhcp,info]  dhcp1 deassigned 192.168.1.135 from CC:4D:74:08:83:D3
+126  1405/07/28 08:33:12  [dhcp,info]  dhcp1 deassigned 192.168.1.137 from 00:17:23:E6:12:12
+127  1405/07/28 08:37:14  [dhcp,info]  dhcp1 deassigned 192.168.1.145 from 38:3C:9C:83:8E:C9
+128  1405/07/28 08:38:09  [dhcp,info]  dhcp1 assigned 192.168.1.145 to 38:3C:9C:83:8E:C9
+129  1405/07/28 08:39:27  [dhcp,info]  dhcp1 assigned 192.168.1.137 to 00:17:23:E6:12:12
+130  1405/07/28 08:55:14  [dhcp,info]  dhcp1 deassigned 192.168.1.139 from 00:17:23:E6:13:EC
+131  1405/07/28 09:02:12  [dhcp,info]  dhcp1 deassigned 192.168.1.137 from 00:17:23:E6:12:12
+132  1405/07/28 09:05:33  [dhcp,info]  dhcp1 assigned 192.168.1.139 to 00:17:23:E6:13:EC
+133  1405/07/28 09:10:23  [dhcp,info]  dhcp1 assigned 192.168.1.133 to E2:4D:90:91:25:25
+134  1405/07/28 09:15:33  [dhcp,info]  dhcp1 deassigned 192.168.1.139 from 00:17:23:E6:13:EC
+135  1405/07/28 09:17:34  [dhcp,info]  dhcp1 assigned 192.168.1.139 to 00:17:23:E6:13:EC
+136  1405/07/28 09:27:34  [dhcp,info]  dhcp1 deassigned 192.168.1.139 from 00:17:23:E6:13:EC
+137  1405/07/28 09:34:59  [dhcp,info]  dhcp1 assigned 192.168.1.139 to 00:17:23:E6:13:EC
+138  1405/07/28 09:51:22  [dhcp,info]  dhcp1 assigned 192.168.1.132 to 00:17:23:E6:10:00
+139  1405/07/28 10:12:26  [dhcp,info]  dhcp1 deassigned 192.168.1.132 from 00:17:23:E6:10:00
+140  1405/07/28 10:21:26  [dhcp,info]  dhcp1 deassigned 192.168.1.139 from 00:17:23:E6:13:EC
+141  1405/07/28 10:36:30  [dhcp,info]  dhcp1 deassigned 192.168.1.133 from E2:4D:90:91:25:25
+142  1405/07/28 11:24:15  [dhcp,info]  dhcp1 assigned 192.168.1.139 to 00:17:23:E6:13:EC
+143  1405/07/28 11:34:15  [dhcp,info]  dhcp1 deassigned 192.168.1.139 from 00:17:23:E6:13:EC
+144  1405/07/28 11:34:24  [dhcp,info]  dhcp1 assigned 192.168.1.139 to 00:17:23:E6:13:EC
+145  1405/07/28 11:39:55  [dhcp,info]  dhcp1 assigned 192.168.1.132 to 00:17:23:E6:10:00
+146  1405/07/28 12:19:29  [dhcp,info]  dhcp1 deassigned 192.168.1.132 from 00:17:23:E6:10:00
+147  1405/07/28 12:23:47  [dhcp,info]  dhcp1 assigned 192.168.1.132 to 00:17:23:E6:10:00
+148  1405/07/28 12:24:29  [dhcp,info]  dhcp1 deassigned 192.168.1.139 from 00:17:23:E6:13:EC
+149  1405/07/28 12:27:55  [dhcp,info]  dhcp1 assigned 192.168.1.139 to 00:17:23:E6:13:EC
+150  1405/07/28 12:41:24  [dhcp,info]  dhcp1 assigned 192.168.1.137 to 00:17:23:E6:12:12
+151  1405/07/28 12:48:40  [dhcp,info]  dhcp1 assigned 192.168.1.134 to 38:3C:9C:AC:25:4E
+152  1405/07/28 12:51:24  [dhcp,info]  dhcp1 deassigned 192.168.1.137 from 00:17:23:E6:12:12
+153  1405/07/28 13:11:16  [dhcp,info]  dhcp1 deassigned 192.168.1.139 from 00:17:23:E6:13:EC
+154  1405/07/28 13:15:02  [dhcp,info]  dhcp1 deassigned 192.168.1.132 from 00:17:23:E6:10:00
+155  1405/07/28 14:22:29  [dhcp,info]  dhcp1 assigned 192.168.1.139 to 00:17:23:E6:13:EC
+156  1405/07/28 14:48:17  [dhcp,info]  dhcp1 deassigned 192.168.1.139 from 00:17:23:E6:13:EC
+157  1405/07/28 15:20:59  [dhcp,info]  dhcp1 assigned 192.168.1.132 to 00:17:23:E6:10:00
+158  1405/07/28 15:23:45  [dhcp,info]  dhcp1 deassigned 192.168.1.134 from 38:3C:9C:AC:25:4E
+159  1405/07/28 15:46:19  [dhcp,info]  dhcp1 deassigned 192.168.1.132 from 00:17:23:E6:10:00
+160  1405/07/28 15:51:20  [dhcp,info]  dhcp1 assigned 192.168.1.134 to 38:3C:9C:AC:25:4E
+161  1405/07/28 16:07:56  [dhcp,info]  dhcp1 deassigned 192.168.1.141 from A8:5E:45:2E:2E:FA
+162  1405/07/28 17:11:18  [dhcp,info]  dhcp1 deassigned 192.168.1.128 from 24:FB:65:BD:2F:C9
+163  1405/07/28 17:11:18  [dhcp,info]  dhcp1 assigned 192.168.1.128 to 24:FB:65:BD:2F:C9
+164  1405/07/28 18:14:24  [dhcp,info]  dhcp1 assigned 192.168.1.139 to 00:17:23:E6:13:EC
+165  1405/07/28 18:16:30  [dhcp,info]  dhcp1 deassigned 192.168.1.128 from 24:FB:65:BD:2F:C9
+166  1405/07/28 20:48:14  [dhcp,info]  dhcp1 assigned 192.168.1.133 to E2:4D:90:91:25:25
+167  1405/07/28 21:03:14  [dhcp,info]  dhcp1 deassigned 192.168.1.133 from E2:4D:90:91:25:25
+168  1405/07/28 22:36:03  [dhcp,info]  dhcp1 deassigned 192.168.1.145 from 38:3C:9C:83:8E:C9
+169  1405/07/28 22:37:34  [dhcp,info]  dhcp1 assigned 192.168.1.145 to 38:3C:9C:83:8E:C9
+170  1405/07/28 22:59:14  [dhcp,info]  dhcp1 assigned 192.168.1.133 to E2:4D:90:91:25:25
+171  1405/07/28 23:09:14  [dhcp,info]  dhcp1 deassigned 192.168.1.133 from E2:4D:90:91:25:25
+172  1405/07/28 23:32:05  [dhcp,info]  dhcp1 deassigned 192.168.1.157 from 60:45:CB:A2:FE:BB
+173  1405/07/28 23:39:55  [dhcp,info]  dhcp1 deassigned 192.168.1.139 from 00:17:23:E6:13:EC
+174  1405/07/28 23:41:45  [dhcp,info]  dhcp1 assigned 192.168.1.128 to 24:FB:65:BD:2F:C9
+175  1405/07/28 23:43:50  [dhcp,info]  dhcp1 deassigned 192.168.1.145 from 38:3C:9C:83:8E:C9
+176  1405/07/28 23:46:33  [dhcp,info]  dhcp1 deassigned 192.168.1.134 from 38:3C:9C:AC:25:4E
+177  1405/07/29 07:54:27  [dhcp,info]  dhcp1 assigned 192.168.1.141 to A8:5E:45:2E:2E:FA
+178  1405/07/29 07:58:11  [dhcp,info]  dhcp1 assigned 192.168.1.145 to 38:3C:9C:83:8E:C9
+179  1405/07/29 08:05:38  [dhcp,info]  dhcp1 assigned 192.168.1.157 to 60:45:CB:A2:FE:BB
+180  1405/07/29 08:11:35  [dhcp,info]  dhcp1 assigned 192.168.1.132 to 00:17:23:E6:10:00
+181  1405/07/29 08:21:35  [dhcp,info]  dhcp1 deassigned 192.168.1.132 from 00:17:23:E6:10:00
+182  1405/07/29 08:25:57  [dhcp,info]  dhcp1 deassigned 192.168.1.145 from 38:3C:9C:83:8E:C9
+183  1405/07/29 08:25:57  [dhcp,info]  dhcp1 assigned 192.168.1.145 to 38:3C:9C:83:8E:C9
+184  1405/07/29 08:28:21  [dhcp,info]  dhcp1 deassigned 192.168.1.145 from 38:3C:9C:83:8E:C9
+185  1405/07/29 08:28:21  [dhcp,info]  dhcp1 assigned 192.168.1.145 to 38:3C:9C:83:8E:C9
+186  1405/07/29 09:01:30  [dhcp,info]  dhcp1 assigned 192.168.1.142 to F0:6C:5D:0E:F0:FA
+187  1405/07/29 09:06:11  [dhcp,info]  dhcp1 assigned 192.168.1.132 to 00:17:23:E6:10:00
+188  1405/07/29 09:08:22  [dhcp,info]  dhcp1 deassigned 192.168.1.145 from 38:3C:9C:83:8E:C9
+189  1405/07/29 09:15:32  [dhcp,info]  dhcp1 assigned 192.168.1.134 to 38:3C:9C:AC:25:4E
+190  1405/07/29 09:26:07  [dhcp,info]  dhcp1 assigned 192.168.1.145 to 38:3C:9C:83:8E:C9
+191  1405/07/29 09:31:28  [dhcp,info]  dhcp1 assigned 192.168.1.133 to E2:4D:90:91:25:25
+192  1405/07/29 09:37:31  [dhcp,info]  dhcp1 deassigned 192.168.1.132 from 00:17:23:E6:10:00
+193  1405/07/29 09:43:57  [dhcp,info]  dhcp1 assigned 192.168.1.132 to 00:17:23:E6:10:00
+194  1405/07/29 09:44:36  [dhcp,info]  dhcp1 assigned 192.168.1.139 to 00:17:23:E6:13:EC
+195  1405/07/29 10:00:24  [dhcp,info]  dhcp1 assigned 192.168.1.137 to 00:17:23:E6:12:12
+196  1405/07/29 10:10:24  [dhcp,info]  dhcp1 deassigned 192.168.1.137 from 00:17:23:E6:12:12
+197  1405/07/29 10:10:59  [dhcp,info]  dhcp1 deassigned 192.168.1.132 from 00:17:23:E6:10:00
+198  1405/07/29 10:12:41  [dhcp,info]  dhcp1 assigned 192.168.1.132 to 00:17:23:E6:10:00
+199  1405/07/29 10:26:34  [dhcp,info]  dhcp1 deassigned 192.168.1.133 from E2:4D:90:91:25:25
+200  1405/07/29 10:27:18  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  B8:69:F4:AC:14:FD  (ether)
+wlan1  B8:69:F4:AC:14:FE  (wlan)
+Loopback  1A:B4:A0:E8:C7:78  (bridge)
+bridge1  B8:69:F4:AC:14:FE  (bridge)
+--- /ip arp ---
+ether1  24:4B:FE:E1:25:00  (arp 192.168.1.147)
+ether1  00:19:17:B0:72:CD  (arp 192.168.1.85)
+ether1  18:31:BF:0F:0B:6B  (arp 192.168.1.89)
+ether1  60:45:CB:A2:FE:BB  (arp 192.168.1.157)
+ether1  A8:5E:45:2E:2E:FA  (arp 192.168.1.141)
+ether1  00:19:17:B0:72:C6  (arp 192.168.1.83)
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.19.1.97)
+ether1  32:52:A7:9C:16:71  (arp 192.168.1.176)
+ether1  24:FB:65:BD:2F:C9  (arp 192.168.1.128)
+ether1  00:19:17:86:37:02  (arp 192.168.1.87)
+ether1  00:0C:29:CD:08:EE  (arp 192.168.1.81)
+ether1  00:19:17:B0:72:C5  (arp 192.168.1.84)
+ether1  00:17:23:E6:10:00  (arp 192.168.1.132)
+ether1  E2:4D:90:91:25:25  (arp 192.168.1.133)
+ether1  00:0C:29:E2:4B:0A  (arp 192.168.1.82)
+ether1  38:3C:9C:83:8E:C9  (arp 192.168.1.145)
+ether1  38:3C:9C:AC:25:4E  (arp 192.168.1.134)
+ether1  F0:6C:5D:0E:F0:FA  (arp 192.168.1.142)

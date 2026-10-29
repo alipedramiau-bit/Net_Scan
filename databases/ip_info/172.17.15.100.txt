@@ -1,0 +1,96 @@
+IP: 172.17.15.100
+Collected at: 2026-10-21T06:57:30.818292+00:00
+source: RouterOS API
+identity: SW-POP Taleghani
+device_type: Router
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=false  mac=64:D1:54:4A:0F:F4
+  2  name=ether2  type=ether  running=true  mac=64:D1:54:4A:0F:F5
+  3  name=ether3  type=ether  running=true  mac=64:D1:54:4A:0F:F6
+  4  name=ether4  type=ether  running=false  mac=64:D1:54:4A:0F:F7
+  5  name=ether5  type=ether  running=true  mac=64:D1:54:4A:0F:F8
+  6  name=bridge1  type=bridge  running=true  mac=AA:B3:B9:A4:DE:D1
+  7  name=bridge3  type=bridge  running=true  mac=64:D1:54:4A:0F:F4
+  8  name=bridge4  type=bridge  running=true  mac=64:D1:54:4A:0F:F7
+  9  name=bridge5  type=bridge  running=true  mac=64:D1:54:4A:0F:F8
+ 10  name=vlan-141  type=vlan  running=true  mac=64:D1:54:4A:0F:F5
+ 11  name=vlan-142  type=vlan  running=true  mac=64:D1:54:4A:0F:F5
+ 12  name=vlan-143  type=vlan  running=true  mac=64:D1:54:4A:0F:F5
+
+----- wireless -----
+(empty)
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.15.100/29  interface=vlan-141  network=172.17.15.96
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.15.113  distance=1
+  2  dst=0.0.0.0/0  gw=172.17.15.97  distance=1
+  3  dst=172.17.15.96/29  gw=bridge3  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=Parsa-Manabe-Sw  address=172.17.11.246  interface=ether2
+  2  identity=PTP-Taleghani  address=172.17.15.66  interface=ether2
+  3  identity=ParsaRasaneh-H-To-F-st  address=192.168.1.2  interface=ether2
+  4  identity=ParsaResaneh-AP-Khoramshahr  address=172.17.15.101  interface=ether3,bridge3
+  5  identity=ParsaRasaneh-PTP-UNarvandan  address=172.19.1.147  interface=ether3,bridge3
+  6  identity=Router MehrArvand  address=172.19.1.148  interface=ether3,bridge3
+  7  identity=ParsaRasaneh-AirPort  address=172.17.15.114  interface=ether5,bridge5
+  8  identity=MikroTik  address=172.17.15.97  interface=vlan-141,bridge3
+  9  identity=PTP-Taleghani  address=172.17.15.98  interface=vlan-141,bridge3
+ 10  identity=ParsaRasaneh-H-To-F-st  address=172.17.15.99  interface=vlan-141,bridge3
+ 11  identity=MikroTik  address=172.17.15.105  interface=vlan-142,bridge4
+ 12  identity=MikroTik  address=172.17.15.113  interface=vlan-143,bridge5
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:41
+# ساعت دستگاه (خام): 2026-08-20 21:58:48
+# افست اصلاحی (سرور − دستگاه): +1472:57:53
+  1  1405/07/18 13:09:40  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/18 13:09:41  [poe-out,warning]  Failed to upgrade poe FW on /dev/poe, diag code -778/0
+  3  1405/07/18 13:09:41  [bridge,info]  "bridge3" mac address changed to 64:D1:54:4A:0F:F4
+  4  1405/07/18 13:09:41  [interface,info]  vlan-141 link up
+  5  1405/07/18 13:09:41  [interface,info]  vlan-142 link up
+  6  1405/07/18 13:09:41  [interface,info]  vlan-143 link up
+  7  1405/07/18 13:09:41  [bridge,info]  "bridge4" mac address changed to 64:D1:54:4A:0F:F7
+  8  1405/07/18 13:09:41  [bridge,info]  "bridge5" mac address changed to 64:D1:54:4A:0F:F8
+  9  1405/07/18 13:09:42  [poe-out,info]  ether2 detected poe-out status: on
+ 10  1405/07/18 13:09:42  [poe-out,info]  ether5 detected poe-out status: on
+ 11  1405/07/18 13:09:42  [poe-out,info]  ether3 detected poe-out status: on
+ 12  1405/07/18 13:09:43  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 13  1405/07/18 13:09:43  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 14  1405/07/18 13:09:44  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 15  1405/07/18 13:09:47  [interface,info]  ether2 link down
+ 16  1405/07/18 13:09:48  [interface,info]  ether3 link down
+ 17  1405/07/18 13:09:50  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 18  1405/07/18 13:09:50  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 19  1405/07/26 09:50:36  [system,info,account]  user su logged in from 185.110.29.153 via winbox
+ 20  1405/07/26 09:50:42  [system,info]  ip service changed by su
+ 21  1405/07/26 09:50:43  [system,info,account]  user su logged out from 185.110.29.153 via winbox
+ 22  1405/07/26 09:58:24  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 23  1405/07/26 09:58:24  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 24  1405/07/26 10:13:50  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 25  1405/07/26 10:13:51  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 26  1405/07/29 10:26:40  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  64:D1:54:4A:0F:F4  (ether)
+ether2  64:D1:54:4A:0F:F5  (ether)
+ether3  64:D1:54:4A:0F:F6  (ether)
+ether4  64:D1:54:4A:0F:F7  (ether)
+ether5  64:D1:54:4A:0F:F8  (ether)
+bridge1  AA:B3:B9:A4:DE:D1  (bridge)
+bridge3  64:D1:54:4A:0F:F4  (bridge)
+bridge4  64:D1:54:4A:0F:F7  (bridge)
+bridge5  64:D1:54:4A:0F:F8  (bridge)
+vlan-141  64:D1:54:4A:0F:F5  (vlan)
+vlan-142  64:D1:54:4A:0F:F5  (vlan)
+vlan-143  64:D1:54:4A:0F:F5  (vlan)
+--- /ip arp ---
+bridge3  4C:5E:0C:C5:C8:24  (arp 172.17.15.97)

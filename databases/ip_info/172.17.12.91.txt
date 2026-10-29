@@ -1,0 +1,66 @@
+IP: 172.17.12.91
+Collected at: 2026-10-21T06:57:29.150670+00:00
+source: RouterOS API
+identity: PR-PTP-Golestan-AP
+device_type: ST
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=78:9A:18:A8:45:14
+  2  name=wlan1  type=wlan  running=true  mac=78:9A:18:A8:45:15
+  3  name=bridge1  type=bridge  running=true  mac=78:9A:18:A8:45:15
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=station-bridge  ssid=PR-PTP-Rumaila-Toba  band=5ghz-a/n/ac  frequency=5340
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.12.91/29  interface=ether1  network=172.17.12.88
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.12.89  distance=1
+  2  dst=172.17.12.88/29  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=NET-AB-Farhaniasl1  address=-  interface=wlan1,bridge1
+  2  identity=PR-Rumaila  address=172.17.11.154  interface=wlan1,bridge1
+  3  identity=Parsa-SW-Rumaila  address=172.17.11.230  interface=wlan1,bridge1
+  4  identity=MikroTik  address=172.17.12.89  interface=wlan1,bridge1
+  5  identity=ParsaRasaneh-PTP-Toba-ST  address=192.168.22.6  interface=wlan1,bridge1
+  6  identity=RouterOS  address=172.19.2.106  interface=ether1,bridge1
+  7  identity=121  address=172.19.2.107  interface=ether1,bridge1
+  8  identity=PR-PTP-MR-ITAp  address=172.19.2.108  interface=ether1,bridge1
+  9  identity=MIK-HET  address=172.19.2.109  interface=ether1,bridge1
+ 10  identity=PR-WIRE  address=192.168.1.99  interface=ether1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:23
+# ساعت دستگاه (خام): 1971-08-27 22:31:14
+# افست اصلاحی (سرور − دستگاه): +483440:25:09
+  1  1405/07/03 11:55:36  [system,error,critical]  router rebooted without proper shutdown, probably power outage
+  2  1405/07/03 11:55:38  [bridge,info]  "bridge1" mac address changed to 78:9A:18:A8:45:15
+  3  1405/07/03 11:55:40  [wireless,info]  78:9A:18:60:06:24@wlan1 established connection on 5340000, SSID PR-PTP-Rumaila-Toba
+  4  1405/07/03 11:55:44  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  5  1405/07/03 11:55:46  [interface,info]  ether1 link up (speed 100M, full duplex)
+  6  1405/07/03 11:56:02  [interface,info]  ether1 link down
+  7  1405/07/03 11:56:06  [interface,info]  ether1 link up (speed 100M, full duplex)
+  8  1405/07/03 11:56:27  [interface,info]  ether1 link down
+  9  1405/07/03 11:56:36  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 10  1405/07/25 07:47:33  [wireless,info]  78:9A:18:60:06:24@wlan1: lost connection, synchronization timeout
+ 11  1405/07/25 10:07:48  [wireless,info]  78:9A:18:60:06:24@wlan1 established connection on 5340000, SSID PR-PTP-Rumaila-Toba
+ 12  1405/07/26 09:57:55  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 13  1405/07/26 09:57:55  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 14  1405/07/26 10:13:22  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 15  1405/07/26 10:13:22  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 16  1405/07/29 10:26:23  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  78:9A:18:A8:45:14  (ether)
+wlan1  78:9A:18:A8:45:15  (wlan)
+bridge1  78:9A:18:A8:45:15  (bridge)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.17.12.89)

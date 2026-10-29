@@ -18,9 +18,9 @@ from threading import Lock, Event
 from datetime import datetime, timezone
 from uuid import uuid4
 
-from fastapi import FastAPI, HTTPException, Query, UploadFile, File
+from fastapi import FastAPI, HTTPException, Query, UploadFile, File, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import Response
+from fastapi.responses import Response, JSONResponse
 from pydantic import BaseModel, Field
 import os
 import platform
@@ -83,8 +83,15 @@ try:
 except ImportError:
     import email_manager
 
+try:
+    from backend import auth
+except ImportError:
+    import auth
+
 app=FastAPI(title="Authorized IPv4 Scanner")
-app.add_middleware(CORSMiddleware,allow_origins=["*"],allow_methods=["*"],allow_headers=["*"],allow_credentials=False)
+# allow_origin_regex echoes any origin; combined with allow_credentials=True this
+# lets the session cookie work for both same-origin UI and LAN cross-port setups.
+app.add_middleware(CORSMiddleware,allow_origin_regex=".*",allow_methods=["*"],allow_headers=["*"],allow_credentials=True)
 
 # Chrome/Edge "Private Network Access": public UI (e.g. http://185.x:5001) calling http://127.0.0.1:8001
 # requires Access-Control-Allow-Private-Network on preflight and responses.
@@ -109,6 +116,61 @@ class PrivateNetworkAccessMiddleware(BaseHTTPMiddleware):
         return response
 
 app.add_middleware(PrivateNetworkAccessMiddleware)
+
+# ---------------- Admin authentication (session cookie) ----------------
+class AuthMiddleware(BaseHTTPMiddleware):
+    """Require a valid session cookie for every API route.
+
+    Open paths: login/logout/auth-check (bootstrapping) and everything that is
+    not an API prefix (SPA shell, static assets, /health).
+    """
+    OPEN_EXACT = {"/api/login", "/api/logout", "/api/auth/check"}
+    PROTECTED_PREFIXES = ("/api/", "/devices", "/reports", "/scans")
+
+    async def dispatch(self, request, call_next):
+        path = request.url.path
+        if request.method == "OPTIONS" or path in self.OPEN_EXACT or not path.startswith(self.PROTECTED_PREFIXES):
+            return await call_next(request)
+        user = auth.verify_token(request.cookies.get(auth.COOKIE_NAME))
+        if not user:
+            return JSONResponse({"detail": "احراز هویت لازم است"}, status_code=401)
+        request.state.user = user
+        return await call_next(request)
+
+app.add_middleware(AuthMiddleware)
+
+class LoginBody(BaseModel):
+    username: str = Field(default="", max_length=64)
+    password: str = Field(default="", max_length=128)
+
+
+@app.post("/api/login")
+def api_login(body: LoginBody, response: Response):
+    """Verify admin credentials and set the session cookie."""
+    if not auth.check_credentials(body.username, body.password):
+        raise HTTPException(401, "نام کاربری یا گذرواژه اشتباه است")
+    token = auth.create_token(body.username)
+    response.set_cookie(
+        auth.COOKIE_NAME, token,
+        max_age=auth.COOKIE_MAX_AGE, httponly=True, samesite="lax", path="/",
+    )
+    return {"ok": True, "username": body.username}
+
+
+@app.post("/api/logout")
+def api_logout(response: Response):
+    response.delete_cookie(auth.COOKIE_NAME, path="/")
+    return {"ok": True}
+
+
+@app.get("/api/auth/check")
+def api_auth_check(request: Request):
+    user = auth.verify_token(request.cookies.get(auth.COOKIE_NAME))
+    if not user:
+        raise HTTPException(401, "احراز هویت لازم است")
+    return {"authenticated": True, "username": user}
+
+
 JOBS={}; GUARD=Lock(); EXECUTOR=ThreadPoolExecutor(max_workers=4)
 PROBE_CANCEL=Event()  # cancel current SNMP probe
 API_PROBE_CANCEL=Event()
@@ -271,6 +333,8 @@ def get_devices(
     device_type: str | None = Query(default=None, pattern="^(AP|ST|Router)$"),
     has_port: int | None = Query(default=None, ge=1, le=65535),
     q: str | None = Query(default=None, max_length=128),
+    q_fields: str | None = Query(default=None, max_length=256,
+                                 description="محدوده جستجو: شناسه فیلدها جدا شده با کاما (خالی = همه فیلدها)"),
     ping_ok: bool | None = Query(default=None),
     new_only: bool = Query(default=False, description="فقط دستگاه‌های جدید"),
     sort: str = Query(default="ip", pattern="^(ip|ping|ports|ports_count|classification|device_type|first_seen|last_seen|seen_count|device_name|tags)$"),
@@ -282,6 +346,7 @@ def get_devices(
         classification=classification,
         has_port=has_port,
         q=q,
+        q_fields=q_fields,
         limit=limit,
         offset=offset,
         ping_ok=ping_ok,
@@ -299,6 +364,8 @@ def export_devices(
     ),
     has_port: int | None = Query(default=None, ge=1, le=65535),
     q: str | None = Query(default=None, max_length=128),
+    q_fields: str | None = Query(default=None, max_length=256,
+                                 description="محدوده جستجو: شناسه فیلدها جدا شده با کاما (خالی = همه فیلدها)"),
     ping_ok: bool | None = Query(default=None),
     new_only: bool = Query(default=False, description="فقط دستگاه‌های جدید"),
     sort: str = Query(default="ip", pattern="^(ip|ping|ports|ports_count|classification|first_seen|last_seen|seen_count|device_name|tags)$"),
@@ -307,7 +374,7 @@ def export_devices(
     offset: int = Query(default=0, ge=0),
 ):
     result = db.query_devices(classification, has_port, q, limit, offset, ping_ok=ping_ok,
-                              new_only=new_only, sort=sort, order=order)
+                              new_only=new_only, sort=sort, order=order, q_fields=q_fields)
     filename = "new_devices.csv" if new_only else "devices.csv"
     return Response(db.devices_to_csv(result["devices"]), media_type="text/csv; charset=utf-8",
                     headers={"Content-Disposition": f'attachment; filename="{filename}"'})
@@ -821,14 +888,34 @@ def download(scan_id:str,key:str):
 
 
 # ---------------- Smart reports: interface flaps ----------------
-@app.get("/reports/interface-flaps")
-def report_interface_flaps(days: int = 5, threshold_minutes: int = 5):
+def _resolve_report_database(database: str = "") -> str:
+    """Validate a database name for smart reports; empty means the active DB."""
+    name = (database or "").strip()
+    if not name:
+        return db.get_active_db_name()
     try:
-        devices = db.query_devices(limit=100000)
+        known = {item["name"] for item in db.list_databases()["databases"]}
     except Exception:
+        known = set()
+    if name not in known:
+        raise HTTPException(404, f"دیتابیس «{name}» یافت نشد")
+    return name
+
+
+@app.get("/reports/interface-flaps")
+def report_interface_flaps(days: int = 30, threshold_minutes: int = 5, database: str = Query(default="", max_length=64)):
+    db_name = _resolve_report_database(database)
+    error_msg = None
+    try:
+        devices = db.query_devices(limit=100000, db_path=str(db.db_path_for(db_name)))
+    except Exception as exc:
         devices = []
+        error_msg = f"خواندن دستگاه‌ها از دیتابیس «{db_name}» ناموفق بود: {exc}"
     rows = devices.get("devices") if isinstance(devices, dict) else devices
     report = smart_reports.interface_flap_report(rows or [], days_back=days, threshold_minutes=threshold_minutes)
+    report["database"] = db_name
+    if error_msg:
+        report["error"] = error_msg
     # Keep the report metadata and provide stable names for both API clients and the UI.
     items = []
     for event in report.get("events", []):
@@ -842,29 +929,68 @@ def report_interface_flaps(days: int = 5, threshold_minutes: int = 5):
     return report
 
 @app.get("/reports/interface-flaps/export.csv")
-def report_interface_flaps_csv(days: int = 5, threshold_minutes: int = 5):
-    rows = db.query_devices(limit=100000)
-    if isinstance(rows, dict):
-        rows = rows.get("devices", [])
+def report_interface_flaps_csv(days: int = 30, threshold_minutes: int = 5, database: str = Query(default="", max_length=64)):
+    db_name = _resolve_report_database(database)
+    try:
+        fetched = db.query_devices(limit=100000, db_path=str(db.db_path_for(db_name)))
+    except Exception as exc:
+        raise HTTPException(500, f"خواندن دستگاه‌ها از دیتابیس «{db_name}» ناموفق بود: {exc}")
+    rows = fetched.get("devices", []) if isinstance(fetched, dict) else fetched
     rep = smart_reports.interface_flap_report(rows or [], days_back=days, threshold_minutes=threshold_minutes)
+    rep["database"] = db_name
     csv_content = smart_reports.interface_flaps_csv(rep)
     return Response(content=csv_content, media_type="text/csv; charset=utf-8",
                     headers={"Content-Disposition": 'attachment; filename="interface_flaps_report.csv"'})
 
 
 @app.get("/reports/interface-flaps/export.xlsx")
-def report_interface_flaps_xlsx(days: int = 5, threshold_minutes: int = 5):
+def report_interface_flaps_xlsx(days: int = 30, threshold_minutes: int = 5, database: str = Query(default="", max_length=64)):
+    db_name = _resolve_report_database(database)
     try:
-        devices = db.query_devices(limit=100000)
-    except Exception:
-        devices = []
+        devices = db.query_devices(limit=100000, db_path=str(db.db_path_for(db_name)))
+    except Exception as exc:
+        raise HTTPException(500, f"خواندن دستگاه‌ها از دیتابیس «{db_name}» ناموفق بود: {exc}")
     rows = devices.get("devices") if isinstance(devices, dict) else devices
     rep = smart_reports.interface_flap_report(rows or [], days_back=days, threshold_minutes=threshold_minutes)
+    rep["database"] = db_name
     data = smart_reports.interface_flaps_xlsx(rep)
     return Response(
         data,
         media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         headers={"Content-Disposition": 'attachment; filename="interface_flaps.xlsx"'},
+    )
+
+# ---------------- Smart report: wireless antenna / station issues ----------------
+@app.get("/reports/wireless-antenna-issues")
+def report_wireless_antenna_issues(days: int = 30, database: str = Query(default="", max_length=64)):
+    db_name = _resolve_report_database(database)
+    error_msg = None
+    try:
+        result = db.query_devices(limit=100000, db_path=str(db.db_path_for(db_name)))
+        rows = result.get("devices", []) if isinstance(result, dict) else result
+    except Exception as exc:
+        rows = []
+        error_msg = f"خواندن دستگاه‌ها از دیتابیس «{db_name}» ناموفق بود: {exc}"
+    report = smart_reports.wireless_antenna_report(rows or [], days_back=days)
+    report["database"] = db_name
+    if error_msg:
+        report["error"] = error_msg
+    return report
+
+
+@app.get("/reports/wireless-antenna-issues/export.csv")
+def report_wireless_antenna_issues_csv(days: int = 30, database: str = Query(default="", max_length=64)):
+    db_name = _resolve_report_database(database)
+    try:
+        result = db.query_devices(limit=100000, db_path=str(db.db_path_for(db_name)))
+    except Exception as exc:
+        raise HTTPException(500, f"خواندن دستگاه‌ها از دیتابیس «{db_name}» ناموفق بود: {exc}")
+    rows = result.get("devices", []) if isinstance(result, dict) else result
+    report = smart_reports.wireless_antenna_report(rows or [], days_back=days)
+    return Response(
+        content=smart_reports.wireless_antenna_csv(report),
+        media_type="text/csv; charset=utf-8",
+        headers={"Content-Disposition": 'attachment; filename="wireless_antenna_issues.csv"'},
     )
 
 # ---------------- VPN connection manager ----------------

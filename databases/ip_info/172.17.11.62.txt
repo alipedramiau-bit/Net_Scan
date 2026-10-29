@@ -1,0 +1,60 @@
+IP: 172.17.11.62
+Collected at: 2026-10-21T06:57:27.646311+00:00
+source: RouterOS API
+identity: PArsaRAsaneh-PTP-POP-Dehkadeh-ST
+device_type: ST
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=E4:8D:8C:C6:C4:0E
+  2  name=wlan1  type=wlan  running=true  mac=E4:8D:8C:C6:C4:0F
+  3  name=Vlan-53  type=vlan  running=true  mac=E4:8D:8C:C6:C4:0F
+  4  name=bridge1  type=bridge  running=true  mac=E4:8D:8C:C6:C4:0F
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=station-bridge  ssid=PR-PTP-Dehkadeh  band=5ghz-a/n  frequency=5340
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.11.62/30  interface=ether1  network=172.17.11.60
+  2  address=192.168.1.5/24  interface=ether1  network=192.168.1.0
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.11.61  distance=1
+  2  dst=172.17.11.60/30  gw=bridge1  distance=0
+  3  dst=192.168.1.0/24  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=MikroTik  address=172.17.11.57  interface=wlan1,bridge1
+  2  identity=ParsaRasaneh-PTP-Manabe-ST  address=172.17.11.66  interface=wlan1,bridge1
+  3  identity=Parsa-Manabe-Sw  address=172.17.11.246  interface=wlan1,bridge1
+  4  identity=ParsaRasaneh-jazireh  address=172.17.11.58  interface=ether1,bridge1
+  5  identity=PTP-avazeh2  address=172.19.1.99  interface=ether1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:11
+# ساعت دستگاه (خام): 1975-04-17 08:28:08
+# افست اصلاحی (سرور − دستگاه): +451558:28:03
+  1  1405/07/24 05:15:09  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/24 05:15:09  [interface,info]  Vlan-53 link up
+  3  1405/07/24 05:15:10  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:C6:C4:0F
+  4  1405/07/24 05:15:14  [wireless,info]  6C:3B:6B:9B:33:2D@wlan1 established connection on 5720000, SSID PR-PTP-Dehkadeh
+  5  1405/07/24 05:15:16  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  6  1405/07/24 05:15:18  [interface,info]  ether1 link up (speed 100M, full duplex)
+  7  1405/07/26 09:57:37  [system,info,account]  user su logged in from 185.110.29.189 via api
+  8  1405/07/26 09:57:38  [system,info,account]  user su logged out from 185.110.29.189 via api
+  9  1405/07/26 10:13:09  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 10  1405/07/26 10:13:09  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 11  1405/07/29 10:26:11  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  E4:8D:8C:C6:C4:0E  (ether)
+wlan1  E4:8D:8C:C6:C4:0F  (wlan)
+Vlan-53  E4:8D:8C:C6:C4:0F  (vlan)
+bridge1  E4:8D:8C:C6:C4:0F  (bridge)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.17.11.61)

@@ -1,0 +1,58 @@
+IP: 172.17.13.82
+Collected at: 2026-10-21T06:57:30.349201+00:00
+source: RouterOS API
+identity: ParsaRasaneh-PTP-Zol-To-Maghbol
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=6C:3B:6B:C8:CD:58
+  2  name=wlan1  type=wlan  running=true  mac=6C:3B:6B:C8:CD:59
+  3  name=bridge1  type=bridge  running=true  mac=6C:3B:6B:C8:CD:58
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=bridge  ssid=10094186181-PR-Zol-To-Mag  band=5ghz-onlyn  frequency=5460
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.13.82/29  interface=ether1  network=172.17.13.80
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.13.81  distance=1
+  2  dst=172.17.13.80/29  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=ParsaRasaneh-Maghbol-ST  address=172.17.13.83  interface=wlan1,bridge1
+  2  identity=ParsaRasaneh-Sheteit  address=172.17.13.84  interface=wlan1,bridge1
+  3  identity=ParsaRasaneh-Markazi1  address=172.17.13.85  interface=wlan1,bridge1
+  4  identity=ParsaRasaneh-SW-Maghbol  address=172.17.13.86  interface=wlan1,bridge1
+  5  identity=Parsa-SW-Zand  address=172.17.11.234  interface=ether1,bridge1
+  6  identity=MikroTik  address=172.17.13.81  interface=ether1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:35
+# ساعت دستگاه (خام): 2026-06-10 04:23:04
+# افست اصلاحی (سرور − دستگاه): +3194:33:31
+  1  1405/07/15 19:41:31  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/15 19:41:32  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:C8:CD:58
+  3  1405/07/15 19:41:32  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  4  1405/07/15 19:41:34  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/07/15 19:41:42  [wireless,info]  E4:8D:8C:71:51:39@wlan1: connected, signal strength -74
+  6  1405/07/25 09:14:56  [system,info,account]  user su logged in from 185.110.29.189 via api
+  7  1405/07/25 09:14:57  [system,info,account]  user su logged out from 185.110.29.189 via api
+  8  1405/07/26 09:58:07  [system,info,account]  user su logged in from 185.110.29.189 via api
+  9  1405/07/26 09:58:07  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 10  1405/07/26 10:13:36  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 11  1405/07/26 10:13:36  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 12  1405/07/29 10:26:35  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  6C:3B:6B:C8:CD:58  (ether)
+wlan1  6C:3B:6B:C8:CD:59  (wlan)
+bridge1  6C:3B:6B:C8:CD:58  (bridge)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.17.13.81)

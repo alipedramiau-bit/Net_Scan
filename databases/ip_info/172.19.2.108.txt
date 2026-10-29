@@ -1,0 +1,67 @@
+IP: 172.19.2.108
+Collected at: 2026-10-21T06:57:34.546051+00:00
+source: RouterOS API
+identity: PR-PTP-MR-ITAp
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=6C:3B:6B:D1:16:82
+  2  name=wlan1  type=wlan  running=true  mac=6C:3B:6B:D1:16:83
+  3  name=bridge1  type=bridge  running=true  mac=6C:3B:6B:D1:16:82
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=bridge  ssid=PR-PTP-ZNB  band=5ghz-onlyn  frequency=5880
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.19.2.108/29  interface=ether1  network=172.19.2.104
+  2  address=192.168.4.1/24  interface=wlan1  network=192.168.4.0
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.19.2.105  distance=1
+  2  dst=172.19.2.104/29  gw=bridge1  distance=0
+  3  dst=192.168.4.0/24  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=NET-AB-Farhaniasl1  address=-  interface=ether1,bridge1
+  2  identity=PR-Rumaila  address=172.17.11.154  interface=ether1,bridge1
+  3  identity=Parsa-SW-Rumaila  address=172.17.11.230  interface=ether1,bridge1
+  4  identity=MikroTik  address=172.17.12.89  interface=ether1,bridge1
+  5  identity=PR-PTP-Golestan-AP  address=172.17.12.91  interface=ether1,bridge1
+  6  identity=PR-WIRE  address=192.168.1.99  interface=ether1,bridge1
+  7  identity=ParsaRasaneh-PTP-Toba-ST  address=192.168.22.6  interface=ether1,bridge1
+  8  identity=RouterOS  address=172.19.2.106  interface=wlan1,bridge1
+  9  identity=121  address=172.19.2.107  interface=wlan1,bridge1
+ 10  identity=MIK-HET  address=172.19.2.109  interface=wlan1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:27:20
+# ساعت دستگاه (خام): 1970-03-24 22:30:22
+# افست اصلاحی (سرور − دستگاه): +495944:26:58
+  1  1405/07/03 11:57:11  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/03 11:57:11  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:D1:16:82
+  3  1405/07/03 11:57:11  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  4  1405/07/03 11:57:12  [wireless,info]  6C:3B:6B:11:C7:A5@wlan1: connected, signal strength -56, wants bridge
+  5  1405/07/03 11:57:13  [interface,info]  ether1 link up (speed 100M, full duplex)
+  6  1405/07/03 14:09:12  [system,info,account]  user garnaf logged in from 185.110.29.153 via winbox
+  7  1405/07/03 14:10:44  [wireless,info]  6C:3B:6B:11:C7:A5@wlan1: disconnected, disabling, signal strength -58
+  8  1405/07/03 14:10:44  [system,info]  device changed by garnaf
+  9  1405/07/03 14:10:45  [wireless,info]  6C:3B:6B:11:C7:A5@wlan1: connected, signal strength -62
+ 10  1405/07/03 14:11:41  [system,info,account]  user garnaf logged out from 185.110.29.153 via winbox
+ 11  1405/07/26 09:59:00  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 12  1405/07/26 09:59:01  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 13  1405/07/26 10:14:19  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 14  1405/07/26 10:14:19  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 15  1405/07/29 10:27:20  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  6C:3B:6B:D1:16:82  (ether)
+wlan1  6C:3B:6B:D1:16:83  (wlan)
+bridge1  6C:3B:6B:D1:16:82  (bridge)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.19.2.105)

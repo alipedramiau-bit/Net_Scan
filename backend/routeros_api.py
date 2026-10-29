@@ -778,6 +778,96 @@ def _print_table(api: "RouterOSClient", path: str) -> list[dict]:
     return rows
 
 
+
+def export_device_rsc(
+    host: str,
+    username: str,
+    password: str = "",
+    port: int = 8728,
+    timeout: float = 20.0,
+) -> dict:
+    """Run /export and return its text file using the RouterOS API."""
+    import uuid as _uuid
+
+    remote_base = "olom_export_" + _uuid.uuid4().hex[:12]
+    remote_file = remote_base + ".rsc"
+    identity = host
+    payload = b""
+    file_id = None
+    with RouterOSClient(host, port=port, timeout=timeout) as api:
+        api.login(username, password or "")
+        identities = _print_table(api, "/system/identity/print")
+        if identities and identities[0].get("name"):
+            identity = identities[0]["name"].strip() or host
+        api.run_api_sentence(["/export", f"=file={remote_base}"])
+        try:
+            replies = api.talk([
+                "/file/print",
+                "=.proplist=.id,name,size,contents",
+                f"?name={remote_file}",
+            ])
+            api._assert_ok(replies, "خواندن فایل Export")
+            rows = [_re_attrs(sent) for sent in replies if sent and sent[0] == "!re"]
+            if not rows:
+                raise RouterOSError("فایل Export ساخته نشد یا محتوای آن قابل خواندن نیست")
+            row = rows[0]
+            file_id = row.get(".id")
+            contents = row.get("contents") or ""
+            try:
+                expected_size = int(row.get("size") or 0)
+            except (TypeError, ValueError):
+                expected_size = 0
+            if contents:
+                payload = contents.encode("utf-8")
+            # RouterOS versions exposing /file/read can return large files in chunks.
+            if not payload or (expected_size and len(payload) < expected_size):
+                chunks = []
+                offset = 0
+                max_chunks = max(1, min(4096, (max(expected_size, 1) // 32768) + 2))
+                for _ in range(max_chunks):
+                    try:
+                        chunk_replies = api.talk([
+                            "/file/read",
+                            f"=file={remote_file}",
+                            f"=offset={offset}",
+                            "=chunk-size=32768",
+                        ])
+                        api._assert_ok(chunk_replies, "خواندن بخش فایل Export")
+                    except Exception:
+                        break
+                    data = ""
+                    for sent in chunk_replies:
+                        if sent and sent[0] == "!re":
+                            data = _re_attrs(sent).get("data", "")
+                            break
+                    if not data:
+                        break
+                    encoded = data.encode("utf-8")
+                    chunks.append(encoded)
+                    offset += len(encoded)
+                    if len(encoded) < 32768:
+                        break
+                if chunks:
+                    payload = b"".join(chunks)
+            if not payload:
+                raise RouterOSError(
+                    "فایل Export خالی است یا نسخه RouterOS اجازه خواندن محتوای فایل را نداد"
+                )
+            return {"ip": host, "identity": identity, "content": payload}
+        finally:
+            # Only remove the uniquely named temporary file created by this request.
+            try:
+                if file_id:
+                    api.run_api_sentence(["/file/remove", f"=numbers={file_id}"])
+                else:
+                    for item in _print_table(api, "/file/print"):
+                        if item.get("name") == remote_file and item.get(".id"):
+                            api.run_api_sentence(["/file/remove", f"=numbers={item['.id']}"])
+                            break
+            except Exception:
+                pass
+
+
 def probe_device_via_api(
     host: str,
     username: str,

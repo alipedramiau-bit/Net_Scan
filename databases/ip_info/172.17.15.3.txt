@@ -1,0 +1,71 @@
+IP: 172.17.15.3
+Collected at: 2026-10-21T06:57:31.110333+00:00
+source: RouterOS API
+identity: ParsaRasaneh-PTP-Hasti-AP
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=6C:3B:6B:C6:03:00
+  2  name=wlan1  type=wlan  running=false  mac=6C:3B:6B:C6:03:01
+  3  name=bridge1  type=bridge  running=true  mac=6C:3B:6B:C6:03:00
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=bridge  ssid=PR-PTP-HSTI  band=5ghz-a/n  frequency=5240
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.15.93/29  interface=ether1  network=172.17.15.88
+  2  address=192.168.1.2/24  interface=ether1  network=192.168.1.0
+  3  address=172.17.15.3/29  interface=ether1  network=172.17.15.0
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.15.1  distance=1
+  2  dst=172.17.15.0/29  gw=bridge1  distance=0
+  3  dst=172.17.15.88/29  gw=bridge1  distance=0
+  4  dst=192.168.1.0/24  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=Parsa-Manabe-Sw  address=172.17.11.246  interface=ether1,bridge1
+  2  identity=MikroTik  address=172.17.15.1  interface=ether1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:45
+# ساعت دستگاه (خام): 2009-03-31 05:50:24
+# افست اصلاحی (سرور − دستگاه): +153913:06:21
+  1  1405/07/08 10:42:39  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/08 10:42:39  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:C6:03:00
+  3  1405/07/08 10:42:40  [wireless,info]  6C:3B:6B:03:53:75@wlan1: connected, signal strength -50
+  4  1405/07/08 10:42:40  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/07/08 10:43:38  [interface,info]  ether1 link down
+  6  1405/07/08 10:43:47  [interface,info]  ether1 link up (speed 100M, full duplex)
+  7  1405/07/10 13:16:28  [wireless,info]  6C:3B:6B:03:53:75@wlan1: disconnected, control frame timeout
+  8  1405/07/10 13:20:34  [wireless,info]  6C:3B:6B:03:53:75@wlan1: connected, signal strength -46
+  9  1405/07/10 14:27:33  [wireless,info]  6C:3B:6B:03:53:75@wlan1: disconnected, control frame timeout
+ 10  1405/07/10 14:33:40  [wireless,info]  6C:3B:6B:03:53:75@wlan1: connected, signal strength -48
+ 11  1405/07/14 09:29:14  [wireless,info]  6C:3B:6B:03:53:75@wlan1: disconnected, control frame timeout
+ 12  1405/07/14 09:43:38  [wireless,info]  6C:3B:6B:03:53:75@wlan1: connected, signal strength -46
+ 13  1405/07/14 10:41:07  [wireless,info]  6C:3B:6B:03:53:75@wlan1: disconnected, control frame timeout
+ 14  1405/07/14 11:52:19  [wireless,info]  6C:3B:6B:03:53:75@wlan1: connected, signal strength -44
+ 15  1405/07/14 12:22:16  [wireless,info]  6C:3B:6B:03:53:75@wlan1: disconnected, control frame timeout
+ 16  1405/07/14 12:27:20  [wireless,info]  6C:3B:6B:03:53:75@wlan1: connected, signal strength -44
+ 17  1405/07/15 08:59:26  [wireless,info]  6C:3B:6B:03:53:75@wlan1: disconnected, control frame timeout
+ 18  1405/07/26 09:50:09  [system,info,account]  user su logged in from 185.110.29.153 via winbox
+ 19  1405/07/26 09:50:14  [system,info]  ip service changed by su
+ 20  1405/07/26 09:50:15  [system,info,account]  user su logged out from 185.110.29.153 via winbox
+ 21  1405/07/26 09:58:20  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 22  1405/07/26 09:58:20  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 23  1405/07/26 10:13:45  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 24  1405/07/26 10:13:45  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 25  1405/07/29 10:26:45  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  6C:3B:6B:C6:03:00  (ether)
+wlan1  6C:3B:6B:C6:03:01  (wlan)
+bridge1  6C:3B:6B:C6:03:00  (bridge)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.17.15.1)

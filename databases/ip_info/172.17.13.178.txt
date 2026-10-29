@@ -1,0 +1,114 @@
+IP: 172.17.13.178
+Collected at: 2026-10-21T06:57:29.694869+00:00
+source: RouterOS API
+identity: ParsaRasaneh-Enghelab
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=6C:3B:6B:9B:FC:E3
+  2  name=10094186122-PR-Enghelab  type=wlan  running=false  mac=6E:3B:6B:9B:FC:E4
+  3  name=wlan1  type=wlan  running=true  mac=6C:3B:6B:9B:FC:E4
+  4  name=bridge1  type=bridge  running=true  mac=6C:3B:6B:9B:FC:E3
+
+----- wireless -----
+=== /interface wireless ===
+name=10094186122-PR-Enghelab  mode=ap-bridge  ssid=10094186122-PR-Enghelab  band=-  frequency=-
+name=wlan1  mode=ap-bridge  ssid=ParsaRasaneh-Enghelab  band=5ghz-a/n  frequency=5780
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.13.178/30  interface=ether1  network=172.17.13.176
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.13.177  distance=1
+  2  dst=172.17.13.176/30  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=POP-Alvares  address=-  interface=ether1,bridge1
+  2  identity=MikroTik  address=172.17.13.177  interface=ether1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:29
+# ساعت دستگاه (خام): 2005-06-19 01:27:01
+# افست اصلاحی (سرور − دستگاه): +187061:29:28
+  1  1405/06/22 09:58:57  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/06/22 09:58:58  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:9B:FC:E3
+  3  1405/06/22 09:58:59  [wireless,info]  wlan1: pre-shared key authentication not enabled, disable WPS
+  4  1405/06/22 09:59:00  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/06/22 10:07:32  [wireless,info]  C4:AD:34:94:42:8D@wlan1: connected, signal strength -52, wants bridge
+  6  1405/06/23 08:16:09  [wireless,info]  C4:AD:34:94:42:8D@wlan1: reassociating
+  7  1405/06/23 08:16:09  [wireless,info]  C4:AD:34:94:42:8D@wlan1: disconnected, ok
+  8  1405/06/23 08:16:09  [wireless,info]  C4:AD:34:94:42:8D@wlan1: connected, signal strength -67, wants bridge
+  9  1405/06/23 08:18:17  [wireless,info]  C4:AD:34:94:42:8D@wlan1: reassociating
+ 10  1405/06/23 08:18:17  [wireless,info]  C4:AD:34:94:42:8D@wlan1: disconnected, ok
+ 11  1405/06/23 08:18:17  [wireless,info]  C4:AD:34:94:42:8D@wlan1: connected, signal strength -70, wants bridge
+ 12  1405/06/23 08:19:19  [wireless,info]  C4:AD:34:94:42:8D@wlan1: disconnected, received deauth: authentication not valid (2)
+ 13  1405/06/23 08:19:25  [wireless,info]  C4:AD:34:94:42:8D@wlan1: connected, signal strength -67, wants bridge
+ 14  1405/06/23 08:21:03  [wireless,info]  C4:AD:34:94:42:8D@wlan1: reassociating
+ 15  1405/06/23 08:21:03  [wireless,info]  C4:AD:34:94:42:8D@wlan1: disconnected, ok
+ 16  1405/06/23 08:21:03  [wireless,info]  C4:AD:34:94:42:8D@wlan1: connected, signal strength -66, wants bridge
+ 17  1405/06/25 15:08:12  [wireless,info]  C4:AD:34:94:42:8D@wlan1: disconnected, too weak signal
+ 18  1405/06/25 15:08:59  [wireless,info]  C4:AD:34:94:42:8D@wlan1: connected, signal strength -53, wants bridge
+ 19  1405/07/08 20:26:45  [wireless,info]  C4:AD:34:94:42:8D@wlan1: reassociating
+ 20  1405/07/08 20:26:45  [wireless,info]  C4:AD:34:94:42:8D@wlan1: disconnected, ok
+ 21  1405/07/08 20:26:45  [wireless,info]  C4:AD:34:94:42:8D@wlan1: connected, signal strength -68, wants bridge
+ 22  1405/07/08 23:48:13  [wireless,info]  C4:AD:34:94:42:8D@wlan1: disconnected, too weak signal
+ 23  1405/07/08 23:49:00  [wireless,info]  C4:AD:34:94:42:8D@wlan1: connected, signal strength -53, wants bridge
+ 24  1405/07/11 10:27:01  [wireless,info]  C4:AD:34:94:42:8D@wlan1: disconnected, too weak signal
+ 25  1405/07/11 10:27:48  [wireless,info]  C4:AD:34:94:42:8D@wlan1: connected, signal strength -54, wants bridge
+ 26  1405/07/13 10:42:43  [wireless,info]  C4:AD:34:94:42:8D@wlan1: disconnected, too weak signal
+ 27  1405/07/13 10:43:30  [wireless,info]  C4:AD:34:94:42:8D@wlan1: connected, signal strength -58, wants bridge
+ 28  1405/07/13 10:47:43  [wireless,info]  C4:AD:34:94:42:8D@wlan1: disconnected, too weak signal
+ 29  1405/07/13 10:48:30  [wireless,info]  C4:AD:34:94:42:8D@wlan1: connected, signal strength -71, wants bridge
+ 30  1405/07/24 02:21:09  [wireless,info]  C4:AD:34:94:42:8D@wlan1: reassociating
+ 31  1405/07/24 02:21:09  [wireless,info]  C4:AD:34:94:42:8D@wlan1: disconnected, ok
+ 32  1405/07/24 02:21:09  [wireless,info]  C4:AD:34:94:42:8D@wlan1: connected, signal strength -71, wants bridge
+ 33  1405/07/24 02:21:34  [wireless,info]  C4:AD:34:94:42:8D@wlan1: disconnected, extensive data loss
+ 34  1405/07/24 02:21:59  [wireless,info]  C4:AD:34:94:42:8D@wlan1: connected, signal strength -60, wants bridge
+ 35  1405/07/24 20:12:53  [wireless,info]  C4:AD:34:94:42:8D@wlan1: disconnected, too weak signal
+ 36  1405/07/24 20:13:40  [wireless,info]  C4:AD:34:94:42:8D@wlan1: connected, signal strength -57, wants bridge
+ 37  1405/07/24 21:58:35  [wireless,info]  C4:AD:34:94:42:8D@wlan1: disconnected, too weak signal
+ 38  1405/07/24 21:59:22  [wireless,info]  C4:AD:34:94:42:8D@wlan1: connected, signal strength -58, wants bridge
+ 39  1405/07/25 09:14:47  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 40  1405/07/25 09:14:47  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 41  1405/07/26 09:57:58  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 42  1405/07/26 09:57:59  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 43  1405/07/26 10:13:26  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 44  1405/07/26 10:13:27  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 45  1405/07/26 10:43:22  [wireless,info]  C4:AD:34:94:42:8D@wlan1: disconnected, too weak signal
+ 46  1405/07/26 10:44:11  [wireless,info]  C4:AD:34:94:42:8D@wlan1: connected, signal strength -55, wants bridge
+ 47  1405/07/26 10:46:09  [wireless,info]  C4:AD:34:94:42:8D@wlan1: disconnected, too weak signal
+ 48  1405/07/26 10:46:56  [wireless,info]  C4:AD:34:94:42:8D@wlan1: connected, signal strength -53, wants bridge
+ 49  1405/07/26 10:48:45  [wireless,info]  C4:AD:34:94:42:8D@wlan1: disconnected, too weak signal
+ 50  1405/07/26 10:49:33  [wireless,info]  C4:AD:34:94:42:8D@wlan1: connected, signal strength -54, wants bridge
+ 51  1405/07/26 10:57:48  [wireless,info]  C4:AD:34:94:42:8D@wlan1: disconnected, too weak signal
+ 52  1405/07/26 10:58:35  [wireless,info]  C4:AD:34:94:42:8D@wlan1: connected, signal strength -69, wants bridge
+ 53  1405/07/26 11:04:53  [wireless,info]  C4:AD:34:94:42:8D@wlan1: disconnected, too weak signal
+ 54  1405/07/26 11:05:40  [wireless,info]  C4:AD:34:94:42:8D@wlan1: connected, signal strength -56, wants bridge
+ 55  1405/07/26 17:27:17  [wireless,info]  C4:AD:34:94:42:8D@wlan1: disconnected, too weak signal
+ 56  1405/07/26 17:28:04  [wireless,info]  C4:AD:34:94:42:8D@wlan1: connected, signal strength -56, wants bridge
+ 57  1405/07/26 17:37:12  [wireless,info]  C4:AD:34:94:42:8D@wlan1: disconnected, too weak signal
+ 58  1405/07/26 17:37:59  [wireless,info]  C4:AD:34:94:42:8D@wlan1: connected, signal strength -54, wants bridge
+ 59  1405/07/26 17:44:13  [wireless,info]  C4:AD:34:94:42:8D@wlan1: disconnected, too weak signal
+ 60  1405/07/26 17:45:01  [wireless,info]  C4:AD:34:94:42:8D@wlan1: connected, signal strength -58, wants bridge
+ 61  1405/07/26 17:48:58  [wireless,info]  C4:AD:34:94:42:8D@wlan1: disconnected, too weak signal
+ 62  1405/07/26 17:49:45  [wireless,info]  C4:AD:34:94:42:8D@wlan1: connected, signal strength -55, wants bridge
+ 63  1405/07/26 18:07:23  [wireless,info]  C4:AD:34:94:42:8D@wlan1: disconnected, too weak signal
+ 64  1405/07/26 18:08:10  [wireless,info]  C4:AD:34:94:42:8D@wlan1: connected, signal strength -57, wants bridge
+ 65  1405/07/27 17:45:58  [wireless,info]  C4:AD:34:94:42:8D@wlan1: disconnected, too weak signal
+ 66  1405/07/27 17:46:45  [wireless,info]  C4:AD:34:94:42:8D@wlan1: connected, signal strength -56, wants bridge
+ 67  1405/07/28 09:49:54  [wireless,info]  C4:AD:34:94:42:8D@wlan1: disconnected, too weak signal
+ 68  1405/07/28 09:50:41  [wireless,info]  C4:AD:34:94:42:8D@wlan1: connected, signal strength -56, wants bridge
+ 69  1405/07/29 10:26:28  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  6C:3B:6B:9B:FC:E3  (ether)
+10094186122-PR-Enghelab  6E:3B:6B:9B:FC:E4  (wlan)
+wlan1  6C:3B:6B:9B:FC:E4  (wlan)
+bridge1  6C:3B:6B:9B:FC:E3  (bridge)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.17.13.177)

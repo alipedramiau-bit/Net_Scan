@@ -1,0 +1,98 @@
+IP: 172.172.171.12
+Collected at: 2026-10-21T06:57:31.345101+00:00
+source: RouterOS API
+identity: Router-Manage-Dslam-CH-Shahrak
+device_type: Router
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=D4:CA:6D:76:26:BF
+  2  name=ether2  type=ether  running=true  mac=D4:CA:6D:76:26:C0
+  3  name=ether3  type=ether  running=true  mac=D4:CA:6D:76:26:C1
+  4  name=ether4  type=ether  running=false  mac=D4:CA:6D:76:26:C2
+  5  name=ether5  type=ether  running=false  mac=D4:CA:6D:76:26:C3
+  6  name=131  type=vlan  running=true  mac=D4:CA:6D:76:26:BF
+  7  name=bridge1  type=bridge  running=true  mac=D4:CA:6D:76:26:BF
+
+----- wireless -----
+(empty)
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.172.171.12/29  interface=131  network=172.172.171.8
+  2  address=10.11.104.1/24  interface=ether3  network=10.11.104.0
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.172.171.9  distance=1
+  2  dst=10.11.104.0/24  gw=ether3  distance=0
+  3  dst=172.172.171.8/29  gw=131  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=PR-PTP-CH-DSL-ST  address=-  interface=ether1,bridge1
+  2  identity=Parsa-SW-CH  address=170.17.11.250  interface=ether1,bridge1
+  3  identity=PR-PTP-CH-DSL-AP  address=172.29.221.110  interface=ether1,bridge1
+  4  identity=MikroTik  address=-  interface=131
+  5  identity=MikroTik  address=170.17.11.9  interface=131
+  6  identity=ParsaRasaneh-PTP-Hasti-St  address=172.17.12.10  interface=131
+  7  identity=PR-PTP-NaftKav-!01-Dakal-AP  address=172.17.12.11  interface=131
+  8  identity=PR-ROuter-Koteshanof  address=172.17.12.12  interface=131
+  9  identity=ParsaRasaneh-Man-K3  address=172.17.12.86  interface=131
+ 10  identity=PR-PTP-Khazalabad  address=172.19.2.98  interface=131
+ 11  identity=PR-Choebdeh  address=172.172.171.2  interface=131
+ 12  identity=PR-Choebdeh5  address=172.172.171.6  interface=131
+ 13  identity=PR-PTP-CH-DSL-AP  address=172.172.171.10  interface=131
+ 14  identity=ParsaRasaneh-Choebdeh3  address=172.172.171.18  interface=131
+ 15  identity=Parsa-POWERBOX-CH  address=172.172.171.19  interface=131
+ 16  identity=ParsaRasaneh-Choebdeh10-MP  address=172.172.171.38  interface=131
+ 17  identity=ParsaRasaneh-Choebdeh8  address=172.172.171.54  interface=131
+ 18  identity=PR-Choebdeh15  address=172.172.171.78  interface=131
+ 19  identity=PR-PTP-Bazar-ST  address=172.172.172.27  interface=131
+ 20  identity=ParsaRasaneh-Arvand-ACC  address=172.172.172.50  interface=131
+ 21  identity=ParsaRasaneh-PTP-Arvand-ST  address=172.172.172.51  interface=131
+ 22  identity=ParsaRasaneh-Arvand-MP  address=172.172.172.66  interface=131
+ 23  identity=MikroTik  address=172.172.172.70  interface=131
+ 24  identity=ParsaRasaneh-PTP-ICT-AP  address=172.172.172.115  interface=131
+ 25  identity=ParsaRasaneh-PTP-Manyohi-N-ST  address=172.172.172.116  interface=131
+ 26  identity=PR-MAN-K  address=172.172.172.117  interface=131
+ 27  identity=POP-Center-ST  address=172.172.172.146  interface=131
+ 28  identity=ParsaRasanerh-Man-K1  address=172.172.177.46  interface=131
+ 29  identity=PR-Man-K2  address=172.172.177.50  interface=131
+ 30  identity=PR-PTP-MNEW_Bridge  address=172.172.177.58  interface=131
+ 31  identity=ParsaRasaneh-PTP-CH-ST  address=172.172.177.59  interface=131
+ 32  identity=ParsaRasaneh-khezr  address=172.172.177.90  interface=131
+ 33  identity=ParsaRasaneh-Khezr2  address=172.172.177.98  interface=131
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:49
+# ساعت دستگاه (خام): 2026-07-30 03:53:22
+# افست اصلاحی (سرور − دستگاه): +1995:03:27
+  1  1405/07/26 19:18:22  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/26 19:18:23  [bridge,info]  "bridge1" mac address changed to D4:CA:6D:76:26:BF
+  3  1405/07/26 19:18:23  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether2
+  4  1405/07/26 19:18:23  [interface,info]  131 link up
+  5  1405/07/26 19:18:25  [interface,info]  ether3 link up (speed 100M, full duplex)
+  6  1405/07/26 19:18:27  [interface,info]  ether1 link up (speed 100M, full duplex)
+  7  1405/07/26 19:18:59  [interface,info]  ether3 link down
+  8  1405/07/26 19:19:03  [interface,info]  ether3 link up (speed 100M, full duplex)
+  9  1405/07/26 19:19:18  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 10  1405/07/26 19:19:53  [interface,info]  ether2 link down
+ 11  1405/07/26 19:19:55  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 12  1405/07/26 19:19:56  [interface,info]  ether2 link down
+ 13  1405/07/26 19:19:58  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 14  1405/07/28 20:35:56  [interface,info]  ether1 link down
+ 15  1405/07/28 20:35:57  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 16  1405/07/29 10:26:48  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  D4:CA:6D:76:26:BF  (ether)
+ether2  D4:CA:6D:76:26:C0  (ether)
+ether3  D4:CA:6D:76:26:C1  (ether)
+ether4  D4:CA:6D:76:26:C2  (ether)
+ether5  D4:CA:6D:76:26:C3  (ether)
+131  D4:CA:6D:76:26:BF  (vlan)
+bridge1  D4:CA:6D:76:26:BF  (bridge)
+--- /ip arp ---
+131  4C:5E:0C:C5:C8:24  (arp 172.172.171.9)

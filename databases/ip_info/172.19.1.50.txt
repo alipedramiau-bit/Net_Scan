@@ -1,0 +1,93 @@
+IP: 172.19.1.50
+Collected at: 2026-10-21T06:57:34.135046+00:00
+source: RouterOS API
+identity: ParsaRasaneh-PTP-BiZhani
+device_type: ST
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=08:55:31:ED:39:C5
+  2  name=wlan1  type=wlan  running=true  mac=08:55:31:ED:39:C6
+  3  name=bridge1  type=bridge  running=true  mac=08:55:31:ED:39:C5
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=station-bridge  ssid=10094186172-PR-Site  band=5ghz-a/n  frequency=5280
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.19.1.50/30  interface=ether1  network=172.19.1.48
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.19.1.49  distance=1
+  2  dst=172.19.1.48/30  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=AB-Mana  address=-  interface=wlan1,bridge1
+  2  identity=PR-Site  address=172.17.12.206  interface=wlan1,bridge1
+  3  identity=AB-Jalilian2  address=-  interface=ether1,bridge1
+  4  identity=MikroTik  address=172.17.11.161  interface=ether1,bridge1
+  5  identity=ParsaRasaneh-PTP-Fatah  address=172.17.11.162  interface=ether1,bridge1
+  6  identity=Parsa-SW-POP-Fatah  address=172.17.11.164  interface=ether1,bridge1
+  7  identity=Parsa-Manabe-Sw  address=172.17.11.246  interface=ether1,bridge1
+  8  identity=ParsaRasaneh-AmirAbad3  address=172.17.15.18  interface=ether1,bridge1
+  9  identity=MikroTik  address=172.19.2.66  interface=ether1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:27:16
+# ساعت دستگاه (خام): 1974-01-14 07:58:43
+# افست اصلاحی (سرور − دستگاه): +462550:58:33
+  1  1405/07/08 10:42:40  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/08 10:42:40  [bridge,info]  "bridge1" mac address changed to 08:55:31:ED:39:C5
+  3  1405/07/08 10:42:41  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  4  1405/07/08 10:42:42  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/07/08 10:42:42  [wireless,info]  E4:8D:8C:77:FD:37@wlan1 established connection on 5280000, SSID 10094186172-PR-Site
+  6  1405/07/08 10:43:38  [interface,info]  ether1 link down
+  7  1405/07/08 10:43:39  [interface,info]  ether1 link up (speed 100M, full duplex)
+  8  1405/07/08 10:43:40  [interface,info]  ether1 link down
+  9  1405/07/08 10:43:48  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 10  1405/07/10 21:14:32  [wireless,info]  E4:8D:8C:77:FD:37@wlan1: lost connection, not polled for too long
+ 11  1405/07/10 21:14:33  [wireless,info]  E4:8D:8C:77:FD:37@wlan1 established connection on 5280000, SSID 10094186172-PR-Site
+ 12  1405/07/15 23:36:04  [wireless,info]  E4:8D:8C:77:FD:37@wlan1: lost connection, not polled for too long
+ 13  1405/07/15 23:36:05  [wireless,info]  E4:8D:8C:77:FD:37@wlan1 established connection on 5280000, SSID 10094186172-PR-Site
+ 14  1405/07/22 07:05:45  [wireless,info]  E4:8D:8C:77:FD:37@wlan1: lost connection, not polled for too long
+ 15  1405/07/22 07:05:49  [wireless,info]  E4:8D:8C:77:FD:37@wlan1 established connection on 5280000, SSID 10094186172-PR-Site
+ 16  1405/07/23 20:41:36  [wireless,info]  E4:8D:8C:77:FD:37@wlan1: lost connection, not polled for too long
+ 17  1405/07/23 20:41:41  [wireless,info]  E4:8D:8C:77:FD:37@wlan1 established connection on 5280000, SSID 10094186172-PR-Site
+ 18  1405/07/23 22:29:14  [wireless,info]  E4:8D:8C:77:FD:37@wlan1: lost connection, not polled for too long
+ 19  1405/07/23 22:29:15  [wireless,info]  E4:8D:8C:77:FD:37@wlan1 established connection on 5280000, SSID 10094186172-PR-Site
+ 20  1405/07/23 22:44:03  [wireless,info]  E4:8D:8C:77:FD:37@wlan1: lost connection, not polled for too long
+ 21  1405/07/23 22:44:04  [wireless,info]  E4:8D:8C:77:FD:37@wlan1 established connection on 5280000, SSID 10094186172-PR-Site
+ 22  1405/07/24 22:50:12  [wireless,info]  E4:8D:8C:77:FD:37@wlan1: lost connection, not polled for too long
+ 23  1405/07/24 22:50:14  [wireless,info]  E4:8D:8C:77:FD:37@wlan1 established connection on 5280000, SSID 10094186172-PR-Site
+ 24  1405/07/26 00:21:05  [wireless,info]  E4:8D:8C:77:FD:37@wlan1: lost connection, extensive data loss
+ 25  1405/07/26 00:21:07  [wireless,info]  E4:8D:8C:77:FD:37@wlan1 established connection on 5280000, SSID 10094186172-PR-Site
+ 26  1405/07/26 00:21:11  [wireless,info]  E4:8D:8C:77:FD:37@wlan1: lost connection, not polled for too long
+ 27  1405/07/26 00:21:12  [wireless,info]  E4:8D:8C:77:FD:37@wlan1 established connection on 5280000, SSID 10094186172-PR-Site
+ 28  1405/07/26 00:21:15  [wireless,info]  E4:8D:8C:77:FD:37@wlan1: lost connection, not polled for too long
+ 29  1405/07/26 00:21:16  [wireless,info]  E4:8D:8C:77:FD:37@wlan1 established connection on 5280000, SSID 10094186172-PR-Site
+ 30  1405/07/26 09:58:55  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 31  1405/07/26 09:58:55  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 32  1405/07/26 10:14:14  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 33  1405/07/26 10:14:14  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 34  1405/07/26 21:21:37  [wireless,info]  E4:8D:8C:77:FD:37@wlan1: lost connection, not polled for too long
+ 35  1405/07/26 21:21:38  [wireless,info]  E4:8D:8C:77:FD:37@wlan1 established connection on 5280000, SSID 10094186172-PR-Site
+ 36  1405/07/26 21:21:43  [wireless,info]  E4:8D:8C:77:FD:37@wlan1: lost connection, not polled for too long
+ 37  1405/07/26 21:21:44  [wireless,info]  E4:8D:8C:77:FD:37@wlan1 established connection on 5280000, SSID 10094186172-PR-Site
+ 38  1405/07/26 23:03:22  [wireless,info]  E4:8D:8C:77:FD:37@wlan1: lost connection, not polled for too long
+ 39  1405/07/26 23:03:23  [wireless,info]  E4:8D:8C:77:FD:37@wlan1 established connection on 5280000, SSID 10094186172-PR-Site
+ 40  1405/07/26 23:22:12  [wireless,info]  E4:8D:8C:77:FD:37@wlan1: lost connection, not polled for too long
+ 41  1405/07/26 23:22:13  [wireless,info]  E4:8D:8C:77:FD:37@wlan1 established connection on 5280000, SSID 10094186172-PR-Site
+ 42  1405/07/27 01:04:12  [wireless,info]  E4:8D:8C:77:FD:37@wlan1: lost connection, not polled for too long
+ 43  1405/07/27 01:04:13  [wireless,info]  E4:8D:8C:77:FD:37@wlan1 established connection on 5280000, SSID 10094186172-PR-Site
+ 44  1405/07/29 10:27:16  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  08:55:31:ED:39:C5  (ether)
+wlan1  08:55:31:ED:39:C6  (wlan)
+bridge1  08:55:31:ED:39:C5  (bridge)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.19.1.49)

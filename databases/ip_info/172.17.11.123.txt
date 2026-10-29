@@ -1,0 +1,59 @@
+IP: 172.17.11.123
+Collected at: 2026-10-21T06:57:26.608893+00:00
+source: RouterOS API
+identity: PR-PTP-Zol2Rumaila
+device_type: ST
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=64:D1:54:7C:71:32
+  2  name=sfp1  type=ether  running=false  mac=64:D1:54:7C:71:33
+  3  name=wlan1  type=wlan  running=true  mac=64:D1:54:7C:71:34
+  4  name=93  type=vlan  running=true  mac=64:D1:54:7C:71:34
+  5  name=bridge1  type=bridge  running=true  mac=64:D1:54:7C:71:34
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=station-wds  ssid=PR-PTP-Z2R  band=5ghz-n/ac  frequency=5180
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.11.123/29  interface=93  network=172.17.11.120
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.11.121  distance=1
+  2  dst=172.17.11.120/29  gw=93  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=PR-PTP-Z2R-AP  address=-  interface=wlan1,bridge1
+  2  identity=Parsa-SW-Zand  address=172.17.11.234  interface=wlan1,bridge1
+  3  identity=Parsa-SW-Rumaila  address=172.17.11.230  interface=ether1,bridge1
+  4  identity=MikroTik  address=172.17.11.121  interface=93
+  5  identity=PR-PTP-Z2R-AP  address=172.17.11.122  interface=93
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:03
+# ساعت دستگاه (خام): 1970-05-13 00:18:47
+# افست اصلاحی (سرور − دستگاه): +494766:37:16
+  1  1405/07/25 10:07:28  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/25 10:07:30  [interface,info]  93 link up
+  3  1405/07/25 10:07:31  [bridge,info]  "bridge1" mac address changed to 64:D1:54:7C:71:34
+  4  1405/07/25 10:07:33  [wireless,info]  E4:8D:8C:F9:5A:D1@wlan1 established connection on 5920000, SSID PR-PTP-Z2R
+  5  1405/07/25 10:09:42  [interface,info]  ether1 link up (speed 1G, full duplex)
+  6  1405/07/26 09:57:28  [system,info,account]  user su logged in from 185.110.29.189 via api
+  7  1405/07/26 09:57:29  [system,info,account]  user su logged out from 185.110.29.189 via api
+  8  1405/07/26 10:13:02  [system,info,account]  user su logged in from 185.110.29.189 via api
+  9  1405/07/26 10:13:03  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 10  1405/07/29 10:26:03  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  64:D1:54:7C:71:32  (ether)
+sfp1  64:D1:54:7C:71:33  (ether)
+wlan1  64:D1:54:7C:71:34  (wlan)
+93  64:D1:54:7C:71:34  (vlan)
+bridge1  64:D1:54:7C:71:34  (bridge)
+--- /ip arp ---
+93  4C:5E:0C:C5:C8:24  (arp 172.17.11.121)

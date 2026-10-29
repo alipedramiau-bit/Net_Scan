@@ -1,0 +1,125 @@
+IP: 172.172.172.116
+Collected at: 2026-10-21T06:57:32.045217+00:00
+source: RouterOS API
+identity: ParsaRasaneh-PTP-Manyohi-N-ST
+device_type: ST
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=4C:5E:0C:49:B5:55
+  2  name=wlan1  type=wlan  running=true  mac=4C:5E:0C:49:B5:56
+  3  name=13-cisco  type=vlan  running=true  mac=4C:5E:0C:49:B5:55
+  4  name=bridge1  type=bridge  running=true  mac=4C:5E:0C:49:B5:55
+  5  name=vlan-15  type=vlan  running=true  mac=4C:5E:0C:49:B5:55
+  6  name=vlan1  type=vlan  running=true  mac=4C:5E:0C:49:B5:55
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=station-bridge  ssid=10094186111-PR-PTP-Manyohi  band=5ghz-a/n  frequency=5120
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.172.172.116/29  interface=vlan-15  network=172.172.172.112
+  2  address=172.172.172.249/30  interface=13-cisco  network=172.172.172.248
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.172.172.113  distance=1
+  2  dst=172.172.172.112/29  gw=vlan-15  distance=0
+  3  dst=172.172.172.248/30  gw=13-cisco  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=Parsa-SW-Manyouhi  address=172.172.172.250  interface=ether1,bridge1
+  2  identity=ParsaRasaneh-PTP-ICT-AP  address=-  interface=wlan1,bridge1
+  3  identity=Marjan-SW  address=172.17.12.49  interface=wlan1,bridge1
+  4  identity=MikroTik  address=-  interface=vlan-15
+  5  identity=MikroTik  address=170.17.11.9  interface=vlan-15
+  6  identity=ParsaRasaneh-PTP-Hasti-St  address=172.17.12.10  interface=vlan-15
+  7  identity=PR-PTP-NaftKav-!01-Dakal-AP  address=172.17.12.11  interface=vlan-15
+  8  identity=PR-ROuter-Koteshanof  address=172.17.12.12  interface=vlan-15
+  9  identity=ParsaRasaneh-Man-K3  address=172.17.12.86  interface=vlan-15
+ 10  identity=PR-PTP-Khazalabad  address=172.19.2.98  interface=vlan-15
+ 11  identity=PR-Choebdeh  address=172.172.171.2  interface=vlan-15
+ 12  identity=PR-Choebdeh5  address=172.172.171.6  interface=vlan-15
+ 13  identity=PR-PTP-CH-DSL-AP  address=172.172.171.10  interface=vlan-15
+ 14  identity=Router-Manage-Dslam-CH-Shahrak  address=172.172.171.12  interface=vlan-15
+ 15  identity=ParsaRasaneh-Choebdeh3  address=172.172.171.18  interface=vlan-15
+ 16  identity=Parsa-POWERBOX-CH  address=172.172.171.19  interface=vlan-15
+ 17  identity=ParsaRasaneh-Choebdeh10-MP  address=172.172.171.38  interface=vlan-15
+ 18  identity=ParsaRasaneh-Choebdeh8  address=172.172.171.54  interface=vlan-15
+ 19  identity=PR-Choebdeh15  address=172.172.171.78  interface=vlan-15
+ 20  identity=PR-PTP-Bazar-ST  address=172.172.172.27  interface=vlan-15
+ 21  identity=ParsaRasaneh-Arvand-ACC  address=172.172.172.50  interface=vlan-15
+ 22  identity=ParsaRasaneh-PTP-Arvand-ST  address=172.172.172.51  interface=vlan-15
+ 23  identity=ParsaRasaneh-Arvand-MP  address=172.172.172.66  interface=vlan-15
+ 24  identity=MikroTik  address=172.172.172.70  interface=vlan-15
+ 25  identity=ParsaRasaneh-PTP-ICT-AP  address=172.172.172.115  interface=vlan-15
+ 26  identity=PR-MAN-K  address=172.172.172.117  interface=vlan-15
+ 27  identity=POP-Center-ST  address=172.172.172.146  interface=vlan-15
+ 28  identity=ParsaRasanerh-Man-K1  address=172.172.177.46  interface=vlan-15
+ 29  identity=PR-Man-K2  address=172.172.177.50  interface=vlan-15
+ 30  identity=PR-PTP-MNEW_Bridge  address=172.172.177.58  interface=vlan-15
+ 31  identity=ParsaRasaneh-PTP-CH-ST  address=172.172.177.59  interface=vlan-15
+ 32  identity=ParsaRasaneh-khezr  address=172.172.177.90  interface=vlan-15
+ 33  identity=ParsaRasaneh-Khezr2  address=172.172.177.98  interface=vlan-15
+ 34  identity=ParsaRasaneh-Arvand-ACC  address=-  interface=vlan1
+ 35  identity=ParsaRasaneh-PTP-Arvand-ST  address=-  interface=vlan1
+ 36  identity=MikroTik  address=100.78.30.249  interface=vlan1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:57
+# ساعت دستگاه (خام): 2025-05-29 10:33:44
+# افست اصلاحی (سرور − دستگاه): +12236:23:13
+  1  1405/07/25 10:23:58  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/25 10:23:58  [interface,info]  vlan-15 link up
+  3  1405/07/25 10:23:58  [interface,info]  13-cisco link up
+  4  1405/07/25 10:23:58  [interface,info]  vlan1 link up
+  5  1405/07/25 10:23:59  [bridge,info]  "bridge1" mac address changed to 4C:5E:0C:49:B5:55
+  6  1405/07/25 10:24:00  [wireless,info]  4C:5E:0C:5A:DB:2D@wlan1 established connection on 5120000, SSID 10094186111-PR-PTP-Manyohi
+  7  1405/07/25 10:24:01  [interface,info]  ether1 link up (speed 100M, full duplex)
+  8  1405/07/25 10:24:19  [interface,info]  ether1 link down
+  9  1405/07/25 10:24:26  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 10  1405/07/26 09:53:54  [system,info,account]  user su logged in from 185.110.29.153 via winbox
+ 11  1405/07/26 09:54:06  [system,info]  ip service changed by su
+ 12  1405/07/26 09:54:07  [system,info,account]  user su logged out from 185.110.29.153 via winbox
+ 13  1405/07/26 09:58:32  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 14  1405/07/26 09:58:32  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 15  1405/07/26 10:13:54  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 16  1405/07/26 10:13:55  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 17  1405/07/26 19:37:21  [wireless,info]  4C:5E:0C:5A:DB:2D@wlan1: lost connection, not polled for too long
+ 18  1405/07/26 19:37:22  [wireless,info]  4C:5E:0C:5A:DB:2D@wlan1 established connection on 5120000, SSID 10094186111-PR-PTP-Manyohi
+ 19  1405/07/26 20:46:00  [wireless,info]  4C:5E:0C:5A:DB:2D@wlan1: lost connection, not polled for too long
+ 20  1405/07/26 20:46:01  [wireless,info]  4C:5E:0C:5A:DB:2D@wlan1 established connection on 5120000, SSID 10094186111-PR-PTP-Manyohi
+ 21  1405/07/27 00:51:45  [wireless,info]  4C:5E:0C:5A:DB:2D@wlan1: lost connection, extensive data loss
+ 22  1405/07/27 00:51:46  [wireless,info]  4C:5E:0C:5A:DB:2D@wlan1 established connection on 5120000, SSID 10094186111-PR-PTP-Manyohi
+ 23  1405/07/27 01:12:16  [wireless,info]  4C:5E:0C:5A:DB:2D@wlan1: lost connection, not polled for too long
+ 24  1405/07/27 01:12:17  [wireless,info]  4C:5E:0C:5A:DB:2D@wlan1 established connection on 5120000, SSID 10094186111-PR-PTP-Manyohi
+ 25  1405/07/27 01:12:25  [wireless,info]  4C:5E:0C:5A:DB:2D@wlan1: lost connection, extensive data loss
+ 26  1405/07/27 01:12:26  [wireless,info]  4C:5E:0C:5A:DB:2D@wlan1 established connection on 5120000, SSID 10094186111-PR-PTP-Manyohi
+ 27  1405/07/27 04:42:59  [wireless,info]  4C:5E:0C:5A:DB:2D@wlan1: lost connection, extensive data loss
+ 28  1405/07/27 04:42:59  [wireless,info]  4C:5E:0C:5A:DB:2D@wlan1 established connection on 5120000, SSID 10094186111-PR-PTP-Manyohi
+ 29  1405/07/27 05:01:19  [wireless,info]  4C:5E:0C:5A:DB:2D@wlan1: lost connection, extensive data loss
+ 30  1405/07/27 05:01:20  [wireless,info]  4C:5E:0C:5A:DB:2D@wlan1 established connection on 5120000, SSID 10094186111-PR-PTP-Manyohi
+ 31  1405/07/28 01:46:39  [wireless,info]  4C:5E:0C:5A:DB:2D@wlan1: lost connection, extensive data loss
+ 32  1405/07/28 01:46:39  [wireless,info]  4C:5E:0C:5A:DB:2D@wlan1 established connection on 5120000, SSID 10094186111-PR-PTP-Manyohi
+ 33  1405/07/28 01:46:54  [wireless,info]  4C:5E:0C:5A:DB:2D@wlan1: lost connection, extensive data loss
+ 34  1405/07/28 01:46:54  [wireless,info]  4C:5E:0C:5A:DB:2D@wlan1 established connection on 5120000, SSID 10094186111-PR-PTP-Manyohi
+ 35  1405/07/29 02:45:32  [wireless,info]  4C:5E:0C:5A:DB:2D@wlan1: lost connection, not polled for too long
+ 36  1405/07/29 02:45:32  [wireless,info]  4C:5E:0C:5A:DB:2D@wlan1 established connection on 5120000, SSID 10094186111-PR-PTP-Manyohi
+ 37  1405/07/29 04:25:09  [wireless,info]  4C:5E:0C:5A:DB:2D@wlan1: lost connection, not polled for too long
+ 38  1405/07/29 04:25:10  [wireless,info]  4C:5E:0C:5A:DB:2D@wlan1 established connection on 5120000, SSID 10094186111-PR-PTP-Manyohi
+ 39  1405/07/29 06:06:19  [wireless,info]  4C:5E:0C:5A:DB:2D@wlan1: lost connection, extensive data loss
+ 40  1405/07/29 06:06:20  [wireless,info]  4C:5E:0C:5A:DB:2D@wlan1 established connection on 5120000, SSID 10094186111-PR-PTP-Manyohi
+ 41  1405/07/29 10:26:56  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  4C:5E:0C:49:B5:55  (ether)
+wlan1  4C:5E:0C:49:B5:56  (wlan)
+13-cisco  4C:5E:0C:49:B5:55  (vlan)
+bridge1  4C:5E:0C:49:B5:55  (bridge)
+vlan-15  4C:5E:0C:49:B5:55  (vlan)
+vlan1  4C:5E:0C:49:B5:55  (vlan)
+--- /ip arp ---
+vlan-15  4C:5E:0C:C5:C8:24  (arp 172.172.172.113)

@@ -1,0 +1,69 @@
+IP: 172.17.13.130
+Collected at: 2026-10-21T06:57:29.186073+00:00
+source: RouterOS API
+identity: ParsaRasaneh-Alvares-AP
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=6C:3B:6B:9D:68:F4
+  2  name=wlan1  type=wlan  running=true  mac=6C:3B:6B:9D:68:F5
+  3  name=bridge1  type=bridge  running=true  mac=6C:3B:6B:9D:68:F4
+  4  name=vlan1  type=vlan  running=true  mac=6C:3B:6B:9D:68:F4
+  5  name=wds1  type=wds  running=true  mac=6C:3B:6B:9D:68:F5
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=bridge  ssid=10094186181-PR-PTP-Mozeh  band=5ghz-onlyn  frequency=5625
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.13.130/29  interface=vlan1  network=172.17.13.128
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.13.129  distance=1
+  2  dst=172.17.13.128/29  gw=vlan1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=Parsa-SW-Zand  address=172.17.11.234  interface=ether1,bridge1
+  2  identity=AB-Ashkan  address=-  interface=vlan1
+  3  identity=MikroTik  address=172.17.12.185  interface=vlan1
+  4  identity=POP-Alvares  address=172.17.12.186  interface=vlan1
+  5  identity=ParsaRasaneh-Line15-POP-st  address=172.17.13.131  interface=vlan1
+  6  identity=ParsaRasaneh-Taj  address=172.17.13.133  interface=vlan1
+  7  identity=POP-Alvares  address=-  interface=wds1,bridge1
+  8  identity=ParsaRasaneh-Line15-POP-st  address=-  interface=wds1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:24
+# ساعت دستگاه (خام): 2006-02-18 23:30:31
+# افست اصلاحی (سرور − دستگاه): +181183:25:53
+  1  1405/07/03 11:55:22  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/03 11:55:22  [interface,info]  vlan1 link up
+  3  1405/07/03 11:55:23  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:9D:68:F4
+  4  1405/07/03 11:55:23  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  5  1405/07/03 11:55:27  [wireless,info]  6C:3B:6B:11:C7:AB@wlan1: connected, signal strength -70
+  6  1405/07/03 11:57:26  [interface,info]  ether1 link up (speed 100M, full duplex)
+  7  1405/07/14 12:19:29  [interface,info]  ether1 link down
+  8  1405/07/14 12:22:00  [interface,info]  ether1 link up (speed 100M, full duplex)
+  9  1405/07/15 19:30:54  [interface,info]  ether1 link down
+ 10  1405/07/15 19:33:35  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 11  1405/07/25 09:14:42  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 12  1405/07/25 09:14:42  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 13  1405/07/26 09:57:55  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 14  1405/07/26 09:57:55  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 15  1405/07/26 10:13:22  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 16  1405/07/26 10:13:23  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 17  1405/07/29 10:26:24  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  6C:3B:6B:9D:68:F4  (ether)
+wlan1  6C:3B:6B:9D:68:F5  (wlan)
+bridge1  6C:3B:6B:9D:68:F4  (bridge)
+vlan1  6C:3B:6B:9D:68:F4  (vlan)
+wds1  6C:3B:6B:9D:68:F5  (wds)
+--- /ip arp ---
+vlan1  4C:5E:0C:C5:C8:24  (arp 172.17.13.129)

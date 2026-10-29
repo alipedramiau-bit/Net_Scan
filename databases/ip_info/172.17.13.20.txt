@@ -1,0 +1,110 @@
+IP: 172.17.13.20
+Collected at: 2026-10-21T06:57:29.892101+00:00
+source: RouterOS API
+identity: ParsaRasaneh-ShahrakSanati-AB1
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=E4:8D:8C:DB:40:BA
+  2  name=10094186132-PR-ShahrakSanati-AB1  type=wlan  running=false  mac=E6:8D:8C:DB:40:BB
+  3  name=sari  type=wlan  running=false  mac=E6:8D:8C:DB:40:BC
+  4  name=wlan1  type=wlan  running=true  mac=E4:8D:8C:DB:40:BB
+  5  name=bridge1  type=bridge  running=true  mac=E4:8D:8C:DB:40:BA
+
+----- wireless -----
+=== /interface wireless ===
+name=10094186132-PR-ShahrakSanati-AB1  mode=ap-bridge  ssid=10094186132-PR-ShahrakSanati-AB1  band=-  frequency=-
+name=sari  mode=ap-bridge  ssid=ParsaRasaneh-ShahrakSanati-AB1  band=-  frequency=-
+name=wlan1  mode=ap-bridge  ssid=10094186132-PR-ShahrakSanati-AB1  band=5ghz-a/n  frequency=5370
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.17.13.20/29  interface=ether1  network=172.17.13.16
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.17.13.17  distance=1
+  2  dst=172.17.13.16/29  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=AB-Dolatiasl  address=-  interface=ether1,bridge1
+  2  identity=MikroTik  address=172.17.11.1  interface=ether1,bridge1
+  3  identity=ParsaRasaneh-PTP-Shahrak-AP  address=172.17.11.2  interface=ether1,bridge1
+  4  identity=ParsaRasaneh-PTP-Shahrak-ST  address=172.17.11.3  interface=ether1,bridge1
+  5  identity=Parsa-SW-Shahrak-AB.Alvani-Parsa  address=172.17.11.222  interface=ether1,bridge1
+  6  identity=PR-AB  address=172.17.13.19  interface=ether1,bridge1
+  7  identity=PR-PTP-Karoon  address=172.19.2.38  interface=ether1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:26:31
+# ساعت دستگاه (خام): 2008-04-16 11:26:07
+# افست اصلاحی (سرور − دستگاه): +162283:30:24
+  1  1405/06/21 18:00:42  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/06/21 18:00:44  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:DB:40:BA
+  3  1405/06/21 18:00:45  [wireless,info]  wlan1: pre-shared key authentication not enabled, disable WPS
+  4  1405/06/21 18:01:13  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/06/21 18:01:26  [interface,info]  ether1 link down
+  6  1405/06/21 18:01:45  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: connected, signal strength -62, wants bridge
+  7  1405/06/21 18:01:49  [wireless,info]  6C:3B:6B:02:4A:E5@wlan1: connected, signal strength -68, wants bridge
+  8  1405/06/21 18:01:55  [interface,info]  ether1 link up (speed 100M, full duplex)
+  9  1405/06/23 02:01:20  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: disconnected, extensive data loss
+ 10  1405/06/23 02:07:23  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: connected, signal strength -63, wants bridge
+ 11  1405/06/24 05:04:16  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: disconnected, extensive data loss
+ 12  1405/06/24 05:08:53  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: connected, signal strength -67, wants bridge
+ 13  1405/06/24 10:39:32  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: disconnected, extensive data loss
+ 14  1405/06/24 11:13:10  [interface,info]  ether1 link down
+ 15  1405/06/24 11:14:06  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 16  1405/06/24 11:14:20  [interface,info]  ether1 link down
+ 17  1405/06/24 11:14:49  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 18  1405/06/24 13:13:07  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: connected, signal strength -59, wants bridge
+ 19  1405/06/26 01:34:29  [wireless,info]  6C:3B:6B:02:4A:E5@wlan1: disconnected, extensive data loss
+ 20  1405/06/26 01:55:48  [wireless,info]  6C:3B:6B:02:4A:E5@wlan1: connected, signal strength -75, wants bridge
+ 21  1405/06/26 09:01:10  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: disconnected, extensive data loss
+ 22  1405/06/26 09:02:28  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: connected, signal strength -64, wants bridge
+ 23  1405/06/26 09:02:56  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: disconnected, extensive data loss
+ 24  1405/06/26 09:04:03  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: connected, signal strength -64, wants bridge
+ 25  1405/07/07 12:13:43  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: disconnected, extensive data loss
+ 26  1405/07/07 12:15:51  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: connected, signal strength -59, wants bridge
+ 27  1405/07/08 15:23:57  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: disconnected, extensive data loss
+ 28  1405/07/08 15:32:48  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: connected, signal strength -63, wants bridge
+ 29  1405/07/09 08:23:11  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: disconnected, extensive data loss
+ 30  1405/07/09 08:29:17  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: connected, signal strength -62, wants bridge
+ 31  1405/07/11 13:22:02  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: disconnected, extensive data loss
+ 32  1405/07/11 13:24:48  [wireless,info]  6C:3B:6B:02:4A:E5@wlan1: disconnected, extensive data loss
+ 33  1405/07/11 13:47:38  [wireless,info]  6C:3B:6B:02:4A:E5@wlan1: connected, signal strength -65, wants bridge
+ 34  1405/07/11 14:27:36  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: connected, signal strength -60, wants bridge
+ 35  1405/07/13 14:39:17  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: disconnected, extensive data loss
+ 36  1405/07/13 14:45:44  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: connected, signal strength -61, wants bridge
+ 37  1405/07/17 16:44:48  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: disconnected, extensive data loss
+ 38  1405/07/17 17:02:24  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: connected, signal strength -62, wants bridge
+ 39  1405/07/17 17:04:16  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: disconnected, extensive data loss
+ 40  1405/07/17 17:05:39  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: connected, signal strength -67, wants bridge
+ 41  1405/07/18 11:18:00  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: disconnected, extensive data loss
+ 42  1405/07/18 11:42:46  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: connected, signal strength -61, wants bridge
+ 43  1405/07/18 14:02:39  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: disconnected, extensive data loss
+ 44  1405/07/18 14:03:33  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: connected, signal strength -56, wants bridge
+ 45  1405/07/18 14:45:01  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: disconnected, extensive data loss
+ 46  1405/07/18 14:51:01  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: connected, signal strength -61, wants bridge
+ 47  1405/07/21 14:00:30  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: disconnected, extensive data loss
+ 48  1405/07/21 17:56:00  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: connected, signal strength -66, wants bridge
+ 49  1405/07/21 19:24:50  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: disconnected, extensive data loss
+ 50  1405/07/23 08:47:34  [wireless,info]  48:8F:5A:F7:AF:09@wlan1: connected, signal strength -67, wants bridge
+ 51  1405/07/25 09:14:48  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 52  1405/07/25 09:14:48  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 53  1405/07/26 09:58:00  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 54  1405/07/26 09:58:00  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 55  1405/07/26 10:13:28  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 56  1405/07/26 10:13:28  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 57  1405/07/29 10:26:31  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  E4:8D:8C:DB:40:BA  (ether)
+10094186132-PR-ShahrakSanati-AB1  E6:8D:8C:DB:40:BB  (wlan)
+sari  E6:8D:8C:DB:40:BC  (wlan)
+wlan1  E4:8D:8C:DB:40:BB  (wlan)
+bridge1  E4:8D:8C:DB:40:BA  (bridge)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.17.13.17)

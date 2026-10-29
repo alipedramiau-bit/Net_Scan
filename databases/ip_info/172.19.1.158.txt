@@ -1,0 +1,241 @@
+IP: 172.19.1.158
+Collected at: 2026-10-21T06:57:33.331131+00:00
+source: RouterOS API
+identity: PTP-Mohamadian
+device_type: AP
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=2C:C8:1B:4A:24:F6
+  2  name=wlan1  type=wlan  running=true  mac=2C:C8:1B:4A:24:F7
+  3  name=bridge1  type=bridge  running=true  mac=2C:C8:1B:4A:24:F6
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=bridge  ssid=10094186111-PR-PTP-Mohamadi  band=5ghz-a/n  frequency=5130
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=172.19.1.158/30  interface=ether1  network=172.19.1.156
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.19.1.157  distance=1
+  2  dst=172.19.1.156/30  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=AB-Mohamadian1  address=-  interface=wlan1,bridge1
+  2  identity=AB-Halvaie  address=-  interface=ether1,bridge1
+  3  identity=MikroTik  address=170.19.1.25  interface=ether1,bridge1
+  4  identity=ParsaRasaneh-SW-Emam-POP  address=172.17.12.106  interface=ether1,bridge1
+  5  identity=PR-PTP-Halvaei  address=172.19.2.58  interface=ether1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:27:10
+# ساعت دستگاه (خام): 1974-01-11 02:11:59
+# افست اصلاحی (سرور − دستگاه): +462628:45:11
+  1  1404/10/13 11:00:09  [system,error,critical]  router was rebooted without proper shutdown
+  2  1404/10/13 11:00:09  [bridge,info]  "bridge1" mac address changed to 2C:C8:1B:4A:24:F6
+  3  1404/10/13 11:00:09  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  4  1404/10/13 11:00:10  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -72
+  5  1404/10/13 11:02:31  [interface,info]  ether1 link up (speed 100M, full duplex)
+  6  1404/10/16 18:24:27  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, not responding
+  7  1404/10/16 18:59:37  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -68
+  8  1404/11/02 23:29:04  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, not responding
+  9  1404/11/02 23:29:29  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -72
+ 10  1404/11/12 17:03:18  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, not responding
+ 11  1404/11/12 18:31:36  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -68
+ 12  1404/12/11 16:47:27  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, not responding
+ 13  1404/12/11 20:41:36  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -74
+ 14  1404/12/17 19:20:46  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, not responding
+ 15  1404/12/19 20:25:51  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -70
+ 16  1404/12/23 18:52:43  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, not responding
+ 17  1404/12/24 15:48:38  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -72
+ 18  1404/12/25 17:23:40  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, not responding
+ 19  1404/12/27 00:19:22  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -72
+ 20  1404/12/27 18:02:38  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, not responding
+ 21  1404/12/28 10:48:49  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -72
+ 22  1405/01/06 15:26:38  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, not responding
+ 23  1405/01/06 16:47:05  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -70
+ 24  1405/01/06 16:58:44  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, not responding
+ 25  1405/01/06 16:59:14  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -72
+ 26  1405/01/06 17:16:37  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, not responding
+ 27  1405/01/11 13:37:42  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -72
+ 28  1405/01/15 12:48:37  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, not responding
+ 29  1405/01/19 07:53:17  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -72
+ 30  1405/01/26 09:33:43  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, not responding
+ 31  1405/01/26 10:45:10  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -70
+ 32  1405/01/30 14:31:53  [system,info,account]  user su logged in from 185.110.29.153 via winbox
+ 33  1405/01/30 14:32:02  [system,info,account]  user su logged in from 185.110.29.153 via telnet
+ 34  1405/01/30 14:32:24  [smb,info]  created new share: pub
+ 35  1405/01/30 14:32:55  [system,info,account]  user su logged out from 185.110.29.153 via winbox
+ 36  1405/01/30 14:32:55  [system,info,account]  user su logged out from 185.110.29.153 via telnet
+ 37  1405/02/04 15:57:16  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, control frame timeout
+ 38  1405/02/24 06:12:52  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -72
+ 39  1405/02/24 13:02:56  [system,info,account]  user su logged in from 185.110.29.153 via api
+ 40  1405/02/24 13:03:01  [system,info,account]  user su logged out from 185.110.29.153 via api
+ 41  1405/02/24 13:17:03  [system,info,account]  user su logged in from 185.110.29.153 via api
+ 42  1405/02/24 13:17:06  [system,info,account]  user su logged out from 185.110.29.153 via api
+ 43  1405/02/24 14:19:20  [system,info,account]  user su logged in from 185.110.29.153 via api
+ 44  1405/02/24 14:19:32  [system,info,account]  user su logged in from 185.110.29.153 via ftp
+ 45  1405/02/24 14:19:32  [system,info,account]  user su logged out from 185.110.29.153 via ftp
+ 46  1405/02/24 14:19:33  [system,info,account]  user su logged out from 185.110.29.153 via api
+ 47  1405/02/31 06:40:27  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, not responding
+ 48  1405/03/03 14:45:48  [system,info,account]  user su logged in from 185.110.29.153 via api
+ 49  1405/03/03 14:45:48  [system,info,account]  user su logged out from 185.110.29.153 via api
+ 50  1405/03/04 10:29:08  [system,info,account]  user su logged in from 185.110.29.153 via api
+ 51  1405/03/04 10:29:08  [system,info,account]  user su logged out from 185.110.29.153 via api
+ 52  1405/03/05 18:28:23  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -72
+ 53  1405/03/08 17:49:15  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, not responding
+ 54  1405/03/10 23:44:01  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -74
+ 55  1405/03/18 06:27:15  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, not responding
+ 56  1405/03/27 06:17:06  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -70
+ 57  1405/03/28 20:17:12  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, not responding
+ 58  1405/03/31 09:43:05  [interface,info]  ether1 link down
+ 59  1405/03/31 09:45:49  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 60  1405/04/12 20:54:19  [system,info,account]  user su logged in from 100.78.30.187 via api
+ 61  1405/04/12 20:54:19  [system,info,account]  user su logged out from 100.78.30.187 via api
+ 62  1405/04/12 21:36:48  [system,info,account]  user su logged in from 100.78.30.187 via api
+ 63  1405/04/12 21:36:48  [system,info,account]  user su logged out from 100.78.30.187 via api
+ 64  1405/04/12 21:37:48  [system,info,account]  user su logged in from 100.78.30.187 via api
+ 65  1405/04/12 21:37:48  [system,info,account]  user su logged out from 100.78.30.187 via api
+ 66  1405/04/12 21:44:48  [system,info,account]  user su logged in from 100.78.30.187 via api
+ 67  1405/04/12 21:44:48  [system,info,account]  user su logged out from 100.78.30.187 via api
+ 68  1405/04/13 08:55:12  [system,info,account]  user su logged in from 185.110.29.153 via api
+ 69  1405/04/13 08:55:12  [system,info,account]  user su logged out from 185.110.29.153 via api
+ 70  1405/04/13 10:55:14  [system,info,account]  user su logged in from 185.110.29.153 via api
+ 71  1405/04/13 10:55:14  [system,info,account]  user su logged out from 185.110.29.153 via api
+ 72  1405/04/13 11:00:47  [system,info,account]  user su logged in from 185.110.29.153 via api
+ 73  1405/04/13 11:00:47  [system,info,account]  user su logged out from 185.110.29.153 via api
+ 74  1405/04/13 11:13:58  [system,info,account]  user su logged in from 185.110.29.153 via api
+ 75  1405/04/13 11:13:58  [system,info,account]  user su logged out from 185.110.29.153 via api
+ 76  1405/04/13 11:14:53  [system,info,account]  user su logged in from 185.110.29.153 via api
+ 77  1405/04/13 11:14:53  [system,info,account]  user su logged out from 185.110.29.153 via api
+ 78  1405/04/13 11:16:02  [system,info,account]  user su logged in from 185.110.29.153 via api
+ 79  1405/04/13 11:16:02  [system,info,account]  user su logged out from 185.110.29.153 via api
+ 80  1405/04/14 12:23:33  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -70
+ 81  1405/04/18 12:59:12  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, not responding
+ 82  1405/04/29 12:34:05  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 83  1405/04/29 12:34:05  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 84  1405/04/29 12:41:07  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 85  1405/04/29 12:41:07  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 86  1405/04/29 12:42:02  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 87  1405/04/29 12:42:02  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 88  1405/04/29 12:45:10  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 89  1405/04/29 12:45:10  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 90  1405/04/29 13:13:27  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 91  1405/04/29 13:13:27  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 92  1405/04/30 13:13:57  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 93  1405/04/30 13:13:57  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 94  1405/04/30 13:51:13  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 95  1405/04/30 13:51:13  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 96  1405/04/31 13:51:48  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 97  1405/04/31 13:51:48  [system,info,account]  user su logged out from 185.110.29.183 via api
+ 98  1405/05/01 13:52:28  [system,info,account]  user su logged in from 185.110.29.183 via api
+ 99  1405/05/01 13:52:28  [system,info,account]  user su logged out from 185.110.29.183 via api
+100  1405/05/02 13:52:51  [system,info,account]  user su logged in from 185.110.29.183 via api
+101  1405/05/02 13:52:51  [system,info,account]  user su logged out from 185.110.29.183 via api
+102  1405/05/03 13:53:11  [system,info,account]  user su logged in from 185.110.29.183 via api
+103  1405/05/03 13:53:11  [system,info,account]  user su logged out from 185.110.29.183 via api
+104  1405/05/04 13:53:29  [system,info,account]  user su logged in from 185.110.29.183 via api
+105  1405/05/04 13:53:29  [system,info,account]  user su logged out from 185.110.29.183 via api
+106  1405/05/05 13:53:48  [system,info,account]  user su logged in from 185.110.29.183 via api
+107  1405/05/05 13:53:48  [system,info,account]  user su logged out from 185.110.29.183 via api
+108  1405/05/05 15:28:32  [system,info,account]  user su logged in from 185.110.29.183 via api
+109  1405/05/05 15:28:32  [system,info,account]  user su logged out from 185.110.29.183 via api
+110  1405/05/05 20:13:11  [system,info,account]  user su logged in from 185.110.29.183 via api
+111  1405/05/05 20:13:11  [system,info,account]  user su logged out from 185.110.29.183 via api
+112  1405/05/05 20:29:45  [system,info,account]  user su logged in from 185.110.29.183 via api
+113  1405/05/05 20:29:45  [system,info,account]  user su logged out from 185.110.29.183 via api
+114  1405/05/06 11:23:45  [system,info,account]  user su logged in from 185.110.29.153 via winbox
+115  1405/05/06 11:23:46  [system,info,account]  user su logged in from 185.110.29.153 via telnet
+116  1405/05/06 11:23:58  [system,info]  changed snmp settings by su
+117  1405/05/06 11:23:58  [system,info]  item changed by su
+118  1405/05/06 11:24:04  [system,info,account]  user su logged out from 185.110.29.153 via telnet
+119  1405/05/06 11:24:05  [system,info,account]  user su logged out from 185.110.29.153 via winbox
+120  1405/05/07 08:15:35  [system,info,account]  user su logged in from 185.110.29.183 via api
+121  1405/05/07 08:15:35  [system,info,account]  user su logged out from 185.110.29.183 via api
+122  1405/05/08 08:16:03  [system,info,account]  user su logged in from 185.110.29.183 via api
+123  1405/05/08 08:16:03  [system,info,account]  user su logged out from 185.110.29.183 via api
+124  1405/05/09 00:52:46  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: reconnecting
+125  1405/05/09 00:52:46  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -76
+126  1405/05/09 08:16:43  [system,info,account]  user su logged in from 185.110.29.183 via api
+127  1405/05/09 08:16:43  [system,info,account]  user su logged out from 185.110.29.183 via api
+128  1405/05/10 08:17:14  [system,info,account]  user su logged in from 185.110.29.183 via api
+129  1405/05/10 08:17:14  [system,info,account]  user su logged out from 185.110.29.183 via api
+130  1405/05/11 08:17:46  [system,info,account]  user su logged in from 185.110.29.183 via api
+131  1405/05/11 08:17:46  [system,info,account]  user su logged out from 185.110.29.183 via api
+132  1405/05/12 08:18:25  [system,info,account]  user su logged in from 185.110.29.183 via api
+133  1405/05/12 08:18:25  [system,info,account]  user su logged out from 185.110.29.183 via api
+134  1405/05/13 08:18:48  [system,info,account]  user su logged in from 185.110.29.183 via api
+135  1405/05/13 08:18:48  [system,info,account]  user su logged out from 185.110.29.183 via api
+136  1405/05/16 18:47:52  [system,info,account]  user su logged in from 185.110.29.183 via api
+137  1405/05/16 18:47:52  [system,info,account]  user su logged out from 185.110.29.183 via api
+138  1405/05/17 18:48:22  [system,info,account]  user su logged in from 185.110.29.183 via api
+139  1405/05/17 18:48:22  [system,info,account]  user su logged out from 185.110.29.183 via api
+140  1405/05/18 18:49:46  [system,info,account]  user su logged in from 185.110.29.183 via api
+141  1405/05/18 18:49:46  [system,info,account]  user su logged out from 185.110.29.183 via api
+142  1405/05/19 18:50:46  [system,info,account]  user su logged in from 185.110.29.183 via api
+143  1405/05/19 18:50:46  [system,info,account]  user su logged out from 185.110.29.183 via api
+144  1405/05/20 17:34:43  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, not responding
+145  1405/05/20 18:51:37  [system,info,account]  user su logged in from 185.110.29.183 via api
+146  1405/05/20 18:51:37  [system,info,account]  user su logged out from 185.110.29.183 via api
+147  1405/05/21 18:52:41  [system,info,account]  user su logged in from 185.110.29.183 via api
+148  1405/05/21 18:52:41  [system,info,account]  user su logged out from 185.110.29.183 via api
+149  1405/05/22 12:03:45  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -76
+150  1405/05/22 13:16:51  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, not responding
+151  1405/05/22 18:53:16  [system,info,account]  user su logged in from 185.110.29.183 via api
+152  1405/05/22 18:53:16  [system,info,account]  user su logged out from 185.110.29.183 via api
+153  1405/05/23 18:54:22  [system,info,account]  user su logged in from 185.110.29.183 via api
+154  1405/05/23 18:54:22  [system,info,account]  user su logged out from 185.110.29.183 via api
+155  1405/05/24 18:54:57  [system,info,account]  user su logged in from 185.110.29.183 via api
+156  1405/05/24 18:54:57  [system,info,account]  user su logged out from 185.110.29.183 via api
+157  1405/05/25 18:55:55  [system,info,account]  user su logged in from 185.110.29.183 via api
+158  1405/05/25 18:55:55  [system,info,account]  user su logged out from 185.110.29.183 via api
+159  1405/05/26 18:56:36  [system,info,account]  user su logged in from 185.110.29.183 via api
+160  1405/05/26 18:56:36  [system,info,account]  user su logged out from 185.110.29.183 via api
+161  1405/05/27 18:57:56  [system,info,account]  user su logged in from 185.110.29.183 via api
+162  1405/05/27 18:57:56  [system,info,account]  user su logged out from 185.110.29.183 via api
+163  1405/05/28 18:59:01  [system,info,account]  user su logged in from 185.110.29.183 via api
+164  1405/05/28 18:59:01  [system,info,account]  user su logged out from 185.110.29.183 via api
+165  1405/05/29 18:59:41  [system,info,account]  user su logged in from 185.110.29.183 via api
+166  1405/05/29 18:59:41  [system,info,account]  user su logged out from 185.110.29.183 via api
+167  1405/05/30 19:00:38  [system,info,account]  user su logged in from 185.110.29.183 via api
+168  1405/05/30 19:00:38  [system,info,account]  user su logged out from 185.110.29.183 via api
+169  1405/05/31 19:01:28  [system,info,account]  user su logged in from 185.110.29.183 via api
+170  1405/05/31 19:01:28  [system,info,account]  user su logged out from 185.110.29.183 via api
+171  1405/06/01 19:02:20  [system,info,account]  user su logged in from 185.110.29.183 via api
+172  1405/06/01 19:02:20  [system,info,account]  user su logged out from 185.110.29.183 via api
+173  1405/06/02 19:03:16  [system,info,account]  user su logged in from 185.110.29.183 via api
+174  1405/06/02 19:03:16  [system,info,account]  user su logged out from 185.110.29.183 via api
+175  1405/06/03 19:04:28  [system,info,account]  user su logged in from 185.110.29.183 via api
+176  1405/06/03 19:04:28  [system,info,account]  user su logged out from 185.110.29.183 via api
+177  1405/06/15 06:24:02  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -78
+178  1405/06/19 18:33:59  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, not responding
+179  1405/06/19 19:00:44  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -74
+180  1405/06/22 22:38:27  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, not responding
+181  1405/06/22 22:38:52  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -84
+182  1405/06/30 22:54:09  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, not responding
+183  1405/06/30 22:54:33  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -74
+184  1405/07/01 18:44:18  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, not responding
+185  1405/07/01 19:05:09  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -74
+186  1405/07/02 00:28:38  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, control frame timeout
+187  1405/07/02 00:32:52  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -76
+188  1405/07/04 15:09:02  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, not responding
+189  1405/07/04 15:10:02  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -80
+190  1405/07/13 16:35:55  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: disconnected, control frame timeout
+191  1405/07/23 15:57:40  [wireless,info]  6C:3B:6B:91:9D:E0@wlan1: connected, signal strength -74
+192  1405/07/26 09:58:48  [system,info,account]  user su logged in from 185.110.29.189 via api
+193  1405/07/26 09:58:49  [system,info,account]  user su logged out from 185.110.29.189 via api
+194  1405/07/26 10:14:07  [system,info,account]  user su logged in from 185.110.29.189 via api
+195  1405/07/26 10:14:07  [system,info,account]  user su logged out from 185.110.29.189 via api
+196  1405/07/29 10:27:10  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  2C:C8:1B:4A:24:F6  (ether)
+wlan1  2C:C8:1B:4A:24:F7  (wlan)
+bridge1  2C:C8:1B:4A:24:F6  (bridge)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.19.1.157)

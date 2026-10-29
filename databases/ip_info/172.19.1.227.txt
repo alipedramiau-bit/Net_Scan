@@ -1,0 +1,58 @@
+IP: 172.19.1.227
+Collected at: 2026-10-21T06:57:33.682103+00:00
+source: RouterOS API
+identity: PR-PTP-Khatam-ST-PayamNoor
+device_type: ST
+
+----- interfaces -----
+=== /interface ===
+  1  name=ether1  type=ether  running=true  mac=C4:AD:34:F3:33:7E
+  2  name=wlan1  type=wlan  running=true  mac=C4:AD:34:F3:33:7F
+  3  name=bridge1  type=bridge  running=true  mac=C4:AD:34:F3:33:7E
+
+----- wireless -----
+=== /interface wireless ===
+name=wlan1  mode=station-wds  ssid=PR-PTP-PaydarSazan  band=5ghz-a/n  frequency=5220
+
+----- ip_addresses / routes -----
+=== /ip address ===
+  1  address=192.168.21.2/24  interface=ether1  network=192.168.21.0
+  2  address=172.19.1.227/29  interface=bridge1  network=172.19.1.224
+  3  address=10.30.72.213/32  interface=ether1  network=10.30.72.213
+  4  address=192.168.1.1/24  interface=ether1  network=192.168.1.0
+
+=== /ip route ===
+  1  dst=0.0.0.0/0  gw=172.19.1.225  distance=1
+  2  dst=172.19.1.224/29  gw=bridge1  distance=0
+  3  dst=192.168.21.0/24  gw=bridge1  distance=0
+
+----- neighbors -----
+=== /ip neighbor ===
+  1  identity=RTR.Paydar.Abadan.Paydarsazan.org  address=172.19.1.228  interface=ether1,bridge1
+  2  identity=ParsaRasaneh-SW-Main  address=172.17.11.242  interface=wlan1,bridge1
+  3  identity=MikroTik  address=172.19.1.225  interface=wlan1,bridge1
+
+----- log -----
+=== /log (تهران / هجری شمسی) ===
+# زمان سرور هنگام خواندن: 1405/07/29 10:27:13
+# ساعت دستگاه (خام): 2004-05-06 05:05:46
+# افست اصلاحی (سرور − دستگاه): +196873:51:27
+  1  1405/07/16 07:22:08  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/16 07:22:10  [bridge,info]  "bridge1" mac address changed to C4:AD:34:F3:33:7E
+  3  1405/07/16 07:22:11  [wireless,info]  C4:AD:34:F3:33:63@wlan1 established connection on 5220000, SSID PR-PTP-PaydarSazan
+  4  1405/07/16 07:22:12  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/07/16 07:24:12  [interface,info]  ether1 link down
+  6  1405/07/16 07:24:13  [interface,info]  ether1 link up (speed 100M, full duplex)
+  7  1405/07/26 09:58:51  [system,info,account]  user su logged in from 185.110.29.189 via api
+  8  1405/07/26 09:58:51  [system,info,account]  user su logged out from 185.110.29.189 via api
+  9  1405/07/26 10:14:11  [system,info,account]  user su logged in from 185.110.29.189 via api
+ 10  1405/07/26 10:14:11  [system,info,account]  user su logged out from 185.110.29.189 via api
+ 11  1405/07/29 10:27:13  [system,info,account]  user su logged in from 185.110.29.189 via api
+
+----- mac -----
+=== MAC addresses ===
+ether1  C4:AD:34:F3:33:7E  (ether)
+wlan1  C4:AD:34:F3:33:7F  (wlan)
+bridge1  C4:AD:34:F3:33:7E  (bridge)
+--- /ip arp ---
+bridge1  4C:5E:0C:C5:C8:24  (arp 172.19.1.225)
