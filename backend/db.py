@@ -545,6 +545,61 @@ def device_read_status(d: dict) -> str:
     return "کامل" if device_details_complete(d) else "ناقص — اطلاعات کامل خوانده نشد"
 
 
+# Persian column headers of the MikroTik export (CSV and JSON share them
+# exactly so both files carry the same fields in the same order).
+MIKROTIK_EXPORT_FIELDS = [
+    "IP", "نام دستگاه (identity)", "نوع دستگاه", "تگ", "پینگ",
+    "پورت‌های باز", "وضعیت پورت 8291 (Winbox)", "وضعیت پورت 8728 (API)",
+    "دسته‌بندی", "اینترفیس‌ها", "آدرس‌های IP", "همسایه‌ها",
+    "وایرلس", "لاگ دستگاه", "اطلاعات MAC",
+    "اولین مشاهده", "آخرین مشاهده", "تعداد مشاهده", "وضعیت خواندن",
+]
+
+
+def mikrotik_selected_rows(ips, db_path=None) -> list:
+    """One dict per selected MikroTik device, keyed by MIKROTIK_EXPORT_FIELDS.
+
+    Shared by the CSV export (mikrotik_selected_to_csv) and the JSON export
+    (/devices/export-mikrotik.json) so both always carry identical data.
+    Raises ValueError when none of the selected devices is MikroTik.
+    """
+    devices = fetch_devices_by_ips(ips, db_path=db_path)
+    selected = [d for d in devices if _is_mikrotik_device(d)]
+    if not selected:
+        raise ValueError(
+            "در دستگاه‌های انتخاب‌شده هیچ دستگاه میکروتیکی یافت نشد "
+            "(نامزد میکروتیک یا پورت 8291/8728 باز)"
+        )
+    rows = []
+    for d in selected:
+        states = d.get("port_states") or {}
+        if not isinstance(states, dict):
+            states = {}
+        states_s = {str(k): str(v) for k, v in states.items()}
+        rows.append({
+            "IP": d.get("ip") or "",
+            "نام دستگاه (identity)": d.get("device_name") or "",
+            "نوع دستگاه": d.get("device_type") or "",
+            "تگ": d.get("tags") or "",
+            "پینگ": "yes" if d.get("ping_ok") else "no",
+            "پورت‌های باز": " ".join(map(str, d.get("open_ports") or [])),
+            "وضعیت پورت 8291 (Winbox)": states_s.get("8291", ""),
+            "وضعیت پورت 8728 (API)": states_s.get("8728", ""),
+            "دسته‌بندی": classification_label(d.get("classification") or ""),
+            "اینترفیس‌ها": d.get("interfaces") or "",
+            "آدرس‌های IP": d.get("ip_addresses") or "",
+            "همسایه‌ها": d.get("ip_neighbors") or "",
+            "وایرلس": d.get("wireless_info") or "",
+            "لاگ دستگاه": d.get("device_log") or "",
+            "اطلاعات MAC": d.get("mac_info") or "",
+            "اولین مشاهده": d.get("first_seen") or "",
+            "آخرین مشاهده": d.get("last_seen") or "",
+            "تعداد مشاهده": d.get("seen_count") if d.get("seen_count") is not None else "",
+            "وضعیت خواندن": device_read_status(d),
+        })
+    return rows
+
+
 def mikrotik_selected_to_csv(ips, db_path=None) -> bytes:
     """Full CSV export for the SELECTED MikroTik devices, one column per field.
 
@@ -557,48 +612,12 @@ def mikrotik_selected_to_csv(ips, db_path=None) -> bytes:
     Only MikroTik devices among `ips` are kept. Raises ValueError when none
     of the selected devices is MikroTik so the API can return a clear 400.
     """
-    devices = fetch_devices_by_ips(ips, db_path=db_path)
-    selected = [d for d in devices if _is_mikrotik_device(d)]
-    if not selected:
-        raise ValueError(
-            "در دستگاه‌های انتخاب‌شده هیچ دستگاه میکروتیکی یافت نشد "
-            "(نامزد میکروتیک یا پورت 8291/8728 باز)"
-        )
+    rows = mikrotik_selected_rows(ips, db_path=db_path)
     buf = io.StringIO()
     writer = csv.writer(buf)
-    writer.writerow([
-        "IP", "نام دستگاه (identity)", "نوع دستگاه", "تگ", "پینگ",
-        "پورت‌های باز", "وضعیت پورت 8291 (Winbox)", "وضعیت پورت 8728 (API)",
-        "دسته‌بندی", "اینترفیس‌ها", "آدرس‌های IP", "همسایه‌ها",
-        "وایرلس", "لاگ دستگاه", "اطلاعات MAC",
-        "اولین مشاهده", "آخرین مشاهده", "تعداد مشاهده", "وضعیت خواندن",
-    ])
-    for d in selected:
-        states = d.get("port_states") or {}
-        if not isinstance(states, dict):
-            states = {}
-        states_s = {str(k): str(v) for k, v in states.items()}
-        writer.writerow([
-            d.get("ip") or "",
-            d.get("device_name") or "",
-            d.get("device_type") or "",
-            d.get("tags") or "",
-            "yes" if d.get("ping_ok") else "no",
-            " ".join(map(str, d.get("open_ports") or [])),
-            states_s.get("8291", ""),
-            states_s.get("8728", ""),
-            classification_label(d.get("classification") or ""),
-            d.get("interfaces") or "",
-            d.get("ip_addresses") or "",
-            d.get("ip_neighbors") or "",
-            d.get("wireless_info") or "",
-            d.get("device_log") or "",
-            d.get("mac_info") or "",
-            d.get("first_seen") or "",
-            d.get("last_seen") or "",
-            d.get("seen_count") if d.get("seen_count") is not None else "",
-            device_read_status(d),
-        ])
+    writer.writerow(MIKROTIK_EXPORT_FIELDS)
+    for r in rows:
+        writer.writerow([r[k] for k in MIKROTIK_EXPORT_FIELDS])
     return b"\xef\xbb\xbf" + buf.getvalue().encode("utf-8")
 
 

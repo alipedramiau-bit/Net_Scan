@@ -24,6 +24,7 @@ from fastapi.responses import Response, JSONResponse
 from pydantic import BaseModel, Field
 import os
 import platform
+import json
 import re as _re
 import shutil
 import subprocess
@@ -33,6 +34,10 @@ try:
     from backend import db
 except ImportError:
     import db
+try:
+    from backend import route_report
+except ImportError:
+    import route_report
 
 from scanner_lib import ScanConfig, ScanReport, scan_targets  # package-level API
 from scanner_lib.constants import MAX_TARGETS
@@ -392,6 +397,40 @@ class ExportSelectedBody(BaseModel):
     max_workers: int = Field(default=6, ge=1, le=16)
 
 
+def _live_read_missing_devices(ips: list, body: "ExportSelectedBody") -> tuple:
+    """Live-read selected MikroTik devices lacking complete details (pre-export).
+
+    Shared by /devices/export-mikrotik.csv and /devices/export-mikrotik.json
+    so both exports carry identical, freshly-completed data. Progress is
+    reported on the same /api/devices/probe-api/progress endpoint.
+    Returns (missing_before, read_now, failed_read).
+    """
+    pre = [d for d in db.fetch_devices_by_ips(ips) if db._is_mikrotik_device(d)]
+    missing = [d["ip"] for d in pre if not db.device_details_complete(d)]
+    missing_before = len(missing)
+    if not missing:
+        return missing_before, 0, 0
+    API_PROBE_CANCEL.clear()
+    API_PROBE_PROGRESS.update({"total": len(missing), "done": 0, "ok": 0, "failed": 0,
+                               "current_ip": "", "running": True, "canceled": False})
+    try:
+        results = routeros_api.probe_devices_via_api_many(
+            missing,
+            username=body.username,
+            password=body.password or "",
+            port=body.port,
+            timeout=body.timeout,
+            cancel_event=API_PROBE_CANCEL,
+            progress=API_PROBE_PROGRESS,
+            max_workers=body.max_workers,
+        )
+    finally:
+        API_PROBE_PROGRESS.update({"running": False, "current_ip": ""})
+    read_now, _txt_dir = _persist_api_probe_results(results)
+    failed_read = sum(1 for r in results if not r.get("ok"))
+    return missing_before, read_now, failed_read
+
+
 @app.post("/devices/export-mikrotik.csv")
 def export_mikrotik_selected_csv(body: ExportSelectedBody):
     """خروجی CSV کامل دستگاه‌های میکروتیک انتخاب‌شده.
@@ -409,30 +448,9 @@ def export_mikrotik_selected_csv(body: ExportSelectedBody):
     ips = [str(x).strip() for x in (body.ips or []) if str(x).strip()]
     if not ips:
         raise HTTPException(400, "هیچ دستگاهی انتخاب نشده است")
-    read_now = failed_read = missing_before = 0
+    missing_before = read_now = failed_read = 0
     if body.read_missing:
-        pre = [d for d in db.fetch_devices_by_ips(ips) if db._is_mikrotik_device(d)]
-        missing = [d["ip"] for d in pre if not db.device_details_complete(d)]
-        missing_before = len(missing)
-        if missing:
-            API_PROBE_CANCEL.clear()
-            API_PROBE_PROGRESS.update({"total": len(missing), "done": 0, "ok": 0, "failed": 0,
-                                       "current_ip": "", "running": True, "canceled": False})
-            try:
-                results = routeros_api.probe_devices_via_api_many(
-                    missing,
-                    username=body.username,
-                    password=body.password or "",
-                    port=body.port,
-                    timeout=body.timeout,
-                    cancel_event=API_PROBE_CANCEL,
-                    progress=API_PROBE_PROGRESS,
-                    max_workers=body.max_workers,
-                )
-            finally:
-                API_PROBE_PROGRESS.update({"running": False, "current_ip": ""})
-            read_now, _txt_dir = _persist_api_probe_results(results)
-            failed_read = sum(1 for r in results if not r.get("ok"))
+        missing_before, read_now, failed_read = _live_read_missing_devices(ips, body)
     try:
         data = db.mikrotik_selected_to_csv(ips)
     except ValueError as e:
@@ -447,6 +465,121 @@ def export_mikrotik_selected_csv(body: ExportSelectedBody):
             "X-Export-Missing-Before": str(missing_before),
             "X-Export-Read-Now": str(read_now),
             "X-Export-Read-Failed": str(failed_read),
+        },
+    )
+
+
+@app.post("/devices/export-mikrotik.json")
+def export_mikrotik_selected_json(body: ExportSelectedBody):
+    """خروجی JSON کامل دستگاه‌های میکروتیک انتخاب‌شده.
+
+    دقیقاً همان اطلاعات و همان ۱۹ فیلد فارسیِ خروجی CSV (MIKROTIK_EXPORT_FIELDS)
+    به‌صورت یک آرایه JSON + متادیتا (زمان خروجی، دیتابیس فعال، تعداد). با
+    read_missing=True ابتدا دستگاه‌های بدونِ اطلاعاتِ کامل با RouterOS API
+    زنده خوانده می‌شوند (رفتار و پیشرفتِ برابر با خروجی CSV).
+    """
+    ips = [str(x).strip() for x in (body.ips or []) if str(x).strip()]
+    if not ips:
+        raise HTTPException(400, "هیچ دستگاهی انتخاب نشده است")
+    missing_before = read_now = failed_read = 0
+    if body.read_missing:
+        missing_before, read_now, failed_read = _live_read_missing_devices(ips, body)
+    try:
+        rows = db.mikrotik_selected_rows(ips)
+    except ValueError as e:
+        raise HTTPException(400, str(e)) from e
+    payload = {
+        "exported_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "database": db.get_active_db_name(),
+        "count": len(rows),
+        "fields": db.MIKROTIK_EXPORT_FIELDS,
+        "devices": rows,
+    }
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+    filename = f"mikrotik_selected_{stamp}.json"
+    content = json.dumps(payload, ensure_ascii=False, indent=2)
+    return Response(
+        content=content.encode("utf-8"),
+        media_type="application/json; charset=utf-8",
+        headers={
+            "Content-Disposition": f'attachment; filename="{filename}"',
+            "X-Export-Missing-Before": str(missing_before),
+            "X-Export-Read-Now": str(read_now),
+            "X-Export-Read-Failed": str(failed_read),
+        },
+    )
+
+
+class RouteReportBody(BaseModel):
+    """Body of POST /devices/route-report.csv.
+
+    ips = دستگاه‌های میکروتیکِ منطبق با فیلتر جستجوی گزارش؛ مسیر تا IP هر
+    دستگاه جداگانه ردیابی می‌شود (tracert -d). مبدأ/مقصد پیش‌فرض 172.19.1.6.
+    """
+    ips: list[str] = Field(default_factory=list, max_length=50000)
+    source_ip: str = Field(default="172.19.1.6", max_length=64)
+    dest_ip: str = Field(default="172.19.1.6", max_length=64)
+    max_hops: int = Field(default=15, ge=1, le=30)
+    timeout_ms: int = Field(default=800, ge=100, le=5000)
+    max_workers: int = Field(default=6, ge=1, le=16)
+
+
+@app.post("/devices/route-report.csv")
+def route_report_csv(body: RouteReportBody):
+    """گزارش روت: اجرای `tracert -d <IP دستگاه>` برای تمام دستگاه‌های میکروتیک.
+
+    - مسیر تا IP هر دستگاه میکروتیک به‌صورت جداگانه ردیابی و به‌صورت CSV
+      (UTF-8 BOM) با ۷ ستون فارسی ذخیره می‌شود؛ در ویندوز از `tracert -d` و
+      در لینوکس از `traceroute -n` استفاده می‌شود.
+    - IP مبدأ و IP مقصد از کاربر پرسیده می‌شوند (پیش‌فرض هر دو 172.19.1.6) و
+      در ستون‌های «IP مبدأ» / «IP مقصد» ثبت می‌شوند. اگر مقصد با مبدأ برابر
+      نباشد، مسیر مبدأ→مقصد نیز به‌عنوان بخش نخست گزارش ردیابی می‌شود.
+    - ردیابی از سروری اجرا می‌شود که برنامه روی آن قرار دارد.
+    """
+    ips = [str(x).strip() for x in (body.ips or []) if str(x).strip()]
+    if not ips:
+        raise HTTPException(400, "هیچ دستگاهی برای گزارش روت یافت نشد")
+    devices = db.fetch_devices_by_ips(ips)
+    mts = [d for d in devices if db._is_mikrotik_device(d)]
+    if not mts:
+        raise HTTPException(
+            400,
+            "در دستگاه‌های گزارش هیچ دستگاه میکروتیکی یافت نشد "
+            "(نامزد میکروتیک یا پورت 8291/8728 باز)",
+        )
+    src = (body.source_ip or "").strip() or route_report.DEFAULT_SOURCE_IP
+    dst = (body.dest_ip or "").strip() or route_report.DEFAULT_DEST_IP
+    base_trace = None
+    if src != dst:
+        base_trace = route_report.trace_route(dst, max_hops=body.max_hops, timeout_ms=body.timeout_ms)
+    targets = []
+    seen = set()
+    for d in mts:
+        ip = (d.get("ip") or "").strip()
+        if ip and ip not in seen:
+            seen.add(ip)
+            targets.append((ip, d.get("device_name") or ""))
+    tr_results = route_report.trace_many(
+        [ip for ip, _n in targets],
+        max_workers=body.max_workers,
+        max_hops=body.max_hops,
+        timeout_ms=body.timeout_ms,
+    )
+    entries = [{"ip": ip, "device_name": name, "trace": res["trace"]}
+               for (ip, name), res in zip(targets, tr_results)]
+    data = route_report.build_route_report_csv(entries, source_ip=src, dest_ip=dst, base_trace=base_trace)
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+    filename = f"route_report_{stamp}.csv"
+    hops_total = sum(len((e["trace"] or {}).get("hops") or []) for e in entries)
+    if base_trace:
+        hops_total += len(base_trace.get("hops") or [])
+    return Response(
+        data,
+        media_type="text/csv; charset=utf-8",
+        headers={
+            "Content-Disposition": f'attachment; filename="{filename}"',
+            "X-Route-Devices": str(len(entries)),
+            "X-Route-Hops": str(hops_total),
         },
     )
 
@@ -653,7 +786,7 @@ def put_setting(key: str, body: SettingBody):
 # ---- multi Winbox path management ----
 # Stored in settings as JSON list under key "winbox_list":
 # [{"id":"wb1","name":"Winbox64","path":"D:\\winbox64\\winbox64.exe","is_default":true}, ...]
-import json as _json
+import json as _json  # noqa: F811  (top-level alias kept for older call sites)
 import uuid as _uuid
 
 
