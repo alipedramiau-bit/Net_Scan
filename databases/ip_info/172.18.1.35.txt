@@ -1,5 +1,5 @@
 IP: 172.18.1.35
-Collected at: 2026-10-15T10:07:11.192514+00:00
+Collected at: 2026-10-21T13:15:54.046355+00:00
 source: RouterOS API
 identity: Setad-Foriat10.Client
 device_type: ST
@@ -30,32 +30,42 @@ name=wlan1  mode=station-bridge  ssid=Setad-Foriat10  band=5ghz-a/n  frequency=5
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:20:12
-# ساعت دستگاه (خام): 1972-11-04 12:41:53
-# افست اصلاحی (سرور − دستگاه): +472868:08:19
-  1  1405/07/21 10:58:41  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/21 10:58:45  [bridge,info]  "bridge1" mac address changed to 2C:C8:1B:14:6E:56
-  3  1405/07/21 10:59:27  [wireless,info]  2C:C8:1B:15:80:1F@wlan1 established connection on 5990000, SSID Setad-Foriat10
-  4  1405/07/21 11:01:42  [interface,info]  ether1 link up (speed 1G, full duplex)
-  5  1405/07/21 11:02:14  [interface,info]  ether1 link down
-  6  1405/07/21 11:02:16  [interface,info]  ether1 link up (speed 1G, full duplex)
-  7  1405/07/21 11:02:17  [interface,info]  ether1 link down
-  8  1405/07/21 11:06:40  [interface,info]  ether1 link up (speed 1G, full duplex)
-  9  1405/07/21 11:06:41  [interface,info]  ether1 link down
- 10  1405/07/21 11:06:48  [interface,info]  ether1 link up (speed 1G, full duplex)
- 11  1405/07/21 11:07:04  [interface,info]  ether1 link down
- 12  1405/07/21 11:07:44  [interface,info]  ether1 link up (speed 1G, full duplex)
- 13  1405/07/21 11:07:45  [interface,info]  ether1 link down
- 14  1405/07/21 11:07:50  [interface,info]  ether1 link up (speed 10M, full duplex)
- 15  1405/07/21 11:07:52  [interface,info]  ether1 link down
- 16  1405/07/21 11:07:54  [interface,info]  ether1 link up (speed 1G, full duplex)
- 17  1405/07/21 11:08:09  [system,info,account]  user garnaf logged in from 40:B0:34:09:1E:FD via winbox
- 18  1405/07/21 11:08:31  [system,info,account]  user garnaf logged out from 40:B0:34:09:1E:FD via winbox
- 19  1405/07/21 11:08:34  [interface,info]  ether1 link down
- 20  1405/07/21 11:08:49  [interface,info]  ether1 link up (speed 1G, full duplex)
- 21  1405/07/22 13:12:04  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 22  1405/07/22 13:12:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 23  1405/07/23 12:20:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:28:00
+# ساعت دستگاه (خام): 1972-11-10 16:52:27
+# افست اصلاحی (سرور − دستگاه): +472868:05:33
+  1  1405/07/21 10:55:55  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/21 10:55:59  [bridge,info]  "bridge1" mac address changed to 2C:C8:1B:14:6E:56
+  3  1405/07/21 10:56:41  [wireless,info]  2C:C8:1B:15:80:1F@wlan1 established connection on 5990000, SSID Setad-Foriat10
+  4  1405/07/21 10:58:56  [interface,info]  ether1 link up (speed 1G, full duplex)
+  5  1405/07/21 10:59:28  [interface,info]  ether1 link down
+  6  1405/07/21 10:59:30  [interface,info]  ether1 link up (speed 1G, full duplex)
+  7  1405/07/21 10:59:31  [interface,info]  ether1 link down
+  8  1405/07/21 11:03:54  [interface,info]  ether1 link up (speed 1G, full duplex)
+  9  1405/07/21 11:03:55  [interface,info]  ether1 link down
+ 10  1405/07/21 11:04:02  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 11  1405/07/21 11:04:18  [interface,info]  ether1 link down
+ 12  1405/07/21 11:04:58  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 13  1405/07/21 11:04:59  [interface,info]  ether1 link down
+ 14  1405/07/21 11:05:04  [interface,info]  ether1 link up (speed 10M, full duplex)
+ 15  1405/07/21 11:05:06  [interface,info]  ether1 link down
+ 16  1405/07/21 11:05:08  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 17  1405/07/21 11:05:23  [system,info,account]  user garnaf logged in from 40:B0:34:09:1E:FD via winbox
+ 18  1405/07/21 11:05:45  [system,info,account]  user garnaf logged out from 40:B0:34:09:1E:FD via winbox
+ 19  1405/07/21 11:05:48  [interface,info]  ether1 link down
+ 20  1405/07/21 11:06:03  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 21  1405/07/22 13:09:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 22  1405/07/22 13:09:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 23  1405/07/23 12:17:25  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 24  1405/07/23 12:17:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 25  1405/07/24 15:13:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 26  1405/07/24 15:13:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 27  1405/07/24 15:48:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 28  1405/07/24 15:48:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 29  1405/07/26 08:48:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 30  1405/07/26 08:48:19  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 31  1405/07/26 08:49:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 32  1405/07/26 08:49:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 33  1405/07/29 16:27:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

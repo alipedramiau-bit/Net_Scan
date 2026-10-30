@@ -1,5 +1,5 @@
 IP: 172.18.2.234
-Collected at: 2026-10-15T10:07:59.523919+00:00
+Collected at: 2026-10-21T13:16:23.096723+00:00
 source: RouterOS API
 identity: Foriatha->EmamReza.AP
 device_type: AP
@@ -12,7 +12,7 @@ device_type: AP
 
 ----- wireless -----
 === /interface wireless ===
-name=wlan1  mode=bridge  ssid=FRERZ  band=5ghz-onlyn  frequency=5280
+name=wlan1  mode=bridge  ssid=FRERZ  band=5ghz-onlyn  frequency=5420
 
 ----- ip_addresses / routes -----
 === /ip address ===
@@ -30,64 +30,90 @@ name=wlan1  mode=bridge  ssid=FRERZ  band=5ghz-onlyn  frequency=5280
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:23:56
-# ساعت دستگاه (خام): 1970-01-02 03:54:22
-# افست اصلاحی (سرور − دستگاه): +497764:59:34
-  1  1405/07/23 08:29:52  [system,info]  router rebooted
-  2  1405/07/23 08:29:54  [interface,info]  ether1 link up (speed 100M, full duplex)
-  3  1405/07/23 08:30:34  [system,info,account]  user admin logged in from 6C:3B:6B:87:6E:11 via mac-telnet
-  4  1405/07/23 08:30:34  [system,info]  RouterBoard configuration changed
-  5  1405/07/23 08:31:01  [system,info]  user admin password changed by admin
-  6  1405/07/23 08:31:17  [system,info]  device added by admin
-  7  1405/07/23 08:31:18  [system,info]  device changed by admin
-  8  1405/07/23 08:31:19  [interface,info]  ether1 link down
-  9  1405/07/23 08:31:20  [system,info]  wireless security profile <default> changed by admin
- 10  1405/07/23 08:31:20  [system,info,account]  user admin logged out from 6C:3B:6B:87:6E:11 via mac-telnet
- 11  1405/07/23 08:31:21  [interface,info]  ether1 link up (speed 100M, full duplex)
- 12  1405/07/23 08:32:06  [system,info,account]  user admin logged in from 6C:3B:6B:87:6E:11 via mac-telnet
- 13  1405/07/23 08:32:06  [system,info]  RouterBoard configuration changed
- 14  1405/07/23 08:32:26  [system,info]  device changed by admin
- 15  1405/07/23 08:32:27  [system,info]  wireless security profile <default> changed by admin
- 16  1405/07/23 08:32:28  [system,info]  wireless security profile <prg> added by admin
- 17  1405/07/23 08:32:54  [system,info]  device changed by admin
- 18  1405/07/23 08:32:54  [system,info]  device changed by admin
- 19  1405/07/23 08:32:55  [system,info]  item changed by admin
- 20  1405/07/23 08:32:55  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:74:FD:85
- 21  1405/07/23 08:32:55  [system,info]  bridge port added by admin
- 22  1405/07/23 08:32:55  [system,info]  bridge port added by admin
- 23  1405/07/23 08:32:55  [system,info]  wireless access-list entry added by admin
- 24  1405/07/23 08:32:55  [system,info]  wireless access-list entry added by admin
- 25  1405/07/23 08:32:55  [system,info]  address added by admin
- 26  1405/07/23 08:32:55  [system,info]  route added by admin
- 27  1405/07/23 08:32:55  [system,info]  RADIUS client added by admin
- 28  1405/07/23 08:32:56  [system,info]  radius incoming changed by admin
- 29  1405/07/23 08:32:56  [system,info]  changed snmp settings by admin
- 30  1405/07/23 08:32:56  [system,info]  system identity changed by admin
- 31  1405/07/23 08:32:56  [system,info]  led trigger changed by admin
- 32  1405/07/23 08:32:56  [system,info]  user AAA settings changed by admin
- 33  1405/07/23 08:32:56  [system,info,account]  user admin logged out from 6C:3B:6B:87:6E:11 via mac-telnet
- 34  1405/07/23 08:33:02  [wireless,info]  64:D1:54:28:E3:DB@wlan1: connected, signal strength -64, wants bridge
- 35  1405/07/23 08:33:22  [system,info]  RouterBoard configuration changed
- 36  1405/07/23 08:33:22  [system,info,account]  user admin logged in from 6C:3B:6B:87:6E:11 via mac-telnet
- 37  1405/07/23 08:33:44  [system,info]  wireless access-list entry added by admin
- 38  1405/07/23 08:33:44  [wireless,info]  64:D1:54:28:E3:DB@wlan1: disconnected, access-list changed, signal strength -65
- 39  1405/07/23 08:33:44  [system,info]  wireless access-list entry added by admin
- 40  1405/07/23 08:33:44  [system,info]  route added by admin
- 41  1405/07/23 08:33:44  [system,info]  RADIUS client added by admin
- 42  1405/07/23 08:33:44  [system,info]  radius incoming changed by admin
- 43  1405/07/23 08:33:44  [system,info]  changed snmp settings by admin
- 44  1405/07/23 08:33:44  [system,info]  system identity changed by admin
- 45  1405/07/23 08:33:44  [system,info]  led trigger changed by admin
- 46  1405/07/23 08:33:44  [system,info]  user AAA settings changed by admin
- 47  1405/07/23 08:33:50  [wireless,info]  64:D1:54:28:E3:DB@wlan1: connected, signal strength -64, wants bridge
- 48  1405/07/23 08:34:10  [system,info,account]  user admin logged in from 172.18.4.76 via winbox
- 49  1405/07/23 08:34:23  [system,info,account]  user admin logged out from 6C:3B:6B:87:6E:11 via mac-telnet
- 50  1405/07/23 08:35:04  [system,info]  user garnaf added by admin
- 51  1405/07/23 08:35:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 52  1405/07/23 08:35:53  [system,info]  user admin removed by garnaf
- 53  1405/07/23 08:37:20  [system,info]  user olom1 added by garnaf
- 54  1405/07/23 08:37:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 55  1405/07/23 12:23:55  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:30:18
+# ساعت دستگاه (خام): 1970-01-08 08:03:32
+# افست اصلاحی (سرور − دستگاه): +497764:56:46
+  1  1405/07/23 08:27:04  [system,info]  router rebooted
+  2  1405/07/23 08:27:06  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/23 08:27:46  [system,info,account]  user admin logged in from 6C:3B:6B:87:6E:11 via mac-telnet
+  4  1405/07/23 08:27:46  [system,info]  RouterBoard configuration changed
+  5  1405/07/23 08:28:13  [system,info]  user admin password changed by admin
+  6  1405/07/23 08:28:29  [system,info]  device added by admin
+  7  1405/07/23 08:28:30  [system,info]  device changed by admin
+  8  1405/07/23 08:28:31  [interface,info]  ether1 link down
+  9  1405/07/23 08:28:32  [system,info]  wireless security profile <default> changed by admin
+ 10  1405/07/23 08:28:32  [system,info,account]  user admin logged out from 6C:3B:6B:87:6E:11 via mac-telnet
+ 11  1405/07/23 08:28:33  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 12  1405/07/23 08:29:18  [system,info,account]  user admin logged in from 6C:3B:6B:87:6E:11 via mac-telnet
+ 13  1405/07/23 08:29:18  [system,info]  RouterBoard configuration changed
+ 14  1405/07/23 08:29:38  [system,info]  device changed by admin
+ 15  1405/07/23 08:29:39  [system,info]  wireless security profile <default> changed by admin
+ 16  1405/07/23 08:29:40  [system,info]  wireless security profile <prg> added by admin
+ 17  1405/07/23 08:30:06  [system,info]  device changed by admin
+ 18  1405/07/23 08:30:06  [system,info]  device changed by admin
+ 19  1405/07/23 08:30:07  [system,info]  item changed by admin
+ 20  1405/07/23 08:30:07  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:74:FD:85
+ 21  1405/07/23 08:30:07  [system,info]  bridge port added by admin
+ 22  1405/07/23 08:30:07  [system,info]  bridge port added by admin
+ 23  1405/07/23 08:30:07  [system,info]  wireless access-list entry added by admin
+ 24  1405/07/23 08:30:07  [system,info]  wireless access-list entry added by admin
+ 25  1405/07/23 08:30:07  [system,info]  address added by admin
+ 26  1405/07/23 08:30:07  [system,info]  route added by admin
+ 27  1405/07/23 08:30:07  [system,info]  RADIUS client added by admin
+ 28  1405/07/23 08:30:08  [system,info]  radius incoming changed by admin
+ 29  1405/07/23 08:30:08  [system,info]  changed snmp settings by admin
+ 30  1405/07/23 08:30:08  [system,info]  system identity changed by admin
+ 31  1405/07/23 08:30:08  [system,info]  led trigger changed by admin
+ 32  1405/07/23 08:30:08  [system,info]  user AAA settings changed by admin
+ 33  1405/07/23 08:30:08  [system,info,account]  user admin logged out from 6C:3B:6B:87:6E:11 via mac-telnet
+ 34  1405/07/23 08:30:14  [wireless,info]  64:D1:54:28:E3:DB@wlan1: connected, signal strength -64, wants bridge
+ 35  1405/07/23 08:30:34  [system,info]  RouterBoard configuration changed
+ 36  1405/07/23 08:30:34  [system,info,account]  user admin logged in from 6C:3B:6B:87:6E:11 via mac-telnet
+ 37  1405/07/23 08:30:56  [system,info]  wireless access-list entry added by admin
+ 38  1405/07/23 08:30:56  [wireless,info]  64:D1:54:28:E3:DB@wlan1: disconnected, access-list changed, signal strength -65
+ 39  1405/07/23 08:30:56  [system,info]  wireless access-list entry added by admin
+ 40  1405/07/23 08:30:56  [system,info]  route added by admin
+ 41  1405/07/23 08:30:56  [system,info]  RADIUS client added by admin
+ 42  1405/07/23 08:30:56  [system,info]  radius incoming changed by admin
+ 43  1405/07/23 08:30:56  [system,info]  changed snmp settings by admin
+ 44  1405/07/23 08:30:56  [system,info]  system identity changed by admin
+ 45  1405/07/23 08:30:56  [system,info]  led trigger changed by admin
+ 46  1405/07/23 08:30:56  [system,info]  user AAA settings changed by admin
+ 47  1405/07/23 08:31:02  [wireless,info]  64:D1:54:28:E3:DB@wlan1: connected, signal strength -64, wants bridge
+ 48  1405/07/23 08:31:22  [system,info,account]  user admin logged in from 172.18.4.76 via winbox
+ 49  1405/07/23 08:31:35  [system,info,account]  user admin logged out from 6C:3B:6B:87:6E:11 via mac-telnet
+ 50  1405/07/23 08:32:16  [system,info]  user garnaf added by admin
+ 51  1405/07/23 08:32:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 52  1405/07/23 08:33:05  [system,info]  user admin removed by garnaf
+ 53  1405/07/23 08:34:32  [system,info]  user olom1 added by garnaf
+ 54  1405/07/23 08:34:42  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 55  1405/07/23 12:21:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 56  1405/07/23 12:21:08  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 57  1405/07/23 12:32:27  [wireless,info]  64:D1:54:28:E3:DB@wlan1: disconnected, received deauth: sending station leaving (3), signal strength -65
+ 58  1405/07/23 12:32:57  [system,error,critical]  login failure for user admin from 172.18.4.76 via telnet
+ 59  1405/07/23 12:33:25  [wireless,info]  64:D1:54:28:E3:DB@wlan1: connected, signal strength -64, wants bridge
+ 60  1405/07/23 12:33:58  [system,error,critical]  login failure for user admin from 172.18.4.76 via telnet
+ 61  1405/07/23 12:34:04  [system,error,critical]  login failure for user admin from 172.18.4.76 via telnet
+ 62  1405/07/23 12:34:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via telnet
+ 63  1405/07/23 12:34:22  [wireless,info]  64:D1:54:28:E3:DB@wlan1: disconnected, disabling, signal strength -65
+ 64  1405/07/23 12:34:46  [system,info,account]  user garnaf logged out from 172.18.4.76 via telnet
+ 65  1405/07/23 12:35:01  [system,info]  device changed by admin
+ 66  1405/07/23 12:36:20  [wireless,info]  64:D1:54:28:E3:DB@wlan1: connected, signal strength -67, wants bridge
+ 67  1405/07/23 12:36:45  [system,info,account]  user admin logged out from 172.18.4.76 via winbox
+ 68  1405/07/24 15:18:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 69  1405/07/24 15:18:02  [system,info]  RouterBoard configuration changed
+ 70  1405/07/24 15:18:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 71  1405/07/24 15:50:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 72  1405/07/24 15:50:56  [system,info]  RouterBoard configuration changed
+ 73  1405/07/24 15:50:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 74  1405/07/26 08:52:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 75  1405/07/26 08:52:52  [system,info]  RouterBoard configuration changed
+ 76  1405/07/26 08:52:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 77  1405/07/26 08:55:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 78  1405/07/26 08:55:29  [system,info]  RouterBoard configuration changed
+ 79  1405/07/26 08:55:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 80  1405/07/29 16:30:16  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 81  1405/07/29 16:30:16  [system,info]  RouterBoard configuration changed
 
 ----- mac -----
 === MAC addresses ===

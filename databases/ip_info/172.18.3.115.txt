@@ -1,5 +1,5 @@
 IP: 172.18.3.115
-Collected at: 2026-10-15T10:09:04.212294+00:00
+Collected at: 2026-10-21T13:17:09.760832+00:00
 source: RouterOS API
 identity: 5Mehr.Client
 device_type: ST
@@ -31,21 +31,44 @@ name=wlan1  mode=station-bridge  ssid=Mydoon.Amiri5M  band=5ghz-a/n  frequency=5
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:35:40
-# ساعت دستگاه (خام): 1974-11-12 18:15:36
-# افست اصلاحی (سرور − دستگاه): +455150:50:04
-  1  1405/07/20 09:00:13  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/20 09:00:14  [interface,info]  ether1 link up (speed 100M, full duplex)
-  3  1405/07/20 09:00:20  [wireless,info]  6C:3B:6B:4D:A4:28@wlan1 established connection on 5785000, SSID Mydoon.Amiri5M
-  4  1405/07/21 08:06:00  [dhcp,info]  dhcp1 deassigned 172.29.27.154 from 7C:F1:7E:F4:12:68
-  5  1405/07/21 08:06:00  [dhcp,info]  dhcp1 assigned 172.29.27.154 to 7C:F1:7E:F4:12:68
-  6  1405/07/21 11:08:57  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  7  1405/07/21 11:08:59  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  8  1405/07/22 03:45:52  [dhcp,info]  dhcp1 deassigned 172.29.27.153 from EC:08:6B:95:D2:75
-  9  1405/07/22 13:28:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 10  1405/07/22 13:28:21  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 11  1405/07/23 05:56:57  [dhcp,info]  dhcp1 deassigned 172.29.27.152 from 18:D6:C7:C6:71:AD
- 12  1405/07/23 12:35:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:36:07
+# ساعت دستگاه (خام): 1974-11-18 22:18:52
+# افست اصلاحی (سرور − دستگاه): +455150:47:15
+  1  1405/07/20 08:57:24  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/20 08:57:25  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/20 08:57:31  [wireless,info]  6C:3B:6B:4D:A4:28@wlan1 established connection on 5785000, SSID Mydoon.Amiri5M
+  4  1405/07/21 08:03:11  [dhcp,info]  dhcp1 deassigned 172.29.27.154 from 7C:F1:7E:F4:12:68
+  5  1405/07/21 08:03:11  [dhcp,info]  dhcp1 assigned 172.29.27.154 to 7C:F1:7E:F4:12:68
+  6  1405/07/21 11:06:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  7  1405/07/21 11:06:10  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  8  1405/07/22 03:43:03  [dhcp,info]  dhcp1 deassigned 172.29.27.153 from EC:08:6B:95:D2:75
+  9  1405/07/22 13:25:30  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 10  1405/07/22 13:25:32  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 11  1405/07/23 05:54:08  [dhcp,info]  dhcp1 deassigned 172.29.27.152 from 18:D6:C7:C6:71:AD
+ 12  1405/07/23 12:32:50  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 13  1405/07/23 12:32:52  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 14  1405/07/24 10:37:05  [dhcp,info]  dhcp1 deassigned 172.29.27.156 from 18:D6:C7:C6:72:02
+ 15  1405/07/24 15:28:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 16  1405/07/24 15:28:34  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 17  1405/07/24 15:57:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 18  1405/07/24 15:57:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 19  1405/07/25 08:11:37  [dhcp,info]  dhcp1 assigned 172.29.27.156 to 18:D6:C7:C6:72:02
+ 20  1405/07/25 08:49:05  [dhcp,info]  dhcp1 deassigned 172.29.27.155 from 18:D6:C7:C6:72:53
+ 21  1405/07/25 08:49:05  [dhcp,info]  dhcp1 assigned 172.29.27.155 to 18:D6:C7:C6:72:53
+ 22  1405/07/25 10:00:51  [dhcp,info]  dhcp1 assigned 172.29.27.151 to 00:17:6F:54:0E:F3
+ 23  1405/07/25 12:43:55  [dhcp,info]  dhcp1 deassigned 172.29.27.157 from 18:D6:C7:C6:76:4A
+ 24  1405/07/26 09:04:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 25  1405/07/26 09:04:37  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 26  1405/07/26 09:07:01  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 27  1405/07/26 09:07:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 28  1405/07/27 08:07:24  [dhcp,info]  dhcp1 assigned 172.29.27.157 to 18:D6:C7:C6:76:4A
+ 29  1405/07/27 09:26:48  [dhcp,info]  dhcp1 deassigned 172.29.27.154 from 7C:F1:7E:F4:12:68
+ 30  1405/07/27 09:26:52  [dhcp,info]  dhcp1 assigned 172.29.27.154 to 7C:F1:7E:F4:12:68
+ 31  1405/07/28 08:03:26  [dhcp,info]  dhcp1 deassigned 172.29.27.151 from 00:17:6F:54:0E:F3
+ 32  1405/07/28 08:03:26  [dhcp,info]  dhcp1 assigned 172.29.27.151 to 00:17:6F:54:0E:F3
+ 33  1405/07/29 15:16:53  [wireless,info]  6C:3B:6B:4D:A4:28@wlan1: lost connection, no beacons received
+ 34  1405/07/29 15:16:59  [wireless,info]  6C:3B:6B:4D:A4:28@wlan1 established connection on 5785000, SSID Mydoon.Amiri5M
+ 35  1405/07/29 16:36:05  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

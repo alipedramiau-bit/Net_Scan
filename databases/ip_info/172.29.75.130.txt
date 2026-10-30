@@ -1,5 +1,5 @@
 IP: 172.29.75.130
-Collected at: 2026-10-14T10:25:48.432693+00:00
+Collected at: 2026-10-21T13:18:42.646756+00:00
 source: RouterOS API
 identity: RB-shohadaye-saduni
 device_type: Router
@@ -36,18 +36,18 @@ device_type: Router
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:51:18
-# ساعت دستگاه (خام): 1971-12-02 01:00:16
-# افست اصلاحی (سرور − دستگاه): +480969:21:02
-  1  1405/07/22 12:49:47  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 12:49:49  [bridge,info]  "bridge1" mac address changed to 64:D1:54:58:B1:2F
-  3  1405/07/22 12:49:49  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1,ether2,ether5,ether4,ether3
-  4  1405/07/22 12:49:49  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether6,ether7,ether8,ether9,ether10
-  5  1405/07/22 12:49:51  [interface,info]  ether1 link up (speed 100M, full duplex)
-  6  1405/07/22 12:49:51  [interface,info]  ether2 link up (speed 100M, full duplex)
-  7  1405/07/22 12:49:51  [interface,info]  ether3 link up (speed 100M, full duplex)
-  8  1405/07/22 12:49:57  [interface,info]  ether9 link up (speed 100M, full duplex)
-  9  1405/07/22 13:51:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:45:47
+# ساعت دستگاه (خام): 1971-12-08 03:25:50
+# افست اصلاحی (سرور − دستگاه): +480993:49:57
+  1  1405/07/27 13:18:41  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/27 13:18:43  [bridge,info]  "bridge1" mac address changed to 64:D1:54:58:B1:2F
+  3  1405/07/27 13:18:43  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1,ether2,ether3
+  4  1405/07/27 13:18:43  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether4,ether6,ether5,ether7,ether8,ether9,ether10
+  5  1405/07/27 13:18:45  [interface,info]  ether1 link up (speed 100M, full duplex)
+  6  1405/07/27 13:18:45  [interface,info]  ether2 link up (speed 100M, full duplex)
+  7  1405/07/27 13:18:45  [interface,info]  ether3 link up (speed 100M, full duplex)
+  8  1405/07/27 13:18:53  [interface,info]  ether9 link up (speed 100M, full duplex)
+  9  1405/07/29 16:45:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

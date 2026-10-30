@@ -1,5 +1,5 @@
 IP: 172.29.15.2
-Collected at: 2026-10-14T10:25:07.427197+00:00
+Collected at: 2026-10-21T13:18:16.166103+00:00
 source: RouterOS API
 identity: RB-Ferdosi-RB2011
 device_type: Router
@@ -35,35 +35,53 @@ device_type: Router
   1  identity=RB-khoramshahr-MK-behdasht-RB2011  address=-  interface=ether10,bridge1
   2  identity=RB-khoramshahr-MK-behdasht-RB2011  address=172.29.15.1  interface=ether10,bridge1
   3  identity=WIFI-OTAGH-IT  address=172.29.15.4  interface=ether10,bridge1
-  4  identity=MarkazBehdasht-KH  address=172.29.15.5  interface=ether10,bridge1
+  4  identity=Switch  address=172.29.15.66  interface=ether10,bridge1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:41:11
-# ساعت دستگاه (خام): 1974-03-29 10:39:30
-# افست اصلاحی (سرور − دستگاه): +460607:31:41
-  1  1405/07/17 11:40:00  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/17 11:40:01  [bridge,info]  "bridge1" mac address changed to C4:AD:34:1C:5C:3B
-  3  1405/07/17 11:40:01  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
-  4  1405/07/17 11:40:01  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether2,ether3,ether4,ether5,ether6,ether7,ether8,ether9,ether10
-  5  1405/07/17 11:40:03  [interface,info]  ether3 link up (speed 100M, full duplex)
-  6  1405/07/17 11:40:03  [interface,info]  ether8 link up (speed 100M, full duplex)
-  7  1405/07/17 11:40:03  [interface,info]  ether10 link up (speed 100M, full duplex)
-  8  1405/07/18 09:07:52  [interface,info]  ether3 link down
-  9  1405/07/18 09:07:54  [interface,info]  ether3 link up (speed 100M, full duplex)
- 10  1405/07/18 10:39:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 11  1405/07/18 10:39:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 12  1405/07/18 11:03:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 13  1405/07/18 11:03:36  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 14  1405/07/18 12:12:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 15  1405/07/18 12:12:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 16  1405/07/19 09:59:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 17  1405/07/19 09:59:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 18  1405/07/19 17:46:06  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 19  1405/07/19 17:46:06  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 20  1405/07/21 11:17:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 21  1405/07/21 11:17:22  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 22  1405/07/22 13:41:10  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:42:46
+# ساعت دستگاه (خام): 1974-04-05 13:43:45
+# افست اصلاحی (سرور − دستگاه): +460607:29:01
+  1  1405/07/17 11:37:20  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/17 11:37:21  [bridge,info]  "bridge1" mac address changed to C4:AD:34:1C:5C:3B
+  3  1405/07/17 11:37:21  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  4  1405/07/17 11:37:21  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether2,ether3,ether4,ether5,ether6,ether7,ether8,ether9,ether10
+  5  1405/07/17 11:37:23  [interface,info]  ether3 link up (speed 100M, full duplex)
+  6  1405/07/17 11:37:23  [interface,info]  ether8 link up (speed 100M, full duplex)
+  7  1405/07/17 11:37:23  [interface,info]  ether10 link up (speed 100M, full duplex)
+  8  1405/07/18 09:05:12  [interface,info]  ether3 link down
+  9  1405/07/18 09:05:14  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 10  1405/07/18 10:36:23  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 11  1405/07/18 10:36:31  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 12  1405/07/18 11:00:55  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 13  1405/07/18 11:00:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 14  1405/07/18 12:09:55  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 15  1405/07/18 12:09:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 16  1405/07/19 09:56:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 17  1405/07/19 09:57:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 18  1405/07/19 17:43:26  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 19  1405/07/19 17:43:26  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 20  1405/07/21 11:14:40  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 21  1405/07/21 11:14:42  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 22  1405/07/22 13:38:30  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 23  1405/07/22 13:38:31  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 24  1405/07/24 15:39:16  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 25  1405/07/24 15:39:18  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 26  1405/07/24 16:05:10  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 27  1405/07/24 16:05:13  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 28  1405/07/26 09:15:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 29  1405/07/26 09:15:50  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 30  1405/07/26 09:17:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 31  1405/07/26 09:17:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 32  1405/07/27 09:31:18  [interface,info]  ether10 link down
+ 33  1405/07/27 09:31:23  [interface,info]  ether10 link up (speed 100M, full duplex)
+ 34  1405/07/27 09:31:45  [interface,info]  ether10 link down
+ 35  1405/07/27 09:31:49  [interface,info]  ether10 link up (speed 100M, full duplex)
+ 36  1405/07/27 09:39:22  [interface,info]  ether10 link down
+ 37  1405/07/27 09:40:01  [interface,info]  ether10 link up (speed 100M, full duplex)
+ 38  1405/07/27 09:40:23  [interface,info]  ether10 link down
+ 39  1405/07/27 09:40:28  [interface,info]  ether10 link up (speed 100M, full duplex)
+ 40  1405/07/29 16:42:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -81,3 +99,4 @@ sfp1  C4:AD:34:1C:5C:3A  (ether)
 bridge1  C4:AD:34:1C:5C:3B  (bridge)
 --- /ip arp ---
 bridge1  C4:AD:34:1C:69:10  (arp 172.29.15.1)
+bridge1  8C:89:A5:E3:FB:20  (arp 172.29.15.19)

@@ -1,5 +1,5 @@
 IP: 172.18.2.210
-Collected at: 2026-10-15T10:07:55.824439+00:00
+Collected at: 2026-10-21T13:16:21.600725+00:00
 source: RouterOS API
 identity: AP-maskanMehr
 device_type: AP
@@ -30,20 +30,54 @@ name=wlan1  mode=ap-bridge  ssid=Abadan-Foriat2  band=5ghz-a/n  frequency=5600
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:23:44
-# ساعت دستگاه (خام): 1971-06-05 01:25:46
-# افست اصلاحی (سرور − دستگاه): +485311:27:58
-  1  1405/07/21 10:58:12  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/21 10:58:23  [interface,info]  ether1 link up (speed 1G, full duplex)
-  3  1405/07/21 10:58:23  [wireless,info]  08:55:31:D4:51:59@wlan1: connected, signal strength -76, wants bridge
-  4  1405/07/21 10:58:25  [wireless,info]  2C:C8:1B:AE:EE:78@wlan1: connected, signal strength -62, wants bridge
-  5  1405/07/22 09:55:56  [wireless,info]  08:55:31:D4:51:59@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -75
-  6  1405/07/22 09:55:59  [wireless,info]  08:55:31:D4:51:59@wlan1: connected, signal strength -74, wants bridge
-  7  1405/07/22 10:20:34  [wireless,info]  08:55:31:D4:51:59@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -74
-  8  1405/07/22 10:20:37  [wireless,info]  08:55:31:D4:51:59@wlan1: connected, signal strength -74, wants bridge
-  9  1405/07/22 13:15:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 10  1405/07/22 13:15:38  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 11  1405/07/23 12:23:43  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:30:09
+# ساعت دستگاه (خام): 1971-06-11 05:35:01
+# افست اصلاحی (سرور − دستگاه): +485311:25:08
+  1  1405/07/21 10:55:22  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/21 10:55:33  [interface,info]  ether1 link up (speed 1G, full duplex)
+  3  1405/07/21 10:55:33  [wireless,info]  08:55:31:D4:51:59@wlan1: connected, signal strength -76, wants bridge
+  4  1405/07/21 10:55:35  [wireless,info]  2C:C8:1B:AE:EE:78@wlan1: connected, signal strength -62, wants bridge
+  5  1405/07/22 09:53:06  [wireless,info]  08:55:31:D4:51:59@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -75
+  6  1405/07/22 09:53:09  [wireless,info]  08:55:31:D4:51:59@wlan1: connected, signal strength -74, wants bridge
+  7  1405/07/22 10:17:44  [wireless,info]  08:55:31:D4:51:59@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -74
+  8  1405/07/22 10:17:47  [wireless,info]  08:55:31:D4:51:59@wlan1: connected, signal strength -74, wants bridge
+  9  1405/07/22 13:12:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 10  1405/07/22 13:12:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 11  1405/07/23 12:20:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 12  1405/07/23 12:20:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 13  1405/07/24 15:17:43  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 14  1405/07/24 15:17:45  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 15  1405/07/24 15:50:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 16  1405/07/24 15:50:43  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 17  1405/07/25 09:13:02  [wireless,info]  08:55:31:D4:51:59@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -74
+ 18  1405/07/25 09:13:05  [wireless,info]  08:55:31:D4:51:59@wlan1: connected, signal strength -74, wants bridge
+ 19  1405/07/25 09:53:18  [wireless,info]  9A:01:28:96:4B:12@wlan1: connected, signal strength -83
+ 20  1405/07/25 09:53:23  [wireless,info]  9A:01:28:96:4B:12@wlan1: disconnected, unicast key exchange timeout, signal strength -83
+ 21  1405/07/25 16:26:45  [wireless,info]  8A:CA:80:8D:51:D8@wlan1: connected, signal strength -89
+ 22  1405/07/25 16:26:49  [wireless,info]  8A:CA:80:8D:51:D8@wlan1: disconnected, extensive data loss, signal strength -89
+ 23  1405/07/25 16:27:06  [wireless,info]  8A:CA:80:8D:51:D8@wlan1: connected, signal strength -90
+ 24  1405/07/25 16:27:11  [wireless,info]  8A:CA:80:8D:51:D8@wlan1: disconnected, unicast key exchange timeout, signal strength -89
+ 25  1405/07/25 18:12:51  [wireless,info]  58:C5:CB:96:50:D3@wlan1: connected, signal strength -87
+ 26  1405/07/25 18:12:54  [wireless,info]  58:C5:CB:96:50:D3@wlan1: disconnected, extensive data loss, signal strength -87
+ 27  1405/07/25 20:56:58  [wireless,info]  9E:63:C2:55:EE:77@wlan1: connected, signal strength -79
+ 28  1405/07/25 20:57:03  [wireless,info]  9E:63:C2:55:EE:77@wlan1: disconnected, unicast key exchange timeout, signal strength -81
+ 29  1405/07/26 08:52:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 30  1405/07/26 08:52:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 31  1405/07/26 08:55:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 32  1405/07/26 08:55:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 33  1405/07/26 20:34:12  [wireless,info]  A6:E6:23:43:F5:8A@wlan1: connected, signal strength -67
+ 34  1405/07/26 20:34:17  [wireless,info]  A6:E6:23:43:F5:8A@wlan1: disconnected, unicast key exchange timeout, signal strength -72
+ 35  1405/07/26 20:34:21  [wireless,info]  A6:E6:23:43:F5:8A@wlan1: connected, signal strength -73
+ 36  1405/07/26 20:34:26  [wireless,info]  A6:E6:23:43:F5:8A@wlan1: disconnected, unicast key exchange timeout, signal strength -72
+ 37  1405/07/26 20:34:32  [wireless,info]  A6:E6:23:43:F5:8A@wlan1: connected, signal strength -73
+ 38  1405/07/26 20:34:37  [wireless,info]  A6:E6:23:43:F5:8A@wlan1: disconnected, unicast key exchange timeout, signal strength -73
+ 39  1405/07/26 20:45:31  [wireless,info]  A6:E6:23:43:F5:8A@wlan1: connected, signal strength -74
+ 40  1405/07/26 20:45:36  [wireless,info]  A6:E6:23:43:F5:8A@wlan1: disconnected, unicast key exchange timeout, signal strength -71
+ 41  1405/07/27 21:21:59  [wireless,info]  42:D2:C0:13:E1:E8@wlan1: connected, signal strength -83
+ 42  1405/07/27 21:22:04  [wireless,info]  42:D2:C0:13:E1:E8@wlan1: disconnected, unicast key exchange timeout, signal strength -74
+ 43  1405/07/28 08:42:07  [wireless,info]  08:55:31:D4:51:59@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -78
+ 44  1405/07/28 08:42:10  [wireless,info]  08:55:31:D4:51:59@wlan1: connected, signal strength -75, wants bridge
+ 45  1405/07/29 16:30:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

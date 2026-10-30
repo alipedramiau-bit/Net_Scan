@@ -1,5 +1,5 @@
 IP: 172.18.3.90
-Collected at: 2026-10-15T10:09:22.453525+00:00
+Collected at: 2026-10-21T13:17:22.043021+00:00
 source: RouterOS API
 identity: Aboushanak->HArvand.AP
 device_type: AP
@@ -10,7 +10,7 @@ device_type: AP
   2  name=sfp1  type=ether  running=false  mac=4C:5E:0C:8C:66:70
   3  name=wlan1  type=wlan  running=true  mac=4C:5E:0C:8C:66:71
   4  name=bridge1  type=bridge  running=true  mac=4C:5E:0C:8C:66:6F
-  5  name=wds1121  type=wds  running=true  mac=4C:5E:0C:8C:66:71
+  5  name=wds1322  type=wds  running=true  mac=4C:5E:0C:8C:66:71
 
 ----- wireless -----
 === /interface wireless ===
@@ -27,214 +27,214 @@ name=wlan1  mode=bridge  ssid=OPA-Taleghani2  band=5ghz-a/n  frequency=5680
 ----- neighbors -----
 === /ip neighbor ===
   1  identity=Router.MK.Aboshanak  address=172.18.3.89  interface=ether1,bridge1
-  2  identity=Abou->HArvand.Client  address=172.18.3.91  interface=wds1121,bridge1
-  3  identity=arvandkenar-hsptl-hazrat-zeynab  address=172.18.3.92  interface=wds1121,bridge1
+  2  identity=Abou->HArvand.Client  address=172.18.3.91  interface=wds1322,bridge1
+  3  identity=arvandkenar-hsptl-hazrat-zeynab  address=172.18.3.92  interface=wds1322,bridge1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:38:06
-# ساعت دستگاه (خام): 2026-10-15 12:35:13
-# افست اصلاحی (سرور − دستگاه): -03:27:06
-  1  1405/07/19 04:06:41  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -58
-  2  1405/07/19 04:56:57  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-  3  1405/07/19 04:58:34  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
-  4  1405/07/19 04:58:36  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -66
-  5  1405/07/19 06:10:25  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-  6  1405/07/19 06:11:00  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -70
-  7  1405/07/19 06:13:47  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-  8  1405/07/19 06:15:51  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -68
-  9  1405/07/19 06:21:18  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
- 10  1405/07/19 06:21:18  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
- 11  1405/07/19 06:21:19  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
- 12  1405/07/19 06:21:19  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -69
- 13  1405/07/19 09:47:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 14  1405/07/19 09:47:45  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 15  1405/07/19 17:42:22  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 16  1405/07/19 17:42:22  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 17  1405/07/19 20:34:21  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
- 18  1405/07/19 20:35:30  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -58
- 19  1405/07/19 20:47:31  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
- 20  1405/07/19 20:48:18  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -60
- 21  1405/07/19 21:08:23  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
- 22  1405/07/19 21:10:03  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -60
- 23  1405/07/19 21:26:39  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
- 24  1405/07/19 21:27:02  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
- 25  1405/07/19 21:27:02  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -64
- 26  1405/07/19 23:42:41  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
- 27  1405/07/19 23:43:32  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
- 28  1405/07/19 23:43:32  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
- 29  1405/07/19 23:43:33  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -68
- 30  1405/07/20 03:39:45  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
- 31  1405/07/20 03:40:34  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -66
- 32  1405/07/20 03:43:45  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
- 33  1405/07/20 03:44:19  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -64
- 34  1405/07/20 03:45:47  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
- 35  1405/07/20 03:46:12  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -58
- 36  1405/07/20 03:49:55  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
- 37  1405/07/20 03:50:14  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
- 38  1405/07/20 03:50:15  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -60
- 39  1405/07/20 04:01:34  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
- 40  1405/07/20 04:01:46  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -54
- 41  1405/07/20 04:05:16  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
- 42  1405/07/20 04:05:29  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
- 43  1405/07/20 04:06:01  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -56
- 44  1405/07/20 05:01:42  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
- 45  1405/07/20 05:02:15  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
- 46  1405/07/20 05:02:15  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -60
- 47  1405/07/20 05:14:27  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
- 48  1405/07/20 05:14:47  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -62
- 49  1405/07/20 05:48:55  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
- 50  1405/07/20 05:49:33  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -56
- 51  1405/07/20 05:53:42  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
- 52  1405/07/20 05:54:30  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -56
- 53  1405/07/20 19:03:00  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
- 54  1405/07/20 19:03:28  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -70
- 55  1405/07/20 21:21:34  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
- 56  1405/07/20 21:23:02  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
- 57  1405/07/20 21:23:05  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
- 58  1405/07/20 21:23:06  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -73
- 59  1405/07/21 01:14:00  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
- 60  1405/07/21 01:14:55  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -70
- 61  1405/07/21 02:52:23  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
- 62  1405/07/21 02:52:35  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
- 63  1405/07/21 02:52:38  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
- 64  1405/07/21 02:52:38  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
- 65  1405/07/21 02:52:38  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -69
- 66  1405/07/21 04:09:28  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
- 67  1405/07/21 04:09:47  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -62
- 68  1405/07/21 04:15:59  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
- 69  1405/07/21 04:16:12  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -62
- 70  1405/07/21 04:19:34  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
- 71  1405/07/21 04:19:53  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -56
- 72  1405/07/21 04:20:42  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
- 73  1405/07/21 04:20:54  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -58
- 74  1405/07/21 04:40:09  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
- 75  1405/07/21 04:40:21  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -62
- 76  1405/07/21 04:42:03  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
- 77  1405/07/21 04:42:13  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -62
- 78  1405/07/21 04:45:24  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
- 79  1405/07/21 04:45:31  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -60
- 80  1405/07/21 04:45:48  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
- 81  1405/07/21 04:46:09  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
- 82  1405/07/21 04:46:09  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -64
- 83  1405/07/21 07:03:15  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
- 84  1405/07/21 07:03:50  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
- 85  1405/07/21 07:03:51  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -78
- 86  1405/07/21 07:12:45  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
- 87  1405/07/21 07:12:58  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -78
- 88  1405/07/21 07:27:05  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
- 89  1405/07/21 07:27:06  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -76
- 90  1405/07/21 08:22:15  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
- 91  1405/07/21 08:22:27  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
- 92  1405/07/21 08:22:27  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -60
- 93  1405/07/21 11:09:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 94  1405/07/21 11:09:34  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 95  1405/07/21 21:09:04  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
- 96  1405/07/21 21:09:16  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -66
- 97  1405/07/21 21:36:26  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
- 98  1405/07/21 21:36:54  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
- 99  1405/07/21 21:36:55  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
-100  1405/07/21 21:37:57  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -68
-101  1405/07/21 22:19:00  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-102  1405/07/21 22:19:36  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
-103  1405/07/21 22:19:36  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -66
-104  1405/07/21 22:20:21  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-105  1405/07/21 22:21:10  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -68
-106  1405/07/21 23:50:19  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
-107  1405/07/21 23:50:24  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -54
-108  1405/07/22 00:52:32  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-109  1405/07/22 00:53:21  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -56
-110  1405/07/22 01:03:44  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-111  1405/07/22 01:04:11  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -52
-112  1405/07/22 01:19:42  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-113  1405/07/22 01:19:53  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -56
-114  1405/07/22 01:36:49  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-115  1405/07/22 01:37:00  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -56
-116  1405/07/22 01:38:43  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-117  1405/07/22 01:40:34  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -62
-118  1405/07/22 01:40:43  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-119  1405/07/22 01:50:01  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -60
-120  1405/07/22 01:51:23  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-121  1405/07/22 01:52:49  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -68
-122  1405/07/22 02:06:16  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
-123  1405/07/22 02:06:50  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
-124  1405/07/22 02:06:51  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -64
-125  1405/07/22 02:12:54  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-126  1405/07/22 02:13:01  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -62
-127  1405/07/22 02:26:25  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
-128  1405/07/22 02:26:47  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -58
-129  1405/07/22 02:35:56  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-130  1405/07/22 02:36:03  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -54
-131  1405/07/22 03:24:55  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-132  1405/07/22 03:25:30  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -54
-133  1405/07/22 03:38:22  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
-134  1405/07/22 03:38:37  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -56
-135  1405/07/22 04:21:24  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-136  1405/07/22 04:22:14  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
-137  1405/07/22 04:22:14  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -66
-138  1405/07/22 04:22:23  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-139  1405/07/22 04:22:30  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -66
-140  1405/07/22 04:24:13  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
-141  1405/07/22 04:28:05  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -62
-142  1405/07/22 04:33:12  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
-143  1405/07/22 04:33:17  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -60
-144  1405/07/22 05:01:59  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-145  1405/07/22 05:02:21  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -62
-146  1405/07/22 05:56:34  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
-147  1405/07/22 05:56:46  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -52
-148  1405/07/22 06:12:15  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-149  1405/07/22 06:13:01  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -52
-150  1405/07/22 06:13:41  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
-151  1405/07/22 06:14:00  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -52
-152  1405/07/22 06:23:25  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-153  1405/07/22 06:23:38  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -52
-154  1405/07/22 07:06:49  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-155  1405/07/22 07:07:08  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -54
-156  1405/07/22 07:24:54  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-157  1405/07/22 07:25:06  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -58
-158  1405/07/22 07:25:44  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-159  1405/07/22 07:26:06  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -56
-160  1405/07/22 07:32:25  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-161  1405/07/22 07:33:21  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -58
-162  1405/07/22 07:52:44  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-163  1405/07/22 07:53:52  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -56
-164  1405/07/22 08:43:59  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-165  1405/07/22 08:44:11  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -60
-166  1405/07/22 13:28:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-167  1405/07/22 13:28:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-168  1405/07/22 15:07:50  [system,info]  sntp change time Oct/14/2026 15:06:04 => Oct/14/2026 15:04:57
-169  1405/07/22 15:08:38  [system,info]  sntp change time Oct/14/2026 15:05:45 => Oct/14/2026 15:05:45
-170  1405/07/22 15:11:49  [system,info]  sntp change time Oct/14/2026 15:08:57 => Oct/14/2026 15:08:56
-171  1405/07/22 15:28:15  [system,info]  sntp change time Oct/14/2026 15:21:44 => Oct/14/2026 15:25:22
-172  1405/07/22 22:10:51  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
-173  1405/07/22 22:11:04  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -60
-174  1405/07/22 23:20:02  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-175  1405/07/22 23:20:15  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -56
-176  1405/07/22 23:43:42  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
-177  1405/07/22 23:43:47  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -60
-178  1405/07/22 23:51:33  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-179  1405/07/22 23:51:54  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -60
-180  1405/07/23 01:28:48  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
-181  1405/07/23 01:29:00  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -52
-182  1405/07/23 01:37:01  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
-183  1405/07/23 01:37:06  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -54
-184  1405/07/23 03:23:04  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
-185  1405/07/23 03:23:30  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -62
-186  1405/07/23 06:22:29  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-187  1405/07/23 06:22:56  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -74
-188  1405/07/23 06:23:11  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-189  1405/07/23 06:23:21  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -68
-190  1405/07/23 08:07:52  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-191  1405/07/23 08:08:05  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -60
-192  1405/07/23 08:08:47  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-193  1405/07/23 08:09:01  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -62
-194  1405/07/23 08:09:27  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-195  1405/07/23 08:09:40  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -56
-196  1405/07/23 08:23:23  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
-197  1405/07/23 08:23:36  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -54
-198  1405/07/23 08:34:36  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
-199  1405/07/23 08:34:48  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -60
-200  1405/07/23 12:38:05  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:37:22
+# ساعت دستگاه (خام): 2026-10-21 16:37:17
+# افست اصلاحی (سرور − دستگاه): -03:29:54
+  1  1405/07/26 05:13:10  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -72
+  2  1405/07/26 05:14:27  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+  3  1405/07/26 05:15:20  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+  4  1405/07/26 05:15:20  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+  5  1405/07/26 05:15:20  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -63
+  6  1405/07/26 05:16:27  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+  7  1405/07/26 05:17:55  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -66
+  8  1405/07/26 05:20:32  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+  9  1405/07/26 05:22:02  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+ 10  1405/07/26 05:22:50  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+ 11  1405/07/26 05:22:51  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -74
+ 12  1405/07/26 05:23:14  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+ 13  1405/07/26 05:24:28  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+ 14  1405/07/26 05:24:31  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+ 15  1405/07/26 05:24:33  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -68
+ 16  1405/07/26 05:25:35  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+ 17  1405/07/26 05:25:52  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -68
+ 18  1405/07/26 05:26:49  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+ 19  1405/07/26 05:28:47  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -70
+ 20  1405/07/26 05:29:18  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+ 21  1405/07/26 05:33:38  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+ 22  1405/07/26 05:33:39  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+ 23  1405/07/26 05:36:29  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+ 24  1405/07/26 05:36:34  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+ 25  1405/07/26 05:36:34  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+ 26  1405/07/26 05:36:35  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -66
+ 27  1405/07/26 05:36:49  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+ 28  1405/07/26 05:40:57  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -68
+ 29  1405/07/26 05:42:55  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+ 30  1405/07/26 05:44:49  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -62
+ 31  1405/07/26 05:53:04  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+ 32  1405/07/26 05:54:43  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -72
+ 33  1405/07/26 05:55:17  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+ 34  1405/07/26 05:55:44  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -72
+ 35  1405/07/26 06:05:09  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+ 36  1405/07/26 06:05:29  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -68
+ 37  1405/07/26 06:05:44  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+ 38  1405/07/26 06:05:59  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -68
+ 39  1405/07/26 06:07:59  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+ 40  1405/07/26 06:08:26  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -66
+ 41  1405/07/26 07:43:30  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+ 42  1405/07/26 07:44:07  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+ 43  1405/07/26 07:44:09  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -64
+ 44  1405/07/26 07:48:43  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+ 45  1405/07/26 07:50:48  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+ 46  1405/07/26 07:50:48  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -62
+ 47  1405/07/26 07:52:18  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+ 48  1405/07/26 07:53:48  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -56
+ 49  1405/07/26 07:54:30  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+ 50  1405/07/26 07:54:48  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -60
+ 51  1405/07/26 09:06:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 52  1405/07/26 09:06:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 53  1405/07/26 09:09:10  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 54  1405/07/26 09:09:14  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 55  1405/07/26 18:31:21  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+ 56  1405/07/26 18:31:47  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -66
+ 57  1405/07/26 18:50:57  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+ 58  1405/07/26 18:51:23  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -58
+ 59  1405/07/26 19:12:45  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+ 60  1405/07/26 19:12:58  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -56
+ 61  1405/07/26 19:43:34  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+ 62  1405/07/26 19:43:51  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -62
+ 63  1405/07/26 19:45:40  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+ 64  1405/07/26 19:45:51  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -52
+ 65  1405/07/26 19:53:35  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+ 66  1405/07/26 19:54:52  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -54
+ 67  1405/07/26 20:36:20  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+ 68  1405/07/26 20:36:46  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -58
+ 69  1405/07/26 20:40:22  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+ 70  1405/07/26 20:40:43  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -64
+ 71  1405/07/26 21:49:35  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+ 72  1405/07/26 21:49:55  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -54
+ 73  1405/07/26 22:42:19  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+ 74  1405/07/26 22:42:25  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -56
+ 75  1405/07/27 00:35:12  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+ 76  1405/07/27 00:36:01  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -62
+ 77  1405/07/27 00:36:59  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+ 78  1405/07/27 00:37:11  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -62
+ 79  1405/07/27 00:47:07  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+ 80  1405/07/27 00:47:28  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -64
+ 81  1405/07/27 02:41:32  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+ 82  1405/07/27 02:41:44  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -50
+ 83  1405/07/27 02:56:13  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+ 84  1405/07/27 02:56:27  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -50
+ 85  1405/07/27 04:13:39  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+ 86  1405/07/27 04:14:02  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+ 87  1405/07/27 04:14:02  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -61
+ 88  1405/07/27 04:24:35  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+ 89  1405/07/27 04:24:49  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -56
+ 90  1405/07/27 04:49:24  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+ 91  1405/07/27 04:49:37  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -60
+ 92  1405/07/27 05:56:17  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+ 93  1405/07/27 05:57:01  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+ 94  1405/07/27 05:57:01  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+ 95  1405/07/27 05:57:04  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -65
+ 96  1405/07/27 05:59:18  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+ 97  1405/07/27 06:01:46  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+ 98  1405/07/27 06:01:46  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+ 99  1405/07/27 06:01:50  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+100  1405/07/27 06:01:50  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -57
+101  1405/07/27 06:02:24  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+102  1405/07/27 06:03:12  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -60
+103  1405/07/27 06:07:20  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+104  1405/07/27 06:07:42  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+105  1405/07/27 06:07:42  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+106  1405/07/27 06:07:42  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -61
+107  1405/07/27 07:51:52  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+108  1405/07/27 07:52:14  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+109  1405/07/27 07:52:14  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -53
+110  1405/07/27 08:25:20  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+111  1405/07/27 08:26:02  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -54
+112  1405/07/27 23:29:27  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+113  1405/07/27 23:29:53  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -66
+114  1405/07/27 23:50:15  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+115  1405/07/27 23:50:41  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -64
+116  1405/07/28 00:53:03  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+117  1405/07/28 00:53:23  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -60
+118  1405/07/28 01:30:57  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+119  1405/07/28 01:31:56  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -64
+120  1405/07/28 01:33:36  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+121  1405/07/28 01:34:27  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -64
+122  1405/07/28 02:25:53  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+123  1405/07/28 02:26:19  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -58
+124  1405/07/28 02:58:33  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+125  1405/07/28 02:59:58  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+126  1405/07/28 02:59:58  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -68
+127  1405/07/28 03:56:14  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+128  1405/07/28 03:56:25  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -60
+129  1405/07/28 03:58:53  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+130  1405/07/28 03:59:00  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+131  1405/07/28 03:59:01  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -60
+132  1405/07/28 04:05:53  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+133  1405/07/28 04:05:58  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -66
+134  1405/07/28 04:12:33  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+135  1405/07/28 04:12:45  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -56
+136  1405/07/28 04:59:19  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+137  1405/07/28 04:59:33  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -56
+138  1405/07/28 05:12:33  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+139  1405/07/28 05:12:52  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -54
+140  1405/07/28 05:15:16  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+141  1405/07/28 05:15:35  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -52
+142  1405/07/28 05:15:53  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+143  1405/07/28 05:15:59  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -54
+144  1405/07/28 05:36:16  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+145  1405/07/28 05:36:28  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -60
+146  1405/07/28 05:47:33  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+147  1405/07/28 05:48:17  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -54
+148  1405/07/28 06:07:05  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+149  1405/07/28 06:07:31  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -54
+150  1405/07/28 06:13:56  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+151  1405/07/28 06:15:57  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -60
+152  1405/07/28 07:15:56  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+153  1405/07/28 07:17:34  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -60
+154  1405/07/28 21:22:43  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+155  1405/07/28 21:25:51  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -58
+156  1405/07/29 00:25:48  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+157  1405/07/29 00:28:08  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+158  1405/07/29 00:28:08  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+159  1405/07/29 00:28:08  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -72
+160  1405/07/29 01:53:37  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+161  1405/07/29 01:53:50  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+162  1405/07/29 01:53:50  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -63
+163  1405/07/29 02:21:19  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+164  1405/07/29 02:22:13  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+165  1405/07/29 02:22:13  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -68
+166  1405/07/29 02:27:29  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+167  1405/07/29 02:28:37  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -64
+168  1405/07/29 02:44:33  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+169  1405/07/29 02:45:22  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+170  1405/07/29 02:45:23  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+171  1405/07/29 02:45:23  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -66
+172  1405/07/29 03:13:49  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+173  1405/07/29 03:13:57  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -70
+174  1405/07/29 03:24:54  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+175  1405/07/29 03:25:19  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -64
+176  1405/07/29 03:38:49  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+177  1405/07/29 03:39:28  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -70
+178  1405/07/29 04:29:40  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+179  1405/07/29 04:30:09  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -56
+180  1405/07/29 04:37:43  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+181  1405/07/29 04:37:57  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -58
+182  1405/07/29 04:57:40  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+183  1405/07/29 04:58:10  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -52
+184  1405/07/29 05:14:56  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+185  1405/07/29 05:15:01  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -60
+186  1405/07/29 05:20:06  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+187  1405/07/29 05:20:21  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+188  1405/07/29 05:20:21  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: reconnecting
+189  1405/07/29 05:20:21  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -61
+190  1405/07/29 06:34:13  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+191  1405/07/29 06:34:33  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -58
+192  1405/07/29 06:37:37  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+193  1405/07/29 06:37:42  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -56
+194  1405/07/29 07:27:31  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+195  1405/07/29 07:28:05  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -60
+196  1405/07/29 08:00:56  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, control frame timeout
+197  1405/07/29 08:01:11  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -58
+198  1405/07/29 08:02:26  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: disconnected, not responding
+199  1405/07/29 08:02:45  [wireless,info]  4C:5E:0C:44:32:0D@wlan1: connected, signal strength -60
+200  1405/07/29 16:37:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -242,6 +242,6 @@ ether1  4C:5E:0C:8C:66:6F  (ether)
 sfp1  4C:5E:0C:8C:66:70  (ether)
 wlan1  4C:5E:0C:8C:66:71  (wlan)
 bridge1  4C:5E:0C:8C:66:6F  (bridge)
-wds1121  4C:5E:0C:8C:66:71  (wds)
+wds1322  4C:5E:0C:8C:66:71  (wds)
 --- /ip arp ---
 bridge1  E4:8D:8C:6E:59:85  (arp 172.18.3.89)

@@ -1,5 +1,5 @@
 IP: 172.18.8.3
-Collected at: 2026-10-14T10:24:16.320108+00:00
+Collected at: 2026-10-21T13:17:39.099392+00:00
 source: RouterOS API
 identity: Setad->Khezr.Client
 device_type: ST
@@ -30,18 +30,30 @@ name=wlan1  mode=station-bridge  ssid=STDKHZR  band=5ghz-a/n/ac  frequency=5180
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:33:32
-# ساعت دستگاه (خام): 1974-12-24 08:31:29
-# افست اصلاحی (سرور − دستگاه): +454129:32:03
-  1  1405/07/21 09:41:37  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/21 09:41:39  [bridge,info]  "bridge1" mac address changed to 48:8F:5A:BF:85:31
-  3  1405/07/21 09:41:46  [wireless,info]  08:55:31:12:65:02@wlan1 established connection on 5240000, SSID STDKHZR
-  4  1405/07/21 09:41:55  [interface,info]  ether1 link up (speed 100M, full duplex)
-  5  1405/07/21 21:39:40  [wireless,info]  08:55:31:12:65:02@wlan1: lost connection, control frame timeout
-  6  1405/07/21 21:39:48  [wireless,info]  08:55:31:12:65:02@wlan1 established connection on 5240000, SSID STDKHZR
-  7  1405/07/21 23:25:43  [wireless,info]  08:55:31:12:65:02@wlan1: lost connection, control frame timeout
-  8  1405/07/21 23:26:03  [wireless,info]  08:55:31:12:65:02@wlan1 established connection on 5240000, SSID STDKHZR
-  9  1405/07/22 13:33:30  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:39:10
+# ساعت دستگاه (خام): 1974-12-31 11:39:46
+# افست اصلاحی (سرور − دستگاه): +454129:29:24
+  1  1405/07/21 09:38:58  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/21 09:39:00  [bridge,info]  "bridge1" mac address changed to 48:8F:5A:BF:85:31
+  3  1405/07/21 09:39:07  [wireless,info]  08:55:31:12:65:02@wlan1 established connection on 5240000, SSID STDKHZR
+  4  1405/07/21 09:39:16  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/07/21 21:37:01  [wireless,info]  08:55:31:12:65:02@wlan1: lost connection, control frame timeout
+  6  1405/07/21 21:37:09  [wireless,info]  08:55:31:12:65:02@wlan1 established connection on 5240000, SSID STDKHZR
+  7  1405/07/21 23:23:04  [wireless,info]  08:55:31:12:65:02@wlan1: lost connection, control frame timeout
+  8  1405/07/21 23:23:24  [wireless,info]  08:55:31:12:65:02@wlan1 established connection on 5240000, SSID STDKHZR
+  9  1405/07/22 13:30:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 10  1405/07/22 13:30:53  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 11  1405/07/24 02:28:13  [wireless,info]  08:55:31:12:65:02@wlan1: lost connection, medium-access timeout
+ 12  1405/07/24 02:28:47  [wireless,info]  08:55:31:12:65:02@wlan1 established connection on 5240000, SSID STDKHZR
+ 13  1405/07/24 15:33:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 14  1405/07/24 15:33:22  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 15  1405/07/24 16:01:23  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 16  1405/07/24 16:01:25  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 17  1405/07/26 09:09:05  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 18  1405/07/26 09:09:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 19  1405/07/26 09:11:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 20  1405/07/26 09:11:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 21  1405/07/29 16:39:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

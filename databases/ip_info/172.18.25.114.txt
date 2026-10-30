@@ -1,5 +1,5 @@
 IP: 172.18.25.114
-Collected at: 2026-10-15T10:08:27.619758+00:00
+Collected at: 2026-10-21T13:16:44.530012+00:00
 source: RouterOS API
 identity: Shadegan-Ghatrani1_AP
 device_type: AP
@@ -30,21 +30,37 @@ name=wlan1  mode=ap-bridge  ssid=Shadegan-Ghatrani1  band=5ghz-a/n  frequency=55
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:29:19
-# ساعت دستگاه (خام): 2024-10-24 00:26:17
-# افست اصلاحی (سرور − دستگاه): +17312:33:02
-  1  1405/07/22 11:03:02  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 11:03:06  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:4A:2C:BA
-  3  1405/07/22 11:03:13  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/22 11:03:14  [wireless,info]  E4:8D:8C:56:7F:F5@wlan1: connected, signal strength -68
-  5  1405/07/22 11:03:14  [wireless,info]  6C:3B:6B:13:57:2B@wlan1: connected, signal strength -66
-  6  1405/07/23 13:21:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  7  1405/07/23 13:21:36  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  8  1405/07/23 20:04:04  [wireless,info]  E4:8D:8C:56:7F:F5@wlan1: disconnected, not responding
-  9  1405/07/23 20:04:31  [wireless,info]  E4:8D:8C:56:7F:F5@wlan1: connected, signal strength -64
- 10  1405/07/23 23:31:28  [wireless,info]  E4:8D:8C:56:7F:F5@wlan1: disconnected, not responding
- 11  1405/07/23 23:32:06  [wireless,info]  E4:8D:8C:56:7F:F5@wlan1: connected, signal strength -66
- 12  1405/07/23 12:29:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:33:08
+# ساعت دستگاه (خام): 2024-10-29 20:04:17
+# افست اصلاحی (سرور − دستگاه): +17320:58:51
+  1  1405/07/24 19:28:51  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/24 19:28:55  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:4A:2C:BA
+  3  1405/07/24 19:29:02  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/24 19:29:02  [wireless,info]  E4:8D:8C:56:7F:F5@wlan1: connected, signal strength -66
+  5  1405/07/24 19:29:03  [wireless,info]  6C:3B:6B:13:57:2B@wlan1: connected, signal strength -64
+  6  1405/07/25 08:42:15  [wireless,info]  64:D1:54:52:D4:2F@wlan1: connected, signal strength -60
+  7  1405/07/25 09:23:26  [wireless,info]  64:D1:54:52:D4:2F@wlan1: disconnected, not responding
+  8  1405/07/25 09:25:45  [wireless,info]  64:D1:54:52:D4:2F@wlan1: connected, signal strength -62
+  9  1405/07/25 09:26:23  [wireless,info]  64:D1:54:52:D4:2F@wlan1: disconnected, not responding
+ 10  1405/07/25 09:27:52  [wireless,info]  64:D1:54:52:D4:2F@wlan1: connected, signal strength -62
+ 11  1405/07/25 12:51:34  [wireless,info]  64:D1:54:52:D4:2F@wlan1: disconnected, not responding
+ 12  1405/07/26 08:58:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 13  1405/07/26 08:58:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 14  1405/07/26 09:01:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 15  1405/07/26 09:01:22  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 16  1405/07/26 09:15:23  [wireless,info]  64:D1:54:52:D4:2F@wlan1: connected, signal strength -58
+ 17  1405/07/26 10:10:13  [wireless,info]  6C:3B:6B:13:57:2B@wlan1: disconnected, not responding
+ 18  1405/07/26 10:10:39  [wireless,info]  6C:3B:6B:13:57:2B@wlan1: connected, signal strength -66
+ 19  1405/07/26 11:53:22  [wireless,info]  64:D1:54:52:D4:2F@wlan1: disconnected, not responding
+ 20  1405/07/28 06:39:40  [wireless,info]  E4:8D:8C:56:7F:F5@wlan1: disconnected, not responding
+ 21  1405/07/28 06:39:40  [wireless,info]  6C:3B:6B:13:57:2B@wlan1: disconnected, not responding
+ 22  1405/07/28 09:06:25  [wireless,info]  64:D1:54:52:D4:2F@wlan1: connected, signal strength -60
+ 23  1405/07/28 09:36:19  [wireless,info]  6C:3B:6B:13:57:2B@wlan1: connected, signal strength -62
+ 24  1405/07/28 09:36:57  [wireless,info]  E4:8D:8C:56:7F:F5@wlan1: connected, signal strength -64
+ 25  1405/07/28 12:21:08  [wireless,info]  64:D1:54:52:D4:2F@wlan1: disconnected, not responding
+ 26  1405/07/29 08:47:04  [wireless,info]  64:D1:54:52:D4:2F@wlan1: connected, signal strength -58
+ 27  1405/07/29 11:58:25  [wireless,info]  64:D1:54:52:D4:2F@wlan1: disconnected, not responding
+ 28  1405/07/29 16:33:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

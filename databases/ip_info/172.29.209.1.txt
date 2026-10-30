@@ -1,5 +1,5 @@
 IP: 172.29.209.1
-Collected at: 2026-10-14T10:25:30.123416+00:00
+Collected at: 2026-10-18T05:59:24.831152+00:00
 source: RouterOS API
 identity: MK_Soeichi
 device_type: ST
@@ -43,33 +43,64 @@ name=wlan1  mode=station  ssid=MikroTik  band=2ghz-b/g  frequency=2412
   3  identity=Soeichi->Sobeh1.AP  address=172.18.26.106  interface=ether2
   4  identity=Soeichi->Sobeh1.Client  address=172.18.26.107  interface=ether2
   5  identity=Soeichi->OmNoosheh.AP  address=172.18.26.98  interface=ether3
-  6  identity=3 Khordad.Router  address=172.29.209.2  interface=ether4
-  7  identity=MK_Darkhovein  address=172.18.26.129  interface=ether5
-  8  identity=Darkhoein->Soeichi.AP  address=172.18.26.130  interface=ether5
-  9  identity=Darkhoein->Soeichi.Client  address=172.18.26.131  interface=ether5
+  6  identity=Soeichi->OmNooSheh.Client  address=172.18.26.99  interface=ether3
+  7  identity=3 Khordad.Router  address=172.29.209.2  interface=ether4
+  8  identity=MK_Darkhovein  address=172.18.26.129  interface=ether5
+  9  identity=Darkhoein->Soeichi.AP  address=172.18.26.130  interface=ether5
+ 10  identity=Darkhoein->Soeichi.Client  address=172.18.26.131  interface=ether5
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:47:01
-# ساعت دستگاه (خام): 2024-06-10 02:59:35
-# افست اصلاحی (سرور − دستگاه): +20551:17:26
-  1  1405/07/22 11:47:21  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 11:47:24  [interface,info]  ether3 link up (speed 100M, full duplex)
-  3  1405/07/22 11:47:24  [interface,info]  ether4 link up (speed 100M, full duplex)
-  4  1405/07/22 11:47:25  [interface,info]  ether1 link up (speed 100M, full duplex)
-  5  1405/07/22 11:47:25  [interface,info]  ether2 link up (speed 100M, full duplex)
-  6  1405/07/22 11:47:25  [interface,info]  ether3 link down
-  7  1405/07/22 11:47:26  [interface,info]  ether5 link up (speed 100M, full duplex)
-  8  1405/07/22 11:47:28  [interface,info]  ether3 link up (speed 100M, full duplex)
-  9  1405/07/22 13:26:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 10  1405/07/22 13:26:09  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 11  1405/07/22 13:26:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 12  1405/07/22 13:26:18  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 13  1405/07/22 13:26:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 14  1405/07/22 13:26:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 15  1405/07/22 13:28:06  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 16  1405/07/22 13:28:08  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 17  1405/07/22 13:46:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/26 09:21:49
+# ساعت دستگاه (خام): 2024-06-13 03:30:17
+# افست اصلاحی (سرور − دستگاه): +20570:21:32
+  1  1405/07/23 06:51:25  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/23 06:51:29  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/23 06:51:29  [interface,info]  ether3 link up (speed 100M, full duplex)
+  4  1405/07/23 06:51:29  [interface,info]  ether4 link up (speed 100M, full duplex)
+  5  1405/07/23 06:51:30  [interface,info]  ether2 link up (speed 100M, full duplex)
+  6  1405/07/23 06:51:30  [interface,info]  ether3 link down
+  7  1405/07/23 06:51:30  [interface,info]  ether5 link up (speed 100M, full duplex)
+  8  1405/07/23 06:51:32  [interface,info]  ether3 link up (speed 100M, full duplex)
+  9  1405/07/23 12:30:40  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 10  1405/07/23 12:30:42  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 11  1405/07/23 12:30:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 12  1405/07/23 12:30:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 13  1405/07/23 12:31:04  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 14  1405/07/23 12:31:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 15  1405/07/23 12:32:25  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 16  1405/07/23 12:32:26  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 17  1405/07/24 15:26:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 18  1405/07/24 15:27:00  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 19  1405/07/24 15:27:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 20  1405/07/24 15:27:09  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 21  1405/07/24 15:27:21  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 22  1405/07/24 15:27:23  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 23  1405/07/24 15:28:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 24  1405/07/24 15:28:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 25  1405/07/24 15:43:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 26  1405/07/24 15:43:34  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 27  1405/07/24 16:07:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 28  1405/07/24 16:07:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 29  1405/07/26 09:02:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 30  1405/07/26 09:02:43  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 31  1405/07/26 09:02:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 32  1405/07/26 09:02:53  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 33  1405/07/26 09:03:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 34  1405/07/26 09:03:13  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 35  1405/07/26 09:04:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 36  1405/07/26 09:04:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 37  1405/07/26 09:05:16  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 38  1405/07/26 09:05:17  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 39  1405/07/26 09:05:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 40  1405/07/26 09:05:26  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 41  1405/07/26 09:05:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 42  1405/07/26 09:05:42  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 43  1405/07/26 09:06:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 44  1405/07/26 09:06:46  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 45  1405/07/26 09:20:06  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 46  1405/07/26 09:20:08  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 47  1405/07/26 09:21:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -80,9 +111,11 @@ ether4  6C:3B:6B:2B:BA:18  (ether)
 ether5  6C:3B:6B:2B:BA:19  (ether)
 wlan1  6C:3B:6B:2B:BA:1A  (wlan)
 --- /ip arp ---
-ether5  E4:8D:8C:0D:18:BE  (arp 172.18.26.129)
 ether3  6C:3B:6B:91:10:DB  (arp 172.18.26.98)
-ether1  6C:3B:6B:AB:D2:B5  (arp 172.18.26.114)
 ether2  4C:5E:0C:A7:F6:33  (arp 172.18.26.107)
 ether1  E4:8D:8C:B5:1C:9D  (arp 172.18.26.115)
+ether1  6C:3B:6B:AB:D2:B5  (arp 172.18.26.114)
+ether5  E4:8D:8C:0D:18:BE  (arp 172.18.26.129)
 ether2  6C:3B:6B:94:8C:7B  (arp 172.18.26.106)
+ether3  6C:3B:6B:34:00:8F  (arp 172.18.26.99)
+ether4  E4:8D:8C:65:4D:CA  (arp 172.29.209.2)

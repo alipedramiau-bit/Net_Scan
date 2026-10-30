@@ -1,5 +1,5 @@
 IP: 172.18.24.53
-Collected at: 2026-10-15T10:08:18.997978+00:00
+Collected at: 2026-10-21T13:16:40.161099+00:00
 source: RouterOS API
 identity: BeytAshour
 device_type: ST
@@ -36,114 +36,13 @@ name=wlan1  mode=station-bridge  ssid=Shadegan-Shabakeh3  band=5ghz-a/n  frequen
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:27:45
-# ساعت دستگاه (خام): 1975-01-29 22:45:46
-# افست اصلاحی (سرور − دستگاه): +453274:11:59
-  1  1405/06/31 08:05:34  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/06/31 08:05:41  [wireless,info]  6C:3B:6B:4D:A3:1C@wlan1 established connection on 5300000, SSID Shadegan-Shabakeh3
-  3  1405/06/31 08:05:45  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/06/31 08:24:43  [dhcp,info]  dhcp1 assigned 172.29.193.26 to E0:D5:5E:55:A6:EC
-  5  1405/06/31 11:59:45  [dhcp,info]  dhcp1 deassigned 172.29.193.26 from E0:D5:5E:55:A6:EC
-  6  1405/07/01 07:39:42  [dhcp,info]  dhcp1 assigned 172.29.193.26 to E0:D5:5E:55:A6:EC
-  7  1405/07/01 07:54:47  [dhcp,info]  dhcp1 deassigned 172.29.193.26 from E0:D5:5E:55:A6:EC
-  8  1405/07/01 09:47:49  [dhcp,info]  dhcp1 assigned 172.29.193.26 to E0:D5:5E:55:A6:EC
-  9  1405/07/01 12:07:49  [dhcp,info]  dhcp1 deassigned 172.29.193.26 from E0:D5:5E:55:A6:EC
- 10  1405/07/04 07:55:13  [dhcp,info]  dhcp1 assigned 172.29.193.26 to E0:D5:5E:55:A6:EC
- 11  1405/07/04 08:35:13  [dhcp,info]  dhcp1 deassigned 172.29.193.26 from E0:D5:5E:55:A6:EC
- 12  1405/07/04 08:42:03  [dhcp,info]  dhcp1 assigned 172.29.193.26 to E0:D5:5E:55:A6:EC
- 13  1405/07/04 12:07:03  [dhcp,info]  dhcp1 deassigned 172.29.193.26 from E0:D5:5E:55:A6:EC
- 14  1405/07/05 07:40:00  [dhcp,info]  dhcp1 assigned 172.29.193.26 to E0:D5:5E:55:A6:EC
- 15  1405/07/05 08:20:00  [dhcp,info]  dhcp1 deassigned 172.29.193.26 from E0:D5:5E:55:A6:EC
- 16  1405/07/05 09:05:44  [dhcp,info]  dhcp1 assigned 172.29.193.26 to E0:D5:5E:55:A6:EC
- 17  1405/07/05 12:20:45  [dhcp,info]  dhcp1 deassigned 172.29.193.26 from E0:D5:5E:55:A6:EC
- 18  1405/07/06 07:29:30  [dhcp,info]  dhcp1 assigned 172.29.193.26 to E0:D5:5E:55:A6:EC
- 19  1405/07/06 08:24:31  [dhcp,info]  dhcp1 deassigned 172.29.193.26 from E0:D5:5E:55:A6:EC
- 20  1405/07/06 10:31:58  [dhcp,info]  dhcp1 assigned 172.29.193.26 to E0:D5:5E:55:A6:EC
- 21  1405/07/06 12:06:59  [dhcp,info]  dhcp1 deassigned 172.29.193.26 from E0:D5:5E:55:A6:EC
- 22  1405/07/07 08:19:01  [dhcp,info]  dhcp1 assigned 172.29.193.26 to E0:D5:5E:55:A6:EC
- 23  1405/07/07 12:09:01  [dhcp,info]  dhcp1 deassigned 172.29.193.26 from E0:D5:5E:55:A6:EC
- 24  1405/07/11 10:44:05  [dhcp,info]  dhcp1 assigned 172.29.193.26 to E0:D5:5E:55:A6:EC
- 25  1405/07/11 11:24:06  [dhcp,info]  dhcp1 deassigned 172.29.193.26 from E0:D5:5E:55:A6:EC
- 26  1405/07/12 07:54:38  [dhcp,info]  dhcp1 assigned 172.29.193.26 to E0:D5:5E:55:A6:EC
- 27  1405/07/12 11:59:39  [dhcp,info]  dhcp1 deassigned 172.29.193.26 from E0:D5:5E:55:A6:EC
- 28  1405/07/15 13:33:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 29  1405/07/15 13:33:03  [system,info]  changed snmp settings by garnaf
- 30  1405/07/15 13:33:03  [system,info]  item changed by garnaf
- 31  1405/07/15 13:33:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 32  1405/07/15 13:34:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 33  1405/07/15 13:34:48  [system,info]  changed snmp settings by garnaf
- 34  1405/07/15 13:34:48  [system,info]  item changed by garnaf
- 35  1405/07/15 13:34:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 36  1405/07/15 13:38:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 37  1405/07/15 13:38:19  [system,info]  changed snmp settings by garnaf
- 38  1405/07/15 13:38:19  [system,info]  item changed by garnaf
- 39  1405/07/15 13:38:19  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 40  1405/07/15 14:56:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 41  1405/07/15 14:56:11  [system,info]  user olom1 added by garnaf
- 42  1405/07/15 14:56:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 43  1405/07/15 15:05:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 44  1405/07/15 15:05:32  [system,info]  user ums1 removed by garnaf
- 45  1405/07/15 15:05:32  [system,info]  user ums2 removed by garnaf
- 46  1405/07/15 15:05:32  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 47  1405/07/15 15:07:42  [system,info,account]  user olom1 logged in from 172.18.4.76 via winbox
- 48  1405/07/15 15:07:45  [system,info,account]  user olom1 logged out from 172.18.4.76 via winbox
- 49  1405/07/16 10:14:37  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 50  1405/07/16 10:14:37  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 51  1405/07/16 10:36:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 52  1405/07/16 10:36:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 53  1405/07/16 13:50:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 54  1405/07/16 13:50:43  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 55  1405/07/16 13:56:05  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 56  1405/07/16 13:56:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 57  1405/07/16 14:06:57  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 58  1405/07/16 14:06:58  [system,info]  changed snmp settings by garnaf
- 59  1405/07/16 14:06:58  [system,info]  item changed by garnaf
- 60  1405/07/16 14:06:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 61  1405/07/16 14:09:23  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 62  1405/07/16 14:09:24  [system,info]  changed snmp settings by garnaf
- 63  1405/07/16 14:09:24  [system,info]  item changed by garnaf
- 64  1405/07/16 14:09:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 65  1405/07/16 14:29:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 66  1405/07/16 14:29:52  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 67  1405/07/16 14:36:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 68  1405/07/16 14:36:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 69  1405/07/16 15:40:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 70  1405/07/16 15:40:52  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 71  1405/07/16 15:47:04  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 72  1405/07/16 15:47:05  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 73  1405/07/17 08:40:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 74  1405/07/17 08:40:29  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 75  1405/07/18 10:30:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 76  1405/07/18 10:30:46  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 77  1405/07/18 10:39:40  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 78  1405/07/18 10:39:40  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 79  1405/07/18 10:54:50  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 80  1405/07/18 10:54:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 81  1405/07/18 11:04:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 82  1405/07/18 11:04:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 83  1405/07/18 12:07:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 84  1405/07/18 12:07:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 85  1405/07/18 12:12:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 86  1405/07/18 12:12:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 87  1405/07/19 09:39:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 88  1405/07/19 09:39:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 89  1405/07/19 10:00:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 90  1405/07/19 10:00:05  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 91  1405/07/19 10:07:02  [dhcp,info]  dhcp1 assigned 172.29.193.26 to E0:D5:5E:55:A6:EC
- 92  1405/07/19 11:42:02  [dhcp,info]  dhcp1 deassigned 172.29.193.26 from E0:D5:5E:55:A6:EC
- 93  1405/07/19 17:42:15  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 94  1405/07/19 17:42:15  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 95  1405/07/19 17:46:06  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 96  1405/07/19 17:46:06  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 97  1405/07/21 11:02:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 98  1405/07/21 11:02:37  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 99  1405/07/21 11:17:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-100  1405/07/21 11:17:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-101  1405/07/22 13:19:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-102  1405/07/22 13:19:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-103  1405/07/22 13:41:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-104  1405/07/22 13:41:38  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-105  1405/07/23 12:27:43  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:32:23
+# ساعت دستگاه (خام): 1975-02-04 16:27:07
+# افست اصلاحی (سرور − دستگاه): +453284:35:16
+  1  1405/07/27 18:28:52  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/27 18:28:59  [wireless,info]  6C:3B:6B:4D:A3:1C@wlan1 established connection on 5300000, SSID Shadegan-Shabakeh3
+  3  1405/07/27 18:29:02  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/29 16:32:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

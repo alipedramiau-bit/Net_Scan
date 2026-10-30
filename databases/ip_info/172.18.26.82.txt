@@ -1,5 +1,5 @@
 IP: 172.18.26.82
-Collected at: 2026-10-15T10:09:01.530495+00:00
+Collected at: 2026-10-21T13:17:07.873574+00:00
 source: RouterOS API
 identity: MK_behdast-OmolGhazlan
 device_type: AP
@@ -29,21 +29,44 @@ name=wlan1  mode=ap-bridge  ssid=Shadegan-OmolGhazlan2  band=5ghz-a/n  frequency
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:34:58
-# ساعت دستگاه (خام): 1970-08-16 23:54:39
-# افست اصلاحی (سرور − دستگاه): +492321:10:19
-  1  1405/07/22 12:40:11  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 12:40:14  [interface,info]  ether1 link up (speed 100M, full duplex)
-  3  1405/07/22 12:40:21  [wireless,info]  6C:3B:6B:01:D5:4F@wlan1: connected, signal strength -66, wants bridge
-  4  1405/07/22 13:27:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  5  1405/07/22 13:27:46  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  6  1405/07/22 18:08:18  [wireless,info]  BE:57:01:8B:CD:8D@wlan1: connected, signal strength -84
-  7  1405/07/22 18:08:23  [wireless,info]  BE:57:01:8B:CD:8D@wlan1: disconnected, unicast key exchange timeout, signal strength -81
-  8  1405/07/22 18:08:31  [wireless,info]  BE:57:01:8B:CD:8D@wlan1: connected, signal strength -82
-  9  1405/07/22 18:08:36  [wireless,info]  BE:57:01:8B:CD:8D@wlan1: disconnected, unicast key exchange timeout, signal strength -86
- 10  1405/07/22 18:08:43  [wireless,info]  BE:57:01:8B:CD:8D@wlan1: connected, signal strength -88
- 11  1405/07/22 18:08:48  [wireless,info]  BE:57:01:8B:CD:8D@wlan1: disconnected, unicast key exchange timeout, signal strength -83
- 12  1405/07/23 12:34:57  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:35:59
+# ساعت دستگاه (خام): 1970-08-20 08:16:52
+# افست اصلاحی (سرور − دستگاه): +492388:49:07
+  1  1405/07/28 08:18:58  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/28 08:19:02  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/28 08:19:05  [wireless,info]  6C:3B:6B:01:D5:4F@wlan1: connected, signal strength -71, wants bridge
+  4  1405/07/28 08:19:08  [wireless,info]  E4:8D:8C:B5:1B:8F@wlan1: connected, signal strength -63, wants bridge
+  5  1405/07/28 08:39:53  [wireless,info]  wlan1: WPS physical button pushed
+  6  1405/07/28 08:39:53  [wireless,info]  wlan1: WPS physical button pushed, extend walk time
+  7  1405/07/28 08:41:53  [wireless,info]  wlan1: WPS button reset
+  8  1405/07/28 10:44:43  [wireless,info]  wlan1: WPS physical button pushed
+  9  1405/07/28 10:46:43  [wireless,info]  wlan1: WPS button reset
+ 10  1405/07/28 13:03:49  [wireless,info]  E4:8D:8C:B5:1B:8F@wlan1: disconnected, extensive data loss, signal strength -63
+ 11  1405/07/28 13:20:14  [wireless,info]  wlan1: WPS physical button pushed
+ 12  1405/07/28 13:20:14  [wireless,info]  wlan1: WPS physical button pushed, extend walk time
+ 13  1405/07/28 13:20:14  [wireless,info]  wlan1: WPS physical button pushed, extend walk time
+ 14  1405/07/28 13:22:14  [wireless,info]  wlan1: WPS button reset
+ 15  1405/07/28 13:27:52  [wireless,info]  wlan1: WPS physical button pushed
+ 16  1405/07/28 13:27:52  [wireless,info]  wlan1: WPS physical button pushed, extend walk time
+ 17  1405/07/28 13:27:52  [wireless,info]  wlan1: WPS physical button pushed, extend walk time
+ 18  1405/07/28 13:27:52  [wireless,info]  wlan1: WPS physical button pushed, extend walk time
+ 19  1405/07/28 13:27:52  [wireless,info]  wlan1: WPS physical button pushed, extend walk time
+ 20  1405/07/28 13:27:52  [wireless,info]  wlan1: WPS physical button pushed, extend walk time
+ 21  1405/07/28 13:27:52  [wireless,info]  wlan1: WPS physical button pushed, extend walk time
+ 22  1405/07/28 13:29:52  [wireless,info]  wlan1: WPS button reset
+ 23  1405/07/29 08:20:09  [wireless,info]  E4:8D:8C:B5:1B:8F@wlan1: connected, signal strength -61, wants bridge
+ 24  1405/07/29 11:41:21  [wireless,info]  E4:8D:8C:B5:1B:8F@wlan1: disconnected, extensive data loss, signal strength -61
+ 25  1405/07/29 15:17:01  [wireless,info]  DE:B2:4D:EA:4B:21@wlan1: connected, signal strength -78
+ 26  1405/07/29 15:17:01  [wireless,info]  DE:B2:4D:EA:4B:21@wlan1: disconnected, received deauth: class 3 frame received (7), signal strength -78
+ 27  1405/07/29 15:17:05  [wireless,info]  DE:B2:4D:EA:4B:21@wlan1: connected, signal strength -81
+ 28  1405/07/29 15:17:05  [wireless,info]  DE:B2:4D:EA:4B:21@wlan1: disconnected, received deauth: class 3 frame received (7), signal strength -81
+ 29  1405/07/29 15:17:11  [wireless,info]  DE:B2:4D:EA:4B:21@wlan1: connected, signal strength -78
+ 30  1405/07/29 15:17:11  [wireless,info]  DE:B2:4D:EA:4B:21@wlan1: disconnected, received deauth: class 3 frame received (7), signal strength -78
+ 31  1405/07/29 15:17:29  [wireless,info]  DE:B2:4D:EA:4B:21@wlan1: connected, signal strength -77
+ 32  1405/07/29 15:17:29  [wireless,info]  DE:B2:4D:EA:4B:21@wlan1: disconnected, received deauth: class 3 frame received (7), signal strength -77
+ 33  1405/07/29 15:18:04  [wireless,info]  DE:B2:4D:EA:4B:21@wlan1: connected, signal strength -79
+ 34  1405/07/29 15:18:04  [wireless,info]  DE:B2:4D:EA:4B:21@wlan1: disconnected, received deauth: class 3 frame received (7), signal strength -79
+ 35  1405/07/29 16:35:57  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

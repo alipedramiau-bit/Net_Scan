@@ -1,5 +1,5 @@
 IP: 172.29.201.120
-Collected at: 2026-10-13T07:56:28.679110+00:00
+Collected at: 2026-10-21T13:18:25.524343+00:00
 source: RouterOS API
 identity: hAPlite-mosaier-shomali
 device_type: ST
@@ -7,9 +7,9 @@ device_type: ST
 ----- interfaces -----
 === /interface ===
   1  name=ether1  type=ether  running=true  mac=B8:69:F4:50:C8:A9
-  2  name=ether2  type=ether  running=true  mac=B8:69:F4:50:C8:AA
+  2  name=ether2  type=ether  running=false  mac=B8:69:F4:50:C8:AA
   3  name=ether3  type=ether  running=true  mac=B8:69:F4:50:C8:AB
-  4  name=ether4  type=ether  running=true  mac=B8:69:F4:50:C8:AC
+  4  name=ether4  type=ether  running=false  mac=B8:69:F4:50:C8:AC
   5  name=pwr-line1  type=ether  running=false  mac=B8:69:F4:50:C8:AD
   6  name=wlan1  type=wlan  running=false  mac=B8:69:F4:50:C8:AE
   7  name=bridge1  type=bridge  running=true  mac=B8:69:F4:50:C8:A9
@@ -29,40 +29,65 @@ name=wlan1  mode=station  ssid=MikroTik  band=2ghz-b/g  frequency=2412
 ----- neighbors -----
 === /ip neighbor ===
   1  identity=NahrMosayerShomali.Client  address=172.29.201.97  interface=ether1,bridge1
-  2  identity=-  address=-  interface=ether2,bridge1
-  3  identity=-  address=-  interface=ether4,bridge1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/21 11:20:21
-# ساعت دستگاه (خام): 1976-06-10 17:27:55
-# افست اصلاحی (سرور − دستگاه): +441278:22:26
-  1  1405/07/20 11:46:45  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/20 11:46:47  [bridge,info]  "bridge1" mac address changed to B8:69:F4:50:C8:A9
-  3  1405/07/20 11:46:47  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1,ether3,ether2,ether4
-  4  1405/07/20 11:46:50  [interface,info]  ether1 link up (speed 100M, full duplex)
-  5  1405/07/20 11:47:18  [interface,info]  ether4 link up (speed 100M, full duplex)
-  6  1405/07/20 11:47:19  [interface,info]  ether2 link up (speed 10M, full duplex)
-  7  1405/07/20 11:51:40  [interface,info]  ether4 link down
-  8  1405/07/20 11:51:41  [interface,info]  ether4 link up (speed 100M, full duplex)
-  9  1405/07/20 11:52:21  [interface,info]  ether3 link up (speed 100M, full duplex)
- 10  1405/07/20 13:10:28  [interface,info]  ether4 link down
- 11  1405/07/20 13:10:30  [interface,info]  ether4 link up (speed 10M, full duplex)
- 12  1405/07/20 13:11:29  [interface,info]  ether2 link down
- 13  1405/07/20 13:11:33  [interface,info]  ether4 link down
- 14  1405/07/21 08:42:26  [interface,info]  ether4 link up (speed 100M, full duplex)
- 15  1405/07/21 08:42:27  [interface,info]  ether2 link up (speed 10M, full duplex)
- 16  1405/07/21 08:42:34  [interface,info]  ether2 link down
- 17  1405/07/21 08:42:36  [interface,info]  ether2 link up (speed 10M, full duplex)
- 18  1405/07/21 08:42:37  [interface,info]  ether2 link down
- 19  1405/07/21 08:42:39  [interface,info]  ether2 link up (speed 100M, full duplex)
- 20  1405/07/21 08:42:49  [interface,info]  ether2 link down
- 21  1405/07/21 08:42:51  [interface,info]  ether2 link up (speed 100M, full duplex)
- 22  1405/07/21 09:05:50  [interface,info]  ether4 link down
- 23  1405/07/21 09:05:52  [interface,info]  ether4 link up (speed 100M, full duplex)
- 24  1405/07/21 09:36:31  [interface,info]  ether3 link down
- 25  1405/07/21 09:36:32  [interface,info]  ether3 link up (speed 100M, full duplex)
- 26  1405/07/21 11:20:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:43:41
+# ساعت دستگاه (خام): 1976-06-13 23:43:07
+# افست اصلاحی (سرور − دستگاه): +441397:30:34
+  1  1405/07/27 10:54:54  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/27 10:54:56  [bridge,info]  "bridge1" mac address changed to B8:69:F4:50:C8:A9
+  3  1405/07/27 10:54:57  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1,ether2,ether3
+  4  1405/07/27 10:54:57  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether4
+  5  1405/07/27 10:54:59  [interface,info]  ether1 link up (speed 100M, full duplex)
+  6  1405/07/27 11:00:31  [interface,info]  ether3 link up (speed 100M, full duplex)
+  7  1405/07/27 11:20:14  [interface,info]  ether4 link up (speed 100M, full duplex)
+  8  1405/07/27 11:20:16  [interface,info]  ether2 link up (speed 10M, full duplex)
+  9  1405/07/27 11:20:17  [interface,info]  ether2 link down
+ 10  1405/07/27 11:20:19  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 11  1405/07/27 11:20:27  [interface,info]  ether2 link down
+ 12  1405/07/27 11:20:29  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 13  1405/07/27 11:23:32  [interface,info]  ether2 link down
+ 14  1405/07/27 11:23:43  [interface,info]  ether2 link up (speed 10M, full duplex)
+ 15  1405/07/27 11:23:51  [interface,info]  ether2 link down
+ 16  1405/07/27 11:23:53  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 17  1405/07/27 11:27:47  [interface,info]  ether2 link down
+ 18  1405/07/27 11:28:01  [interface,info]  ether4 link down
+ 19  1405/07/28 08:10:02  [interface,info]  ether3 link down
+ 20  1405/07/28 08:10:03  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 21  1405/07/28 08:14:34  [interface,info]  ether4 link up (speed 100M, full duplex)
+ 22  1405/07/28 08:14:35  [interface,info]  ether2 link up (speed 10M, full duplex)
+ 23  1405/07/28 08:16:00  [interface,info]  ether4 link down
+ 24  1405/07/28 08:16:02  [interface,info]  ether4 link up (speed 100M, full duplex)
+ 25  1405/07/28 09:07:12  [interface,info]  ether2 link down
+ 26  1405/07/28 09:07:14  [interface,info]  ether2 link up (speed 10M, full duplex)
+ 27  1405/07/28 09:07:15  [interface,info]  ether2 link down
+ 28  1405/07/28 09:07:16  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 29  1405/07/28 09:07:28  [interface,info]  ether2 link down
+ 30  1405/07/28 09:07:29  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 31  1405/07/28 11:53:25  [interface,info]  ether2 link down
+ 32  1405/07/28 12:00:40  [interface,info]  ether3 link down
+ 33  1405/07/28 12:00:42  [interface,info]  ether3 link up (speed 10M, full duplex)
+ 34  1405/07/28 12:57:49  [interface,info]  ether4 link down
+ 35  1405/07/28 12:57:51  [interface,info]  ether4 link up (speed 10M, full duplex)
+ 36  1405/07/28 12:58:43  [interface,info]  ether4 link down
+ 37  1405/07/29 08:19:35  [interface,info]  ether3 link down
+ 38  1405/07/29 08:19:36  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 39  1405/07/29 08:23:49  [interface,info]  ether4 link up (speed 100M, full duplex)
+ 40  1405/07/29 08:23:49  [interface,info]  ether2 link up (speed 10M, full duplex)
+ 41  1405/07/29 08:24:53  [interface,info]  ether4 link down
+ 42  1405/07/29 08:24:55  [interface,info]  ether4 link up (speed 100M, full duplex)
+ 43  1405/07/29 08:45:16  [interface,info]  ether2 link down
+ 44  1405/07/29 08:45:20  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 45  1405/07/29 08:45:27  [interface,info]  ether2 link down
+ 46  1405/07/29 08:45:29  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 47  1405/07/29 11:50:23  [interface,info]  ether2 link down
+ 48  1405/07/29 11:56:15  [interface,info]  ether3 link down
+ 49  1405/07/29 11:56:16  [interface,info]  ether3 link up (speed 10M, full duplex)
+ 50  1405/07/29 13:09:30  [interface,info]  ether4 link down
+ 51  1405/07/29 13:09:31  [interface,info]  ether4 link up (speed 10M, full duplex)
+ 52  1405/07/29 13:10:17  [interface,info]  ether4 link down
+ 53  1405/07/29 16:43:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

@@ -1,5 +1,5 @@
 IP: 172.18.9.241
-Collected at: 2026-10-14T10:24:34.298162+00:00
+Collected at: 2026-10-21T13:17:59.975309+00:00
 source: RouterOS API
 identity: Router.Markaz.ArvandKanar
 device_type: AP
@@ -9,8 +9,8 @@ device_type: AP
   1  name=ether1-ArvandKanar1  type=ether  running=true  mac=6C:3B:6B:B2:3D:1E
   2  name=ether2-ArvandKanar2  type=ether  running=true  mac=6C:3B:6B:B2:3D:1F
   3  name=ether3  type=ether  running=true  mac=6C:3B:6B:B2:3D:20
-  4  name=ether4-AP3  type=ether  running=true  mac=6C:3B:6B:B2:3D:21
-  5  name=ether5-POS  type=ether  running=true  mac=6C:3B:6B:B2:3D:22
+  4  name=ether4-AP3  type=ether  running=false  mac=6C:3B:6B:B2:3D:21
+  5  name=ether5-POS  type=ether  running=false  mac=6C:3B:6B:B2:3D:22
   6  name=ether6-WIFI-MARKAZ  type=ether  running=true  mac=6C:3B:6B:B2:3D:23
   7  name=ether7-AP4  type=ether  running=true  mac=6C:3B:6B:B2:3D:24
   8  name=ether8-PTMP-3  type=ether  running=false  mac=6C:3B:6B:B2:3D:25
@@ -59,220 +59,52 @@ device_type: AP
   2  identity=AbooShanakNasar.Client  address=172.18.9.228  interface=ether1-ArvandKanar1
   3  identity=obuabood.Client  address=172.18.9.229  interface=ether1-ArvandKanar1
   4  identity=NahrHamid.Client  address=172.18.9.231  interface=ether1-ArvandKanar1
-  5  identity=NahrAriz.Client  address=172.18.9.233  interface=ether1-ArvandKanar1
-  6  identity=CL-AbuShanak-Nasar  address=172.18.9.251  interface=ether1-ArvandKanar1
-  7  identity=ShohadayeSaduni.Client  address=172.18.9.252  interface=ether1-ArvandKanar1
-  8  identity=Abadan-ArvanKenar2  address=172.18.9.242  interface=ether2-ArvandKanar2
-  9  identity=Hospital.AP  address=172.29.75.3  interface=ether4-AP3,bridge1
- 10  identity=22Bahman-MK  address=172.18.9.177  interface=ether10-Input
- 11  identity=PTP-AP-22BAHMAN-ARVAN  address=172.18.9.178  interface=ether10-Input
- 12  identity=22Bahman->Arvandkenar.Client  address=172.18.9.179  interface=ether10-Input
+  5  identity=CL-AbuShanak-Nasar  address=172.18.9.251  interface=ether1-ArvandKanar1
+  6  identity=ShohadayeSaduni.Client  address=172.18.9.252  interface=ether1-ArvandKanar1
+  7  identity=Abadan-ArvanKenar2  address=172.18.9.242  interface=ether2-ArvandKanar2
+  8  identity=22Bahman-MK  address=172.18.9.177  interface=ether10-Input
+  9  identity=PTP-AP-22BAHMAN-ARVAN  address=172.18.9.178  interface=ether10-Input
+ 10  identity=22Bahman->Arvandkenar.Client  address=172.18.9.179  interface=ether10-Input
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:36:22
-# ساعت دستگاه (خام): 1974-11-20 02:10:40
-# افست اصلاحی (سرور − دستگاه): +454951:55:42
-  1  1405/07/19 09:27:41  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-  2  1405/07/19 09:27:41  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-  3  1405/07/19 09:30:04  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-  4  1405/07/19 09:30:05  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-  5  1405/07/19 09:32:30  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-  6  1405/07/19 09:32:30  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-  7  1405/07/19 09:34:56  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-  8  1405/07/19 09:34:57  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-  9  1405/07/19 09:37:23  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 10  1405/07/19 09:37:23  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 11  1405/07/19 09:39:49  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 12  1405/07/19 09:39:50  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 13  1405/07/19 09:54:21  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 14  1405/07/19 09:54:25  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 15  1405/07/19 09:55:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 16  1405/07/19 09:55:36  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 17  1405/07/19 09:55:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 18  1405/07/19 09:55:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 19  1405/07/19 09:55:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 20  1405/07/19 09:56:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 21  1405/07/19 10:07:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 22  1405/07/19 10:07:37  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 23  1405/07/19 12:27:58  [dhcp,info]  dhcp1 deassigned 172.29.75.52 from 98:DE:D0:26:F9:36
- 24  1405/07/19 12:27:58  [dhcp,info]  dhcp1 assigned 172.29.75.52 to 98:DE:D0:26:F9:36
- 25  1405/07/20 03:03:34  [dhcp,info]  dhcp1 deassigned 172.29.75.37 from 00:17:6F:39:42:41
- 26  1405/07/20 03:03:34  [dhcp,info]  dhcp1 assigned 172.29.75.37 to 00:17:6F:39:42:41
- 27  1405/07/20 08:34:02  [dhcp,info]  dhcp1 assigned 172.29.75.26 to E0:B9:A5:F0:DD:35
- 28  1405/07/21 03:03:32  [dhcp,info]  dhcp1 deassigned 172.29.75.37 from 00:17:6F:39:42:41
- 29  1405/07/21 03:03:32  [dhcp,info]  dhcp1 assigned 172.29.75.37 to 00:17:6F:39:42:41
- 30  1405/07/21 06:53:19  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 31  1405/07/21 06:53:20  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 32  1405/07/21 06:55:46  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 33  1405/07/21 06:55:46  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 34  1405/07/21 06:58:12  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 35  1405/07/21 06:58:13  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 36  1405/07/21 07:00:39  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 37  1405/07/21 07:00:39  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 38  1405/07/21 07:03:05  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 39  1405/07/21 07:03:06  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 40  1405/07/21 07:05:32  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 41  1405/07/21 07:05:32  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 42  1405/07/21 07:07:58  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 43  1405/07/21 07:07:59  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 44  1405/07/21 07:10:25  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 45  1405/07/21 07:10:25  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 46  1405/07/21 07:12:51  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 47  1405/07/21 07:12:52  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 48  1405/07/21 07:15:18  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 49  1405/07/21 07:15:18  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 50  1405/07/21 07:17:44  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 51  1405/07/21 07:17:45  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 52  1405/07/21 07:20:11  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 53  1405/07/21 07:20:11  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 54  1405/07/21 07:22:37  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 55  1405/07/21 07:22:38  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 56  1405/07/21 07:25:04  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 57  1405/07/21 07:25:04  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 58  1405/07/21 07:27:30  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 59  1405/07/21 07:27:31  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 60  1405/07/21 07:29:57  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 61  1405/07/21 07:29:57  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 62  1405/07/21 07:32:23  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 63  1405/07/21 07:32:24  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 64  1405/07/21 07:34:50  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 65  1405/07/21 07:34:50  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 66  1405/07/21 07:37:16  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 67  1405/07/21 07:37:17  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 68  1405/07/21 07:39:43  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 69  1405/07/21 07:39:43  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 70  1405/07/21 07:42:09  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 71  1405/07/21 07:42:10  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 72  1405/07/21 07:44:36  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 73  1405/07/21 07:44:36  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 74  1405/07/21 07:47:02  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 75  1405/07/21 07:47:03  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 76  1405/07/21 07:49:29  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 77  1405/07/21 07:49:29  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 78  1405/07/21 07:51:55  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 79  1405/07/21 07:51:56  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 80  1405/07/21 07:54:22  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 81  1405/07/21 07:54:22  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 82  1405/07/21 07:56:48  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 83  1405/07/21 07:56:49  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 84  1405/07/21 07:59:15  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 85  1405/07/21 07:59:15  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 86  1405/07/21 08:01:41  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 87  1405/07/21 08:01:42  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 88  1405/07/21 08:04:08  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 89  1405/07/21 08:04:08  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 90  1405/07/21 08:06:34  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 91  1405/07/21 08:06:35  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 92  1405/07/21 08:09:01  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 93  1405/07/21 08:09:01  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 94  1405/07/21 08:11:27  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 95  1405/07/21 08:11:28  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 96  1405/07/21 08:13:54  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 97  1405/07/21 08:13:54  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
- 98  1405/07/21 08:16:20  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
- 99  1405/07/21 08:16:21  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-100  1405/07/21 08:18:47  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-101  1405/07/21 08:18:47  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-102  1405/07/21 08:21:13  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-103  1405/07/21 08:21:14  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-104  1405/07/21 08:23:40  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-105  1405/07/21 08:23:40  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-106  1405/07/21 08:26:06  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-107  1405/07/21 08:26:06  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-108  1405/07/21 08:28:32  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-109  1405/07/21 08:28:33  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-110  1405/07/21 08:30:59  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-111  1405/07/21 08:30:59  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-112  1405/07/21 08:33:25  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-113  1405/07/21 08:33:26  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-114  1405/07/21 08:35:52  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-115  1405/07/21 08:35:52  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-116  1405/07/21 08:38:18  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-117  1405/07/21 08:38:19  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-118  1405/07/21 08:40:45  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-119  1405/07/21 08:40:45  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-120  1405/07/21 08:43:11  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-121  1405/07/21 08:43:12  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-122  1405/07/21 08:45:38  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-123  1405/07/21 08:45:38  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-124  1405/07/21 08:48:04  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-125  1405/07/21 08:48:05  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-126  1405/07/21 08:49:58  [dhcp,info]  dhcp1 assigned 172.29.75.32 to 98:DE:D0:27:0D:30
-127  1405/07/21 08:50:33  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-128  1405/07/21 08:50:34  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-129  1405/07/21 08:51:20  [dhcp,info]  dhcp1 assigned 172.29.75.24 to 18:D6:C7:C6:7A:9E
-130  1405/07/21 08:53:00  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-131  1405/07/21 08:53:00  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-132  1405/07/21 08:55:26  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-133  1405/07/21 08:55:27  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-134  1405/07/21 08:57:53  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-135  1405/07/21 08:57:53  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-136  1405/07/21 09:00:19  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-137  1405/07/21 09:00:20  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-138  1405/07/21 09:02:46  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-139  1405/07/21 09:02:46  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-140  1405/07/21 09:05:12  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-141  1405/07/21 09:05:13  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-142  1405/07/21 09:06:45  [dhcp,info]  dhcp1 deassigned 172.29.75.42 from 7C:F1:7E:F4:11:EE
-143  1405/07/21 09:07:39  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-144  1405/07/21 09:07:39  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-145  1405/07/21 09:08:12  [interface,info]  ether5-POS link down
-146  1405/07/21 09:08:16  [interface,info]  ether5-POS link up (speed 100M, full duplex)
-147  1405/07/21 09:10:04  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-148  1405/07/21 09:10:05  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-149  1405/07/21 09:12:31  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-150  1405/07/21 09:12:31  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-151  1405/07/21 09:14:57  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-152  1405/07/21 09:14:58  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-153  1405/07/21 09:17:24  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-154  1405/07/21 09:17:24  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-155  1405/07/21 09:19:50  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-156  1405/07/21 09:19:51  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-157  1405/07/21 09:22:17  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-158  1405/07/21 09:22:17  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-159  1405/07/21 09:24:43  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-160  1405/07/21 09:24:44  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-161  1405/07/21 09:27:10  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-162  1405/07/21 09:27:10  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-163  1405/07/21 09:29:36  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-164  1405/07/21 09:29:37  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-165  1405/07/21 09:32:03  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-166  1405/07/21 09:32:03  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-167  1405/07/21 09:34:29  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-168  1405/07/21 09:34:30  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-169  1405/07/21 09:36:58  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-170  1405/07/21 09:36:59  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-171  1405/07/21 09:39:25  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-172  1405/07/21 09:39:25  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-173  1405/07/21 09:41:51  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-174  1405/07/21 09:41:52  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-175  1405/07/21 10:33:33  [dhcp,info]  dhcp1 deassigned 172.29.75.37 from 00:17:6F:39:42:41
-176  1405/07/21 10:33:33  [dhcp,info]  dhcp1 assigned 172.29.75.37 to 00:17:6F:39:42:41
-177  1405/07/21 12:11:21  [interface,info]  ether5-POS link down
-178  1405/07/21 12:11:34  [interface,info]  ether5-POS link up (speed 10M, full duplex)
-179  1405/07/21 18:11:47  [interface,info]  ether5-POS link down
-180  1405/07/21 18:12:00  [interface,info]  ether5-POS link up (speed 10M, full duplex)
-181  1405/07/21 19:54:52  [interface,info]  ether5-POS link down
-182  1405/07/21 19:54:53  [interface,info]  ether5-POS link up (speed 100M, full duplex)
-183  1405/07/21 21:41:44  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-184  1405/07/21 21:41:44  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-185  1405/07/22 02:46:29  [dhcp,info]  dhcp1 deassigned 172.29.75.23 from 00:02:65:15:E0:E9
-186  1405/07/22 02:46:30  [dhcp,info]  dhcp1 assigned 172.29.75.23 to 00:02:65:15:E0:E9
-187  1405/07/22 03:03:32  [dhcp,info]  dhcp1 deassigned 172.29.75.37 from 00:17:6F:39:42:41
-188  1405/07/22 03:03:32  [dhcp,info]  dhcp1 assigned 172.29.75.37 to 00:17:6F:39:42:41
-189  1405/07/22 08:55:17  [dhcp,info]  dhcp1 assigned 172.29.75.42 to 7C:F1:7E:F4:11:EE
-190  1405/07/22 09:18:29  [dhcp,info]  dhcp1 deassigned 172.29.75.26 from E0:B9:A5:F0:DD:35
-191  1405/07/22 09:18:29  [dhcp,info]  dhcp1 assigned 172.29.75.26 to E0:B9:A5:F0:DD:35
-192  1405/07/22 09:19:51  [dhcp,info]  dhcp1 deassigned 172.29.75.26 from E0:B9:A5:F0:DD:35
-193  1405/07/22 09:19:51  [dhcp,info]  dhcp1 assigned 172.29.75.26 to E0:B9:A5:F0:DD:35
-194  1405/07/22 12:49:01  [interface,info]  ether5-POS link down
-195  1405/07/22 12:54:35  [interface,info]  ether5-POS link up (speed 100M, full duplex)
-196  1405/07/22 13:35:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-197  1405/07/22 13:35:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-198  1405/07/22 13:36:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-199  1405/07/22 13:36:07  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-200  1405/07/22 13:36:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:40:58
+# ساعت دستگاه (خام): 1974-11-27 04:20:32
+# افست اصلاحی (سرور − دستگاه): +454952:50:26
+  1  1405/07/29 09:29:24  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/29 09:29:27  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:B2:3D:20
+  3  1405/07/29 09:29:28  [interface,info]  ether6-WIFI-MARKAZ link up (speed 100M, full duplex)
+  4  1405/07/29 09:29:29  [interface,info]  ether5-POS link up (speed 100M, full duplex)
+  5  1405/07/29 09:29:29  [interface,info]  ether7-AP4 link up (speed 100M, full duplex)
+  6  1405/07/29 09:29:31  [interface,info]  ether3 link up (speed 100M, full duplex)
+  7  1405/07/29 09:29:32  [interface,info]  ether10-Input link up (speed 100M, full duplex)
+  8  1405/07/29 09:29:33  [interface,info]  ether2-ArvandKanar2 link up (speed 1G, full duplex)
+  9  1405/07/29 09:29:34  [interface,info]  ether2-ArvandKanar2 link down
+ 10  1405/07/29 09:29:35  [interface,info]  ether1-ArvandKanar1 link up (speed 100M, full duplex)
+ 11  1405/07/29 09:29:40  [interface,info]  ether2-ArvandKanar2 link up (speed 1G, full duplex)
+ 12  1405/07/29 09:29:42  [interface,info]  ether2-ArvandKanar2 link down
+ 13  1405/07/29 09:29:44  [interface,info]  ether2-ArvandKanar2 link up (speed 100M, full duplex)
+ 14  1405/07/29 09:32:44  [dhcp,info]  dhcp1 deassigned 172.29.75.52 from 98:DE:D0:26:F9:36
+ 15  1405/07/29 09:32:44  [dhcp,info]  dhcp1 assigned 172.29.75.52 to 98:DE:D0:26:F9:36
+ 16  1405/07/29 09:37:51  [dhcp,info]  dhcp1 deassigned 172.29.75.52 from 98:DE:D0:26:F9:36
+ 17  1405/07/29 09:37:51  [dhcp,info]  dhcp1 assigned 172.29.75.52 to 98:DE:D0:26:F9:36
+ 18  1405/07/29 09:55:49  [dhcp,info]  dhcp1 deassigned 172.29.75.52 from 98:DE:D0:26:F9:36
+ 19  1405/07/29 09:55:49  [dhcp,info]  dhcp1 assigned 172.29.75.52 to 98:DE:D0:26:F9:36
+ 20  1405/07/29 10:09:49  [dhcp,info]  dhcp1 deassigned 172.29.75.52 from 98:DE:D0:26:F9:36
+ 21  1405/07/29 10:09:49  [dhcp,info]  dhcp1 assigned 172.29.75.52 to 98:DE:D0:26:F9:36
+ 22  1405/07/29 10:14:06  [dhcp,info]  dhcp1 deassigned 172.29.75.52 from 98:DE:D0:26:F9:36
+ 23  1405/07/29 10:14:06  [dhcp,info]  dhcp1 assigned 172.29.75.52 to 98:DE:D0:26:F9:36
+ 24  1405/07/29 10:26:11  [dhcp,info]  dhcp1 deassigned 172.29.75.52 from 98:DE:D0:26:F9:36
+ 25  1405/07/29 10:26:11  [dhcp,info]  dhcp1 assigned 172.29.75.52 to 98:DE:D0:26:F9:36
+ 26  1405/07/29 10:31:46  [dhcp,info]  dhcp1 deassigned 172.29.75.52 from 98:DE:D0:26:F9:36
+ 27  1405/07/29 10:31:50  [dhcp,info]  dhcp1 assigned 172.29.75.52 to 98:DE:D0:26:F9:36
+ 28  1405/07/29 12:36:28  [dhcp,info]  dhcp1 deassigned 172.29.75.35 from 34:F3:9A:FE:D8:B9
+ 29  1405/07/29 12:38:28  [interface,info]  ether5-POS link down
+ 30  1405/07/29 16:40:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 31  1405/07/29 16:40:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 32  1405/07/29 16:40:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 33  1405/07/29 16:40:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 34  1405/07/29 16:40:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -290,11 +122,11 @@ sfp1  6C:3B:6B:B2:3D:1D  (ether)
 bridge1  6C:3B:6B:B2:3D:20  (bridge)
 --- /ip arp ---
 ether1-ArvandKanar1  6E:3B:6B:94:8C:48  (arp 172.18.9.226)
+ether1-ArvandKanar1  CC:2D:E0:11:36:F7  (arp 172.18.9.229)
+ether2-ArvandKanar2  6C:3B:6B:AB:D2:9E  (arp 172.18.9.242)
+ether1-ArvandKanar1  6C:3B:6B:AB:D2:0A  (arp 172.18.9.228)
+ether1-ArvandKanar1  6C:3B:6B:34:02:3D  (arp 172.18.9.231)
+ether1-ArvandKanar1  6C:3B:6B:91:10:04  (arp 172.18.9.230)
 ether10-Input  E4:8D:8C:0E:6E:43  (arp 172.18.9.177)
 ether1-ArvandKanar1  6C:3B:6B:91:10:48  (arp 172.18.9.252)
-ether2-ArvandKanar2  6C:3B:6B:AB:D2:9E  (arp 172.18.9.242)
-ether1-ArvandKanar1  6C:3B:6B:34:02:3D  (arp 172.18.9.231)
-ether1-ArvandKanar1  CC:2D:E0:11:36:F7  (arp 172.18.9.229)
-ether1-ArvandKanar1  6C:3B:6B:34:02:49  (arp 172.18.9.233)
 bridge1  00:02:65:15:E0:E9  (arp 172.29.75.23)
-ether1-ArvandKanar1  6C:3B:6B:AB:D2:0A  (arp 172.18.9.228)

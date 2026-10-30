@@ -1,5 +1,5 @@
 IP: 172.29.74.193
-Collected at: 2026-10-14T10:25:46.910672+00:00
+Collected at: 2026-10-16T12:22:05.019340+00:00
 source: RouterOS API
 identity: NahrAriz.Client
 device_type: ST
@@ -31,15 +31,19 @@ name=wlan1  mode=station-bridge  ssid=Abadan-ArvanKenar1  band=5ghz-a/n  frequen
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:51:05
-# ساعت دستگاه (خام): 1974-01-10 13:03:01
-# افست اصلاحی (سرور − دستگاه): +462477:18:04
-  1  1405/07/22 09:46:15  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 09:46:24  [interface,info]  ether1 link up (speed 100M, full duplex)
-  3  1405/07/22 09:47:13  [wireless,info]  6C:3B:6B:94:8C:48@wlan1 established connection on 5860000, SSID Abadan-ArvanKenar1
-  4  1405/07/22 13:36:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  5  1405/07/22 13:36:19  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  6  1405/07/22 13:51:04  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/24 15:45:40
+# ساعت دستگاه (خام): 1974-01-12 15:00:27
+# افست اصلاحی (سرور − دستگاه): +462477:15:13
+  1  1405/07/22 09:43:24  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/22 09:43:33  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/22 09:44:22  [wireless,info]  6C:3B:6B:94:8C:48@wlan1 established connection on 5860000, SSID Abadan-ArvanKenar1
+  4  1405/07/22 13:33:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  5  1405/07/22 13:33:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  6  1405/07/22 13:48:13  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  7  1405/07/22 13:48:15  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  8  1405/07/24 15:35:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  9  1405/07/24 15:35:34  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 10  1405/07/24 15:45:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

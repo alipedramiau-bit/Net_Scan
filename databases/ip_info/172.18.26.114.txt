@@ -1,5 +1,5 @@
 IP: 172.18.26.114
-Collected at: 2026-10-15T10:08:48.403693+00:00
+Collected at: 2026-10-21T13:16:59.917269+00:00
 source: RouterOS API
 identity: Khoramshar-Soeichi1
 device_type: AP
@@ -29,16 +29,14 @@ name=wlan1  mode=ap-bridge  ssid=Khoramshahr-Soeichi1  band=5ghz-onlyn  frequenc
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:33:43
-# ساعت دستگاه (خام): 2024-06-10 06:39:19
-# افست اصلاحی (سرور − دستگاه): +20570:24:24
-  1  1405/07/23 06:54:17  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/23 06:54:18  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:AB:D2:B5
-  3  1405/07/23 06:54:19  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/23 06:54:28  [wireless,info]  E4:8D:8C:B5:1C:9D@wlan1: connected, signal strength -63, wants bridge
-  5  1405/07/23 07:14:29  [wireless,info]  E4:8D:8C:B5:1C:9D@wlan1: disconnected, extensive data loss, signal strength -63
-  6  1405/07/23 07:14:36  [wireless,info]  E4:8D:8C:B5:1C:9D@wlan1: connected, signal strength -69, wants bridge
-  7  1405/07/23 12:33:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:35:11
+# ساعت دستگاه (خام): 2024-06-13 09:16:19
+# افست اصلاحی (سرور − دستگاه): +20643:48:52
+  1  1405/07/29 08:18:43  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/29 08:18:44  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:AB:D2:B5
+  3  1405/07/29 08:18:46  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/29 08:44:08  [wireless,info]  E4:8D:8C:B5:1C:9D@wlan1: connected, signal strength -65, wants bridge
+  5  1405/07/29 16:35:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

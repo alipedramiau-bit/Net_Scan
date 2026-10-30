@@ -1,5 +1,5 @@
 IP: 172.18.24.35
-Collected at: 2026-10-15T10:08:17.584028+00:00
+Collected at: 2026-10-21T13:16:39.019338+00:00
 source: RouterOS API
 identity: Badrani Home Client
 device_type: ST
@@ -32,32 +32,19 @@ name=wlan1  mode=station-bridge  ssid=Shadegan-Shabakeh2  band=5ghz-a/n  frequen
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:27:16
-# ساعت دستگاه (خام): 2022-04-05 12:08:01
-# افست اصلاحی (سرور − دستگاه): +39692:49:15
-  1  1405/07/21 01:19:15  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/21 01:19:25  [interface,info]  ether1 link up (speed 100M, full duplex)
-  3  1405/07/21 01:20:09  [wireless,info]  4C:5E:0C:CD:FE:8C@wlan1 established connection on 5880000, SSID Shadegan-Shabakeh2
-  4  1405/07/21 08:03:06  [dhcp,info]  dhcp1 assigned 172.29.192.43 to F8:75:A4:29:8A:9A
-  5  1405/07/21 08:12:06  [dhcp,info]  dhcp1 assigned 172.29.192.44 to B4:2E:99:5A:10:32
-  6  1405/07/21 10:16:44  [dhcp,info]  dhcp1 deassigned 172.29.192.43 from F8:75:A4:29:8A:9A
-  7  1405/07/21 10:41:58  [dhcp,info]  dhcp1 assigned 172.29.192.43 to F8:75:A4:29:8A:9A
-  8  1405/07/21 10:57:07  [dhcp,info]  dhcp1 deassigned 172.29.192.44 from B4:2E:99:5A:10:32
-  9  1405/07/21 11:02:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 10  1405/07/21 11:02:21  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 11  1405/07/21 12:46:09  [dhcp,info]  dhcp1 deassigned 172.29.192.43 from F8:75:A4:29:8A:9A
- 12  1405/07/22 08:20:42  [dhcp,info]  dhcp1 assigned 172.29.192.44 to B4:2E:99:5A:10:32
- 13  1405/07/22 08:31:45  [dhcp,warning]  dhcp1 offering lease 172.29.192.43 for F8:75:A4:29:8A:9A without success
- 14  1405/07/22 08:32:10  [dhcp,info]  dhcp1 assigned 172.29.192.43 to F8:75:A4:29:8A:9A
- 15  1405/07/22 09:30:55  [wireless,info]  4C:5E:0C:CD:FE:8C@wlan1: lost connection, received deauth: group key handshake timeout (16)
- 16  1405/07/22 09:31:46  [wireless,info]  4C:5E:0C:CD:FE:8C@wlan1 established connection on 5880000, SSID Shadegan-Shabakeh2
- 17  1405/07/22 10:07:24  [wireless,info]  4C:5E:0C:CD:FE:8C@wlan1: lost connection, extensive data loss
- 18  1405/07/22 10:08:16  [wireless,info]  4C:5E:0C:CD:FE:8C@wlan1 established connection on 5880000, SSID Shadegan-Shabakeh2
- 19  1405/07/22 13:13:54  [dhcp,info]  dhcp1 deassigned 172.29.192.44 from B4:2E:99:5A:10:32
- 20  1405/07/22 13:17:10  [dhcp,info]  dhcp1 deassigned 172.29.192.43 from F8:75:A4:29:8A:9A
- 21  1405/07/22 13:19:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 22  1405/07/22 13:19:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 23  1405/07/23 12:27:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:32:16
+# ساعت دستگاه (خام): 2022-04-11 01:19:58
+# افست اصلاحی (سرور − دستگاه): +39707:42:18
+  1  1405/07/29 16:12:19  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/29 16:12:29  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/29 16:13:13  [wireless,info]  4C:5E:0C:CD:FE:8C@wlan1 established connection on 5880000, SSID Shadegan-Shabakeh2
+  4  1405/07/30 08:06:56  [dhcp,info]  dhcp1 assigned 172.29.192.44 to B4:2E:99:5A:10:32
+  5  1405/07/30 08:21:55  [dhcp,info]  dhcp1 assigned 172.29.192.43 to F8:75:A4:29:8A:9A
+  6  1405/07/30 10:51:55  [dhcp,info]  dhcp1 deassigned 172.29.192.43 from F8:75:A4:29:8A:9A
+  7  1405/07/30 11:19:09  [dhcp,info]  dhcp1 assigned 172.29.192.43 to F8:75:A4:29:8A:9A
+  8  1405/07/30 11:24:55  [dhcp,info]  dhcp1 deassigned 172.29.192.44 from B4:2E:99:5A:10:32
+  9  1405/07/30 13:19:09  [dhcp,info]  dhcp1 deassigned 172.29.192.43 from F8:75:A4:29:8A:9A
+ 10  1405/07/29 16:32:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

@@ -1,5 +1,5 @@
 IP: 172.18.3.75
-Collected at: 2026-10-15T10:09:20.296078+00:00
+Collected at: 2026-10-18T05:57:47.761937+00:00
 source: RouterOS API
 identity: EmamReza.Client
 device_type: ST
@@ -35,39 +35,69 @@ name=wlan1  mode=station-bridge  ssid=EmamReza-Taleghani  band=5ghz-a/n  frequen
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:37:47
-# ساعت دستگاه (خام): 1970-07-30 03:09:47
-# افست اصلاحی (سرور − دستگاه): +492749:58:00
-  1  1405/07/22 09:28:04  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 09:28:11  [wireless,info]  E4:8D:8C:DB:BE:E3@wlan1 established connection on 5280000, SSID EmamReza-Taleghani
-  3  1405/07/22 09:28:12  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:74:FD:6C
-  4  1405/07/22 09:28:12  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
-  5  1405/07/22 09:28:14  [interface,info]  ether1 link up (speed 100M, full duplex)
-  6  1405/07/22 09:28:22  [dhcp,info]  dhcp1 assigned 172.29.27.120 to 00:02:65:15:E0:87
-  7  1405/07/22 09:28:28  [dhcp,info]  dhcp1 deassigned 172.29.27.121 from 80:5E:C0:1E:58:DF
-  8  1405/07/22 09:28:28  [dhcp,info]  dhcp1 assigned 172.29.27.121 to 80:5E:C0:1E:58:DF
-  9  1405/07/22 09:29:53  [dhcp,info]  dhcp1 assigned 172.29.27.119 to 84:16:F9:B0:A4:8C
- 10  1405/07/22 09:38:39  [dhcp,info]  dhcp1 assigned 172.29.27.118 to 84:16:F9:6D:C9:62
- 11  1405/07/22 09:38:44  [dhcp,info]  dhcp1 assigned 172.29.27.117 to 7C:F1:7E:F4:11:6F
- 12  1405/07/22 09:43:22  [dhcp,info]  dhcp1 deassigned 172.29.27.120 from 00:02:65:15:E0:87
- 13  1405/07/22 09:44:55  [dhcp,info]  dhcp1 assigned 172.29.27.116 to 78:DD:08:D1:13:C7
- 14  1405/07/22 09:59:32  [dhcp,info]  dhcp1 assigned 172.29.27.115 to 84:16:F9:6D:DA:53
- 15  1405/07/22 10:05:55  [dhcp,info]  dhcp1 assigned 172.29.27.114 to 50:3E:AA:E3:C8:92
- 16  1405/07/22 10:31:00  [dhcp,info]  dhcp1 assigned 172.29.27.113 to 7C:F1:7E:F4:25:4F
- 17  1405/07/22 11:25:07  [dhcp,info]  dhcp1 assigned 172.29.27.112 to 7C:F1:7E:F4:12:E6
- 18  1405/07/22 12:02:00  [dhcp,info]  dhcp1 deassigned 172.29.27.119 from 84:16:F9:B0:A4:8C
- 19  1405/07/22 12:02:37  [dhcp,info]  dhcp1 deassigned 172.29.27.112 from 7C:F1:7E:F4:12:E6
- 20  1405/07/22 12:07:25  [dhcp,info]  dhcp1 deassigned 172.29.27.116 from 78:DD:08:D1:13:C7
- 21  1405/07/22 12:23:40  [dhcp,info]  dhcp1 deassigned 172.29.27.118 from 84:16:F9:6D:C9:62
- 22  1405/07/22 12:45:59  [dhcp,info]  dhcp1 deassigned 172.29.27.113 from 7C:F1:7E:F4:25:4F
- 23  1405/07/22 12:52:07  [dhcp,info]  dhcp1 deassigned 172.29.27.115 from 84:16:F9:6D:DA:53
- 24  1405/07/22 12:59:06  [dhcp,info]  dhcp1 deassigned 172.29.27.114 from 50:3E:AA:E3:C8:92
- 25  1405/07/22 13:08:44  [dhcp,info]  dhcp1 deassigned 172.29.27.117 from 7C:F1:7E:F4:11:6F
- 26  1405/07/22 13:10:13  [dhcp,info]  dhcp1 assigned 172.29.27.117 to 7C:F1:7E:F4:11:6F
- 27  1405/07/22 13:25:14  [dhcp,info]  dhcp1 deassigned 172.29.27.117 from 7C:F1:7E:F4:11:6F
- 28  1405/07/22 13:30:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 29  1405/07/22 13:30:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 30  1405/07/23 12:37:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/26 09:08:54
+# ساعت دستگاه (خام): 1970-08-01 23:43:45
+# افست اصلاحی (سرور − دستگاه): +492749:55:09
+  1  1405/07/22 09:25:13  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/22 09:25:20  [wireless,info]  E4:8D:8C:DB:BE:E3@wlan1 established connection on 5280000, SSID EmamReza-Taleghani
+  3  1405/07/22 09:25:21  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:74:FD:6C
+  4  1405/07/22 09:25:21  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  5  1405/07/22 09:25:23  [interface,info]  ether1 link up (speed 100M, full duplex)
+  6  1405/07/22 09:25:31  [dhcp,info]  dhcp1 assigned 172.29.27.120 to 00:02:65:15:E0:87
+  7  1405/07/22 09:25:37  [dhcp,info]  dhcp1 deassigned 172.29.27.121 from 80:5E:C0:1E:58:DF
+  8  1405/07/22 09:25:37  [dhcp,info]  dhcp1 assigned 172.29.27.121 to 80:5E:C0:1E:58:DF
+  9  1405/07/22 09:27:02  [dhcp,info]  dhcp1 assigned 172.29.27.119 to 84:16:F9:B0:A4:8C
+ 10  1405/07/22 09:35:48  [dhcp,info]  dhcp1 assigned 172.29.27.118 to 84:16:F9:6D:C9:62
+ 11  1405/07/22 09:35:53  [dhcp,info]  dhcp1 assigned 172.29.27.117 to 7C:F1:7E:F4:11:6F
+ 12  1405/07/22 09:40:31  [dhcp,info]  dhcp1 deassigned 172.29.27.120 from 00:02:65:15:E0:87
+ 13  1405/07/22 09:42:04  [dhcp,info]  dhcp1 assigned 172.29.27.116 to 78:DD:08:D1:13:C7
+ 14  1405/07/22 09:56:41  [dhcp,info]  dhcp1 assigned 172.29.27.115 to 84:16:F9:6D:DA:53
+ 15  1405/07/22 10:03:04  [dhcp,info]  dhcp1 assigned 172.29.27.114 to 50:3E:AA:E3:C8:92
+ 16  1405/07/22 10:28:09  [dhcp,info]  dhcp1 assigned 172.29.27.113 to 7C:F1:7E:F4:25:4F
+ 17  1405/07/22 11:22:16  [dhcp,info]  dhcp1 assigned 172.29.27.112 to 7C:F1:7E:F4:12:E6
+ 18  1405/07/22 11:59:09  [dhcp,info]  dhcp1 deassigned 172.29.27.119 from 84:16:F9:B0:A4:8C
+ 19  1405/07/22 11:59:46  [dhcp,info]  dhcp1 deassigned 172.29.27.112 from 7C:F1:7E:F4:12:E6
+ 20  1405/07/22 12:04:34  [dhcp,info]  dhcp1 deassigned 172.29.27.116 from 78:DD:08:D1:13:C7
+ 21  1405/07/22 12:20:49  [dhcp,info]  dhcp1 deassigned 172.29.27.118 from 84:16:F9:6D:C9:62
+ 22  1405/07/22 12:43:08  [dhcp,info]  dhcp1 deassigned 172.29.27.113 from 7C:F1:7E:F4:25:4F
+ 23  1405/07/22 12:49:16  [dhcp,info]  dhcp1 deassigned 172.29.27.115 from 84:16:F9:6D:DA:53
+ 24  1405/07/22 12:56:15  [dhcp,info]  dhcp1 deassigned 172.29.27.114 from 50:3E:AA:E3:C8:92
+ 25  1405/07/22 13:05:53  [dhcp,info]  dhcp1 deassigned 172.29.27.117 from 7C:F1:7E:F4:11:6F
+ 26  1405/07/22 13:07:22  [dhcp,info]  dhcp1 assigned 172.29.27.117 to 7C:F1:7E:F4:11:6F
+ 27  1405/07/22 13:22:23  [dhcp,info]  dhcp1 deassigned 172.29.27.117 from 7C:F1:7E:F4:11:6F
+ 28  1405/07/22 13:27:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 29  1405/07/22 13:27:33  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 30  1405/07/23 12:34:55  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 31  1405/07/23 12:34:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 32  1405/07/24 15:30:21  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 33  1405/07/24 15:30:22  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 34  1405/07/25 07:40:39  [dhcp,info]  dhcp1 assigned 172.29.27.119 to 84:16:F9:B0:A4:8C
+ 35  1405/07/25 07:54:05  [dhcp,info]  dhcp1 assigned 172.29.27.111 to 84:16:F9:B0:98:6B
+ 36  1405/07/25 08:01:52  [dhcp,info]  dhcp1 assigned 172.29.27.113 to 7C:F1:7E:F4:25:4F
+ 37  1405/07/25 08:05:20  [dhcp,info]  dhcp1 assigned 172.29.27.117 to 7C:F1:7E:F4:11:6F
+ 38  1405/07/25 08:06:01  [dhcp,info]  dhcp1 assigned 172.29.27.118 to 84:16:F9:6D:C9:62
+ 39  1405/07/25 08:28:14  [dhcp,info]  dhcp1 assigned 172.29.27.114 to 50:3E:AA:E3:C8:92
+ 40  1405/07/25 09:28:32  [dhcp,info]  dhcp1 deassigned 172.29.27.118 from 84:16:F9:6D:C9:62
+ 41  1405/07/25 09:29:24  [dhcp,info]  dhcp1 assigned 172.29.27.116 to 78:DD:08:D1:13:C7
+ 42  1405/07/25 09:37:55  [dhcp,info]  dhcp1 assigned 172.29.27.118 to 84:16:F9:6D:C9:62
+ 43  1405/07/25 10:52:55  [dhcp,info]  dhcp1 deassigned 172.29.27.118 from 84:16:F9:6D:C9:62
+ 44  1405/07/25 11:12:03  [dhcp,info]  dhcp1 deassigned 172.29.27.117 from 7C:F1:7E:F4:11:6F
+ 45  1405/07/25 11:49:47  [dhcp,info]  dhcp1 deassigned 172.29.27.119 from 84:16:F9:B0:A4:8C
+ 46  1405/07/25 11:50:29  [dhcp,info]  dhcp1 assigned 172.29.27.119 to 84:16:F9:B0:A4:8C
+ 47  1405/07/25 12:12:59  [dhcp,info]  dhcp1 deassigned 172.29.27.119 from 84:16:F9:B0:A4:8C
+ 48  1405/07/25 12:46:52  [dhcp,info]  dhcp1 deassigned 172.29.27.113 from 7C:F1:7E:F4:25:4F
+ 49  1405/07/25 12:53:52  [dhcp,info]  dhcp1 deassigned 172.29.27.114 from 50:3E:AA:E3:C8:92
+ 50  1405/07/25 13:16:40  [dhcp,info]  dhcp1 deassigned 172.29.27.111 from 84:16:F9:B0:98:6B
+ 51  1405/07/25 14:29:24  [dhcp,info]  dhcp1 deassigned 172.29.27.116 from 78:DD:08:D1:13:C7
+ 52  1405/07/26 07:36:51  [dhcp,info]  dhcp1 assigned 172.29.27.119 to 84:16:F9:B0:A4:8C
+ 53  1405/07/26 07:52:41  [dhcp,info]  dhcp1 assigned 172.29.27.113 to 7C:F1:7E:F4:25:4F
+ 54  1405/07/26 08:00:14  [dhcp,info]  dhcp1 assigned 172.29.27.116 to 78:DD:08:D1:13:C7
+ 55  1405/07/26 08:10:43  [dhcp,info]  dhcp1 assigned 172.29.27.111 to 84:16:F9:B0:98:6B
+ 56  1405/07/26 08:22:38  [dhcp,info]  dhcp1 assigned 172.29.27.114 to 50:3E:AA:E3:C8:92
+ 57  1405/07/26 09:06:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 58  1405/07/26 09:06:21  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 59  1405/07/26 09:07:38  [dhcp,info]  dhcp1 deassigned 172.29.27.114 from 50:3E:AA:E3:C8:92
+ 60  1405/07/26 09:08:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -78,3 +108,7 @@ bridge1  E4:8D:8C:74:FD:6C  (bridge)
 bridge1  80:5E:C0:1E:58:DF  (arp 172.29.27.121)
 wlan1  6C:3B:6B:09:34:B3  (arp 172.18.3.73)
 bridge1  00:02:65:15:E0:87  (arp 172.29.27.120)
+bridge1  7C:F1:7E:F4:25:4F  (arp 172.29.27.113)
+bridge1  78:DD:08:D1:13:C7  (arp 172.29.27.116)
+bridge1  84:16:F9:B0:A4:8C  (arp 172.29.27.119)
+bridge1  84:16:F9:B0:98:6B  (arp 172.29.27.111)

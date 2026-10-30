@@ -1,5 +1,5 @@
 IP: 172.18.9.198
-Collected at: 2026-10-14T10:24:25.420209+00:00
+Collected at: 2026-10-21T13:17:51.361566+00:00
 source: RouterOS API
 identity: KhazalAbad.Client
 device_type: ST
@@ -30,42 +30,214 @@ name=wlan1  mode=station-bridge  ssid=Abadan-22Bahman1  band=5ghz-a/n  frequency
   3  identity=KootShanoof.Client  address=172.18.9.196  interface=wlan1
   4  identity=ObuKhazravi.Client  address=172.18.9.199  interface=wlan1
   5  identity=ObuShekr.Client  address=172.18.9.200  interface=wlan1
-  6  identity=ObuDeyereh.Client  address=172.18.9.201  interface=wlan1
-  7  identity=NahrSalim.Client  address=172.18.9.202  interface=wlan1
-  8  identity=Afadeleh.Client  address=172.18.9.203  interface=wlan1
+  6  identity=NahrSalim.Client  address=172.18.9.202  interface=wlan1
+  7  identity=Afadeleh.Client  address=172.18.9.203  interface=wlan1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:35:25
-# ساعت دستگاه (خام): 1974-03-16 16:45:33
-# افست اصلاحی (سرور − دستگاه): +460913:19:52
-  1  1405/07/21 16:21:00  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/21 16:21:10  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
-  3  1405/07/21 16:21:11  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/21 16:23:03  [interface,info]  ether1 link down
-  5  1405/07/21 16:23:04  [interface,info]  ether1 link up (speed 100M, full duplex)
-  6  1405/07/21 20:43:42  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, not responding
-  7  1405/07/21 20:44:18  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
-  8  1405/07/21 21:00:58  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, control frame timeout
-  9  1405/07/21 21:01:37  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: failed to connect, on 5540000, registration timeout
- 10  1405/07/21 21:02:14  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: failed to connect, on 5540000, registration timeout
- 11  1405/07/21 21:02:54  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: failed to connect, on 5540000, registration timeout
- 12  1405/07/21 21:03:20  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
- 13  1405/07/21 22:37:06  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, synchronization timeout
- 14  1405/07/21 22:37:42  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
- 15  1405/07/22 00:18:44  [interface,info]  ether1 link down
- 16  1405/07/22 00:18:45  [interface,info]  ether1 link up (speed 100M, full duplex)
- 17  1405/07/22 07:31:28  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, synchronization timeout
- 18  1405/07/22 07:31:54  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
- 19  1405/07/22 10:16:34  [dhcp,info]  dhcp1 assigned 172.29.73.30 to 94:DE:80:4F:05:01
- 20  1405/07/22 10:34:21  [interface,info]  ether1 link down
- 21  1405/07/22 10:34:23  [interface,info]  ether1 link up (speed 100M, full duplex)
- 22  1405/07/22 10:54:13  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, synchronization timeout
- 23  1405/07/22 10:54:37  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
- 24  1405/07/22 11:19:49  [interface,info]  ether1 link down
- 25  1405/07/22 11:19:51  [interface,info]  ether1 link up (speed 100M, full duplex)
- 26  1405/07/22 12:41:33  [dhcp,info]  dhcp1 deassigned 172.29.73.30 from 94:DE:80:4F:05:01
- 27  1405/07/22 13:35:23  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:40:13
+# ساعت دستگاه (خام): 1974-03-23 03:05:18
+# افست اصلاحی (سرور − دستگاه): +460930:04:55
+  1  1405/07/24 05:43:07  [interface,info]  ether1 link up (speed 100M, full duplex)
+  2  1405/07/24 05:43:34  [interface,info]  ether1 link down
+  3  1405/07/24 05:43:36  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/24 05:43:48  [interface,info]  ether1 link down
+  5  1405/07/24 05:43:52  [interface,info]  ether1 link up (speed 100M, full duplex)
+  6  1405/07/24 06:56:15  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, synchronization timeout
+  7  1405/07/24 06:56:48  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
+  8  1405/07/24 07:00:58  [interface,info]  ether1 link down
+  9  1405/07/24 07:01:00  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 10  1405/07/24 07:35:18  [interface,info]  ether1 link down
+ 11  1405/07/24 07:35:20  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 12  1405/07/24 07:36:11  [interface,info]  ether1 link down
+ 13  1405/07/24 07:36:13  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 14  1405/07/24 07:37:08  [interface,info]  ether1 link down
+ 15  1405/07/24 07:37:09  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 16  1405/07/24 07:45:12  [interface,info]  ether1 link down
+ 17  1405/07/24 07:45:14  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 18  1405/07/24 07:45:19  [interface,info]  ether1 link down
+ 19  1405/07/24 07:45:20  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 20  1405/07/24 07:45:23  [interface,info]  ether1 link down
+ 21  1405/07/24 07:45:25  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 22  1405/07/24 08:28:37  [interface,info]  ether1 link down
+ 23  1405/07/24 08:28:39  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 24  1405/07/24 08:46:38  [interface,info]  ether1 link down
+ 25  1405/07/24 08:46:40  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 26  1405/07/24 09:54:19  [interface,info]  ether1 link down
+ 27  1405/07/24 09:54:20  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 28  1405/07/24 10:44:54  [interface,info]  ether1 link down
+ 29  1405/07/24 10:44:56  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 30  1405/07/24 12:14:28  [interface,info]  ether1 link down
+ 31  1405/07/24 12:14:29  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 32  1405/07/24 12:14:42  [interface,info]  ether1 link down
+ 33  1405/07/24 12:14:45  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 34  1405/07/24 12:14:47  [interface,info]  ether1 link down
+ 35  1405/07/24 12:14:48  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 36  1405/07/24 15:34:40  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 37  1405/07/24 15:34:43  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 38  1405/07/24 16:02:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 39  1405/07/24 16:02:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 40  1405/07/24 20:23:58  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, synchronization timeout
+ 41  1405/07/24 20:24:20  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
+ 42  1405/07/25 00:30:02  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, synchronization timeout
+ 43  1405/07/25 00:30:26  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
+ 44  1405/07/25 04:15:33  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, synchronization timeout
+ 45  1405/07/25 04:49:15  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
+ 46  1405/07/25 05:10:06  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, synchronization timeout
+ 47  1405/07/25 05:10:28  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
+ 48  1405/07/25 05:37:06  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, control frame timeout
+ 49  1405/07/25 05:37:47  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: failed to connect, on 5540000, registration timeout
+ 50  1405/07/25 05:38:15  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
+ 51  1405/07/25 05:38:31  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, control frame timeout
+ 52  1405/07/25 05:40:03  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: failed to connect, on 5540000, registration timeout
+ 53  1405/07/25 05:41:23  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: failed to connect, on 5540000, registration timeout
+ 54  1405/07/25 05:42:32  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: failed to connect, on 5540000, registration timeout
+ 55  1405/07/25 05:44:26  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: failed to connect, on 5540000, registration timeout
+ 56  1405/07/25 05:45:32  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: failed to connect, on 5540000, registration timeout
+ 57  1405/07/25 05:45:59  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
+ 58  1405/07/25 05:46:53  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, control frame timeout
+ 59  1405/07/25 05:47:50  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: failed to connect, on 5540000, registration timeout
+ 60  1405/07/25 05:49:05  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
+ 61  1405/07/25 05:49:16  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, control frame timeout
+ 62  1405/07/25 05:49:30  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
+ 63  1405/07/25 05:49:53  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, control frame timeout
+ 64  1405/07/25 05:50:33  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: failed to connect, on 5540000, registration timeout
+ 65  1405/07/25 05:51:24  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: failed to connect, on 5540000, registration timeout
+ 66  1405/07/25 05:52:16  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: failed to connect, on 5540000, registration timeout
+ 67  1405/07/25 05:52:32  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
+ 68  1405/07/25 08:05:34  [dhcp,info]  dhcp1 assigned 172.29.73.30 to 74:D4:35:20:10:B4
+ 69  1405/07/25 08:17:17  [dhcp,info]  dhcp1 assigned 172.29.73.29 to 94:DE:80:4F:05:01
+ 70  1405/07/25 08:53:20  [interface,info]  ether1 link down
+ 71  1405/07/25 08:53:22  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 72  1405/07/25 11:39:29  [dhcp,info]  dhcp1 deassigned 172.29.73.30 from 74:D4:35:20:10:B4
+ 73  1405/07/25 12:07:17  [dhcp,info]  dhcp1 deassigned 172.29.73.29 from 94:DE:80:4F:05:01
+ 74  1405/07/25 16:05:32  [interface,info]  ether1 link down
+ 75  1405/07/25 16:05:34  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 76  1405/07/25 17:18:32  [interface,info]  ether1 link down
+ 77  1405/07/25 17:18:33  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 78  1405/07/25 17:19:37  [interface,info]  ether1 link down
+ 79  1405/07/25 17:19:39  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 80  1405/07/25 18:24:48  [interface,info]  ether1 link down
+ 81  1405/07/25 18:24:50  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 82  1405/07/25 19:33:21  [interface,info]  ether1 link down
+ 83  1405/07/25 19:33:23  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 84  1405/07/25 20:34:28  [interface,info]  ether1 link down
+ 85  1405/07/25 20:34:30  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 86  1405/07/26 02:19:43  [interface,info]  ether1 link down
+ 87  1405/07/26 02:19:45  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 88  1405/07/26 02:28:11  [interface,info]  ether1 link down
+ 89  1405/07/26 02:28:13  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 90  1405/07/26 02:58:34  [interface,info]  ether1 link down
+ 91  1405/07/26 02:58:36  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 92  1405/07/26 02:59:46  [interface,info]  ether1 link down
+ 93  1405/07/26 02:59:47  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 94  1405/07/26 03:01:54  [interface,info]  ether1 link down
+ 95  1405/07/26 03:01:56  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 96  1405/07/26 03:04:44  [interface,info]  ether1 link down
+ 97  1405/07/26 03:04:45  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 98  1405/07/26 03:10:26  [interface,info]  ether1 link down
+ 99  1405/07/26 03:10:27  [interface,info]  ether1 link up (speed 100M, full duplex)
+100  1405/07/26 03:12:40  [interface,info]  ether1 link down
+101  1405/07/26 03:12:42  [interface,info]  ether1 link up (speed 100M, full duplex)
+102  1405/07/26 03:19:31  [interface,info]  ether1 link down
+103  1405/07/26 03:19:33  [interface,info]  ether1 link up (speed 100M, full duplex)
+104  1405/07/26 03:23:08  [interface,info]  ether1 link down
+105  1405/07/26 03:23:09  [interface,info]  ether1 link up (speed 100M, full duplex)
+106  1405/07/26 03:28:01  [interface,info]  ether1 link down
+107  1405/07/26 03:28:02  [interface,info]  ether1 link up (speed 100M, full duplex)
+108  1405/07/26 03:33:57  [interface,info]  ether1 link down
+109  1405/07/26 03:33:58  [interface,info]  ether1 link up (speed 100M, full duplex)
+110  1405/07/26 04:56:38  [interface,info]  ether1 link down
+111  1405/07/26 04:56:40  [interface,info]  ether1 link up (speed 100M, full duplex)
+112  1405/07/26 05:03:07  [interface,info]  ether1 link down
+113  1405/07/26 05:03:09  [interface,info]  ether1 link up (speed 100M, full duplex)
+114  1405/07/26 05:16:01  [interface,info]  ether1 link down
+115  1405/07/26 05:16:02  [interface,info]  ether1 link up (speed 100M, full duplex)
+116  1405/07/26 05:17:09  [interface,info]  ether1 link down
+117  1405/07/26 05:17:10  [interface,info]  ether1 link up (speed 100M, full duplex)
+118  1405/07/26 05:27:15  [interface,info]  ether1 link down
+119  1405/07/26 05:27:17  [interface,info]  ether1 link up (speed 100M, full duplex)
+120  1405/07/26 05:28:08  [interface,info]  ether1 link down
+121  1405/07/26 05:28:09  [interface,info]  ether1 link up (speed 100M, full duplex)
+122  1405/07/26 05:29:49  [interface,info]  ether1 link down
+123  1405/07/26 05:29:51  [interface,info]  ether1 link up (speed 100M, full duplex)
+124  1405/07/26 06:21:43  [interface,info]  ether1 link down
+125  1405/07/26 06:21:44  [interface,info]  ether1 link up (speed 100M, full duplex)
+126  1405/07/26 06:32:41  [interface,info]  ether1 link down
+127  1405/07/26 06:32:43  [interface,info]  ether1 link up (speed 100M, full duplex)
+128  1405/07/26 06:37:36  [interface,info]  ether1 link down
+129  1405/07/26 06:37:37  [interface,info]  ether1 link up (speed 100M, full duplex)
+130  1405/07/26 06:40:24  [interface,info]  ether1 link down
+131  1405/07/26 06:40:25  [interface,info]  ether1 link up (speed 100M, full duplex)
+132  1405/07/26 06:47:26  [interface,info]  ether1 link down
+133  1405/07/26 06:47:28  [interface,info]  ether1 link up (speed 100M, full duplex)
+134  1405/07/26 06:49:28  [interface,info]  ether1 link down
+135  1405/07/26 06:49:29  [interface,info]  ether1 link up (speed 100M, full duplex)
+136  1405/07/26 06:49:59  [interface,info]  ether1 link down
+137  1405/07/26 06:50:01  [interface,info]  ether1 link up (speed 100M, full duplex)
+138  1405/07/26 06:50:14  [interface,info]  ether1 link down
+139  1405/07/26 06:50:16  [interface,info]  ether1 link up (speed 100M, full duplex)
+140  1405/07/26 06:50:29  [interface,info]  ether1 link down
+141  1405/07/26 06:50:31  [interface,info]  ether1 link up (speed 100M, full duplex)
+142  1405/07/26 06:50:32  [interface,info]  ether1 link down
+143  1405/07/26 06:50:34  [interface,info]  ether1 link up (speed 100M, full duplex)
+144  1405/07/26 07:31:09  [dhcp,info]  dhcp1 assigned 172.29.73.30 to 74:D4:35:20:10:B4
+145  1405/07/26 07:50:58  [dhcp,info]  dhcp1 assigned 172.29.73.29 to 94:DE:80:4F:05:01
+146  1405/07/26 08:26:10  [dhcp,info]  dhcp1 deassigned 172.29.73.30 from 74:D4:35:20:10:B4
+147  1405/07/26 08:30:22  [dhcp,info]  dhcp1 assigned 172.29.73.30 to 74:D4:35:20:10:B4
+148  1405/07/26 09:10:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+149  1405/07/26 09:10:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+150  1405/07/26 09:12:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+151  1405/07/26 09:12:57  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+152  1405/07/26 09:50:21  [dhcp,info]  dhcp1 deassigned 172.29.73.30 from 74:D4:35:20:10:B4
+153  1405/07/26 10:34:19  [interface,info]  ether1 link down
+154  1405/07/26 10:34:21  [interface,info]  ether1 link up (speed 100M, full duplex)
+155  1405/07/26 10:35:11  [interface,info]  ether1 link down
+156  1405/07/26 10:35:13  [interface,info]  ether1 link up (speed 100M, full duplex)
+157  1405/07/26 10:41:52  [interface,info]  ether1 link down
+158  1405/07/26 10:41:53  [interface,info]  ether1 link up (speed 100M, full duplex)
+159  1405/07/26 10:41:58  [dhcp,info]  dhcp1 assigned 172.29.73.30 to 74:D4:35:20:10:B4
+160  1405/07/26 11:05:29  [interface,info]  ether1 link down
+161  1405/07/26 11:05:31  [interface,info]  ether1 link up (speed 100M, full duplex)
+162  1405/07/26 11:06:06  [interface,info]  ether1 link down
+163  1405/07/26 11:06:08  [interface,info]  ether1 link up (speed 100M, full duplex)
+164  1405/07/26 11:06:11  [interface,info]  ether1 link down
+165  1405/07/26 11:06:13  [interface,info]  ether1 link up (speed 100M, full duplex)
+166  1405/07/26 11:10:41  [interface,info]  ether1 link down
+167  1405/07/26 11:10:43  [interface,info]  ether1 link up (speed 100M, full duplex)
+168  1405/07/26 12:05:58  [dhcp,info]  dhcp1 deassigned 172.29.73.29 from 94:DE:80:4F:05:01
+169  1405/07/26 12:06:58  [dhcp,info]  dhcp1 deassigned 172.29.73.30 from 74:D4:35:20:10:B4
+170  1405/07/26 19:15:46  [interface,info]  ether1 link down
+171  1405/07/26 19:15:48  [interface,info]  ether1 link up (speed 100M, full duplex)
+172  1405/07/27 07:22:37  [dhcp,info]  dhcp1 assigned 172.29.73.30 to 74:D4:35:20:10:B4
+173  1405/07/27 07:24:20  [dhcp,info]  dhcp1 assigned 172.29.73.29 to 94:DE:80:4F:05:01
+174  1405/07/27 11:07:48  [interface,info]  ether1 link down
+175  1405/07/27 11:07:50  [interface,info]  ether1 link up (speed 100M, full duplex)
+176  1405/07/27 11:10:50  [interface,info]  ether1 link down
+177  1405/07/27 11:10:51  [interface,info]  ether1 link up (speed 100M, full duplex)
+178  1405/07/27 11:16:29  [interface,info]  ether1 link down
+179  1405/07/27 11:16:30  [interface,info]  ether1 link up (speed 100M, full duplex)
+180  1405/07/27 11:26:27  [interface,info]  ether1 link down
+181  1405/07/27 11:26:29  [interface,info]  ether1 link up (speed 100M, full duplex)
+182  1405/07/27 11:59:20  [dhcp,info]  dhcp1 deassigned 172.29.73.29 from 94:DE:80:4F:05:01
+183  1405/07/27 12:12:37  [dhcp,info]  dhcp1 deassigned 172.29.73.30 from 74:D4:35:20:10:B4
+184  1405/07/27 13:24:23  [interface,info]  ether1 link down
+185  1405/07/27 13:24:24  [interface,info]  ether1 link up (speed 100M, full duplex)
+186  1405/07/28 07:27:43  [dhcp,info]  dhcp1 assigned 172.29.73.30 to 74:D4:35:20:10:B4
+187  1405/07/28 07:28:03  [dhcp,info]  dhcp1 assigned 172.29.73.29 to 94:DE:80:4F:05:01
+188  1405/07/28 08:07:43  [dhcp,info]  dhcp1 deassigned 172.29.73.30 from 74:D4:35:20:10:B4
+189  1405/07/28 08:54:09  [dhcp,info]  dhcp1 assigned 172.29.73.30 to 74:D4:35:20:10:B4
+190  1405/07/28 11:02:04  [interface,info]  ether1 link down
+191  1405/07/28 11:02:05  [interface,info]  ether1 link up (speed 100M, full duplex)
+192  1405/07/28 11:59:10  [dhcp,info]  dhcp1 deassigned 172.29.73.30 from 74:D4:35:20:10:B4
+193  1405/07/28 12:08:02  [dhcp,info]  dhcp1 deassigned 172.29.73.29 from 94:DE:80:4F:05:01
+194  1405/07/29 10:33:18  [dhcp,info]  dhcp1 assigned 172.29.73.30 to 74:D4:35:20:10:B4
+195  1405/07/29 10:33:50  [dhcp,info]  dhcp1 assigned 172.29.73.29 to 94:DE:80:4F:05:01
+196  1405/07/29 11:08:19  [dhcp,info]  dhcp1 deassigned 172.29.73.30 from 74:D4:35:20:10:B4
+197  1405/07/29 11:30:02  [dhcp,info]  dhcp1 assigned 172.29.73.30 to 74:D4:35:20:10:B4
+198  1405/07/29 12:23:49  [dhcp,info]  dhcp1 deassigned 172.29.73.29 from 94:DE:80:4F:05:01
+199  1405/07/29 12:25:03  [dhcp,info]  dhcp1 deassigned 172.29.73.30 from 74:D4:35:20:10:B4
+200  1405/07/29 16:40:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

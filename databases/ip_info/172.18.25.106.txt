@@ -1,5 +1,5 @@
 IP: 172.18.25.106
-Collected at: 2026-10-15T10:08:26.470988+00:00
+Collected at: 2026-10-21T13:16:43.239152+00:00
 source: RouterOS API
 identity: Shadegan-Ghatrani2_AP
 device_type: AP
@@ -31,16 +31,18 @@ name=wlan1  mode=ap-bridge  ssid=Shadegan-Ghatrani2  band=5ghz-a/n  frequency=55
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:29:12
-# ساعت دستگاه (خام): 1975-11-14 01:58:19
-# افست اصلاحی (سرور − دستگاه): +446359:00:53
-  1  1405/07/22 11:03:04  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 11:03:05  [bridge,info]  "bridge1" mac address changed to 64:D1:54:A7:E5:DC
-  3  1405/07/22 11:03:08  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/22 11:03:13  [wireless,info]  E4:8D:8C:61:6E:2D@wlan1: connected, signal strength -64, wants bridge
-  5  1405/07/22 13:21:23  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  6  1405/07/22 13:21:25  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  7  1405/07/23 12:29:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:33:02
+# ساعت دستگاه (خام): 1975-11-19 21:36:19
+# افست اصلاحی (سرور − دستگاه): +446367:26:43
+  1  1405/07/24 19:28:55  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/24 19:28:55  [bridge,info]  "bridge1" mac address changed to 64:D1:54:A7:E5:DC
+  3  1405/07/24 19:28:58  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/24 19:29:04  [wireless,info]  E4:8D:8C:61:6E:2D@wlan1: connected, signal strength -63, wants bridge
+  5  1405/07/26 08:58:37  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  6  1405/07/26 08:58:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  7  1405/07/26 09:01:10  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  8  1405/07/26 09:01:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  9  1405/07/29 16:33:01  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

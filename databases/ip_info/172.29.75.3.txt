@@ -1,5 +1,5 @@
 IP: 172.29.75.3
-Collected at: 2026-10-14T13:56:20.322642+00:00
+Collected at: 2026-10-16T12:41:36.147596+00:00
 source: RouterOS API
 identity: Hospital.ArvandKenar.AP
 device_type: AP
@@ -28,38 +28,44 @@ name=wlan1  mode=ap-bridge  ssid=Hospital  band=5ghz-a/n  frequency=5280
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 17:26:19
-# ساعت دستگاه (خام): 1974-04-04 16:37:22
-# افست اصلاحی (سرور − دستگاه): +460461:18:57
-  1  1405/07/14 08:35:33  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/14 08:35:35  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:56:26:1A
-  3  1405/07/14 08:35:37  [interface,info]  ether1 link up (speed 1G, full duplex)
-  4  1405/07/18 10:43:05  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  5  1405/07/18 10:43:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  6  1405/07/18 11:07:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  7  1405/07/18 11:07:18  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  8  1405/07/18 12:16:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  9  1405/07/18 12:16:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 10  1405/07/18 12:16:02  [system,info]  user olom1 added by garnaf
- 11  1405/07/19 10:07:40  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 12  1405/07/19 10:07:42  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 13  1405/07/20 08:54:20  [wireless,info]  E2:22:8A:D0:06:4D@wlan1: connected, signal strength -83
- 14  1405/07/20 08:54:25  [wireless,info]  E2:22:8A:D0:06:4D@wlan1: disconnected, unicast key exchange timeout, signal strength -88
- 15  1405/07/20 08:54:37  [wireless,info]  E2:22:8A:D0:06:4D@wlan1: connected, signal strength -83
- 16  1405/07/20 08:54:41  [wireless,info]  E2:22:8A:D0:06:4D@wlan1: disconnected, extensive data loss, signal strength -83
- 17  1405/07/22 12:33:25  [wireless,info]  0E:EB:A8:A5:C7:16@wlan1: connected, signal strength -81
- 18  1405/07/22 12:33:28  [wireless,info]  0E:EB:A8:A5:C7:16@wlan1: disconnected, extensive data loss, signal strength -81
- 19  1405/07/22 12:33:44  [wireless,info]  0E:EB:A8:A5:C7:16@wlan1: connected, signal strength -83
- 20  1405/07/22 12:33:49  [wireless,info]  0E:EB:A8:A5:C7:16@wlan1: disconnected, unicast key exchange timeout, signal strength -84
- 21  1405/07/22 13:51:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 22  1405/07/22 13:51:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 23  1405/07/22 17:24:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 24  1405/07/22 17:24:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 25  1405/07/22 17:24:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 26  1405/07/22 17:25:13  [system,info]  system identity changed by garnaf
- 27  1405/07/22 17:25:45  [system,info]  system identity changed by garnaf
- 28  1405/07/22 17:25:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 29  1405/07/22 17:26:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/24 16:08:57
+# ساعت دستگاه (خام): 1974-04-06 15:22:50
+# افست اصلاحی (سرور − دستگاه): +460461:16:07
+  1  1405/07/14 08:32:43  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/14 08:32:45  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:56:26:1A
+  3  1405/07/14 08:32:47  [interface,info]  ether1 link up (speed 1G, full duplex)
+  4  1405/07/18 10:40:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  5  1405/07/18 10:40:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  6  1405/07/18 11:04:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  7  1405/07/18 11:04:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  8  1405/07/18 12:13:12  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  9  1405/07/18 12:13:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 10  1405/07/18 12:13:12  [system,info]  user olom1 added by garnaf
+ 11  1405/07/19 10:04:50  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 12  1405/07/19 10:04:52  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 13  1405/07/20 08:51:30  [wireless,info]  E2:22:8A:D0:06:4D@wlan1: connected, signal strength -83
+ 14  1405/07/20 08:51:35  [wireless,info]  E2:22:8A:D0:06:4D@wlan1: disconnected, unicast key exchange timeout, signal strength -88
+ 15  1405/07/20 08:51:47  [wireless,info]  E2:22:8A:D0:06:4D@wlan1: connected, signal strength -83
+ 16  1405/07/20 08:51:51  [wireless,info]  E2:22:8A:D0:06:4D@wlan1: disconnected, extensive data loss, signal strength -83
+ 17  1405/07/22 12:30:35  [wireless,info]  0E:EB:A8:A5:C7:16@wlan1: connected, signal strength -81
+ 18  1405/07/22 12:30:38  [wireless,info]  0E:EB:A8:A5:C7:16@wlan1: disconnected, extensive data loss, signal strength -81
+ 19  1405/07/22 12:30:54  [wireless,info]  0E:EB:A8:A5:C7:16@wlan1: connected, signal strength -83
+ 20  1405/07/22 12:30:59  [wireless,info]  0E:EB:A8:A5:C7:16@wlan1: disconnected, unicast key exchange timeout, signal strength -84
+ 21  1405/07/22 13:48:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 22  1405/07/22 13:48:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 23  1405/07/22 17:21:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 24  1405/07/22 17:21:38  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 25  1405/07/22 17:22:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 26  1405/07/22 17:22:23  [system,info]  system identity changed by garnaf
+ 27  1405/07/22 17:22:55  [system,info]  system identity changed by garnaf
+ 28  1405/07/22 17:23:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 29  1405/07/22 17:23:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 30  1405/07/22 17:23:29  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 31  1405/07/24 10:04:49  [wireless,info]  72:F8:8F:DF:B8:22@wlan1: connected, signal strength -82
+ 32  1405/07/24 10:04:54  [wireless,info]  72:F8:8F:DF:B8:22@wlan1: disconnected, unicast key exchange timeout, signal strength -84
+ 33  1405/07/24 15:45:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 34  1405/07/24 15:45:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 35  1405/07/24 16:08:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

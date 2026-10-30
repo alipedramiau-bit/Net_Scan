@@ -1,5 +1,5 @@
 IP: 172.29.196.162
-Collected at: 2026-10-14T10:25:15.008280+00:00
+Collected at: 2026-10-21T13:18:22.601393+00:00
 source: RouterOS API
 identity: khaneh-nhdsht-slmnh
 device_type: AP
@@ -31,13 +31,15 @@ name=wlan1  mode=ap-bridge  ssid=WiFi  band=2ghz-onlyn  frequency=2412
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:43:01
-# ساعت دستگاه (خام): 1972-11-17 05:09:13
-# افست اصلاحی (سرور − دستگاه): +472541:03:48
-  1  1405/07/22 09:51:44  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 09:51:53  [bridge,info]  hardware offloading activated on bridge "bridgeLocal" ports: ether1
-  3  1405/07/22 09:51:55  [interface,info]  ether3 link up (speed 100M, full duplex)
-  4  1405/07/22 13:42:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:43:13
+# ساعت دستگاه (خام): 1972-11-22 23:58:38
+# افست اصلاحی (سرور − دستگاه): +472573:14:35
+  1  1405/07/27 18:02:31  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/27 18:02:41  [bridge,info]  hardware offloading activated on bridge "bridgeLocal" ports: ether1
+  3  1405/07/27 18:04:02  [interface,info]  ether3 link up (speed 100M, full duplex)
+  4  1405/07/27 18:04:25  [interface,info]  ether3 link down
+  5  1405/07/27 18:04:29  [interface,info]  ether3 link up (speed 100M, full duplex)
+  6  1405/07/29 16:43:10  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

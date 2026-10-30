@@ -1,5 +1,5 @@
 IP: 172.18.16.20
-Collected at: 2026-10-15T10:07:28.181905+00:00
+Collected at: 2026-10-21T13:15:58.039019+00:00
 source: RouterOS API
 identity: Paygah Salman Farsi
 device_type: ST
@@ -28,29 +28,56 @@ name=wlan1  mode=station-bridge  ssid=Khoramshahr-Shabakeh2  band=5ghz-a/n  freq
   1  identity=R1KH  address=172.18.2.249  interface=wlan1
   2  identity=ShahidMusavi.Client  address=172.18.2.251  interface=wlan1
   3  identity=Khoramshahr-Shabakeh2  address=172.18.16.18  interface=wlan1
-  4  identity=khrmshr-shaneh-2-CL  address=172.18.16.19  interface=wlan1
-  5  identity=Khoramshahr - ShabakeBehdasht - P2P - Behvarzi - Client  address=172.18.16.21  interface=wlan1
-  6  identity=IT.M.M  address=172.28.23.2  interface=wlan1
-  7  identity=-  address=-  interface=ether1
+  4  identity=Khoramshahr - ShabakeBehdasht - P2P - Behvarzi - Client  address=172.18.16.21  interface=wlan1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:21:08
-# ساعت دستگاه (خام): 1971-02-02 16:40:10
-# افست اصلاحی (سرور − دستگاه): +488248:10:58
-  1  1405/07/23 08:55:42  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/23 08:55:49  [wireless,info]  6C:3B:6B:94:E8:4B@wlan1 established connection on 5660000, SSID Khoramshahr-Shabakeh2
-  3  1405/07/23 08:55:52  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/23 08:55:53  [dhcp,info]  dhcp1 deassigned 172.28.23.29 from 40:8D:5C:9C:BE:7C
-  5  1405/07/23 08:55:53  [dhcp,info]  dhcp1 assigned 172.28.23.29 to 40:8D:5C:9C:BE:7C
-  6  1405/07/23 09:20:53  [dhcp,info]  dhcp1 deassigned 172.28.23.29 from 40:8D:5C:9C:BE:7C
-  7  1405/07/23 09:23:33  [dhcp,info]  dhcp1 assigned 172.28.23.29 to 40:8D:5C:9C:BE:7C
-  8  1405/07/23 10:53:33  [dhcp,info]  dhcp1 deassigned 172.28.23.29 from 40:8D:5C:9C:BE:7C
-  9  1405/07/23 11:10:40  [dhcp,info]  dhcp1 assigned 172.28.23.29 to 40:8D:5C:9C:BE:7C
- 10  1405/07/23 11:40:40  [dhcp,info]  dhcp1 deassigned 172.28.23.29 from 40:8D:5C:9C:BE:7C
- 11  1405/07/23 11:50:39  [dhcp,info]  dhcp1 assigned 172.28.23.29 to 40:8D:5C:9C:BE:7C
- 12  1405/07/23 12:00:39  [dhcp,info]  dhcp1 deassigned 172.28.23.29 from 40:8D:5C:9C:BE:7C
- 13  1405/07/23 12:21:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:28:39
+# ساعت دستگاه (خام): 1971-02-08 20:50:25
+# افست اصلاحی (سرور − دستگاه): +488248:08:14
+  1  1405/07/23 08:52:58  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/23 08:53:05  [wireless,info]  6C:3B:6B:94:E8:4B@wlan1 established connection on 5660000, SSID Khoramshahr-Shabakeh2
+  3  1405/07/23 08:53:08  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/23 08:53:09  [dhcp,info]  dhcp1 deassigned 172.28.23.29 from 40:8D:5C:9C:BE:7C
+  5  1405/07/23 08:53:09  [dhcp,info]  dhcp1 assigned 172.28.23.29 to 40:8D:5C:9C:BE:7C
+  6  1405/07/23 09:18:09  [dhcp,info]  dhcp1 deassigned 172.28.23.29 from 40:8D:5C:9C:BE:7C
+  7  1405/07/23 09:20:49  [dhcp,info]  dhcp1 assigned 172.28.23.29 to 40:8D:5C:9C:BE:7C
+  8  1405/07/23 10:50:49  [dhcp,info]  dhcp1 deassigned 172.28.23.29 from 40:8D:5C:9C:BE:7C
+  9  1405/07/23 11:07:56  [dhcp,info]  dhcp1 assigned 172.28.23.29 to 40:8D:5C:9C:BE:7C
+ 10  1405/07/23 11:37:56  [dhcp,info]  dhcp1 deassigned 172.28.23.29 from 40:8D:5C:9C:BE:7C
+ 11  1405/07/23 11:47:55  [dhcp,info]  dhcp1 assigned 172.28.23.29 to 40:8D:5C:9C:BE:7C
+ 12  1405/07/23 11:57:55  [dhcp,info]  dhcp1 deassigned 172.28.23.29 from 40:8D:5C:9C:BE:7C
+ 13  1405/07/23 12:18:23  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 14  1405/07/23 12:18:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 15  1405/07/24 15:15:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 16  1405/07/24 15:15:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 17  1405/07/24 15:48:43  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 18  1405/07/24 15:48:45  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 19  1405/07/25 08:57:32  [dhcp,info]  dhcp1 assigned 172.28.23.29 to 40:8D:5C:9C:BE:7C
+ 20  1405/07/25 09:47:31  [dhcp,info]  dhcp1 deassigned 172.28.23.29 from 40:8D:5C:9C:BE:7C
+ 21  1405/07/25 09:57:45  [dhcp,info]  dhcp1 assigned 172.28.23.29 to 40:8D:5C:9C:BE:7C
+ 22  1405/07/25 13:02:37  [dhcp,info]  dhcp1 deassigned 172.28.23.29 from 40:8D:5C:9C:BE:7C
+ 23  1405/07/26 08:19:37  [dhcp,info]  dhcp1 assigned 172.28.23.29 to 40:8D:5C:9C:BE:7C
+ 24  1405/07/26 08:49:37  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 25  1405/07/26 08:49:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 26  1405/07/26 08:50:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 27  1405/07/26 08:50:22  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 28  1405/07/26 10:54:38  [dhcp,info]  dhcp1 deassigned 172.28.23.29 from 40:8D:5C:9C:BE:7C
+ 29  1405/07/27 09:12:55  [dhcp,info]  dhcp1 assigned 172.28.23.29 to 40:8D:5C:9C:BE:7C
+ 30  1405/07/27 11:42:55  [dhcp,info]  dhcp1 deassigned 172.28.23.29 from 40:8D:5C:9C:BE:7C
+ 31  1405/07/27 11:44:04  [dhcp,info]  dhcp1 assigned 172.28.23.29 to 40:8D:5C:9C:BE:7C
+ 32  1405/07/27 12:09:05  [dhcp,info]  dhcp1 deassigned 172.28.23.29 from 40:8D:5C:9C:BE:7C
+ 33  1405/07/27 12:13:59  [dhcp,info]  dhcp1 assigned 172.28.23.29 to 40:8D:5C:9C:BE:7C
+ 34  1405/07/27 12:33:59  [dhcp,info]  dhcp1 deassigned 172.28.23.29 from 40:8D:5C:9C:BE:7C
+ 35  1405/07/28 08:48:18  [dhcp,info]  dhcp1 assigned 172.28.23.29 to 40:8D:5C:9C:BE:7C
+ 36  1405/07/28 11:38:18  [dhcp,info]  dhcp1 deassigned 172.28.23.29 from 40:8D:5C:9C:BE:7C
+ 37  1405/07/29 09:11:43  [dhcp,info]  dhcp1 assigned 172.28.23.29 to 40:8D:5C:9C:BE:7C
+ 38  1405/07/29 09:41:43  [dhcp,info]  dhcp1 deassigned 172.28.23.29 from 40:8D:5C:9C:BE:7C
+ 39  1405/07/29 09:43:39  [dhcp,info]  dhcp1 assigned 172.28.23.29 to 40:8D:5C:9C:BE:7C
+ 40  1405/07/29 11:03:38  [dhcp,info]  dhcp1 deassigned 172.28.23.29 from 40:8D:5C:9C:BE:7C
+ 41  1405/07/29 11:28:16  [dhcp,info]  dhcp1 assigned 172.28.23.29 to 40:8D:5C:9C:BE:7C
+ 42  1405/07/29 12:03:16  [dhcp,info]  dhcp1 deassigned 172.28.23.29 from 40:8D:5C:9C:BE:7C
+ 43  1405/07/29 16:28:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

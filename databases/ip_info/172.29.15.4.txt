@@ -1,5 +1,5 @@
 IP: 172.29.15.4
-Collected at: 2026-10-14T10:25:07.728401+00:00
+Collected at: 2026-10-21T13:18:16.612399+00:00
 source: RouterOS API
 identity: WIFI-OTAGH-IT
 device_type: AP
@@ -31,213 +31,68 @@ name=wlan1  mode=ap-bridge  ssid=IT  band=2ghz-b/g/n  frequency=2442
   1  identity=RB-khoramshahr-MK-behdasht-RB2011  address=-  interface=ether4,bridge1
   2  identity=RB-khoramshahr-MK-behdasht-RB2011  address=172.29.15.1  interface=ether4,bridge1
   3  identity=RB-Ferdosi-RB2011  address=172.29.15.2  interface=ether4,bridge1
-  4  identity=MarkazBehdasht-KH-2  address=172.29.15.4  interface=ether4,bridge1
+  4  identity=Switch  address=172.29.15.12  interface=ether4,bridge1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:41:14
-# ساعت دستگاه (خام): 1970-11-06 02:02:07
-# افست اصلاحی (سرور − دستگاه): +490352:09:07
-  1  1405/07/17 11:39:05  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether4
-  2  1405/07/17 11:39:06  [interface,info]  ether4 link up (speed 100M, full duplex)
-  3  1405/07/17 21:51:03  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -78
-  4  1405/07/17 21:51:08  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -82
-  5  1405/07/17 23:15:55  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -68
-  6  1405/07/17 23:16:01  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -70
-  7  1405/07/18 01:10:47  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -70
-  8  1405/07/18 01:10:52  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -83
-  9  1405/07/18 07:51:06  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -74
- 10  1405/07/18 07:51:11  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -74
- 11  1405/07/18 08:13:25  [wireless,info]  94:DB:C9:35:14:35@wlan1: connected, signal strength -50
- 12  1405/07/18 08:19:56  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -74
- 13  1405/07/18 08:20:01  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -76
- 14  1405/07/18 08:28:37  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -90
- 15  1405/07/18 08:28:42  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -91
- 16  1405/07/18 09:34:49  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: connected, signal strength -65
- 17  1405/07/18 09:39:12  [wireless,info]  94:DB:C9:35:14:35@wlan1: disconnected, received disassoc: sending station leaving (8), signal strength -50
- 18  1405/07/18 10:32:38  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -72
- 19  1405/07/18 10:32:43  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -74
- 20  1405/07/18 10:40:13  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -73
- 21  1405/07/18 10:40:18  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -75
- 22  1405/07/18 10:52:26  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -75
- 23  1405/07/18 10:52:31  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -75
- 24  1405/07/18 11:02:26  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -74
- 25  1405/07/18 11:02:31  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -74
- 26  1405/07/18 11:11:00  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -73
- 27  1405/07/18 11:11:05  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -75
- 28  1405/07/18 11:18:36  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -75
- 29  1405/07/18 11:18:41  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -76
- 30  1405/07/18 11:26:00  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -75
- 31  1405/07/18 11:26:05  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -77
- 32  1405/07/18 11:31:34  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -79
- 33  1405/07/18 11:31:39  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -80
- 34  1405/07/18 11:50:25  [wireless,info]  94:DB:C9:35:14:35@wlan1: connected, signal strength -45
- 35  1405/07/18 13:02:35  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: disconnected, received deauth: sending station leaving (3), signal strength -65
- 36  1405/07/18 13:19:16  [wireless,info]  94:DB:C9:35:14:35@wlan1: disconnected, received disassoc: sending station leaving (8), signal strength -45
- 37  1405/07/18 22:20:18  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -80
- 38  1405/07/18 22:20:23  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -85
- 39  1405/07/19 08:11:13  [wireless,info]  94:DB:C9:35:14:35@wlan1: connected, signal strength -45
- 40  1405/07/19 08:11:46  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: connected, signal strength -73
- 41  1405/07/19 09:59:37  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 42  1405/07/19 09:59:40  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 43  1405/07/19 11:37:27  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: disconnected, extensive data loss, signal strength -73
- 44  1405/07/19 11:38:32  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: connected, signal strength -83
- 45  1405/07/19 11:39:16  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: disconnected, group key exchange timeout, signal strength -92
- 46  1405/07/19 13:33:11  [wireless,info]  94:DB:C9:35:14:35@wlan1: disconnected, received disassoc: sending station leaving (8), signal strength -45
- 47  1405/07/19 14:49:14  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -79
- 48  1405/07/19 14:49:19  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -80
- 49  1405/07/19 14:55:59  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -80
- 50  1405/07/19 14:56:04  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -81
- 51  1405/07/19 17:46:03  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 52  1405/07/19 17:46:03  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 53  1405/07/19 20:52:49  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -84
- 54  1405/07/19 20:52:54  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -87
- 55  1405/07/19 21:04:13  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -78
- 56  1405/07/19 21:04:18  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -78
- 57  1405/07/19 21:41:29  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -76
- 58  1405/07/19 21:41:34  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -78
- 59  1405/07/19 21:46:59  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -75
- 60  1405/07/19 21:47:04  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -77
- 61  1405/07/19 21:54:46  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -80
- 62  1405/07/19 21:54:51  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -79
- 63  1405/07/19 22:09:48  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -75
- 64  1405/07/19 22:09:53  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -85
- 65  1405/07/19 22:15:57  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -75
- 66  1405/07/19 22:16:02  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -76
- 67  1405/07/19 22:35:54  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -71
- 68  1405/07/19 22:35:59  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -73
- 69  1405/07/19 22:42:55  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -73
- 70  1405/07/19 22:43:00  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -75
- 71  1405/07/19 22:52:35  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -76
- 72  1405/07/19 22:52:40  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -76
- 73  1405/07/19 22:58:43  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -89
- 74  1405/07/19 22:58:48  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -89
- 75  1405/07/19 23:26:38  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -75
- 76  1405/07/19 23:26:43  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -82
- 77  1405/07/19 23:40:33  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -76
- 78  1405/07/19 23:40:38  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -77
- 79  1405/07/19 23:58:05  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -79
- 80  1405/07/19 23:58:10  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -83
- 81  1405/07/20 00:09:52  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -78
- 82  1405/07/20 00:09:57  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -79
- 83  1405/07/20 00:18:01  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -77
- 84  1405/07/20 00:18:06  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -78
- 85  1405/07/20 00:28:02  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -75
- 86  1405/07/20 00:28:07  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -76
- 87  1405/07/20 00:35:01  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -78
- 88  1405/07/20 00:35:06  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -77
- 89  1405/07/20 00:40:13  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -76
- 90  1405/07/20 00:40:18  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -77
- 91  1405/07/20 00:54:46  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -76
- 92  1405/07/20 00:54:51  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -78
- 93  1405/07/20 07:54:57  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -73
- 94  1405/07/20 07:55:02  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -74
- 95  1405/07/20 08:00:17  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -73
- 96  1405/07/20 08:00:22  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -75
- 97  1405/07/20 08:04:07  [wireless,info]  94:DB:C9:35:14:35@wlan1: connected, signal strength -56
- 98  1405/07/20 08:08:57  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -79
- 99  1405/07/20 08:09:02  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -79
-100  1405/07/20 09:05:53  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: connected, signal strength -76
-101  1405/07/20 09:29:57  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -79
-102  1405/07/20 09:30:02  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -80
-103  1405/07/20 11:23:38  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -69
-104  1405/07/20 11:23:43  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -85
-105  1405/07/20 11:39:34  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: disconnected, received deauth: sending station leaving (3), signal strength -76
-106  1405/07/20 12:57:54  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: connected, signal strength -68
-107  1405/07/20 13:08:38  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: disconnected, extensive data loss, signal strength -68
-108  1405/07/20 13:21:08  [wireless,info]  94:DB:C9:35:14:35@wlan1: disconnected, received disassoc: sending station leaving (8), signal strength -56
-109  1405/07/21 08:07:05  [wireless,info]  94:DB:C9:35:14:35@wlan1: connected, signal strength -48
-110  1405/07/21 08:28:37  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: connected, signal strength -68
-111  1405/07/21 09:05:32  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: disconnected, extensive data loss, signal strength -68
-112  1405/07/21 09:44:34  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: connected, signal strength -87
-113  1405/07/21 09:46:11  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: disconnected, received deauth: sending station leaving (3), signal strength -87
-114  1405/07/21 10:15:11  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: connected, signal strength -69
-115  1405/07/21 11:17:21  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-116  1405/07/21 11:17:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-117  1405/07/21 11:32:40  [wireless,info]  94:DB:C9:35:14:35@wlan1: disconnected, received disassoc: sending station leaving (8), signal strength -48
-118  1405/07/21 11:58:52  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -78
-119  1405/07/21 11:58:57  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -78
-120  1405/07/21 13:04:14  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: disconnected, received deauth: sending station leaving (3), signal strength -69
-121  1405/07/21 13:17:20  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -78
-122  1405/07/21 13:17:25  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -80
-123  1405/07/21 17:32:42  [wireless,info]  94:DB:C9:35:14:35@wlan1: connected, signal strength -57
-124  1405/07/21 17:32:48  [wireless,info]  94:DB:C9:35:14:35@wlan1: disconnected, received disassoc: sending station leaving (8), signal strength -57
-125  1405/07/21 20:52:20  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -83
-126  1405/07/21 20:52:25  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -87
-127  1405/07/21 21:19:31  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -74
-128  1405/07/21 21:19:36  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -75
-129  1405/07/21 21:26:00  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -73
-130  1405/07/21 21:26:05  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -75
-131  1405/07/21 21:31:23  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -75
-132  1405/07/21 21:31:28  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -76
-133  1405/07/21 21:37:01  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -77
-134  1405/07/21 21:37:06  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -87
-135  1405/07/21 22:11:55  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -72
-136  1405/07/21 22:12:00  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -70
-137  1405/07/21 22:17:58  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -70
-138  1405/07/21 22:18:03  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -70
-139  1405/07/21 22:25:34  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -73
-140  1405/07/21 22:25:39  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -73
-141  1405/07/21 22:34:38  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -71
-142  1405/07/21 22:34:43  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -73
-143  1405/07/21 22:40:09  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -79
-144  1405/07/21 22:40:14  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -77
-145  1405/07/21 22:47:35  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -77
-146  1405/07/21 22:47:40  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -78
-147  1405/07/21 22:59:20  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -79
-148  1405/07/21 22:59:25  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -80
-149  1405/07/21 23:09:37  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -80
-150  1405/07/21 23:09:42  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -79
-151  1405/07/21 23:17:35  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -78
-152  1405/07/21 23:17:40  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -78
-153  1405/07/22 08:07:42  [wireless,info]  D0:37:45:A8:DE:16@wlan1: connected, signal strength -77
-154  1405/07/22 08:07:53  [wireless,info]  D0:37:45:A8:DE:16@wlan1: disconnected, received disassoc: sending station leaving (8), signal strength -77
-155  1405/07/22 08:07:57  [wireless,info]  D0:37:45:A8:DE:16@wlan1: connected, signal strength -80
-156  1405/07/22 08:07:57  [wireless,info]  D0:37:45:A8:DE:16@wlan1: reassociating
-157  1405/07/22 08:07:57  [wireless,info]  D0:37:45:A8:DE:16@wlan1: disconnected, ok, signal strength -80
-158  1405/07/22 08:07:57  [wireless,info]  D0:37:45:A8:DE:16@wlan1: connected, signal strength -79
-159  1405/07/22 08:13:38  [wireless,info]  94:DB:C9:35:14:35@wlan1: connected, signal strength -55
-160  1405/07/22 08:25:23  [wireless,info]  84:16:F9:6D:C5:AD@wlan1: connected, signal strength -45
-161  1405/07/22 08:27:00  [wireless,info]  84:16:F9:6D:C5:AD@wlan1: disconnected, extensive data loss, signal strength -45
-162  1405/07/22 09:01:33  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: connected, signal strength -76
-163  1405/07/22 09:29:27  [wireless,info]  D0:37:45:A8:DE:16@wlan1: disconnected, extensive data loss, signal strength -79
-164  1405/07/22 09:29:34  [wireless,info]  D0:37:45:A8:DE:16@wlan1: connected, signal strength -83
-165  1405/07/22 09:30:16  [wireless,info]  D0:37:45:A8:DE:16@wlan1: disconnected, extensive data loss, signal strength -83
-166  1405/07/22 09:30:20  [wireless,info]  D0:37:45:A8:DE:16@wlan1: connected, signal strength -84
-167  1405/07/22 09:30:21  [wireless,info]  D0:37:45:A8:DE:16@wlan1: reassociating
-168  1405/07/22 09:30:21  [wireless,info]  D0:37:45:A8:DE:16@wlan1: disconnected, ok, signal strength -84
-169  1405/07/22 09:30:21  [wireless,info]  D0:37:45:A8:DE:16@wlan1: connected, signal strength -84
-170  1405/07/22 09:30:53  [wireless,info]  D0:37:45:A8:DE:16@wlan1: reassociating
-171  1405/07/22 09:30:53  [wireless,info]  D0:37:45:A8:DE:16@wlan1: disconnected, ok, signal strength -84
-172  1405/07/22 09:30:53  [wireless,info]  D0:37:45:A8:DE:16@wlan1: connected, signal strength -83
-173  1405/07/22 09:31:07  [wireless,info]  D0:37:45:A8:DE:16@wlan1: reassociating
-174  1405/07/22 09:31:07  [wireless,info]  D0:37:45:A8:DE:16@wlan1: disconnected, ok, signal strength -83
-175  1405/07/22 09:31:07  [wireless,info]  D0:37:45:A8:DE:16@wlan1: connected, signal strength -83
-176  1405/07/22 09:31:07  [wireless,info]  D0:37:45:A8:DE:16@wlan1: reassociating
-177  1405/07/22 09:31:07  [wireless,info]  D0:37:45:A8:DE:16@wlan1: disconnected, ok, signal strength -83
-178  1405/07/22 09:31:07  [wireless,info]  D0:37:45:A8:DE:16@wlan1: connected, signal strength -84
-179  1405/07/22 09:31:07  [wireless,info]  D0:37:45:A8:DE:16@wlan1: reassociating
-180  1405/07/22 09:31:07  [wireless,info]  D0:37:45:A8:DE:16@wlan1: disconnected, ok, signal strength -84
-181  1405/07/22 09:31:07  [wireless,info]  D0:37:45:A8:DE:16@wlan1: connected, signal strength -83
-182  1405/07/22 10:07:15  [wireless,info]  D0:37:45:A8:DE:16@wlan1: reassociating
-183  1405/07/22 10:07:15  [wireless,info]  D0:37:45:A8:DE:16@wlan1: disconnected, ok, signal strength -83
-184  1405/07/22 10:07:15  [wireless,info]  D0:37:45:A8:DE:16@wlan1: connected, signal strength -80
-185  1405/07/22 10:07:19  [wireless,info]  D0:37:45:A8:DE:16@wlan1: disconnected, received disassoc: sending station leaving (8), signal strength -80
-186  1405/07/22 10:07:41  [wireless,info]  C8:3A:35:C2:49:FA@wlan1: connected, signal strength -41
-187  1405/07/22 10:32:42  [wireless,info]  94:DB:C9:35:14:35@wlan1: disconnected, received disassoc: sending station leaving (8), signal strength -55
-188  1405/07/22 10:32:56  [wireless,info]  98:03:8E:5B:1B:98@wlan1: connected, signal strength -33
-189  1405/07/22 10:41:33  [wireless,info]  98:03:8E:5B:1B:98@wlan1: disconnected, received disassoc: sending station leaving (8), signal strength -33
-190  1405/07/22 10:45:26  [wireless,info]  C8:3A:35:C2:49:FA@wlan1: disconnected, received disassoc: sending station leaving (8), signal strength -41
-191  1405/07/22 11:34:22  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: disconnected, group key exchange timeout, signal strength -71
-192  1405/07/22 11:34:44  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: connected, signal strength -71
-193  1405/07/22 11:40:17  [wireless,info]  94:DB:C9:35:14:35@wlan1: connected, signal strength -43
-194  1405/07/22 12:15:32  [wireless,info]  C8:3A:35:C2:49:FA@wlan1: connected, signal strength -34
-195  1405/07/22 12:15:42  [wireless,info]  C8:3A:35:C2:49:FA@wlan1: disconnected, received disassoc: sending station leaving (8), signal strength -34
-196  1405/07/22 13:00:09  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: disconnected, received deauth: sending station leaving (3), signal strength -71
-197  1405/07/22 13:12:43  [wireless,info]  94:DB:C9:35:14:35@wlan1: disconnected, received disassoc: sending station leaving (8), signal strength -43
-198  1405/07/22 13:32:15  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -75
-199  1405/07/22 13:32:20  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -85
-200  1405/07/22 13:41:12  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:42:49
+# ساعت دستگاه (خام): 1970-11-11 07:09:16
+# افست اصلاحی (سرور − دستگاه): +490398:03:33
+  1  1405/07/28 09:33:27  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/28 09:33:29  [bridge,info]  "bridge1" mac address changed to 78:9A:18:A9:AD:BB
+  3  1405/07/28 09:33:30  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1,ether2,ether3,ether4
+  4  1405/07/28 09:33:32  [wireless,info]  94:DB:C9:35:14:35@wlan1: connected, signal strength -52
+  5  1405/07/28 09:33:32  [interface,info]  ether4 link up (speed 100M, full duplex)
+  6  1405/07/28 09:55:04  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: connected, signal strength -42
+  7  1405/07/28 11:59:30  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: disconnected, received deauth: sending station leaving (3), signal strength -42
+  8  1405/07/28 12:23:26  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: connected, signal strength -68
+  9  1405/07/28 13:05:13  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: disconnected, extensive data loss, signal strength -68
+ 10  1405/07/28 13:19:03  [wireless,info]  94:DB:C9:35:14:35@wlan1: disconnected, received disassoc: sending station leaving (8), signal strength -52
+ 11  1405/07/29 07:35:59  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -72
+ 12  1405/07/29 07:36:04  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -81
+ 13  1405/07/29 08:22:27  [wireless,info]  94:DB:C9:35:14:35@wlan1: connected, signal strength -47
+ 14  1405/07/29 08:50:06  [wireless,info]  C8:3A:35:C2:49:FA@wlan1: connected, signal strength -37
+ 15  1405/07/29 09:05:34  [wireless,info]  C8:3A:35:C2:49:FA@wlan1: disconnected, received disassoc: sending station leaving (8), signal strength -37
+ 16  1405/07/29 09:18:56  [wireless,info]  00:08:CA:77:20:E6@wlan1: connected, signal strength -53
+ 17  1405/07/29 09:35:42  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -76
+ 18  1405/07/29 09:35:47  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -75
+ 19  1405/07/29 09:39:41  [wireless,info]  00:08:CA:77:20:E6@wlan1: disconnected, received disassoc: sending station leaving (8), signal strength -53
+ 20  1405/07/29 09:50:56  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -82
+ 21  1405/07/29 09:51:01  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -79
+ 22  1405/07/29 09:54:22  [wireless,info]  00:08:CA:77:20:E6@wlan1: connected, signal strength -90
+ 23  1405/07/29 09:54:27  [wireless,info]  00:08:CA:77:20:E6@wlan1: disconnected, unicast key exchange timeout, signal strength -92
+ 24  1405/07/29 09:54:29  [wireless,info]  00:08:CA:77:20:E6@wlan1: connected, signal strength -90
+ 25  1405/07/29 09:54:40  [wireless,info]  00:08:CA:77:20:E6@wlan1: disconnected, received disassoc: sending station leaving (8), signal strength -90
+ 26  1405/07/29 09:54:44  [wireless,info]  00:08:CA:77:20:E6@wlan1: connected, signal strength -90
+ 27  1405/07/29 09:54:51  [wireless,info]  00:08:CA:77:20:E6@wlan1: reassociating
+ 28  1405/07/29 09:54:51  [wireless,info]  00:08:CA:77:20:E6@wlan1: disconnected, ok, signal strength -90
+ 29  1405/07/29 09:54:51  [wireless,info]  00:08:CA:77:20:E6@wlan1: connected, signal strength -92
+ 30  1405/07/29 09:55:48  [wireless,info]  00:08:CA:77:20:E6@wlan1: disconnected, received deauth: sending station leaving (3), signal strength -92
+ 31  1405/07/29 09:56:53  [wireless,info]  00:08:CA:77:20:E6@wlan1: connected, signal strength -89
+ 32  1405/07/29 09:59:50  [wireless,info]  D0:37:45:A8:DE:16@wlan1: connected, signal strength -84
+ 33  1405/07/29 10:09:05  [wireless,info]  00:08:CA:77:20:E6@wlan1: disconnected, received deauth: sending station leaving (3), signal strength -89
+ 34  1405/07/29 10:09:11  [wireless,info]  00:08:CA:77:20:E6@wlan1: connected, signal strength -90
+ 35  1405/07/29 10:09:29  [wireless,info]  00:08:CA:77:20:E6@wlan1: disconnected, received disassoc: sending station leaving (8), signal strength -90
+ 36  1405/07/29 10:09:34  [wireless,info]  00:08:CA:77:20:E6@wlan1: connected, signal strength -88
+ 37  1405/07/29 10:09:41  [wireless,info]  00:08:CA:77:20:E6@wlan1: disconnected, received disassoc: sending station leaving (8), signal strength -88
+ 38  1405/07/29 10:25:48  [wireless,info]  D0:37:45:A8:DE:16@wlan1: disconnected, received disassoc: sending station leaving (8), signal strength -84
+ 39  1405/07/29 10:40:04  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: connected, signal strength -69
+ 40  1405/07/29 10:44:15  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -92
+ 41  1405/07/29 10:44:20  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -81
+ 42  1405/07/29 11:01:37  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: disconnected, extensive data loss, signal strength -69
+ 43  1405/07/29 11:04:00  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: connected, signal strength -62
+ 44  1405/07/29 11:07:31  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: connected, signal strength -74
+ 45  1405/07/29 11:07:36  [wireless,info]  C0:BD:C8:68:5F:CF@wlan1: disconnected, unicast key exchange timeout, signal strength -74
+ 46  1405/07/29 11:37:26  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: disconnected, extensive data loss, signal strength -62
+ 47  1405/07/29 11:45:58  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: connected, signal strength -90
+ 48  1405/07/29 11:49:14  [wireless,info]  26:21:B5:FE:5F:3A@wlan1: disconnected, extensive data loss, signal strength -90
+ 49  1405/07/29 12:56:23  [wireless,info]  00:08:CA:77:20:E6@wlan1: connected, signal strength -90
+ 50  1405/07/29 12:57:09  [wireless,info]  00:08:CA:77:20:E6@wlan1: reassociating
+ 51  1405/07/29 12:57:09  [wireless,info]  00:08:CA:77:20:E6@wlan1: disconnected, ok, signal strength -90
+ 52  1405/07/29 12:57:09  [wireless,info]  00:08:CA:77:20:E6@wlan1: connected, signal strength -89
+ 53  1405/07/29 12:57:20  [wireless,info]  00:08:CA:77:20:E6@wlan1: disconnected, received disassoc: sending station leaving (8), signal strength -89
+ 54  1405/07/29 13:25:20  [wireless,info]  94:DB:C9:35:14:35@wlan1: disconnected, received disassoc: sending station leaving (8), signal strength -47
+ 55  1405/07/29 16:42:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -250,3 +105,4 @@ wlan1  78:9A:18:A9:AD:BB  (wlan)
 bridge1  78:9A:18:A9:AD:BB  (bridge)
 --- /ip arp ---
 bridge1  C4:AD:34:1C:69:10  (arp 172.29.15.1)
+bridge1  8C:89:A5:E3:FB:20  (arp 172.29.15.19)

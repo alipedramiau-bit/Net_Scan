@@ -1,5 +1,5 @@
 IP: 172.18.9.200
-Collected at: 2026-10-14T10:24:27.636696+00:00
+Collected at: 2026-10-21T13:17:53.388918+00:00
 source: RouterOS API
 identity: ObuShekr.Client
 device_type: ST
@@ -36,41 +36,47 @@ name=wlan1  mode=station-bridge  ssid=Abadan-22Bahman1  band=5ghz-a/n  frequency
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:35:35
-# ساعت دستگاه (خام): 1970-12-15 05:43:37
-# افست اصلاحی (سرور − دستگاه): +489412:21:58
-  1  1405/07/19 10:15:21  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/19 10:15:22  [interface,info]  ether1 link up (speed 100M, full duplex)
-  3  1405/07/19 10:15:28  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
-  4  1405/07/19 10:20:02  [dhcp,info]  dhcp1 assigned 172.29.73.94 to 1C:1B:0D:B9:15:F5
-  5  1405/07/19 12:00:02  [dhcp,info]  dhcp1 deassigned 172.29.73.94 from 1C:1B:0D:B9:15:F5
-  6  1405/07/19 12:09:20  [dhcp,info]  dhcp1 assigned 172.29.73.94 to 1C:1B:0D:B9:15:F5
-  7  1405/07/19 12:19:20  [dhcp,info]  dhcp1 deassigned 172.29.73.94 from 1C:1B:0D:B9:15:F5
-  8  1405/07/19 17:48:27  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, synchronization timeout
-  9  1405/07/19 17:48:49  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
- 10  1405/07/20 13:02:39  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, synchronization timeout
- 11  1405/07/20 13:03:01  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
- 12  1405/07/20 17:10:00  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, synchronization timeout
- 13  1405/07/20 17:10:22  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
- 14  1405/07/21 08:23:08  [dhcp,info]  dhcp1 assigned 172.29.73.94 to 1C:1B:0D:B9:15:F5
- 15  1405/07/21 08:54:47  [dhcp,info]  dhcp1 assigned 172.29.73.93 to 50:7B:9D:39:A8:C0
- 16  1405/07/21 09:26:27  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, synchronization timeout
- 17  1405/07/21 09:26:49  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
- 18  1405/07/21 09:54:48  [dhcp,info]  dhcp1 deassigned 172.29.73.93 from 50:7B:9D:39:A8:C0
- 19  1405/07/21 10:12:31  [dhcp,info]  dhcp1 assigned 172.29.73.93 to 50:7B:9D:39:A8:C0
- 20  1405/07/21 10:57:31  [dhcp,info]  dhcp1 deassigned 172.29.73.93 from 50:7B:9D:39:A8:C0
- 21  1405/07/21 12:23:08  [dhcp,info]  dhcp1 deassigned 172.29.73.94 from 1C:1B:0D:B9:15:F5
- 22  1405/07/21 12:46:30  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, synchronization timeout
- 23  1405/07/21 12:46:52  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
- 24  1405/07/21 22:37:05  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, synchronization timeout
- 25  1405/07/21 22:37:32  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
- 26  1405/07/22 07:31:27  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, synchronization timeout
- 27  1405/07/22 07:31:52  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
- 28  1405/07/22 08:26:35  [dhcp,info]  dhcp1 assigned 172.29.73.94 to 1C:1B:0D:B9:15:F5
- 29  1405/07/22 10:54:12  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, synchronization timeout
- 30  1405/07/22 10:54:35  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
- 31  1405/07/22 12:26:36  [dhcp,info]  dhcp1 deassigned 172.29.73.94 from 1C:1B:0D:B9:15:F5
- 32  1405/07/22 13:35:34  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:40:24
+# ساعت دستگاه (خام): 1970-12-21 14:15:07
+# افست اصلاحی (سرور − دستگاه): +489430:55:17
+  1  1405/07/25 04:48:40  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/25 04:48:40  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/25 04:48:46  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
+  4  1405/07/25 05:10:06  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, synchronization timeout
+  5  1405/07/25 05:10:28  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
+  6  1405/07/25 08:55:37  [dhcp,info]  dhcp1 assigned 172.29.73.94 to 1C:1B:0D:B9:15:F5
+  7  1405/07/25 08:56:35  [dhcp,info]  dhcp1 assigned 172.29.73.93 to 50:7B:9D:39:A8:C0
+  8  1405/07/25 09:21:36  [dhcp,info]  dhcp1 deassigned 172.29.73.93 from 50:7B:9D:39:A8:C0
+  9  1405/07/25 09:58:29  [dhcp,info]  dhcp1 assigned 172.29.73.93 to 50:7B:9D:39:A8:C0
+ 10  1405/07/25 10:40:37  [dhcp,info]  dhcp1 deassigned 172.29.73.94 from 1C:1B:0D:B9:15:F5
+ 11  1405/07/25 10:51:54  [dhcp,info]  dhcp1 assigned 172.29.73.94 to 1C:1B:0D:B9:15:F5
+ 12  1405/07/25 11:11:54  [dhcp,info]  dhcp1 deassigned 172.29.73.94 from 1C:1B:0D:B9:15:F5
+ 13  1405/07/25 11:15:24  [dhcp,info]  dhcp1 deassigned 172.29.73.93 from 50:7B:9D:39:A8:C0
+ 14  1405/07/26 09:06:39  [dhcp,info]  dhcp1 assigned 172.29.73.94 to 1C:1B:0D:B9:15:F5
+ 15  1405/07/26 09:10:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 16  1405/07/26 09:10:46  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 17  1405/07/26 09:13:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 18  1405/07/26 09:13:09  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 19  1405/07/26 09:23:11  [dhcp,info]  dhcp1 assigned 172.29.73.93 to 50:7B:9D:39:A8:C0
+ 20  1405/07/26 12:36:41  [dhcp,info]  dhcp1 deassigned 172.29.73.94 from 1C:1B:0D:B9:15:F5
+ 21  1405/07/26 12:38:07  [dhcp,info]  dhcp1 deassigned 172.29.73.93 from 50:7B:9D:39:A8:C0
+ 22  1405/07/27 07:59:48  [dhcp,info]  dhcp1 assigned 172.29.73.94 to 1C:1B:0D:B9:15:F5
+ 23  1405/07/27 08:45:10  [dhcp,info]  dhcp1 assigned 172.29.73.93 to 50:7B:9D:39:A8:C0
+ 24  1405/07/27 12:09:49  [dhcp,info]  dhcp1 deassigned 172.29.73.94 from 1C:1B:0D:B9:15:F5
+ 25  1405/07/27 12:10:10  [dhcp,info]  dhcp1 deassigned 172.29.73.93 from 50:7B:9D:39:A8:C0
+ 26  1405/07/28 08:25:29  [dhcp,info]  dhcp1 assigned 172.29.73.94 to 1C:1B:0D:B9:15:F5
+ 27  1405/07/28 09:55:29  [dhcp,info]  dhcp1 deassigned 172.29.73.94 from 1C:1B:0D:B9:15:F5
+ 28  1405/07/28 10:12:20  [dhcp,info]  dhcp1 assigned 172.29.73.94 to 1C:1B:0D:B9:15:F5
+ 29  1405/07/28 12:57:21  [dhcp,info]  dhcp1 deassigned 172.29.73.94 from 1C:1B:0D:B9:15:F5
+ 30  1405/07/29 09:04:19  [dhcp,info]  dhcp1 assigned 172.29.73.94 to 1C:1B:0D:B9:15:F5
+ 31  1405/07/29 09:41:42  [dhcp,info]  dhcp1 assigned 172.29.73.93 to 50:7B:9D:39:A8:C0
+ 32  1405/07/29 10:06:41  [dhcp,info]  dhcp1 deassigned 172.29.73.93 from 50:7B:9D:39:A8:C0
+ 33  1405/07/29 10:45:38  [dhcp,info]  dhcp1 assigned 172.29.73.93 to 50:7B:9D:39:A8:C0
+ 34  1405/07/29 11:10:37  [dhcp,info]  dhcp1 deassigned 172.29.73.93 from 50:7B:9D:39:A8:C0
+ 35  1405/07/29 11:23:42  [dhcp,info]  dhcp1 assigned 172.29.73.93 to 50:7B:9D:39:A8:C0
+ 36  1405/07/29 12:44:19  [dhcp,info]  dhcp1 deassigned 172.29.73.94 from 1C:1B:0D:B9:15:F5
+ 37  1405/07/29 12:48:42  [dhcp,info]  dhcp1 deassigned 172.29.73.93 from 50:7B:9D:39:A8:C0
+ 38  1405/07/29 16:40:23  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

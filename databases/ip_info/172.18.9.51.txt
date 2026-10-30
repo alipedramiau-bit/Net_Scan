@@ -1,5 +1,5 @@
 IP: 172.18.9.51
-Collected at: 2026-10-10T07:41:39.433100+00:00
+Collected at: 2026-10-18T05:58:42.560188+00:00
 source: RouterOS API
 identity: KhezrNabi.Client
 device_type: ST
@@ -35,19 +35,17 @@ name=wlan1  mode=station-bridge  ssid=Abadan-Khezr3  band=5ghz-a/n  frequency=au
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/18 11:01:46
-# ساعت دستگاه (خام): 1972-06-23 13:41:42
-# افست اصلاحی (سرور − دستگاه): +475961:50:04
-  1  1405/07/16 08:00:51  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/16 08:01:00  [interface,info]  ether1 link up (speed 100M, full duplex)
-  3  1405/07/16 08:01:03  [dhcp,info]  dhcp1 deassigned 172.29.68.221 from B0:95:75:0B:D6:E7
-  4  1405/07/16 08:01:04  [dhcp,info]  dhcp1 assigned 172.29.68.221 to B0:95:75:0B:D6:E7
-  5  1405/07/16 15:50:13  [wireless,info]  6C:3B:6B:94:8C:22@wlan1 established connection on 5260000, SSID Abadan-Khezr3
-  6  1405/07/18 10:37:04  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  7  1405/07/18 10:37:05  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  8  1405/07/18 10:42:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  9  1405/07/18 10:42:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 10  1405/07/18 11:01:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/26 09:14:59
+# ساعت دستگاه (خام): 1972-06-23 11:58:01
+# افست اصلاحی (سرور − دستگاه): +476153:46:58
+  1  1405/07/26 07:57:45  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/26 07:57:53  [wireless,info]  6C:3B:6B:94:8C:22@wlan1 established connection on 5260000, SSID Abadan-Khezr3
+  3  1405/07/26 07:57:55  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/26 07:57:58  [dhcp,info]  dhcp1 deassigned 172.29.68.221 from B0:95:75:0B:D6:E7
+  5  1405/07/26 07:57:59  [dhcp,info]  dhcp1 assigned 172.29.68.221 to B0:95:75:0B:D6:E7
+  6  1405/07/26 09:12:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  7  1405/07/26 09:12:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  8  1405/07/26 09:14:57  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

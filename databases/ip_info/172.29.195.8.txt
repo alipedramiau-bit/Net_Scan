@@ -1,5 +1,5 @@
 IP: 172.29.195.8
-Collected at: 2026-10-14T10:25:14.322821+00:00
+Collected at: 2026-10-21T13:18:22.385249+00:00
 source: RouterOS API
 identity: Salim Shavardi
 device_type: ST
@@ -34,19 +34,15 @@ name=wlan1  mode=station-bridge  ssid=Shadegan-salemi1  band=5ghz-a/n  frequency
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:42:39
-# ساعت دستگاه (خام): 1972-09-17 13:16:08
-# افست اصلاحی (سرور − دستگاه): +473996:56:31
-  1  1405/07/21 01:11:15  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/21 01:11:16  [bridge,info]  "bridge1" mac address changed to 08:55:31:79:5E:25
-  3  1405/07/21 01:11:16  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
-  4  1405/07/21 01:11:19  [interface,info]  ether1 link up (speed 100M, full duplex)
-  5  1405/07/21 01:12:09  [wireless,info]  6C:3B:6B:8F:3B:EE@wlan1 established connection on 5700000, SSID Shadegan-salemi1
-  6  1405/07/21 11:18:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  7  1405/07/21 11:18:22  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  8  1405/07/22 10:01:03  [wireless,info]  6C:3B:6B:8F:3B:EE@wlan1: lost connection, synchronization timeout
-  9  1405/07/22 10:11:19  [wireless,info]  6C:3B:6B:8F:3B:EE@wlan1 established connection on 5700000, SSID Shadegan-salemi1
- 10  1405/07/22 13:42:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:43:08
+# ساعت دستگاه (خام): 1972-09-23 01:26:50
+# افست اصلاحی (سرور − دستگاه): +474035:46:18
+  1  1405/07/28 16:01:02  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/28 16:01:03  [bridge,info]  "bridge1" mac address changed to 08:55:31:79:5E:25
+  3  1405/07/28 16:01:03  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  4  1405/07/28 16:01:07  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/07/28 16:01:56  [wireless,info]  6C:3B:6B:8F:3B:EE@wlan1 established connection on 5700000, SSID Shadegan-salemi1
+  6  1405/07/29 16:43:06  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

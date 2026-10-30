@@ -1,5 +1,5 @@
 IP: 172.18.24.28
-Collected at: 2026-10-15T10:08:15.030317+00:00
+Collected at: 2026-10-21T13:16:37.285183+00:00
 source: RouterOS API
 identity: MK-mashmuli-CL
 device_type: ST
@@ -31,33 +31,65 @@ name=wlan1  mode=station-bridge  ssid=Shadegan-Shabakeh1  band=5ghz-a/n  frequen
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:26:57
-# ساعت دستگاه (خام): 1972-11-01 10:43:12
-# افست اصلاحی (سرور − دستگاه): +472942:13:45
-  1  1405/07/21 01:45:26  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/21 01:45:36  [interface,info]  ether1 link up (speed 100M, full duplex)
-  3  1405/07/21 01:46:26  [wireless,info]  48:A9:8A:2D:0E:47@wlan1 established connection on 4990000, SSID Shadegan-Shabakeh1
-  4  1405/07/21 07:51:57  [dhcp,info]  dhcp1 assigned 172.29.196.110 to 7C:F1:7E:F4:3C:C4
-  5  1405/07/21 08:30:24  [dhcp,info]  dhcp1 assigned 172.29.196.108 to D0:37:45:85:17:2B
-  6  1405/07/21 09:43:26  [dhcp,info]  dhcp1 deassigned 172.29.196.110 from 7C:F1:7E:F4:3C:C4
-  7  1405/07/21 09:43:26  [dhcp,info]  dhcp1 assigned 172.29.196.110 to 7C:F1:7E:F4:3C:C4
-  8  1405/07/21 11:02:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  9  1405/07/21 11:02:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 10  1405/07/21 11:19:06  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 11  1405/07/21 11:19:08  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 12  1405/07/21 12:09:32  [dhcp,info]  dhcp1 deassigned 172.29.196.108 from D0:37:45:85:17:2B
- 13  1405/07/21 12:15:37  [dhcp,info]  dhcp1 deassigned 172.29.196.110 from 7C:F1:7E:F4:3C:C4
- 14  1405/07/22 07:41:05  [dhcp,info]  dhcp1 assigned 172.29.196.108 to D0:37:45:85:17:2B
- 15  1405/07/22 08:47:08  [dhcp,info]  dhcp1 assigned 172.29.196.110 to 7C:F1:7E:F4:3C:C4
- 16  1405/07/22 09:46:05  [dhcp,info]  dhcp1 deassigned 172.29.196.108 from D0:37:45:85:17:2B
- 17  1405/07/22 09:46:46  [dhcp,info]  dhcp1 assigned 172.29.196.108 to D0:37:45:85:17:2B
- 18  1405/07/22 12:24:35  [dhcp,info]  dhcp1 deassigned 172.29.196.108 from D0:37:45:85:17:2B
- 19  1405/07/22 12:42:10  [dhcp,info]  dhcp1 deassigned 172.29.196.110 from 7C:F1:7E:F4:3C:C4
- 20  1405/07/22 13:19:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 21  1405/07/22 13:19:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 22  1405/07/22 13:43:43  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 23  1405/07/22 13:43:45  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 24  1405/07/23 12:26:55  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:32:05
+# ساعت دستگاه (خام): 1972-11-07 04:36:58
+# افست اصلاحی (سرور − دستگاه): +472952:25:07
+  1  1405/07/25 11:56:48  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/25 11:56:57  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/25 11:57:33  [dhcp,info]  dhcp1 deassigned 172.29.196.110 from 7C:F1:7E:F4:3C:C4
+  4  1405/07/25 11:57:33  [dhcp,info]  dhcp1 assigned 172.29.196.110 to 7C:F1:7E:F4:3C:C4
+  5  1405/07/25 11:57:47  [wireless,info]  48:A9:8A:2D:0E:47@wlan1 established connection on 4990000, SSID Shadegan-Shabakeh1
+  6  1405/07/25 12:19:57  [dhcp,info]  dhcp1 deassigned 172.29.196.108 from D0:37:45:85:17:2B
+  7  1405/07/25 12:37:34  [dhcp,info]  dhcp1 deassigned 172.29.196.110 from 7C:F1:7E:F4:3C:C4
+  8  1405/07/26 07:57:31  [dhcp,info]  dhcp1 assigned 172.29.196.108 to D0:37:45:85:17:2B
+  9  1405/07/26 08:07:09  [dhcp,info]  dhcp1 assigned 172.29.196.110 to 7C:F1:7E:F4:3C:C4
+ 10  1405/07/26 08:56:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 11  1405/07/26 08:56:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 12  1405/07/26 08:59:06  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 13  1405/07/26 08:59:09  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 14  1405/07/26 09:18:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 15  1405/07/26 09:18:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 16  1405/07/26 09:19:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 17  1405/07/26 09:19:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 18  1405/07/26 10:22:38  [dhcp,info]  dhcp1 assigned 172.29.196.107 to E0:D5:5E:8F:F7:9F
+ 19  1405/07/26 10:26:27  [dhcp,info]  dhcp1 deassigned 172.29.196.107 from E0:D5:5E:8F:F7:9F
+ 20  1405/07/26 10:26:27  [dhcp,info]  dhcp1 assigned 172.29.196.107 to E0:D5:5E:8F:F7:9F
+ 21  1405/07/26 12:17:10  [dhcp,info]  dhcp1 deassigned 172.29.196.110 from 7C:F1:7E:F4:3C:C4
+ 22  1405/07/26 12:31:29  [dhcp,info]  dhcp1 deassigned 172.29.196.107 from E0:D5:5E:8F:F7:9F
+ 23  1405/07/26 12:32:02  [dhcp,info]  dhcp1 deassigned 172.29.196.108 from D0:37:45:85:17:2B
+ 24  1405/07/27 07:44:26  [dhcp,info]  dhcp1 assigned 172.29.196.108 to D0:37:45:85:17:2B
+ 25  1405/07/27 08:15:07  [dhcp,info]  dhcp1 assigned 172.29.196.110 to 7C:F1:7E:F4:3C:C4
+ 26  1405/07/27 09:09:25  [dhcp,info]  dhcp1 assigned 172.29.196.107 to E0:D5:5E:8F:F7:9F
+ 27  1405/07/27 09:19:26  [dhcp,info]  dhcp1 deassigned 172.29.196.108 from D0:37:45:85:17:2B
+ 28  1405/07/27 10:20:53  [dhcp,info]  dhcp1 deassigned 172.29.196.107 from E0:D5:5E:8F:F7:9F
+ 29  1405/07/27 10:20:53  [dhcp,info]  dhcp1 assigned 172.29.196.107 to E0:D5:5E:8F:F7:9F
+ 30  1405/07/27 10:30:08  [dhcp,info]  dhcp1 deassigned 172.29.196.110 from 7C:F1:7E:F4:3C:C4
+ 31  1405/07/27 10:34:54  [dhcp,info]  dhcp1 assigned 172.29.196.110 to 7C:F1:7E:F4:3C:C4
+ 32  1405/07/27 10:38:40  [dhcp,info]  dhcp1 assigned 172.29.196.108 to D0:37:45:85:17:2B
+ 33  1405/07/27 11:00:54  [dhcp,info]  dhcp1 deassigned 172.29.196.107 from E0:D5:5E:8F:F7:9F
+ 34  1405/07/27 11:21:33  [dhcp,info]  dhcp1 assigned 172.29.196.107 to E0:D5:5E:8F:F7:9F
+ 35  1405/07/27 11:33:40  [dhcp,info]  dhcp1 deassigned 172.29.196.108 from D0:37:45:85:17:2B
+ 36  1405/07/27 11:39:28  [dhcp,info]  dhcp1 assigned 172.29.196.108 to D0:37:45:85:17:2B
+ 37  1405/07/27 12:14:54  [dhcp,info]  dhcp1 deassigned 172.29.196.110 from 7C:F1:7E:F4:3C:C4
+ 38  1405/07/27 12:19:28  [dhcp,info]  dhcp1 deassigned 172.29.196.108 from D0:37:45:85:17:2B
+ 39  1405/07/27 12:26:33  [dhcp,info]  dhcp1 deassigned 172.29.196.107 from E0:D5:5E:8F:F7:9F
+ 40  1405/07/28 08:05:20  [dhcp,info]  dhcp1 assigned 172.29.196.110 to 7C:F1:7E:F4:3C:C4
+ 41  1405/07/28 08:08:19  [dhcp,info]  dhcp1 assigned 172.29.196.108 to D0:37:45:85:17:2B
+ 42  1405/07/28 08:19:36  [dhcp,info]  dhcp1 assigned 172.29.196.107 to E0:D5:5E:8F:F7:9F
+ 43  1405/07/28 08:37:57  [dhcp,info]  dhcp1 deassigned 172.29.196.107 from E0:D5:5E:8F:F7:9F
+ 44  1405/07/28 08:37:57  [dhcp,info]  dhcp1 assigned 172.29.196.107 to E0:D5:5E:8F:F7:9F
+ 45  1405/07/28 09:38:19  [dhcp,info]  dhcp1 deassigned 172.29.196.108 from D0:37:45:85:17:2B
+ 46  1405/07/28 09:57:59  [dhcp,info]  dhcp1 deassigned 172.29.196.107 from E0:D5:5E:8F:F7:9F
+ 47  1405/07/28 10:10:54  [dhcp,info]  dhcp1 assigned 172.29.196.108 to D0:37:45:85:17:2B
+ 48  1405/07/28 12:30:19  [dhcp,info]  dhcp1 deassigned 172.29.196.110 from 7C:F1:7E:F4:3C:C4
+ 49  1405/07/28 12:38:04  [dhcp,info]  dhcp1 deassigned 172.29.196.108 from D0:37:45:85:17:2B
+ 50  1405/07/29 07:38:12  [dhcp,info]  dhcp1 assigned 172.29.196.108 to D0:37:45:85:17:2B
+ 51  1405/07/29 08:27:01  [dhcp,info]  dhcp1 assigned 172.29.196.110 to 7C:F1:7E:F4:3C:C4
+ 52  1405/07/29 10:38:12  [dhcp,info]  dhcp1 deassigned 172.29.196.108 from D0:37:45:85:17:2B
+ 53  1405/07/29 10:43:20  [dhcp,info]  dhcp1 assigned 172.29.196.108 to D0:37:45:85:17:2B
+ 54  1405/07/29 11:48:21  [dhcp,info]  dhcp1 deassigned 172.29.196.108 from D0:37:45:85:17:2B
+ 55  1405/07/29 12:07:02  [dhcp,info]  dhcp1 deassigned 172.29.196.110 from 7C:F1:7E:F4:3C:C4
+ 56  1405/07/29 16:32:04  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

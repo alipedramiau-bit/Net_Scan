@@ -1,5 +1,5 @@
 IP: 172.18.26.83
-Collected at: 2026-10-10T07:39:59.718560+00:00
+Collected at: 2026-10-18T05:57:19.306112+00:00
 source: RouterOS API
 identity: OmolGhazlan-Home.Client
 device_type: ST
@@ -25,23 +25,22 @@ name=wlan1  mode=station-bridge  ssid=Shadegan-OmolGhazlan2  band=5ghz-a/n  freq
 
 ----- neighbors -----
 === /ip neighbor ===
-  1  identity=MK_OmolGhazlan  address=172.18.26.81  interface=wlan1
-  2  identity=MK_behdast-OmolGhazlan  address=172.18.26.82  interface=wlan1
-  3  identity=OmolHejar.Client  address=172.18.26.84  interface=wlan1
+  1  identity=-  address=-  interface=ether1
+  2  identity=MK_OmolGhazlan  address=172.18.26.81  interface=wlan1
+  3  identity=MK_behdast-OmolGhazlan  address=172.18.26.82  interface=wlan1
+  4  identity=OmolHejar.Client  address=172.18.26.84  interface=wlan1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/18 10:57:33
-# ساعت دستگاه (خام): 1970-01-15 06:32:02
-# افست اصلاحی (سرور − دستگاه): +497328:55:31
-  1  1405/07/18 08:19:29  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/18 08:19:29  [interface,info]  ether1 link up (speed 100M, full duplex)
-  3  1405/07/18 08:19:35  [wireless,info]  B8:69:F4:35:0D:8F@wlan1 established connection on 5500000, SSID Shadegan-OmolGhazlan2
-  4  1405/07/18 10:33:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  5  1405/07/18 10:33:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  6  1405/07/18 10:41:34  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  7  1405/07/18 10:41:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  8  1405/07/18 10:57:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/26 09:06:38
+# ساعت دستگاه (خام): 1970-01-15 04:45:37
+# افست اصلاحی (سرور − دستگاه): +497520:51:01
+  1  1405/07/26 08:14:58  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/26 08:14:59  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/26 08:15:04  [wireless,info]  B8:69:F4:35:0D:8F@wlan1 established connection on 5500000, SSID Shadegan-OmolGhazlan2
+  4  1405/07/26 09:04:12  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  5  1405/07/26 09:04:14  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  6  1405/07/26 09:06:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -49,3 +48,4 @@ ether1  E4:8D:8C:B5:1B:8E  (ether)
 wlan1  E4:8D:8C:B5:1B:8F  (wlan)
 --- /ip arp ---
 wlan1  6C:3B:6B:A9:FE:7D  (arp 172.18.26.81)
+ether1  58:11:22:9E:06:6E  (arp 172.29.207.249)

@@ -1,5 +1,5 @@
 IP: 172.29.29.18
-Collected at: 2026-10-14T10:25:32.945308+00:00
+Collected at: 2026-10-18T05:59:32.185018+00:00
 source: RouterOS API
 identity: Emam_khomaini_Router
 device_type: Router
@@ -13,7 +13,7 @@ device_type: Router
   5  name=ether5  type=ether  running=false  mac=E4:8D:8C:A5:20:82
   6  name=ether6  type=ether  running=true  mac=E4:8D:8C:A5:20:83
   7  name=ether7  type=ether  running=true  mac=E4:8D:8C:A5:20:84
-  8  name=ether8  type=ether  running=false  mac=E4:8D:8C:A5:20:85
+  8  name=ether8  type=ether  running=true  mac=E4:8D:8C:A5:20:85
   9  name=ether9  type=ether  running=false  mac=E4:8D:8C:A5:20:86
  10  name=ether10  type=ether  running=false  mac=E4:8D:8C:A5:20:87
  11  name=ether11  type=ether  running=false  mac=E4:8D:8C:A5:20:88
@@ -53,209 +53,209 @@ device_type: Router
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:47:30
-# ساعت دستگاه (خام): 1970-04-27 06:54:21
-# افست اصلاحی (سرور − دستگاه): +494979:23:09
-  1  1405/06/15 09:23:57  [interface,info]  ether8 link up (speed 100M, full duplex)
-  2  1405/06/15 12:16:20  [interface,info]  ether8 link down
-  3  1405/06/16 08:11:28  [interface,info]  ether8 link up (speed 100M, full duplex)
-  4  1405/06/16 08:11:29  [interface,info]  ether8 link down
-  5  1405/06/16 08:11:30  [interface,info]  ether8 link up (speed 100M, full duplex)
-  6  1405/06/16 09:05:22  [interface,info]  ether8 link down
-  7  1405/06/16 09:07:38  [interface,info]  ether8 link up (speed 100M, full duplex)
-  8  1405/06/16 09:19:40  [interface,info]  ether8 link down
-  9  1405/06/16 09:20:16  [interface,info]  ether8 link up (speed 100M, full duplex)
- 10  1405/06/16 09:23:37  [interface,info]  ether8 link down
- 11  1405/06/16 09:25:25  [interface,info]  ether8 link up (speed 100M, full duplex)
- 12  1405/06/16 11:44:13  [interface,info]  ether8 link down
- 13  1405/06/17 08:10:12  [interface,info]  ether8 link up (speed 100M, full duplex)
- 14  1405/06/17 08:10:13  [interface,info]  ether8 link down
- 15  1405/06/17 08:10:14  [interface,info]  ether8 link up (speed 100M, full duplex)
- 16  1405/06/17 12:14:13  [interface,info]  ether8 link down
- 17  1405/06/18 08:00:14  [interface,info]  ether8 link up (speed 100M, full duplex)
- 18  1405/06/18 09:16:21  [interface,info]  ether8 link down
- 19  1405/06/18 09:16:46  [interface,info]  ether8 link up (speed 100M, full duplex)
- 20  1405/06/18 13:29:39  [interface,info]  ether8 link down
- 21  1405/06/18 13:29:42  [interface,info]  ether8 link up (speed 100M, full duplex)
- 22  1405/06/19 11:43:06  [interface,info]  ether8 link down
- 23  1405/06/21 08:11:14  [interface,info]  ether8 link up (speed 100M, full duplex)
- 24  1405/06/21 08:25:18  [interface,info]  ether8 link down
- 25  1405/06/21 08:25:20  [interface,info]  ether8 link up (speed 100M, full duplex)
- 26  1405/06/21 08:27:37  [interface,info]  ether8 link down
- 27  1405/06/21 08:27:38  [interface,info]  ether8 link up (speed 100M, full duplex)
- 28  1405/06/21 08:28:51  [interface,info]  ether8 link down
- 29  1405/06/21 08:29:36  [interface,info]  ether8 link up (speed 100M, full duplex)
- 30  1405/06/21 08:40:47  [interface,info]  ether8 link down
- 31  1405/06/21 08:41:24  [interface,info]  ether8 link up (speed 100M, full duplex)
- 32  1405/06/21 09:45:18  [interface,info]  ether8 link down
- 33  1405/06/21 09:45:49  [interface,info]  ether8 link up (speed 100M, full duplex)
- 34  1405/06/21 09:58:01  [interface,info]  ether8 link down
- 35  1405/06/21 09:59:19  [interface,info]  ether8 link up (speed 100M, full duplex)
- 36  1405/06/21 10:18:10  [interface,info]  ether8 link down
- 37  1405/06/21 10:18:49  [interface,info]  ether8 link up (speed 100M, full duplex)
- 38  1405/06/21 10:43:10  [interface,info]  ether8 link down
- 39  1405/06/21 10:43:47  [interface,info]  ether8 link up (speed 100M, full duplex)
- 40  1405/06/21 10:56:41  [interface,info]  ether8 link down
- 41  1405/06/21 10:57:56  [interface,info]  ether8 link up (speed 100M, full duplex)
- 42  1405/06/21 11:00:16  [interface,info]  ether8 link down
- 43  1405/06/21 11:09:02  [interface,info]  ether8 link up (speed 100M, full duplex)
- 44  1405/06/21 11:09:13  [interface,info]  ether8 link down
- 45  1405/06/21 11:10:36  [interface,info]  ether8 link up (speed 100M, full duplex)
- 46  1405/06/22 08:36:01  [interface,info]  ether8 link down
- 47  1405/06/22 08:36:50  [interface,info]  ether8 link up (speed 100M, full duplex)
- 48  1405/06/22 08:58:07  [interface,info]  ether8 link down
- 49  1405/06/22 08:58:34  [interface,info]  ether8 link up (speed 100M, full duplex)
- 50  1405/06/22 09:25:12  [interface,info]  ether8 link down
- 51  1405/06/22 09:25:35  [interface,info]  ether8 link up (speed 100M, full duplex)
- 52  1405/06/22 09:30:08  [interface,info]  ether8 link down
- 53  1405/06/22 09:33:01  [interface,info]  ether8 link up (speed 100M, full duplex)
- 54  1405/06/22 09:36:57  [interface,info]  ether8 link down
- 55  1405/06/22 09:37:26  [interface,info]  ether8 link up (speed 100M, full duplex)
- 56  1405/06/22 09:39:46  [interface,info]  ether8 link down
- 57  1405/06/22 09:46:18  [interface,info]  ether8 link up (speed 100M, full duplex)
- 58  1405/06/22 10:07:26  [interface,info]  ether8 link down
- 59  1405/06/22 10:07:52  [interface,info]  ether8 link up (speed 100M, full duplex)
- 60  1405/06/22 10:30:17  [interface,info]  ether8 link down
- 61  1405/06/22 10:38:44  [interface,info]  ether8 link up (speed 100M, full duplex)
- 62  1405/06/22 11:07:54  [interface,info]  ether8 link down
- 63  1405/06/22 11:07:56  [interface,info]  ether8 link up (speed 100M, full duplex)
- 64  1405/06/22 11:08:36  [interface,info]  ether8 link down
- 65  1405/06/22 11:08:55  [interface,info]  ether8 link up (speed 100M, full duplex)
- 66  1405/06/22 11:21:00  [interface,info]  ether8 link down
- 67  1405/06/22 11:22:11  [interface,info]  ether8 link up (speed 100M, full duplex)
- 68  1405/06/22 11:44:16  [interface,info]  ether8 link down
- 69  1405/06/22 11:44:54  [interface,info]  ether8 link up (speed 100M, full duplex)
- 70  1405/06/23 08:03:41  [interface,info]  ether8 link down
- 71  1405/06/23 08:14:15  [interface,info]  ether8 link up (speed 100M, full duplex)
- 72  1405/06/24 10:00:00  [interface,info]  ether8 link down
- 73  1405/06/24 10:01:59  [interface,info]  ether8 link up (speed 100M, full duplex)
- 74  1405/06/24 22:12:35  [interface,info]  ether8 link down
- 75  1405/06/24 22:12:36  [interface,info]  ether8 link up (speed 100M, full duplex)
- 76  1405/06/24 22:12:37  [interface,info]  ether8 link down
- 77  1405/06/24 22:12:39  [interface,info]  ether8 link up (speed 100M, full duplex)
- 78  1405/06/24 22:12:40  [interface,info]  ether8 link down
- 79  1405/06/24 22:12:41  [interface,info]  ether8 link up (speed 100M, full duplex)
- 80  1405/06/24 22:13:08  [interface,info]  ether8 link down
- 81  1405/06/24 22:13:10  [interface,info]  ether8 link up (speed 100M, full duplex)
- 82  1405/06/25 11:21:26  [interface,info]  ether8 link down
- 83  1405/06/28 08:07:35  [interface,info]  ether8 link up (speed 100M, full duplex)
- 84  1405/06/28 08:45:53  [interface,info]  ether7 link down
- 85  1405/06/28 08:45:56  [interface,info]  ether7 link up (speed 100M, full duplex)
- 86  1405/07/02 11:19:54  [interface,info]  ether8 link down
- 87  1405/07/04 08:05:18  [interface,info]  ether8 link up (speed 100M, full duplex)
- 88  1405/07/04 09:32:19  [interface,info]  ether8 link down
- 89  1405/07/04 09:33:11  [interface,info]  ether8 link up (speed 100M, full duplex)
- 90  1405/07/05 12:37:12  [interface,info]  ether8 link down
- 91  1405/07/06 07:59:15  [interface,info]  ether8 link up (speed 100M, full duplex)
- 92  1405/07/06 13:40:37  [interface,info]  ether8 link down
- 93  1405/07/07 07:59:50  [interface,info]  ether8 link up (speed 100M, full duplex)
- 94  1405/07/07 13:20:21  [interface,info]  ether8 link down
- 95  1405/07/08 07:52:38  [interface,info]  ether8 link up (speed 100M, full duplex)
- 96  1405/07/08 13:00:39  [interface,info]  ether8 link down
- 97  1405/07/11 07:59:16  [interface,info]  ether8 link up (speed 100M, full duplex)
- 98  1405/07/11 23:19:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 99  1405/07/11 23:19:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-100  1405/07/12 13:47:18  [interface,info]  ether8 link down
-101  1405/07/13 07:57:39  [interface,info]  ether8 link up (speed 100M, full duplex)
-102  1405/07/15 12:41:18  [interface,info]  ether8 link down
-103  1405/07/15 13:54:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-104  1405/07/15 13:54:51  [system,info]  changed snmp settings by garnaf
-105  1405/07/15 13:54:51  [system,info]  item changed by garnaf
-106  1405/07/15 13:54:52  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-107  1405/07/15 13:54:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-108  1405/07/15 13:54:52  [system,info]  changed snmp settings by garnaf
-109  1405/07/15 13:54:52  [system,info]  item changed by garnaf
-110  1405/07/15 13:54:52  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-111  1405/07/15 15:00:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-112  1405/07/15 15:00:39  [system,info]  user olom1 added by garnaf
-113  1405/07/15 15:00:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-114  1405/07/15 15:00:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-115  1405/07/15 15:00:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-116  1405/07/15 15:04:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-117  1405/07/15 15:04:25  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-118  1405/07/15 15:04:25  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-119  1405/07/15 15:04:25  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-120  1405/07/16 08:02:48  [interface,info]  ether8 link up (speed 100M, full duplex)
-121  1405/07/16 10:41:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-122  1405/07/16 10:41:46  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-123  1405/07/16 10:41:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-124  1405/07/16 10:41:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-125  1405/07/16 11:53:26  [interface,info]  ether8 link down
-126  1405/07/16 13:58:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-127  1405/07/16 13:58:15  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-128  1405/07/16 13:58:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-129  1405/07/16 13:58:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-130  1405/07/16 13:58:16  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-131  1405/07/16 13:58:17  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-132  1405/07/16 14:10:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-133  1405/07/16 14:10:37  [system,info]  changed snmp settings by garnaf
-134  1405/07/16 14:10:37  [system,info]  item changed by garnaf
-135  1405/07/16 14:10:37  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-136  1405/07/16 14:10:37  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-137  1405/07/16 14:10:37  [system,info]  changed snmp settings by garnaf
-138  1405/07/16 14:10:37  [system,info]  item changed by garnaf
-139  1405/07/16 14:10:37  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-140  1405/07/16 14:10:37  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-141  1405/07/16 14:10:37  [system,info]  changed snmp settings by garnaf
-142  1405/07/16 14:10:37  [system,info]  item changed by garnaf
-143  1405/07/16 14:10:37  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-144  1405/07/16 14:39:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-145  1405/07/16 14:39:29  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-146  1405/07/16 14:39:30  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-147  1405/07/16 14:39:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-148  1405/07/16 14:39:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-149  1405/07/16 14:39:32  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-150  1405/07/16 15:49:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-151  1405/07/16 15:49:19  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-152  1405/07/16 15:49:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-153  1405/07/16 15:49:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-154  1405/07/16 15:49:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-155  1405/07/16 15:49:21  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-156  1405/07/17 08:42:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-157  1405/07/17 08:42:59  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-158  1405/07/17 08:42:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-159  1405/07/17 08:43:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-160  1405/07/17 08:43:01  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-161  1405/07/17 08:43:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-162  1405/07/18 08:13:10  [interface,info]  ether8 link up (speed 100M, full duplex)
-163  1405/07/18 10:42:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-164  1405/07/18 10:42:08  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-165  1405/07/18 10:42:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-166  1405/07/18 10:42:10  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-167  1405/07/18 10:42:10  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-168  1405/07/18 10:42:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-169  1405/07/18 11:06:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-170  1405/07/18 11:06:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-171  1405/07/18 11:06:21  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-172  1405/07/18 11:06:22  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-173  1405/07/18 11:06:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-174  1405/07/18 11:06:23  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-175  1405/07/18 12:15:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-176  1405/07/18 12:15:26  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-177  1405/07/18 12:15:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-178  1405/07/18 12:15:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-179  1405/07/18 12:15:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-180  1405/07/18 12:15:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-181  1405/07/19 10:04:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-182  1405/07/19 10:04:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-183  1405/07/19 10:04:30  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-184  1405/07/19 10:04:33  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-185  1405/07/19 10:04:34  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-186  1405/07/19 10:04:37  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-187  1405/07/19 17:47:11  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-188  1405/07/19 17:47:12  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-189  1405/07/19 17:47:12  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-190  1405/07/19 17:47:12  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-191  1405/07/19 17:47:12  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-192  1405/07/19 17:47:13  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-193  1405/07/21 11:21:57  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-194  1405/07/21 11:22:00  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-195  1405/07/21 11:22:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-196  1405/07/21 11:22:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-197  1405/07/21 11:22:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-198  1405/07/21 11:22:05  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-199  1405/07/22 10:34:20  [interface,info]  ether8 link down
-200  1405/07/22 13:47:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/26 09:22:17
+# ساعت دستگاه (خام): 1970-05-01 02:31:45
+# افست اصلاحی (سرور − دستگاه): +494979:20:32
+  1  1405/06/21 08:22:41  [interface,info]  ether8 link down
+  2  1405/06/21 08:22:43  [interface,info]  ether8 link up (speed 100M, full duplex)
+  3  1405/06/21 08:25:00  [interface,info]  ether8 link down
+  4  1405/06/21 08:25:01  [interface,info]  ether8 link up (speed 100M, full duplex)
+  5  1405/06/21 08:26:14  [interface,info]  ether8 link down
+  6  1405/06/21 08:26:59  [interface,info]  ether8 link up (speed 100M, full duplex)
+  7  1405/06/21 08:38:10  [interface,info]  ether8 link down
+  8  1405/06/21 08:38:47  [interface,info]  ether8 link up (speed 100M, full duplex)
+  9  1405/06/21 09:42:41  [interface,info]  ether8 link down
+ 10  1405/06/21 09:43:12  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 11  1405/06/21 09:55:24  [interface,info]  ether8 link down
+ 12  1405/06/21 09:56:42  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 13  1405/06/21 10:15:33  [interface,info]  ether8 link down
+ 14  1405/06/21 10:16:12  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 15  1405/06/21 10:40:33  [interface,info]  ether8 link down
+ 16  1405/06/21 10:41:10  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 17  1405/06/21 10:54:04  [interface,info]  ether8 link down
+ 18  1405/06/21 10:55:19  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 19  1405/06/21 10:57:39  [interface,info]  ether8 link down
+ 20  1405/06/21 11:06:25  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 21  1405/06/21 11:06:36  [interface,info]  ether8 link down
+ 22  1405/06/21 11:07:59  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 23  1405/06/22 08:33:24  [interface,info]  ether8 link down
+ 24  1405/06/22 08:34:13  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 25  1405/06/22 08:55:30  [interface,info]  ether8 link down
+ 26  1405/06/22 08:55:57  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 27  1405/06/22 09:22:35  [interface,info]  ether8 link down
+ 28  1405/06/22 09:22:58  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 29  1405/06/22 09:27:31  [interface,info]  ether8 link down
+ 30  1405/06/22 09:30:24  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 31  1405/06/22 09:34:20  [interface,info]  ether8 link down
+ 32  1405/06/22 09:34:49  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 33  1405/06/22 09:37:09  [interface,info]  ether8 link down
+ 34  1405/06/22 09:43:41  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 35  1405/06/22 10:04:49  [interface,info]  ether8 link down
+ 36  1405/06/22 10:05:15  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 37  1405/06/22 10:27:40  [interface,info]  ether8 link down
+ 38  1405/06/22 10:36:07  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 39  1405/06/22 11:05:17  [interface,info]  ether8 link down
+ 40  1405/06/22 11:05:19  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 41  1405/06/22 11:05:59  [interface,info]  ether8 link down
+ 42  1405/06/22 11:06:18  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 43  1405/06/22 11:18:23  [interface,info]  ether8 link down
+ 44  1405/06/22 11:19:34  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 45  1405/06/22 11:41:39  [interface,info]  ether8 link down
+ 46  1405/06/22 11:42:17  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 47  1405/06/23 08:01:04  [interface,info]  ether8 link down
+ 48  1405/06/23 08:11:38  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 49  1405/06/24 09:57:23  [interface,info]  ether8 link down
+ 50  1405/06/24 09:59:22  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 51  1405/06/24 22:09:58  [interface,info]  ether8 link down
+ 52  1405/06/24 22:09:59  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 53  1405/06/24 22:10:00  [interface,info]  ether8 link down
+ 54  1405/06/24 22:10:02  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 55  1405/06/24 22:10:03  [interface,info]  ether8 link down
+ 56  1405/06/24 22:10:04  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 57  1405/06/24 22:10:31  [interface,info]  ether8 link down
+ 58  1405/06/24 22:10:33  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 59  1405/06/25 11:18:49  [interface,info]  ether8 link down
+ 60  1405/06/28 08:04:58  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 61  1405/06/28 08:43:16  [interface,info]  ether7 link down
+ 62  1405/06/28 08:43:19  [interface,info]  ether7 link up (speed 100M, full duplex)
+ 63  1405/07/02 11:17:17  [interface,info]  ether8 link down
+ 64  1405/07/04 08:02:41  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 65  1405/07/04 09:29:42  [interface,info]  ether8 link down
+ 66  1405/07/04 09:30:34  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 67  1405/07/05 12:34:35  [interface,info]  ether8 link down
+ 68  1405/07/06 07:56:38  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 69  1405/07/06 13:38:00  [interface,info]  ether8 link down
+ 70  1405/07/07 07:57:13  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 71  1405/07/07 13:17:44  [interface,info]  ether8 link down
+ 72  1405/07/08 07:50:01  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 73  1405/07/08 12:58:02  [interface,info]  ether8 link down
+ 74  1405/07/11 07:56:39  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 75  1405/07/11 23:16:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 76  1405/07/11 23:16:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 77  1405/07/12 13:44:41  [interface,info]  ether8 link down
+ 78  1405/07/13 07:55:02  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 79  1405/07/15 12:38:41  [interface,info]  ether8 link down
+ 80  1405/07/15 13:52:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 81  1405/07/15 13:52:14  [system,info]  changed snmp settings by garnaf
+ 82  1405/07/15 13:52:14  [system,info]  item changed by garnaf
+ 83  1405/07/15 13:52:15  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 84  1405/07/15 13:52:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 85  1405/07/15 13:52:15  [system,info]  changed snmp settings by garnaf
+ 86  1405/07/15 13:52:15  [system,info]  item changed by garnaf
+ 87  1405/07/15 13:52:15  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 88  1405/07/15 14:58:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 89  1405/07/15 14:58:02  [system,info]  user olom1 added by garnaf
+ 90  1405/07/15 14:58:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 91  1405/07/15 14:58:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 92  1405/07/15 14:58:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 93  1405/07/15 15:01:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 94  1405/07/15 15:01:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 95  1405/07/15 15:01:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 96  1405/07/15 15:01:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 97  1405/07/16 08:00:11  [interface,info]  ether8 link up (speed 100M, full duplex)
+ 98  1405/07/16 10:39:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 99  1405/07/16 10:39:09  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+100  1405/07/16 10:39:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+101  1405/07/16 10:39:10  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+102  1405/07/16 11:50:49  [interface,info]  ether8 link down
+103  1405/07/16 13:55:37  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+104  1405/07/16 13:55:38  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+105  1405/07/16 13:55:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+106  1405/07/16 13:55:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+107  1405/07/16 13:55:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+108  1405/07/16 13:55:40  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+109  1405/07/16 14:07:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+110  1405/07/16 14:08:00  [system,info]  changed snmp settings by garnaf
+111  1405/07/16 14:08:00  [system,info]  item changed by garnaf
+112  1405/07/16 14:08:00  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+113  1405/07/16 14:08:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+114  1405/07/16 14:08:00  [system,info]  changed snmp settings by garnaf
+115  1405/07/16 14:08:00  [system,info]  item changed by garnaf
+116  1405/07/16 14:08:00  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+117  1405/07/16 14:08:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+118  1405/07/16 14:08:00  [system,info]  changed snmp settings by garnaf
+119  1405/07/16 14:08:00  [system,info]  item changed by garnaf
+120  1405/07/16 14:08:00  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+121  1405/07/16 14:36:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+122  1405/07/16 14:36:52  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+123  1405/07/16 14:36:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+124  1405/07/16 14:36:53  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+125  1405/07/16 14:36:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+126  1405/07/16 14:36:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+127  1405/07/16 15:46:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+128  1405/07/16 15:46:42  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+129  1405/07/16 15:46:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+130  1405/07/16 15:46:43  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+131  1405/07/16 15:46:43  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+132  1405/07/16 15:46:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+133  1405/07/17 08:40:21  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+134  1405/07/17 08:40:22  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+135  1405/07/17 08:40:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+136  1405/07/17 08:40:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+137  1405/07/17 08:40:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+138  1405/07/17 08:40:25  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+139  1405/07/18 08:10:33  [interface,info]  ether8 link up (speed 100M, full duplex)
+140  1405/07/18 10:39:30  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+141  1405/07/18 10:39:31  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+142  1405/07/18 10:39:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+143  1405/07/18 10:39:33  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+144  1405/07/18 10:39:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+145  1405/07/18 10:39:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+146  1405/07/18 11:03:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+147  1405/07/18 11:03:43  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+148  1405/07/18 11:03:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+149  1405/07/18 11:03:45  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+150  1405/07/18 11:03:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+151  1405/07/18 11:03:46  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+152  1405/07/18 12:12:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+153  1405/07/18 12:12:49  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+154  1405/07/18 12:12:50  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+155  1405/07/18 12:12:50  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+156  1405/07/18 12:12:50  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+157  1405/07/18 12:12:50  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+158  1405/07/19 10:01:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+159  1405/07/19 10:01:50  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+160  1405/07/19 10:01:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+161  1405/07/19 10:01:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+162  1405/07/19 10:01:57  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+163  1405/07/19 10:02:00  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+164  1405/07/19 17:44:34  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+165  1405/07/19 17:44:35  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+166  1405/07/19 17:44:35  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+167  1405/07/19 17:44:35  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+168  1405/07/19 17:44:35  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+169  1405/07/19 17:44:36  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+170  1405/07/21 11:19:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+171  1405/07/21 11:19:23  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+172  1405/07/21 11:19:23  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+173  1405/07/21 11:19:25  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+174  1405/07/21 11:19:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+175  1405/07/21 11:19:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+176  1405/07/22 10:31:43  [interface,info]  ether8 link down
+177  1405/07/22 13:44:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+178  1405/07/22 13:44:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+179  1405/07/22 13:44:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+180  1405/07/22 13:45:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+181  1405/07/22 13:45:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+182  1405/07/22 13:45:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+183  1405/07/24 15:44:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+184  1405/07/24 15:44:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+185  1405/07/24 15:44:13  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+186  1405/07/24 15:44:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+187  1405/07/24 15:44:16  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+188  1405/07/24 15:44:18  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+189  1405/07/24 16:07:37  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+190  1405/07/24 16:07:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+191  1405/07/26 07:40:38  [interface,info]  ether8 link up (speed 100M, full duplex)
+192  1405/07/26 15:25:26  [interface,info]  ether7 link down
+193  1405/07/26 15:25:29  [interface,info]  ether7 link up (speed 100M, full duplex)
+194  1405/07/26 09:20:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+195  1405/07/26 09:20:38  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+196  1405/07/26 09:20:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+197  1405/07/26 09:20:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+198  1405/07/26 09:20:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+199  1405/07/26 09:20:43  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+200  1405/07/26 09:22:16  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

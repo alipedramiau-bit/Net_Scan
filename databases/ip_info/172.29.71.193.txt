@@ -1,5 +1,5 @@
 IP: 172.29.71.193
-Collected at: 2026-10-14T10:25:42.602784+00:00
+Collected at: 2026-10-21T13:18:37.476310+00:00
 source: RouterOS API
 identity: KootShanoof.Client
 device_type: ST
@@ -37,37 +37,35 @@ name=wlan1  mode=station-bridge  ssid=Abadan-22Bahman1  band=5ghz-a/n  frequency
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:50:31
-# ساعت دستگاه (خام): 1971-07-23 10:43:32
-# افست اصلاحی (سرور − دستگاه): +484127:36:59
-  1  1405/07/19 10:16:25  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/19 10:16:26  [interface,info]  ether1 link up (speed 100M, full duplex)
-  3  1405/07/19 10:17:03  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
-  4  1405/07/19 10:25:28  [dhcp,info]  dhcp1 assigned 172.29.71.219 to 1C:1B:0D:B9:07:76
-  5  1405/07/19 17:48:27  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, synchronization timeout
-  6  1405/07/19 17:49:04  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
-  7  1405/07/19 22:35:50  [dhcp,info]  dhcp1 deassigned 172.29.71.219 from 1C:1B:0D:B9:07:76
-  8  1405/07/20 08:22:13  [dhcp,info]  dhcp1 assigned 172.29.71.219 to 1C:1B:0D:B9:07:76
-  9  1405/07/20 13:02:39  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, synchronization timeout
- 10  1405/07/20 13:03:17  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
- 11  1405/07/20 13:22:13  [dhcp,info]  dhcp1 deassigned 172.29.71.219 from 1C:1B:0D:B9:07:76
- 12  1405/07/20 17:10:00  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, synchronization timeout
- 13  1405/07/20 17:10:37  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
- 14  1405/07/21 08:38:51  [dhcp,info]  dhcp1 assigned 172.29.71.219 to 1C:1B:0D:B9:07:76
- 15  1405/07/21 09:26:27  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, synchronization timeout
- 16  1405/07/21 09:27:04  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
- 17  1405/07/21 12:38:50  [dhcp,info]  dhcp1 deassigned 172.29.71.219 from 1C:1B:0D:B9:07:76
- 18  1405/07/21 12:46:29  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, synchronization timeout
- 19  1405/07/21 12:47:06  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
- 20  1405/07/21 22:37:05  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, synchronization timeout
- 21  1405/07/21 22:37:42  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
- 22  1405/07/22 07:31:28  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, synchronization timeout
- 23  1405/07/22 07:32:05  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
- 24  1405/07/22 10:54:12  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, synchronization timeout
- 25  1405/07/22 10:54:50  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
- 26  1405/07/22 13:35:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 27  1405/07/22 13:35:22  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 28  1405/07/22 13:50:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:45:05
+# ساعت دستگاه (خام): 1971-07-29 19:04:49
+# افست اصلاحی (سرور − دستگاه): +484146:10:16
+  1  1405/07/25 04:49:41  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/25 04:49:43  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/25 04:50:20  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
+  4  1405/07/25 05:10:04  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1: lost connection, synchronization timeout
+  5  1405/07/25 05:10:41  [wireless,info]  6C:3B:6B:94:8C:9A@wlan1 established connection on 5540000, SSID Abadan-22Bahman1
+  6  1405/07/25 08:34:36  [dhcp,info]  dhcp1 assigned 172.29.71.219 to 1C:1B:0D:B9:07:76
+  7  1405/07/25 13:13:20  [dhcp,info]  dhcp1 deassigned 172.29.71.219 from 1C:1B:0D:B9:07:76
+  8  1405/07/26 08:45:16  [dhcp,info]  dhcp1 assigned 172.29.71.219 to 1C:1B:0D:B9:07:76
+  9  1405/07/26 09:10:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 10  1405/07/26 09:10:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 11  1405/07/26 09:12:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 12  1405/07/26 09:12:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 13  1405/07/26 09:22:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 14  1405/07/26 09:22:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 15  1405/07/26 09:23:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 16  1405/07/26 09:23:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 17  1405/07/26 14:00:16  [dhcp,info]  dhcp1 deassigned 172.29.71.219 from 1C:1B:0D:B9:07:76
+ 18  1405/07/27 09:10:50  [dhcp,info]  dhcp1 assigned 172.29.71.219 to 1C:1B:0D:B9:07:76
+ 19  1405/07/27 13:10:51  [dhcp,info]  dhcp1 deassigned 172.29.71.219 from 1C:1B:0D:B9:07:76
+ 20  1405/07/28 08:22:44  [dhcp,info]  dhcp1 assigned 172.29.71.219 to 1C:1B:0D:B9:07:76
+ 21  1405/07/28 12:07:45  [dhcp,info]  dhcp1 deassigned 172.29.71.219 from 1C:1B:0D:B9:07:76
+ 22  1405/07/29 08:48:19  [dhcp,info]  dhcp1 assigned 172.29.71.219 to 1C:1B:0D:B9:07:76
+ 23  1405/07/29 13:20:23  [dhcp,info]  dhcp1 deassigned 172.29.71.219 from 1C:1B:0D:B9:07:76
+ 24  1405/07/29 16:40:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 25  1405/07/29 16:40:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 26  1405/07/29 16:45:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

@@ -1,5 +1,5 @@
 IP: 172.29.29.193
-Collected at: 2026-10-14T10:25:33.238504+00:00
+Collected at: 2026-10-21T13:18:31.152095+00:00
 source: RouterOS API
 identity: choebdeh.DandanPezeshki.Client
 device_type: ST
@@ -30,19 +30,150 @@ name=wlan1  mode=station-bridge  ssid=Abadan-Choebdeh1  band=5ghz-a/n  frequency
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:47:34
-# ساعت دستگاه (خام): 1976-11-02 03:33:27
-# افست اصلاحی (سرور − دستگاه): +437838:44:07
-  1  1405/07/22 13:35:20  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 13:35:27  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-  3  1405/07/22 13:35:30  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/22 13:35:38  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
-  5  1405/07/22 13:47:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:44:23
+# ساعت دستگاه (خام): 1976-11-09 06:33:04
+# افست اصلاحی (سرور − دستگاه): +437838:41:19
+  1  1405/07/22 13:32:32  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/22 13:32:39  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+  3  1405/07/22 13:32:42  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/22 13:32:50  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+  5  1405/07/22 13:44:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  6  1405/07/22 13:44:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  7  1405/07/22 14:36:56  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+  8  1405/07/22 14:40:17  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+  9  1405/07/22 17:14:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 10  1405/07/22 17:14:42  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 11  1405/07/22 17:40:19  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 12  1405/07/22 17:40:59  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+ 13  1405/07/22 17:50:59  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 14  1405/07/22 17:56:10  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+ 15  1405/07/22 18:11:10  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 16  1405/07/22 18:14:00  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+ 17  1405/07/22 18:24:00  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 18  1405/07/22 20:12:50  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+ 19  1405/07/22 20:50:09  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 20  1405/07/22 20:50:09  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+ 21  1405/07/22 22:51:57  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 22  1405/07/22 22:51:57  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+ 23  1405/07/22 23:11:55  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 24  1405/07/22 23:18:15  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+ 25  1405/07/23 01:10:32  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 26  1405/07/23 01:10:32  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+ 27  1405/07/23 06:35:35  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 28  1405/07/24 10:19:28  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+ 29  1405/07/24 10:19:34  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+ 30  1405/07/24 15:34:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 31  1405/07/24 15:34:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 32  1405/07/24 15:44:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 33  1405/07/24 15:44:09  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 34  1405/07/24 16:01:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 35  1405/07/24 16:01:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 36  1405/07/24 16:07:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 37  1405/07/24 16:07:32  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 38  1405/07/24 23:17:28  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+ 39  1405/07/24 23:17:33  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+ 40  1405/07/25 07:59:28  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+ 41  1405/07/25 07:59:33  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+ 42  1405/07/25 08:21:25  [dhcp,info]  dhcp1 assigned 172.29.29.243 to 34:60:F9:0F:6D:B9
+ 43  1405/07/25 08:30:52  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+ 44  1405/07/25 08:31:19  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+ 45  1405/07/25 08:57:12  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+ 46  1405/07/25 09:44:38  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+ 47  1405/07/25 10:23:23  [dhcp,info]  dhcp1 assigned 172.29.29.247 to 98:DE:D0:26:FC:C7
+ 48  1405/07/25 10:42:54  [dhcp,info]  dhcp1 deassigned 172.29.29.247 from 98:DE:D0:26:FC:C7
+ 49  1405/07/25 11:01:30  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 50  1405/07/25 11:01:30  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+ 51  1405/07/25 11:07:11  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 52  1405/07/25 11:07:11  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+ 53  1405/07/25 11:17:11  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 54  1405/07/25 11:57:14  [dhcp,info]  dhcp1 deassigned 172.29.29.243 from 34:60:F9:0F:6D:B9
+ 55  1405/07/25 12:04:37  [dhcp,info]  dhcp1 assigned 172.29.29.243 to 34:60:F9:0F:6D:B9
+ 56  1405/07/25 12:29:38  [dhcp,info]  dhcp1 deassigned 172.29.29.243 from 34:60:F9:0F:6D:B9
+ 57  1405/07/25 13:45:26  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+ 58  1405/07/25 13:55:26  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 59  1405/07/25 14:55:02  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+ 60  1405/07/25 15:05:02  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 61  1405/07/25 19:30:35  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+ 62  1405/07/25 19:40:35  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 63  1405/07/25 20:14:42  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+ 64  1405/07/25 20:24:42  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 65  1405/07/25 20:56:04  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+ 66  1405/07/25 20:56:43  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 67  1405/07/25 20:56:44  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+ 68  1405/07/25 21:06:44  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 69  1405/07/25 22:57:09  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+ 70  1405/07/25 23:07:09  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 71  1405/07/25 23:39:40  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+ 72  1405/07/25 23:49:40  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 73  1405/07/26 00:06:18  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+ 74  1405/07/26 00:16:18  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 75  1405/07/26 01:07:30  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+ 76  1405/07/26 01:17:30  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 77  1405/07/26 01:54:40  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+ 78  1405/07/26 02:04:40  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 79  1405/07/26 02:55:07  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+ 80  1405/07/26 03:05:07  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 81  1405/07/26 05:07:41  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+ 82  1405/07/26 05:09:34  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 83  1405/07/26 05:09:34  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+ 84  1405/07/26 05:19:34  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 85  1405/07/26 07:48:32  [dhcp,info]  dhcp1 assigned 172.29.29.243 to 34:60:F9:0F:6D:B9
+ 86  1405/07/26 08:53:03  [dhcp,info]  dhcp1 assigned 172.29.29.247 to 98:DE:D0:26:FC:C7
+ 87  1405/07/26 09:09:19  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+ 88  1405/07/26 09:19:19  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 89  1405/07/26 10:13:24  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+ 90  1405/07/26 10:23:24  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+ 91  1405/07/26 10:52:58  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+ 92  1405/07/26 10:57:03  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+ 93  1405/07/26 10:57:35  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+ 94  1405/07/26 10:57:41  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+ 95  1405/07/26 10:57:49  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 96  1405/07/26 10:58:17  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+ 97  1405/07/26 11:45:18  [dhcp,info]  dhcp1 deassigned 172.29.29.247 from 98:DE:D0:26:FC:C7
+ 98  1405/07/26 13:01:35  [dhcp,info]  dhcp1 deassigned 172.29.29.243 from 34:60:F9:0F:6D:B9
+ 99  1405/07/26 13:13:10  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+100  1405/07/26 15:52:11  [dhcp,info]  dhcp1 assigned 172.29.29.243 to 34:60:F9:0F:6D:B9
+101  1405/07/26 16:30:00  [dhcp,info]  dhcp1 deassigned 172.29.29.243 from 34:60:F9:0F:6D:B9
+102  1405/07/26 17:01:55  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+103  1405/07/26 17:51:47  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+104  1405/07/26 19:16:47  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+105  1405/07/26 21:51:27  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+106  1405/07/26 22:28:53  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+107  1405/07/26 22:28:53  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+108  1405/07/27 00:06:52  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+109  1405/07/27 00:43:10  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+110  1405/07/27 03:43:12  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+111  1405/07/27 07:00:41  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+112  1405/07/27 07:15:41  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+113  1405/07/27 07:45:11  [dhcp,info]  dhcp1 assigned 172.29.29.243 to 34:60:F9:0F:6D:B9
+114  1405/07/27 10:08:25  [dhcp,info]  dhcp1 assigned 172.29.29.247 to 98:DE:D0:26:FC:C7
+115  1405/07/27 11:25:11  [dhcp,info]  dhcp1 deassigned 172.29.29.243 from 34:60:F9:0F:6D:B9
+116  1405/07/27 11:47:53  [dhcp,info]  dhcp1 deassigned 172.29.29.247 from 98:DE:D0:26:FC:C7
+117  1405/07/27 12:21:16  [dhcp,info]  dhcp1 assigned 172.29.29.243 to 34:60:F9:0F:6D:B9
+118  1405/07/27 12:56:56  [dhcp,info]  dhcp1 deassigned 172.29.29.243 from 34:60:F9:0F:6D:B9
+119  1405/07/28 08:59:53  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+120  1405/07/28 08:59:58  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+121  1405/07/29 07:18:43  [dhcp,info]  dhcp1 assigned 172.29.29.243 to 34:60:F9:0F:6D:B9
+122  1405/07/29 08:28:52  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+123  1405/07/29 08:28:57  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+124  1405/07/29 08:33:40  [dhcp,info]  dhcp1 deassigned 172.29.29.243 from 34:60:F9:0F:6D:B9
+125  1405/07/29 08:40:56  [dhcp,info]  dhcp1 assigned 172.29.29.243 to 34:60:F9:0F:6D:B9
+126  1405/07/29 09:03:30  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+127  1405/07/29 09:13:30  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+128  1405/07/29 09:14:22  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+129  1405/07/29 09:54:22  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+130  1405/07/29 09:59:48  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+131  1405/07/29 10:39:48  [dhcp,info]  dhcp1 deassigned 172.29.29.254 from AE:B1:95:FB:E9:A7
+132  1405/07/29 12:00:56  [dhcp,info]  dhcp1 deassigned 172.29.29.243 from 34:60:F9:0F:6D:B9
+133  1405/07/29 15:34:52  [dhcp,info]  dhcp1 assigned 172.29.29.254 to AE:B1:95:FB:E9:A7
+134  1405/07/29 16:39:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+135  1405/07/29 16:39:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+136  1405/07/29 16:44:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
 ether1  64:D1:54:BD:B9:F8  (ether)
 wlan1  64:D1:54:BD:B9:F9  (wlan)
 --- /ip arp ---
-ether1  AE:B1:95:FB:E9:A7  (arp 172.29.29.254)
 wlan1  E4:8D:8C:0D:18:6B  (arp 172.18.9.129)
+ether1  AE:B1:95:FB:E9:A7  (arp 172.29.29.254)

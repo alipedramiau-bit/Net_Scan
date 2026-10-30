@@ -1,5 +1,5 @@
 IP: 172.18.9.194
-Collected at: 2026-10-14T10:24:24.582647+00:00
+Collected at: 2026-10-21T13:17:50.255829+00:00
 source: RouterOS API
 identity: Abadan-22Bahman1
 device_type: AP
@@ -35,21 +35,58 @@ name=wlan1  mode=ap-bridge  ssid=Abadan-22Bahman1  band=5ghz-a/n  frequency=5540
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:35:20
-# ساعت دستگاه (خام): 1974-10-01 15:43:57
-# افست اصلاحی (سرور − دستگاه): +456138:21:23
-  1  1405/07/22 10:54:27  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 10:54:30  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:94:8C:9A
-  3  1405/07/22 10:54:35  [wireless,info]  E4:8D:8C:D5:38:61@wlan1: connected, signal strength -58
-  4  1405/07/22 10:54:35  [wireless,info]  6C:3B:6B:97:E7:CD@wlan1: connected, signal strength -52
-  5  1405/07/22 10:54:35  [wireless,info]  6C:3B:6B:91:11:4C@wlan1: connected, signal strength -70
-  6  1405/07/22 10:54:35  [wireless,info]  6C:3B:6B:10:AF:73@wlan1: connected, signal strength -62
-  7  1405/07/22 10:54:36  [wireless,info]  6C:3B:6B:34:01:DB@wlan1: reconnecting
-  8  1405/07/22 10:54:36  [wireless,info]  6C:3B:6B:34:01:DB@wlan1: connected, signal strength -59
-  9  1405/07/22 10:54:37  [wireless,info]  64:D1:54:93:53:89@wlan1: connected, signal strength -66
- 10  1405/07/22 10:54:38  [interface,info]  ether1 link up (speed 1G, full duplex)
- 11  1405/07/22 10:54:51  [wireless,info]  6C:3B:6B:97:E7:E3@wlan1: connected, signal strength -64
- 12  1405/07/22 13:35:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:40:08
+# ساعت دستگاه (خام): 1974-10-07 00:32:56
+# افست اصلاحی (سرور − دستگاه): +456180:37:12
+  1  1405/07/25 05:10:17  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/25 05:10:19  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:94:8C:9A
+  3  1405/07/25 05:10:25  [wireless,info]  6C:3B:6B:97:E7:CD@wlan1: connected, signal strength -54
+  4  1405/07/25 05:10:25  [wireless,info]  6C:3B:6B:34:01:DB@wlan1: connected, signal strength -54
+  5  1405/07/25 05:10:25  [wireless,info]  64:D1:54:93:53:89@wlan1: connected, signal strength -66
+  6  1405/07/25 05:10:27  [interface,info]  ether1 link up (speed 1G, full duplex)
+  7  1405/07/25 05:10:27  [wireless,info]  E4:8D:8C:D5:38:61@wlan1: connected, signal strength -58
+  8  1405/07/25 05:10:30  [wireless,info]  6C:3B:6B:10:AF:73@wlan1: connected, signal strength -68
+  9  1405/07/25 05:10:34  [wireless,info]  6C:3B:6B:91:11:4C@wlan1: connected, signal strength -66
+ 10  1405/07/25 05:10:40  [wireless,info]  6C:3B:6B:97:E7:E3@wlan1: connected, signal strength -58
+ 11  1405/07/25 05:37:06  [wireless,info]  64:D1:54:93:53:89@wlan1: disconnected, control frame timeout
+ 12  1405/07/25 05:37:34  [wireless,info]  6C:3B:6B:10:AF:73@wlan1: disconnected, control frame timeout
+ 13  1405/07/25 05:38:12  [wireless,info]  64:D1:54:93:53:89@wlan1: connected, signal strength -86
+ 14  1405/07/25 05:38:35  [wireless,info]  64:D1:54:93:53:89@wlan1: disconnected, not responding
+ 15  1405/07/25 05:40:54  [wireless,info]  6C:3B:6B:10:AF:73@wlan1: reconnecting
+ 16  1405/07/25 05:40:54  [wireless,info]  6C:3B:6B:10:AF:73@wlan1: connected, signal strength -78
+ 17  1405/07/25 05:45:55  [wireless,info]  64:D1:54:93:53:89@wlan1: connected, signal strength -88
+ 18  1405/07/25 05:46:56  [wireless,info]  64:D1:54:93:53:89@wlan1: disconnected, not responding
+ 19  1405/07/25 05:49:02  [wireless,info]  64:D1:54:93:53:89@wlan1: connected, signal strength -86
+ 20  1405/07/25 05:49:13  [wireless,info]  64:D1:54:93:53:89@wlan1: disconnected, control frame timeout
+ 21  1405/07/25 05:49:27  [wireless,info]  64:D1:54:93:53:89@wlan1: connected, signal strength -90
+ 22  1405/07/25 05:49:56  [wireless,info]  64:D1:54:93:53:89@wlan1: disconnected, not responding
+ 23  1405/07/25 05:52:28  [wireless,info]  64:D1:54:93:53:89@wlan1: reconnecting
+ 24  1405/07/25 05:52:29  [wireless,info]  64:D1:54:93:53:89@wlan1: connected, signal strength -81
+ 25  1405/07/25 20:37:10  [interface,info]  ether1 link down
+ 26  1405/07/25 20:37:12  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 27  1405/07/25 20:37:36  [interface,info]  ether1 link down
+ 28  1405/07/25 20:37:38  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 29  1405/07/25 21:30:14  [interface,info]  ether1 link down
+ 30  1405/07/25 21:30:16  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 31  1405/07/25 21:30:39  [interface,info]  ether1 link down
+ 32  1405/07/25 21:30:41  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 33  1405/07/26 02:00:35  [interface,info]  ether1 link down
+ 34  1405/07/26 02:00:37  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 35  1405/07/26 02:01:00  [interface,info]  ether1 link down
+ 36  1405/07/26 02:01:02  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 37  1405/07/26 02:31:38  [interface,info]  ether1 link down
+ 38  1405/07/26 02:31:40  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 39  1405/07/26 02:32:04  [interface,info]  ether1 link down
+ 40  1405/07/26 02:32:06  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 41  1405/07/26 03:05:12  [interface,info]  ether1 link down
+ 42  1405/07/26 03:05:14  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 43  1405/07/26 03:05:37  [interface,info]  ether1 link down
+ 44  1405/07/26 03:05:39  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 45  1405/07/26 09:10:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 46  1405/07/26 09:10:26  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 47  1405/07/26 09:12:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 48  1405/07/26 09:12:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 49  1405/07/29 16:40:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

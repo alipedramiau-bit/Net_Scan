@@ -1,5 +1,5 @@
 IP: 172.18.25.66
-Collected at: 2026-10-15T10:08:43.118150+00:00
+Collected at: 2026-10-21T13:16:57.875911+00:00
 source: RouterOS API
 identity: Soofieh->JafariShobeyshi.AP
 device_type: AP
@@ -28,15 +28,19 @@ name=wlan1  mode=bridge  ssid=SFYSHBYI  band=5ghz-a/n  frequency=5700
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:32:56
-# ساعت دستگاه (خام): 2024-11-19 00:19:10
-# افست اصلاحی (سرور − دستگاه): +16688:43:46
-  1  1405/07/22 11:13:41  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 11:13:41  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:06:5B:BC
-  3  1405/07/22 11:13:42  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/23 13:25:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  5  1405/07/23 13:25:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  6  1405/07/23 12:32:55  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:34:43
+# ساعت دستگاه (خام): 2024-11-24 20:05:45
+# افست اصلاحی (سرور − دستگاه): +16696:58:58
+  1  1405/07/24 19:28:54  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/24 19:28:54  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:06:5B:BC
+  3  1405/07/24 19:28:56  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/26 09:02:05  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  5  1405/07/26 09:02:07  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  6  1405/07/26 09:04:40  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  7  1405/07/26 09:04:42  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  8  1405/07/26 09:06:42  [wireless,info]  08:55:31:79:56:80@wlan1: connected, signal strength -68, wants bridge
+  9  1405/07/26 10:44:26  [wireless,info]  08:55:31:79:56:80@wlan1: disconnected, too many poll timeouts, signal strength -68
+ 10  1405/07/29 16:34:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

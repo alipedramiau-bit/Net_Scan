@@ -1,5 +1,5 @@
 IP: 172.18.9.37
-Collected at: 2026-10-10T07:41:37.790003+00:00
+Collected at: 2026-10-21T13:18:04.724475+00:00
 source: RouterOS API
 identity: SeyedHassanHakim.Client
 device_type: ST
@@ -27,22 +27,19 @@ name=wlan1  mode=station  ssid=Abadan-Khezr2  band=5ghz-a/n  frequency=auto
 === /ip neighbor ===
   1  identity=KhezrNabi-MK  address=172.18.9.33  interface=wlan1
   2  identity=Abadan-Khezr2  address=172.18.9.34  interface=wlan1
-  3  identity=Seyhan.Home  address=172.18.9.35  interface=wlan1
-  4  identity=Moghitieyh  address=172.18.9.38  interface=wlan1
+  3  identity=Moghitieyh  address=172.18.9.38  interface=wlan1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/18 11:01:42
-# ساعت دستگاه (خام): 1975-03-03 10:17:09
-# افست اصلاحی (سرور − دستگاه): +452373:14:33
-  1  1405/07/18 10:35:27  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/18 10:35:35  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
-  3  1405/07/18 10:35:37  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/18 10:37:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  5  1405/07/18 10:37:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  6  1405/07/18 10:42:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  7  1405/07/18 10:42:14  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  8  1405/07/18 11:01:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:41:20
+# ساعت دستگاه (خام): 1975-03-06 17:43:50
+# افست اصلاحی (سرور − دستگاه): +452563:27:30
+  1  1405/07/29 08:48:23  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/29 08:48:31  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
+  3  1405/07/29 08:48:35  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/29 15:24:06  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: lost connection, not polled for too long
+  5  1405/07/29 15:24:12  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
+  6  1405/07/29 16:41:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -50,4 +47,3 @@ ether1  64:D1:54:52:E5:2E  (ether)
 wlan1  64:D1:54:52:E5:2F  (wlan)
 --- /ip arp ---
 wlan1  6C:3B:6B:85:AC:9C  (arp 172.18.9.33)
-ether1  1C:1B:0D:B9:07:84  (arp 172.29.68.154)

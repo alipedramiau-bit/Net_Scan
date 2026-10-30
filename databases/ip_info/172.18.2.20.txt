@@ -1,5 +1,5 @@
 IP: 172.18.2.20
-Collected at: 2026-10-15T10:07:53.638973+00:00
+Collected at: 2026-10-21T13:16:20.350893+00:00
 source: RouterOS API
 identity: Ghadr.Client
 device_type: ST
@@ -31,167 +31,44 @@ name=wlan1  mode=station  ssid=Abadan-Foriat4  band=5ghz-a/n  frequency=5520
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:23:24
-# ساعت دستگاه (خام): 2025-12-26 07:24:22
-# افست اصلاحی (سرور − دستگاه): +7033:29:02
-  1  2025-12-15 09:02:38  [system,error,critical]  router was rebooted without proper shutdown
-  2  2025-12-15 09:02:39  [interface,info]  lo link up
-  3  2025-12-15 09:02:46  [wireless,info]  B8:69:F4:6C:5A:54@wlan1 established connection on 5520000, SSID Abadan-Foriat4
-  4  2025-12-15 09:02:47  [interface,info]  ether1 link up (speed 100M, full duplex)
-  5  2025-12-16 03:04:35  [dhcp,info]  dhcp1 assigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
-  6  2025-12-16 03:06:42  [dhcp,info]  dhcp1 assigned 172.29.3.243 for 7C:F1:7E:F4:1A:04 DESKTOP-PB1J1IP
-  7  2025-12-16 03:10:02  [dhcp,info]  dhcp1 assigned 172.29.3.242 for EC:08:6B:A0:2F:7F Jokari-PC
-  8  2025-12-16 03:27:12  [dhcp,info]  dhcp1 assigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
-  9  2025-12-16 04:02:48  [dhcp,info]  dhcp1 assigned 172.29.3.240 for 18:D6:C7:C6:7B:89 PC0001-PC
- 10  2025-12-16 04:14:22  [dhcp,info]  dhcp1 assigned 172.29.3.248 for 7C:F1:7E:F4:27:96 DESKTOP-JGFU5P6
- 11  2025-12-16 07:02:23  [dhcp,info]  dhcp1 deassigned 172.29.3.248 for 7C:F1:7E:F4:27:96 DESKTOP-JGFU5P6
- 12  2025-12-16 07:06:42  [dhcp,info]  dhcp1 deassigned 172.29.3.243 for 7C:F1:7E:F4:1A:04 DESKTOP-PB1J1IP
- 13  2025-12-16 07:42:13  [dhcp,info]  dhcp1 deassigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
- 14  2025-12-16 07:47:49  [dhcp,info]  dhcp1 deassigned 172.29.3.240 for 18:D6:C7:C6:7B:89 PC0001-PC
- 15  2025-12-16 07:58:41  [dhcp,info]  dhcp1 deassigned 172.29.3.242 for EC:08:6B:A0:2F:7F Jokari-PC
- 16  2025-12-16 08:30:04  [dhcp,info]  dhcp1 deassigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
- 17  2025-12-17 03:07:54  [dhcp,info]  dhcp1 assigned 172.29.3.243 for 7C:F1:7E:F4:1A:04 DESKTOP-PB1J1IP
- 18  2025-12-17 03:10:35  [dhcp,info]  dhcp1 assigned 172.29.3.242 for EC:08:6B:A0:2F:7F Jokari-PC
- 19  2025-12-17 03:12:39  [dhcp,info]  dhcp1 assigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
- 20  2025-12-17 03:32:07  [dhcp,info]  dhcp1 assigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
- 21  2025-12-17 04:17:09  [dhcp,info]  dhcp1 deassigned 172.29.3.243 for 7C:F1:7E:F4:1A:04 DESKTOP-PB1J1IP
- 22  2025-12-17 04:17:39  [dhcp,info]  dhcp1 deassigned 172.29.3.242 for EC:08:6B:A0:2F:7F Jokari-PC
- 23  2025-12-17 08:17:22  [dhcp,info]  dhcp1 deassigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
- 24  2025-12-18 03:12:41  [dhcp,info]  dhcp1 assigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
- 25  2025-12-18 05:12:41  [dhcp,info]  dhcp1 deassigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
- 26  2025-12-18 05:14:34  [dhcp,info]  dhcp1 assigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
- 27  2025-12-18 08:29:34  [dhcp,info]  dhcp1 deassigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
- 28  2025-12-18 08:33:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 29  2025-12-18 08:33:22  [system,info]  changed snmp settings by api:garnaf@172.18.4.76 (/snmp set enabled=yes trap-version=2)
- 30  2025-12-18 08:33:22  [system,info]  item changed by api:garnaf@172.18.4.76/action:0 (/snmp community set [ find ] addresses=0.0.0.0/0 name=Olom@Pez write-access=no)
- 31  2025-12-18 08:33:22  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 32  2025-12-18 08:35:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 33  2025-12-18 08:35:07  [system,info]  changed snmp settings by api:garnaf@172.18.4.76 (/snmp set enabled=yes trap-version=2)
- 34  2025-12-18 08:35:07  [system,info]  item changed by api:garnaf@172.18.4.76/action:0 (/snmp community set [ find ] addresses=0.0.0.0/0 name=Olom@Pez write-access=no)
- 35  2025-12-18 08:35:08  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 36  2025-12-18 08:37:23  [dhcp,info]  dhcp1 deassigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
- 37  2025-12-18 08:38:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 38  2025-12-18 08:38:38  [system,info]  changed snmp settings by api:garnaf@172.18.4.76 (/snmp set enabled=yes trap-version=2)
- 39  2025-12-18 08:38:38  [system,info]  item changed by api:garnaf@172.18.4.76/action:0 (/snmp community set [ find ] addresses=0.0.0.0/0 name=Olom@Pez write-access=no)
- 40  2025-12-18 08:38:38  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 41  2025-12-18 09:54:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 42  2025-12-18 09:54:56  [system,info]  user olom1 added by api:garnaf@172.18.4.76 (*3 = /user add group=full name=olom1)
- 43  2025-12-18 09:54:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 44  2025-12-18 10:05:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 45  2025-12-18 10:05:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 46  2025-12-18 10:09:58  [system,info,account]  user olom1 logged in from 172.18.4.76 via winbox
- 47  2025-12-18 10:10:01  [system,info,account]  user olom1 logged out from 172.18.4.76 via winbox
- 48  2025-12-18 11:56:37  [dhcp,info]  dhcp1 assigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
- 49  2025-12-18 12:41:37  [dhcp,info]  dhcp1 deassigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
- 50  2025-12-18 13:59:26  [dhcp,info]  dhcp1 assigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
- 51  2025-12-18 14:44:25  [dhcp,info]  dhcp1 deassigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
- 52  2025-12-18 15:09:53  [dhcp,info]  dhcp1 assigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
- 53  2025-12-18 15:54:53  [dhcp,info]  dhcp1 deassigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
- 54  2025-12-18 17:13:39  [dhcp,info]  dhcp1 assigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
- 55  2025-12-18 17:58:39  [dhcp,info]  dhcp1 deassigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
- 56  2025-12-18 18:22:34  [dhcp,info]  dhcp1 assigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
- 57  2025-12-18 19:07:35  [dhcp,info]  dhcp1 deassigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
- 58  2025-12-18 21:35:33  [dhcp,info]  dhcp1 assigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
- 59  2025-12-18 22:20:32  [dhcp,info]  dhcp1 deassigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
- 60  2025-12-19 00:51:00  [dhcp,info]  dhcp1 assigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
- 61  2025-12-19 01:35:59  [dhcp,info]  dhcp1 deassigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
- 62  2025-12-19 03:15:21  [dhcp,info]  dhcp1 assigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
- 63  2025-12-19 03:20:21  [dhcp,info]  dhcp1 assigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
- 64  2025-12-19 05:09:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 65  2025-12-19 05:09:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 66  2025-12-19 05:14:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 67  2025-12-19 05:14:19  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 68  2025-12-19 05:36:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 69  2025-12-19 05:36:23  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 70  2025-12-19 06:20:20  [dhcp,info]  dhcp1 deassigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
- 71  2025-12-19 07:15:21  [dhcp,info]  dhcp1 deassigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
- 72  2025-12-19 08:50:05  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 73  2025-12-19 08:50:07  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 74  2025-12-19 09:07:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 75  2025-12-19 09:07:16  [system,info]  changed snmp settings by api:garnaf@172.18.4.76 (/snmp set enabled=yes trap-version=2)
- 76  2025-12-19 09:07:16  [system,info]  item changed by api:garnaf@172.18.4.76/action:0 (/snmp community set [ find ] addresses=0.0.0.0/0 name=Olom@Pez write-access=no)
- 77  2025-12-19 09:07:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 78  2025-12-19 09:29:12  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 79  2025-12-19 09:29:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 80  2025-12-19 10:40:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 81  2025-12-19 10:40:18  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 82  2025-12-20 03:31:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 83  2025-12-20 03:31:36  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 84  2025-12-20 04:05:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 85  2025-12-20 04:05:21  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 86  2025-12-20 04:20:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 87  2025-12-20 04:20:32  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 88  2025-12-21 03:13:46  [dhcp,info]  dhcp1 assigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
- 89  2025-12-21 03:34:32  [dhcp,info]  dhcp1 assigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
- 90  2025-12-21 04:55:55  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 91  2025-12-21 04:55:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 92  2025-12-21 05:29:50  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 93  2025-12-21 05:29:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 94  2025-12-21 05:54:13  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 95  2025-12-21 05:54:14  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 96  2025-12-21 07:08:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 97  2025-12-21 07:08:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 98  2025-12-21 07:49:31  [dhcp,info]  dhcp1 deassigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
- 99  2025-12-21 07:57:37  [dhcp,info]  dhcp1 deassigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
-100  2025-12-22 03:18:21  [dhcp,info]  dhcp1 assigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
-101  2025-12-22 03:25:09  [dhcp,info]  dhcp1 assigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
-102  2025-12-22 04:36:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-103  2025-12-22 04:36:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-104  2025-12-22 07:55:09  [dhcp,info]  dhcp1 deassigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
-105  2025-12-22 08:34:52  [dhcp,info]  dhcp1 deassigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
-106  2025-12-22 12:42:32  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-107  2025-12-22 12:42:32  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-108  2025-12-23 03:13:45  [dhcp,info]  dhcp1 assigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
-109  2025-12-23 03:25:12  [dhcp,info]  dhcp1 assigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
-110  2025-12-23 07:55:19  [dhcp,info]  dhcp1 deassigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
-111  2025-12-23 07:58:45  [dhcp,info]  dhcp1 deassigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
-112  2025-12-24 03:13:56  [dhcp,info]  dhcp1 assigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
-113  2025-12-24 03:18:21  [dhcp,info]  dhcp1 assigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
-114  2025-12-24 05:39:10  [wireless,info]  B8:69:F4:6C:5A:54@wlan1: lost connection, extensive data loss
-115  2025-12-24 05:41:56  [wireless,info]  B8:69:F4:6C:5A:54@wlan1 established connection on 5520000, SSID Abadan-Foriat4
-116  2025-12-24 05:50:50  [wireless,info]  B8:69:F4:6C:5A:54@wlan1: lost connection, extensive data loss
-117  2025-12-24 05:51:13  [wireless,info]  B8:69:F4:6C:5A:54@wlan1 established connection on 5520000, SSID Abadan-Foriat4
-118  2025-12-24 05:56:47  [wireless,info]  B8:69:F4:6C:5A:54@wlan1: lost connection, extensive data loss
-119  2025-12-24 05:58:19  [wireless,info]  B8:69:F4:6C:5A:54@wlan1 established connection on 5520000, SSID Abadan-Foriat4
-120  2025-12-24 05:58:35  [wireless,info]  B8:69:F4:6C:5A:54@wlan1: lost connection, extensive data loss
-121  2025-12-24 05:59:43  [wireless,info]  B8:69:F4:6C:5A:54@wlan1 established connection on 5520000, SSID Abadan-Foriat4
-122  2025-12-24 07:58:09  [dhcp,info]  dhcp1 deassigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
-123  2025-12-24 08:18:21  [dhcp,info]  dhcp1 deassigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
-124  2025-12-24 12:05:11  [dhcp,info]  dhcp1 assigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
-125  2025-12-24 12:50:11  [dhcp,info]  dhcp1 deassigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
-126  2025-12-24 13:50:34  [dhcp,info]  dhcp1 assigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
-127  2025-12-24 14:35:34  [dhcp,info]  dhcp1 deassigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
-128  2025-12-24 15:06:55  [dhcp,info]  dhcp1 assigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
-129  2025-12-24 16:06:54  [dhcp,info]  dhcp1 deassigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
-130  2025-12-24 17:05:04  [dhcp,info]  dhcp1 assigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
-131  2025-12-24 17:50:05  [dhcp,info]  dhcp1 deassigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
-132  2025-12-24 18:20:38  [dhcp,info]  dhcp1 assigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
-133  2025-12-24 19:20:38  [dhcp,info]  dhcp1 deassigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
-134  2025-12-24 20:21:10  [dhcp,info]  dhcp1 assigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
-135  2025-12-24 21:21:10  [dhcp,info]  dhcp1 deassigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
-136  2025-12-24 21:33:10  [dhcp,info]  dhcp1 assigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
-137  2025-12-24 22:18:09  [dhcp,info]  dhcp1 deassigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
-138  2025-12-25 00:52:22  [dhcp,info]  dhcp1 assigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
-139  2025-12-25 01:37:22  [dhcp,info]  dhcp1 deassigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
-140  2025-12-25 02:59:56  [dhcp,info]  dhcp1 assigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
-141  2025-12-25 03:27:07  [dhcp,info]  dhcp1 assigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
-142  2025-12-25 07:27:40  [dhcp,info]  dhcp1 assigned 172.29.3.242 for EC:08:6B:A0:2F:7F Jokari-PC
-143  2025-12-25 07:42:07  [dhcp,info]  dhcp1 deassigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
-144  2025-12-25 08:14:56  [dhcp,info]  dhcp1 deassigned 172.29.3.241 for 18:D6:C7:C6:72:A5 BB1028
-145  2025-12-25 08:16:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-146  2025-12-25 08:16:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-147  2025-12-25 08:27:40  [dhcp,info]  dhcp1 deassigned 172.29.3.242 for EC:08:6B:A0:2F:7F Jokari-PC
-148  2025-12-26 07:24:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:29:58
+# ساعت دستگاه (خام): 2025-12-31 08:28:09
+# افست اصلاحی (سرور − دستگاه): +7060:31:49
+  1  2025-12-27 09:02:38  [system,error,critical]  router was rebooted without proper shutdown
+  2  2025-12-27 09:02:38  [interface,info]  lo link up
+  3  2025-12-27 09:02:45  [wireless,info]  B8:69:F4:6C:5A:54@wlan1 established connection on 5520000, SSID Abadan-Foriat4
+  4  2025-12-27 09:02:46  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  2025-12-28 00:12:09  [dhcp,info]  dhcp1 assigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
+  6  2025-12-28 00:31:43  [dhcp,info]  dhcp1 assigned 172.29.3.253 for 18:D6:C7:C6:72:A5 BB1028
+  7  2025-12-28 00:50:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  8  2025-12-28 00:50:37  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  9  2025-12-28 00:53:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 10  2025-12-28 00:53:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 11  2025-12-28 05:01:43  [dhcp,info]  dhcp1 deassigned 172.29.3.253 for 18:D6:C7:C6:72:A5 BB1028
+ 12  2025-12-28 05:12:08  [dhcp,info]  dhcp1 deassigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
+ 13  2025-12-29 00:24:13  [dhcp,info]  dhcp1 assigned 172.29.3.253 for 18:D6:C7:C6:72:A5 BB1028
+ 14  2025-12-29 00:25:33  [dhcp,info]  dhcp1 assigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
+ 15  2025-12-29 03:26:27  [dhcp,info]  dhcp1 deassigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
+ 16  2025-12-29 03:27:42  [dhcp,info]  dhcp1 assigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
+ 17  2025-12-29 04:39:13  [dhcp,info]  dhcp1 deassigned 172.29.3.253 for 18:D6:C7:C6:72:A5 BB1028
+ 18  2025-12-29 05:12:42  [dhcp,info]  dhcp1 deassigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
+ 19  2025-12-30 00:11:50  [dhcp,info]  dhcp1 assigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
+ 20  2025-12-30 01:08:11  [dhcp,info]  dhcp1 assigned 172.29.3.253 for 18:D6:C7:C6:72:A5 BB1028
+ 21  2025-12-30 04:42:38  [dhcp,info]  dhcp1 deassigned 172.29.3.253 for 18:D6:C7:C6:72:A5 BB1028
+ 22  2025-12-30 04:56:48  [dhcp,info]  dhcp1 deassigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
+ 23  2025-12-30 23:59:17  [dhcp,info]  dhcp1 assigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
+ 24  2025-12-31 00:13:59  [dhcp,info]  dhcp1 assigned 172.29.3.253 for 18:D6:C7:C6:72:A5 BB1028
+ 25  2025-12-31 04:28:59  [dhcp,info]  dhcp1 deassigned 172.29.3.253 for 18:D6:C7:C6:72:A5 BB1028
+ 26  2025-12-31 04:39:46  [dhcp,info]  dhcp1 assigned 172.29.3.253 for 18:D6:C7:C6:72:A5 BB1028
+ 27  2025-12-31 04:59:16  [dhcp,info]  dhcp1 deassigned 172.29.3.254 for EC:08:6B:A0:3B:B9 BP1032
+ 28  2025-12-31 05:09:46  [dhcp,info]  dhcp1 deassigned 172.29.3.253 for 18:D6:C7:C6:72:A5 BB1028
+ 29  2025-12-31 08:28:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
 ether1  D0:EA:11:18:20:78  (ether)
 wlan1  D0:EA:11:18:20:79  (wlan)
 --- /ip arp ---
-ether1  18:D6:C7:C6:7B:89  (arp 172.29.3.240)
-wlan1  6C:3B:6B:87:6E:1A  (arp 172.18.2.17)
-ether1  7C:F1:7E:F4:1A:04  (arp 172.29.3.243)
-ether1  7C:F1:7E:F4:27:96  (arp 172.29.3.248)
+ether1  18:D6:C7:C6:72:A5  (arp 172.29.3.253)
 ether1  EC:08:6B:A0:3B:B9  (arp 172.29.3.254)
-ether1  EC:08:6B:A0:2F:7F  (arp 172.29.3.242)
-ether1  18:D6:C7:C6:72:A5  (arp 172.29.3.241)
+wlan1  6C:3B:6B:87:6E:1A  (arp 172.18.2.17)

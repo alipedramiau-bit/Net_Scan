@@ -1,5 +1,5 @@
 IP: 172.18.9.229
-Collected at: 2026-10-14T10:24:33.391554+00:00
+Collected at: 2026-10-21T13:17:59.353894+00:00
 source: RouterOS API
 identity: obuabood.Client
 device_type: ST
@@ -31,14 +31,20 @@ name=wlan1  mode=station-bridge  ssid=Abadan-ArvanKenar1  band=5ghz-a/n  frequen
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:36:14
-# ساعت دستگاه (خام): 1975-10-02 02:14:54
-# افست اصلاحی (سرور − دستگاه): +447367:51:20
-  1  1405/07/22 12:49:56  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 12:49:58  [interface,info]  ether1 link up (speed 100M, full duplex)
-  3  1405/07/22 12:50:53  [wireless,info]  6C:3B:6B:94:8C:48@wlan1 established connection on 5860000, SSID Abadan-ArvanKenar1
-  4  1405/07/22 12:58:29  [dhcp,info]  dhcp1 deassigned 172.29.74.68 from 94:DE:80:4C:F3:B7
-  5  1405/07/22 13:36:12  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:40:54
+# ساعت دستگاه (خام): 1975-10-07 05:14:19
+# افست اصلاحی (سرور − دستگاه): +447415:56:35
+  1  1405/07/28 12:55:08  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/28 12:55:09  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/28 12:56:05  [wireless,info]  6C:3B:6B:94:8C:48@wlan1 established connection on 5860000, SSID Abadan-ArvanKenar1
+  4  1405/07/28 13:00:48  [dhcp,info]  dhcp1 deassigned 172.29.74.68 from 94:DE:80:4C:F3:B7
+  5  1405/07/28 14:18:02  [dhcp,info]  dhcp1 assigned 172.29.74.69 to 5C:87:9C:9A:06:91
+  6  1405/07/28 14:18:31  [dhcp,info]  dhcp1 assigned 172.29.74.68 to 94:DE:80:4C:F3:B7
+  7  1405/07/28 14:43:03  [dhcp,info]  dhcp1 deassigned 172.29.74.69 from 5C:87:9C:9A:06:91
+  8  1405/07/28 14:43:31  [dhcp,info]  dhcp1 deassigned 172.29.74.68 from 94:DE:80:4C:F3:B7
+  9  1405/07/29 09:29:03  [wireless,info]  6C:3B:6B:94:8C:48@wlan1: lost connection, no beacons received
+ 10  1405/07/29 09:29:59  [wireless,info]  6C:3B:6B:94:8C:48@wlan1 established connection on 5860000, SSID Abadan-ArvanKenar1
+ 11  1405/07/29 16:40:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -46,4 +52,3 @@ ether1  CC:2D:E0:11:36:F6  (ether)
 wlan1  CC:2D:E0:11:36:F7  (wlan)
 --- /ip arp ---
 wlan1  6C:3B:6B:B2:3D:1E  (arp 172.18.9.225)
-ether1  5C:87:9C:9A:06:91  (arp 172.29.74.69)

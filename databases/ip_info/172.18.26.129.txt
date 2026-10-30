@@ -1,5 +1,5 @@
 IP: 172.18.26.129
-Collected at: 2026-10-15T10:08:49.395360+00:00
+Collected at: 2026-10-21T13:17:00.218471+00:00
 source: RouterOS API
 identity: MK_Darkhovein
 device_type: Router
@@ -71,39 +71,36 @@ device_type: Router
   3  identity=Darkhovein.Client  address=172.18.26.21  interface=ether1,bridge1-temp
   4  identity=cl-vastaniye  address=172.18.26.25  interface=ether1,bridge1-temp
   5  identity=Shadegan-Darkhovein2  address=172.18.26.34  interface=ether2
-  6  identity=ShakhtolKhan.Client  address=172.18.26.35  interface=ether2
-  7  identity=Darkhovain_Matkaz_behdasht_ap  address=172.18.26.50  interface=ether3
-  8  identity=markaz-kofeyshe  address=172.18.26.51  interface=ether3
-  9  identity=KofeyshehHome.Client  address=172.18.26.52  interface=ether3
- 10  identity=CRS-Darkhovein  address=172.18.26.24  interface=ether5-LOCAL-darkhoveien,bridge1-temp
- 11  identity=R2SH  address=-  interface=ether6
- 12  identity=RB-UMS-SHDGN-CoreRouter  address=172.18.26.1  interface=ether6
- 13  identity=shadegan->Darkhovein.AP  address=172.18.26.2  interface=ether6
- 14  identity=shadegan->Darkhovein-ST  address=172.18.26.3  interface=ether6
- 15  identity=Darkhoein->Soeichi.AP  address=172.18.26.130  interface=ether7
- 16  identity=Darkhoein->Soeichi.Client  address=172.18.26.131  interface=ether7
- 17  identity=MK_Soeichi  address=172.18.26.132  interface=ether7
- 18  identity=Darkhovein->OmolGhazlan.AP  address=172.18.26.10  interface=ether9
- 19  identity=Darkhovein->OmolGhazlan.Client  address=172.18.26.11  interface=ether9
- 20  identity=MK_OmolGhazlan  address=172.18.26.12  interface=ether9
+  6  identity=Darkhovain_Matkaz_behdasht_ap  address=172.18.26.50  interface=ether3
+  7  identity=markaz-kofeyshe  address=172.18.26.51  interface=ether3
+  8  identity=CRS-Darkhovein  address=172.18.26.24  interface=ether5-LOCAL-darkhoveien,bridge1-temp
+  9  identity=R2SH  address=-  interface=ether6
+ 10  identity=RB-UMS-SHDGN-CoreRouter  address=172.18.26.1  interface=ether6
+ 11  identity=shadegan->Darkhovein.AP  address=172.18.26.2  interface=ether6
+ 12  identity=shadegan->Darkhovein-ST  address=172.18.26.3  interface=ether6
+ 13  identity=Darkhoein->Soeichi.AP  address=172.18.26.130  interface=ether7
+ 14  identity=Darkhoein->Soeichi.Client  address=172.18.26.131  interface=ether7
+ 15  identity=MK_Soeichi  address=172.18.26.132  interface=ether7
+ 16  identity=Darkhovein->OmolGhazlan.AP  address=172.18.26.10  interface=ether9
+ 17  identity=Darkhovein->OmolGhazlan.Client  address=172.18.26.11  interface=ether9
+ 18  identity=MK_OmolGhazlan  address=172.18.26.12  interface=ether9
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:33:50
-# ساعت دستگاه (خام): 2025-07-15 23:15:44
-# افست اصلاحی (سرور − دستگاه): +10953:48:06
-  1  1405/07/23 07:51:03  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/23 07:51:04  [bridge,info]  "bridge1-temp" mac address changed to E4:8D:8C:0D:18:B8
-  3  1405/07/23 07:51:05  [bridge,info]  hardware offloading activated on bridge "bridge1-temp" ports: ether1
-  4  1405/07/23 07:51:05  [bridge,info]  hardware offloading activated on bridge "bridge1-temp" ports: ether5-LOCAL-darkhoveien
-  5  1405/07/23 07:51:06  [interface,info]  ether2 link up (speed 100M, full duplex)
-  6  1405/07/23 07:51:06  [interface,info]  ether6 link up (speed 100M, full duplex)
-  7  1405/07/23 07:51:06  [interface,info]  ether7 link up (speed 100M, full duplex)
-  8  1405/07/23 07:51:06  [interface,info]  ether9 link up (speed 100M, full duplex)
-  9  1405/07/23 07:51:07  [interface,info]  ether5-LOCAL-darkhoveien link up (speed 1G, full duplex)
- 10  1405/07/23 07:51:10  [interface,info]  ether1 link up (speed 1G, full duplex)
- 11  1405/07/23 07:51:13  [interface,info]  ether3 link up (speed 1G, full duplex)
- 12  1405/07/23 12:33:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:35:14
+# ساعت دستگاه (خام): 2025-07-21 17:55:39
+# افست اصلاحی (سرور − دستگاه): +10963:09:35
+  1  1405/07/27 17:01:56  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/27 17:01:58  [bridge,info]  "bridge1-temp" mac address changed to E4:8D:8C:0D:18:B8
+  3  1405/07/27 17:01:58  [bridge,info]  hardware offloading activated on bridge "bridge1-temp" ports: ether1,ether5-LOCAL-darkhoveien
+  4  1405/07/27 17:02:00  [interface,info]  ether2 link up (speed 100M, full duplex)
+  5  1405/07/27 17:02:00  [interface,info]  ether5-LOCAL-darkhoveien link up (speed 1G, full duplex)
+  6  1405/07/27 17:02:00  [interface,info]  ether6 link up (speed 100M, full duplex)
+  7  1405/07/27 17:02:00  [interface,info]  ether7 link up (speed 100M, full duplex)
+  8  1405/07/27 17:02:00  [interface,info]  ether9 link up (speed 100M, full duplex)
+  9  1405/07/27 17:02:03  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 10  1405/07/27 17:02:06  [interface,info]  ether3 link up (speed 1G, full duplex)
+ 11  1405/07/29 16:35:12  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -120,17 +117,16 @@ ether10  E4:8D:8C:0D:18:C1  (ether)
 sfp1  E4:8D:8C:0D:18:B7  (ether)
 bridge1-temp  E4:8D:8C:0D:18:B8  (bridge)
 --- /ip arp ---
-ether2  E4:8D:8C:61:6D:8D  (arp 172.18.26.35)
-ether6  64:D1:54:98:E3:2D  (arp 172.18.26.1)
-ether7  6C:3B:6B:2B:BA:19  (arp 172.18.26.132)
-ether9  4C:5E:0C:CD:FA:17  (arp 172.18.26.10)
-ether3  D4:01:C3:C5:3A:FF  (arp 172.18.26.51)
-ether7  6C:3B:6B:3E:4B:82  (arp 172.18.26.130)
 bridge1-temp  6C:3B:6B:4D:A3:0C  (arp 172.18.26.18)
+ether9  4C:5E:0C:CD:FA:17  (arp 172.18.26.10)
+ether7  6C:3B:6B:2B:BA:19  (arp 172.18.26.132)
 bridge1-temp  64:D1:54:52:D3:FB  (arp 172.18.26.21)
-ether9  4C:5E:0C:CD:FE:9F  (arp 172.18.26.11)
 ether3  18:FD:74:18:BD:15  (arp 172.18.26.50)
-ether9  6C:3B:6B:A9:FE:7B  (arp 172.18.26.12)
-bridge1-temp  6C:3B:6B:09:35:13  (arp 172.18.26.24)
 ether7  6C:3B:6B:3C:DA:A0  (arp 172.18.26.131)
+bridge1-temp  6C:3B:6B:09:35:13  (arp 172.18.26.24)
+ether3  D4:01:C3:C5:3A:FF  (arp 172.18.26.51)
+ether9  6C:3B:6B:A9:FE:7B  (arp 172.18.26.12)
+ether7  6C:3B:6B:3E:4B:82  (arp 172.18.26.130)
 bridge1-temp  6C:3B:6B:13:57:B1  (arp 172.18.26.19)
+ether9  4C:5E:0C:CD:FE:9F  (arp 172.18.26.11)
+ether6  64:D1:54:98:E3:2D  (arp 172.18.26.1)

@@ -1,5 +1,5 @@
 IP: 172.18.3.19
-Collected at: 2026-10-15T10:09:12.495848+00:00
+Collected at: 2026-10-21T13:17:13.903595+00:00
 source: RouterOS API
 identity: metal aboshanak
 device_type: ST
@@ -32,209 +32,209 @@ name=wlan1  mode=station-bridge  ssid=Setad Aboshanak.AP  band=5ghz-a/n  frequen
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:36:39
-# ساعت دستگاه (خام): 2026-10-14 17:12:58
-# افست اصلاحی (سرور − دستگاه): +15:53:41
-  1  1405/03/05 13:22:25  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
-  2  1405/03/16 11:05:57  [system,info,account]  user garnaf logged in from 172.29.40.4 via winbox
-  3  1405/03/16 11:05:58  [system,info,account]  user garnaf logged in from 172.29.40.4 via telnet
-  4  1405/03/16 11:06:44  [system,info]  nat rule changed by garnaf
-  5  1405/03/16 11:06:53  [system,info]  filter rule removed by garnaf
-  6  1405/03/16 11:12:12  [system,info,account]  user garnaf logged in from 172.29.40.4 via winbox
-  7  1405/03/16 11:12:14  [system,info,account]  user garnaf logged in from 172.29.40.4 via telnet
-  8  1405/03/16 11:12:23  [system,info,account]  user garnaf logged out from 172.29.40.4 via telnet
-  9  1405/03/16 11:33:55  [system,info,account]  user garnaf logged out from 172.29.40.4 via winbox
- 10  1405/03/16 11:53:20  [system,info,account]  user garnaf logged out from 172.29.40.4 via winbox
- 11  1405/03/16 11:53:20  [system,info,account]  user garnaf logged out from 172.29.40.4 via telnet
- 12  1405/03/20 02:11:20  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
- 13  1405/03/20 02:11:59  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
- 14  1405/03/20 06:42:44  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
- 15  1405/03/20 06:43:23  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
- 16  1405/03/20 06:43:32  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
- 17  1405/03/20 06:44:11  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: failed to connect, on 4980000, registration timeout
- 18  1405/03/20 06:44:50  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
- 19  1405/03/20 06:48:59  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
- 20  1405/03/20 06:49:40  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: failed to connect, on 4980000, registration timeout
- 21  1405/03/20 06:50:18  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
- 22  1405/03/20 06:50:47  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
- 23  1405/03/20 06:51:26  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
- 24  1405/03/20 06:52:10  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
- 25  1405/03/20 06:52:48  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
- 26  1405/03/20 07:15:04  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
- 27  1405/03/20 07:15:44  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
- 28  1405/03/20 07:50:15  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
- 29  1405/03/20 07:50:55  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: failed to connect, on 4980000, registration timeout
- 30  1405/03/20 07:51:33  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
- 31  1405/04/13 07:51:58  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
- 32  1405/04/13 07:52:36  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
- 33  1405/04/31 11:36:37  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, medium-access timeout
- 34  1405/04/31 11:37:15  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
- 35  1405/04/31 11:37:27  [system,info,account]  user garnaf logged in from 6C:3B:6B:3C:78:BF via mac-telnet
- 36  1405/04/31 11:37:35  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, administrative disconnect
- 37  1405/04/31 11:37:58  [system,info,account]  user garnaf logged out from 6C:3B:6B:3C:78:BF via mac-telnet
- 38  1405/04/31 11:38:14  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
- 39  1405/05/04 15:17:29  [ssh,error]  Corrupt host's key, regenerating it! Reboot required!
- 40  1405/05/04 15:22:45  [ssh,error]  Corrupt host's key, regenerating it! Reboot required!
- 41  1405/05/04 15:36:10  [ssh,error]  Corrupt host's key, regenerating it! Reboot required!
- 42  1405/05/04 15:36:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 43  1405/05/04 15:36:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 44  1405/05/04 15:41:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 45  1405/05/04 15:41:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via telnet
- 46  1405/05/04 15:41:38  [system,info]  filter rule removed by garnaf
- 47  1405/05/04 15:41:39  [system,info]  nat rule removed by garnaf
- 48  1405/05/04 15:41:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 49  1405/05/04 15:41:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via telnet
- 50  1405/05/04 15:43:59  [ssh,error]  Corrupt host's key, regenerating it! Reboot required!
- 51  1405/05/04 15:43:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 52  1405/05/04 15:43:59  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 53  1405/05/04 15:46:06  [ssh,error]  Corrupt host's key, regenerating it! Reboot required!
- 54  1405/05/04 15:49:15  [ssh,error]  Corrupt host's key, regenerating it! Reboot required!
- 55  1405/05/05 13:01:05  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 56  1405/05/05 13:01:06  [system,info,account]  user garnaf logged in from 172.18.4.76 via telnet
- 57  1405/05/05 13:01:13  [system,info,account]  user garnaf logged out from 172.18.4.76 via telnet
- 58  1405/05/05 13:05:41  [system,info]  address added by garnaf
- 59  1405/05/05 13:05:52  [system,info]  dhcp server dhcp1 changed by garnaf
- 60  1405/05/05 13:06:32  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FA:63:BB
- 61  1405/05/05 13:06:32  [system,info]  device changed by garnaf
- 62  1405/05/05 13:09:24  [system,info]  pool pool1 added by garnaf
- 63  1405/05/05 13:11:25  [system,info]  dhcp network added by garnaf
- 64  1405/05/05 13:11:57  [system,info]  dhcp server dhcp1 changed by garnaf
- 65  1405/05/05 13:13:08  [system,info]  dhcp network removed by garnaf
- 66  1405/05/05 13:14:26  [system,info]  address changed by garnaf
- 67  1405/05/05 13:14:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 68  1405/05/05 13:14:57  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FA:63:BB
- 69  1405/05/05 13:15:30  [system,info,account]  user garnaf logged in from 6C:3B:6B:3C:78:BF via mac-telnet
- 70  1405/05/05 13:16:05  [system,info]  address changed by garnaf
- 71  1405/05/05 13:17:15  [system,info]  dhcp server dhcp1 changed by garnaf
- 72  1405/05/05 14:03:52  [system,info,account]  user garnaf logged out from 6C:3B:6B:3C:78:BF via mac-telnet
- 73  1405/05/06 09:35:38  [system,info,account]  user garnaf logged in from 6C:3B:6B:3C:78:BF via mac-telnet
- 74  1405/05/06 09:45:18  [system,info]  address removed by garnaf
- 75  1405/05/06 09:52:45  [system,info]  address removed by garnaf
- 76  1405/05/06 09:53:05  [system,info]  address added by garnaf
- 77  1405/05/06 09:54:40  [system,info,account]  user garnaf logged in from 6C:3B:6B:3C:78:BF via mac-telnet
- 78  1405/05/06 09:54:59  [system,info,account]  user garnaf logged out from 6C:3B:6B:3C:78:BF via mac-telnet
- 79  1405/05/06 10:00:23  [system,info]  device changed by garnaf
- 80  1405/05/06 10:00:23  [system,info]  device changed by garnaf
- 81  1405/05/06 10:00:24  [system,info]  wireless security profile <default> changed by garnaf
- 82  1405/05/06 10:00:25  [system,info]  device changed by garnaf
- 83  1405/05/06 10:00:26  [system,info]  ipsec proposal default changed by garnaf
- 84  1405/05/06 10:00:26  [system,info]  item changed by garnaf
- 85  1405/05/06 10:00:26  [system,info]  address added by garnaf
- 86  1405/05/06 10:00:26  [system,info]  dhcp client added by garnaf
- 87  1405/05/06 10:00:26  [system,info]  dns changed by garnaf
- 88  1405/05/06 10:00:26  [system,info]  nat rule added by garnaf
- 89  1405/05/06 10:00:26  [system,info]  route added by garnaf
- 90  1405/05/06 10:00:27  [system,info]  RADIUS client added by garnaf
- 91  1405/05/06 10:00:27  [system,info]  RADIUS client added by garnaf
- 92  1405/05/06 10:00:27  [system,info]  radius incoming changed by garnaf
- 93  1405/05/06 10:00:27  [system,info]  changed snmp settings by garnaf
- 94  1405/05/06 10:00:27  [system,info]  system time zone settings changed by garnaf
- 95  1405/05/06 10:00:27  [system,info,account]  user garnaf logged out from 6C:3B:6B:3C:78:BF via mac-telnet
- 96  1405/05/06 10:01:04  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
- 97  1405/05/06 10:01:40  [system,info,account]  user garnaf logged in from 6C:3B:6B:3C:78:BF via mac-telnet
- 98  1405/05/06 10:02:44  [system,info]  route removed by garnaf
- 99  1405/05/06 10:04:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-100  1405/05/06 10:06:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via telnet
-101  1405/05/06 10:07:26  [system,info,account]  user garnaf logged out from 172.18.4.76 via telnet
-102  1405/05/06 10:12:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-103  1405/05/06 10:12:50  [system,info,account]  user garnaf logged out from 6C:3B:6B:3C:78:BF via mac-telnet
-104  1405/05/11 11:13:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-105  1405/05/11 11:18:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-106  1405/05/12 11:23:55  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-107  1405/05/12 11:25:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-108  1405/05/23 19:41:43  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
-109  1405/05/23 19:42:22  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: failed to connect, on 4980000, registration timeout
-110  1405/05/23 19:43:02  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
-111  1405/06/04 07:06:19  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
-112  1405/06/04 07:07:38  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
-113  1405/06/13 03:24:49  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
-114  1405/06/13 03:25:28  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
-115  1405/06/13 03:27:54  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
-116  1405/06/13 03:29:11  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
-117  1405/06/13 03:39:34  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
-118  1405/06/13 03:40:13  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
-119  1405/06/13 05:54:09  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
-120  1405/06/13 05:54:47  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
-121  1405/06/20 00:49:24  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
-122  1405/06/20 00:50:06  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
-123  1405/06/20 00:50:12  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
-124  1405/06/20 00:51:29  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
-125  1405/06/20 00:53:35  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
-126  1405/06/20 00:54:14  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: failed to connect, on 4980000, registration timeout
-127  1405/06/20 00:54:53  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: failed to connect, on 4980000, registration timeout
-128  1405/06/20 00:55:32  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: failed to connect, on 4980000, registration timeout
-129  1405/06/20 00:56:11  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: failed to connect, on 4980000, registration timeout
-130  1405/06/20 00:56:50  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: failed to connect, on 4980000, registration timeout
-131  1405/06/20 00:58:08  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: failed to connect, on 4980000, registration timeout
-132  1405/06/20 00:58:47  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
-133  1405/06/23 03:26:21  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
-134  1405/06/23 03:26:59  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
-135  1405/06/23 03:27:39  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
-136  1405/06/23 03:28:17  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
-137  1405/06/23 03:31:04  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
-138  1405/06/23 03:31:43  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
-139  1405/06/24 00:16:51  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
-140  1405/06/24 00:17:30  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
-141  1405/06/28 03:57:36  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
-142  1405/06/28 03:58:15  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: failed to connect, on 4980000, registration timeout
-143  1405/06/28 03:58:53  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
-144  1405/07/09 20:13:24  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
-145  1405/07/09 20:14:03  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
-146  1405/07/15 13:36:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-147  1405/07/15 13:36:51  [system,info]  changed snmp settings by garnaf
-148  1405/07/15 13:36:51  [system,info]  item changed by garnaf
-149  1405/07/15 13:36:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-150  1405/07/15 15:00:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-151  1405/07/15 15:00:27  [system,info]  user olom1 added by garnaf
-152  1405/07/15 15:00:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-153  1405/07/15 15:06:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-154  1405/07/15 15:06:19  [system,info]  user ums1 removed by garnaf
-155  1405/07/15 15:06:19  [system,info]  user ums2 removed by garnaf
-156  1405/07/15 15:06:19  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-157  1405/07/16 00:12:22  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, medium-access timeout
-158  1405/07/16 00:13:00  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
-159  1405/07/16 01:18:56  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
-160  1405/07/16 01:20:52  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: failed to connect, on 4980000, registration timeout
-161  1405/07/16 01:21:31  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
-162  1405/07/16 01:22:02  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
-163  1405/07/16 01:23:57  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
-164  1405/07/16 10:16:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-165  1405/07/16 10:16:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-166  1405/07/16 10:38:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-167  1405/07/16 10:38:37  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-168  1405/07/16 13:53:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-169  1405/07/16 13:53:40  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-170  1405/07/16 14:08:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-171  1405/07/16 14:08:29  [system,info]  changed snmp settings by garnaf
-172  1405/07/16 14:08:29  [system,info]  item changed by garnaf
-173  1405/07/16 14:08:29  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-174  1405/07/16 14:33:30  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-175  1405/07/16 14:33:31  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-176  1405/07/16 15:44:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-177  1405/07/16 15:44:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-178  1405/07/16 19:16:41  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
-179  1405/07/16 19:17:58  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
-180  1405/07/17 08:36:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-181  1405/07/17 08:36:10  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-182  1405/07/18 10:33:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-183  1405/07/18 10:33:53  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-184  1405/07/18 10:58:16  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-185  1405/07/18 10:58:17  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-186  1405/07/18 12:10:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-187  1405/07/18 12:10:29  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-188  1405/07/19 09:48:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-189  1405/07/19 09:48:40  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-190  1405/07/19 17:44:25  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-191  1405/07/19 17:44:25  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-192  1405/07/21 11:09:55  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-193  1405/07/21 11:10:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-194  1405/07/22 10:35:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-195  1405/07/22 10:37:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-196  1405/07/22 13:29:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-197  1405/07/22 13:29:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-198  1405/07/23 02:07:33  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
-199  1405/07/23 02:08:13  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
-200  1405/07/23 12:36:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:36:47
+# ساعت دستگاه (خام): 2026-10-20 21:15:56
+# افست اصلاحی (سرور − دستگاه): +15:50:51
+  1  1405/03/20 07:12:14  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
+  2  1405/03/20 07:12:54  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+  3  1405/03/20 07:47:25  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
+  4  1405/03/20 07:48:05  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: failed to connect, on 4980000, registration timeout
+  5  1405/03/20 07:48:43  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+  6  1405/04/13 07:49:08  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
+  7  1405/04/13 07:49:46  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+  8  1405/04/31 11:33:47  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, medium-access timeout
+  9  1405/04/31 11:34:25  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+ 10  1405/04/31 11:34:37  [system,info,account]  user garnaf logged in from 6C:3B:6B:3C:78:BF via mac-telnet
+ 11  1405/04/31 11:34:45  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, administrative disconnect
+ 12  1405/04/31 11:35:08  [system,info,account]  user garnaf logged out from 6C:3B:6B:3C:78:BF via mac-telnet
+ 13  1405/04/31 11:35:24  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+ 14  1405/05/04 15:14:39  [ssh,error]  Corrupt host's key, regenerating it! Reboot required!
+ 15  1405/05/04 15:19:55  [ssh,error]  Corrupt host's key, regenerating it! Reboot required!
+ 16  1405/05/04 15:33:20  [ssh,error]  Corrupt host's key, regenerating it! Reboot required!
+ 17  1405/05/04 15:33:21  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 18  1405/05/04 15:33:21  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 19  1405/05/04 15:38:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 20  1405/05/04 15:38:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via telnet
+ 21  1405/05/04 15:38:48  [system,info]  filter rule removed by garnaf
+ 22  1405/05/04 15:38:49  [system,info]  nat rule removed by garnaf
+ 23  1405/05/04 15:39:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 24  1405/05/04 15:39:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via telnet
+ 25  1405/05/04 15:41:09  [ssh,error]  Corrupt host's key, regenerating it! Reboot required!
+ 26  1405/05/04 15:41:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 27  1405/05/04 15:41:09  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 28  1405/05/04 15:43:16  [ssh,error]  Corrupt host's key, regenerating it! Reboot required!
+ 29  1405/05/04 15:46:25  [ssh,error]  Corrupt host's key, regenerating it! Reboot required!
+ 30  1405/05/05 12:58:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 31  1405/05/05 12:58:16  [system,info,account]  user garnaf logged in from 172.18.4.76 via telnet
+ 32  1405/05/05 12:58:23  [system,info,account]  user garnaf logged out from 172.18.4.76 via telnet
+ 33  1405/05/05 13:02:51  [system,info]  address added by garnaf
+ 34  1405/05/05 13:03:02  [system,info]  dhcp server dhcp1 changed by garnaf
+ 35  1405/05/05 13:03:42  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FA:63:BB
+ 36  1405/05/05 13:03:42  [system,info]  device changed by garnaf
+ 37  1405/05/05 13:06:34  [system,info]  pool pool1 added by garnaf
+ 38  1405/05/05 13:08:35  [system,info]  dhcp network added by garnaf
+ 39  1405/05/05 13:09:07  [system,info]  dhcp server dhcp1 changed by garnaf
+ 40  1405/05/05 13:10:18  [system,info]  dhcp network removed by garnaf
+ 41  1405/05/05 13:11:36  [system,info]  address changed by garnaf
+ 42  1405/05/05 13:12:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 43  1405/05/05 13:12:07  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FA:63:BB
+ 44  1405/05/05 13:12:40  [system,info,account]  user garnaf logged in from 6C:3B:6B:3C:78:BF via mac-telnet
+ 45  1405/05/05 13:13:15  [system,info]  address changed by garnaf
+ 46  1405/05/05 13:14:25  [system,info]  dhcp server dhcp1 changed by garnaf
+ 47  1405/05/05 14:01:02  [system,info,account]  user garnaf logged out from 6C:3B:6B:3C:78:BF via mac-telnet
+ 48  1405/05/06 09:32:48  [system,info,account]  user garnaf logged in from 6C:3B:6B:3C:78:BF via mac-telnet
+ 49  1405/05/06 09:42:28  [system,info]  address removed by garnaf
+ 50  1405/05/06 09:49:55  [system,info]  address removed by garnaf
+ 51  1405/05/06 09:50:15  [system,info]  address added by garnaf
+ 52  1405/05/06 09:51:50  [system,info,account]  user garnaf logged in from 6C:3B:6B:3C:78:BF via mac-telnet
+ 53  1405/05/06 09:52:09  [system,info,account]  user garnaf logged out from 6C:3B:6B:3C:78:BF via mac-telnet
+ 54  1405/05/06 09:57:33  [system,info]  device changed by garnaf
+ 55  1405/05/06 09:57:33  [system,info]  device changed by garnaf
+ 56  1405/05/06 09:57:34  [system,info]  wireless security profile <default> changed by garnaf
+ 57  1405/05/06 09:57:35  [system,info]  device changed by garnaf
+ 58  1405/05/06 09:57:36  [system,info]  ipsec proposal default changed by garnaf
+ 59  1405/05/06 09:57:36  [system,info]  item changed by garnaf
+ 60  1405/05/06 09:57:36  [system,info]  address added by garnaf
+ 61  1405/05/06 09:57:36  [system,info]  dhcp client added by garnaf
+ 62  1405/05/06 09:57:36  [system,info]  dns changed by garnaf
+ 63  1405/05/06 09:57:36  [system,info]  nat rule added by garnaf
+ 64  1405/05/06 09:57:36  [system,info]  route added by garnaf
+ 65  1405/05/06 09:57:37  [system,info]  RADIUS client added by garnaf
+ 66  1405/05/06 09:57:37  [system,info]  RADIUS client added by garnaf
+ 67  1405/05/06 09:57:37  [system,info]  radius incoming changed by garnaf
+ 68  1405/05/06 09:57:37  [system,info]  changed snmp settings by garnaf
+ 69  1405/05/06 09:57:37  [system,info]  system time zone settings changed by garnaf
+ 70  1405/05/06 09:57:37  [system,info,account]  user garnaf logged out from 6C:3B:6B:3C:78:BF via mac-telnet
+ 71  1405/05/06 09:58:14  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+ 72  1405/05/06 09:58:50  [system,info,account]  user garnaf logged in from 6C:3B:6B:3C:78:BF via mac-telnet
+ 73  1405/05/06 09:59:54  [system,info]  route removed by garnaf
+ 74  1405/05/06 10:01:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 75  1405/05/06 10:03:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via telnet
+ 76  1405/05/06 10:04:36  [system,info,account]  user garnaf logged out from 172.18.4.76 via telnet
+ 77  1405/05/06 10:09:21  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 78  1405/05/06 10:10:00  [system,info,account]  user garnaf logged out from 6C:3B:6B:3C:78:BF via mac-telnet
+ 79  1405/05/11 11:11:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 80  1405/05/11 11:16:08  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 81  1405/05/12 11:21:05  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 82  1405/05/12 11:22:49  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 83  1405/05/23 19:38:53  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
+ 84  1405/05/23 19:39:32  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: failed to connect, on 4980000, registration timeout
+ 85  1405/05/23 19:40:12  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+ 86  1405/06/04 07:03:29  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
+ 87  1405/06/04 07:04:48  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+ 88  1405/06/13 03:21:59  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
+ 89  1405/06/13 03:22:38  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+ 90  1405/06/13 03:25:04  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
+ 91  1405/06/13 03:26:21  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+ 92  1405/06/13 03:36:44  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
+ 93  1405/06/13 03:37:23  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+ 94  1405/06/13 05:51:19  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
+ 95  1405/06/13 05:51:57  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+ 96  1405/06/20 00:46:34  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
+ 97  1405/06/20 00:47:16  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+ 98  1405/06/20 00:47:22  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
+ 99  1405/06/20 00:48:39  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+100  1405/06/20 00:50:45  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
+101  1405/06/20 00:51:24  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: failed to connect, on 4980000, registration timeout
+102  1405/06/20 00:52:03  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: failed to connect, on 4980000, registration timeout
+103  1405/06/20 00:52:42  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: failed to connect, on 4980000, registration timeout
+104  1405/06/20 00:53:21  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: failed to connect, on 4980000, registration timeout
+105  1405/06/20 00:54:00  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: failed to connect, on 4980000, registration timeout
+106  1405/06/20 00:55:18  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: failed to connect, on 4980000, registration timeout
+107  1405/06/20 00:55:57  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+108  1405/06/23 03:23:31  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
+109  1405/06/23 03:24:09  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+110  1405/06/23 03:24:49  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
+111  1405/06/23 03:25:27  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+112  1405/06/23 03:28:14  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
+113  1405/06/23 03:28:53  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+114  1405/06/24 00:14:01  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
+115  1405/06/24 00:14:40  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+116  1405/06/28 03:54:46  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
+117  1405/06/28 03:55:25  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: failed to connect, on 4980000, registration timeout
+118  1405/06/28 03:56:03  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+119  1405/07/09 20:10:34  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
+120  1405/07/09 20:11:13  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+121  1405/07/15 13:34:01  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+122  1405/07/15 13:34:01  [system,info]  changed snmp settings by garnaf
+123  1405/07/15 13:34:01  [system,info]  item changed by garnaf
+124  1405/07/15 13:34:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+125  1405/07/15 14:57:37  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+126  1405/07/15 14:57:37  [system,info]  user olom1 added by garnaf
+127  1405/07/15 14:57:38  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+128  1405/07/15 15:03:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+129  1405/07/15 15:03:29  [system,info]  user ums1 removed by garnaf
+130  1405/07/15 15:03:29  [system,info]  user ums2 removed by garnaf
+131  1405/07/15 15:03:29  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+132  1405/07/16 00:09:32  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, medium-access timeout
+133  1405/07/16 00:10:10  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+134  1405/07/16 01:16:06  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
+135  1405/07/16 01:18:02  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: failed to connect, on 4980000, registration timeout
+136  1405/07/16 01:18:41  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+137  1405/07/16 01:19:12  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
+138  1405/07/16 01:21:07  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+139  1405/07/16 10:13:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+140  1405/07/16 10:13:49  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+141  1405/07/16 10:35:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+142  1405/07/16 10:35:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+143  1405/07/16 13:50:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+144  1405/07/16 13:50:50  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+145  1405/07/16 14:05:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+146  1405/07/16 14:05:39  [system,info]  changed snmp settings by garnaf
+147  1405/07/16 14:05:39  [system,info]  item changed by garnaf
+148  1405/07/16 14:05:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+149  1405/07/16 14:30:40  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+150  1405/07/16 14:30:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+151  1405/07/16 15:41:25  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+152  1405/07/16 15:41:26  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+153  1405/07/16 19:13:51  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
+154  1405/07/16 19:15:08  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+155  1405/07/17 08:33:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+156  1405/07/17 08:33:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+157  1405/07/18 10:31:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+158  1405/07/18 10:31:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+159  1405/07/18 10:55:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+160  1405/07/18 10:55:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+161  1405/07/18 12:07:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+162  1405/07/18 12:07:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+163  1405/07/19 09:45:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+164  1405/07/19 09:45:50  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+165  1405/07/19 17:41:35  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+166  1405/07/19 17:41:35  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+167  1405/07/21 11:07:05  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+168  1405/07/21 11:07:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+169  1405/07/22 10:32:21  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+170  1405/07/22 10:34:22  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+171  1405/07/22 13:26:34  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+172  1405/07/22 13:26:38  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+173  1405/07/23 02:04:43  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
+174  1405/07/23 02:05:23  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+175  1405/07/23 12:33:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+176  1405/07/23 12:33:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+177  1405/07/24 15:29:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+178  1405/07/24 15:29:31  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+179  1405/07/24 15:58:21  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+180  1405/07/24 15:58:25  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+181  1405/07/25 11:20:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+182  1405/07/25 11:22:42  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+183  1405/07/25 11:23:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+184  1405/07/25 11:34:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+185  1405/07/26 00:16:53  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
+186  1405/07/26 00:18:11  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+187  1405/07/26 02:07:00  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, medium-access timeout
+188  1405/07/26 02:12:46  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+189  1405/07/26 02:14:29  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
+190  1405/07/26 02:17:03  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+191  1405/07/26 06:13:47  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
+192  1405/07/26 06:15:04  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: failed to connect, on 4980000, registration timeout
+193  1405/07/26 06:15:43  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+194  1405/07/26 06:33:27  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1: lost connection, control frame timeout
+195  1405/07/26 06:38:34  [wireless,info]  6C:3B:6B:3C:78:BF@wlan1 established connection on 4980000, SSID Setad Aboshanak.AP
+196  1405/07/26 09:05:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+197  1405/07/26 09:05:33  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+198  1405/07/26 09:08:04  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+199  1405/07/26 09:08:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+200  1405/07/29 16:36:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

@@ -1,5 +1,5 @@
 IP: 172.18.25.194
-Collected at: 2026-10-13T07:54:29.309375+00:00
+Collected at: 2026-10-21T13:16:52.905596+00:00
 source: RouterOS API
 identity: Jafal->OmSakhreh.AP
 device_type: AP
@@ -7,7 +7,7 @@ device_type: AP
 ----- interfaces -----
 === /interface ===
   1  name=ether1  type=ether  running=true  mac=6C:3B:6B:13:54:8A
-  2  name=wlan1  type=wlan  running=false  mac=6C:3B:6B:13:54:8B
+  2  name=wlan1  type=wlan  running=true  mac=6C:3B:6B:13:54:8B
   3  name=bridge1  type=bridge  running=true  mac=6C:3B:6B:13:54:8A
 
 ----- wireless -----
@@ -26,22 +26,18 @@ name=wlan1  mode=bridge  ssid=Jafal->OmSakhreh.AP  band=5ghz-a/n  frequency=5490
 ----- neighbors -----
 === /ip neighbor ===
   1  identity=MK_Jafal  address=172.18.25.193  interface=ether1,bridge1
+  2  identity=Om_sakhar_client  address=172.18.25.195  interface=wlan1,bridge1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/21 11:05:05
-# ساعت دستگاه (خام): 1974-06-21 21:20:21
-# افست اصلاحی (سرور − دستگاه): +458554:14:44
-  1  1405/07/21 01:19:16  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/21 01:19:17  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:13:54:8A
-  3  1405/07/21 01:20:01  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/21 01:20:23  [interface,info]  ether1 link down
-  5  1405/07/21 01:20:28  [interface,info]  ether1 link up (speed 100M, full duplex)
-  6  1405/07/21 01:44:55  [interface,info]  ether1 link down
-  7  1405/07/21 01:45:59  [interface,info]  ether1 link up (speed 100M, full duplex)
-  8  1405/07/21 01:46:20  [interface,info]  ether1 link down
-  9  1405/07/21 01:46:25  [interface,info]  ether1 link up (speed 100M, full duplex)
- 10  1405/07/21 11:05:04  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:33:55
+# ساعت دستگاه (خام): 1974-06-28 11:56:07
+# افست اصلاحی (سرور − دستگاه): +458593:07:48
+  1  1405/07/28 16:12:20  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/28 16:12:20  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:13:54:8A
+  3  1405/07/28 16:12:24  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/28 16:13:04  [wireless,info]  78:9A:18:76:FA:91@wlan1: connected, signal strength -76
+  5  1405/07/29 16:33:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

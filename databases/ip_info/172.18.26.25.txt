@@ -1,5 +1,5 @@
 IP: 172.18.26.25
-Collected at: 2026-10-15T10:08:54.655885+00:00
+Collected at: 2026-10-21T13:17:03.967970+00:00
 source: RouterOS API
 identity: cl-vastaniye
 device_type: ST
@@ -31,45 +31,29 @@ name=wlan1  mode=station  ssid=Shadegan-Darkhovein1  band=5ghz-a/n  frequency=55
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:34:19
-# ساعت دستگاه (خام): 1970-08-17 17:59:33
-# افست اصلاحی (سرور − دستگاه): +492303:04:46
-  1  1405/07/20 18:34:56  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/20 18:34:59  [interface,info]  ether1 link up (speed 100M, full duplex)
-  3  1405/07/20 18:35:50  [wireless,info]  6C:3B:6B:4D:A3:0C@wlan1 established connection on 5155000, SSID Shadegan-Darkhovein1
-  4  1405/07/21 03:08:44  [wireless,info]  6C:3B:6B:4D:A3:0C@wlan1: lost connection, synchronization timeout
-  5  1405/07/21 03:10:27  [wireless,info]  6C:3B:6B:4D:A3:0C@wlan1 established connection on 5155000, SSID Shadegan-Darkhovein1
-  6  1405/07/21 08:09:19  [interface,info]  ether1 link down
-  7  1405/07/21 08:09:26  [interface,info]  ether1 link up (speed 100M, full duplex)
-  8  1405/07/21 08:09:27  [dhcp,info]  dhcp1 assigned 172.29.208.94 to 94:DE:80:4D:E7:6E
-  9  1405/07/21 10:27:23  [interface,info]  ether1 link down
- 10  1405/07/21 10:27:24  [interface,info]  ether1 link up (speed 10M, full duplex)
- 11  1405/07/21 10:34:27  [dhcp,info]  dhcp1 deassigned 172.29.208.94 from 94:DE:80:4D:E7:6E
- 12  1405/07/21 10:40:23  [interface,info]  ether1 link down
- 13  1405/07/21 10:40:27  [interface,info]  ether1 link up (speed 100M, full duplex)
- 14  1405/07/21 10:40:28  [dhcp,info]  dhcp1 assigned 172.29.208.94 to 94:DE:80:4D:E7:6E
- 15  1405/07/21 11:07:57  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 16  1405/07/21 11:07:59  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 17  1405/07/21 12:11:14  [interface,info]  ether1 link down
- 18  1405/07/21 12:11:16  [interface,info]  ether1 link up (speed 10M, full duplex)
- 19  1405/07/21 12:20:27  [dhcp,info]  dhcp1 deassigned 172.29.208.94 from 94:DE:80:4D:E7:6E
- 20  1405/07/21 19:40:40  [wireless,info]  6C:3B:6B:4D:A3:0C@wlan1: lost connection, control frame timeout
- 21  1405/07/21 19:50:56  [wireless,info]  6C:3B:6B:4D:A3:0C@wlan1 established connection on 5155000, SSID Shadegan-Darkhovein1
- 22  1405/07/21 22:23:30  [wireless,info]  6C:3B:6B:4D:A3:0C@wlan1: lost connection, medium-access timeout
- 23  1405/07/21 22:26:04  [wireless,info]  6C:3B:6B:4D:A3:0C@wlan1 established connection on 5155000, SSID Shadegan-Darkhovein1
- 24  1405/07/22 08:12:55  [interface,info]  ether1 link down
- 25  1405/07/22 08:12:59  [dhcp,info]  dhcp1 assigned 172.29.208.94 to 94:DE:80:4D:E7:6E
- 26  1405/07/22 08:12:59  [interface,info]  ether1 link up (speed 100M, full duplex)
- 27  1405/07/22 09:42:46  [wireless,info]  6C:3B:6B:4D:A3:0C@wlan1: lost connection, synchronization timeout
- 28  1405/07/22 09:55:35  [wireless,info]  6C:3B:6B:4D:A3:0C@wlan1 established connection on 5155000, SSID Shadegan-Darkhovein1
- 29  1405/07/22 12:21:07  [interface,info]  ether1 link down
- 30  1405/07/22 12:21:08  [interface,info]  ether1 link up (speed 10M, full duplex)
- 31  1405/07/22 12:27:59  [dhcp,info]  dhcp1 deassigned 172.29.208.94 from 94:DE:80:4D:E7:6E
- 32  1405/07/22 13:26:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 33  1405/07/22 13:26:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 34  1405/07/23 07:42:52  [wireless,info]  6C:3B:6B:4D:A3:0C@wlan1: lost connection, synchronization timeout
- 35  1405/07/23 07:52:16  [wireless,info]  6C:3B:6B:4D:A3:0C@wlan1 established connection on 5155000, SSID Shadegan-Darkhovein1
- 36  1405/07/23 12:34:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:35:30
+# ساعت دستگاه (خام): 1970-08-21 19:38:18
+# افست اصلاحی (سرور − دستگاه): +492353:27:12
+  1  1405/07/27 20:57:23  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/27 20:57:25  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/27 20:58:17  [wireless,info]  6C:3B:6B:4D:A3:0C@wlan1 established connection on 5155000, SSID Shadegan-Darkhovein1
+  4  1405/07/28 08:05:55  [interface,info]  ether1 link down
+  5  1405/07/28 08:06:00  [dhcp,info]  dhcp1 assigned 172.29.208.94 to 94:DE:80:4D:E7:6E
+  6  1405/07/28 08:06:00  [interface,info]  ether1 link up (speed 100M, full duplex)
+  7  1405/07/28 12:12:16  [interface,info]  ether1 link down
+  8  1405/07/28 12:12:18  [interface,info]  ether1 link up (speed 10M, full duplex)
+  9  1405/07/28 12:21:00  [dhcp,info]  dhcp1 deassigned 172.29.208.94 from 94:DE:80:4D:E7:6E
+ 10  1405/07/29 08:05:50  [interface,info]  ether1 link down
+ 11  1405/07/29 08:05:57  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 12  1405/07/29 08:05:57  [dhcp,info]  dhcp1 assigned 172.29.208.94 to 94:DE:80:4D:E7:6E
+ 13  1405/07/29 10:17:01  [interface,info]  ether1 link down
+ 14  1405/07/29 10:17:03  [interface,info]  ether1 link up (speed 10M, full duplex)
+ 15  1405/07/29 10:25:40  [interface,info]  ether1 link down
+ 16  1405/07/29 10:25:44  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 17  1405/07/29 11:31:29  [interface,info]  ether1 link down
+ 18  1405/07/29 11:31:31  [interface,info]  ether1 link up (speed 10M, full duplex)
+ 19  1405/07/29 11:40:45  [dhcp,info]  dhcp1 deassigned 172.29.208.94 from 94:DE:80:4D:E7:6E
+ 20  1405/07/29 16:35:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

@@ -1,5 +1,5 @@
 IP: 172.18.9.212
-Collected at: 2026-10-14T10:24:30.201415+00:00
+Collected at: 2026-10-21T13:17:56.010666+00:00
 source: RouterOS API
 identity: AlboSeyd.Client
 device_type: ST
@@ -28,111 +28,49 @@ name=wlan1  mode=station-bridge  ssid=Abadan-22Bahman2  band=5ghz-a/n  frequency
   1  identity=22Bahman-MK  address=172.18.9.209  interface=wlan1
   2  identity=Abadan-22Bahman2  address=172.18.9.210  interface=wlan1
   3  identity=NaghshehNasar  address=172.18.9.211  interface=wlan1
-  4  identity=AlboHamid.Client  address=172.18.9.213  interface=wlan1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:35:52
-# ساعت دستگاه (خام): 1973-07-24 05:42:51
-# افست اصلاحی (سرور − دستگاه): +466564:23:01
-  1  1405/07/17 09:44:54  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/17 09:45:02  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
-  3  1405/07/17 09:45:04  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/18 10:36:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  5  1405/07/18 10:36:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  6  1405/07/18 10:42:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  7  1405/07/18 10:42:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  8  1405/07/18 11:01:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  9  1405/07/18 11:01:07  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 10  1405/07/18 11:07:06  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 11  1405/07/18 11:07:07  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 12  1405/07/18 12:11:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 13  1405/07/18 12:11:27  [system,info]  user olom1 added by garnaf
- 14  1405/07/18 12:11:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 15  1405/07/18 12:15:57  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 16  1405/07/18 12:15:57  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 17  1405/07/19 09:02:06  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, not polled for too long
- 18  1405/07/19 09:02:12  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 19  1405/07/19 09:08:21  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, not polled for too long
- 20  1405/07/19 09:08:47  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 21  1405/07/19 09:12:49  [interface,info]  ether1 link down
- 22  1405/07/19 09:12:50  [interface,info]  ether1 link up (speed 100M, full duplex)
- 23  1405/07/19 09:12:51  [dhcp,info]  dhcp1 deassigned 172.29.74.30 from E0:D5:5E:52:15:6D
- 24  1405/07/19 09:12:51  [dhcp,info]  dhcp1 assigned 172.29.74.30 to E0:D5:5E:52:15:6D
- 25  1405/07/19 09:55:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 26  1405/07/19 09:55:21  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 27  1405/07/19 10:06:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 28  1405/07/19 10:06:50  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 29  1405/07/19 10:45:34  [interface,info]  ether1 link down
- 30  1405/07/19 10:45:35  [interface,info]  ether1 link up (speed 10M, full duplex)
- 31  1405/07/19 17:48:26  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, not polled for too long
- 32  1405/07/19 17:48:52  [wireless,info]  6E:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 33  1405/07/19 17:48:57  [wireless,info]  6E:3B:6B:4E:0E:FD@wlan1: lost connection, received deauth: 4-way handshake timeout (15)
- 34  1405/07/19 17:49:04  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 35  1405/07/20 13:02:37  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, not polled for too long
- 36  1405/07/20 13:03:03  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 37  1405/07/20 17:09:58  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, not polled for too long
- 38  1405/07/20 17:10:24  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 39  1405/07/21 07:13:31  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, no beacons received
- 40  1405/07/21 07:13:38  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 41  1405/07/21 07:21:38  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, no beacons received
- 42  1405/07/21 07:21:47  [wireless,info]  6E:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 43  1405/07/21 07:21:52  [wireless,info]  6E:3B:6B:4E:0E:FD@wlan1: lost connection, received deauth: 4-way handshake timeout (15)
- 44  1405/07/21 07:21:58  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 45  1405/07/21 07:29:11  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, no beacons received
- 46  1405/07/21 07:29:18  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 47  1405/07/21 09:26:25  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, not polled for too long
- 48  1405/07/21 09:26:51  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 49  1405/07/21 11:34:21  [interface,info]  ether1 link down
- 50  1405/07/21 11:34:22  [interface,info]  ether1 link up (speed 100M, full duplex)
- 51  1405/07/21 12:04:01  [interface,info]  ether1 link down
- 52  1405/07/21 12:04:02  [interface,info]  ether1 link up (speed 10M, full duplex)
- 53  1405/07/21 12:46:27  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, not polled for too long
- 54  1405/07/21 12:46:53  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 55  1405/07/21 19:36:47  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, not polled for too long
- 56  1405/07/21 19:36:54  [wireless,info]  6E:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 57  1405/07/21 19:36:59  [wireless,info]  6E:3B:6B:4E:0E:FD@wlan1: lost connection, received deauth: 4-way handshake timeout (15)
- 58  1405/07/21 19:37:05  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 59  1405/07/21 19:52:47  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, not polled for too long
- 60  1405/07/21 19:52:54  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 61  1405/07/21 20:41:47  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, not polled for too long
- 62  1405/07/21 20:41:54  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 63  1405/07/21 20:47:48  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, not polled for too long
- 64  1405/07/21 20:47:57  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: failed to connect, on 5745/20-Ce/an, association timeout
- 65  1405/07/21 20:48:04  [wireless,info]  6E:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 66  1405/07/21 20:48:06  [wireless,info]  6E:3B:6B:4E:0E:FD@wlan1: lost connection, extensive data loss
- 67  1405/07/21 20:48:13  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 68  1405/07/21 20:48:38  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, not polled for too long
- 69  1405/07/21 20:48:47  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: failed to connect, on 5745/20-Ce/an, association timeout
- 70  1405/07/21 20:48:57  [wireless,info]  6E:3B:6B:4E:0E:FD@wlan1: failed to connect, on 5745/20-Ce/an, association timeout
- 71  1405/07/21 20:49:03  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 72  1405/07/21 20:49:07  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, not polled for too long
- 73  1405/07/21 20:49:17  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: failed to connect, on 5745/20-Ce/an, association timeout
- 74  1405/07/21 20:49:24  [wireless,info]  6E:3B:6B:4E:0E:FD@wlan1: failed to connect, on 5745/20-Ce/an, received deauth: class 2 frame received (6)
- 75  1405/07/21 20:49:31  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 76  1405/07/21 20:53:47  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, not polled for too long
- 77  1405/07/21 20:53:54  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 78  1405/07/21 21:40:52  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, not polled for too long
- 79  1405/07/21 21:40:59  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 80  1405/07/21 22:37:03  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, not polled for too long
- 81  1405/07/21 22:37:29  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 82  1405/07/21 22:45:40  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, not polled for too long
- 83  1405/07/21 22:45:46  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 84  1405/07/22 05:02:57  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, not polled for too long
- 85  1405/07/22 05:03:05  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 86  1405/07/22 05:03:27  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, not polled for too long
- 87  1405/07/22 05:03:34  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 88  1405/07/22 06:33:57  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, not polled for too long
- 89  1405/07/22 06:34:04  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 90  1405/07/22 06:57:09  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, not polled for too long
- 91  1405/07/22 06:57:18  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 92  1405/07/22 07:11:57  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, not polled for too long
- 93  1405/07/22 07:12:04  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 94  1405/07/22 07:31:25  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, not polled for too long
- 95  1405/07/22 07:31:52  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 96  1405/07/22 10:54:10  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, not polled for too long
- 97  1405/07/22 10:54:36  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
- 98  1405/07/22 13:35:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:40:40
+# ساعت دستگاه (خام): 1973-07-30 13:43:27
+# افست اصلاحی (سرور − دستگاه): +466583:27:13
+  1  1405/07/25 04:49:05  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/25 04:49:13  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
+  3  1405/07/25 04:49:15  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/25 05:10:02  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, not polled for too long
+  5  1405/07/25 05:10:28  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
+  6  1405/07/26 09:10:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  7  1405/07/26 09:11:00  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  8  1405/07/26 09:13:25  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  9  1405/07/26 09:13:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 10  1405/07/26 09:22:13  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 11  1405/07/26 09:22:15  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 12  1405/07/26 09:23:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 13  1405/07/26 09:23:49  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 14  1405/07/26 09:56:08  [interface,info]  ether1 link down
+ 15  1405/07/26 09:56:10  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 16  1405/07/26 09:56:11  [dhcp,info]  dhcp1 assigned 172.29.74.30 to E0:D5:5E:52:15:6D
+ 17  1405/07/26 12:02:59  [interface,info]  ether1 link down
+ 18  1405/07/26 12:03:00  [interface,info]  ether1 link up (speed 10M, full duplex)
+ 19  1405/07/26 21:20:32  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, not polled for too long
+ 20  1405/07/26 21:20:38  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
+ 21  1405/07/27 11:14:27  [interface,info]  ether1 link down
+ 22  1405/07/27 11:14:29  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 23  1405/07/27 11:25:20  [interface,info]  ether1 link down
+ 24  1405/07/27 11:25:22  [interface,info]  ether1 link up (speed 10M, full duplex)
+ 25  1405/07/28 10:36:51  [interface,info]  ether1 link down
+ 26  1405/07/28 10:36:53  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 27  1405/07/28 12:09:26  [interface,info]  ether1 link down
+ 28  1405/07/28 12:09:28  [interface,info]  ether1 link up (speed 10M, full duplex)
+ 29  1405/07/28 23:11:04  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, not polled for too long
+ 30  1405/07/28 23:11:11  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
+ 31  1405/07/29 03:22:20  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1: lost connection, no beacons received
+ 32  1405/07/29 03:22:27  [wireless,info]  6C:3B:6B:4E:0E:FD@wlan1 established connection on 5745000, SSID Abadan-22Bahman2
+ 33  1405/07/29 08:34:10  [interface,info]  ether1 link down
+ 34  1405/07/29 08:34:11  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 35  1405/07/29 12:50:48  [interface,info]  ether1 link down
+ 36  1405/07/29 12:50:50  [interface,info]  ether1 link up (speed 10M, full duplex)
+ 37  1405/07/29 16:40:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

@@ -1,5 +1,5 @@
 IP: 172.29.195.6
-Collected at: 2026-10-14T10:25:14.124688+00:00
+Collected at: 2026-10-21T13:18:22.071040+00:00
 source: RouterOS API
 identity: FayehShavardi.Client
 device_type: ST
@@ -34,14 +34,58 @@ name=wlan1  mode=station-bridge  ssid=Shadegan-salemi1  band=5ghz-a/n  frequency
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:42:38
-# ساعت دستگاه (خام): 1972-06-16 05:54:04
-# افست اصلاحی (سرور − دستگاه): +476236:18:34
-  1  1405/07/22 10:10:20  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 10:10:20  [bridge,info]  "bridge1" mac address changed to 64:D1:54:83:67:56
-  3  1405/07/22 10:10:21  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/22 10:10:32  [wireless,info]  6C:3B:6B:8F:3B:EE@wlan1 established connection on 5700000, SSID Shadegan-salemi1
-  5  1405/07/22 13:42:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:43:06
+# ساعت دستگاه (خام): 1972-06-22 10:01:54
+# افست اصلاحی (سرور − دستگاه): +476259:11:12
+  1  1405/07/28 09:02:58  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/28 09:02:59  [bridge,info]  "bridge1" mac address changed to 64:D1:54:83:67:56
+  3  1405/07/28 09:02:59  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/28 09:03:04  [wireless,info]  6C:3B:6B:8F:3B:EE@wlan1 established connection on 5700000, SSID Shadegan-salemi1
+  5  1405/07/28 09:07:00  [interface,info]  ether1 link down
+  6  1405/07/28 09:07:02  [interface,info]  ether1 link up (speed 100M, full duplex)
+  7  1405/07/28 09:38:06  [interface,info]  ether1 link down
+  8  1405/07/28 09:38:07  [interface,info]  ether1 link up (speed 100M, full duplex)
+  9  1405/07/28 09:41:40  [interface,info]  ether1 link down
+ 10  1405/07/28 09:41:41  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 11  1405/07/28 11:31:57  [interface,info]  ether1 link down
+ 12  1405/07/28 11:31:58  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 13  1405/07/28 11:45:51  [interface,info]  ether1 link down
+ 14  1405/07/28 11:45:53  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 15  1405/07/28 15:44:46  [interface,info]  ether1 link down
+ 16  1405/07/28 15:44:48  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 17  1405/07/28 15:46:14  [interface,info]  ether1 link down
+ 18  1405/07/28 15:46:16  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 19  1405/07/28 16:16:14  [interface,info]  ether1 link down
+ 20  1405/07/28 16:16:16  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 21  1405/07/28 16:17:28  [interface,info]  ether1 link down
+ 22  1405/07/28 16:17:29  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 23  1405/07/28 16:44:49  [interface,info]  ether1 link down
+ 24  1405/07/28 16:44:52  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 25  1405/07/28 17:09:50  [interface,info]  ether1 link down
+ 26  1405/07/28 17:09:52  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 27  1405/07/29 08:54:27  [interface,info]  ether1 link down
+ 28  1405/07/29 08:54:29  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 29  1405/07/29 08:57:29  [interface,info]  ether1 link down
+ 30  1405/07/29 08:57:30  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 31  1405/07/29 08:57:31  [interface,info]  ether1 link down
+ 32  1405/07/29 08:57:32  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 33  1405/07/29 08:57:48  [interface,info]  ether1 link down
+ 34  1405/07/29 08:57:49  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 35  1405/07/29 08:58:23  [interface,info]  ether1 link down
+ 36  1405/07/29 08:58:24  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 37  1405/07/29 08:58:26  [interface,info]  ether1 link down
+ 38  1405/07/29 08:58:31  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 39  1405/07/29 08:58:46  [interface,info]  ether1 link down
+ 40  1405/07/29 08:58:49  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 41  1405/07/29 08:58:59  [interface,info]  ether1 link down
+ 42  1405/07/29 08:59:00  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 43  1405/07/29 08:59:05  [interface,info]  ether1 link down
+ 44  1405/07/29 08:59:07  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 45  1405/07/29 08:59:08  [interface,info]  ether1 link down
+ 46  1405/07/29 08:59:12  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 47  1405/07/29 09:34:44  [interface,info]  ether1 link down
+ 48  1405/07/29 09:34:46  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 49  1405/07/29 16:43:05  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

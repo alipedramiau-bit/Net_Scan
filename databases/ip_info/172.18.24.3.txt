@@ -1,5 +1,5 @@
 IP: 172.18.24.3
-Collected at: 2026-10-15T10:08:16.714447+00:00
+Collected at: 2026-10-21T13:16:37.922609+00:00
 source: RouterOS API
 identity: Shabakeh->Jafal.Client
 device_type: ST
@@ -33,16 +33,14 @@ name=wlan1  mode=station-bridge  ssid=SHBKJFL  band=5ghz-a/n  frequency=5580
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:27:01
-# ساعت دستگاه (خام): 2025-04-02 13:51:24
-# افست اصلاحی (سرور − دستگاه): +13459:05:37
-  1  1405/07/22 08:56:37  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 08:56:41  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:3C:BB:46
-  3  1405/07/22 08:56:47  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/22 08:57:33  [wireless,info]  6C:3B:6B:3C:BB:54@wlan1 established connection on 5210000, SSID SHBKJFL
-  5  1405/07/22 13:19:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  6  1405/07/22 13:19:15  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  7  1405/07/23 12:26:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:32:10
+# ساعت دستگاه (خام): 2025-04-08 10:40:54
+# افست اصلاحی (سرور − دستگاه): +13466:21:16
+  1  1405/07/28 16:12:15  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/28 16:12:19  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:3C:BB:46
+  3  1405/07/28 16:12:25  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/28 16:13:11  [wireless,info]  6C:3B:6B:3C:BB:54@wlan1 established connection on 5210000, SSID SHBKJFL
+  5  1405/07/29 16:32:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

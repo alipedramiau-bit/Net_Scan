@@ -1,5 +1,5 @@
 IP: 172.29.204.97
-Collected at: 2026-10-14T10:25:25.959624+00:00
+Collected at: 2026-10-18T05:59:19.372541+00:00
 source: RouterOS API
 identity: AlboObeyd.Client
 device_type: ST
@@ -25,27 +25,33 @@ name=wlan1  mode=station-bridge  ssid=Shadegan-Jafal2  band=5ghz-a/n  frequency=
 
 ----- neighbors -----
 === /ip neighbor ===
-  1  identity=MK_Jafal  address=172.18.25.225  interface=wlan1
-  2  identity=Shadegan-Jafal2  address=172.18.25.226  interface=wlan1
+  1  identity=-  address=-  interface=ether1
+  2  identity=MK_Jafal  address=172.18.25.225  interface=wlan1
+  3  identity=Shadegan-Jafal2  address=172.18.25.226  interface=wlan1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:46:11
-# ساعت دستگاه (خام): 1972-05-01 03:47:22
-# افست اصلاحی (سرور − دستگاه): +477342:28:49
-  1  1405/07/22 11:03:06  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 11:03:16  [interface,info]  ether1 link up (speed 100M, full duplex)
-  3  1405/07/22 11:03:58  [wireless,info]  6C:3B:6B:5D:72:81@wlan1 established connection on 5100000, SSID Shadegan-Jafal2
-  4  1405/07/22 11:08:17  [dhcp,info]  dhcp1 deassigned 172.29.204.110 from 60:CF:84:69:5C:A2
-  5  1405/07/22 11:10:43  [dhcp,info]  dhcp1 assigned 172.29.204.110 to 60:CF:84:69:5C:A2
-  6  1405/07/22 12:05:44  [dhcp,info]  dhcp1 deassigned 172.29.204.110 from 60:CF:84:69:5C:A2
-  7  1405/07/22 13:24:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  8  1405/07/22 13:24:17  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  9  1405/07/22 13:46:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/26 09:21:23
+# ساعت دستگاه (خام): 1972-05-04 14:56:46
+# افست اصلاحی (سرور − دستگاه): +477350:54:37
+  1  1405/07/24 19:28:54  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/24 19:28:56  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/24 19:29:47  [wireless,info]  6C:3B:6B:5D:72:81@wlan1 established connection on 5100000, SSID Shadegan-Jafal2
+  4  1405/07/25 08:14:06  [dhcp,info]  dhcp1 assigned 172.29.204.110 to 60:CF:84:69:5C:A2
+  5  1405/07/25 11:48:06  [dhcp,info]  dhcp1 deassigned 172.29.204.110 from 60:CF:84:69:5C:A2
+  6  1405/07/26 08:28:21  [dhcp,info]  dhcp1 assigned 172.29.204.110 to 60:CF:84:69:5C:A2
+  7  1405/07/26 09:01:10  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  8  1405/07/26 09:01:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  9  1405/07/26 09:03:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 10  1405/07/26 09:03:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 11  1405/07/26 09:19:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 12  1405/07/26 09:19:40  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 13  1405/07/26 09:21:21  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
 ether1  64:D1:54:52:DA:1A  (ether)
 wlan1  64:D1:54:52:DA:1B  (wlan)
 --- /ip arp ---
+ether1  60:CF:84:69:5C:A2  (arp 172.29.204.110)
 wlan1  6C:3B:6B:0C:28:9E  (arp 172.18.25.225)

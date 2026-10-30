@@ -1,5 +1,5 @@
 IP: 172.29.9.65
-Collected at: 2026-10-14T10:25:50.253914+00:00
+Collected at: 2026-10-18T05:59:43.101238+00:00
 source: RouterOS API
 identity: MaskanMehr
 device_type: ST
@@ -28,44 +28,68 @@ name=wlan1  mode=station-bridge  ssid=Abadan-Foriat2  band=5ghz-a/n  frequency=5
   1  identity=RouerForiat10  address=172.18.2.209  interface=wlan1
   2  identity=AP-maskanMehr  address=172.18.2.210  interface=wlan1
   3  identity=CL-Amiralmomenin  address=172.18.2.212  interface=wlan1
+  4  identity=-  address=-  interface=ether1
+  5  identity=-  address=-  interface=ether1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:51:32
-# ساعت دستگاه (خام): 1971-02-15 04:50:13
-# افست اصلاحی (سرور − دستگاه): +487925:31:19
-  1  1405/07/21 09:01:20  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/21 09:01:27  [wireless,info]  78:9A:18:B9:09:21@wlan1 established connection on 5600000, SSID Abadan-Foriat2
-  3  1405/07/21 09:01:29  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/21 09:08:25  [dhcp,info]  dhcp1 deassigned 172.29.9.120 from F0:2F:74:F9:BA:D0
-  5  1405/07/21 09:08:28  [dhcp,info]  dhcp1 deassigned 172.29.9.122 from F0:2F:74:F9:B9:F1
-  6  1405/07/21 09:08:54  [dhcp,info]  dhcp1 assigned 172.29.9.120 to F0:2F:74:F9:BA:D0
-  7  1405/07/21 09:48:17  [dhcp,info]  dhcp1 assigned 172.29.9.122 to F0:2F:74:F9:B9:F1
-  8  1405/07/21 10:38:13  [wireless,info]  78:9A:18:B9:09:21@wlan1: lost connection, no beacons received
-  9  1405/07/21 10:40:36  [wireless,info]  78:9A:18:B9:09:21@wlan1 established connection on 5600000, SSID Abadan-Foriat2
- 10  1405/07/21 10:43:16  [dhcp,info]  dhcp1 deassigned 172.29.9.122 from F0:2F:74:F9:B9:F1
- 11  1405/07/21 10:50:28  [wireless,info]  78:9A:18:B9:09:21@wlan1: lost connection, extensive data loss
- 12  1405/07/21 10:50:55  [wireless,info]  78:9A:18:B9:09:21@wlan1 established connection on 5600000, SSID Abadan-Foriat2
- 13  1405/07/21 10:55:51  [wireless,info]  78:9A:18:B9:09:21@wlan1: lost connection, no beacons received
- 14  1405/07/21 10:56:34  [wireless,info]  78:9A:18:B9:09:21@wlan1 established connection on 5600000, SSID Abadan-Foriat2
- 15  1405/07/21 10:57:40  [wireless,info]  78:9A:18:B9:09:21@wlan1: lost connection, no beacons received
- 16  1405/07/21 10:58:23  [wireless,info]  78:9A:18:B9:09:21@wlan1 established connection on 5600000, SSID Abadan-Foriat2
- 17  1405/07/21 11:23:01  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 18  1405/07/21 11:23:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 19  1405/07/21 11:29:50  [dhcp,info]  dhcp1 assigned 172.29.9.122 to F0:2F:74:F9:B9:F1
- 20  1405/07/21 11:49:50  [dhcp,info]  dhcp1 deassigned 172.29.9.122 from F0:2F:74:F9:B9:F1
- 21  1405/07/21 12:33:54  [dhcp,info]  dhcp1 deassigned 172.29.9.120 from F0:2F:74:F9:BA:D0
- 22  1405/07/22 09:03:26  [dhcp,info]  dhcp1 assigned 172.29.9.120 to F0:2F:74:F9:BA:D0
- 23  1405/07/22 09:12:09  [dhcp,info]  dhcp1 assigned 172.29.9.122 to F0:2F:74:F9:B9:F1
- 24  1405/07/22 09:55:53  [wireless,info]  78:9A:18:B9:09:21@wlan1: lost connection, extensive data loss
- 25  1405/07/22 09:55:59  [wireless,info]  78:9A:18:B9:09:21@wlan1 established connection on 5600000, SSID Abadan-Foriat2
- 26  1405/07/22 10:20:32  [wireless,info]  78:9A:18:B9:09:21@wlan1: lost connection, extensive data loss
- 27  1405/07/22 10:20:37  [wireless,info]  78:9A:18:B9:09:21@wlan1 established connection on 5600000, SSID Abadan-Foriat2
- 28  1405/07/22 11:52:10  [dhcp,info]  dhcp1 deassigned 172.29.9.122 from F0:2F:74:F9:B9:F1
- 29  1405/07/22 12:23:26  [dhcp,info]  dhcp1 deassigned 172.29.9.120 from F0:2F:74:F9:BA:D0
- 30  1405/07/22 13:15:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 31  1405/07/22 13:15:40  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 32  1405/07/22 13:51:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/26 09:24:22
+# ساعت دستگاه (خام): 1971-02-19 00:25:51
+# افست اصلاحی (سرور − دستگاه): +487925:28:31
+  1  1405/07/21 08:58:32  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/21 08:58:39  [wireless,info]  78:9A:18:B9:09:21@wlan1 established connection on 5600000, SSID Abadan-Foriat2
+  3  1405/07/21 08:58:41  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/21 09:05:37  [dhcp,info]  dhcp1 deassigned 172.29.9.120 from F0:2F:74:F9:BA:D0
+  5  1405/07/21 09:05:40  [dhcp,info]  dhcp1 deassigned 172.29.9.122 from F0:2F:74:F9:B9:F1
+  6  1405/07/21 09:06:06  [dhcp,info]  dhcp1 assigned 172.29.9.120 to F0:2F:74:F9:BA:D0
+  7  1405/07/21 09:45:29  [dhcp,info]  dhcp1 assigned 172.29.9.122 to F0:2F:74:F9:B9:F1
+  8  1405/07/21 10:35:25  [wireless,info]  78:9A:18:B9:09:21@wlan1: lost connection, no beacons received
+  9  1405/07/21 10:37:48  [wireless,info]  78:9A:18:B9:09:21@wlan1 established connection on 5600000, SSID Abadan-Foriat2
+ 10  1405/07/21 10:40:28  [dhcp,info]  dhcp1 deassigned 172.29.9.122 from F0:2F:74:F9:B9:F1
+ 11  1405/07/21 10:47:40  [wireless,info]  78:9A:18:B9:09:21@wlan1: lost connection, extensive data loss
+ 12  1405/07/21 10:48:07  [wireless,info]  78:9A:18:B9:09:21@wlan1 established connection on 5600000, SSID Abadan-Foriat2
+ 13  1405/07/21 10:53:03  [wireless,info]  78:9A:18:B9:09:21@wlan1: lost connection, no beacons received
+ 14  1405/07/21 10:53:46  [wireless,info]  78:9A:18:B9:09:21@wlan1 established connection on 5600000, SSID Abadan-Foriat2
+ 15  1405/07/21 10:54:52  [wireless,info]  78:9A:18:B9:09:21@wlan1: lost connection, no beacons received
+ 16  1405/07/21 10:55:35  [wireless,info]  78:9A:18:B9:09:21@wlan1 established connection on 5600000, SSID Abadan-Foriat2
+ 17  1405/07/21 11:20:13  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 18  1405/07/21 11:20:15  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 19  1405/07/21 11:27:02  [dhcp,info]  dhcp1 assigned 172.29.9.122 to F0:2F:74:F9:B9:F1
+ 20  1405/07/21 11:47:02  [dhcp,info]  dhcp1 deassigned 172.29.9.122 from F0:2F:74:F9:B9:F1
+ 21  1405/07/21 12:31:06  [dhcp,info]  dhcp1 deassigned 172.29.9.120 from F0:2F:74:F9:BA:D0
+ 22  1405/07/22 09:00:38  [dhcp,info]  dhcp1 assigned 172.29.9.120 to F0:2F:74:F9:BA:D0
+ 23  1405/07/22 09:09:21  [dhcp,info]  dhcp1 assigned 172.29.9.122 to F0:2F:74:F9:B9:F1
+ 24  1405/07/22 09:53:05  [wireless,info]  78:9A:18:B9:09:21@wlan1: lost connection, extensive data loss
+ 25  1405/07/22 09:53:11  [wireless,info]  78:9A:18:B9:09:21@wlan1 established connection on 5600000, SSID Abadan-Foriat2
+ 26  1405/07/22 10:17:44  [wireless,info]  78:9A:18:B9:09:21@wlan1: lost connection, extensive data loss
+ 27  1405/07/22 10:17:49  [wireless,info]  78:9A:18:B9:09:21@wlan1 established connection on 5600000, SSID Abadan-Foriat2
+ 28  1405/07/22 11:49:22  [dhcp,info]  dhcp1 deassigned 172.29.9.122 from F0:2F:74:F9:B9:F1
+ 29  1405/07/22 12:20:38  [dhcp,info]  dhcp1 deassigned 172.29.9.120 from F0:2F:74:F9:BA:D0
+ 30  1405/07/22 13:12:50  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 31  1405/07/22 13:12:52  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 32  1405/07/22 13:48:43  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 33  1405/07/22 13:48:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 34  1405/07/23 12:20:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 35  1405/07/23 12:20:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 36  1405/07/24 15:17:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 37  1405/07/24 15:17:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 38  1405/07/24 15:46:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 39  1405/07/24 15:46:09  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 40  1405/07/24 15:50:43  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 41  1405/07/24 15:50:45  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 42  1405/07/25 08:43:13  [dhcp,info]  dhcp1 assigned 172.29.9.120 to F0:2F:74:F9:BA:D0
+ 43  1405/07/25 09:12:59  [wireless,info]  78:9A:18:B9:09:21@wlan1: lost connection, extensive data loss
+ 44  1405/07/25 09:13:05  [wireless,info]  78:9A:18:B9:09:21@wlan1 established connection on 5600000, SSID Abadan-Foriat2
+ 45  1405/07/25 12:28:12  [dhcp,info]  dhcp1 deassigned 172.29.9.120 from F0:2F:74:F9:BA:D0
+ 46  1405/07/26 08:27:52  [dhcp,info]  dhcp1 assigned 172.29.9.122 to F0:2F:74:F9:B9:F1
+ 47  1405/07/26 08:52:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 48  1405/07/26 08:52:40  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 49  1405/07/26 08:55:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 50  1405/07/26 08:55:18  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 51  1405/07/26 09:05:08  [dhcp,info]  dhcp1 assigned 172.29.9.120 to F0:2F:74:F9:BA:D0
+ 52  1405/07/26 09:22:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 53  1405/07/26 09:22:46  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 54  1405/07/26 09:24:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -73,3 +97,5 @@ ether1  08:55:31:D4:51:58  (ether)
 wlan1  08:55:31:D4:51:59  (wlan)
 --- /ip arp ---
 wlan1  6C:3B:6B:87:6E:16  (arp 172.18.2.209)
+ether1  F0:2F:74:F9:B9:F1  (arp 172.29.9.122)
+ether1  F0:2F:74:F9:BA:D0  (arp 172.29.9.120)

@@ -1,5 +1,5 @@
 IP: 172.18.3.203
-Collected at: 2026-10-15T10:09:16.371447+00:00
+Collected at: 2026-10-21T13:17:15.820872+00:00
 source: RouterOS API
 identity: Khabgah.drifarm.Client
 device_type: ST
@@ -30,14 +30,14 @@ name=wlan1  mode=station-bridge  ssid=Khabgah.drifarm  band=5ghz-a/n  frequency=
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:37:07
-# ساعت دستگاه (خام): 1976-11-13 15:38:26
-# افست اصلاحی (سرور − دستگاه): +437585:28:41
-  1  1405/07/23 08:10:13  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/23 08:10:16  [bridge,info]  "bridge1" mac address changed to 64:D1:54:77:1E:0F
-  3  1405/07/23 08:10:22  [wireless,info]  64:D1:54:52:D0:9B@wlan1 established connection on 5075000, SSID Khabgah.drifarm
-  4  1405/07/23 08:10:23  [interface,info]  ether1 link up (speed 100M, full duplex)
-  5  1405/07/23 12:37:05  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:37:02
+# ساعت دستگاه (خام): 1976-11-19 11:48:31
+# افست اصلاحی (سرور − دستگاه): +437593:18:31
+  1  1405/07/28 16:00:01  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/28 16:00:03  [bridge,info]  "bridge1" mac address changed to 64:D1:54:77:1E:0F
+  3  1405/07/28 16:00:09  [wireless,info]  64:D1:54:52:D0:9B@wlan1 established connection on 5075000, SSID Khabgah.drifarm
+  4  1405/07/28 16:00:10  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/07/29 16:37:01  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

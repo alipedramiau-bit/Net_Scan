@@ -1,5 +1,5 @@
 IP: 172.18.8.66
-Collected at: 2026-10-14T10:24:17.067608+00:00
+Collected at: 2026-10-21T13:17:39.716803+00:00
 source: RouterOS API
 identity: Abadan-Foriat1
 device_type: AP
@@ -32,25 +32,47 @@ name=wlan1  mode=ap-bridge  ssid=Abadan-Foriat1  band=5ghz-a/n  frequency=5520
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:33:39
-# ساعت دستگاه (خام): 1975-06-23 07:07:44
-# افست اصلاحی (سرور − دستگاه): +449786:55:55
-  1  1405/07/21 10:51:04  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/21 10:51:07  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:8F:51:62
-  3  1405/07/21 10:51:15  [wireless,info]  6C:3B:6B:74:E2:8E@wlan1: connected, signal strength -67, wants bridge
-  4  1405/07/21 10:51:16  [wireless,info]  B8:69:F4:69:8B:3D@wlan1: connected, signal strength -66, wants bridge
-  5  1405/07/21 10:51:37  [interface,info]  ether1 link up (speed 100M, full duplex)
-  6  1405/07/21 10:55:44  [interface,info]  ether1 link down
-  7  1405/07/21 10:56:20  [interface,info]  ether1 link up (speed 100M, full duplex)
-  8  1405/07/21 10:56:30  [interface,info]  ether1 link down
-  9  1405/07/21 10:56:46  [interface,info]  ether1 link up (speed 100M, full duplex)
- 10  1405/07/21 10:57:33  [interface,info]  ether1 link down
- 11  1405/07/21 10:58:08  [interface,info]  ether1 link up (speed 100M, full duplex)
- 12  1405/07/21 10:58:17  [interface,info]  ether1 link down
- 13  1405/07/21 10:58:33  [interface,info]  ether1 link up (speed 100M, full duplex)
- 14  1405/07/21 14:05:44  [wireless,info]  9C:5A:81:DF:28:20@wlan1: connected, signal strength -80
- 15  1405/07/21 14:05:49  [wireless,info]  9C:5A:81:DF:28:20@wlan1: disconnected, unicast key exchange timeout, signal strength -88
- 16  1405/07/22 13:33:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:39:15
+# ساعت دستگاه (خام): 1975-06-30 10:16:09
+# افست اصلاحی (سرور − دستگاه): +449786:53:06
+  1  1405/07/21 10:48:15  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/21 10:48:18  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:8F:51:62
+  3  1405/07/21 10:48:26  [wireless,info]  6C:3B:6B:74:E2:8E@wlan1: connected, signal strength -67, wants bridge
+  4  1405/07/21 10:48:27  [wireless,info]  B8:69:F4:69:8B:3D@wlan1: connected, signal strength -66, wants bridge
+  5  1405/07/21 10:48:48  [interface,info]  ether1 link up (speed 100M, full duplex)
+  6  1405/07/21 10:52:55  [interface,info]  ether1 link down
+  7  1405/07/21 10:53:31  [interface,info]  ether1 link up (speed 100M, full duplex)
+  8  1405/07/21 10:53:41  [interface,info]  ether1 link down
+  9  1405/07/21 10:53:57  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 10  1405/07/21 10:54:44  [interface,info]  ether1 link down
+ 11  1405/07/21 10:55:19  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 12  1405/07/21 10:55:28  [interface,info]  ether1 link down
+ 13  1405/07/21 10:55:44  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 14  1405/07/21 14:02:55  [wireless,info]  9C:5A:81:DF:28:20@wlan1: connected, signal strength -80
+ 15  1405/07/21 14:03:00  [wireless,info]  9C:5A:81:DF:28:20@wlan1: disconnected, unicast key exchange timeout, signal strength -88
+ 16  1405/07/22 13:30:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 17  1405/07/22 13:30:50  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 18  1405/07/24 15:33:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 19  1405/07/24 15:33:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 20  1405/07/24 16:01:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 21  1405/07/24 16:01:22  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 22  1405/07/25 12:04:53  [wireless,info]  16:57:96:78:FD:A3@wlan1: connected, signal strength -84
+ 23  1405/07/25 12:04:58  [wireless,info]  16:57:96:78:FD:A3@wlan1: disconnected, unicast key exchange timeout, signal strength -86
+ 24  1405/07/25 15:04:11  [wireless,info]  DE:48:9F:76:42:D6@wlan1: connected, signal strength -83
+ 25  1405/07/25 15:04:16  [wireless,info]  DE:48:9F:76:42:D6@wlan1: disconnected, unicast key exchange timeout, signal strength -76
+ 26  1405/07/26 09:09:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 27  1405/07/26 09:09:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 28  1405/07/26 09:11:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 29  1405/07/26 09:11:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 30  1405/07/27 17:07:44  [wireless,info]  9C:5A:81:DF:28:20@wlan1: connected, signal strength -77
+ 31  1405/07/27 17:07:44  [wireless,info]  9C:5A:81:DF:28:20@wlan1: disconnected, received deauth: class 3 frame received (7), signal strength -77
+ 32  1405/07/27 21:22:07  [wireless,info]  22:E0:44:C1:8A:A9@wlan1: connected, signal strength -74
+ 33  1405/07/27 21:22:07  [wireless,info]  22:E0:44:C1:8A:A9@wlan1: disconnected, received deauth: class 3 frame received (7), signal strength -74
+ 34  1405/07/28 02:06:03  [wireless,info]  EA:24:EB:37:E9:6B@wlan1: connected, signal strength -82
+ 35  1405/07/28 02:06:08  [wireless,info]  EA:24:EB:37:E9:6B@wlan1: disconnected, unicast key exchange timeout, signal strength -84
+ 36  1405/07/28 21:42:46  [wireless,info]  9C:5A:81:DF:28:20@wlan1: connected, signal strength -92
+ 37  1405/07/28 21:42:50  [wireless,info]  9C:5A:81:DF:28:20@wlan1: disconnected, extensive data loss, signal strength -92
+ 38  1405/07/29 16:39:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

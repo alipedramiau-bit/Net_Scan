@@ -1,5 +1,5 @@
 IP: 172.18.8.161
-Collected at: 2026-10-14T10:24:15.552593+00:00
+Collected at: 2026-10-18T05:58:23.661686+00:00
 source: RouterOS API
 identity: RB.Meydoon.MK
 device_type: Router
@@ -90,209 +90,209 @@ device_type: Router
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:33:23
-# ساعت دستگاه (خام): 1973-07-24 00:22:20
-# افست اصلاحی (سرور − دستگاه): +466569:41:03
-  1  1405/07/17 20:51:58  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
-  2  1405/07/17 21:00:02  [interface,info]  ether2 link down
-  3  1405/07/17 21:00:03  [interface,info]  ether2 link up (speed 1G, full duplex)
-  4  1405/07/17 21:52:40  [interface,info]  ether2 link down
-  5  1405/07/17 21:52:41  [interface,info]  ether2 link up (speed 1G, full duplex)
-  6  1405/07/17 22:36:34  [dhcp,info]  dhcp1 deassigned 172.29.37.247 from 02:9B:C1:58:24:CD A54-Moslem
-  7  1405/07/17 23:07:02  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
-  8  1405/07/17 23:31:33  [dhcp,info]  dhcp1 assigned 172.29.37.247 to 02:9B:C1:58:24:CD A54-Moslem
-  9  1405/07/17 23:34:01  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
- 10  1405/07/17 23:40:09  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
- 11  1405/07/17 23:40:10  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
- 12  1405/07/18 00:01:34  [dhcp,info]  dhcp1 deassigned 172.29.37.247 from 02:9B:C1:58:24:CD A54-Moslem
- 13  1405/07/18 00:47:06  [interface,info]  ether2 link down
- 14  1405/07/18 00:47:08  [interface,info]  ether2 link up (speed 1G, full duplex)
- 15  1405/07/18 01:19:02  [dhcp,info]  dhcp1 assigned 172.29.37.247 to 02:9B:C1:58:24:CD A54-Moslem
- 16  1405/07/18 04:22:53  [dhcp,info]  dhcp1 deassigned 172.29.37.247 from 02:9B:C1:58:24:CD A54-Moslem
- 17  1405/07/18 06:09:05  [interface,info]  ether2 link down
- 18  1405/07/18 06:09:06  [interface,info]  ether2 link up (speed 1G, full duplex)
- 19  1405/07/18 07:40:25  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
- 20  1405/07/18 09:55:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 21  1405/07/18 09:55:17  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 22  1405/07/18 09:55:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 23  1405/07/18 09:55:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 24  1405/07/18 10:29:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 25  1405/07/18 10:29:13  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 26  1405/07/18 10:29:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 27  1405/07/18 10:29:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 28  1405/07/18 10:33:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 29  1405/07/18 10:33:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 30  1405/07/18 10:33:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 31  1405/07/18 10:33:45  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 32  1405/07/18 10:33:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 33  1405/07/18 10:33:50  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 34  1405/07/18 10:34:43  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 35  1405/07/18 10:34:46  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 36  1405/07/18 10:35:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 37  1405/07/18 10:35:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 38  1405/07/18 10:53:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 39  1405/07/18 10:53:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 40  1405/07/18 10:53:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 41  1405/07/18 10:53:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 42  1405/07/18 10:57:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 43  1405/07/18 10:57:59  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 44  1405/07/18 10:58:01  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 45  1405/07/18 10:58:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 46  1405/07/18 10:58:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 47  1405/07/18 10:58:10  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 48  1405/07/18 10:59:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 49  1405/07/18 10:59:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 50  1405/07/18 11:00:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 51  1405/07/18 11:00:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 52  1405/07/18 12:07:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 53  1405/07/18 12:07:19  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 54  1405/07/18 12:07:23  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 55  1405/07/18 12:07:23  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 56  1405/07/18 12:10:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 57  1405/07/18 12:10:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 58  1405/07/18 12:10:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 59  1405/07/18 12:10:29  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 60  1405/07/18 12:10:30  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 61  1405/07/18 12:10:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 62  1405/07/18 12:11:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 63  1405/07/18 12:11:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 64  1405/07/18 12:11:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 65  1405/07/18 12:11:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 66  1405/07/18 14:26:52  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
- 67  1405/07/18 17:47:00  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
- 68  1405/07/18 17:52:14  [interface,info]  ether2 link down
- 69  1405/07/18 17:52:16  [interface,info]  ether2 link up (speed 1G, full duplex)
- 70  1405/07/18 19:47:45  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
- 71  1405/07/18 19:53:01  [dhcp,info]  dhcp1 assigned 172.29.37.246 to E6:54:F9:4F:07:3E Galaxy-A21s
- 72  1405/07/18 20:57:46  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
- 73  1405/07/18 21:40:52  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
- 74  1405/07/18 22:33:02  [dhcp,info]  dhcp1 deassigned 172.29.37.246 from E6:54:F9:4F:07:3E Galaxy-A21s
- 75  1405/07/18 23:25:43  [dhcp,info]  dhcp1 assigned 172.29.37.246 to E6:54:F9:4F:07:3E Galaxy-A21s
- 76  1405/07/19 00:20:45  [dhcp,info]  dhcp1 deassigned 172.29.37.246 from E6:54:F9:4F:07:3E Galaxy-A21s
- 77  1405/07/19 00:31:08  [dhcp,info]  dhcp1 assigned 172.29.37.246 to E6:54:F9:4F:07:3E Galaxy-A21s
- 78  1405/07/19 02:12:50  [interface,info]  ether2 link down
- 79  1405/07/19 02:12:51  [interface,info]  ether2 link up (speed 1G, full duplex)
- 80  1405/07/19 07:07:24  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
- 81  1405/07/19 07:07:24  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
- 82  1405/07/19 07:21:24  [dhcp,info]  dhcp1 deassigned 172.29.37.246 from E6:54:F9:4F:07:3E Galaxy-A21s
- 83  1405/07/19 07:52:25  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
- 84  1405/07/19 09:35:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 85  1405/07/19 09:35:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 86  1405/07/19 09:36:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 87  1405/07/19 09:36:14  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 88  1405/07/19 09:47:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 89  1405/07/19 09:47:25  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 90  1405/07/19 09:47:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 91  1405/07/19 09:47:40  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 92  1405/07/19 09:47:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 93  1405/07/19 09:47:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 94  1405/07/19 09:50:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 95  1405/07/19 09:50:15  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 96  1405/07/19 09:53:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 97  1405/07/19 09:53:09  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 98  1405/07/19 14:29:47  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
- 99  1405/07/19 17:14:09  [interface,info]  ether2 link down
-100  1405/07/19 17:14:10  [interface,info]  ether2 link up (speed 1G, full duplex)
-101  1405/07/19 17:35:43  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-102  1405/07/19 17:36:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-103  1405/07/19 17:41:46  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-104  1405/07/19 17:41:47  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-105  1405/07/19 17:41:57  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-106  1405/07/19 17:41:58  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-107  1405/07/19 17:44:10  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-108  1405/07/19 17:44:11  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-109  1405/07/19 17:44:13  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-110  1405/07/19 17:44:14  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-111  1405/07/19 17:44:18  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-112  1405/07/19 17:44:19  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-113  1405/07/19 17:45:00  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-114  1405/07/19 17:45:01  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-115  1405/07/19 17:45:36  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-116  1405/07/19 17:45:37  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-117  1405/07/19 18:08:40  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
-118  1405/07/19 18:08:41  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
-119  1405/07/19 18:41:06  [interface,info]  ether2 link down
-120  1405/07/19 18:41:07  [interface,info]  ether2 link up (speed 1G, full duplex)
-121  1405/07/19 19:31:36  [interface,info]  ether2 link down
-122  1405/07/19 19:31:37  [interface,info]  ether2 link up (speed 1G, full duplex)
-123  1405/07/19 20:11:25  [interface,info]  ether2 link down
-124  1405/07/19 20:11:25  [interface,info]  ether2 link up (speed 1G, full duplex)
-125  1405/07/19 21:08:44  [dhcp,info]  dhcp1 assigned 172.29.37.247 to 02:9B:C1:58:24:CD A54-Moslem
-126  1405/07/20 00:08:53  [dhcp,info]  dhcp1 deassigned 172.29.37.247 from 02:9B:C1:58:24:CD A54-Moslem
-127  1405/07/20 00:34:13  [dhcp,info]  dhcp1 assigned 172.29.37.247 to 02:9B:C1:58:24:CD A54-Moslem
-128  1405/07/20 07:04:27  [dhcp,info]  dhcp1 deassigned 172.29.37.247 from 02:9B:C1:58:24:CD A54-Moslem
-129  1405/07/20 07:34:23  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
-130  1405/07/20 11:26:01  [interface,info]  ether2 link down
-131  1405/07/20 11:26:03  [interface,info]  ether2 link up (speed 1G, full duplex)
-132  1405/07/20 14:46:47  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
-133  1405/07/20 17:41:53  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
-134  1405/07/20 18:22:44  [interface,info]  ether2 link down
-135  1405/07/20 18:22:45  [interface,info]  ether2 link up (speed 1G, full duplex)
-136  1405/07/20 18:26:07  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
-137  1405/07/20 18:27:44  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
-138  1405/07/20 18:27:44  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
-139  1405/07/20 22:02:51  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
-140  1405/07/20 22:30:05  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
-141  1405/07/20 22:55:05  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
-142  1405/07/20 23:16:43  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
-143  1405/07/21 02:33:05  [interface,info]  ether2 link down
-144  1405/07/21 02:33:07  [interface,info]  ether2 link up (speed 1G, full duplex)
-145  1405/07/21 07:17:38  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
-146  1405/07/21 10:58:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-147  1405/07/21 10:58:05  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-148  1405/07/21 10:59:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-149  1405/07/21 10:59:50  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-150  1405/07/21 11:08:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-151  1405/07/21 11:08:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-152  1405/07/21 11:09:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-153  1405/07/21 11:09:08  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-154  1405/07/21 11:09:13  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-155  1405/07/21 11:09:18  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-156  1405/07/21 11:11:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-157  1405/07/21 11:11:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-158  1405/07/21 11:14:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-159  1405/07/21 11:14:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-160  1405/07/21 12:52:06  [interface,info]  ether2 link down
-161  1405/07/21 12:52:07  [interface,info]  ether2 link up (speed 1G, full duplex)
-162  1405/07/21 14:40:27  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
-163  1405/07/21 15:50:32  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
-164  1405/07/21 16:05:48  [interface,info]  ether2 link down
-165  1405/07/21 16:05:49  [interface,info]  ether2 link up (speed 1G, full duplex)
-166  1405/07/21 18:35:41  [interface,info]  ether2 link down
-167  1405/07/21 18:35:43  [interface,info]  ether2 link up (speed 1G, full duplex)
-168  1405/07/21 20:28:30  [interface,info]  ether2 link down
-169  1405/07/21 20:28:31  [interface,info]  ether2 link up (speed 1G, full duplex)
-170  1405/07/21 21:14:37  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
-171  1405/07/21 21:37:07  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
-172  1405/07/21 21:37:07  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
-173  1405/07/21 23:37:41  [interface,info]  ether2 link down
-174  1405/07/21 23:37:42  [interface,info]  ether2 link up (speed 1G, full duplex)
-175  1405/07/22 00:17:30  [interface,info]  ether2 link down
-176  1405/07/22 00:17:32  [interface,info]  ether2 link up (speed 1G, full duplex)
-177  1405/07/22 00:21:37  [interface,info]  ether2 link down
-178  1405/07/22 00:21:39  [interface,info]  ether2 link up (speed 1G, full duplex)
-179  1405/07/22 01:24:57  [interface,info]  ether2 link down
-180  1405/07/22 01:24:57  [interface,info]  ether2 link up (speed 1G, full duplex)
-181  1405/07/22 02:24:19  [interface,info]  ether2 link down
-182  1405/07/22 02:24:21  [interface,info]  ether2 link up (speed 1G, full duplex)
-183  1405/07/22 07:47:55  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
-184  1405/07/22 08:03:18  [interface,info]  ether2 link down
-185  1405/07/22 08:03:20  [interface,info]  ether2 link up (speed 1G, full duplex)
-186  1405/07/22 08:45:06  [interface,info]  ether2 link down
-187  1405/07/22 08:45:08  [interface,info]  ether2 link up (speed 1G, full duplex)
-188  1405/07/22 13:15:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-189  1405/07/22 13:15:29  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-190  1405/07/22 13:16:23  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-191  1405/07/22 13:16:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-192  1405/07/22 13:28:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-193  1405/07/22 13:28:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-194  1405/07/22 13:28:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-195  1405/07/22 13:28:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-196  1405/07/22 13:28:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-197  1405/07/22 13:28:38  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-198  1405/07/22 13:30:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-199  1405/07/22 13:30:34  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-200  1405/07/22 13:33:21  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/26 09:11:37
+# ساعت دستگاه (خام): 1973-07-27 20:03:11
+# افست اصلاحی (سرور − دستگاه): +466569:38:26
+  1  1405/07/20 11:23:26  [interface,info]  ether2 link up (speed 1G, full duplex)
+  2  1405/07/20 14:44:10  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+  3  1405/07/20 17:39:16  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+  4  1405/07/20 18:20:07  [interface,info]  ether2 link down
+  5  1405/07/20 18:20:08  [interface,info]  ether2 link up (speed 1G, full duplex)
+  6  1405/07/20 18:23:30  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+  7  1405/07/20 18:25:07  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+  8  1405/07/20 18:25:07  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+  9  1405/07/20 22:00:14  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+ 10  1405/07/20 22:27:28  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+ 11  1405/07/20 22:52:28  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+ 12  1405/07/20 23:14:06  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+ 13  1405/07/21 02:30:28  [interface,info]  ether2 link down
+ 14  1405/07/21 02:30:30  [interface,info]  ether2 link up (speed 1G, full duplex)
+ 15  1405/07/21 07:15:01  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+ 16  1405/07/21 10:55:23  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 17  1405/07/21 10:55:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 18  1405/07/21 10:57:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 19  1405/07/21 10:57:13  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 20  1405/07/21 11:06:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 21  1405/07/21 11:06:21  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 22  1405/07/21 11:06:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 23  1405/07/21 11:06:31  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 24  1405/07/21 11:06:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 25  1405/07/21 11:06:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 26  1405/07/21 11:09:12  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 27  1405/07/21 11:09:17  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 28  1405/07/21 11:11:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 29  1405/07/21 11:11:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 30  1405/07/21 12:49:29  [interface,info]  ether2 link down
+ 31  1405/07/21 12:49:30  [interface,info]  ether2 link up (speed 1G, full duplex)
+ 32  1405/07/21 14:37:50  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+ 33  1405/07/21 15:47:55  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+ 34  1405/07/21 16:03:11  [interface,info]  ether2 link down
+ 35  1405/07/21 16:03:12  [interface,info]  ether2 link up (speed 1G, full duplex)
+ 36  1405/07/21 18:33:04  [interface,info]  ether2 link down
+ 37  1405/07/21 18:33:06  [interface,info]  ether2 link up (speed 1G, full duplex)
+ 38  1405/07/21 20:25:53  [interface,info]  ether2 link down
+ 39  1405/07/21 20:25:54  [interface,info]  ether2 link up (speed 1G, full duplex)
+ 40  1405/07/21 21:12:00  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+ 41  1405/07/21 21:34:30  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+ 42  1405/07/21 21:34:30  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+ 43  1405/07/21 23:35:04  [interface,info]  ether2 link down
+ 44  1405/07/21 23:35:05  [interface,info]  ether2 link up (speed 1G, full duplex)
+ 45  1405/07/22 00:14:53  [interface,info]  ether2 link down
+ 46  1405/07/22 00:14:55  [interface,info]  ether2 link up (speed 1G, full duplex)
+ 47  1405/07/22 00:19:00  [interface,info]  ether2 link down
+ 48  1405/07/22 00:19:02  [interface,info]  ether2 link up (speed 1G, full duplex)
+ 49  1405/07/22 01:22:20  [interface,info]  ether2 link down
+ 50  1405/07/22 01:22:20  [interface,info]  ether2 link up (speed 1G, full duplex)
+ 51  1405/07/22 02:21:42  [interface,info]  ether2 link down
+ 52  1405/07/22 02:21:44  [interface,info]  ether2 link up (speed 1G, full duplex)
+ 53  1405/07/22 07:45:18  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+ 54  1405/07/22 08:00:41  [interface,info]  ether2 link down
+ 55  1405/07/22 08:00:43  [interface,info]  ether2 link up (speed 1G, full duplex)
+ 56  1405/07/22 08:42:29  [interface,info]  ether2 link down
+ 57  1405/07/22 08:42:31  [interface,info]  ether2 link up (speed 1G, full duplex)
+ 58  1405/07/22 13:12:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 59  1405/07/22 13:12:52  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 60  1405/07/22 13:13:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 61  1405/07/22 13:13:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 62  1405/07/22 13:25:34  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 63  1405/07/22 13:25:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 64  1405/07/22 13:25:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 65  1405/07/22 13:25:50  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 66  1405/07/22 13:25:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 67  1405/07/22 13:26:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 68  1405/07/22 13:27:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 69  1405/07/22 13:27:57  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 70  1405/07/22 13:30:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 71  1405/07/22 13:30:49  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 72  1405/07/22 14:46:50  [interface,info]  ether2 link down
+ 73  1405/07/22 14:46:51  [interface,info]  ether2 link up (speed 1G, full duplex)
+ 74  1405/07/22 14:55:00  [dhcp,info]  dhcp1 assigned 172.29.37.243 to 1E:3B:11:67:C9:D2 M2102J20SG
+ 75  1405/07/22 15:05:00  [dhcp,info]  dhcp1 deassigned 172.29.37.243 from 1E:3B:11:67:C9:D2 M2102J20SG
+ 76  1405/07/22 15:32:27  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+ 77  1405/07/22 15:42:27  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+ 78  1405/07/22 17:38:25  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+ 79  1405/07/22 18:18:26  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+ 80  1405/07/22 18:49:34  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+ 81  1405/07/22 20:14:39  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+ 82  1405/07/22 20:36:03  [dhcp,info]  dhcp1 assigned 172.29.37.240 to 1C:CC:D6:4E:84:67 Redmi-Note-8-Pro
+ 83  1405/07/22 20:46:30  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+ 84  1405/07/22 20:56:04  [dhcp,info]  dhcp1 deassigned 172.29.37.240 from 1C:CC:D6:4E:84:67 Redmi-Note-8-Pro
+ 85  1405/07/22 22:16:33  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+ 86  1405/07/22 22:46:28  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+ 87  1405/07/22 23:10:58  [interface,info]  ether2 link down
+ 88  1405/07/22 23:10:59  [interface,info]  ether2 link up (speed 1G, full duplex)
+ 89  1405/07/22 23:20:06  [interface,info]  ether2 link down
+ 90  1405/07/22 23:20:07  [interface,info]  ether2 link up (speed 1G, full duplex)
+ 91  1405/07/22 23:21:39  [interface,info]  ether2 link down
+ 92  1405/07/22 23:21:40  [interface,info]  ether2 link up (speed 1G, full duplex)
+ 93  1405/07/23 00:21:31  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+ 94  1405/07/23 00:38:01  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+ 95  1405/07/23 01:11:19  [interface,info]  ether2 link down
+ 96  1405/07/23 01:11:20  [interface,info]  ether2 link up (speed 1G, full duplex)
+ 97  1405/07/23 01:13:04  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+ 98  1405/07/23 01:25:13  [interface,info]  ether2 link down
+ 99  1405/07/23 01:25:14  [interface,info]  ether2 link up (speed 1G, full duplex)
+100  1405/07/23 01:31:00  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+101  1405/07/23 01:41:00  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+102  1405/07/23 02:38:47  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+103  1405/07/23 02:42:56  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+104  1405/07/23 02:42:56  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+105  1405/07/23 02:53:09  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+106  1405/07/23 02:53:10  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+107  1405/07/23 03:08:11  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+108  1405/07/23 04:30:50  [interface,info]  ether2 link down
+109  1405/07/23 04:30:51  [interface,info]  ether2 link up (speed 1G, full duplex)
+110  1405/07/23 05:53:06  [interface,info]  ether2 link down
+111  1405/07/23 05:53:08  [interface,info]  ether2 link up (speed 1G, full duplex)
+112  1405/07/23 10:26:15  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+113  1405/07/23 11:41:19  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+114  1405/07/23 12:20:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+115  1405/07/23 12:20:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+116  1405/07/23 12:21:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+117  1405/07/23 12:21:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+118  1405/07/23 12:32:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+119  1405/07/23 12:32:57  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+120  1405/07/23 12:33:01  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+121  1405/07/23 12:33:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+122  1405/07/23 12:33:13  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+123  1405/07/23 12:33:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+124  1405/07/23 12:35:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+125  1405/07/23 12:35:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+126  1405/07/23 17:35:07  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+127  1405/07/23 18:34:46  [interface,info]  ether2 link down
+128  1405/07/23 18:34:47  [interface,info]  ether2 link up (speed 1G, full duplex)
+129  1405/07/23 18:50:09  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+130  1405/07/23 19:16:40  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+131  1405/07/23 21:59:20  [interface,info]  ether2 link down
+132  1405/07/23 21:59:22  [interface,info]  ether2 link up (speed 1G, full duplex)
+133  1405/07/24 01:23:19  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+134  1405/07/24 01:23:20  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+135  1405/07/24 01:51:44  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+136  1405/07/24 01:51:45  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+137  1405/07/24 02:31:47  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+138  1405/07/24 11:50:24  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+139  1405/07/24 15:15:29  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+140  1405/07/24 15:17:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+141  1405/07/24 15:17:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+142  1405/07/24 15:18:01  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+143  1405/07/24 15:18:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+144  1405/07/24 15:18:38  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+145  1405/07/24 15:23:59  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+146  1405/07/24 15:24:00  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+147  1405/07/24 15:28:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+148  1405/07/24 15:28:34  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+149  1405/07/24 15:28:40  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+150  1405/07/24 15:28:45  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+151  1405/07/24 15:28:50  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+152  1405/07/24 15:28:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+153  1405/07/24 15:30:34  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+154  1405/07/24 15:30:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+155  1405/07/24 15:33:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+156  1405/07/24 15:33:14  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+157  1405/07/24 15:49:00  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+158  1405/07/24 15:50:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+159  1405/07/24 15:50:42  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+160  1405/07/24 17:37:05  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+161  1405/07/24 22:52:25  [interface,info]  ether2 link down
+162  1405/07/24 22:52:26  [interface,info]  ether2 link up (speed 1G, full duplex)
+163  1405/07/24 23:35:52  [interface,info]  ether2 link down
+164  1405/07/24 23:35:54  [interface,info]  ether2 link up (speed 1G, full duplex)
+165  1405/07/24 23:44:17  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+166  1405/07/24 23:44:18  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+167  1405/07/25 02:32:27  [interface,info]  ether2 link down
+168  1405/07/25 02:32:28  [interface,info]  ether2 link up (speed 1G, full duplex)
+169  1405/07/25 07:44:55  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+170  1405/07/25 12:37:14  [dhcp,info]  dhcp1 assigned 172.29.37.248 to DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+171  1405/07/26 03:04:51  [interface,info]  ether2 link down
+172  1405/07/26 03:04:53  [interface,info]  ether2 link up (speed 1G, full duplex)
+173  1405/07/26 07:18:21  [dhcp,info]  dhcp1 deassigned 172.29.37.248 from DE:8A:C1:83:A8:B9 Galaxy-A7-2018
+174  1405/07/26 08:52:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+175  1405/07/26 08:52:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+176  1405/07/26 08:53:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+177  1405/07/26 08:53:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+178  1405/07/26 08:54:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+179  1405/07/26 08:55:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+180  1405/07/26 08:55:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+181  1405/07/26 08:55:57  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+182  1405/07/26 09:04:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+183  1405/07/26 09:04:31  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+184  1405/07/26 09:04:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+185  1405/07/26 09:04:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+186  1405/07/26 09:04:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+187  1405/07/26 09:04:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+188  1405/07/26 09:06:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+189  1405/07/26 09:06:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+190  1405/07/26 09:06:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+191  1405/07/26 09:06:57  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+192  1405/07/26 09:07:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+193  1405/07/26 09:07:07  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+194  1405/07/26 09:07:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+195  1405/07/26 09:07:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+196  1405/07/26 09:08:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+197  1405/07/26 09:08:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+198  1405/07/26 09:08:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+199  1405/07/26 09:09:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+200  1405/07/26 09:11:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -325,6 +325,7 @@ bridge1  6C:3B:6B:0A:DE:10  (bridge)
 --- /ip arp ---
 ether4-Foriat.Bargh  64:D1:54:52:DE:A9  (arp 172.18.3.147)
 ether3  6C:3B:6B:4D:A3:C0  (arp 172.18.3.130)
+bridge1  1C:CC:D6:4E:84:67  (arp 172.29.37.240)
 bridge1  9A:2D:11:93:1F:E0  (arp 172.29.37.244)
 ether6  E4:8D:8C:71:04:AF  (arp 172.18.2.59)
 bridge1  DE:8A:C1:83:A8:B9  (arp 172.29.37.248)

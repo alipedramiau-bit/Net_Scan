@@ -1,5 +1,5 @@
 IP: 172.18.26.130
-Collected at: 2026-10-15T10:08:49.803632+00:00
+Collected at: 2026-10-21T13:17:00.428611+00:00
 source: RouterOS API
 identity: Darkhoein->Soeichi.AP
 device_type: AP
@@ -30,16 +30,26 @@ name=wlan1  mode=bridge  ssid=DRKHSECH  band=5ghz-onlyn  frequency=5520
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:33:52
-# ساعت دستگاه (خام): 2025-07-15 23:15:52
-# افست اصلاحی (سرور − دستگاه): +10953:48:00
-  1  1405/07/23 07:51:02  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/23 07:51:03  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:3E:4B:82
-  3  1405/07/23 07:51:04  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/23 07:51:05  [interface,info]  ether1 link down
-  5  1405/07/23 07:51:08  [interface,info]  ether1 link up (speed 100M, full duplex)
-  6  1405/07/23 07:51:12  [wireless,info]  6C:3B:6B:3C:DA:A1@wlan1: connected, signal strength -60, wants bridge
-  7  1405/07/23 12:33:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:35:16
+# ساعت دستگاه (خام): 2025-07-21 17:55:48
+# افست اصلاحی (سرور − دستگاه): +10963:09:28
+  1  1405/07/27 17:01:54  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/27 17:01:55  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:3E:4B:82
+  3  1405/07/27 17:01:56  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/27 17:01:57  [interface,info]  ether1 link down
+  5  1405/07/27 17:02:00  [wireless,info]  6C:3B:6B:3C:DA:A1@wlan1: connected, signal strength -58, wants bridge
+  6  1405/07/27 17:02:01  [interface,info]  ether1 link up (speed 100M, full duplex)
+  7  1405/07/28 06:47:29  [wireless,info]  6C:3B:6B:3C:DA:A1@wlan1: disconnected, extensive data loss, signal strength -58
+  8  1405/07/28 06:47:37  [wireless,info]  6C:3B:6B:3C:DA:A1@wlan1: connected, signal strength -77, wants bridge
+  9  1405/07/28 07:12:04  [wireless,info]  6C:3B:6B:3C:DA:A1@wlan1: disconnected, too many poll timeouts, signal strength -77
+ 10  1405/07/28 07:20:48  [wireless,info]  6C:3B:6B:3C:DA:A1@wlan1: connected, signal strength -58, wants bridge
+ 11  1405/07/29 04:17:10  [wireless,info]  6C:3B:6B:3C:DA:A1@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -66
+ 12  1405/07/29 04:17:14  [wireless,info]  6C:3B:6B:3C:DA:A1@wlan1: connected, signal strength -78, wants bridge
+ 13  1405/07/29 07:12:13  [wireless,info]  6C:3B:6B:3C:DA:A1@wlan1: disconnected, too many poll timeouts, signal strength -78
+ 14  1405/07/29 07:25:35  [wireless,info]  6C:3B:6B:3C:DA:A1@wlan1: connected, signal strength -57, wants bridge
+ 15  1405/07/29 08:06:35  [wireless,info]  6C:3B:6B:3C:DA:A1@wlan1: disconnected, too many poll timeouts, signal strength -57
+ 16  1405/07/29 08:18:52  [wireless,info]  6C:3B:6B:3C:DA:A1@wlan1: connected, signal strength -58, wants bridge
+ 17  1405/07/29 16:35:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

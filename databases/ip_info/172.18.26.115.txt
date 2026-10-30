@@ -1,5 +1,5 @@
 IP: 172.18.26.115
-Collected at: 2026-10-15T10:08:48.650860+00:00
+Collected at: 2026-10-18T05:57:01.794527+00:00
 source: RouterOS API
 identity: Rahmanieh.Client
 device_type: ST
@@ -25,20 +25,48 @@ name=wlan1  mode=station-bridge  ssid=Khoramshahr-Soeichi1  band=5ghz-a/n  frequ
 
 ----- neighbors -----
 === /ip neighbor ===
-  1  identity=MK_Soeichi  address=172.18.26.113  interface=wlan1
-  2  identity=Khoramshar-Soeichi1  address=172.18.26.114  interface=wlan1
+  1  identity=-  address=-  interface=ether1
+  2  identity=MK_Soeichi  address=172.18.26.113  interface=wlan1
+  3  identity=Khoramshar-Soeichi1  address=172.18.26.114  interface=wlan1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:33:46
-# ساعت دستگاه (خام): 2024-02-09 17:56:37
-# افست اصلاحی (سرور − دستگاه): +23487:07:09
-  1  1405/07/23 06:51:05  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/23 06:51:06  [interface,info]  ether1 link up (speed 100M, full duplex)
-  3  1405/07/23 06:54:28  [wireless,info]  6C:3B:6B:AB:D2:B6@wlan1 established connection on 5280000, SSID Khoramshahr-Soeichi1
-  4  1405/07/23 07:14:31  [wireless,info]  6C:3B:6B:AB:D2:B6@wlan1: lost connection, not polled for too long
-  5  1405/07/23 07:14:36  [wireless,info]  6C:3B:6B:AB:D2:B6@wlan1 established connection on 5280000, SSID Khoramshahr-Soeichi1
-  6  1405/07/23 12:33:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/26 09:05:31
+# ساعت دستگاه (خام): 2024-02-12 14:31:13
+# افست اصلاحی (سرور − دستگاه): +23487:04:18
+  1  1405/07/23 06:48:14  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/23 06:48:15  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/23 06:51:37  [wireless,info]  6C:3B:6B:AB:D2:B6@wlan1 established connection on 5280000, SSID Khoramshahr-Soeichi1
+  4  1405/07/23 07:11:40  [wireless,info]  6C:3B:6B:AB:D2:B6@wlan1: lost connection, not polled for too long
+  5  1405/07/23 07:11:45  [wireless,info]  6C:3B:6B:AB:D2:B6@wlan1 established connection on 5280000, SSID Khoramshahr-Soeichi1
+  6  1405/07/23 12:30:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  7  1405/07/23 12:30:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  8  1405/07/24 15:27:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  9  1405/07/24 15:27:13  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 10  1405/07/24 15:43:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 11  1405/07/24 15:43:38  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 12  1405/07/24 16:07:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 13  1405/07/24 16:07:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 14  1405/07/25 21:31:59  [wireless,info]  6C:3B:6B:AB:D2:B6@wlan1: lost connection, extensive data loss
+ 15  1405/07/25 21:32:07  [wireless,info]  6C:3B:6B:AB:D2:B6@wlan1: failed to connect, on 5280/20/an, authentication timeout
+ 16  1405/07/25 21:32:21  [wireless,info]  6C:3B:6B:AB:D2:B6@wlan1: failed to connect, on 5280/20/an, authentication timeout
+ 17  1405/07/25 21:32:35  [wireless,info]  6C:3B:6B:AB:D2:B6@wlan1: failed to connect, on 5280/20/an, authentication timeout
+ 18  1405/07/25 21:32:47  [wireless,info]  6C:3B:6B:AB:D2:B6@wlan1 established connection on 5280000, SSID Khoramshahr-Soeichi1
+ 19  1405/07/25 21:53:40  [wireless,info]  6C:3B:6B:AB:D2:B6@wlan1: lost connection, not polled for too long
+ 20  1405/07/25 21:53:46  [wireless,info]  6C:3B:6B:AB:D2:B6@wlan1 established connection on 5280000, SSID Khoramshahr-Soeichi1
+ 21  1405/07/25 21:54:25  [wireless,info]  6C:3B:6B:AB:D2:B6@wlan1: lost connection, extensive data loss
+ 22  1405/07/25 21:54:33  [wireless,info]  6C:3B:6B:AB:D2:B6@wlan1: failed to connect, on 5280/20/an, authentication timeout
+ 23  1405/07/25 21:54:48  [wireless,info]  6C:3B:6B:AB:D2:B6@wlan1: failed to connect, on 5280/20/an, association timeout
+ 24  1405/07/25 21:55:02  [wireless,info]  6C:3B:6B:AB:D2:B6@wlan1: failed to connect, on 5280/20/an, authentication timeout
+ 25  1405/07/25 21:55:16  [wireless,info]  6C:3B:6B:AB:D2:B6@wlan1: failed to connect, on 5280/20/an, authentication timeout
+ 26  1405/07/25 21:55:27  [wireless,info]  6C:3B:6B:AB:D2:B6@wlan1 established connection on 5280000, SSID Khoramshahr-Soeichi1
+ 27  1405/07/25 22:02:38  [wireless,info]  6C:3B:6B:AB:D2:B6@wlan1: lost connection, not polled for too long
+ 28  1405/07/25 22:02:44  [wireless,info]  6C:3B:6B:AB:D2:B6@wlan1 established connection on 5280000, SSID Khoramshahr-Soeichi1
+ 29  1405/07/25 22:36:39  [wireless,info]  6C:3B:6B:AB:D2:B6@wlan1: lost connection, not polled for too long
+ 30  1405/07/25 22:36:44  [wireless,info]  6C:3B:6B:AB:D2:B6@wlan1 established connection on 5280000, SSID Khoramshahr-Soeichi1
+ 31  1405/07/26 09:02:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 32  1405/07/26 09:02:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 33  1405/07/26 09:05:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -46,3 +74,4 @@ ether1  E4:8D:8C:B5:1C:9C  (ether)
 wlan1  E4:8D:8C:B5:1C:9D  (wlan)
 --- /ip arp ---
 wlan1  6C:3B:6B:2B:BA:15  (arp 172.18.26.113)
+ether1  B4:2E:99:71:6D:4F  (arp 172.29.209.222)

@@ -1,5 +1,5 @@
 IP: 172.29.204.1
-Collected at: 2026-10-14T10:25:25.223131+00:00
+Collected at: 2026-10-21T13:18:27.178444+00:00
 source: RouterOS API
 identity: AboSadreh.Client
 device_type: ST
@@ -33,29 +33,17 @@ name=wlan1  mode=station-bridge  ssid=Shadegan-Jafal1  band=5ghz-a/n  frequency=
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:46:01
-# ساعت دستگاه (خام): 2023-11-17 11:25:34
-# افست اصلاحی (سرور − دستگاه): +25486:50:27
-  1  1405/07/21 01:20:19  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/21 01:20:21  [interface,info]  ether1 link up (speed 100M, full duplex)
-  3  1405/07/21 01:21:17  [wireless,info]  6C:3B:6B:4A:2C:B8@wlan1 established connection on 5375000, SSID Shadegan-Jafal1
-  4  1405/07/21 01:45:01  [wireless,info]  6C:3B:6B:4A:2C:B8@wlan1: lost connection, synchronization timeout
-  5  1405/07/21 01:46:55  [wireless,info]  6C:3B:6B:4A:2C:B8@wlan1 established connection on 5375000, SSID Shadegan-Jafal1
-  6  1405/07/21 01:55:38  [dhcp,info]  dhcp1 deassigned 172.29.204.27 from B4:2E:99:6F:4D:FA
-  7  1405/07/21 08:23:04  [dhcp,info]  dhcp1 assigned 172.29.204.29 to B4:2E:99:5E:9B:25
-  8  1405/07/21 08:35:19  [dhcp,info]  dhcp1 assigned 172.29.204.27 to B4:2E:99:6F:4D:FA
-  9  1405/07/21 11:05:16  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 10  1405/07/21 11:05:19  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 11  1405/07/21 11:20:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 12  1405/07/21 11:20:46  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 13  1405/07/21 11:55:34  [dhcp,info]  dhcp1 deassigned 172.29.204.29 from B4:2E:99:5E:9B:25
- 14  1405/07/22 08:24:29  [dhcp,info]  dhcp1 assigned 172.29.204.29 to B4:2E:99:5E:9B:25
- 15  1405/07/22 08:55:48  [wireless,info]  6C:3B:6B:4A:2C:B8@wlan1: lost connection, synchronization timeout
- 16  1405/07/22 08:57:42  [wireless,info]  6C:3B:6B:4A:2C:B8@wlan1 established connection on 5375000, SSID Shadegan-Jafal1
- 17  1405/07/22 12:58:59  [dhcp,info]  dhcp1 deassigned 172.29.204.29 from B4:2E:99:5E:9B:25
- 18  1405/07/22 13:24:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 19  1405/07/22 13:24:10  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 20  1405/07/22 13:46:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:43:53
+# ساعت دستگاه (خام): 2023-11-23 23:30:25
+# افست اصلاحی (سرور − دستگاه): +25501:43:28
+  1  1405/07/28 16:13:21  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/28 16:13:22  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/28 16:14:19  [wireless,info]  6C:3B:6B:4A:2C:B8@wlan1 established connection on 5375000, SSID Shadegan-Jafal1
+  4  1405/07/28 16:49:43  [dhcp,info]  dhcp1 deassigned 172.29.204.27 from B4:2E:99:6F:4D:FA
+  5  1405/07/29 08:15:13  [dhcp,info]  dhcp1 assigned 172.29.204.29 to B4:2E:99:5E:9B:25
+  6  1405/07/29 08:35:40  [dhcp,info]  dhcp1 assigned 172.29.204.27 to B4:2E:99:6F:4D:FA
+  7  1405/07/29 13:36:44  [dhcp,info]  dhcp1 deassigned 172.29.204.29 from B4:2E:99:5E:9B:25
+  8  1405/07/29 16:43:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

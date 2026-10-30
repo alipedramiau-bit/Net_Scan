@@ -1,5 +1,5 @@
 IP: 172.18.25.241
-Collected at: 2026-10-15T10:08:38.394982+00:00
+Collected at: 2026-10-21T13:16:55.527343+00:00
 source: RouterOS API
 identity: MK_Jafal
 device_type: Router
@@ -12,9 +12,9 @@ device_type: Router
   4  name=ether4  type=ether  running=false  mac=6C:3B:6B:0C:28:9D
   5  name=ether5  type=ether  running=true  mac=6C:3B:6B:0C:28:9E
   6  name=ether6-paziresh  type=ether  running=true  mac=6C:3B:6B:0C:28:9F
-  7  name=ether7-Clock card  type=ether  running=true  mac=6C:3B:6B:0C:28:A0
+  7  name=ether7-Clock card  type=ether  running=false  mac=6C:3B:6B:0C:28:A0
   8  name=ether8  type=ether  running=true  mac=6C:3B:6B:0C:28:A1
-  9  name=ether9  type=ether  running=false  mac=6C:3B:6B:0C:28:A2
+  9  name=ether9  type=ether  running=true  mac=6C:3B:6B:0C:28:A2
  10  name=ether10  type=ether  running=true  mac=6C:3B:6B:0C:28:A3
  11  name=sfp1  type=ether  running=false  mac=6C:3B:6B:0C:28:99
  12  name=bridge1  type=bridge  running=true  mac=6C:3B:6B:0C:28:9F
@@ -34,7 +34,7 @@ device_type: Router
 === /ip route ===
   1  dst=0.0.0.0/0  gw=172.18.24.1  distance=1
   2  dst=172.18.24.0/29  gw=ether10  distance=0
-  3  dst=172.18.25.192/29  gw=ether9  distance=255
+  3  dst=172.18.25.192/29  gw=ether9  distance=0
   4  dst=172.18.25.208/28  gw=ether1  distance=0
   5  dst=172.18.25.224/28  gw=ether5  distance=0
   6  dst=172.18.25.240/28  gw=ether3  distance=0
@@ -55,122 +55,73 @@ device_type: Router
 ----- neighbors -----
 === /ip neighbor ===
   1  identity=Shadegan-Jafal1  address=172.18.25.210  interface=ether1
-  2  identity=Maleki.Client  address=172.18.25.213  interface=ether1
-  3  identity=AboSadreh.Client  address=172.18.25.214  interface=ether1
-  4  identity=Shadegan-Jafal3  address=172.18.25.242  interface=ether3
-  5  identity=AlboArabid.Client  address=172.18.25.243  interface=ether3
-  6  identity=Shadegan-Jafal2  address=172.18.25.226  interface=ether5
-  7  identity=AlboObeyd.Client  address=172.18.25.228  interface=ether5
-  8  identity=R2SH  address=-  interface=ether10
-  9  identity=RB-UMS-SHDGN-CoreRouter  address=172.18.24.1  interface=ether10
- 10  identity=Shabakeh->Jafal.Client  address=172.18.24.3  interface=ether10
- 11  identity=Shabakeh->Jafal.AP  address=192.168.111.1  interface=ether10
+  2  identity=AboSadreh.Client  address=172.18.25.214  interface=ether1
+  3  identity=Shadegan-Jafal3  address=172.18.25.242  interface=ether3
+  4  identity=AlboArabid.Client  address=172.18.25.243  interface=ether3
+  5  identity=Shadegan-Jafal2  address=172.18.25.226  interface=ether5
+  6  identity=AlboObeyd.Client  address=172.18.25.228  interface=ether5
+  7  identity=Jafal->OmSakhreh.AP  address=172.18.25.194  interface=ether9
+  8  identity=Om_sakhar_client  address=172.18.25.195  interface=ether9
+  9  identity=R2SH  address=-  interface=ether10
+ 10  identity=RB-UMS-SHDGN-CoreRouter  address=172.18.24.1  interface=ether10
+ 11  identity=Shabakeh->Jafal.Client  address=172.18.24.3  interface=ether10
+ 12  identity=Shabakeh->Jafal.AP  address=192.168.111.1  interface=ether10
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:31:49
-# ساعت دستگاه (خام): 2025-03-05 14:47:05
-# افست اصلاحی (سرور − دستگاه): +14130:14:44
-  1  1405/07/22 08:56:42  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 08:56:46  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:0C:28:9F
-  3  1405/07/22 08:56:47  [interface,info]  ether1 link up (speed 1G, full duplex)
-  4  1405/07/22 08:56:47  [interface,info]  ether3 link up (speed 1G, full duplex)
-  5  1405/07/22 08:56:47  [interface,info]  ether5 link up (speed 1G, full duplex)
-  6  1405/07/22 08:56:47  [interface,info]  ether6-paziresh link up (speed 100M, full duplex)
-  7  1405/07/22 08:56:47  [interface,info]  ether7-Clock card link up (speed 100M, full duplex)
-  8  1405/07/22 08:56:47  [interface,info]  ether8 link up (speed 100M, full duplex)
-  9  1405/07/22 08:56:48  [interface,info]  ether6-paziresh link down
- 10  1405/07/22 08:56:48  [interface,info]  ether10 link up (speed 100M, full duplex)
- 11  1405/07/22 08:56:50  [interface,info]  ether6-paziresh link up (speed 100M, full duplex)
- 12  1405/07/22 08:58:31  [interface,info]  ether3 link down
- 13  1405/07/22 08:58:32  [interface,info]  ether3 link up (speed 1G, full duplex)
- 14  1405/07/22 09:00:24  [dhcp,info]  dhcp1 assigned 172.29.203.39 to D0:37:45:D9:C7:57
- 15  1405/07/22 09:03:52  [dhcp,info]  dhcp1 assigned 172.29.203.35 to 50:3E:AA:3E:68:8C
- 16  1405/07/22 09:06:15  [dhcp,info]  dhcp1 assigned 172.29.203.37 to 98:DE:D0:26:F9:04
- 17  1405/07/22 09:07:26  [dhcp,info]  dhcp1 assigned 172.29.203.76 to 1C:1B:0D:A0:58:29
- 18  1405/07/22 09:11:58  [dhcp,info]  dhcp1 assigned 172.29.203.30 to C2:73:34:58:3A:B2
- 19  1405/07/22 09:25:11  [dhcp,info]  dhcp1 deassigned 172.29.203.125 from 2E:E1:BC:48:99:46
- 20  1405/07/22 10:00:24  [dhcp,info]  dhcp1 deassigned 172.29.203.39 from D0:37:45:D9:C7:57
- 21  1405/07/22 10:00:52  [interface,info]  ether1 link down
- 22  1405/07/22 10:00:53  [interface,info]  ether1 link up (speed 1G, full duplex)
- 23  1405/07/22 10:01:05  [interface,info]  ether1 link down
- 24  1405/07/22 10:01:07  [interface,info]  ether1 link up (speed 1G, full duplex)
- 25  1405/07/22 10:01:08  [interface,info]  ether1 link down
- 26  1405/07/22 10:01:10  [interface,info]  ether1 link up (speed 1G, full duplex)
- 27  1405/07/22 10:01:11  [interface,info]  ether1 link down
- 28  1405/07/22 10:01:13  [interface,info]  ether1 link up (speed 1G, full duplex)
- 29  1405/07/22 10:01:34  [interface,info]  ether1 link down
- 30  1405/07/22 10:01:36  [interface,info]  ether1 link up (speed 1G, full duplex)
- 31  1405/07/22 10:01:37  [interface,info]  ether1 link down
- 32  1405/07/22 10:01:38  [interface,info]  ether1 link up (speed 1G, full duplex)
- 33  1405/07/22 10:01:43  [interface,info]  ether1 link down
- 34  1405/07/22 10:01:45  [interface,info]  ether1 link up (speed 1G, full duplex)
- 35  1405/07/22 10:01:46  [interface,info]  ether1 link down
- 36  1405/07/22 10:01:52  [interface,info]  ether1 link up (speed 1G, full duplex)
- 37  1405/07/22 10:01:53  [interface,info]  ether1 link down
- 38  1405/07/22 10:01:54  [interface,info]  ether1 link up (speed 1G, full duplex)
- 39  1405/07/22 10:01:55  [interface,info]  ether1 link down
- 40  1405/07/22 10:01:57  [interface,info]  ether1 link up (speed 100M, full duplex)
- 41  1405/07/22 11:20:28  [dhcp,info]  dhcp1 deassigned 172.29.203.31 from 14:EB:B6:18:AD:30
- 42  1405/07/22 11:56:52  [dhcp,info]  dhcp1 assigned 172.29.203.31 to 14:EB:B6:18:AD:30
- 43  1405/07/22 12:33:53  [dhcp,info]  dhcp1 deassigned 172.29.203.35 from 50:3E:AA:3E:68:8C
- 44  1405/07/22 12:37:27  [dhcp,info]  dhcp1 deassigned 172.29.203.76 from 1C:1B:0D:A0:58:29
- 45  1405/07/22 12:42:00  [dhcp,info]  dhcp1 deassigned 172.29.203.30 from C2:73:34:58:3A:B2
- 46  1405/07/22 12:56:53  [dhcp,info]  dhcp1 deassigned 172.29.203.31 from 14:EB:B6:18:AD:30
- 47  1405/07/22 13:06:15  [dhcp,info]  dhcp1 deassigned 172.29.203.37 from 98:DE:D0:26:F9:04
- 48  1405/07/22 13:19:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 49  1405/07/22 13:19:31  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 50  1405/07/22 13:23:34  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 51  1405/07/22 13:23:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 52  1405/07/22 13:23:50  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 53  1405/07/22 13:23:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 54  1405/07/22 13:24:10  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 55  1405/07/22 13:24:13  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 56  1405/07/22 13:24:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 57  1405/07/22 13:24:21  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 58  1405/07/22 15:17:44  [interface,info]  ether3 link down
- 59  1405/07/22 15:17:45  [interface,info]  ether3 link up (speed 1G, full duplex)
- 60  1405/07/22 15:17:46  [interface,info]  ether3 link down
- 61  1405/07/22 15:17:48  [interface,info]  ether3 link up (speed 1G, full duplex)
- 62  1405/07/22 20:27:10  [dhcp,info]  dhcp1 assigned 172.29.203.29 to 8E:36:F1:80:61:C0
- 63  1405/07/22 20:32:33  [dhcp,info]  dhcp1 deassigned 172.29.203.29 from 8E:36:F1:80:61:C0
- 64  1405/07/22 20:32:34  [dhcp,info]  dhcp1 assigned 172.29.203.29 to 8E:36:F1:80:61:C0
- 65  1405/07/22 20:42:24  [dhcp,info]  dhcp1 deassigned 172.29.203.29 from 8E:36:F1:80:61:C0
- 66  1405/07/22 20:42:25  [dhcp,info]  dhcp1 assigned 172.29.203.29 to 8E:36:F1:80:61:C0
- 67  1405/07/22 21:01:13  [dhcp,info]  dhcp1 deassigned 172.29.203.29 from 8E:36:F1:80:61:C0
- 68  1405/07/22 21:01:14  [dhcp,info]  dhcp1 assigned 172.29.203.29 to 8E:36:F1:80:61:C0
- 69  1405/07/22 21:17:54  [dhcp,info]  dhcp1 deassigned 172.29.203.29 from 8E:36:F1:80:61:C0
- 70  1405/07/22 21:17:55  [dhcp,info]  dhcp1 assigned 172.29.203.29 to 8E:36:F1:80:61:C0
- 71  1405/07/22 21:47:55  [dhcp,info]  dhcp1 deassigned 172.29.203.29 from 8E:36:F1:80:61:C0
- 72  1405/07/22 22:05:08  [dhcp,info]  dhcp1 assigned 172.29.203.29 to 8E:36:F1:80:61:C0
- 73  1405/07/22 22:05:25  [dhcp,info]  dhcp1 deassigned 172.29.203.29 from 8E:36:F1:80:61:C0
- 74  1405/07/22 22:05:26  [dhcp,info]  dhcp1 assigned 172.29.203.29 to 8E:36:F1:80:61:C0
- 75  1405/07/22 22:05:55  [dhcp,info]  dhcp1 deassigned 172.29.203.29 from 8E:36:F1:80:61:C0
- 76  1405/07/22 22:05:56  [dhcp,info]  dhcp1 assigned 172.29.203.29 to 8E:36:F1:80:61:C0
- 77  1405/07/22 22:16:57  [dhcp,info]  dhcp1 deassigned 172.29.203.29 from 8E:36:F1:80:61:C0
- 78  1405/07/22 22:16:58  [dhcp,info]  dhcp1 assigned 172.29.203.29 to 8E:36:F1:80:61:C0
- 79  1405/07/22 22:34:09  [dhcp,info]  dhcp1 deassigned 172.29.203.29 from 8E:36:F1:80:61:C0
- 80  1405/07/22 22:34:10  [dhcp,info]  dhcp1 assigned 172.29.203.29 to 8E:36:F1:80:61:C0
- 81  1405/07/22 22:45:56  [dhcp,info]  dhcp1 deassigned 172.29.203.29 from 8E:36:F1:80:61:C0
- 82  1405/07/22 22:45:57  [dhcp,info]  dhcp1 assigned 172.29.203.29 to 8E:36:F1:80:61:C0
- 83  1405/07/22 22:59:12  [dhcp,info]  dhcp1 deassigned 172.29.203.29 from 8E:36:F1:80:61:C0
- 84  1405/07/22 22:59:12  [dhcp,info]  dhcp1 assigned 172.29.203.29 to 8E:36:F1:80:61:C0
- 85  1405/07/22 23:00:04  [dhcp,info]  dhcp1 deassigned 172.29.203.29 from 8E:36:F1:80:61:C0
- 86  1405/07/22 23:00:05  [dhcp,info]  dhcp1 assigned 172.29.203.29 to 8E:36:F1:80:61:C0
- 87  1405/07/22 23:30:05  [dhcp,info]  dhcp1 deassigned 172.29.203.29 from 8E:36:F1:80:61:C0
- 88  1405/07/22 23:53:29  [dhcp,info]  dhcp1 assigned 172.29.203.29 to 8E:36:F1:80:61:C0
- 89  1405/07/23 00:01:34  [dhcp,info]  dhcp1 deassigned 172.29.203.29 from 8E:36:F1:80:61:C0
- 90  1405/07/23 00:01:35  [dhcp,info]  dhcp1 assigned 172.29.203.29 to 8E:36:F1:80:61:C0
- 91  1405/07/23 00:31:35  [dhcp,info]  dhcp1 deassigned 172.29.203.29 from 8E:36:F1:80:61:C0
- 92  1405/07/23 12:27:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 93  1405/07/23 12:27:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 94  1405/07/23 12:31:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 95  1405/07/23 12:31:05  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 96  1405/07/23 12:31:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 97  1405/07/23 12:31:21  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 98  1405/07/23 12:31:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 99  1405/07/23 12:31:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-100  1405/07/23 12:31:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:34:14
+# ساعت دستگاه (خام): 2025-03-11 11:33:54
+# افست اصلاحی (سرور − دستگاه): +14137:30:20
+  1  1405/07/28 16:12:17  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/28 16:12:22  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:0C:28:9F
+  3  1405/07/28 16:12:23  [interface,info]  ether1 link up (speed 1G, full duplex)
+  4  1405/07/28 16:12:23  [interface,info]  ether3 link up (speed 1G, full duplex)
+  5  1405/07/28 16:12:23  [interface,info]  ether5 link up (speed 1G, full duplex)
+  6  1405/07/28 16:12:23  [interface,info]  ether8 link up (speed 100M, full duplex)
+  7  1405/07/28 16:12:23  [interface,info]  ether9 link up (speed 100M, full duplex)
+  8  1405/07/28 16:12:25  [interface,info]  ether10 link up (speed 100M, full duplex)
+  9  1405/07/28 16:12:32  [interface,info]  ether6-paziresh link up (speed 100M, full duplex)
+ 10  1405/07/28 16:13:03  [interface,info]  ether7-Clock card link up (speed 100M, full duplex)
+ 11  1405/07/28 17:35:41  [interface,info]  ether6-paziresh link down
+ 12  1405/07/28 17:35:45  [interface,info]  ether6-paziresh link up (speed 100M, full duplex)
+ 13  1405/07/28 18:03:32  [dhcp,info]  dhcp1 assigned 172.29.203.126 to 8E:36:F1:80:61:C0
+ 14  1405/07/28 18:33:32  [dhcp,info]  dhcp1 deassigned 172.29.203.126 from 8E:36:F1:80:61:C0
+ 15  1405/07/28 18:37:45  [dhcp,info]  dhcp1 assigned 172.29.203.126 to 8E:36:F1:80:61:C0
+ 16  1405/07/28 19:27:33  [dhcp,info]  dhcp1 deassigned 172.29.203.126 from 8E:36:F1:80:61:C0
+ 17  1405/07/28 19:41:05  [dhcp,info]  dhcp1 assigned 172.29.203.126 to 8E:36:F1:80:61:C0
+ 18  1405/07/28 20:11:05  [dhcp,info]  dhcp1 deassigned 172.29.203.126 from 8E:36:F1:80:61:C0
+ 19  1405/07/28 21:56:33  [dhcp,info]  dhcp1 assigned 172.29.203.126 to 8E:36:F1:80:61:C0
+ 20  1405/07/28 22:01:57  [dhcp,info]  dhcp1 deassigned 172.29.203.126 from 8E:36:F1:80:61:C0
+ 21  1405/07/28 22:01:58  [dhcp,info]  dhcp1 assigned 172.29.203.126 to 8E:36:F1:80:61:C0
+ 22  1405/07/28 22:46:59  [dhcp,info]  dhcp1 deassigned 172.29.203.126 from 8E:36:F1:80:61:C0
+ 23  1405/07/28 22:48:15  [dhcp,info]  dhcp1 assigned 172.29.203.126 to 8E:36:F1:80:61:C0
+ 24  1405/07/28 23:18:15  [dhcp,info]  dhcp1 deassigned 172.29.203.126 from 8E:36:F1:80:61:C0
+ 25  1405/07/29 08:49:48  [dhcp,info]  dhcp1 assigned 172.29.203.76 to 1C:1B:0D:A0:58:29
+ 26  1405/07/29 08:50:20  [dhcp,info]  dhcp1 assigned 172.29.203.35 to 50:3E:AA:3E:68:8C
+ 27  1405/07/29 08:52:14  [dhcp,info]  dhcp1 assigned 172.29.203.34 to 2E:E1:BC:48:99:46
+ 28  1405/07/29 08:59:20  [dhcp,info]  dhcp1 assigned 172.29.203.37 to 98:DE:D0:26:F9:04
+ 29  1405/07/29 09:22:14  [dhcp,info]  dhcp1 deassigned 172.29.203.34 from 2E:E1:BC:48:99:46
+ 30  1405/07/29 09:24:05  [interface,info]  ether6-paziresh link down
+ 31  1405/07/29 09:24:06  [interface,info]  ether6-paziresh link up (speed 100M, full duplex)
+ 32  1405/07/29 09:24:09  [interface,info]  ether6-paziresh link down
+ 33  1405/07/29 09:24:11  [interface,info]  ether6-paziresh link up (speed 100M, full duplex)
+ 34  1405/07/29 09:39:25  [interface,info]  ether3 link down
+ 35  1405/07/29 09:39:29  [interface,info]  ether3 link up (speed 1G, full duplex)
+ 36  1405/07/29 09:39:30  [interface,info]  ether3 link down
+ 37  1405/07/29 09:39:40  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 38  1405/07/29 11:26:41  [interface,info]  ether1 link down
+ 39  1405/07/29 11:26:43  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 40  1405/07/29 11:48:30  [interface,info]  ether7-Clock card link down
+ 41  1405/07/29 12:00:39  [interface,info]  ether1 link down
+ 42  1405/07/29 12:00:40  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 43  1405/07/29 12:04:48  [dhcp,info]  dhcp1 deassigned 172.29.203.76 from 1C:1B:0D:A0:58:29
+ 44  1405/07/29 12:35:20  [dhcp,info]  dhcp1 deassigned 172.29.203.35 from 50:3E:AA:3E:68:8C
+ 45  1405/07/29 12:38:25  [interface,info]  ether6-paziresh link down
+ 46  1405/07/29 12:38:27  [interface,info]  ether6-paziresh link up (speed 100M, full duplex)
+ 47  1405/07/29 12:38:31  [interface,info]  ether6-paziresh link down
+ 48  1405/07/29 12:38:32  [interface,info]  ether6-paziresh link up (speed 100M, full duplex)
+ 49  1405/07/29 12:44:20  [dhcp,info]  dhcp1 deassigned 172.29.203.37 from 98:DE:D0:26:F9:04
+ 50  1405/07/29 16:34:12  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -187,13 +138,15 @@ ether10  6C:3B:6B:0C:28:A3  (ether)
 sfp1  6C:3B:6B:0C:28:99  (ether)
 bridge1  6C:3B:6B:0C:28:9F  (bridge)
 --- /ip arp ---
-ether3  18:FD:74:BA:07:38  (arp 172.18.25.242)
-ether1  6C:3B:6B:4A:2C:B7  (arp 172.18.25.210)
-ether1  6C:3B:6B:10:B2:07  (arp 172.18.25.214)
-bridge1  00:02:65:15:E0:EF  (arp 172.29.203.10)
-ether1  6C:3B:6B:10:B1:EB  (arp 172.18.25.213)
-ether5  6C:3B:6B:5D:72:80  (arp 172.18.25.226)
-ether3  E4:8D:8C:61:6D:F7  (arp 172.18.25.243)
-ether5  64:D1:54:52:DA:1B  (arp 172.18.25.228)
 ether10  64:D1:54:98:E3:2E  (arp 172.18.24.1)
+ether3  18:FD:74:BA:07:38  (arp 172.18.25.242)
+ether3  E4:8D:8C:61:6D:F7  (arp 172.18.25.243)
+ether1  6C:3B:6B:4A:2C:B7  (arp 172.18.25.210)
+ether9  78:9A:18:76:FA:91  (arp 172.18.25.195)
+ether1  6C:3B:6B:10:B1:EB  (arp 172.18.25.213)
+ether9  6C:3B:6B:13:54:8A  (arp 172.18.25.194)
+ether1  6C:3B:6B:10:B2:07  (arp 172.18.25.214)
+ether5  64:D1:54:52:DA:1B  (arp 172.18.25.228)
 ether5  78:9A:18:77:0D:A2  (arp 172.18.25.229)
+ether5  6C:3B:6B:5D:72:80  (arp 172.18.25.226)
+bridge1  00:02:65:15:E0:EF  (arp 172.29.203.10)

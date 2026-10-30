@@ -1,5 +1,5 @@
 IP: 172.18.2.153
-Collected at: 2026-10-15T10:07:41.722984+00:00
+Collected at: 2026-10-21T13:16:16.287185+00:00
 source: RouterOS API
 identity: RB-khoramshahr-MK-behdasht-RB2011
 device_type: Router
@@ -47,213 +47,213 @@ device_type: Router
   6  identity=MarkazKhoramshahr.Client  address=172.18.1.107  interface=ether10
   7  identity=RB-Ferdosi-RB2011  address=172.29.15.2  interface=vlan20
   8  identity=WIFI-OTAGH-IT  address=172.29.15.4  interface=vlan20
-  9  identity=MarkazBehdasht-KH  address=172.29.15.5  interface=vlan20
+  9  identity=Switch  address=172.29.15.66  interface=vlan20
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:22:44
-# ساعت دستگاه (خام): 1975-03-23 21:34:31
-# افست اصلاحی (سرور − دستگاه): +452003:18:13
-  1  1405/07/21 12:12:14  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.52 to 1C:1B:0D:A4:EA:98
-  2  1405/07/21 12:18:17  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.23 to 94:DE:80:4D:E8:42
-  3  1405/07/21 12:18:23  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.31 to B4:2E:99:63:42:24
-  4  1405/07/21 12:20:23  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.26 from 1C:1B:0D:84:3E:AF
-  5  1405/07/21 12:31:32  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.74 from B4:2E:99:22:50:B4
-  6  1405/07/21 12:36:49  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.64 from 1C:1B:0D:A8:CD:D7
-  7  1405/07/21 12:37:54  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.80 from 1C:1B:0D:A4:EA:67
-  8  1405/07/21 12:48:23  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.31 from B4:2E:99:63:42:24
-  9  1405/07/21 12:49:30  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.30 from B4:2E:99:63:42:4F
- 10  1405/07/21 12:58:21  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.35 from 94:DE:80:4D:E8:09
- 11  1405/07/21 13:08:16  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.33 from 98:DE:D0:26:F1:A5
- 12  1405/07/21 13:11:13  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.10 from 84:16:F9:6D:EA:4F
- 13  1405/07/21 13:11:25  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.31 to B4:2E:99:63:42:24
- 14  1405/07/21 13:12:53  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.21 from 40:8D:5C:9F:A2:F9
- 15  1405/07/21 13:13:47  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.90 from 60:CF:84:69:5C:96
- 16  1405/07/21 13:15:22  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.34 from 98:DE:D0:27:12:1E
- 17  1405/07/21 13:15:38  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.56 from 40:8D:5C:28:1A:C6
- 18  1405/07/21 13:16:34  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.62 from A0:36:BC:34:7E:76
- 19  1405/07/21 13:18:18  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.23 from 94:DE:80:4D:E8:42
- 20  1405/07/21 13:20:04  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.15 from B4:2E:99:4A:BF:52
- 21  1405/07/21 13:21:28  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.42 from F0:2F:74:F9:BA:58
- 22  1405/07/21 13:21:38  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.25 from 1C:1B:0D:A4:E9:D3
- 23  1405/07/21 13:22:12  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.83 from 40:8D:5C:28:19:EA
- 24  1405/07/21 13:23:17  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.11 from 1C:1B:0D:A8:10:87
- 25  1405/07/21 13:23:49  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.69 from B4:2E:99:22:59:2F
- 26  1405/07/21 13:27:14  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.52 from 1C:1B:0D:A4:EA:98
- 27  1405/07/21 13:27:21  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.29 from 1C:6F:65:AE:7A:9B
- 28  1405/07/21 13:28:13  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.24 from FC:AA:14:B0:0F:BA
- 29  1405/07/21 13:28:53  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.86 from F0:2F:74:F9:BA:89
- 30  1405/07/21 13:29:42  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.45 from F0:2F:74:F9:B9:28
- 31  1405/07/21 13:30:18  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.39 from 26:21:B5:FE:5F:3A
- 32  1405/07/21 13:30:31  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.79 from A0:36:BC:E5:C6:44
- 33  1405/07/21 13:30:42  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.88 from A0:36:BC:34:6E:32
- 34  1405/07/21 13:34:37  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.44 from 1C:1B:0D:A4:EA:0E
- 35  1405/07/21 13:35:24  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.51 from 1C:1B:0D:A4:EA:6C
- 36  1405/07/21 13:38:22  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.94 from F0:2F:74:F9:B9:3C
- 37  1405/07/21 13:38:54  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.41 from 1C:1B:0D:A4:EA:75
- 38  1405/07/21 13:41:25  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.31 from B4:2E:99:63:42:24
- 39  1405/07/21 13:42:26  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.18 from 3C:52:A1:F9:84:F7
- 40  1405/07/21 13:43:52  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.16 from B4:2E:99:71:6F:6C
- 41  1405/07/21 13:47:24  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.65 from A0:36:BC:34:7D:3A
- 42  1405/07/21 13:48:08  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.12 from 40:8D:5C:9A:E2:2D
- 43  1405/07/21 13:52:34  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.59 from B4:2E:99:22:58:70
- 44  1405/07/21 14:07:12  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.13 from 60:CF:84:69:62:F5
- 45  1405/07/21 14:21:06  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.47 from A0:36:BC:34:77:5E
- 46  1405/07/21 14:42:29  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.38 from F0:2F:74:F9:BA:46
- 47  1405/07/21 15:38:37  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.14 to 18:D6:C7:C6:7F:14
- 48  1405/07/21 17:32:49  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.22 to 94:DB:C9:35:14:35
- 49  1405/07/21 18:02:49  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.22 from 94:DB:C9:35:14:35
- 50  1405/07/21 18:55:26  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.92 from A0:36:BC:34:6D:92
- 51  1405/07/21 20:27:31  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.14 from 18:D6:C7:C6:7F:14
- 52  1405/07/21 20:51:07  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.14 to 18:D6:C7:C6:7F:14
- 53  1405/07/21 21:36:08  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.14 from 18:D6:C7:C6:7F:14
- 54  1405/07/22 07:01:51  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.16 to B4:2E:99:71:6F:6C
- 55  1405/07/22 07:01:52  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.47 to A0:36:BC:34:77:5E
- 56  1405/07/22 07:06:53  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.13 to 60:CF:84:69:62:F5
- 57  1405/07/22 07:29:00  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.14 to 18:D6:C7:C6:7F:14
- 58  1405/07/22 07:47:05  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.33 to 98:DE:D0:26:F1:A5
- 59  1405/07/22 07:48:20  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.29 to 1C:6F:65:AE:7A:9B
- 60  1405/07/22 07:48:46  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.92 to A0:36:BC:34:6D:92
- 61  1405/07/22 07:49:03  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.44 to 1C:1B:0D:A4:EA:0E
- 62  1405/07/22 07:51:30  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.38 to F0:2F:74:F9:BA:46
- 63  1405/07/22 07:53:17  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.59 to B4:2E:99:22:58:70
- 64  1405/07/22 07:56:46  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.83 to 40:8D:5C:28:19:EA
- 65  1405/07/22 07:56:46  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.79 to A0:36:BC:E5:C6:44
- 66  1405/07/22 07:57:41  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.21 to 40:8D:5C:9F:A2:F9
- 67  1405/07/22 07:58:35  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.26 to 1C:1B:0D:84:3E:AF
- 68  1405/07/22 08:01:16  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.65 to A0:36:BC:34:7D:3A
- 69  1405/07/22 08:02:56  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.11 to 1C:1B:0D:A8:10:87
- 70  1405/07/22 08:03:16  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.86 to F0:2F:74:F9:BA:89
- 71  1405/07/22 08:03:19  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.56 to 40:8D:5C:28:1A:C6
- 72  1405/07/22 08:03:58  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.12 to 40:8D:5C:9A:E2:2D
- 73  1405/07/22 08:04:32  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.74 to B4:2E:99:22:50:B4
- 74  1405/07/22 08:05:08  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.15 to B4:2E:99:4A:BF:52
- 75  1405/07/22 08:05:27  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.80 to 1C:1B:0D:A4:EA:67
- 76  1405/07/22 08:07:25  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.34 to 98:DE:D0:27:12:1E
- 77  1405/07/22 08:07:44  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.60 to B4:2E:99:4A:C0:9D
- 78  1405/07/22 08:07:51  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.54 to D0:37:45:A8:DE:16
- 79  1405/07/22 08:09:02  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.90 to 60:CF:84:69:5C:96
- 80  1405/07/22 08:10:09  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.10 to 84:16:F9:6D:EA:4F
- 81  1405/07/22 08:11:05  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.46 to F0:2F:74:F9:B9:C9
- 82  1405/07/22 08:11:41  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.35 to 94:DE:80:4D:E8:09
- 83  1405/07/22 08:13:41  [dhcp,warning]  Detected conflict by ARP response for 172.29.15.22 from 94:DB:C9:35:14:35
- 84  1405/07/22 08:13:53  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.50 to 94:DB:C9:35:14:35
- 85  1405/07/22 08:15:17  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.24 to FC:AA:14:B0:0F:BA
- 86  1405/07/22 08:18:05  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.62 to A0:36:BC:34:7E:76
- 87  1405/07/22 08:22:01  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.69 to B4:2E:99:22:59:2F
- 88  1405/07/22 08:22:16  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.27 to B4:2E:99:DE:D1:12
- 89  1405/07/22 08:25:24  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.53 to 84:16:F9:6D:C5:AD
- 90  1405/07/22 08:29:33  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.52 to 1C:1B:0D:A4:EA:98
- 91  1405/07/22 08:32:29  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.25 to 1C:1B:0D:A4:E9:D3
- 92  1405/07/22 08:37:45  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.41 to 1C:1B:0D:A4:EA:75
- 93  1405/07/22 08:50:26  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.18 to 3C:52:A1:F9:84:F7
- 94  1405/07/22 08:55:24  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.53 from 84:16:F9:6D:C5:AD
- 95  1405/07/22 08:57:52  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.20 to 84:16:F9:6D:E4:BD
- 96  1405/07/22 09:01:35  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.39 to 26:21:B5:FE:5F:3A
- 97  1405/07/22 09:17:06  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.42 to F0:2F:74:F9:BA:58
- 98  1405/07/22 09:22:02  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.69 from B4:2E:99:22:59:2F
- 99  1405/07/22 09:32:20  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.69 to B4:2E:99:22:59:2F
-100  1405/07/22 09:33:19  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.29 from 1C:6F:65:AE:7A:9B
-101  1405/07/22 10:06:01  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.23 to 94:DE:80:4D:E8:42
-102  1405/07/22 10:06:09  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.31 to B4:2E:99:63:42:24
-103  1405/07/22 10:07:43  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.55 to C8:3A:35:C2:49:FA
-104  1405/07/22 10:12:08  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.94 to F0:2F:74:F9:B9:3C
-105  1405/07/22 10:24:06  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.45 to F0:2F:74:F9:B9:28
-106  1405/07/22 10:32:19  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.69 from B4:2E:99:22:59:2F
-107  1405/07/22 10:33:03  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.57 to 98:03:8E:5B:1B:98
-108  1405/07/22 10:37:16  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.54 from D0:37:45:A8:DE:16
-109  1405/07/22 10:39:30  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-110  1405/07/22 10:39:34  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-111  1405/07/22 10:41:49  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.51 to 1C:1B:0D:A4:EA:6C
-112  1405/07/22 10:42:08  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.94 from F0:2F:74:F9:B9:3C
-113  1405/07/22 10:44:00  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.14 from 18:D6:C7:C6:7F:14
-114  1405/07/22 10:47:26  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.27 from B4:2E:99:DE:D1:12
-115  1405/07/22 10:58:55  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.50 from 94:DB:C9:35:14:35
-116  1405/07/22 11:03:03  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.57 from 98:03:8E:5B:1B:98
-117  1405/07/22 11:07:43  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.55 from C8:3A:35:C2:49:FA
-118  1405/07/22 11:13:36  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.26 from 1C:1B:0D:84:3E:AF
-119  1405/07/22 11:21:01  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.23 from 94:DE:80:4D:E8:42
-120  1405/07/22 11:29:19  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.29 to 1C:6F:65:AE:7A:9B
-121  1405/07/22 11:36:24  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.26 to 1C:1B:0D:84:3E:AF
-122  1405/07/22 11:37:41  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.43 to 60:CF:84:6A:4F:2B
-123  1405/07/22 11:39:14  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.43 from 60:CF:84:6A:4F:2B
-124  1405/07/22 11:39:14  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.43 to 60:CF:84:6A:4F:2B
-125  1405/07/22 11:40:21  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.50 to 94:DB:C9:35:14:35
-126  1405/07/22 11:47:25  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.27 to B4:2E:99:DE:D1:12
-127  1405/07/22 11:48:15  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.86 from F0:2F:74:F9:BA:89
-128  1405/07/22 11:51:40  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.43 from 60:CF:84:6A:4F:2B
-129  1405/07/22 11:51:40  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.43 to 60:CF:84:6A:4F:2B
-130  1405/07/22 11:54:25  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.23 to 94:DE:80:4D:E8:42
-131  1405/07/22 12:10:02  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.86 to F0:2F:74:F9:BA:89
-132  1405/07/22 12:15:33  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.55 to C8:3A:35:C2:49:FA
-133  1405/07/22 12:23:18  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.26 from 1C:1B:0D:84:3E:AF
-134  1405/07/22 12:23:46  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.46 from F0:2F:74:F9:B9:C9
-135  1405/07/22 12:24:32  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.74 from B4:2E:99:22:50:B4
-136  1405/07/22 12:30:22  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.83 from 40:8D:5C:28:19:EA
-137  1405/07/22 12:37:40  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.60 from B4:2E:99:4A:C0:9D
-138  1405/07/22 12:38:17  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.59 from B4:2E:99:22:58:70
-139  1405/07/22 12:40:02  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.86 from F0:2F:74:F9:BA:89
-140  1405/07/22 12:42:51  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.20 from 84:16:F9:6D:E4:BD
-141  1405/07/22 12:43:32  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.25 from 1C:1B:0D:A4:E9:D3
-142  1405/07/22 12:45:33  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.55 from C8:3A:35:C2:49:FA
-143  1405/07/22 12:48:13  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.69 to B4:2E:99:22:59:2F
-144  1405/07/22 12:50:42  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.80 from 1C:1B:0D:A4:EA:67
-145  1405/07/22 12:52:17  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.59 to B4:2E:99:22:58:70
-146  1405/07/22 12:54:25  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.23 from 94:DE:80:4D:E8:42
-147  1405/07/22 13:03:18  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.56 from 40:8D:5C:28:1A:C6
-148  1405/07/22 13:04:03  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.34 from 98:DE:D0:27:12:1E
-149  1405/07/22 13:04:05  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.23 to 94:DE:80:4D:E8:42
-150  1405/07/22 13:04:05  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.44 from 1C:1B:0D:A4:EA:0E
-151  1405/07/22 13:06:32  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.35 from 94:DE:80:4D:E8:09
-152  1405/07/22 13:10:15  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.11 from 1C:1B:0D:A8:10:87
-153  1405/07/22 13:10:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-154  1405/07/22 13:10:57  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-155  1405/07/22 13:13:19  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.15 from B4:2E:99:4A:BF:52
-156  1405/07/22 13:14:33  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.52 from 1C:1B:0D:A4:EA:98
-157  1405/07/22 13:14:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-158  1405/07/22 13:14:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-159  1405/07/22 13:16:16  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.65 from A0:36:BC:34:7D:3A
-160  1405/07/22 13:18:05  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.62 from A0:36:BC:34:7E:76
-161  1405/07/22 13:18:13  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.69 from B4:2E:99:22:59:2F
-162  1405/07/22 13:19:06  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.21 from 40:8D:5C:9F:A2:F9
-163  1405/07/22 13:19:51  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.39 from 26:21:B5:FE:5F:3A
-164  1405/07/22 13:21:09  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.31 from B4:2E:99:63:42:24
-165  1405/07/22 13:21:30  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.38 from F0:2F:74:F9:BA:46
-166  1405/07/22 13:21:40  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.43 from 60:CF:84:6A:4F:2B
-167  1405/07/22 13:24:01  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.90 from 60:CF:84:69:5C:96
-168  1405/07/22 13:24:09  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.41 from 1C:1B:0D:A4:EA:75
-169  1405/07/22 13:25:09  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.10 from 84:16:F9:6D:EA:4F
-170  1405/07/22 13:26:46  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.79 from A0:36:BC:E5:C6:44
-171  1405/07/22 13:26:56  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.18 from 3C:52:A1:F9:84:F7
-172  1405/07/22 13:27:25  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.92 from A0:36:BC:34:6D:92
-173  1405/07/22 13:27:52  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.13 from 60:CF:84:69:62:F5
-174  1405/07/22 13:29:19  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.29 from 1C:6F:65:AE:7A:9B
-175  1405/07/22 13:30:16  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.24 from FC:AA:14:B0:0F:BA
-176  1405/07/22 13:30:29  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.32 from 94:DE:80:4A:34:D0
-177  1405/07/22 13:31:51  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.16 from B4:2E:99:71:6F:6C
-178  1405/07/22 13:31:51  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.47 from A0:36:BC:34:77:5E
-179  1405/07/22 13:32:05  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.42 from F0:2F:74:F9:BA:58
-180  1405/07/22 13:32:25  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.27 from B4:2E:99:DE:D1:12
-181  1405/07/22 13:33:57  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.12 from 40:8D:5C:9A:E2:2D
-182  1405/07/22 13:34:05  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.23 from 94:DE:80:4D:E8:42
-183  1405/07/22 13:37:17  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.59 from B4:2E:99:22:58:70
-184  1405/07/22 13:37:24  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.45 from F0:2F:74:F9:B9:28
-185  1405/07/22 13:40:22  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.50 from 94:DB:C9:35:14:35
-186  1405/07/22 13:41:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-187  1405/07/22 13:41:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-188  1405/07/22 14:03:13  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.51 from 1C:1B:0D:A4:EA:6C
-189  1405/07/22 15:10:19  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.14 to 18:D6:C7:C6:7F:14
-190  1405/07/22 16:40:19  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.14 from 18:D6:C7:C6:7F:14
-191  1405/07/22 17:55:42  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.14 to 18:D6:C7:C6:7F:14
-192  1405/07/22 19:13:30  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.14 from 18:D6:C7:C6:7F:14
-193  1405/07/22 20:38:25  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.51 to 1C:1B:0D:A4:EA:6C
-194  1405/07/22 21:08:25  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.51 from 1C:1B:0D:A4:EA:6C
-195  1405/07/23 10:35:50  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.92 to A0:36:BC:34:6D:92
-196  1405/07/23 10:40:15  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.44 to 1C:1B:0D:A4:EA:0E
-197  1405/07/23 12:19:04  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-198  1405/07/23 12:19:08  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-199  1405/07/23 12:19:56  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.16 to B4:2E:99:71:6F:6C
-200  1405/07/23 12:22:43  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:29:32
+# ساعت دستگاه (خام): 1975-03-29 03:40:52
+# افست اصلاحی (سرور − دستگاه): +452025:18:40
+  1  1405/07/28 21:17:44  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.51 from 1C:1B:0D:A4:EA:6C
+  2  1405/07/28 21:17:44  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.51 to 1C:1B:0D:A4:EA:6C
+  3  1405/07/28 21:57:31  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.53 from 18:D6:C7:C6:7F:14
+  4  1405/07/28 22:17:44  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.51 from 1C:1B:0D:A4:EA:6C
+  5  1405/07/29 07:01:56  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.49 to B4:2E:99:71:6F:6C
+  6  1405/07/29 07:05:40  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.16 to A0:36:BC:34:77:5E
+  7  1405/07/29 07:06:26  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.30 from 60:CF:84:69:62:F5
+  8  1405/07/29 07:06:26  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.30 to 60:CF:84:69:62:F5
+  9  1405/07/29 07:09:15  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.43 to 60:CF:84:6A:4F:2B
+ 10  1405/07/29 07:20:27  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.62 to A0:36:BC:34:7E:76
+ 11  1405/07/29 07:29:32  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.36 to B4:2E:99:DE:CF:A3
+ 12  1405/07/29 07:32:56  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.36 from B4:2E:99:DE:CF:A3
+ 13  1405/07/29 07:32:56  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.36 to B4:2E:99:DE:CF:A3
+ 14  1405/07/29 07:35:19  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.36 from B4:2E:99:DE:CF:A3
+ 15  1405/07/29 07:35:19  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.36 to B4:2E:99:DE:CF:A3
+ 16  1405/07/29 07:39:36  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.36 from B4:2E:99:DE:CF:A3
+ 17  1405/07/29 07:39:36  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.36 to B4:2E:99:DE:CF:A3
+ 18  1405/07/29 07:45:19  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.36 from B4:2E:99:DE:CF:A3
+ 19  1405/07/29 07:45:19  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.36 to B4:2E:99:DE:CF:A3
+ 20  1405/07/29 07:46:21  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.29 to 1C:6F:65:AE:7A:9B
+ 21  1405/07/29 07:46:36  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.38 to F0:2F:74:F9:BA:46
+ 22  1405/07/29 07:49:09  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.15 to B4:2E:99:4A:BF:52
+ 23  1405/07/29 07:50:27  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.62 from A0:36:BC:34:7E:76
+ 24  1405/07/29 07:50:33  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.36 from B4:2E:99:DE:CF:A3
+ 25  1405/07/29 07:50:33  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.36 to B4:2E:99:DE:CF:A3
+ 26  1405/07/29 07:53:03  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.34 to 98:DE:D0:27:12:1E
+ 27  1405/07/29 07:55:02  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.22 to 60:CF:84:69:5C:96
+ 28  1405/07/29 07:55:27  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.21 to 40:8D:5C:9F:A2:F9
+ 29  1405/07/29 07:58:31  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.56 to 40:8D:5C:28:1A:C6
+ 30  1405/07/29 07:59:03  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.57 to B4:2E:99:DE:D2:32
+ 31  1405/07/29 07:59:25  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.26 to A0:36:BC:34:7D:3A
+ 32  1405/07/29 08:00:09  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.31 to B4:2E:99:63:42:24
+ 33  1405/07/29 08:00:41  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.56 from 40:8D:5C:28:1A:C6
+ 34  1405/07/29 08:00:41  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.56 to 40:8D:5C:28:1A:C6
+ 35  1405/07/29 08:00:42  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.48 to A0:36:BC:E5:C6:44
+ 36  1405/07/29 08:01:21  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.56 from 40:8D:5C:28:1A:C6
+ 37  1405/07/29 08:01:21  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.56 to 40:8D:5C:28:1A:C6
+ 38  1405/07/29 08:01:57  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.58 to 84:16:F9:6D:E4:B7
+ 39  1405/07/29 08:02:19  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.33 to 98:DE:D0:26:F1:A5
+ 40  1405/07/29 08:02:20  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.31 from B4:2E:99:63:42:24
+ 41  1405/07/29 08:02:20  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.31 to B4:2E:99:63:42:24
+ 42  1405/07/29 08:03:06  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.74 to B4:2E:99:22:50:B4
+ 43  1405/07/29 08:03:58  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.69 to B4:2E:99:22:59:2F
+ 44  1405/07/29 08:06:19  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.54 to A0:36:BC:34:6D:92
+ 45  1405/07/29 08:06:23  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.24 to FC:AA:14:B0:0F:BA
+ 46  1405/07/29 08:06:35  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.40 to F0:2F:74:F9:BA:89
+ 47  1405/07/29 08:06:51  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.60 to B4:2E:99:4A:C0:9D
+ 48  1405/07/29 08:11:20  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.27 to B4:2E:99:DE:D1:12
+ 49  1405/07/29 08:12:07  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.32 to 40:8D:5C:9A:E2:2D
+ 50  1405/07/29 08:12:25  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.10 to 84:16:F9:6D:EA:4F
+ 51  1405/07/29 08:15:23  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.45 to F0:2F:74:F9:B9:28
+ 52  1405/07/29 08:17:42  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.14 to F0:2F:74:F9:B9:C9
+ 53  1405/07/29 08:18:21  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.25 to 1C:1B:0D:A4:E9:D3
+ 54  1405/07/29 08:21:13  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.18 to 3C:52:A1:F9:84:F7
+ 55  1405/07/29 08:21:45  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.57 from B4:2E:99:DE:D2:32
+ 56  1405/07/29 08:21:45  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.57 to B4:2E:99:DE:D2:32
+ 57  1405/07/29 08:22:21  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.31 from B4:2E:99:63:42:24
+ 58  1405/07/29 08:22:21  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.31 to B4:2E:99:63:42:24
+ 59  1405/07/29 08:22:32  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.63 to 94:DB:C9:35:14:35
+ 60  1405/07/29 08:22:42  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.52 to 1C:1B:0D:A4:EA:98
+ 61  1405/07/29 08:23:33  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.35 to 94:DE:80:4D:E8:09
+ 62  1405/07/29 08:24:07  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.64 to 1C:1B:0D:A8:CD:D7
+ 63  1405/07/29 08:24:18  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.83 to 40:8D:5C:28:19:EA
+ 64  1405/07/29 08:37:53  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.23 to 94:DE:80:4D:E8:42
+ 65  1405/07/29 08:38:32  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.31 from B4:2E:99:63:42:24
+ 66  1405/07/29 08:38:32  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.31 to B4:2E:99:63:42:24
+ 67  1405/07/29 08:39:23  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.80 to 1C:1B:0D:A4:EA:67
+ 68  1405/07/29 08:49:45  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.51 to 1C:1B:0D:A4:EA:6C
+ 69  1405/07/29 08:50:11  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.67 to C8:3A:35:C2:49:FA
+ 70  1405/07/29 08:52:50  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.19 to 8C:89:A5:E3:FB:20
+ 71  1405/07/29 08:52:55  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.42 to F0:2F:74:F9:BA:58
+ 72  1405/07/29 08:59:03  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.61 to 84:16:F9:6D:DE:42
+ 73  1405/07/29 09:08:32  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.31 from B4:2E:99:63:42:24
+ 74  1405/07/29 09:09:15  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.43 from 60:CF:84:6A:4F:2B
+ 75  1405/07/29 09:10:45  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.11 to 1C:1B:0D:A8:10:87
+ 76  1405/07/29 09:11:24  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.83 from 40:8D:5C:28:19:EA
+ 77  1405/07/29 09:11:24  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.83 to 40:8D:5C:28:19:EA
+ 78  1405/07/29 09:15:23  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.45 from F0:2F:74:F9:B9:28
+ 79  1405/07/29 09:18:56  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.68 to 00:08:CA:77:20:E6
+ 80  1405/07/29 09:20:32  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.36 from B4:2E:99:DE:CF:A3
+ 81  1405/07/29 09:23:34  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.35 from 94:DE:80:4D:E8:09
+ 82  1405/07/29 09:24:53  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.23 from 94:DE:80:4D:E8:42
+ 83  1405/07/29 09:24:53  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.23 to 94:DE:80:4D:E8:42
+ 84  1405/07/29 09:25:29  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.31 to B4:2E:99:63:42:24
+ 85  1405/07/29 09:30:08  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.28 to 94:DE:80:4A:34:D0
+ 86  1405/07/29 09:33:45  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.59 to B4:2E:99:22:58:70
+ 87  1405/07/29 09:35:10  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.67 from C8:3A:35:C2:49:FA
+ 88  1405/07/29 09:51:37  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.57 from B4:2E:99:DE:D2:32
+ 89  1405/07/29 09:51:37  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.57 to B4:2E:99:DE:D2:32
+ 90  1405/07/29 09:52:13  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.31 from B4:2E:99:63:42:24
+ 91  1405/07/29 09:52:13  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.31 to B4:2E:99:63:42:24
+ 92  1405/07/29 10:00:03  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.70 to D0:37:45:A8:DE:16
+ 93  1405/07/29 10:03:11  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.54 from A0:36:BC:34:6D:92
+ 94  1405/07/29 10:03:11  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.54 to A0:36:BC:34:6D:92
+ 95  1405/07/29 10:03:29  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.83 from 40:8D:5C:28:19:EA
+ 96  1405/07/29 10:03:29  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.83 to 40:8D:5C:28:19:EA
+ 97  1405/07/29 10:03:57  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.68 from 00:08:CA:77:20:E6
+ 98  1405/07/29 10:04:46  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.51 from 1C:1B:0D:A4:EA:6C
+ 99  1405/07/29 10:05:12  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.51 to 1C:1B:0D:A4:EA:6C
+100  1405/07/29 10:14:37  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.35 to 94:DE:80:4D:E8:09
+101  1405/07/29 10:15:11  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.36 to B4:2E:99:DE:CF:A3
+102  1405/07/29 10:15:53  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.45 to F0:2F:74:F9:B9:28
+103  1405/07/29 10:18:05  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.47 to 1C:1B:0D:84:3E:AF
+104  1405/07/29 10:22:13  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.31 from B4:2E:99:63:42:24
+105  1405/07/29 10:23:47  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.31 to B4:2E:99:63:42:24
+106  1405/07/29 10:24:24  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.23 from 94:DE:80:4D:E8:42
+107  1405/07/29 10:24:24  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.23 to 94:DE:80:4D:E8:42
+108  1405/07/29 10:26:42  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.36 from B4:2E:99:DE:CF:A3
+109  1405/07/29 10:26:42  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.36 to B4:2E:99:DE:CF:A3
+110  1405/07/29 10:30:37  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.43 to 60:CF:84:6A:4F:2B
+111  1405/07/29 10:31:46  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.39 to 8C:89:A5:E3:FA:45
+112  1405/07/29 10:38:32  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.23 from 94:DE:80:4D:E8:42
+113  1405/07/29 10:38:32  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.23 to 94:DE:80:4D:E8:42
+114  1405/07/29 10:39:09  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.31 from B4:2E:99:63:42:24
+115  1405/07/29 10:39:09  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.31 to B4:2E:99:63:42:24
+116  1405/07/29 10:39:26  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.57 from B4:2E:99:DE:D2:32
+117  1405/07/29 10:39:26  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.57 to B4:2E:99:DE:D2:32
+118  1405/07/29 10:40:04  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.65 to 26:21:B5:FE:5F:3A
+119  1405/07/29 10:45:03  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.70 from D0:37:45:A8:DE:16
+120  1405/07/29 10:51:50  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.60 from B4:2E:99:4A:C0:9D
+121  1405/07/29 10:52:31  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.27 from B4:2E:99:DE:D1:12
+122  1405/07/29 10:52:37  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.64 from 1C:1B:0D:A8:CD:D7
+123  1405/07/29 10:59:36  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.64 to 1C:1B:0D:A8:CD:D7
+124  1405/07/29 10:59:47  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.83 from 40:8D:5C:28:19:EA
+125  1405/07/29 10:59:47  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.83 to 40:8D:5C:28:19:EA
+126  1405/07/29 11:05:12  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.51 from 1C:1B:0D:A4:EA:6C
+127  1405/07/29 11:08:02  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.34 from 98:DE:D0:27:12:1E
+128  1405/07/29 11:09:09  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.31 from B4:2E:99:63:42:24
+129  1405/07/29 11:16:57  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.58 from 84:16:F9:6D:E4:B7
+130  1405/07/29 11:29:02  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.61 from 84:16:F9:6D:DE:42
+131  1405/07/29 11:31:48  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.50 to 84:16:F9:6D:E4:BD
+132  1405/07/29 11:32:05  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.23 from 94:DE:80:4D:E8:42
+133  1405/07/29 11:32:05  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.23 to 94:DE:80:4D:E8:42
+134  1405/07/29 11:32:08  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.35 from 94:DE:80:4D:E8:09
+135  1405/07/29 11:32:08  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.35 to 94:DE:80:4D:E8:09
+136  1405/07/29 11:33:10  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.31 to B4:2E:99:63:42:24
+137  1405/07/29 12:01:40  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.60 to B4:2E:99:4A:C0:9D
+138  1405/07/29 12:03:10  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.31 from B4:2E:99:63:42:24
+139  1405/07/29 12:05:01  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.27 to B4:2E:99:DE:D1:12
+140  1405/07/29 12:14:47  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.83 from 40:8D:5C:28:19:EA
+141  1405/07/29 12:15:36  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.43 from 60:CF:84:6A:4F:2B
+142  1405/07/29 12:15:57  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.65 from 26:21:B5:FE:5F:3A
+143  1405/07/29 12:18:05  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.47 from 1C:1B:0D:84:3E:AF
+144  1405/07/29 12:23:57  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.80 from 1C:1B:0D:A4:EA:67
+145  1405/07/29 12:27:22  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.61 to 84:16:F9:6D:DE:42
+146  1405/07/29 12:31:36  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.38 from F0:2F:74:F9:BA:46
+147  1405/07/29 12:32:08  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.35 from 94:DE:80:4D:E8:09
+148  1405/07/29 12:33:06  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.74 from B4:2E:99:22:50:B4
+149  1405/07/29 12:33:45  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.80 to 1C:1B:0D:A4:EA:67
+150  1405/07/29 12:39:26  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.57 from B4:2E:99:DE:D2:32
+151  1405/07/29 12:45:16  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.56 from 40:8D:5C:28:1A:C6
+152  1405/07/29 12:45:16  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.56 to 40:8D:5C:28:1A:C6
+153  1405/07/29 12:45:53  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.45 from F0:2F:74:F9:B9:28
+154  1405/07/29 12:46:48  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.56 from 40:8D:5C:28:1A:C6
+155  1405/07/29 12:46:48  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.56 to 40:8D:5C:28:1A:C6
+156  1405/07/29 12:55:18  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.31 to B4:2E:99:63:42:24
+157  1405/07/29 13:00:59  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.35 to 94:DE:80:4D:E8:09
+158  1405/07/29 13:01:40  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.60 from B4:2E:99:4A:C0:9D
+159  1405/07/29 13:04:18  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.51 to 1C:1B:0D:A4:EA:6C
+160  1405/07/29 13:07:54  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.42 from F0:2F:74:F9:BA:58
+161  1405/07/29 13:10:27  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.21 from 40:8D:5C:9F:A2:F9
+162  1405/07/29 13:11:42  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.13 from 1C:1B:0D:A4:EA:0E
+163  1405/07/29 13:12:22  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.61 from 84:16:F9:6D:DE:42
+164  1405/07/29 13:12:25  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.10 from 84:16:F9:6D:EA:4F
+165  1405/07/29 13:16:21  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.29 from 1C:6F:65:AE:7A:9B
+166  1405/07/29 13:16:46  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.39 from 8C:89:A5:E3:FA:45
+167  1405/07/29 13:16:47  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.50 from 84:16:F9:6D:E4:BD
+168  1405/07/29 13:16:48  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.56 from 40:8D:5C:28:1A:C6
+169  1405/07/29 13:17:05  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.23 from 94:DE:80:4D:E8:42
+170  1405/07/29 13:17:18  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.33 from 98:DE:D0:26:F1:A5
+171  1405/07/29 13:17:42  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.14 from F0:2F:74:F9:B9:C9
+172  1405/07/29 13:18:58  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.69 from B4:2E:99:22:59:2F
+173  1405/07/29 13:19:11  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.15 from B4:2E:99:4A:BF:52
+174  1405/07/29 13:20:01  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.27 from B4:2E:99:DE:D1:12
+175  1405/07/29 13:21:34  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.40 from F0:2F:74:F9:BA:89
+176  1405/07/29 13:22:43  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.52 from 1C:1B:0D:A4:EA:98
+177  1405/07/29 13:25:01  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.22 from 60:CF:84:69:5C:96
+178  1405/07/29 13:25:03  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.25 from 1C:1B:0D:A4:E9:D3
+179  1405/07/29 13:25:18  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.31 from B4:2E:99:63:42:24
+180  1405/07/29 13:25:46  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.11 from 1C:1B:0D:A8:10:87
+181  1405/07/29 13:26:42  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.36 from B4:2E:99:DE:CF:A3
+182  1405/07/29 13:30:41  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.48 from A0:36:BC:E5:C6:44
+183  1405/07/29 13:30:59  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.35 from 94:DE:80:4D:E8:09
+184  1405/07/29 13:33:45  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.80 from 1C:1B:0D:A4:EA:67
+185  1405/07/29 13:33:46  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.59 from B4:2E:99:22:58:70
+186  1405/07/29 13:34:18  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.51 from 1C:1B:0D:A4:EA:6C
+187  1405/07/29 13:36:13  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.18 from 3C:52:A1:F9:84:F7
+188  1405/07/29 13:36:21  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.24 from FC:AA:14:B0:0F:BA
+189  1405/07/29 13:38:14  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.54 from A0:36:BC:34:6D:92
+190  1405/07/29 13:38:14  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.54 to A0:36:BC:34:6D:92
+191  1405/07/29 13:42:07  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.32 from 40:8D:5C:9A:E2:2D
+192  1405/07/29 13:44:25  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.26 from A0:36:BC:34:7D:3A
+193  1405/07/29 13:44:35  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.64 from 1C:1B:0D:A8:CD:D7
+194  1405/07/29 13:46:56  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.49 from B4:2E:99:71:6F:6C
+195  1405/07/29 13:50:38  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.16 from A0:36:BC:34:77:5E
+196  1405/07/29 13:51:25  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.30 from 60:CF:84:69:62:F5
+197  1405/07/29 13:52:32  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.63 from 94:DB:C9:35:14:35
+198  1405/07/29 14:15:09  [dhcp,info]  dhcp_vlan20 deassigned 172.29.15.28 from 94:DE:80:4A:34:D0
+199  1405/07/29 15:24:13  [dhcp,info]  dhcp_vlan20 assigned 172.29.15.53 to 18:D6:C7:C6:7F:14
+200  1405/07/29 16:29:30  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -272,13 +272,12 @@ bridge2  C4:AD:34:1C:69:10  (bridge)
 vlan20  C4:AD:34:1C:69:10  (vlan)
 vlan1000  C4:AD:34:1C:69:10  (vlan)
 --- /ip arp ---
-ether6  E4:8D:8C:DB:C0:4E  (arp 172.18.2.154)
-vlan20  C4:AD:34:1C:5C:3B  (arp 172.29.15.2)
-vlan20  98:DE:D0:26:F1:A5  (arp 172.29.15.33)
 vlan20  00:02:65:16:A4:1B  (arp 172.29.15.17)
+vlan20  8C:89:A5:E3:FB:20  (arp 172.29.15.19)
+ether6  E4:8D:8C:DB:C0:4E  (arp 172.18.2.154)
 ether6  E4:8D:8C:70:23:73  (arp 172.18.2.155)
-ether10  4C:5E:0C:9B:0E:6C  (arp 172.18.1.105)
+vlan20  18:D6:C7:C6:7F:14  (arp 172.29.15.53)
+vlan20  A0:36:BC:34:6D:92  (arp 172.29.15.54)
 vlan20  78:9A:18:A9:AD:BB  (arp 172.29.15.4)
-vlan20  A0:36:BC:34:6D:92  (arp 172.29.15.92)
-vlan20  1C:1B:0D:A4:EA:0E  (arp 172.29.15.44)
-vlan20  B4:2E:99:71:6F:6C  (arp 172.29.15.16)
+ether10  4C:5E:0C:9B:0E:6C  (arp 172.18.1.105)
+vlan20  C4:AD:34:1C:5C:3B  (arp 172.29.15.2)

@@ -1,5 +1,5 @@
 IP: 172.18.16.40
-Collected at: 2026-10-15T10:07:32.518813+00:00
+Collected at: 2026-10-21T13:15:59.523008+00:00
 source: RouterOS API
 identity: ForiatKH-Link2
 device_type: ST
@@ -30,22 +30,29 @@ name=wlan1  mode=station-bridge  ssid=Khoramshahr-Shabakeh3  band=5ghz-a/n  freq
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:21:22
-# ساعت دستگاه (خام): 1970-09-24 04:34:40
-# افست اصلاحی (سرور − دستگاه): +491404:16:42
-  1  1405/07/23 08:05:56  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/23 08:06:04  [wireless,info]  6C:3B:6B:9C:4B:23@wlan1 established connection on 5500000, SSID Khoramshahr-Shabakeh3
-  3  1405/07/23 08:06:06  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/23 08:06:10  [dhcp,info]  dhcp1 assigned 172.29.128.253 to 50:EB:F6:9A:A3:7F
-  5  1405/07/23 08:36:10  [dhcp,info]  dhcp1 deassigned 172.29.128.253 from 50:EB:F6:9A:A3:7F
-  6  1405/07/23 09:47:28  [dhcp,info]  dhcp1 assigned 172.29.128.252 to 74:D4:35:D9:6B:F3
-  7  1405/07/23 12:21:08  [dhcp,info]  dhcp1 deassigned 172.29.128.252 from 74:D4:35:D9:6B:F3
-  8  1405/07/23 12:21:21  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:28:48
+# ساعت دستگاه (خام): 1970-09-29 08:44:40
+# افست اصلاحی (سرور − دستگاه): +491428:14:08
+  1  1405/07/29 08:03:22  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/29 08:03:30  [wireless,info]  6C:3B:6B:9C:4B:23@wlan1 established connection on 5500000, SSID Khoramshahr-Shabakeh3
+  3  1405/07/29 08:03:32  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/29 08:04:01  [dhcp,info]  dhcp1 assigned 172.29.128.254 to 74:D4:35:D9:6B:F3
+  5  1405/07/29 08:41:20  [dhcp,info]  dhcp1 assigned 172.29.128.253 to 50:EB:F6:9A:A3:7F
+  6  1405/07/29 09:51:21  [dhcp,info]  dhcp1 deassigned 172.29.128.253 from 50:EB:F6:9A:A3:7F
+  7  1405/07/29 10:02:18  [dhcp,info]  dhcp1 assigned 172.29.128.253 to 50:EB:F6:9A:A3:7F
+  8  1405/07/29 10:42:17  [dhcp,info]  dhcp1 deassigned 172.29.128.253 from 50:EB:F6:9A:A3:7F
+  9  1405/07/29 12:34:15  [dhcp,info]  dhcp1 assigned 172.29.128.253 to 50:EB:F6:9A:A3:7F
+ 10  1405/07/29 12:50:33  [dhcp,info]  dhcp1 deassigned 172.29.128.254 from 74:D4:35:D9:6B:F3
+ 11  1405/07/29 12:52:18  [dhcp,info]  dhcp1 assigned 172.29.128.254 to 74:D4:35:D9:6B:F3
+ 12  1405/07/29 13:44:15  [dhcp,info]  dhcp1 deassigned 172.29.128.253 from 50:EB:F6:9A:A3:7F
+ 13  1405/07/29 13:46:58  [dhcp,info]  dhcp1 assigned 172.29.128.253 to 50:EB:F6:9A:A3:7F
+ 14  1405/07/29 15:27:18  [dhcp,info]  dhcp1 deassigned 172.29.128.254 from 74:D4:35:D9:6B:F3
+ 15  1405/07/29 15:31:58  [dhcp,info]  dhcp1 deassigned 172.29.128.253 from 50:EB:F6:9A:A3:7F
+ 16  1405/07/29 16:28:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
 ether1  E4:8D:8C:B5:D9:D0  (ether)
 wlan1  E4:8D:8C:B5:D9:D1  (wlan)
 --- /ip arp ---
-ether1  74:D4:35:D9:6B:F3  (arp 172.29.128.252)
 wlan1  4C:5E:0C:9B:0E:79  (arp 172.18.16.33)

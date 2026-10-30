@@ -1,5 +1,5 @@
 IP: 172.18.26.34
-Collected at: 2026-10-15T10:08:55.836678+00:00
+Collected at: 2026-10-21T13:17:05.550025+00:00
 source: RouterOS API
 identity: Shadegan-Darkhovein2
 device_type: AP
@@ -7,7 +7,7 @@ device_type: AP
 ----- interfaces -----
 === /interface ===
   1  name=ether1  type=ether  running=true  mac=B8:69:F4:90:60:F6
-  2  name=wlan1  type=wlan  running=true  mac=B8:69:F4:90:60:F7
+  2  name=wlan1  type=wlan  running=false  mac=B8:69:F4:90:60:F7
   3  name=bridge1  type=bridge  running=true  mac=B8:69:F4:90:60:F6
 
 ----- wireless -----
@@ -24,19 +24,19 @@ name=wlan1  mode=bridge  ssid=Shadegan-Darkhovein2  band=5ghz-a/n  frequency=526
 
 ----- neighbors -----
 === /ip neighbor ===
-  1  identity=ShakhtolKhan.Client  address=172.18.26.35  interface=wlan1,bridge1
-  2  identity=MK_Darkhovein  address=172.18.26.33  interface=ether1,bridge1
+  1  identity=MK_Darkhovein  address=172.18.26.33  interface=ether1,bridge1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:34:25
-# ساعت دستگاه (خام): 1975-02-11 01:37:18
-# افست اصلاحی (سرور − دستگاه): +452983:27:07
-  1  1405/07/23 07:51:04  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/23 07:51:05  [bridge,info]  "bridge1" mac address changed to B8:69:F4:90:60:F6
-  3  1405/07/23 07:51:06  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/23 07:51:13  [wireless,info]  E4:8D:8C:61:6D:8D@wlan1: connected, signal strength -49, wants bridge
-  5  1405/07/23 12:34:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:35:34
+# ساعت دستگاه (خام): 1975-02-15 20:27:35
+# افست اصلاحی (سرور − دستگاه): +453016:37:59
+  1  1405/07/27 17:01:58  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/27 17:01:58  [bridge,info]  "bridge1" mac address changed to B8:69:F4:90:60:F6
+  3  1405/07/27 17:02:01  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/27 17:02:09  [wireless,info]  E4:8D:8C:61:6D:8D@wlan1: connected, signal strength -49, wants bridge
+  5  1405/07/29 12:00:02  [wireless,info]  E4:8D:8C:61:6D:8D@wlan1: disconnected, extensive data loss, signal strength -49
+  6  1405/07/29 16:35:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

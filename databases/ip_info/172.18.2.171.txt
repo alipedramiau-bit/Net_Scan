@@ -1,5 +1,5 @@
 IP: 172.18.2.171
-Collected at: 2026-10-15T10:07:50.562911+00:00
+Collected at: 2026-10-21T13:16:18.587718+00:00
 source: RouterOS API
 identity: SHoooliTest
 device_type: ST
@@ -29,27 +29,93 @@ name=wlan1  mode=station-bridge  ssid=123  band=5ghz-a/n  frequency=5500
   2  identity=Khoramshahr-Taleghani1  address=172.18.2.170  interface=wlan1
   3  identity=Maslayi_clayent  address=172.18.16.67  interface=wlan1
   4  identity=KH-B-SARHANIEH-SOFLA  address=172.18.16.69  interface=wlan1
-  5  identity=SIP-T19P_E2  address=-  interface=ether1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:23:11
-# ساعت دستگاه (خام): 1970-08-04 00:35:15
-# افست اصلاحی (سرور − دستگاه): +492632:17:56
-  1  1405/07/23 11:47:54  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/23 11:48:04  [interface,info]  ether1 link up (speed 100M, full duplex)
-  3  1405/07/23 11:48:10  [dhcp,info]  dhcp1 assigned 172.29.17.88 to 00:02:65:15:E1:38
-  4  1405/07/23 11:48:48  [wireless,info]  E6:8D:8C:F4:BA:3B@wlan1 established connection on 5150000, SSID 123
-  5  1405/07/23 11:50:45  [dhcp,info]  dhcp1 deassigned 172.29.17.89 from 80:5E:C0:41:5D:30
-  6  1405/07/23 11:50:45  [dhcp,info]  dhcp1 assigned 172.29.17.89 to 80:5E:C0:41:5D:30
-  7  1405/07/23 11:58:10  [dhcp,info]  dhcp1 deassigned 172.29.17.88 from 00:02:65:15:E1:38
-  8  1405/07/23 12:23:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:29:49
+# ساعت دستگاه (خام): 1970-08-08 05:32:50
+# افست اصلاحی (سرور − دستگاه): +492679:26:59
+  1  1405/07/28 10:56:57  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/28 10:57:06  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/28 10:57:12  [dhcp,info]  dhcp1 assigned 172.29.17.84 to 00:02:65:15:E1:38
+  4  1405/07/28 10:57:51  [wireless,info]  E6:8D:8C:F4:BA:3B@wlan1 established connection on 5150000, SSID 123
+  5  1405/07/28 10:59:37  [dhcp,info]  dhcp1 deassigned 172.29.17.98 from 3C:52:A1:F9:7A:19
+  6  1405/07/28 10:59:37  [dhcp,info]  dhcp1 assigned 172.29.17.98 to 3C:52:A1:F9:7A:19
+  7  1405/07/28 10:59:55  [dhcp,info]  dhcp1 deassigned 172.29.17.89 from 80:5E:C0:41:5D:30
+  8  1405/07/28 10:59:55  [dhcp,info]  dhcp1 assigned 172.29.17.89 to 80:5E:C0:41:5D:30
+  9  1405/07/28 11:00:47  [dhcp,info]  dhcp1 deassigned 172.29.17.85 from C8:3A:35:C1:25:31
+ 10  1405/07/28 11:00:47  [dhcp,info]  dhcp1 assigned 172.29.17.85 to C8:3A:35:C1:25:31
+ 11  1405/07/28 11:04:04  [dhcp,info]  dhcp1 deassigned 172.29.17.86 from C8:3A:35:C1:25:80
+ 12  1405/07/28 11:04:18  [dhcp,info]  dhcp1 deassigned 172.29.17.114 from D0:37:45:DD:2D:7F
+ 13  1405/07/28 11:04:31  [dhcp,info]  dhcp1 deassigned 172.29.17.108 from 98:DE:D0:27:0F:62
+ 14  1405/07/28 11:05:40  [dhcp,info]  dhcp1 deassigned 172.29.17.96 from 7C:C2:C6:23:0C:05
+ 15  1405/07/28 11:06:18  [dhcp,info]  dhcp1 deassigned 172.29.17.87 from EC:08:6B:95:DD:E1
+ 16  1405/07/28 11:07:12  [dhcp,info]  dhcp1 deassigned 172.29.17.84 from 00:02:65:15:E1:38
+ 17  1405/07/28 11:10:02  [dhcp,info]  dhcp1 assigned 172.29.17.87 to EC:08:6B:95:DD:E1
+ 18  1405/07/28 11:16:33  [dhcp,info]  dhcp1 assigned 172.29.17.114 to D0:37:45:DD:2D:7F
+ 19  1405/07/28 11:56:33  [dhcp,info]  dhcp1 deassigned 172.29.17.114 from D0:37:45:DD:2D:7F
+ 20  1405/07/28 11:59:38  [dhcp,info]  dhcp1 assigned 172.29.17.96 to 7C:C2:C6:23:0C:05
+ 21  1405/07/28 12:04:44  [dhcp,info]  dhcp1 assigned 172.29.17.114 to D0:37:45:DD:2D:7F
+ 22  1405/07/28 12:13:05  [dhcp,info]  dhcp1 assigned 172.29.17.108 to 98:DE:D0:27:0F:62
+ 23  1405/07/28 12:24:37  [dhcp,info]  dhcp1 deassigned 172.29.17.98 from 3C:52:A1:F9:7A:19
+ 24  1405/07/28 12:34:45  [dhcp,info]  dhcp1 deassigned 172.29.17.114 from D0:37:45:DD:2D:7F
+ 25  1405/07/28 12:38:06  [dhcp,info]  dhcp1 deassigned 172.29.17.108 from 98:DE:D0:27:0F:62
+ 26  1405/07/28 12:44:38  [dhcp,info]  dhcp1 deassigned 172.29.17.96 from 7C:C2:C6:23:0C:05
+ 27  1405/07/28 13:05:02  [dhcp,info]  dhcp1 deassigned 172.29.17.87 from EC:08:6B:95:DD:E1
+ 28  1405/07/28 13:23:25  [dhcp,info]  dhcp1 assigned 172.29.17.96 to 7C:C2:C6:23:0C:05
+ 29  1405/07/28 13:30:48  [dhcp,info]  dhcp1 deassigned 172.29.17.85 from C8:3A:35:C1:25:31
+ 30  1405/07/28 13:33:25  [dhcp,info]  dhcp1 deassigned 172.29.17.96 from 7C:C2:C6:23:0C:05
+ 31  1405/07/29 07:42:12  [dhcp,info]  dhcp1 assigned 172.29.17.108 to 98:DE:D0:27:0F:62
+ 32  1405/07/29 07:42:24  [dhcp,info]  dhcp1 assigned 172.29.17.114 to D0:37:45:DD:2D:7F
+ 33  1405/07/29 07:42:43  [dhcp,info]  dhcp1 assigned 172.29.17.87 to EC:08:6B:95:DD:E1
+ 34  1405/07/29 07:49:02  [dhcp,info]  dhcp1 assigned 172.29.17.92 to 50:3E:AA:EB:E8:C1
+ 35  1405/07/29 08:04:15  [wireless,info]  E6:8D:8C:F4:BA:3B@wlan1: lost connection, extensive data loss
+ 36  1405/07/29 08:05:06  [wireless,info]  E6:8D:8C:F4:BA:3B@wlan1 established connection on 5150000, SSID 123
+ 37  1405/07/29 08:11:18  [dhcp,info]  dhcp1 assigned 172.29.17.85 to C8:3A:35:C1:25:31
+ 38  1405/07/29 08:12:31  [dhcp,info]  dhcp1 assigned 172.29.17.83 to C8:3A:35:C1:25:17
+ 39  1405/07/29 08:13:49  [wireless,info]  E6:8D:8C:F4:BA:3B@wlan1: lost connection, extensive data loss
+ 40  1405/07/29 08:13:51  [dhcp,info]  dhcp1 assigned 172.29.17.84 to 00:02:65:15:E1:38
+ 41  1405/07/29 08:14:40  [wireless,info]  E6:8D:8C:F4:BA:3B@wlan1 established connection on 5150000, SSID 123
+ 42  1405/07/29 08:14:48  [wireless,info]  E6:8D:8C:F4:BA:3B@wlan1: lost connection, extensive data loss
+ 43  1405/07/29 08:15:40  [wireless,info]  E6:8D:8C:F4:BA:3B@wlan1 established connection on 5150000, SSID 123
+ 44  1405/07/29 08:16:41  [wireless,info]  E6:8D:8C:F4:BA:3B@wlan1: lost connection, extensive data loss
+ 45  1405/07/29 08:16:49  [dhcp,info]  dhcp1 assigned 172.29.17.86 to C8:3A:35:C1:25:80
+ 46  1405/07/29 08:17:32  [wireless,info]  E6:8D:8C:F4:BA:3B@wlan1 established connection on 5150000, SSID 123
+ 47  1405/07/29 08:17:51  [wireless,info]  E6:8D:8C:F4:BA:3B@wlan1: lost connection, extensive data loss
+ 48  1405/07/29 08:18:42  [wireless,info]  E6:8D:8C:F4:BA:3B@wlan1 established connection on 5150000, SSID 123
+ 49  1405/07/29 08:20:34  [wireless,info]  E6:8D:8C:F4:BA:3B@wlan1: lost connection, extensive data loss
+ 50  1405/07/29 08:21:25  [wireless,info]  E6:8D:8C:F4:BA:3B@wlan1 established connection on 5150000, SSID 123
+ 51  1405/07/29 08:21:44  [wireless,info]  E6:8D:8C:F4:BA:3B@wlan1: lost connection, extensive data loss
+ 52  1405/07/29 08:22:08  [dhcp,info]  dhcp1 deassigned 172.29.17.84 from 00:02:65:15:E1:38
+ 53  1405/07/29 08:22:08  [dhcp,info]  dhcp1 assigned 172.29.17.84 to 00:02:65:15:E1:38
+ 54  1405/07/29 08:22:36  [wireless,info]  E6:8D:8C:F4:BA:3B@wlan1 established connection on 5150000, SSID 123
+ 55  1405/07/29 08:23:51  [wireless,info]  E6:8D:8C:F4:BA:3B@wlan1: lost connection, extensive data loss
+ 56  1405/07/29 08:24:42  [wireless,info]  E6:8D:8C:F4:BA:3B@wlan1 established connection on 5150000, SSID 123
+ 57  1405/07/29 08:28:47  [dhcp,info]  dhcp1 assigned 172.29.17.82 to 84:16:F9:6D:CA:80
+ 58  1405/07/29 08:32:08  [dhcp,info]  dhcp1 deassigned 172.29.17.84 from 00:02:65:15:E1:38
+ 59  1405/07/29 08:33:18  [dhcp,info]  dhcp1 assigned 172.29.17.98 to 3C:52:A1:F9:7A:19
+ 60  1405/07/29 08:39:01  [dhcp,info]  dhcp1 deassigned 172.29.17.92 from 50:3E:AA:EB:E8:C1
+ 61  1405/07/29 08:43:58  [dhcp,info]  dhcp1 assigned 172.29.17.92 to 50:3E:AA:EB:E8:C1
+ 62  1405/07/29 10:18:58  [dhcp,info]  dhcp1 deassigned 172.29.17.92 from 50:3E:AA:EB:E8:C1
+ 63  1405/07/29 10:21:59  [dhcp,info]  dhcp1 assigned 172.29.17.92 to 50:3E:AA:EB:E8:C1
+ 64  1405/07/29 10:23:47  [dhcp,info]  dhcp1 deassigned 172.29.17.82 from 84:16:F9:6D:CA:80
+ 65  1405/07/29 10:44:05  [dhcp,info]  dhcp1 assigned 172.29.17.82 to 84:16:F9:6D:CA:80
+ 66  1405/07/29 11:27:13  [dhcp,info]  dhcp1 deassigned 172.29.17.108 from 98:DE:D0:27:0F:62
+ 67  1405/07/29 11:48:18  [dhcp,info]  dhcp1 deassigned 172.29.17.98 from 3C:52:A1:F9:7A:19
+ 68  1405/07/29 12:29:05  [dhcp,info]  dhcp1 deassigned 172.29.17.82 from 84:16:F9:6D:CA:80
+ 69  1405/07/29 13:01:59  [dhcp,info]  dhcp1 deassigned 172.29.17.92 from 50:3E:AA:EB:E8:C1
+ 70  1405/07/29 13:02:43  [dhcp,info]  dhcp1 deassigned 172.29.17.87 from EC:08:6B:95:DD:E1
+ 71  1405/07/29 13:02:51  [dhcp,info]  dhcp1 deassigned 172.29.17.86 from C8:3A:35:C1:25:80
+ 72  1405/07/29 13:05:27  [dhcp,info]  dhcp1 deassigned 172.29.17.114 from D0:37:45:DD:2D:7F
+ 73  1405/07/29 13:06:20  [dhcp,info]  dhcp1 deassigned 172.29.17.85 from C8:3A:35:C1:25:31
+ 74  1405/07/29 13:07:44  [dhcp,info]  dhcp1 deassigned 172.29.17.83 from C8:3A:35:C1:25:17
+ 75  1405/07/29 13:08:21  [dhcp,info]  dhcp1 deassigned 172.29.17.89 from 80:5E:C0:41:5D:30
+ 76  1405/07/29 16:29:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
 ether1  D4:01:C3:B6:74:C4  (ether)
 wlan1  D4:01:C3:B6:74:C5  (wlan)
 --- /ip arp ---
-ether1  80:5E:C0:41:5D:30  (arp 172.29.17.89)
-ether1  00:02:65:15:E1:38  (arp 172.29.17.88)
 wlan1  6C:3B:6B:09:34:B1  (arp 172.18.2.169)
+ether1  00:02:65:15:E1:38  (arp 172.29.17.84)

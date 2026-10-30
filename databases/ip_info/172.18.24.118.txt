@@ -1,5 +1,5 @@
 IP: 172.18.24.118
-Collected at: 2026-10-15T10:08:08.006608+00:00
+Collected at: 2026-10-21T13:16:30.352560+00:00
 source: RouterOS API
 identity: AboodiBala.Client
 device_type: ST
@@ -36,18 +36,46 @@ name=wlan1  mode=station-bridge  ssid=Shadegan-Shabakeh7  band=5ghz-a/n  frequen
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:25:46
-# ساعت دستگاه (خام): 2024-12-27 09:52:53
-# افست اصلاحی (سرور − دستگاه): +15767:02:53
-  1  1405/07/22 22:11:21  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 22:11:28  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1 established connection on 5560000, SSID Shadegan-Shabakeh7
-  3  1405/07/22 22:11:30  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/23 12:25:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:31:20
+# ساعت دستگاه (خام): 2025-01-01 16:07:56
+# افست اصلاحی (سرور − دستگاه): +15788:53:24
+  1  1405/07/24 16:28:27  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/24 16:28:35  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1 established connection on 5560000, SSID Shadegan-Shabakeh7
+  3  1405/07/24 16:28:37  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/25 08:34:55  [dhcp,info]  dhcp1 assigned 172.29.196.29 to 18:C0:4D:11:17:06
+  5  1405/07/25 08:37:48  [dhcp,info]  dhcp1 assigned 172.29.196.28 to 60:CF:84:69:62:EB
+  6  1405/07/25 11:22:48  [dhcp,info]  dhcp1 deassigned 172.29.196.28 from 60:CF:84:69:62:EB
+  7  1405/07/25 12:09:55  [dhcp,info]  dhcp1 deassigned 172.29.196.29 from 18:C0:4D:11:17:06
+  8  1405/07/26 08:37:24  [dhcp,info]  dhcp1 assigned 172.29.196.28 to 60:CF:84:69:62:EB
+  9  1405/07/26 08:54:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 10  1405/07/26 08:54:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 11  1405/07/26 08:57:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 12  1405/07/26 08:57:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 13  1405/07/26 09:17:25  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 14  1405/07/26 09:17:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 15  1405/07/26 09:19:23  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 16  1405/07/26 09:19:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 17  1405/07/26 09:40:27  [dhcp,info]  dhcp1 assigned 172.29.196.29 to 18:C0:4D:11:17:06
+ 18  1405/07/26 10:47:24  [dhcp,info]  dhcp1 deassigned 172.29.196.28 from 60:CF:84:69:62:EB
+ 19  1405/07/26 12:05:28  [dhcp,info]  dhcp1 deassigned 172.29.196.29 from 18:C0:4D:11:17:06
+ 20  1405/07/27 08:20:26  [dhcp,info]  dhcp1 assigned 172.29.196.29 to 18:C0:4D:11:17:06
+ 21  1405/07/27 08:35:22  [dhcp,info]  dhcp1 assigned 172.29.196.28 to 60:CF:84:69:62:EB
+ 22  1405/07/27 09:50:22  [dhcp,info]  dhcp1 deassigned 172.29.196.28 from 60:CF:84:69:62:EB
+ 23  1405/07/27 09:55:59  [dhcp,info]  dhcp1 assigned 172.29.196.28 to 60:CF:84:69:62:EB
+ 24  1405/07/27 10:40:59  [dhcp,info]  dhcp1 deassigned 172.29.196.28 from 60:CF:84:69:62:EB
+ 25  1405/07/27 12:02:11  [dhcp,info]  dhcp1 deassigned 172.29.196.29 from 18:C0:4D:11:17:06
+ 26  1405/07/28 08:08:09  [dhcp,info]  dhcp1 assigned 172.29.196.28 to 60:CF:84:69:62:EB
+ 27  1405/07/28 08:29:31  [dhcp,info]  dhcp1 assigned 172.29.196.29 to 18:C0:4D:11:17:06
+ 28  1405/07/28 11:08:08  [dhcp,info]  dhcp1 deassigned 172.29.196.28 from 60:CF:84:69:62:EB
+ 29  1405/07/28 12:00:40  [dhcp,info]  dhcp1 deassigned 172.29.196.29 from 18:C0:4D:11:17:06
+ 30  1405/07/29 08:08:39  [dhcp,info]  dhcp1 assigned 172.29.196.28 to 60:CF:84:69:62:EB
+ 31  1405/07/29 10:53:38  [dhcp,info]  dhcp1 deassigned 172.29.196.28 from 60:CF:84:69:62:EB
+ 32  1405/07/29 16:31:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
 ether1  6C:3B:6B:10:B2:3C  (ether)
 wlan1  6C:3B:6B:10:B2:3D  (wlan)
 --- /ip arp ---
-ether1  B8:69:F4:50:AC:6C  (arp 172.29.196.2)
 wlan1  64:D1:54:98:E3:2E  (arp 172.18.24.113)
+ether1  B8:69:F4:50:AC:6C  (arp 172.29.196.2)

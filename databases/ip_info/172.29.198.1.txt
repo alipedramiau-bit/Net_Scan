@@ -1,5 +1,5 @@
 IP: 172.29.198.1
-Collected at: 2026-10-10T07:42:34.814055+00:00
+Collected at: 2026-10-18T05:59:09.844237+00:00
 source: RouterOS API
 identity: Alvan-Home.Clinet
 device_type: ST
@@ -31,15 +31,25 @@ name=wlan1  mode=station-bridge  ssid=Shadegan-Alvan1  band=5ghz-a/n  frequency=
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/18 11:04:42
-# ساعت دستگاه (خام): 2022-09-08 14:54:06
-# افست اصلاحی (سرور − دستگاه): +35824:40:36
-  1  1405/07/18 10:45:28  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/18 10:45:36  [wireless,info]  6C:3B:6B:4D:73:43@wlan1 established connection on 5745000, SSID Shadegan-Alvan1
-  3  1405/07/18 10:45:37  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/18 10:56:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  5  1405/07/18 10:56:32  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  6  1405/07/18 11:04:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/26 09:20:19
+# ساعت دستگاه (خام): 2022-09-13 14:39:37
+# افست اصلاحی (سرور − دستگاه): +35895:10:42
+  1  1405/07/25 08:34:37  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/25 08:34:46  [wireless,info]  6C:3B:6B:4D:73:43@wlan1 established connection on 5745000, SSID Shadegan-Alvan1
+  3  1405/07/25 08:34:47  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/25 08:34:51  [dhcp,info]  dhcp1 assigned 172.29.198.14 to E0:D5:5E:55:A6:E4
+  5  1405/07/25 08:35:04  [dhcp,info]  dhcp1 assigned 172.29.198.13 to 60:CF:84:69:5C:8C
+  6  1405/07/25 11:49:52  [dhcp,info]  dhcp1 deassigned 172.29.198.14 from E0:D5:5E:55:A6:E4
+  7  1405/07/25 11:50:04  [dhcp,info]  dhcp1 deassigned 172.29.198.13 from 60:CF:84:69:5C:8C
+  8  1405/07/26 08:31:51  [dhcp,info]  dhcp1 assigned 172.29.198.13 to 60:CF:84:69:5C:8C
+  9  1405/07/26 08:36:01  [dhcp,info]  dhcp1 assigned 172.29.198.14 to E0:D5:5E:55:A6:E4
+ 10  1405/07/26 09:01:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 11  1405/07/26 09:01:52  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 12  1405/07/26 09:04:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 13  1405/07/26 09:04:26  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 14  1405/07/26 09:18:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 15  1405/07/26 09:18:23  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 16  1405/07/26 09:20:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -47,4 +57,6 @@ ether1  6C:3B:6B:13:54:46  (ether)
 wlan1  6C:3B:6B:13:54:47  (wlan)
 --- /ip arp ---
 wlan1  6C:3B:6B:0C:28:84  (arp 172.18.25.33)
+ether1  E0:D5:5E:55:A6:E4  (arp 172.29.198.14)
+ether1  60:CF:84:69:5C:8C  (arp 172.29.198.13)
 ether1  CC:2D:E0:6A:ED:2E  (arp 172.29.198.2)

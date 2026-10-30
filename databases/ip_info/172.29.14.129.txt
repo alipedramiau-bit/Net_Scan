@@ -1,5 +1,5 @@
 IP: 172.29.14.129
-Collected at: 2026-10-14T10:25:05.953210+00:00
+Collected at: 2026-10-21T13:18:15.405596+00:00
 source: RouterOS API
 identity: CL-BEHBAHANIYAN
 device_type: ST
@@ -31,28 +31,34 @@ name=wlan1  mode=station-bridge  ssid=Khoramshahr-Shabakeh4  band=5ghz-a/n  freq
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:41:02
-# ساعت دستگاه (خام): 1970-08-17 02:38:03
-# افست اصلاحی (سرور − دستگاه): +492295:32:59
-  1  1405/07/22 11:13:56  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 11:14:04  [wireless,info]  78:9A:18:B7:9E:3D@wlan1 established connection on 5390000, SSID Khoramshahr-Shabakeh4
-  3  1405/07/22 11:14:06  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/22 11:14:14  [dhcp,info]  dhcp1 deassigned 172.29.14.233 from EC:08:6B:A0:41:44
-  5  1405/07/22 11:14:20  [dhcp,info]  dhcp1 assigned 172.29.14.232 to 00:02:65:15:E1:08
-  6  1405/07/22 11:14:29  [dhcp,info]  dhcp1 assigned 172.29.14.233 to EC:08:6B:A0:41:44
-  7  1405/07/22 11:19:41  [dhcp,info]  dhcp1 deassigned 172.29.14.236 from 98:DE:D0:26:FB:26
-  8  1405/07/22 11:21:24  [dhcp,info]  dhcp1 deassigned 172.29.14.234 from EC:08:6B:95:C9:5D
-  9  1405/07/22 11:24:20  [dhcp,info]  dhcp1 deassigned 172.29.14.232 from 00:02:65:15:E1:08
- 10  1405/07/22 11:24:37  [dhcp,info]  dhcp1 assigned 172.29.14.234 to EC:08:6B:95:C9:5D
- 11  1405/07/22 11:44:30  [dhcp,info]  dhcp1 deassigned 172.29.14.233 from EC:08:6B:A0:41:44
- 12  1405/07/22 11:49:37  [dhcp,info]  dhcp1 deassigned 172.29.14.234 from EC:08:6B:95:C9:5D
- 13  1405/07/22 13:41:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:42:42
+# ساعت دستگاه (خام): 1970-08-22 04:52:53
+# افست اصلاحی (سرور − دستگاه): +492344:19:49
+  1  1405/07/28 12:00:45  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/28 12:00:53  [wireless,info]  78:9A:18:B7:9E:3D@wlan1 established connection on 5390000, SSID Khoramshahr-Shabakeh4
+  3  1405/07/28 12:00:55  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/28 12:05:51  [dhcp,info]  dhcp1 deassigned 172.29.14.230 from 7C:F1:7E:F4:1A:73
+  5  1405/07/28 12:09:08  [dhcp,info]  dhcp1 deassigned 172.29.14.234 from EC:08:6B:95:C9:5D
+  6  1405/07/28 12:16:04  [dhcp,info]  dhcp1 deassigned 172.29.14.231 from 84:16:F9:6D:C6:7C
+  7  1405/07/28 12:36:03  [dhcp,info]  dhcp1 deassigned 172.29.14.236 from 98:DE:D0:26:FB:26
+  8  1405/07/29 07:50:33  [dhcp,info]  dhcp1 assigned 172.29.14.229 to 7C:F1:7E:F4:25:85
+  9  1405/07/29 08:01:39  [dhcp,info]  dhcp1 assigned 172.29.14.231 to 84:16:F9:6D:C6:7C
+ 10  1405/07/29 08:07:39  [dhcp,warning]  Detected conflict by ARP response for 172.29.14.228 from 00:02:65:15:E1:08
+ 11  1405/07/29 08:07:49  [dhcp,info]  dhcp1 assigned 172.29.14.227 to EC:08:6B:A0:41:44
+ 12  1405/07/29 08:28:10  [dhcp,info]  dhcp1 assigned 172.29.14.236 to 98:DE:D0:26:FB:26
+ 13  1405/07/29 09:27:29  [dhcp,info]  dhcp1 assigned 172.29.14.230 to 7C:F1:7E:F4:1A:73
+ 14  1405/07/29 09:38:22  [dhcp,info]  dhcp1 deassigned 172.29.14.230 from 7C:F1:7E:F4:1A:73
+ 15  1405/07/29 11:38:10  [dhcp,info]  dhcp1 deassigned 172.29.14.236 from 98:DE:D0:26:FB:26
+ 16  1405/07/29 12:02:49  [dhcp,info]  dhcp1 deassigned 172.29.14.227 from EC:08:6B:A0:41:44
+ 17  1405/07/29 12:10:33  [dhcp,info]  dhcp1 deassigned 172.29.14.229 from 7C:F1:7E:F4:25:85
+ 18  1405/07/29 12:46:39  [dhcp,info]  dhcp1 deassigned 172.29.14.231 from 84:16:F9:6D:C6:7C
+ 19  1405/07/29 16:42:40  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
 ether1  E4:8D:8C:DB:C0:34  (ether)
 wlan1  E4:8D:8C:DB:C0:35  (wlan)
 --- /ip arp ---
-ether1  74:4D:28:E9:39:FA  (arp 172.29.14.130)
-ether1  00:02:65:15:E1:08  (arp 172.29.14.232)
+ether1  00:02:65:15:E1:08  (arp 172.29.14.228)
 wlan1  4C:5E:0C:9B:0E:7A  (arp 172.18.16.49)
+ether1  74:4D:28:E9:39:FA  (arp 172.29.14.130)

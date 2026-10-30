@@ -1,5 +1,5 @@
 IP: 172.29.195.129
-Collected at: 2026-10-14T10:25:12.668712+00:00
+Collected at: 2026-10-18T05:59:03.278895+00:00
 source: RouterOS API
 identity: GarmehKhoroosi.Client
 device_type: ST
@@ -35,15 +35,70 @@ name=wlan1  mode=station-bridge  ssid=Shadegan-Shabakeh7  band=5ghz-a/n  frequen
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:42:13
-# ساعت دستگاه (خام): 2024-01-25 07:53:22
-# افست اصلاحی (سرور − دستگاه): +23834:18:51
-  1  1405/07/22 09:24:37  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 09:24:45  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1 established connection on 5560000, SSID Shadegan-Shabakeh7
-  3  1405/07/22 09:24:46  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/22 13:18:10  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  5  1405/07/22 13:18:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  6  1405/07/22 13:42:12  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/26 09:18:52
+# ساعت دستگاه (خام): 2024-01-28 16:20:25
+# افست اصلاحی (سرور − دستگاه): +23845:28:27
+  1  1405/07/25 14:15:49  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/25 14:15:56  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1 established connection on 5560000, SSID Shadegan-Shabakeh7
+  3  1405/07/25 14:15:58  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/25 18:19:24  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: lost connection, extensive data loss
+  5  1405/07/25 18:19:45  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, association timeout
+  6  1405/07/25 18:19:59  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, authentication timeout
+  7  1405/07/25 18:20:10  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1 established connection on 5560000, SSID Shadegan-Shabakeh7
+  8  1405/07/25 20:50:00  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: lost connection, received deauth: authentication not valid (2)
+  9  1405/07/25 20:50:08  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, authentication timeout
+ 10  1405/07/25 20:50:19  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1 established connection on 5560000, SSID Shadegan-Shabakeh7
+ 11  1405/07/25 23:33:51  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: lost connection, extensive data loss
+ 12  1405/07/25 23:34:00  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, association timeout
+ 13  1405/07/25 23:34:12  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1 established connection on 5560000, SSID Shadegan-Shabakeh7
+ 14  1405/07/25 23:35:53  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: lost connection, extensive data loss
+ 15  1405/07/25 23:36:01  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, association timeout
+ 16  1405/07/25 23:36:16  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, association timeout
+ 17  1405/07/25 23:36:30  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, authentication timeout
+ 18  1405/07/25 23:36:46  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, association timeout
+ 19  1405/07/25 23:37:01  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, association timeout
+ 20  1405/07/25 23:37:12  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1 established connection on 5560000, SSID Shadegan-Shabakeh7
+ 21  1405/07/25 23:46:55  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: lost connection, extensive data loss
+ 22  1405/07/25 23:47:03  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, association timeout
+ 23  1405/07/25 23:47:17  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, authentication timeout
+ 24  1405/07/25 23:47:33  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, association timeout
+ 25  1405/07/25 23:47:47  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, authentication timeout
+ 26  1405/07/25 23:48:01  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, association timeout
+ 27  1405/07/25 23:48:13  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1 established connection on 5560000, SSID Shadegan-Shabakeh7
+ 28  1405/07/25 23:58:12  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: lost connection, extensive data loss
+ 29  1405/07/25 23:58:21  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, authentication timeout
+ 30  1405/07/25 23:58:35  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, authentication timeout
+ 31  1405/07/25 23:58:49  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, authentication timeout
+ 32  1405/07/25 23:59:02  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, authentication timeout
+ 33  1405/07/25 23:59:18  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, association timeout
+ 34  1405/07/25 23:59:32  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, association timeout
+ 35  1405/07/25 23:59:47  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, association timeout
+ 36  1405/07/26 00:00:01  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, authentication timeout
+ 37  1405/07/26 00:00:17  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, association timeout
+ 38  1405/07/26 00:00:28  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1 established connection on 5560000, SSID Shadegan-Shabakeh7
+ 39  1405/07/26 00:32:02  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: lost connection, extensive data loss
+ 40  1405/07/26 00:32:12  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, association timeout
+ 41  1405/07/26 00:32:23  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1 established connection on 5560000, SSID Shadegan-Shabakeh7
+ 42  1405/07/26 00:34:58  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: lost connection, extensive data loss
+ 43  1405/07/26 00:35:08  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, association timeout
+ 44  1405/07/26 00:35:23  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, association timeout
+ 45  1405/07/26 00:35:34  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1 established connection on 5560000, SSID Shadegan-Shabakeh7
+ 46  1405/07/26 07:18:55  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: lost connection, extensive data loss
+ 47  1405/07/26 07:19:03  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, authentication timeout
+ 48  1405/07/26 07:19:15  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1 established connection on 5560000, SSID Shadegan-Shabakeh7
+ 49  1405/07/26 07:19:44  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: lost connection, extensive data loss
+ 50  1405/07/26 07:19:52  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, authentication timeout
+ 51  1405/07/26 07:20:06  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, authentication timeout
+ 52  1405/07/26 07:20:20  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, authentication timeout
+ 53  1405/07/26 07:20:34  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1: failed to connect, on 5560/20/an, association timeout
+ 54  1405/07/26 07:20:45  [wireless,info]  6C:3B:6B:5D:71:7B@wlan1 established connection on 5560000, SSID Shadegan-Shabakeh7
+ 55  1405/07/26 08:54:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 56  1405/07/26 08:54:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 57  1405/07/26 08:57:57  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 58  1405/07/26 08:57:59  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 59  1405/07/26 09:16:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 60  1405/07/26 09:16:57  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 61  1405/07/26 09:18:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

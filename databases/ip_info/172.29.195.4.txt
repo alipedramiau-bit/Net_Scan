@@ -1,5 +1,5 @@
 IP: 172.29.195.4
-Collected at: 2026-10-14T10:25:13.538295+00:00
+Collected at: 2026-10-21T13:18:21.368571+00:00
 source: RouterOS API
 identity: AP.Fayah&Salemi2
 device_type: AP
@@ -34,18 +34,37 @@ name=wlan1  mode=ap-bridge  ssid=Shadegan-salemi1  band=5ghz-a/n  frequency=5700
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:42:31
-# ساعت دستگاه (خام): 1975-12-30 01:08:14
-# افست اصلاحی (سرور − دستگاه): +445233:04:17
-  1  1405/07/22 10:10:17  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 10:10:18  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:8F:3B:ED
-  3  1405/07/22 10:10:19  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/22 10:10:20  [interface,info]  ether1 link down
-  5  1405/07/22 10:10:28  [interface,info]  ether1 link up (speed 100M, full duplex)
-  6  1405/07/22 10:10:31  [wireless,info]  64:D1:54:83:67:57@wlan1: connected, signal strength -70
-  7  1405/07/22 10:11:19  [wireless,info]  08:55:31:79:5E:26@wlan1: connected, signal strength -62
-  8  1405/07/22 10:11:37  [wireless,info]  64:D1:54:52:D2:27@wlan1: connected, signal strength -58
-  9  1405/07/22 13:42:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:43:02
+# ساعت دستگاه (خام): 1976-01-06 04:11:35
+# افست اصلاحی (سرور − دستگاه): +445233:01:27
+  1  1405/07/22 10:07:27  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/22 10:07:28  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:8F:3B:ED
+  3  1405/07/22 10:07:29  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/22 10:07:30  [interface,info]  ether1 link down
+  5  1405/07/22 10:07:38  [interface,info]  ether1 link up (speed 100M, full duplex)
+  6  1405/07/22 10:07:41  [wireless,info]  64:D1:54:83:67:57@wlan1: connected, signal strength -70
+  7  1405/07/22 10:08:29  [wireless,info]  08:55:31:79:5E:26@wlan1: connected, signal strength -62
+  8  1405/07/22 10:08:47  [wireless,info]  64:D1:54:52:D2:27@wlan1: connected, signal strength -58
+  9  1405/07/22 13:39:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 10  1405/07/22 13:39:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 11  1405/07/24 15:40:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 12  1405/07/24 15:40:18  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 13  1405/07/24 16:05:21  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 14  1405/07/24 16:05:23  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 15  1405/07/26 00:19:06  [wireless,info]  64:D1:54:83:67:57@wlan1: disconnected, not responding
+ 16  1405/07/26 00:19:49  [wireless,info]  64:D1:54:83:67:57@wlan1: connected, signal strength -86
+ 17  1405/07/26 09:17:16  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 18  1405/07/26 09:17:18  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 19  1405/07/26 09:19:12  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 20  1405/07/26 09:19:14  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 21  1405/07/27 18:00:53  [wireless,info]  08:55:31:79:5E:26@wlan1: disconnected, control frame timeout
+ 22  1405/07/27 18:21:32  [wireless,info]  08:55:31:79:5E:26@wlan1: connected, signal strength -60
+ 23  1405/07/28 09:02:38  [wireless,info]  64:D1:54:83:67:57@wlan1: disconnected, not responding
+ 24  1405/07/28 09:03:04  [wireless,info]  64:D1:54:83:67:57@wlan1: connected, signal strength -74
+ 25  1405/07/28 15:59:26  [wireless,info]  08:55:31:79:5E:26@wlan1: disconnected, not responding
+ 26  1405/07/28 16:01:56  [wireless,info]  08:55:31:79:5E:26@wlan1: reconnecting
+ 27  1405/07/28 16:01:56  [wireless,info]  08:55:31:79:5E:26@wlan1: connected, signal strength -60
+ 28  1405/07/29 16:43:01  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

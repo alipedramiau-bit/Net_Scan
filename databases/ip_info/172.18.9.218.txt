@@ -1,5 +1,5 @@
 IP: 172.18.9.218
-Collected at: 2026-10-14T10:24:31.252121+00:00
+Collected at: 2026-10-21T13:17:57.106396+00:00
 source: RouterOS API
 identity: 22bahman_kotshanoof_AP
 device_type: AP
@@ -29,14 +29,53 @@ name=wlan1  mode=ap-bridge  ssid=Abadan-22Bahman3  band=5ghz-a/n  frequency=5380
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:36:00
-# ساعت دستگاه (خام): 1971-01-05 18:46:54
-# افست اصلاحی (سرور − دستگاه): +488895:19:06
-  1  1405/07/22 10:54:32  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 10:54:36  [bridge,info]  "bridge1" mac address changed to D4:01:C3:13:28:DC
-  3  1405/07/22 10:54:36  [wireless,info]  6C:3B:6B:10:B1:A5@wlan1: connected, signal strength -66
-  4  1405/07/22 10:54:40  [interface,info]  ether1 link up (speed 100M, full duplex)
-  5  1405/07/22 13:35:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:40:44
+# ساعت دستگاه (خام): 1971-01-11 03:35:46
+# افست اصلاحی (سرور − دستگاه): +488937:34:58
+  1  1405/07/25 05:10:22  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/25 05:10:26  [bridge,info]  "bridge1" mac address changed to D4:01:C3:13:28:DC
+  3  1405/07/25 05:10:26  [wireless,info]  6C:3B:6B:10:B1:A5@wlan1: connected, signal strength -78
+  4  1405/07/25 05:10:32  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/07/25 05:33:11  [wireless,info]  6C:3B:6B:10:B1:A5@wlan1: disconnected, control frame timeout
+  6  1405/07/25 05:34:44  [wireless,info]  6C:3B:6B:10:B1:A5@wlan1: connected, signal strength -84
+  7  1405/07/25 05:46:33  [wireless,info]  6C:3B:6B:10:B1:A5@wlan1: disconnected, control frame timeout
+  8  1405/07/25 05:47:29  [wireless,info]  6C:3B:6B:10:B1:A5@wlan1: reconnecting
+  9  1405/07/25 05:47:30  [wireless,info]  6C:3B:6B:10:B1:A5@wlan1: connected, signal strength -84
+ 10  1405/07/25 05:48:26  [wireless,info]  6C:3B:6B:10:B1:A5@wlan1: disconnected, not responding
+ 11  1405/07/25 05:49:15  [wireless,info]  6C:3B:6B:10:B1:A5@wlan1: connected, signal strength -90
+ 12  1405/07/25 05:51:45  [wireless,info]  6C:3B:6B:10:B1:A5@wlan1: reconnecting
+ 13  1405/07/25 05:52:01  [wireless,info]  6C:3B:6B:10:B1:A5@wlan1: connected, signal strength -88
+ 14  1405/07/25 20:37:09  [interface,info]  ether1 link down
+ 15  1405/07/25 20:37:13  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 16  1405/07/25 20:37:35  [interface,info]  ether1 link down
+ 17  1405/07/25 20:37:37  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 18  1405/07/25 21:30:13  [interface,info]  ether1 link down
+ 19  1405/07/25 21:30:17  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 20  1405/07/25 21:30:27  [wireless,info]  6C:3B:6B:10:B1:A5@wlan1: disconnected, not responding
+ 21  1405/07/25 21:30:33  [wireless,info]  6C:3B:6B:10:B1:A5@wlan1: connected, signal strength -82
+ 22  1405/07/25 21:30:38  [interface,info]  ether1 link down
+ 23  1405/07/25 21:30:41  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 24  1405/07/25 21:31:58  [wireless,info]  6C:3B:6B:10:B1:A5@wlan1: disconnected, not responding
+ 25  1405/07/25 21:32:04  [wireless,info]  6C:3B:6B:10:B1:A5@wlan1: connected, signal strength -84
+ 26  1405/07/26 02:00:35  [interface,info]  ether1 link down
+ 27  1405/07/26 02:00:39  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 28  1405/07/26 02:01:00  [interface,info]  ether1 link down
+ 29  1405/07/26 02:01:02  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 30  1405/07/26 02:31:38  [interface,info]  ether1 link down
+ 31  1405/07/26 02:31:42  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 32  1405/07/26 02:32:04  [interface,info]  ether1 link down
+ 33  1405/07/26 02:32:06  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 34  1405/07/26 03:05:12  [interface,info]  ether1 link down
+ 35  1405/07/26 03:05:16  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 36  1405/07/26 03:05:37  [interface,info]  ether1 link down
+ 37  1405/07/26 03:05:40  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 38  1405/07/26 09:11:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 39  1405/07/26 09:11:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 40  1405/07/26 09:13:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 41  1405/07/26 09:13:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 42  1405/07/29 11:31:41  [wireless,info]  6C:3B:6B:10:B1:A5@wlan1: disconnected, not responding
+ 43  1405/07/29 11:32:56  [wireless,info]  6C:3B:6B:10:B1:A5@wlan1: connected, signal strength -68
+ 44  1405/07/29 16:40:43  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

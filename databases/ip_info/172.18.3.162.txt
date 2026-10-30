@@ -1,5 +1,5 @@
 IP: 172.18.3.162
-Collected at: 2026-10-15T10:09:08.483157+00:00
+Collected at: 2026-10-21T13:17:11.657097+00:00
 source: RouterOS API
 identity: Shebakeh-> Jodedeh-.AP
 device_type: AP
@@ -32,34 +32,72 @@ name=wlan1  mode=ap-bridge  ssid=123452  band=5ghz-a/n  frequency=5240
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:36:17
-# ساعت دستگاه (خام): 1977-09-26 17:47:45
-# افست اصلاحی (سرور − دستگاه): +429975:18:32
-  1  1405/07/19 08:42:37  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/19 08:42:41  [bridge,info]  "bridge1" mac address changed to CC:2D:E0:BF:D4:4D
-  3  1405/07/19 08:42:48  [interface,info]  ether1 link up (speed 1G, full duplex)
-  4  1405/07/19 08:42:52  [wireless,info]  CC:2D:E0:48:66:D0@wlan1: connected, signal strength -48, wants bridge
-  5  1405/07/19 09:48:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  6  1405/07/19 09:48:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  7  1405/07/19 12:48:53  [wireless,info]  06:EA:20:98:92:2E@wlan1: connected, signal strength -88
-  8  1405/07/19 12:48:56  [wireless,info]  06:EA:20:98:92:2E@wlan1: disconnected, extensive data loss, signal strength -88
-  9  1405/07/19 13:56:07  [wireless,info]  E2:77:7C:28:41:89@wlan1: connected, signal strength -88
- 10  1405/07/19 13:56:11  [wireless,info]  E2:77:7C:28:41:89@wlan1: disconnected, extensive data loss, signal strength -88
- 11  1405/07/19 17:44:12  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 12  1405/07/19 17:44:13  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 13  1405/07/20 06:32:25  [wireless,info]  CC:2D:E0:48:66:D0@wlan1: disconnected, extensive data loss, signal strength -56
- 14  1405/07/20 09:38:28  [wireless,info]  CC:2D:E0:48:66:D0@wlan1: connected, signal strength -52, wants bridge
- 15  1405/07/20 17:06:05  [wireless,info]  CC:42:10:CF:AE:AF@wlan1: connected, signal strength -83
- 16  1405/07/20 17:06:08  [wireless,info]  CC:42:10:CF:AE:AF@wlan1: disconnected, extensive data loss, signal strength -83
- 17  1405/07/21 11:09:25  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 18  1405/07/21 11:09:26  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 19  1405/07/22 13:28:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 20  1405/07/22 13:28:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 21  1405/07/23 10:05:29  [wireless,info]  BA:D8:21:B5:EC:A9@wlan1: connected, signal strength -85
- 22  1405/07/23 10:05:32  [wireless,info]  BA:D8:21:B5:EC:A9@wlan1: disconnected, extensive data loss, signal strength -85
- 23  1405/07/23 12:03:05  [wireless,info]  B6:05:3C:2C:10:CC@wlan1: connected, signal strength -89
- 24  1405/07/23 12:03:09  [wireless,info]  B6:05:3C:2C:10:CC@wlan1: disconnected, extensive data loss, signal strength -89
- 25  1405/07/23 12:36:16  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:36:33
+# ساعت دستگاه (خام): 1977-10-02 21:50:57
+# افست اصلاحی (سرور − دستگاه): +429975:15:36
+  1  1405/07/19 08:39:41  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/19 08:39:45  [bridge,info]  "bridge1" mac address changed to CC:2D:E0:BF:D4:4D
+  3  1405/07/19 08:39:52  [interface,info]  ether1 link up (speed 1G, full duplex)
+  4  1405/07/19 08:39:56  [wireless,info]  CC:2D:E0:48:66:D0@wlan1: connected, signal strength -48, wants bridge
+  5  1405/07/19 09:45:06  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  6  1405/07/19 09:45:07  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  7  1405/07/19 12:45:57  [wireless,info]  06:EA:20:98:92:2E@wlan1: connected, signal strength -88
+  8  1405/07/19 12:46:00  [wireless,info]  06:EA:20:98:92:2E@wlan1: disconnected, extensive data loss, signal strength -88
+  9  1405/07/19 13:53:11  [wireless,info]  E2:77:7C:28:41:89@wlan1: connected, signal strength -88
+ 10  1405/07/19 13:53:15  [wireless,info]  E2:77:7C:28:41:89@wlan1: disconnected, extensive data loss, signal strength -88
+ 11  1405/07/19 17:41:16  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 12  1405/07/19 17:41:17  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 13  1405/07/20 06:29:29  [wireless,info]  CC:2D:E0:48:66:D0@wlan1: disconnected, extensive data loss, signal strength -56
+ 14  1405/07/20 09:35:32  [wireless,info]  CC:2D:E0:48:66:D0@wlan1: connected, signal strength -52, wants bridge
+ 15  1405/07/20 17:03:09  [wireless,info]  CC:42:10:CF:AE:AF@wlan1: connected, signal strength -83
+ 16  1405/07/20 17:03:12  [wireless,info]  CC:42:10:CF:AE:AF@wlan1: disconnected, extensive data loss, signal strength -83
+ 17  1405/07/21 11:06:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 18  1405/07/21 11:06:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 19  1405/07/22 13:26:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 20  1405/07/22 13:26:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 21  1405/07/23 10:02:33  [wireless,info]  BA:D8:21:B5:EC:A9@wlan1: connected, signal strength -85
+ 22  1405/07/23 10:02:36  [wireless,info]  BA:D8:21:B5:EC:A9@wlan1: disconnected, extensive data loss, signal strength -85
+ 23  1405/07/23 12:00:09  [wireless,info]  B6:05:3C:2C:10:CC@wlan1: connected, signal strength -89
+ 24  1405/07/23 12:00:13  [wireless,info]  B6:05:3C:2C:10:CC@wlan1: disconnected, extensive data loss, signal strength -89
+ 25  1405/07/23 12:33:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 26  1405/07/23 12:33:21  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 27  1405/07/23 16:31:54  [wireless,info]  A4:4B:D5:D7:7E:E0@wlan1: connected, signal strength -88
+ 28  1405/07/23 16:31:59  [wireless,info]  A4:4B:D5:D7:7E:E0@wlan1: disconnected, unicast key exchange timeout, signal strength -84
+ 29  1405/07/24 15:29:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 30  1405/07/24 15:29:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 31  1405/07/24 15:57:57  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 32  1405/07/24 15:57:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 33  1405/07/24 21:37:50  [wireless,info]  CC:42:10:CF:AE:AF@wlan1: connected, signal strength -89
+ 34  1405/07/24 21:37:54  [wireless,info]  CC:42:10:CF:AE:AF@wlan1: disconnected, extensive data loss, signal strength -89
+ 35  1405/07/26 02:57:00  [wireless,info]  76:6E:5C:21:71:57@wlan1: connected, signal strength -81
+ 36  1405/07/26 02:57:05  [wireless,info]  76:6E:5C:21:71:57@wlan1: disconnected, unicast key exchange timeout, signal strength -84
+ 37  1405/07/26 02:57:13  [wireless,info]  76:6E:5C:21:71:57@wlan1: connected, signal strength -81
+ 38  1405/07/26 02:57:18  [wireless,info]  76:6E:5C:21:71:57@wlan1: disconnected, unicast key exchange timeout, signal strength -85
+ 39  1405/07/26 02:57:31  [wireless,info]  76:6E:5C:21:71:57@wlan1: connected, signal strength -77
+ 40  1405/07/26 02:57:31  [wireless,info]  76:6E:5C:21:71:57@wlan1: disconnected, received deauth: class 3 frame received (7), signal strength -77
+ 41  1405/07/26 02:58:04  [wireless,info]  76:6E:5C:21:71:57@wlan1: connected, signal strength -85
+ 42  1405/07/26 02:58:07  [wireless,info]  76:6E:5C:21:71:57@wlan1: disconnected, extensive data loss, signal strength -85
+ 43  1405/07/26 02:58:53  [wireless,info]  76:6E:5C:21:71:57@wlan1: connected, signal strength -84
+ 44  1405/07/26 02:58:58  [wireless,info]  76:6E:5C:21:71:57@wlan1: disconnected, unicast key exchange timeout, signal strength -86
+ 45  1405/07/26 03:01:30  [wireless,info]  76:6E:5C:21:71:57@wlan1: connected, signal strength -89
+ 46  1405/07/26 03:01:33  [wireless,info]  76:6E:5C:21:71:57@wlan1: disconnected, extensive data loss, signal strength -89
+ 47  1405/07/26 09:05:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 48  1405/07/26 09:05:05  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 49  1405/07/26 09:07:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 50  1405/07/26 09:07:38  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 51  1405/07/26 10:06:59  [wireless,info]  9C:5A:81:37:43:B6@wlan1: connected, signal strength -76
+ 52  1405/07/26 10:07:04  [wireless,info]  9C:5A:81:37:43:B6@wlan1: disconnected, unicast key exchange timeout, signal strength -85
+ 53  1405/07/27 16:44:58  [wireless,info]  DA:24:40:32:D7:C8@wlan1: connected, signal strength -85
+ 54  1405/07/27 16:45:01  [wireless,info]  DA:24:40:32:D7:C8@wlan1: disconnected, extensive data loss, signal strength -85
+ 55  1405/07/27 16:50:15  [wireless,info]  DA:24:40:32:D7:C8@wlan1: connected, signal strength -78
+ 56  1405/07/27 16:50:19  [wireless,info]  DA:24:40:32:D7:C8@wlan1: disconnected, received deauth: sending station leaving (3), signal strength -78
+ 57  1405/07/29 16:02:10  [wireless,info]  96:85:DE:B2:AA:99@wlan1: connected, signal strength -87
+ 58  1405/07/29 16:02:13  [wireless,info]  96:85:DE:B2:AA:99@wlan1: disconnected, extensive data loss, signal strength -87
+ 59  1405/07/29 16:02:22  [wireless,info]  96:85:DE:B2:AA:99@wlan1: connected, signal strength -85
+ 60  1405/07/29 16:02:25  [wireless,info]  96:85:DE:B2:AA:99@wlan1: disconnected, extensive data loss, signal strength -85
+ 61  1405/07/29 16:02:50  [wireless,info]  96:85:DE:B2:AA:99@wlan1: connected, signal strength -85
+ 62  1405/07/29 16:02:53  [wireless,info]  96:85:DE:B2:AA:99@wlan1: disconnected, extensive data loss, signal strength -85
+ 63  1405/07/29 16:36:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

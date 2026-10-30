@@ -1,5 +1,5 @@
 IP: 172.18.9.162
-Collected at: 2026-10-14T10:24:21.675699+00:00
+Collected at: 2026-10-21T13:17:46.310199+00:00
 source: RouterOS API
 identity: AP-Abadan-Choebdeh3
 device_type: AP
@@ -28,14 +28,32 @@ name=wlan1  mode=bridge  ssid=Abadan-Choebdeh3  band=5ghz-a/n  frequency=5500
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:34:58
-# ساعت دستگاه (خام): 1970-12-22 05:33:25
-# افست اصلاحی (سرور − دستگاه): +489244:31:33
-  1  1405/07/21 08:01:16  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/21 08:01:18  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:74:FD:83
-  3  1405/07/21 08:01:25  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
-  4  1405/07/21 08:01:27  [interface,info]  ether1 link up (speed 100M, full duplex)
-  5  1405/07/22 13:34:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:39:51
+# ساعت دستگاه (خام): 1970-12-29 08:41:09
+# افست اصلاحی (سرور − دستگاه): +489244:28:42
+  1  1405/07/21 07:58:25  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/21 07:58:27  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:74:FD:83
+  3  1405/07/21 07:58:34  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  4  1405/07/21 07:58:36  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/07/22 13:32:05  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  6  1405/07/22 13:32:07  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  7  1405/07/24 09:55:12  [wireless,info]  0E:8D:30:85:60:13@wlan1: connected, signal strength -81
+  8  1405/07/24 09:55:17  [wireless,info]  0E:8D:30:85:60:13@wlan1: disconnected, unicast key exchange timeout
+  9  1405/07/24 09:55:28  [wireless,info]  0E:8D:30:85:60:13@wlan1: connected, signal strength -85
+ 10  1405/07/24 09:55:33  [wireless,info]  0E:8D:30:85:60:13@wlan1: disconnected, unicast key exchange timeout
+ 11  1405/07/24 09:55:47  [wireless,info]  0E:8D:30:85:60:13@wlan1: connected, signal strength -85
+ 12  1405/07/24 09:55:52  [wireless,info]  0E:8D:30:85:60:13@wlan1: disconnected, unicast key exchange timeout
+ 13  1405/07/24 09:56:40  [wireless,info]  CC:42:10:F5:F2:90@wlan1: connected, signal strength -82
+ 14  1405/07/24 09:56:45  [wireless,info]  CC:42:10:F5:F2:90@wlan1: disconnected, unicast key exchange timeout
+ 15  1405/07/24 15:34:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 16  1405/07/24 15:34:13  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 17  1405/07/24 16:01:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 18  1405/07/24 16:01:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 19  1405/07/26 09:09:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 20  1405/07/26 09:09:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 21  1405/07/26 09:12:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 22  1405/07/26 09:12:26  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 23  1405/07/29 16:39:50  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

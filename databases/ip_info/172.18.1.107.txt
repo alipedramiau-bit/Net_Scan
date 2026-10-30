@@ -1,5 +1,5 @@
 IP: 172.18.1.107
-Collected at: 2026-10-15T10:07:02.128434+00:00
+Collected at: 2026-10-21T13:15:50.229811+00:00
 source: RouterOS API
 identity: MarkazKhoramshahr.Client
 device_type: ST
@@ -25,40 +25,20 @@ name=wlan1  mode=station-bridge  ssid=MarkazKhoramshahr  band=5ghz-a/n  frequenc
 ----- neighbors -----
 === /ip neighbor ===
   1  identity=R1KH  address=172.18.1.105  interface=wlan1,bridge1
-  2  identity=Shabake-MarkazKhoramshahr.AP  address=172.18.1.106  interface=wlan1,bridge1
-  3  identity=RB-khoramshahr-MK-behdasht-RB2011  address=172.18.1.108  interface=ether1,bridge1
+  2  identity=RB-khoramshahr-MK-behdasht-RB2011  address=172.18.1.108  interface=ether1,bridge1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:19:04
-# ساعت دستگاه (خام): 1976-11-21 00:23:17
-# افست اصلاحی (سرور − دستگاه): +437408:25:47
-  1  1405/07/17 11:40:18  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/17 11:40:22  [bridge,info]  "bridge1" mac address changed to D4:CA:6D:B8:D3:91
-  3  1405/07/17 11:40:28  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
-  4  1405/07/17 11:40:29  [interface,info]  ether1 link up (speed 100M, full duplex)
-  5  1405/07/17 11:40:55  [wireless,info]  E4:8D:8C:71:74:4B@wlan1 established connection on 5560000, SSID MarkazKhoramshahr
-  6  1405/07/17 11:40:56  [dhcp,error]  temporary moving client wlan1 from slave to master port, update your config!!!
-  7  1405/07/18 10:26:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  8  1405/07/18 10:26:45  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  9  1405/07/18 10:50:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 10  1405/07/18 10:50:57  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 11  1405/07/18 12:04:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 12  1405/07/18 12:05:09  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 13  1405/07/18 12:06:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 14  1405/07/18 12:06:39  [system,info]  user olom1 added by garnaf
- 15  1405/07/18 12:06:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 16  1405/07/19 06:50:38  [wireless,info]  E4:8D:8C:71:74:4B@wlan1: lost connection, extensive data loss
- 17  1405/07/19 08:42:58  [wireless,info]  E4:8D:8C:71:74:4B@wlan1 established connection on 5560000, SSID MarkazKhoramshahr
- 18  1405/07/19 09:29:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 19  1405/07/19 09:29:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 20  1405/07/19 17:40:36  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 21  1405/07/19 17:40:36  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 22  1405/07/21 10:51:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 23  1405/07/21 10:51:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 24  1405/07/22 13:10:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 25  1405/07/22 13:10:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 26  1405/07/23 12:19:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:27:31
+# ساعت دستگاه (خام): 1976-11-26 06:31:16
+# افست اصلاحی (سرور − دستگاه): +437430:26:15
+  1  1405/07/27 09:40:46  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/27 09:40:49  [bridge,info]  "bridge1" mac address changed to D4:CA:6D:B8:D3:91
+  3  1405/07/27 09:40:55  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  4  1405/07/27 09:40:57  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/07/27 09:41:01  [wireless,info]  E4:8D:8C:71:74:4B@wlan1 established connection on 5560000, SSID MarkazKhoramshahr
+  6  1405/07/27 09:41:01  [dhcp,error]  temporary moving client wlan1 from slave to master port, update your config!!!
+  7  1405/07/29 16:27:30  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

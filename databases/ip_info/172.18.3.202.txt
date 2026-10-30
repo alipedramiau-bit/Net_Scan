@@ -1,5 +1,5 @@
 IP: 172.18.3.202
-Collected at: 2026-10-15T10:09:16.065241+00:00
+Collected at: 2026-10-21T13:17:15.557698+00:00
 source: RouterOS API
 identity: Khabgah.drifarm.Ap
 device_type: AP
@@ -30,45 +30,59 @@ name=wlan1  mode=bridge  ssid=Khabgah.drifarm  band=5ghz-a/n  frequency=5075
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:37:04
-# ساعت دستگاه (خام): 2026-06-17 15:37:08
-# افست اصلاحی (سرور − دستگاه): +2873:29:56
-  1  1405/07/08 09:30:30  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/08 09:30:33  [bridge,info]  "bridge1" mac address changed to 64:D1:54:52:D0:9B
-  3  1405/07/08 09:30:40  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/08 09:30:42  [wireless,info]  64:D1:54:77:1E:0F@wlan1: connected, signal strength -56
-  5  1405/07/11 17:20:43  [wireless,info]  64:D1:54:77:1E:0F@wlan1: disconnected, control frame timeout
-  6  1405/07/11 17:35:37  [wireless,info]  64:D1:54:77:1E:0F@wlan1: connected, signal strength -58
-  7  1405/07/13 18:41:24  [wireless,info]  64:D1:54:77:1E:0F@wlan1: disconnected, control frame timeout
-  8  1405/07/13 18:42:08  [wireless,info]  64:D1:54:77:1E:0F@wlan1: connected, signal strength -64
-  9  1405/07/14 17:08:06  [wireless,info]  64:D1:54:77:1E:0F@wlan1: disconnected, control frame timeout
- 10  1405/07/14 17:19:38  [wireless,info]  64:D1:54:77:1E:0F@wlan1: connected, signal strength -58
- 11  1405/07/16 14:33:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 12  1405/07/16 14:33:43  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 13  1405/07/16 15:44:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 14  1405/07/16 15:44:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 15  1405/07/17 08:36:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 16  1405/07/17 08:36:25  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 17  1405/07/17 17:01:50  [wireless,info]  64:D1:54:77:1E:0F@wlan1: disconnected, control frame timeout
- 18  1405/07/17 17:03:17  [wireless,info]  64:D1:54:77:1E:0F@wlan1: connected, signal strength -60
- 19  1405/07/18 10:34:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 20  1405/07/18 10:34:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 21  1405/07/18 10:58:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 22  1405/07/18 10:58:29  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 23  1405/07/18 12:10:34  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 24  1405/07/18 12:10:34  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 25  1405/07/18 12:10:34  [system,info]  user olom1 added by garnaf
- 26  1405/07/19 09:49:05  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 27  1405/07/19 09:49:07  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 28  1405/07/19 17:44:33  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 29  1405/07/19 17:44:33  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 30  1405/07/21 11:10:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 31  1405/07/21 11:10:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 32  1405/07/22 13:29:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 33  1405/07/22 13:29:50  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 34  1405/07/23 06:57:48  [wireless,info]  64:D1:54:77:1E:0F@wlan1: disconnected, control frame timeout
- 35  1405/07/23 08:10:22  [wireless,info]  64:D1:54:77:1E:0F@wlan1: connected, signal strength -60
- 36  1405/07/23 12:37:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:37:00
+# ساعت دستگاه (خام): 2026-06-23 19:39:51
+# افست اصلاحی (سرور − دستگاه): +2873:27:09
+  1  1405/07/08 09:27:43  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/08 09:27:46  [bridge,info]  "bridge1" mac address changed to 64:D1:54:52:D0:9B
+  3  1405/07/08 09:27:53  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/08 09:27:55  [wireless,info]  64:D1:54:77:1E:0F@wlan1: connected, signal strength -56
+  5  1405/07/11 17:17:56  [wireless,info]  64:D1:54:77:1E:0F@wlan1: disconnected, control frame timeout
+  6  1405/07/11 17:32:50  [wireless,info]  64:D1:54:77:1E:0F@wlan1: connected, signal strength -58
+  7  1405/07/13 18:38:37  [wireless,info]  64:D1:54:77:1E:0F@wlan1: disconnected, control frame timeout
+  8  1405/07/13 18:39:21  [wireless,info]  64:D1:54:77:1E:0F@wlan1: connected, signal strength -64
+  9  1405/07/14 17:05:19  [wireless,info]  64:D1:54:77:1E:0F@wlan1: disconnected, control frame timeout
+ 10  1405/07/14 17:16:51  [wireless,info]  64:D1:54:77:1E:0F@wlan1: connected, signal strength -58
+ 11  1405/07/16 14:30:55  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 12  1405/07/16 14:30:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 13  1405/07/16 15:41:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 14  1405/07/16 15:41:40  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 15  1405/07/17 08:33:37  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 16  1405/07/17 08:33:38  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 17  1405/07/17 16:59:03  [wireless,info]  64:D1:54:77:1E:0F@wlan1: disconnected, control frame timeout
+ 18  1405/07/17 17:00:30  [wireless,info]  64:D1:54:77:1E:0F@wlan1: connected, signal strength -60
+ 19  1405/07/18 10:31:16  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 20  1405/07/18 10:31:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 21  1405/07/18 10:55:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 22  1405/07/18 10:55:42  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 23  1405/07/18 12:07:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 24  1405/07/18 12:07:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 25  1405/07/18 12:07:47  [system,info]  user olom1 added by garnaf
+ 26  1405/07/19 09:46:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 27  1405/07/19 09:46:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 28  1405/07/19 17:41:46  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 29  1405/07/19 17:41:46  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 30  1405/07/21 11:07:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 31  1405/07/21 11:07:43  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 32  1405/07/22 13:27:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 33  1405/07/22 13:27:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 34  1405/07/23 06:55:01  [wireless,info]  64:D1:54:77:1E:0F@wlan1: disconnected, control frame timeout
+ 35  1405/07/23 08:07:35  [wireless,info]  64:D1:54:77:1E:0F@wlan1: connected, signal strength -60
+ 36  1405/07/23 12:34:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 37  1405/07/23 12:34:17  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 38  1405/07/24 15:29:55  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 39  1405/07/24 15:29:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 40  1405/07/24 15:58:43  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 41  1405/07/24 15:58:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 42  1405/07/26 09:05:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 43  1405/07/26 09:05:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 44  1405/07/26 09:08:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 45  1405/07/26 09:08:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 46  1405/07/26 13:21:01  [wireless,info]  64:D1:54:77:1E:0F@wlan1: disconnected, control frame timeout
+ 47  1405/07/26 13:29:07  [wireless,info]  64:D1:54:77:1E:0F@wlan1: connected, signal strength -58
+ 48  1405/07/28 15:52:11  [wireless,info]  64:D1:54:77:1E:0F@wlan1: disconnected, control frame timeout
+ 49  1405/07/28 16:00:09  [wireless,info]  64:D1:54:77:1E:0F@wlan1: connected, signal strength -58
+ 50  1405/07/29 16:36:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

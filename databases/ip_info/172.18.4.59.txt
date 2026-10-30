@@ -1,5 +1,5 @@
 IP: 172.18.4.59
-Collected at: 2026-10-15T10:09:32.484251+00:00
+Collected at: 2026-10-21T13:17:29.237819+00:00
 source: RouterOS API
 identity: MarkazLine15.Client
 device_type: ST
@@ -30,55 +30,14 @@ name=wlan1  mode=station-bridge  ssid=MarkazLine15  band=5ghz-a/n  frequency=526
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:39:05
-# ساعت دستگاه (خام): 1975-09-29 04:58:15
-# افست اصلاحی (سرور − دستگاه): +447460:10:50
-  1  1405/07/11 14:30:47  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/11 14:30:48  [bridge,info]  "bridge1" mac address changed to CC:2D:E0:86:6C:FC
-  3  1405/07/11 14:30:48  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/11 14:30:54  [wireless,info]  B8:69:F4:D1:EE:3D@wlan1 established connection on 5260000, SSID MarkazLine15
-  5  1405/07/15 13:37:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  6  1405/07/15 13:37:10  [system,info]  changed snmp settings by garnaf
-  7  1405/07/15 13:37:10  [system,info]  item changed by garnaf
-  8  1405/07/15 13:37:10  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  9  1405/07/15 15:00:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 10  1405/07/15 15:00:39  [system,info]  user olom1 added by garnaf
- 11  1405/07/15 15:00:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 12  1405/07/15 15:06:30  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 13  1405/07/15 15:06:30  [system,info]  user ums1 removed by garnaf
- 14  1405/07/15 15:06:30  [system,info]  user ums2 removed by garnaf
- 15  1405/07/15 15:06:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 16  1405/07/16 10:17:05  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 17  1405/07/16 10:17:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 18  1405/07/16 10:39:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 19  1405/07/16 10:39:08  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 20  1405/07/16 13:54:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 21  1405/07/16 13:54:18  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 22  1405/07/16 14:08:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 23  1405/07/16 14:08:44  [system,info]  changed snmp settings by garnaf
- 24  1405/07/16 14:08:44  [system,info]  item changed by garnaf
- 25  1405/07/16 14:08:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 26  1405/07/16 14:34:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 27  1405/07/16 14:34:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 28  1405/07/16 15:45:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 29  1405/07/16 15:45:09  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 30  1405/07/17 08:38:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 31  1405/07/17 08:38:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 32  1405/07/18 10:35:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 33  1405/07/18 10:35:08  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 34  1405/07/18 10:59:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 35  1405/07/18 10:59:37  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 36  1405/07/18 12:11:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 37  1405/07/18 12:11:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 38  1405/07/19 09:51:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 39  1405/07/19 09:51:37  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 40  1405/07/19 17:45:11  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 41  1405/07/19 17:45:11  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 42  1405/07/21 11:12:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 43  1405/07/21 11:13:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 44  1405/07/22 13:32:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 45  1405/07/22 13:32:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 46  1405/07/23 12:39:04  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:38:13
+# ساعت دستگاه (خام): 1975-10-03 14:48:22
+# افست اصلاحی (سرور − دستگاه): +447502:19:51
+  1  1405/07/27 08:39:47  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/27 08:39:47  [bridge,info]  "bridge1" mac address changed to CC:2D:E0:86:6C:FC
+  3  1405/07/27 08:39:49  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/27 08:39:54  [wireless,info]  B8:69:F4:D1:EE:3D@wlan1 established connection on 5260000, SSID MarkazLine15
+  5  1405/07/29 16:38:12  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

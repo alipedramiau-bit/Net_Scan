@@ -1,5 +1,5 @@
 IP: 172.29.13.130
-Collected at: 2026-10-14T10:25:00.310604+00:00
+Collected at: 2026-10-21T13:18:14.221808+00:00
 source: RouterOS API
 identity: RB-Manikh
 device_type: Router
@@ -36,58 +36,120 @@ device_type: Router
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:40:28
-# ساعت دستگاه (خام): 1975-11-08 22:27:37
-# افست اصلاحی (سرور − دستگاه): +446459:42:51
-  1  1405/07/20 08:28:52  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/20 08:28:54  [bridge,info]  "bridge1" mac address changed to 74:4D:28:E9:4B:4E
-  3  1405/07/20 08:28:54  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1,ether4,ether2,ether3,ether5,ether6,ether7,ether8,ether9,ether10
-  4  1405/07/20 08:28:56  [interface,info]  ether3 link up (speed 100M, full duplex)
-  5  1405/07/20 08:28:56  [interface,info]  ether4 link up (speed 100M, full duplex)
-  6  1405/07/20 08:28:56  [interface,info]  ether9 link up (speed 100M, full duplex)
-  7  1405/07/20 08:28:58  [interface,info]  ether4 link down
-  8  1405/07/20 08:28:59  [interface,info]  ether4 link up (speed 100M, full duplex)
-  9  1405/07/20 08:32:20  [interface,info]  ether2 link up (speed 100M, full duplex)
- 10  1405/07/20 08:32:45  [interface,info]  ether2 link down
- 11  1405/07/20 08:32:47  [interface,info]  ether2 link up (speed 100M, full duplex)
- 12  1405/07/20 11:25:40  [interface,info]  ether3 link down
- 13  1405/07/20 11:25:45  [interface,info]  ether3 link up (speed 100M, full duplex)
- 14  1405/07/20 12:59:52  [interface,info]  ether2 link down
- 15  1405/07/20 18:20:12  [interface,info]  ether2 link up (speed 100M, full duplex)
- 16  1405/07/20 18:20:37  [interface,info]  ether2 link down
- 17  1405/07/20 18:20:39  [interface,info]  ether2 link up (speed 100M, full duplex)
- 18  1405/07/20 18:33:36  [interface,info]  ether2 link down
- 19  1405/07/20 19:37:12  [interface,info]  ether2 link up (speed 100M, full duplex)
- 20  1405/07/20 19:37:37  [interface,info]  ether2 link down
- 21  1405/07/20 19:37:39  [interface,info]  ether2 link up (speed 100M, full duplex)
- 22  1405/07/20 19:48:20  [interface,info]  ether2 link down
- 23  1405/07/21 07:24:09  [interface,info]  ether2 link up (speed 100M, full duplex)
- 24  1405/07/21 07:24:34  [interface,info]  ether2 link down
- 25  1405/07/21 07:24:36  [interface,info]  ether2 link up (speed 100M, full duplex)
- 26  1405/07/21 09:36:52  [interface,info]  ether3 link down
- 27  1405/07/21 09:36:56  [interface,info]  ether3 link up (speed 100M, full duplex)
- 28  1405/07/21 10:06:23  [interface,info]  ether3 link down
- 29  1405/07/21 10:06:28  [interface,info]  ether3 link up (speed 100M, full duplex)
- 30  1405/07/21 10:17:13  [interface,info]  ether3 link down
- 31  1405/07/21 10:17:18  [interface,info]  ether3 link up (speed 100M, full duplex)
- 32  1405/07/21 10:17:47  [interface,info]  ether3 link down
- 33  1405/07/21 10:17:52  [interface,info]  ether3 link up (speed 100M, full duplex)
- 34  1405/07/21 10:19:00  [interface,info]  ether3 link down
- 35  1405/07/21 10:19:05  [interface,info]  ether3 link up (speed 100M, full duplex)
- 36  1405/07/21 10:22:26  [interface,info]  ether3 link down
- 37  1405/07/21 10:22:31  [interface,info]  ether3 link up (speed 100M, full duplex)
- 38  1405/07/21 10:40:26  [interface,info]  ether3 link down
- 39  1405/07/21 10:40:31  [interface,info]  ether3 link up (speed 100M, full duplex)
- 40  1405/07/21 11:16:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 41  1405/07/21 11:16:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 42  1405/07/21 13:03:43  [interface,info]  ether2 link down
- 43  1405/07/21 22:14:11  [interface,info]  ether3 link down
- 44  1405/07/21 22:14:15  [interface,info]  ether3 link up (speed 100M, full duplex)
- 45  1405/07/22 07:24:54  [interface,info]  ether2 link up (speed 100M, full duplex)
- 46  1405/07/22 07:25:19  [interface,info]  ether2 link down
- 47  1405/07/22 07:25:21  [interface,info]  ether2 link up (speed 100M, full duplex)
- 48  1405/07/22 12:57:44  [interface,info]  ether2 link down
- 49  1405/07/22 13:40:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:42:30
+# ساعت دستگاه (خام): 1975-11-16 01:32:24
+# افست اصلاحی (سرور − دستگاه): +446459:40:06
+  1  1405/07/20 08:26:07  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/20 08:26:09  [bridge,info]  "bridge1" mac address changed to 74:4D:28:E9:4B:4E
+  3  1405/07/20 08:26:09  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1,ether4,ether2,ether3,ether5,ether6,ether7,ether8,ether9,ether10
+  4  1405/07/20 08:26:11  [interface,info]  ether3 link up (speed 100M, full duplex)
+  5  1405/07/20 08:26:11  [interface,info]  ether4 link up (speed 100M, full duplex)
+  6  1405/07/20 08:26:11  [interface,info]  ether9 link up (speed 100M, full duplex)
+  7  1405/07/20 08:26:13  [interface,info]  ether4 link down
+  8  1405/07/20 08:26:14  [interface,info]  ether4 link up (speed 100M, full duplex)
+  9  1405/07/20 08:29:35  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 10  1405/07/20 08:30:00  [interface,info]  ether2 link down
+ 11  1405/07/20 08:30:02  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 12  1405/07/20 11:22:55  [interface,info]  ether3 link down
+ 13  1405/07/20 11:23:00  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 14  1405/07/20 12:57:07  [interface,info]  ether2 link down
+ 15  1405/07/20 18:17:27  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 16  1405/07/20 18:17:52  [interface,info]  ether2 link down
+ 17  1405/07/20 18:17:54  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 18  1405/07/20 18:30:51  [interface,info]  ether2 link down
+ 19  1405/07/20 19:34:27  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 20  1405/07/20 19:34:52  [interface,info]  ether2 link down
+ 21  1405/07/20 19:34:54  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 22  1405/07/20 19:45:35  [interface,info]  ether2 link down
+ 23  1405/07/21 07:21:24  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 24  1405/07/21 07:21:49  [interface,info]  ether2 link down
+ 25  1405/07/21 07:21:51  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 26  1405/07/21 09:34:07  [interface,info]  ether3 link down
+ 27  1405/07/21 09:34:11  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 28  1405/07/21 10:03:38  [interface,info]  ether3 link down
+ 29  1405/07/21 10:03:43  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 30  1405/07/21 10:14:28  [interface,info]  ether3 link down
+ 31  1405/07/21 10:14:33  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 32  1405/07/21 10:15:02  [interface,info]  ether3 link down
+ 33  1405/07/21 10:15:07  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 34  1405/07/21 10:16:15  [interface,info]  ether3 link down
+ 35  1405/07/21 10:16:20  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 36  1405/07/21 10:19:41  [interface,info]  ether3 link down
+ 37  1405/07/21 10:19:46  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 38  1405/07/21 10:37:41  [interface,info]  ether3 link down
+ 39  1405/07/21 10:37:46  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 40  1405/07/21 11:13:57  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 41  1405/07/21 11:13:59  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 42  1405/07/21 13:00:58  [interface,info]  ether2 link down
+ 43  1405/07/21 22:11:26  [interface,info]  ether3 link down
+ 44  1405/07/21 22:11:30  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 45  1405/07/22 07:22:09  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 46  1405/07/22 07:22:34  [interface,info]  ether2 link down
+ 47  1405/07/22 07:22:36  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 48  1405/07/22 12:54:59  [interface,info]  ether2 link down
+ 49  1405/07/22 13:37:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 50  1405/07/22 13:37:43  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 51  1405/07/24 15:38:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 52  1405/07/24 15:38:26  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 53  1405/07/24 16:04:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 54  1405/07/24 16:04:46  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 55  1405/07/25 07:22:07  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 56  1405/07/25 07:22:33  [interface,info]  ether2 link down
+ 57  1405/07/25 07:22:34  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 58  1405/07/25 09:46:28  [interface,info]  ether3 link down
+ 59  1405/07/25 09:46:32  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 60  1405/07/25 12:56:12  [interface,info]  ether2 link down
+ 61  1405/07/26 07:22:57  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 62  1405/07/26 07:23:22  [interface,info]  ether2 link down
+ 63  1405/07/26 07:23:24  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 64  1405/07/26 08:35:13  [interface,info]  ether3 link down
+ 65  1405/07/26 08:35:18  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 66  1405/07/26 09:15:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 67  1405/07/26 09:15:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 68  1405/07/26 09:17:25  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 69  1405/07/26 09:17:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 70  1405/07/26 12:38:42  [interface,info]  ether3 link down
+ 71  1405/07/26 12:38:47  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 72  1405/07/26 12:53:18  [interface,info]  ether2 link down
+ 73  1405/07/27 07:21:12  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 74  1405/07/27 07:21:39  [interface,info]  ether2 link down
+ 75  1405/07/27 07:21:40  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 76  1405/07/27 07:59:37  [interface,info]  ether3 link down
+ 77  1405/07/27 07:59:42  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 78  1405/07/27 08:22:49  [interface,info]  ether3 link down
+ 79  1405/07/27 08:22:54  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 80  1405/07/27 10:48:54  [interface,info]  ether3 link down
+ 81  1405/07/27 10:48:59  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 82  1405/07/27 12:57:16  [interface,info]  ether2 link down
+ 83  1405/07/28 07:25:42  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 84  1405/07/28 07:26:07  [interface,info]  ether2 link down
+ 85  1405/07/28 07:26:09  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 86  1405/07/28 07:40:40  [interface,info]  ether3 link down
+ 87  1405/07/28 07:40:45  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 88  1405/07/28 08:39:56  [interface,info]  ether3 link down
+ 89  1405/07/28 08:40:01  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 90  1405/07/28 10:13:25  [interface,info]  ether3 link down
+ 91  1405/07/28 10:13:29  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 92  1405/07/28 12:59:46  [interface,info]  ether2 link down
+ 93  1405/07/28 14:02:11  [interface,info]  ether3 link down
+ 94  1405/07/28 14:02:15  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 95  1405/07/28 15:03:02  [interface,info]  ether3 link down
+ 96  1405/07/28 15:03:07  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 97  1405/07/28 15:12:24  [interface,info]  ether3 link down
+ 98  1405/07/28 15:12:29  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 99  1405/07/28 15:13:44  [interface,info]  ether3 link down
+100  1405/07/28 15:13:49  [interface,info]  ether3 link up (speed 100M, full duplex)
+101  1405/07/28 16:07:16  [interface,info]  ether3 link down
+102  1405/07/28 16:07:20  [interface,info]  ether3 link up (speed 100M, full duplex)
+103  1405/07/29 07:25:39  [interface,info]  ether2 link up (speed 100M, full duplex)
+104  1405/07/29 07:26:05  [interface,info]  ether2 link down
+105  1405/07/29 07:26:06  [interface,info]  ether2 link up (speed 100M, full duplex)
+106  1405/07/29 09:56:13  [interface,info]  ether3 link down
+107  1405/07/29 09:56:18  [interface,info]  ether3 link up (speed 100M, full duplex)
+108  1405/07/29 10:54:42  [interface,info]  ether3 link down
+109  1405/07/29 10:54:47  [interface,info]  ether3 link up (speed 100M, full duplex)
+110  1405/07/29 12:58:46  [interface,info]  ether2 link down
+111  1405/07/29 16:42:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

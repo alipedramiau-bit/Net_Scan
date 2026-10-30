@@ -1,5 +1,5 @@
 IP: 172.18.9.251
-Collected at: 2026-10-14T10:24:35.543997+00:00
+Collected at: 2026-10-21T13:18:01.317203+00:00
 source: RouterOS API
 identity: CL-AbuShanak-Nasar
 device_type: ST
@@ -31,27 +31,51 @@ name=wlan1  mode=station-bridge  ssid=Abadan-ArvanKenar1  band=5ghz-a/n  frequen
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:36:40
-# ساعت دستگاه (خام): 1972-01-11 06:51:02
-# افست اصلاحی (سرور − دستگاه): +480003:15:38
-  1  1405/07/22 06:44:46  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 06:44:47  [interface,info]  ether1 link up (speed 100M, full duplex)
-  3  1405/07/22 06:45:44  [wireless,info]  6C:3B:6B:94:8C:48@wlan1 established connection on 5860000, SSID Abadan-ArvanKenar1
-  4  1405/07/22 06:49:08  [wireless,info]  6C:3B:6B:94:8C:48@wlan1: lost connection, extensive data loss
-  5  1405/07/22 06:50:04  [wireless,info]  6C:3B:6B:94:8C:48@wlan1 established connection on 5860000, SSID Abadan-ArvanKenar1
-  6  1405/07/22 07:09:11  [wireless,info]  6C:3B:6B:94:8C:48@wlan1: lost connection, extensive data loss
-  7  1405/07/22 07:10:07  [wireless,info]  6C:3B:6B:94:8C:48@wlan1 established connection on 5860000, SSID Abadan-ArvanKenar1
-  8  1405/07/22 07:46:15  [dhcp,info]  dhcp1 assigned 172.29.31.86 to 50:3E:AA:3E:CF:3B
-  9  1405/07/22 08:00:40  [wireless,info]  6C:3B:6B:94:8C:48@wlan1: lost connection, extensive data loss
- 10  1405/07/22 08:01:37  [wireless,info]  6C:3B:6B:94:8C:48@wlan1 established connection on 5860000, SSID Abadan-ArvanKenar1
- 11  1405/07/22 08:15:50  [dhcp,info]  dhcp1 assigned 172.29.31.85 to 78:C5:F8:2D:1E:72
- 12  1405/07/22 08:35:51  [dhcp,info]  dhcp1 deassigned 172.29.31.85 from 78:C5:F8:2D:1E:72
- 13  1405/07/22 09:11:17  [dhcp,info]  dhcp1 assigned 172.29.31.85 to 78:C5:F8:2D:1E:72
- 14  1405/07/22 10:54:50  [dhcp,info]  dhcp1 deassigned 172.29.31.85 from 78:C5:F8:2D:1E:72
- 15  1405/07/22 10:54:51  [dhcp,info]  dhcp1 assigned 172.29.31.85 to 78:C5:F8:2D:1E:72
- 16  1405/07/22 11:16:15  [dhcp,info]  dhcp1 deassigned 172.29.31.86 from 50:3E:AA:3E:CF:3B
- 17  1405/07/22 11:24:52  [dhcp,info]  dhcp1 deassigned 172.29.31.85 from 78:C5:F8:2D:1E:72
- 18  1405/07/22 13:36:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:41:06
+# ساعت دستگاه (خام): 1972-01-16 03:44:32
+# افست اصلاحی (سرور − دستگاه): +480057:26:34
+  1  1405/07/28 12:55:41  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/28 12:55:43  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/28 12:56:39  [wireless,info]  6C:3B:6B:94:8C:48@wlan1 established connection on 5860000, SSID Abadan-ArvanKenar1
+  4  1405/07/28 14:11:08  [dhcp,info]  dhcp1 assigned 172.29.31.84 to 78:C5:F8:2D:1E:72
+  5  1405/07/28 15:11:14  [dhcp,info]  dhcp1 deassigned 172.29.31.84 from 78:C5:F8:2D:1E:72
+  6  1405/07/28 15:44:35  [dhcp,info]  dhcp1 assigned 172.29.31.84 to 78:C5:F8:2D:1E:72
+  7  1405/07/28 16:19:37  [dhcp,info]  dhcp1 deassigned 172.29.31.84 from 78:C5:F8:2D:1E:72
+  8  1405/07/28 22:26:36  [dhcp,info]  dhcp1 assigned 172.29.31.84 to 78:C5:F8:2D:1E:72
+  9  1405/07/28 22:46:41  [dhcp,info]  dhcp1 deassigned 172.29.31.84 from 78:C5:F8:2D:1E:72
+ 10  1405/07/28 23:18:28  [dhcp,info]  dhcp1 assigned 172.29.31.84 to 78:C5:F8:2D:1E:72
+ 11  1405/07/28 23:58:33  [dhcp,info]  dhcp1 deassigned 172.29.31.84 from 78:C5:F8:2D:1E:72
+ 12  1405/07/29 00:31:29  [dhcp,info]  dhcp1 assigned 172.29.31.84 to 78:C5:F8:2D:1E:72
+ 13  1405/07/29 00:41:53  [dhcp,info]  dhcp1 assigned 172.29.31.83 to BE:1C:61:3E:B0:7A
+ 14  1405/07/29 00:56:47  [dhcp,info]  dhcp1 deassigned 172.29.31.84 from 78:C5:F8:2D:1E:72
+ 15  1405/07/29 01:16:54  [dhcp,info]  dhcp1 deassigned 172.29.31.83 from BE:1C:61:3E:B0:7A
+ 16  1405/07/29 01:37:01  [dhcp,info]  dhcp1 assigned 172.29.31.83 to BE:1C:61:3E:B0:7A
+ 17  1405/07/29 02:40:35  [dhcp,info]  dhcp1 deassigned 172.29.31.83 from BE:1C:61:3E:B0:7A
+ 18  1405/07/29 03:35:05  [dhcp,info]  dhcp1 assigned 172.29.31.83 to BE:1C:61:3E:B0:7A
+ 19  1405/07/29 04:50:09  [dhcp,info]  dhcp1 deassigned 172.29.31.83 from BE:1C:61:3E:B0:7A
+ 20  1405/07/29 08:00:00  [dhcp,info]  dhcp1 assigned 172.29.31.86 to 50:3E:AA:3E:CF:3B
+ 21  1405/07/29 08:26:27  [dhcp,info]  dhcp1 assigned 172.29.31.82 to 54:81:2D:55:1B:90
+ 22  1405/07/29 09:09:41  [dhcp,info]  dhcp1 assigned 172.29.31.85 to 06:D0:F4:EF:5B:89
+ 23  1405/07/29 09:10:17  [dhcp,info]  dhcp1 assigned 172.29.31.87 to 9C:53:22:BB:AD:57
+ 24  1405/07/29 09:13:01  [dhcp,info]  dhcp1 assigned 172.29.31.91 to 50:3E:AA:4F:05:8B
+ 25  1405/07/29 09:28:58  [wireless,info]  6C:3B:6B:94:8C:48@wlan1: lost connection, extensive data loss
+ 26  1405/07/29 09:29:55  [wireless,info]  6C:3B:6B:94:8C:48@wlan1 established connection on 5860000, SSID Abadan-ArvanKenar1
+ 27  1405/07/29 09:33:03  [dhcp,info]  dhcp1 assigned 172.29.31.84 to 78:C5:F8:2D:1E:72
+ 28  1405/07/29 09:59:42  [dhcp,info]  dhcp1 deassigned 172.29.31.85 from 06:D0:F4:EF:5B:89
+ 29  1405/07/29 10:03:27  [dhcp,info]  dhcp1 assigned 172.29.31.85 to 06:D0:F4:EF:5B:89
+ 30  1405/07/29 10:09:33  [dhcp,info]  dhcp1 deassigned 172.29.31.87 from 9C:53:22:BB:AD:57
+ 31  1405/07/29 10:14:07  [dhcp,info]  dhcp1 assigned 172.29.31.87 to 9C:53:22:BB:AD:57
+ 32  1405/07/29 10:20:35  [dhcp,info]  dhcp1 deassigned 172.29.31.84 from 78:C5:F8:2D:1E:72
+ 33  1405/07/29 11:40:55  [dhcp,info]  dhcp1 deassigned 172.29.31.87 from 9C:53:22:BB:AD:57
+ 34  1405/07/29 11:43:01  [dhcp,info]  dhcp1 deassigned 172.29.31.91 from 50:3E:AA:4F:05:8B
+ 35  1405/07/29 11:45:02  [dhcp,info]  dhcp1 deassigned 172.29.31.85 from 06:D0:F4:EF:5B:89
+ 36  1405/07/29 11:46:29  [dhcp,info]  dhcp1 deassigned 172.29.31.82 from 54:81:2D:55:1B:90
+ 37  1405/07/29 11:50:00  [dhcp,info]  dhcp1 deassigned 172.29.31.86 from 50:3E:AA:3E:CF:3B
+ 38  1405/07/29 14:33:27  [dhcp,info]  dhcp1 assigned 172.29.31.88 to 8A:01:37:30:6F:07
+ 39  1405/07/29 14:41:07  [dhcp,info]  dhcp1 assigned 172.29.31.84 to 78:C5:F8:2D:1E:72
+ 40  1405/07/29 14:47:49  [dhcp,info]  dhcp1 deassigned 172.29.31.88 from 8A:01:37:30:6F:07
+ 41  1405/07/29 14:51:07  [dhcp,info]  dhcp1 deassigned 172.29.31.84 from 78:C5:F8:2D:1E:72
+ 42  1405/07/29 16:41:05  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

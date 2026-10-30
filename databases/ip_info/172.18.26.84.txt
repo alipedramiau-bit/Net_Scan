@@ -1,5 +1,5 @@
 IP: 172.18.26.84
-Collected at: 2026-10-15T10:09:01.906748+00:00
+Collected at: 2026-10-21T13:17:08.458966+00:00
 source: RouterOS API
 identity: OmolHejar.Client
 device_type: ST
@@ -30,24 +30,24 @@ name=wlan1  mode=station-bridge  ssid=Shadegan-OmolGhazlan2  band=5ghz-a/n  freq
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:35:13
-# ساعت دستگاه (خام): 2024-11-21 16:57:37
-# افست اصلاحی (سرور − دستگاه): +16624:07:36
-  1  1405/07/20 18:37:32  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/20 18:37:40  [wireless,info]  B8:69:F4:35:0D:8F@wlan1 established connection on 5500000, SSID Shadegan-OmolGhazlan2
-  3  1405/07/20 18:37:42  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/21 09:05:35  [interface,info]  ether1 link down
-  5  1405/07/21 09:05:36  [interface,info]  ether1 link up (speed 100M, full duplex)
-  6  1405/07/21 11:08:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  7  1405/07/21 11:08:38  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  8  1405/07/22 08:20:17  [interface,info]  ether1 link down
-  9  1405/07/22 08:20:19  [interface,info]  ether1 link up (speed 100M, full duplex)
- 10  1405/07/22 12:39:27  [wireless,info]  B8:69:F4:35:0D:8F@wlan1: lost connection, no beacons received
- 11  1405/07/22 12:40:21  [wireless,info]  B8:69:F4:35:0D:8F@wlan1 established connection on 5500000, SSID Shadegan-OmolGhazlan2
- 12  1405/07/22 13:28:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 13  1405/07/22 13:28:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 14  1405/07/23 08:30:19  [dhcp,info]  dhcp1 deassigned 172.29.208.62 from 1C:1B:0D:3D:A4:03
- 15  1405/07/23 12:35:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:36:01
+# ساعت دستگاه (خام): 2024-11-26 18:35:48
+# افست اصلاحی (سرور − دستگاه): +16650:30:13
+  1  1405/07/27 21:00:09  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/27 21:00:17  [wireless,info]  B8:69:F4:35:0D:8F@wlan1 established connection on 5500000, SSID Shadegan-OmolGhazlan2
+  3  1405/07/27 21:00:19  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/28 08:15:19  [interface,info]  ether1 link down
+  5  1405/07/28 08:15:21  [interface,info]  ether1 link up (speed 100M, full duplex)
+  6  1405/07/28 08:15:29  [dhcp,info]  dhcp1 assigned 172.29.208.62 to 1C:1B:0D:3D:A4:03
+  7  1405/07/28 08:18:11  [wireless,info]  B8:69:F4:35:0D:8F@wlan1: lost connection, extensive data loss
+  8  1405/07/28 08:19:06  [wireless,info]  B8:69:F4:35:0D:8F@wlan1 established connection on 5500000, SSID Shadegan-OmolGhazlan2
+  9  1405/07/28 10:38:20  [interface,info]  ether1 link down
+ 10  1405/07/28 10:38:22  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 11  1405/07/29 08:49:24  [interface,info]  ether1 link down
+ 12  1405/07/29 08:49:26  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 13  1405/07/29 09:07:36  [interface,info]  ether1 link down
+ 14  1405/07/29 09:07:38  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 15  1405/07/29 16:36:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

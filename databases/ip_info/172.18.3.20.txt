@@ -1,5 +1,5 @@
 IP: 172.18.3.20
-Collected at: 2026-10-15T10:09:14.952495+00:00
+Collected at: 2026-10-21T13:17:15.319538+00:00
 source: RouterOS API
 identity: Router.MK.Aboshanak
 device_type: Router
@@ -10,7 +10,7 @@ device_type: Router
   2  name=ether2  type=ether  running=true  mac=E4:8D:8C:6E:59:85
   3  name=ether3  type=ether  running=false  mac=E4:8D:8C:6E:59:86
   4  name=ether4  type=ether  running=true  mac=E4:8D:8C:6E:59:87
-  5  name=ether5  type=ether  running=false  mac=E4:8D:8C:6E:59:88
+  5  name=ether5  type=ether  running=true  mac=E4:8D:8C:6E:59:88
   6  name=ether6-Damani1  type=ether  running=true  mac=E4:8D:8C:6E:59:89
   7  name=ether7  type=ether  running=false  mac=E4:8D:8C:6E:59:8A
   8  name=ether8  type=ether  running=false  mac=E4:8D:8C:6E:59:8B
@@ -66,209 +66,209 @@ device_type: Router
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:36:55
-# ساعت دستگاه (خام): 1972-11-15 08:30:11
-# افست اصلاحی (سرور − دستگاه): +472608:36:44
-  1  1405/07/18 10:34:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  2  1405/07/18 10:34:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  3  1405/07/18 10:41:42  [dhcp,info]  dhcp1 deassigned 172.29.19.62 from 18:D6:C7:C6:75:08
-  4  1405/07/18 10:58:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  5  1405/07/18 10:58:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  6  1405/07/18 10:59:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  7  1405/07/18 10:59:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  8  1405/07/18 12:10:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  9  1405/07/18 12:10:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 10  1405/07/18 12:11:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 11  1405/07/18 12:11:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 12  1405/07/18 12:13:12  [dhcp,info]  dhcp1 deassigned 172.29.19.4 from D2:16:44:F3:A4:37
- 13  1405/07/18 12:37:54  [interface,info]  ether5 link down
- 14  1405/07/18 12:47:03  [dhcp,info]  dhcp1 deassigned 172.29.19.14 from 5C:87:9C:8C:1A:13
- 15  1405/07/18 12:55:57  [dhcp,info]  dhcp1 deassigned 172.29.19.15 from D0:37:45:5D:D7:2F
- 16  1405/07/18 13:02:53  [dhcp,info]  dhcp1 deassigned 172.29.19.19 from 7C:F1:7E:F4:32:2A
- 17  1405/07/18 13:04:46  [dhcp,info]  dhcp1 deassigned 172.29.19.17 from 00:17:6F:34:6D:45
- 18  1405/07/18 13:04:49  [dhcp,info]  dhcp1 deassigned 172.29.19.18 from 7C:F1:7E:F4:28:3A
- 19  1405/07/18 13:06:27  [dhcp,info]  dhcp1 deassigned 172.29.19.8 from 9C:53:22:05:FA:94
- 20  1405/07/18 13:09:43  [dhcp,info]  dhcp1 deassigned 172.29.19.9 from C8:3A:35:C5:B6:F4
- 21  1405/07/18 13:10:24  [dhcp,info]  dhcp1 deassigned 172.29.19.22 from 7C:F1:7E:F4:30:25
- 22  1405/07/18 16:11:25  [dhcp,info]  dhcp1 assigned 172.29.19.22 to 7C:F1:7E:F4:30:25
- 23  1405/07/18 20:41:35  [dhcp,info]  dhcp1 deassigned 172.29.19.22 from 7C:F1:7E:F4:30:25
- 24  1405/07/19 08:18:32  [dhcp,info]  dhcp1 assigned 172.29.19.9 to C8:3A:35:C5:B6:F4
- 25  1405/07/19 08:19:18  [dhcp,info]  dhcp1 assigned 172.29.19.19 to 7C:F1:7E:F4:32:2A
- 26  1405/07/19 08:20:02  [dhcp,info]  dhcp1 assigned 172.29.19.18 to 7C:F1:7E:F4:28:3A
- 27  1405/07/19 08:21:22  [dhcp,info]  dhcp1 assigned 172.29.19.22 to 7C:F1:7E:F4:30:25
- 28  1405/07/19 08:24:14  [interface,info]  ether5 link up (speed 100M, full duplex)
- 29  1405/07/19 08:24:15  [interface,info]  ether5 link down
- 30  1405/07/19 08:24:17  [interface,info]  ether5 link up (speed 100M, full duplex)
- 31  1405/07/19 08:24:21  [dhcp,info]  dhcp1 assigned 172.29.19.17 to 00:17:6F:34:6D:45
- 32  1405/07/19 08:24:25  [dhcp,info]  dhcp1 assigned 172.29.19.8 to 9C:53:22:05:FA:94
- 33  1405/07/19 08:25:16  [dhcp,info]  dhcp1 assigned 172.29.19.15 to D0:37:45:5D:D7:2F
- 34  1405/07/19 08:28:30  [dhcp,info]  dhcp1 assigned 172.29.19.4 to D2:16:44:F3:A4:37
- 35  1405/07/19 08:32:18  [dhcp,info]  dhcp1 assigned 172.29.19.62 to 18:D6:C7:C6:75:08
- 36  1405/07/19 09:15:43  [dhcp,info]  dhcp1 assigned 172.29.19.14 to 5C:87:9C:8C:1A:13
- 37  1405/07/19 09:49:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 38  1405/07/19 09:49:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 39  1405/07/19 09:50:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 40  1405/07/19 09:50:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 41  1405/07/19 10:38:08  [dhcp,info]  dhcp1 deassigned 172.29.19.4 from D2:16:44:F3:A4:37
- 42  1405/07/19 10:42:06  [dhcp,info]  dhcp1 assigned 172.29.19.4 to D2:16:44:F3:A4:37
- 43  1405/07/19 11:02:04  [dhcp,info]  dhcp1 deassigned 172.29.19.14 from 5C:87:9C:8C:1A:13
- 44  1405/07/19 11:08:07  [dhcp,info]  dhcp1 assigned 172.29.19.14 to 5C:87:9C:8C:1A:13
- 45  1405/07/19 12:08:06  [dhcp,info]  dhcp1 deassigned 172.29.19.14 from 5C:87:9C:8C:1A:13
- 46  1405/07/19 12:39:16  [interface,info]  ether5 link down
- 47  1405/07/19 12:47:18  [dhcp,info]  dhcp1 deassigned 172.29.19.62 from 18:D6:C7:C6:75:08
- 48  1405/07/19 12:50:07  [dhcp,info]  dhcp1 deassigned 172.29.19.18 from 7C:F1:7E:F4:28:3A
- 49  1405/07/19 12:54:23  [dhcp,info]  dhcp1 deassigned 172.29.19.17 from 00:17:6F:34:6D:45
- 50  1405/07/19 12:54:24  [dhcp,info]  dhcp1 deassigned 172.29.19.8 from 9C:53:22:05:FA:94
- 51  1405/07/19 12:55:18  [dhcp,info]  dhcp1 deassigned 172.29.19.15 from D0:37:45:5D:D7:2F
- 52  1405/07/19 13:00:53  [dhcp,info]  dhcp1 deassigned 172.29.19.9 from C8:3A:35:C5:B6:F4
- 53  1405/07/19 13:04:29  [dhcp,info]  dhcp1 deassigned 172.29.19.19 from 7C:F1:7E:F4:32:2A
- 54  1405/07/19 13:06:20  [dhcp,info]  dhcp1 deassigned 172.29.19.22 from 7C:F1:7E:F4:30:25
- 55  1405/07/19 13:09:20  [dhcp,info]  dhcp1 deassigned 172.29.19.4 from D2:16:44:F3:A4:37
- 56  1405/07/19 15:52:21  [dhcp,info]  dhcp1 assigned 172.29.19.22 to 7C:F1:7E:F4:30:25
- 57  1405/07/19 17:44:44  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 58  1405/07/19 17:44:44  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 59  1405/07/19 17:45:04  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 60  1405/07/19 17:45:04  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 61  1405/07/19 18:07:21  [dhcp,info]  dhcp1 deassigned 172.29.19.22 from 7C:F1:7E:F4:30:25
- 62  1405/07/19 18:08:56  [dhcp,info]  dhcp1 assigned 172.29.19.22 to 7C:F1:7E:F4:30:25
- 63  1405/07/19 20:22:19  [dhcp,info]  dhcp1 deassigned 172.29.19.22 from 7C:F1:7E:F4:30:25
- 64  1405/07/20 08:15:21  [dhcp,info]  dhcp1 assigned 172.29.19.18 to 7C:F1:7E:F4:28:3A
- 65  1405/07/20 08:17:05  [interface,info]  ether5 link up (speed 100M, full duplex)
- 66  1405/07/20 08:17:06  [interface,info]  ether5 link down
- 67  1405/07/20 08:17:08  [interface,info]  ether5 link up (speed 100M, full duplex)
- 68  1405/07/20 08:17:08  [dhcp,info]  dhcp1 assigned 172.29.19.22 to 7C:F1:7E:F4:30:25
- 69  1405/07/20 08:17:12  [dhcp,info]  dhcp1 assigned 172.29.19.17 to 00:17:6F:34:6D:45
- 70  1405/07/20 08:17:38  [dhcp,info]  dhcp1 assigned 172.29.19.15 to D0:37:45:5D:D7:2F
- 71  1405/07/20 08:18:05  [dhcp,info]  dhcp1 assigned 172.29.19.8 to 9C:53:22:05:FA:94
- 72  1405/07/20 08:20:32  [dhcp,info]  dhcp1 assigned 172.29.19.4 to D2:16:44:F3:A4:37
- 73  1405/07/20 08:55:45  [dhcp,info]  dhcp1 assigned 172.29.19.14 to 5C:87:9C:8C:1A:13
- 74  1405/07/20 11:10:45  [dhcp,info]  dhcp1 deassigned 172.29.19.14 from 5C:87:9C:8C:1A:13
- 75  1405/07/20 12:41:24  [interface,info]  ether5 link down
- 76  1405/07/20 13:00:51  [dhcp,info]  dhcp1 deassigned 172.29.19.8 from 9C:53:22:05:FA:94
- 77  1405/07/20 13:02:14  [dhcp,info]  dhcp1 deassigned 172.29.19.17 from 00:17:6F:34:6D:45
- 78  1405/07/20 13:02:37  [dhcp,info]  dhcp1 deassigned 172.29.19.15 from D0:37:45:5D:D7:2F
- 79  1405/07/20 13:13:04  [dhcp,info]  dhcp1 deassigned 172.29.19.4 from D2:16:44:F3:A4:37
- 80  1405/07/20 13:15:24  [dhcp,info]  dhcp1 deassigned 172.29.19.18 from 7C:F1:7E:F4:28:3A
- 81  1405/07/20 13:17:08  [dhcp,info]  dhcp1 deassigned 172.29.19.22 from 7C:F1:7E:F4:30:25
- 82  1405/07/20 16:02:19  [dhcp,info]  dhcp1 assigned 172.29.19.22 to 7C:F1:7E:F4:30:25
- 83  1405/07/20 20:37:36  [dhcp,info]  dhcp1 deassigned 172.29.19.22 from 7C:F1:7E:F4:30:25
- 84  1405/07/21 07:14:12  [interface,info]  ether6-Damani1 link down
- 85  1405/07/21 07:19:08  [interface,info]  ether6-Damani1 link up (speed 100M, full duplex)
- 86  1405/07/21 08:17:23  [dhcp,info]  dhcp1 assigned 172.29.19.22 to 7C:F1:7E:F4:30:25
- 87  1405/07/21 08:24:00  [dhcp,info]  dhcp1 assigned 172.29.19.15 to D0:37:45:5D:D7:2F
- 88  1405/07/21 08:27:33  [dhcp,info]  dhcp1 assigned 172.29.19.4 to D2:16:44:F3:A4:37
- 89  1405/07/21 08:57:33  [dhcp,info]  dhcp1 deassigned 172.29.19.4 from D2:16:44:F3:A4:37
- 90  1405/07/21 09:12:44  [dhcp,info]  dhcp1 assigned 172.29.19.14 to 5C:87:9C:8C:1A:13
- 91  1405/07/21 09:39:11  [interface,info]  ether6-Damani1 link down
- 92  1405/07/21 09:52:12  [interface,info]  ether6-Damani1 link up (speed 100M, full duplex)
- 93  1405/07/21 09:53:36  [interface,info]  ether5 link up (speed 100M, full duplex)
- 94  1405/07/21 09:53:37  [interface,info]  ether5 link down
- 95  1405/07/21 09:53:39  [interface,info]  ether5 link up (speed 100M, full duplex)
- 96  1405/07/21 09:53:44  [dhcp,info]  dhcp1 assigned 172.29.19.17 to 00:17:6F:34:6D:45
- 97  1405/07/21 09:54:04  [dhcp,info]  dhcp1 assigned 172.29.19.8 to 9C:53:22:05:FA:94
- 98  1405/07/21 09:54:22  [dhcp,info]  dhcp1 assigned 172.29.19.18 to 7C:F1:7E:F4:28:3A
- 99  1405/07/21 09:54:39  [dhcp,info]  dhcp1 assigned 172.29.19.9 to C8:3A:35:C5:B6:F4
-100  1405/07/21 09:57:05  [dhcp,info]  dhcp1 assigned 172.29.19.19 to 7C:F1:7E:F4:32:2A
-101  1405/07/21 10:02:38  [dhcp,info]  dhcp1 deassigned 172.29.19.22 from 7C:F1:7E:F4:30:25
-102  1405/07/21 10:07:27  [dhcp,info]  dhcp1 assigned 172.29.19.22 to 7C:F1:7E:F4:30:25
-103  1405/07/21 10:08:38  [dhcp,info]  dhcp1 assigned 172.29.19.4 to D2:16:44:F3:A4:37
-104  1405/07/21 10:09:00  [dhcp,info]  dhcp1 deassigned 172.29.19.15 from D0:37:45:5D:D7:2F
-105  1405/07/21 10:20:11  [interface,info]  ether5 link down
-106  1405/07/21 10:20:28  [interface,info]  ether5 link up (speed 100M, full duplex)
-107  1405/07/21 10:20:32  [interface,info]  ether5 link down
-108  1405/07/21 10:20:34  [interface,info]  ether5 link up (speed 100M, full duplex)
-109  1405/07/21 10:20:38  [dhcp,info]  dhcp1 deassigned 172.29.19.17 from 00:17:6F:34:6D:45
-110  1405/07/21 10:20:38  [dhcp,info]  dhcp1 assigned 172.29.19.17 to 00:17:6F:34:6D:45
-111  1405/07/21 10:22:28  [dhcp,info]  dhcp1 deassigned 172.29.19.14 from 5C:87:9C:8C:1A:13
-112  1405/07/21 10:24:58  [dhcp,info]  dhcp1 assigned 172.29.19.7 to 7C:F1:7E:F4:3C:B2
-113  1405/07/21 10:32:58  [dhcp,info]  dhcp1 deassigned 172.29.19.7 from 7C:F1:7E:F4:3C:B2
-114  1405/07/21 10:33:03  [dhcp,info]  dhcp1 assigned 172.29.19.7 to 7C:F1:7E:F4:3C:B2
-115  1405/07/21 10:42:46  [dhcp,info]  dhcp1 assigned 172.29.19.15 to D0:37:45:5D:D7:2F
-116  1405/07/21 10:47:06  [dhcp,info]  dhcp1 assigned 172.29.19.14 to 5C:87:9C:8C:1A:13
-117  1405/07/21 11:10:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-118  1405/07/21 11:10:26  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-119  1405/07/21 11:11:57  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-120  1405/07/21 11:12:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-121  1405/07/21 11:24:24  [dhcp,info]  dhcp1 deassigned 172.29.19.17 from 00:17:6F:34:6D:45
-122  1405/07/21 11:24:24  [dhcp,info]  dhcp1 assigned 172.29.19.17 to 00:17:6F:34:6D:45
-123  1405/07/21 11:24:44  [interface,info]  ether5 link down
-124  1405/07/21 11:25:01  [interface,info]  ether5 link up (speed 100M, full duplex)
-125  1405/07/21 11:25:02  [interface,info]  ether5 link down
-126  1405/07/21 11:25:04  [interface,info]  ether5 link up (speed 100M, full duplex)
-127  1405/07/21 11:25:08  [dhcp,info]  dhcp1 deassigned 172.29.19.17 from 00:17:6F:34:6D:45
-128  1405/07/21 11:25:08  [dhcp,info]  dhcp1 assigned 172.29.19.17 to 00:17:6F:34:6D:45
-129  1405/07/21 11:48:46  [dhcp,info]  dhcp1 deassigned 172.29.19.14 from 5C:87:9C:8C:1A:13
-130  1405/07/21 11:49:46  [dhcp,info]  dhcp1 deassigned 172.29.19.15 from D0:37:45:5D:D7:2F
-131  1405/07/21 12:13:26  [dhcp,info]  dhcp1 assigned 172.29.19.15 to D0:37:45:5D:D7:2F
-132  1405/07/21 12:31:30  [interface,info]  ether5 link down
-133  1405/07/21 12:53:27  [dhcp,info]  dhcp1 deassigned 172.29.19.7 from 7C:F1:7E:F4:3C:B2
-134  1405/07/21 12:53:32  [dhcp,info]  dhcp1 deassigned 172.29.19.8 from 9C:53:22:05:FA:94
-135  1405/07/21 12:55:09  [dhcp,info]  dhcp1 deassigned 172.29.19.17 from 00:17:6F:34:6D:45
-136  1405/07/21 12:57:42  [dhcp,info]  dhcp1 deassigned 172.29.19.9 from C8:3A:35:C5:B6:F4
-137  1405/07/21 12:58:26  [dhcp,info]  dhcp1 deassigned 172.29.19.15 from D0:37:45:5D:D7:2F
-138  1405/07/21 13:02:52  [dhcp,info]  dhcp1 deassigned 172.29.19.4 from D2:16:44:F3:A4:37
-139  1405/07/21 13:04:15  [dhcp,info]  dhcp1 deassigned 172.29.19.19 from 7C:F1:7E:F4:32:2A
-140  1405/07/21 13:05:08  [dhcp,info]  dhcp1 deassigned 172.29.19.22 from 7C:F1:7E:F4:30:25
-141  1405/07/21 13:05:29  [dhcp,info]  dhcp1 deassigned 172.29.19.18 from 7C:F1:7E:F4:28:3A
-142  1405/07/21 14:35:03  [dhcp,info]  dhcp1 assigned 172.29.19.8 to 9C:53:22:05:FA:94
-143  1405/07/21 16:05:19  [dhcp,info]  dhcp1 deassigned 172.29.19.8 from 9C:53:22:05:FA:94
-144  1405/07/21 17:05:26  [dhcp,info]  dhcp1 assigned 172.29.19.22 to 7C:F1:7E:F4:30:25
-145  1405/07/21 17:19:10  [dhcp,info]  dhcp1 assigned 172.29.19.8 to 9C:53:22:05:FA:94
-146  1405/07/21 17:19:23  [interface,info]  ether5 link up (speed 100M, full duplex)
-147  1405/07/21 17:19:25  [interface,info]  ether5 link down
-148  1405/07/21 17:19:26  [interface,info]  ether5 link up (speed 100M, full duplex)
-149  1405/07/21 17:19:31  [dhcp,info]  dhcp1 assigned 172.29.19.17 to 00:17:6F:34:6D:45
-150  1405/07/21 20:08:52  [interface,info]  ether5 link down
-151  1405/07/21 20:25:00  [dhcp,info]  dhcp1 deassigned 172.29.19.8 from 9C:53:22:05:FA:94
-152  1405/07/21 20:34:32  [dhcp,info]  dhcp1 deassigned 172.29.19.17 from 00:17:6F:34:6D:45
-153  1405/07/21 20:35:26  [dhcp,info]  dhcp1 deassigned 172.29.19.22 from 7C:F1:7E:F4:30:25
-154  1405/07/22 08:18:54  [dhcp,info]  dhcp1 assigned 172.29.19.9 to C8:3A:35:C5:B6:F4
-155  1405/07/22 08:19:18  [dhcp,info]  dhcp1 assigned 172.29.19.22 to 7C:F1:7E:F4:30:25
-156  1405/07/22 08:19:22  [dhcp,info]  dhcp1 assigned 172.29.19.18 to 7C:F1:7E:F4:28:3A
-157  1405/07/22 08:20:48  [dhcp,info]  dhcp1 assigned 172.29.19.19 to 7C:F1:7E:F4:32:2A
-158  1405/07/22 08:23:22  [interface,info]  ether5 link up (speed 100M, full duplex)
-159  1405/07/22 08:23:23  [interface,info]  ether5 link down
-160  1405/07/22 08:23:25  [interface,info]  ether5 link up (speed 100M, full duplex)
-161  1405/07/22 08:23:29  [dhcp,info]  dhcp1 assigned 172.29.19.17 to 00:17:6F:34:6D:45
-162  1405/07/22 08:23:39  [dhcp,info]  dhcp1 assigned 172.29.19.4 to D2:16:44:F3:A4:37
-163  1405/07/22 08:25:31  [dhcp,info]  dhcp1 assigned 172.29.19.8 to 9C:53:22:05:FA:94
-164  1405/07/22 08:29:41  [dhcp,info]  dhcp1 assigned 172.29.19.15 to D0:37:45:5D:D7:2F
-165  1405/07/22 08:36:53  [dhcp,info]  dhcp1 assigned 172.29.19.62 to 18:D6:C7:C6:75:08
-166  1405/07/22 10:26:47  [dhcp,info]  dhcp1 assigned 172.29.19.7 to 7C:F1:7E:F4:3C:B2
-167  1405/07/22 12:00:31  [dhcp,info]  dhcp1 deassigned 172.29.19.7 from 7C:F1:7E:F4:3C:B2
-168  1405/07/22 12:14:19  [dhcp,info]  dhcp1 deassigned 172.29.19.19 from 7C:F1:7E:F4:32:2A
-169  1405/07/22 12:16:12  [dhcp,info]  dhcp1 assigned 172.29.19.7 to 7C:F1:7E:F4:3C:B2
-170  1405/07/22 12:24:05  [dhcp,info]  dhcp1 deassigned 172.29.19.62 from 18:D6:C7:C6:75:08
-171  1405/07/22 12:29:37  [interface,info]  ether5 link down
-172  1405/07/22 12:36:21  [dhcp,info]  dhcp1 assigned 172.29.19.19 to 7C:F1:7E:F4:32:2A
-173  1405/07/22 12:44:50  [dhcp,info]  dhcp1 deassigned 172.29.19.15 from D0:37:45:5D:D7:2F
-174  1405/07/22 12:46:12  [dhcp,info]  dhcp1 deassigned 172.29.19.7 from 7C:F1:7E:F4:3C:B2
-175  1405/07/22 12:53:28  [dhcp,info]  dhcp1 deassigned 172.29.19.8 from 9C:53:22:05:FA:94
-176  1405/07/22 12:53:31  [dhcp,info]  dhcp1 deassigned 172.29.19.17 from 00:17:6F:34:6D:45
-177  1405/07/22 13:00:33  [dhcp,info]  dhcp1 deassigned 172.29.19.4 from D2:16:44:F3:A4:37
-178  1405/07/22 13:03:54  [dhcp,info]  dhcp1 deassigned 172.29.19.9 from C8:3A:35:C5:B6:F4
-179  1405/07/22 13:04:17  [dhcp,info]  dhcp1 deassigned 172.29.19.22 from 7C:F1:7E:F4:30:25
-180  1405/07/22 13:04:25  [dhcp,info]  dhcp1 deassigned 172.29.19.18 from 7C:F1:7E:F4:28:3A
-181  1405/07/22 13:08:57  [dhcp,info]  dhcp1 deassigned 172.29.19.19 from 7C:F1:7E:F4:32:2A
-182  1405/07/22 13:29:43  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-183  1405/07/22 13:29:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-184  1405/07/22 13:30:37  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-185  1405/07/22 13:30:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-186  1405/07/22 14:20:42  [interface,info]  ether5 link up (speed 100M, full duplex)
-187  1405/07/22 14:20:43  [interface,info]  ether5 link down
-188  1405/07/22 14:20:44  [interface,info]  ether5 link up (speed 100M, full duplex)
-189  1405/07/22 14:20:49  [dhcp,info]  dhcp1 assigned 172.29.19.17 to 00:17:6F:34:6D:45
-190  1405/07/22 14:21:26  [dhcp,info]  dhcp1 assigned 172.29.19.8 to 9C:53:22:05:FA:94
-191  1405/07/22 15:52:49  [dhcp,info]  dhcp1 deassigned 172.29.19.8 from 9C:53:22:05:FA:94
-192  1405/07/22 16:28:01  [dhcp,info]  dhcp1 assigned 172.29.19.22 to 7C:F1:7E:F4:30:25
-193  1405/07/22 16:29:09  [dhcp,info]  dhcp1 assigned 172.29.19.8 to 9C:53:22:05:FA:94
-194  1405/07/22 19:29:10  [dhcp,info]  dhcp1 deassigned 172.29.19.8 from 9C:53:22:05:FA:94
-195  1405/07/22 19:57:47  [dhcp,info]  dhcp1 assigned 172.29.19.8 to 9C:53:22:05:FA:94
-196  1405/07/22 20:05:43  [interface,info]  ether5 link down
-197  1405/07/22 20:20:51  [dhcp,info]  dhcp1 deassigned 172.29.19.17 from 00:17:6F:34:6D:45
-198  1405/07/22 20:27:47  [dhcp,info]  dhcp1 deassigned 172.29.19.8 from 9C:53:22:05:FA:94
-199  1405/07/22 20:28:00  [dhcp,info]  dhcp1 deassigned 172.29.19.22 from 7C:F1:7E:F4:30:25
-200  1405/07/23 12:36:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:36:57
+# ساعت دستگاه (خام): 1972-11-21 12:32:41
+# افست اصلاحی (سرور − دستگاه): +472608:34:16
+  1  1405/07/23 17:19:09  [dhcp,info]  dhcp1 assigned 172.29.19.22 to 7C:F1:7E:F4:30:25
+  2  1405/07/23 19:34:54  [dhcp,info]  dhcp1 deassigned 172.29.19.22 from 7C:F1:7E:F4:30:25
+  3  1405/07/23 19:46:20  [dhcp,info]  dhcp1 assigned 172.29.19.22 to 7C:F1:7E:F4:30:25
+  4  1405/07/23 20:00:45  [interface,info]  ether5 link down
+  5  1405/07/23 20:16:20  [dhcp,info]  dhcp1 deassigned 172.29.19.22 from 7C:F1:7E:F4:30:25
+  6  1405/07/23 20:20:11  [dhcp,info]  dhcp1 deassigned 172.29.19.8 from 9C:53:22:05:FA:94
+  7  1405/07/23 20:29:15  [dhcp,info]  dhcp1 deassigned 172.29.19.17 from 00:17:6F:34:6D:45
+  8  1405/07/24 00:40:22  [interface,info]  ether6-Damani1 link down
+  9  1405/07/24 01:00:26  [interface,info]  ether6-Damani1 link up (speed 100M, full duplex)
+ 10  1405/07/24 15:30:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 11  1405/07/24 15:30:07  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 12  1405/07/24 15:30:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 13  1405/07/24 15:30:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 14  1405/07/24 15:58:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 15  1405/07/24 15:58:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 16  1405/07/25 08:06:38  [dhcp,info]  dhcp1 assigned 172.29.19.62 to 18:D6:C7:C6:75:08
+ 17  1405/07/25 08:11:24  [dhcp,info]  dhcp1 assigned 172.29.19.9 to C8:3A:35:C5:B6:F4
+ 18  1405/07/25 08:12:42  [dhcp,info]  dhcp1 assigned 172.29.19.18 to 7C:F1:7E:F4:28:3A
+ 19  1405/07/25 08:19:10  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 20  1405/07/25 08:19:11  [interface,info]  ether5 link down
+ 21  1405/07/25 08:19:13  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 22  1405/07/25 08:19:18  [dhcp,info]  dhcp1 assigned 172.29.19.17 to 00:17:6F:34:6D:45
+ 23  1405/07/25 08:20:15  [dhcp,info]  dhcp1 assigned 172.29.19.15 to D0:37:45:5D:D7:2F
+ 24  1405/07/25 08:21:04  [dhcp,info]  dhcp1 assigned 172.29.19.8 to 9C:53:22:05:FA:94
+ 25  1405/07/25 08:22:32  [dhcp,info]  dhcp1 assigned 172.29.19.4 to D2:16:44:F3:A4:37
+ 26  1405/07/25 11:39:48  [interface,info]  ether5 link down
+ 27  1405/07/25 11:40:05  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 28  1405/07/25 11:40:06  [interface,info]  ether5 link down
+ 29  1405/07/25 11:40:08  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 30  1405/07/25 11:40:12  [dhcp,info]  dhcp1 deassigned 172.29.19.17 from 00:17:6F:34:6D:45
+ 31  1405/07/25 11:40:12  [dhcp,info]  dhcp1 assigned 172.29.19.17 to 00:17:6F:34:6D:45
+ 32  1405/07/25 12:21:39  [dhcp,info]  dhcp1 deassigned 172.29.19.62 from 18:D6:C7:C6:75:08
+ 33  1405/07/25 12:39:59  [interface,info]  ether5 link down
+ 34  1405/07/25 12:50:21  [dhcp,info]  dhcp1 deassigned 172.29.19.15 from D0:37:45:5D:D7:2F
+ 35  1405/07/25 12:55:13  [dhcp,info]  dhcp1 deassigned 172.29.19.17 from 00:17:6F:34:6D:45
+ 36  1405/07/25 13:05:49  [dhcp,info]  dhcp1 deassigned 172.29.19.4 from D2:16:44:F3:A4:37
+ 37  1405/07/25 13:06:56  [dhcp,info]  dhcp1 deassigned 172.29.19.8 from 9C:53:22:05:FA:94
+ 38  1405/07/25 13:26:23  [dhcp,info]  dhcp1 deassigned 172.29.19.9 from C8:3A:35:C5:B6:F4
+ 39  1405/07/25 13:27:41  [dhcp,info]  dhcp1 deassigned 172.29.19.18 from 7C:F1:7E:F4:28:3A
+ 40  1405/07/25 14:23:28  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 41  1405/07/25 14:23:30  [interface,info]  ether5 link down
+ 42  1405/07/25 14:23:32  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 43  1405/07/25 14:23:36  [dhcp,info]  dhcp1 assigned 172.29.19.17 to 00:17:6F:34:6D:45
+ 44  1405/07/25 14:23:49  [dhcp,info]  dhcp1 assigned 172.29.19.8 to 9C:53:22:05:FA:94
+ 45  1405/07/25 15:35:06  [dhcp,info]  dhcp1 assigned 172.29.19.22 to 7C:F1:7E:F4:30:25
+ 46  1405/07/25 19:59:58  [interface,info]  ether5 link down
+ 47  1405/07/25 20:23:39  [dhcp,info]  dhcp1 deassigned 172.29.19.17 from 00:17:6F:34:6D:45
+ 48  1405/07/25 20:23:47  [dhcp,info]  dhcp1 deassigned 172.29.19.8 from 9C:53:22:05:FA:94
+ 49  1405/07/26 08:26:36  [dhcp,info]  dhcp1 assigned 172.29.19.62 to 18:D6:C7:C6:75:08
+ 50  1405/07/26 08:32:38  [dhcp,info]  dhcp1 assigned 172.29.19.15 to D0:37:45:5D:D7:2F
+ 51  1405/07/26 08:34:02  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 52  1405/07/26 08:34:04  [interface,info]  ether5 link down
+ 53  1405/07/26 08:34:05  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 54  1405/07/26 08:34:10  [dhcp,info]  dhcp1 assigned 172.29.19.17 to 00:17:6F:34:6D:45
+ 55  1405/07/26 08:35:14  [dhcp,info]  dhcp1 assigned 172.29.19.4 to D2:16:44:F3:A4:37
+ 56  1405/07/26 08:37:05  [dhcp,info]  dhcp1 assigned 172.29.19.8 to 9C:53:22:05:FA:94
+ 57  1405/07/26 09:00:13  [dhcp,info]  dhcp1 assigned 172.29.19.9 to C8:3A:35:C5:B6:F4
+ 58  1405/07/26 09:02:12  [dhcp,info]  dhcp1 assigned 172.29.19.19 to 7C:F1:7E:F4:32:2A
+ 59  1405/07/26 09:05:55  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 60  1405/07/26 09:05:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 61  1405/07/26 09:06:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 62  1405/07/26 09:06:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 63  1405/07/26 09:08:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 64  1405/07/26 09:08:32  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 65  1405/07/26 09:09:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 66  1405/07/26 09:09:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 67  1405/07/26 09:21:07  [dhcp,info]  dhcp1 assigned 172.29.19.18 to 7C:F1:7E:F4:28:3A
+ 68  1405/07/26 10:06:14  [dhcp,info]  dhcp1 assigned 172.29.19.25 to 06:2B:A5:C8:E3:65
+ 69  1405/07/26 10:15:45  [dhcp,info]  dhcp1 deassigned 172.29.19.4 from D2:16:44:F3:A4:37
+ 70  1405/07/26 10:17:37  [dhcp,info]  dhcp1 deassigned 172.29.19.15 from D0:37:45:5D:D7:2F
+ 71  1405/07/26 10:36:14  [dhcp,info]  dhcp1 deassigned 172.29.19.25 from 06:2B:A5:C8:E3:65
+ 72  1405/07/26 11:37:57  [dhcp,info]  dhcp1 deassigned 172.29.19.62 from 18:D6:C7:C6:75:08
+ 73  1405/07/26 12:11:19  [dhcp,info]  dhcp1 assigned 172.29.19.4 to D2:16:44:F3:A4:37
+ 74  1405/07/26 12:32:13  [interface,info]  ether5 link down
+ 75  1405/07/26 12:36:07  [dhcp,info]  dhcp1 deassigned 172.29.19.18 from 7C:F1:7E:F4:28:3A
+ 76  1405/07/26 12:49:12  [dhcp,info]  dhcp1 deassigned 172.29.19.17 from 00:17:6F:34:6D:45
+ 77  1405/07/26 12:52:04  [dhcp,info]  dhcp1 deassigned 172.29.19.8 from 9C:53:22:05:FA:94
+ 78  1405/07/26 12:53:23  [dhcp,info]  dhcp1 deassigned 172.29.19.19 from 7C:F1:7E:F4:32:2A
+ 79  1405/07/26 12:58:53  [dhcp,info]  dhcp1 deassigned 172.29.19.4 from D2:16:44:F3:A4:37
+ 80  1405/07/26 13:00:12  [dhcp,info]  dhcp1 deassigned 172.29.19.9 from C8:3A:35:C5:B6:F4
+ 81  1405/07/26 16:30:06  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 82  1405/07/26 16:30:10  [dhcp,info]  dhcp1 assigned 172.29.19.17 to 00:17:6F:34:6D:45
+ 83  1405/07/26 16:30:34  [dhcp,info]  dhcp1 assigned 172.29.19.8 to 9C:53:22:05:FA:94
+ 84  1405/07/26 20:04:03  [interface,info]  ether5 link down
+ 85  1405/07/26 20:30:12  [dhcp,info]  dhcp1 deassigned 172.29.19.17 from 00:17:6F:34:6D:45
+ 86  1405/07/26 20:30:33  [dhcp,info]  dhcp1 deassigned 172.29.19.8 from 9C:53:22:05:FA:94
+ 87  1405/07/26 20:35:18  [dhcp,info]  dhcp1 deassigned 172.29.19.22 from 7C:F1:7E:F4:30:25
+ 88  1405/07/27 08:05:17  [interface,info]  ether6-Damani1 link down
+ 89  1405/07/27 08:10:51  [interface,info]  ether6-Damani1 link up (speed 100M, full duplex)
+ 90  1405/07/27 08:12:37  [dhcp,info]  dhcp1 assigned 172.29.19.18 to 7C:F1:7E:F4:28:3A
+ 91  1405/07/27 08:13:13  [dhcp,info]  dhcp1 assigned 172.29.19.9 to C8:3A:35:C5:B6:F4
+ 92  1405/07/27 08:13:43  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 93  1405/07/27 08:13:44  [interface,info]  ether5 link down
+ 94  1405/07/27 08:13:46  [interface,info]  ether5 link up (speed 100M, full duplex)
+ 95  1405/07/27 08:13:50  [dhcp,info]  dhcp1 assigned 172.29.19.17 to 00:17:6F:34:6D:45
+ 96  1405/07/27 08:14:50  [dhcp,info]  dhcp1 assigned 172.29.19.8 to 9C:53:22:05:FA:94
+ 97  1405/07/27 08:59:06  [dhcp,info]  dhcp1 assigned 172.29.19.14 to 5C:87:9C:8C:1A:13
+ 98  1405/07/27 09:03:20  [dhcp,info]  dhcp1 assigned 172.29.19.4 to D2:16:44:F3:A4:37
+ 99  1405/07/27 09:03:58  [dhcp,info]  dhcp1 assigned 172.29.19.15 to D0:37:45:5D:D7:2F
+100  1405/07/27 10:57:21  [dhcp,info]  dhcp1 deassigned 172.29.19.14 from 5C:87:9C:8C:1A:13
+101  1405/07/27 11:10:42  [dhcp,info]  dhcp1 deassigned 172.29.19.4 from D2:16:44:F3:A4:37
+102  1405/07/27 11:47:31  [dhcp,info]  dhcp1 assigned 172.29.19.14 to 5C:87:9C:8C:1A:13
+103  1405/07/27 12:28:35  [dhcp,info]  dhcp1 assigned 172.29.19.4 to D2:16:44:F3:A4:37
+104  1405/07/27 12:47:34  [dhcp,info]  dhcp1 deassigned 172.29.19.14 from 5C:87:9C:8C:1A:13
+105  1405/07/27 12:54:56  [interface,info]  ether5 link down
+106  1405/07/27 13:12:36  [dhcp,info]  dhcp1 deassigned 172.29.19.18 from 7C:F1:7E:F4:28:3A
+107  1405/07/27 13:13:12  [dhcp,info]  dhcp1 deassigned 172.29.19.9 from C8:3A:35:C5:B6:F4
+108  1405/07/27 13:13:36  [dhcp,info]  dhcp1 deassigned 172.29.19.4 from D2:16:44:F3:A4:37
+109  1405/07/27 13:13:52  [dhcp,info]  dhcp1 deassigned 172.29.19.17 from 00:17:6F:34:6D:45
+110  1405/07/27 13:19:54  [dhcp,info]  dhcp1 deassigned 172.29.19.8 from 9C:53:22:05:FA:94
+111  1405/07/27 14:22:25  [interface,info]  ether5 link up (speed 100M, full duplex)
+112  1405/07/27 14:22:26  [interface,info]  ether5 link down
+113  1405/07/27 14:22:28  [interface,info]  ether5 link up (speed 100M, full duplex)
+114  1405/07/27 14:22:32  [dhcp,info]  dhcp1 assigned 172.29.19.17 to 00:17:6F:34:6D:45
+115  1405/07/27 14:22:42  [dhcp,info]  dhcp1 assigned 172.29.19.8 to 9C:53:22:05:FA:94
+116  1405/07/27 15:52:41  [dhcp,info]  dhcp1 deassigned 172.29.19.8 from 9C:53:22:05:FA:94
+117  1405/07/27 16:00:41  [dhcp,info]  dhcp1 assigned 172.29.19.22 to 7C:F1:7E:F4:30:25
+118  1405/07/27 16:32:55  [dhcp,info]  dhcp1 assigned 172.29.19.8 to 9C:53:22:05:FA:94
+119  1405/07/27 20:20:02  [interface,info]  ether5 link down
+120  1405/07/27 20:37:35  [dhcp,info]  dhcp1 deassigned 172.29.19.17 from 00:17:6F:34:6D:45
+121  1405/07/27 20:45:40  [dhcp,info]  dhcp1 deassigned 172.29.19.22 from 7C:F1:7E:F4:30:25
+122  1405/07/27 20:47:55  [dhcp,info]  dhcp1 deassigned 172.29.19.8 from 9C:53:22:05:FA:94
+123  1405/07/28 08:10:03  [dhcp,info]  dhcp1 assigned 172.29.19.9 to C8:3A:35:C5:B6:F4
+124  1405/07/28 08:10:34  [dhcp,info]  dhcp1 assigned 172.29.19.18 to 7C:F1:7E:F4:28:3A
+125  1405/07/28 08:15:55  [dhcp,info]  dhcp1 assigned 172.29.19.19 to 7C:F1:7E:F4:32:2A
+126  1405/07/28 08:20:21  [interface,info]  ether5 link up (speed 100M, full duplex)
+127  1405/07/28 08:20:23  [interface,info]  ether5 link down
+128  1405/07/28 08:20:24  [interface,info]  ether5 link up (speed 100M, full duplex)
+129  1405/07/28 08:20:29  [dhcp,info]  dhcp1 assigned 172.29.19.17 to 00:17:6F:34:6D:45
+130  1405/07/28 08:21:00  [dhcp,info]  dhcp1 assigned 172.29.19.8 to 9C:53:22:05:FA:94
+131  1405/07/28 08:28:43  [dhcp,info]  dhcp1 assigned 172.29.19.7 to 7C:F1:7E:F4:3C:B2
+132  1405/07/28 08:44:36  [dhcp,info]  dhcp1 assigned 172.29.19.14 to 5C:87:9C:8C:1A:13
+133  1405/07/28 10:29:36  [dhcp,info]  dhcp1 deassigned 172.29.19.14 from 5C:87:9C:8C:1A:13
+134  1405/07/28 10:35:08  [dhcp,info]  dhcp1 assigned 172.29.19.14 to 5C:87:9C:8C:1A:13
+135  1405/07/28 10:55:56  [dhcp,info]  dhcp1 deassigned 172.29.19.18 from 7C:F1:7E:F4:28:3A
+136  1405/07/28 10:56:29  [dhcp,warning]  dhcp1 offering lease 172.29.19.18 for 7C:F1:7E:F4:28:3A without success
+137  1405/07/28 10:56:29  [dhcp,info]  dhcp1 assigned 172.29.19.18 to 7C:F1:7E:F4:28:3A
+138  1405/07/28 11:35:10  [dhcp,info]  dhcp1 deassigned 172.29.19.14 from 5C:87:9C:8C:1A:13
+139  1405/07/28 12:12:39  [dhcp,info]  dhcp1 deassigned 172.29.19.7 from 7C:F1:7E:F4:3C:B2
+140  1405/07/28 12:12:51  [interface,info]  ether5 link down
+141  1405/07/28 12:23:42  [dhcp,info]  dhcp1 deassigned 172.29.19.9 from C8:3A:35:C5:B6:F4
+142  1405/07/28 12:26:30  [dhcp,info]  dhcp1 deassigned 172.29.19.18 from 7C:F1:7E:F4:28:3A
+143  1405/07/28 12:30:56  [dhcp,info]  dhcp1 deassigned 172.29.19.19 from 7C:F1:7E:F4:32:2A
+144  1405/07/28 12:35:30  [dhcp,info]  dhcp1 deassigned 172.29.19.17 from 00:17:6F:34:6D:45
+145  1405/07/28 12:35:59  [dhcp,info]  dhcp1 deassigned 172.29.19.8 from 9C:53:22:05:FA:94
+146  1405/07/28 14:29:44  [interface,info]  ether5 link up (speed 100M, full duplex)
+147  1405/07/28 14:29:46  [interface,info]  ether5 link down
+148  1405/07/28 14:29:47  [interface,info]  ether5 link up (speed 100M, full duplex)
+149  1405/07/28 14:29:52  [dhcp,info]  dhcp1 assigned 172.29.19.17 to 00:17:6F:34:6D:45
+150  1405/07/28 14:30:00  [dhcp,info]  dhcp1 assigned 172.29.19.8 to 9C:53:22:05:FA:94
+151  1405/07/28 15:07:19  [interface,info]  ether6-Damani1 link down
+152  1405/07/28 15:07:20  [interface,info]  ether5 link down
+153  1405/07/28 15:09:16  [interface,info]  ether6-Damani1 link up (speed 100M, full duplex)
+154  1405/07/28 15:29:52  [dhcp,info]  dhcp1 deassigned 172.29.19.17 from 00:17:6F:34:6D:45
+155  1405/07/28 15:30:00  [dhcp,info]  dhcp1 deassigned 172.29.19.8 from 9C:53:22:05:FA:94
+156  1405/07/28 15:34:05  [dhcp,info]  dhcp1 deassigned 172.29.19.15 from D0:37:45:5D:D7:2F
+157  1405/07/28 19:02:34  [dhcp,info]  dhcp1 assigned 172.29.19.22 to 7C:F1:7E:F4:30:25
+158  1405/07/28 19:03:10  [interface,info]  ether5 link up (speed 100M, full duplex)
+159  1405/07/28 19:03:12  [interface,info]  ether5 link down
+160  1405/07/28 19:03:13  [interface,info]  ether5 link up (speed 100M, full duplex)
+161  1405/07/28 19:03:18  [dhcp,info]  dhcp1 assigned 172.29.19.17 to 00:17:6F:34:6D:45
+162  1405/07/28 19:05:03  [dhcp,info]  dhcp1 assigned 172.29.19.8 to 9C:53:22:05:FA:94
+163  1405/07/28 20:07:29  [interface,info]  ether5 link down
+164  1405/07/28 20:32:37  [dhcp,info]  dhcp1 deassigned 172.29.19.22 from 7C:F1:7E:F4:30:25
+165  1405/07/28 20:33:18  [dhcp,info]  dhcp1 deassigned 172.29.19.17 from 00:17:6F:34:6D:45
+166  1405/07/28 20:35:03  [dhcp,info]  dhcp1 deassigned 172.29.19.8 from 9C:53:22:05:FA:94
+167  1405/07/29 08:06:39  [dhcp,info]  dhcp1 assigned 172.29.19.9 to C8:3A:35:C5:B6:F4
+168  1405/07/29 08:06:45  [dhcp,info]  dhcp1 assigned 172.29.19.18 to 7C:F1:7E:F4:28:3A
+169  1405/07/29 08:07:01  [dhcp,info]  dhcp1 assigned 172.29.19.19 to 7C:F1:7E:F4:32:2A
+170  1405/07/29 08:22:47  [interface,info]  ether5 link up (speed 100M, full duplex)
+171  1405/07/29 08:22:48  [interface,info]  ether5 link down
+172  1405/07/29 08:22:50  [interface,info]  ether5 link up (speed 100M, full duplex)
+173  1405/07/29 08:22:54  [dhcp,info]  dhcp1 assigned 172.29.19.17 to 00:17:6F:34:6D:45
+174  1405/07/29 08:23:40  [dhcp,info]  dhcp1 assigned 172.29.19.8 to 9C:53:22:05:FA:94
+175  1405/07/29 08:31:53  [dhcp,info]  dhcp1 assigned 172.29.19.7 to 7C:F1:7E:F4:3C:B2
+176  1405/07/29 08:32:35  [dhcp,info]  dhcp1 assigned 172.29.19.4 to D2:16:44:F3:A4:37
+177  1405/07/29 08:32:57  [dhcp,info]  dhcp1 assigned 172.29.19.15 to D0:37:45:5D:D7:2F
+178  1405/07/29 09:46:49  [dhcp,info]  dhcp1 assigned 172.29.19.6 to 7E:50:D6:5F:D8:FD
+179  1405/07/29 10:16:49  [dhcp,info]  dhcp1 deassigned 172.29.19.6 from 7E:50:D6:5F:D8:FD
+180  1405/07/29 10:16:53  [dhcp,info]  dhcp1 deassigned 172.29.19.7 from 7C:F1:7E:F4:3C:B2
+181  1405/07/29 10:31:34  [dhcp,info]  dhcp1 deassigned 172.29.19.4 from D2:16:44:F3:A4:37
+182  1405/07/29 10:44:18  [dhcp,info]  dhcp1 assigned 172.29.19.4 to D2:16:44:F3:A4:37
+183  1405/07/29 10:46:21  [dhcp,info]  dhcp1 assigned 172.29.19.7 to 7C:F1:7E:F4:3C:B2
+184  1405/07/29 10:50:15  [dhcp,info]  dhcp1 assigned 172.29.19.22 to 7C:F1:7E:F4:30:25
+185  1405/07/29 12:20:29  [dhcp,info]  dhcp1 deassigned 172.29.19.22 from 7C:F1:7E:F4:30:25
+186  1405/07/29 12:28:03  [dhcp,info]  dhcp1 deassigned 172.29.19.7 from 7C:F1:7E:F4:3C:B2
+187  1405/07/29 12:30:17  [dhcp,info]  dhcp1 assigned 172.29.19.7 to 7C:F1:7E:F4:3C:B2
+188  1405/07/29 12:34:59  [interface,info]  ether5 link down
+189  1405/07/29 12:52:56  [dhcp,info]  dhcp1 deassigned 172.29.19.17 from 00:17:6F:34:6D:45
+190  1405/07/29 12:58:55  [dhcp,info]  dhcp1 deassigned 172.29.19.19 from 7C:F1:7E:F4:32:2A
+191  1405/07/29 13:00:17  [dhcp,info]  dhcp1 deassigned 172.29.19.7 from 7C:F1:7E:F4:3C:B2
+192  1405/07/29 13:02:19  [dhcp,info]  dhcp1 deassigned 172.29.19.8 from 9C:53:22:05:FA:94
+193  1405/07/29 13:05:33  [dhcp,info]  dhcp1 deassigned 172.29.19.4 from D2:16:44:F3:A4:37
+194  1405/07/29 13:06:38  [dhcp,info]  dhcp1 deassigned 172.29.19.9 from C8:3A:35:C5:B6:F4
+195  1405/07/29 13:06:44  [dhcp,info]  dhcp1 deassigned 172.29.19.18 from 7C:F1:7E:F4:28:3A
+196  1405/07/29 14:42:14  [interface,info]  ether5 link up (speed 100M, full duplex)
+197  1405/07/29 14:42:18  [dhcp,info]  dhcp1 assigned 172.29.19.17 to 00:17:6F:34:6D:45
+198  1405/07/29 14:42:36  [dhcp,info]  dhcp1 assigned 172.29.19.8 to 9C:53:22:05:FA:94
+199  1405/07/29 15:29:21  [dhcp,info]  dhcp1 assigned 172.29.19.22 to 7C:F1:7E:F4:30:25
+200  1405/07/29 16:36:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -303,3 +303,7 @@ bridge2  E4:8D:8C:6E:59:84  (bridge)
 ether2  4C:5E:0C:8C:66:6F  (arp 172.18.3.90)
 ether1  10:8C:CF:33:51:50  (arp 172.18.3.17)
 ether2  64:D1:54:58:BC:6F  (arp 172.18.3.92)
+bridge1  D0:37:45:5D:D7:2F  (arp 172.29.19.15)
+bridge1  9C:53:22:05:FA:94  (arp 172.29.19.8)
+bridge1  7C:F1:7E:F4:30:25  (arp 172.29.19.22)
+bridge1  00:17:6F:34:6D:45  (arp 172.29.19.17)

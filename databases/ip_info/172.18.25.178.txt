@@ -1,5 +1,5 @@
 IP: 172.18.25.178
-Collected at: 2026-10-15T10:08:34.193167+00:00
+Collected at: 2026-10-21T13:16:51.913934+00:00
 source: RouterOS API
 identity: Shadegan-Abshar4
 device_type: AP
@@ -29,37 +29,61 @@ name=wlan1  mode=ap-bridge  ssid=Shadegan-Abshar4  band=5ghz-a/n  frequency=5280
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:30:56
-# ساعت دستگاه (خام): 2025-10-10 00:44:28
-# افست اصلاحی (سرور − دستگاه): +8888:16:28
-  1  1405/07/18 10:46:30  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/18 10:46:34  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:4A:2D:9A
-  3  1405/07/18 10:46:41  [interface,info]  ether1 link up (speed 1G, full duplex)
-  4  1405/07/18 10:47:50  [wireless,info]  E4:8D:8C:61:6C:B5@wlan1: connected, signal strength -58, wants bridge
-  5  1405/07/18 10:47:50  [wireless,info]  E4:8D:8C:B5:1C:99@wlan1: connected, signal strength -64, wants bridge
-  6  1405/07/18 10:55:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  7  1405/07/18 10:55:59  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  8  1405/07/18 11:53:50  [wireless,info]  E4:8D:8C:61:6C:B5@wlan1: disconnected, too many poll timeouts, signal strength -58
-  9  1405/07/18 12:08:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 10  1405/07/18 12:08:23  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 11  1405/07/18 12:08:23  [system,info]  user olom1 added by garnaf
- 12  1405/07/19 08:36:15  [wireless,info]  E4:8D:8C:61:6C:B5@wlan1: connected, signal strength -60, wants bridge
- 13  1405/07/19 09:42:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 14  1405/07/19 09:42:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 15  1405/07/19 11:48:44  [wireless,info]  E4:8D:8C:61:6C:B5@wlan1: disconnected, too many poll timeouts, signal strength -60
- 16  1405/07/19 17:42:55  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 17  1405/07/19 17:42:56  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 18  1405/07/20 08:48:13  [wireless,info]  E4:8D:8C:61:6C:B5@wlan1: connected, signal strength -59, wants bridge
- 19  1405/07/20 11:57:18  [wireless,info]  E4:8D:8C:61:6C:B5@wlan1: disconnected, too many poll timeouts, signal strength -59
- 20  1405/07/21 08:47:15  [wireless,info]  E4:8D:8C:61:6C:B5@wlan1: connected, signal strength -59, wants bridge
- 21  1405/07/21 11:04:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 22  1405/07/21 11:04:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 23  1405/07/21 11:52:13  [wireless,info]  E4:8D:8C:61:6C:B5@wlan1: disconnected, too many poll timeouts, signal strength -59
- 24  1405/07/22 02:51:43  [wireless,info]  E4:8D:8C:B5:1C:99@wlan1: disconnected, extensive data loss, signal strength -59
- 25  1405/07/22 02:51:50  [wireless,info]  E4:8D:8C:B5:1C:99@wlan1: connected, signal strength -67, wants bridge
- 26  1405/07/23 13:23:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 27  1405/07/23 13:23:17  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 28  1405/07/23 12:30:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:33:39
+# ساعت دستگاه (خام): 2025-10-16 04:50:01
+# افست اصلاحی (سرور − دستگاه): +8888:13:38
+  1  1405/07/18 10:43:40  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/18 10:43:44  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:4A:2D:9A
+  3  1405/07/18 10:43:51  [interface,info]  ether1 link up (speed 1G, full duplex)
+  4  1405/07/18 10:45:00  [wireless,info]  E4:8D:8C:61:6C:B5@wlan1: connected, signal strength -58, wants bridge
+  5  1405/07/18 10:45:00  [wireless,info]  E4:8D:8C:B5:1C:99@wlan1: connected, signal strength -64, wants bridge
+  6  1405/07/18 10:53:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  7  1405/07/18 10:53:09  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  8  1405/07/18 11:51:00  [wireless,info]  E4:8D:8C:61:6C:B5@wlan1: disconnected, too many poll timeouts, signal strength -58
+  9  1405/07/18 12:05:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 10  1405/07/18 12:05:33  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 11  1405/07/18 12:05:33  [system,info]  user olom1 added by garnaf
+ 12  1405/07/19 08:33:25  [wireless,info]  E4:8D:8C:61:6C:B5@wlan1: connected, signal strength -60, wants bridge
+ 13  1405/07/19 09:39:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 14  1405/07/19 09:39:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 15  1405/07/19 11:45:54  [wireless,info]  E4:8D:8C:61:6C:B5@wlan1: disconnected, too many poll timeouts, signal strength -60
+ 16  1405/07/19 17:40:05  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 17  1405/07/19 17:40:06  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 18  1405/07/20 08:45:23  [wireless,info]  E4:8D:8C:61:6C:B5@wlan1: connected, signal strength -59, wants bridge
+ 19  1405/07/20 11:54:28  [wireless,info]  E4:8D:8C:61:6C:B5@wlan1: disconnected, too many poll timeouts, signal strength -59
+ 20  1405/07/21 08:44:25  [wireless,info]  E4:8D:8C:61:6C:B5@wlan1: connected, signal strength -59, wants bridge
+ 21  1405/07/21 11:01:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 22  1405/07/21 11:02:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 23  1405/07/21 11:49:23  [wireless,info]  E4:8D:8C:61:6C:B5@wlan1: disconnected, too many poll timeouts, signal strength -59
+ 24  1405/07/22 02:48:53  [wireless,info]  E4:8D:8C:B5:1C:99@wlan1: disconnected, extensive data loss, signal strength -59
+ 25  1405/07/22 02:49:00  [wireless,info]  E4:8D:8C:B5:1C:99@wlan1: connected, signal strength -67, wants bridge
+ 26  1405/07/22 13:20:25  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 27  1405/07/22 13:20:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 28  1405/07/23 12:28:04  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 29  1405/07/23 12:28:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 30  1405/07/24 15:24:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 31  1405/07/24 15:24:46  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 32  1405/07/24 15:55:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 33  1405/07/24 15:55:09  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 34  1405/07/25 07:47:44  [wireless,info]  E4:8D:8C:61:6C:B5@wlan1: connected, signal strength -61, wants bridge
+ 35  1405/07/25 11:45:42  [wireless,info]  E4:8D:8C:61:6C:B5@wlan1: disconnected, too many poll timeouts, signal strength -61
+ 36  1405/07/26 06:55:52  [wireless,info]  E4:8D:8C:B5:1C:99@wlan1: disconnected, extensive data loss, signal strength -63
+ 37  1405/07/26 06:55:59  [wireless,info]  E4:8D:8C:B5:1C:99@wlan1: connected, signal strength -66, wants bridge
+ 38  1405/07/26 07:51:02  [wireless,info]  E4:8D:8C:61:6C:B5@wlan1: connected, signal strength -59, wants bridge
+ 39  1405/07/26 09:00:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 40  1405/07/26 09:00:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 41  1405/07/26 09:02:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 42  1405/07/26 09:02:43  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 43  1405/07/26 10:08:05  [wireless,info]  E4:8D:8C:61:6C:B5@wlan1: disconnected, too many poll timeouts, signal strength -59
+ 44  1405/07/26 10:08:05  [wireless,info]  E4:8D:8C:B5:1C:99@wlan1: disconnected, too many poll timeouts, signal strength -66
+ 45  1405/07/26 10:16:06  [wireless,info]  E4:8D:8C:B5:1C:99@wlan1: connected, signal strength -64, wants bridge
+ 46  1405/07/26 10:17:13  [wireless,info]  E4:8D:8C:61:6C:B5@wlan1: connected, signal strength -58, wants bridge
+ 47  1405/07/26 11:19:00  [wireless,info]  E4:8D:8C:61:6C:B5@wlan1: disconnected, too many poll timeouts, signal strength -58
+ 48  1405/07/28 07:53:16  [wireless,info]  E4:8D:8C:61:6C:B5@wlan1: connected, signal strength -60, wants bridge
+ 49  1405/07/28 11:08:27  [wireless,info]  E4:8D:8C:61:6C:B5@wlan1: disconnected, too many poll timeouts, signal strength -60
+ 50  1405/07/29 07:50:46  [wireless,info]  E4:8D:8C:61:6C:B5@wlan1: connected, signal strength -57, wants bridge
+ 51  1405/07/29 11:54:03  [wireless,info]  E4:8D:8C:61:6C:B5@wlan1: disconnected, too many poll timeouts, signal strength -57
+ 52  1405/07/29 16:33:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

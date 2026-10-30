@@ -1,5 +1,5 @@
 IP: 172.18.9.219
-Collected at: 2026-10-14T10:24:31.898554+00:00
+Collected at: 2026-10-21T13:17:57.732813+00:00
 source: RouterOS API
 identity: valiasr-kut-shanuf-CL
 device_type: ST
@@ -33,63 +33,31 @@ name=wlan1  mode=station-bridge  ssid=Abadan-22Bahman3  band=5ghz-a/n  frequency
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:36:02
-# ساعت دستگاه (خام): 1971-01-02 21:00:30
-# افست اصلاحی (سرور − دستگاه): +488965:05:32
-  1  1405/07/21 16:21:35  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/21 16:21:39  [wireless,info]  D4:01:C3:13:28:DC@wlan1 established connection on 5380000, SSID Abadan-22Bahman3
-  3  1405/07/21 16:21:43  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:10:B1:A4
-  4  1405/07/21 16:21:43  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
-  5  1405/07/21 16:27:05  [dhcp,info]  dhcp1 deassigned 172.29.72.137 from 00:17:6F:39:53:B3
-  6  1405/07/21 16:27:07  [interface,info]  ether1 link up (speed 100M, full duplex)
-  7  1405/07/21 16:27:12  [dhcp,info]  dhcp1 deassigned 172.29.72.149 from 84:8A:8D:86:9F:C0
-  8  1405/07/21 16:27:12  [dhcp,info]  dhcp1 assigned 172.29.72.149 to 84:8A:8D:86:9F:C0
-  9  1405/07/21 16:27:44  [dhcp,info]  dhcp1 deassigned 172.29.72.148 from F0:2F:74:23:C2:1E
- 10  1405/07/21 16:27:44  [dhcp,info]  dhcp1 assigned 172.29.72.148 to F0:2F:74:23:C2:1E
- 11  1405/07/21 16:27:58  [dhcp,info]  dhcp1 assigned 172.29.72.140 to 60:CF:84:69:25:E7
- 12  1405/07/21 16:28:01  [dhcp,info]  dhcp1 assigned 172.29.72.137 to 00:17:6F:39:53:B3
- 13  1405/07/21 21:42:16  [dhcp,info]  dhcp1 deassigned 172.29.72.137 from 00:17:6F:39:53:B3
- 14  1405/07/21 21:42:16  [dhcp,info]  dhcp1 assigned 172.29.72.137 to 00:17:6F:39:53:B3
- 15  1405/07/21 21:46:55  [dhcp,info]  dhcp1 deassigned 172.29.72.137 from 00:17:6F:39:53:B3
- 16  1405/07/21 21:46:55  [dhcp,info]  dhcp1 assigned 172.29.72.137 to 00:17:6F:39:53:B3
- 17  1405/07/21 22:37:05  [wireless,info]  D4:01:C3:13:28:DC@wlan1: lost connection, synchronization timeout
- 18  1405/07/21 22:37:28  [wireless,info]  D4:01:C3:13:28:DC@wlan1 established connection on 5380000, SSID Abadan-22Bahman3
- 19  1405/07/22 00:47:45  [dhcp,info]  dhcp1 deassigned 172.29.72.148 from F0:2F:74:23:C2:1E
- 20  1405/07/22 05:13:32  [wireless,info]  D4:01:C3:13:28:DC@wlan1: lost connection, control frame timeout
- 21  1405/07/22 05:13:35  [wireless,info]  D4:01:C3:13:28:DC@wlan1 established connection on 5380000, SSID Abadan-22Bahman3
- 22  1405/07/22 05:15:57  [wireless,info]  D4:01:C3:13:28:DC@wlan1: lost connection, control frame timeout
- 23  1405/07/22 05:15:59  [wireless,info]  D4:01:C3:13:28:DC@wlan1: failed to connect, on 5380000, registration timeout
- 24  1405/07/22 05:16:09  [wireless,info]  D4:01:C3:13:28:DC@wlan1: failed to connect, on 5380000, registration timeout
- 25  1405/07/22 05:16:20  [wireless,info]  D4:01:C3:13:28:DC@wlan1: failed to connect, on 5380000, registration timeout
- 26  1405/07/22 05:16:31  [wireless,info]  D4:01:C3:13:28:DC@wlan1: failed to connect, on 5380000, registration timeout
- 27  1405/07/22 05:16:43  [wireless,info]  D4:01:C3:13:28:DC@wlan1 established connection on 5380000, SSID Abadan-22Bahman3
- 28  1405/07/22 06:14:20  [wireless,info]  D4:01:C3:13:28:DC@wlan1: lost connection, control frame timeout
- 29  1405/07/22 06:14:21  [wireless,info]  D4:01:C3:13:28:DC@wlan1: failed to connect, on 5380000, registration timeout
- 30  1405/07/22 06:14:32  [wireless,info]  D4:01:C3:13:28:DC@wlan1 established connection on 5380000, SSID Abadan-22Bahman3
- 31  1405/07/22 06:49:40  [wireless,info]  D4:01:C3:13:28:DC@wlan1: lost connection, control frame timeout
- 32  1405/07/22 06:49:43  [wireless,info]  D4:01:C3:13:28:DC@wlan1: failed to connect, on 5380000, registration timeout
- 33  1405/07/22 06:49:55  [wireless,info]  D4:01:C3:13:28:DC@wlan1: failed to connect, on 5380000, registration timeout
- 34  1405/07/22 06:50:06  [wireless,info]  D4:01:C3:13:28:DC@wlan1: failed to connect, on 5380000, registration timeout
- 35  1405/07/22 06:50:16  [wireless,info]  D4:01:C3:13:28:DC@wlan1: failed to connect, on 5380000, registration timeout
- 36  1405/07/22 06:50:28  [wireless,info]  D4:01:C3:13:28:DC@wlan1 established connection on 5380000, SSID Abadan-22Bahman3
- 37  1405/07/22 06:52:08  [wireless,info]  D4:01:C3:13:28:DC@wlan1: lost connection, control frame timeout
- 38  1405/07/22 06:52:10  [wireless,info]  D4:01:C3:13:28:DC@wlan1: failed to connect, on 5380000, registration timeout
- 39  1405/07/22 06:52:21  [wireless,info]  D4:01:C3:13:28:DC@wlan1: failed to connect, on 5380000, registration timeout
- 40  1405/07/22 06:52:32  [wireless,info]  D4:01:C3:13:28:DC@wlan1 established connection on 5380000, SSID Abadan-22Bahman3
- 41  1405/07/22 07:11:16  [wireless,info]  D4:01:C3:13:28:DC@wlan1: lost connection, control frame timeout
- 42  1405/07/22 07:11:18  [wireless,info]  D4:01:C3:13:28:DC@wlan1: failed to connect, on 5380000, registration timeout
- 43  1405/07/22 07:11:29  [wireless,info]  D4:01:C3:13:28:DC@wlan1: failed to connect, on 5380000, registration timeout
- 44  1405/07/22 07:11:40  [wireless,info]  D4:01:C3:13:28:DC@wlan1 established connection on 5380000, SSID Abadan-22Bahman3
- 45  1405/07/22 07:31:28  [wireless,info]  D4:01:C3:13:28:DC@wlan1: lost connection, synchronization timeout
- 46  1405/07/22 07:31:51  [wireless,info]  D4:01:C3:13:28:DC@wlan1 established connection on 5380000, SSID Abadan-22Bahman3
- 47  1405/07/22 08:17:53  [dhcp,info]  dhcp1 assigned 172.29.72.148 to F0:2F:74:23:C2:1E
- 48  1405/07/22 08:30:42  [dhcp,info]  dhcp1 assigned 172.29.72.138 to 1C:6F:65:7B:F7:4D
- 49  1405/07/22 10:54:13  [wireless,info]  D4:01:C3:13:28:DC@wlan1: lost connection, synchronization timeout
- 50  1405/07/22 10:54:27  [dhcp,info]  dhcp1 assigned 172.29.72.142 to E0:D5:5E:55:A6:13
- 51  1405/07/22 10:54:36  [wireless,info]  D4:01:C3:13:28:DC@wlan1 established connection on 5380000, SSID Abadan-22Bahman3
- 52  1405/07/22 11:59:28  [dhcp,info]  dhcp1 deassigned 172.29.72.142 from E0:D5:5E:55:A6:13
- 53  1405/07/22 12:35:48  [dhcp,info]  dhcp1 deassigned 172.29.72.138 from 1C:6F:65:7B:F7:4D
- 54  1405/07/22 13:36:01  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:40:46
+# ساعت دستگاه (خام): 1971-01-09 04:53:53
+# افست اصلاحی (سرور − دستگاه): +488984:16:53
+  1  1405/07/29 11:32:54  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/29 11:32:57  [wireless,info]  D4:01:C3:13:28:DC@wlan1 established connection on 5380000, SSID Abadan-22Bahman3
+  3  1405/07/29 11:33:02  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:10:B1:A4
+  4  1405/07/29 11:33:02  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  5  1405/07/29 11:38:05  [dhcp,info]  dhcp1 deassigned 172.29.72.151 from A0:36:BC:2C:E9:70
+  6  1405/07/29 11:38:24  [dhcp,info]  dhcp1 deassigned 172.29.72.135 from 60:CF:84:69:62:F2
+  7  1405/07/29 11:38:26  [interface,info]  ether1 link up (speed 100M, full duplex)
+  8  1405/07/29 11:38:31  [dhcp,info]  dhcp1 deassigned 172.29.72.149 from 84:8A:8D:86:9F:C0
+  9  1405/07/29 11:38:31  [dhcp,info]  dhcp1 assigned 172.29.72.149 to 84:8A:8D:86:9F:C0
+ 10  1405/07/29 11:39:03  [dhcp,info]  dhcp1 deassigned 172.29.72.138 from 1C:6F:65:7B:F7:4D
+ 11  1405/07/29 11:39:03  [dhcp,info]  dhcp1 assigned 172.29.72.138 to 1C:6F:65:7B:F7:4D
+ 12  1405/07/29 11:39:03  [dhcp,info]  dhcp1 deassigned 172.29.72.148 from F0:2F:74:23:C2:1E
+ 13  1405/07/29 11:39:03  [dhcp,info]  dhcp1 assigned 172.29.72.148 to F0:2F:74:23:C2:1E
+ 14  1405/07/29 11:39:07  [dhcp,info]  dhcp1 deassigned 172.29.72.137 from 00:17:6F:39:53:B3
+ 15  1405/07/29 11:39:07  [dhcp,info]  dhcp1 assigned 172.29.72.137 to 00:17:6F:39:53:B3
+ 16  1405/07/29 11:39:09  [dhcp,info]  dhcp1 deassigned 172.29.72.140 from 60:CF:84:69:25:E7
+ 17  1405/07/29 11:39:09  [dhcp,info]  dhcp1 assigned 172.29.72.140 to 60:CF:84:69:25:E7
+ 18  1405/07/29 11:39:29  [dhcp,info]  dhcp1 assigned 172.29.72.135 to 60:CF:84:69:62:F2
+ 19  1405/07/29 11:59:03  [dhcp,info]  dhcp1 deassigned 172.29.72.138 from 1C:6F:65:7B:F7:4D
+ 20  1405/07/29 12:04:29  [dhcp,info]  dhcp1 deassigned 172.29.72.135 from 60:CF:84:69:62:F2
+ 21  1405/07/29 14:34:03  [dhcp,info]  dhcp1 deassigned 172.29.72.148 from F0:2F:74:23:C2:1E
+ 22  1405/07/29 16:40:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -98,6 +66,5 @@ wlan1  6C:3B:6B:10:B1:A5  (wlan)
 bridge1  6C:3B:6B:10:B1:A4  (bridge)
 --- /ip arp ---
 wlan1  E4:8D:8C:0E:6E:42  (arp 172.18.9.217)
-bridge1  F0:2F:74:23:C2:1E  (arp 172.29.72.148)
 bridge1  84:8A:8D:86:9F:C0  (arp 172.29.72.149)
 bridge1  60:CF:84:69:25:E7  (arp 172.29.72.140)

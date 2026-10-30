@@ -1,5 +1,5 @@
 IP: 172.18.1.251
-Collected at: 2026-10-15T10:07:10.243878+00:00
+Collected at: 2026-10-21T13:15:53.212800+00:00
 source: RouterOS API
 identity: EbnSina2.Client
 device_type: ST
@@ -33,36 +33,25 @@ name=wlan1  mode=station-bridge  ssid=Setad->GhDa.AP  band=5ghz-a/n  frequency=5
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:20:09
-# ساعت دستگاه (خام): 1975-03-13 07:29:17
-# افست اصلاحی (سرور − دستگاه): +452257:20:52
-  1  1405/07/20 08:43:49  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/20 08:43:49  [bridge,info]  "bridge1" mac address changed to 4C:5E:0C:A7:F8:0B
-  3  1405/07/20 08:43:50  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/20 08:43:55  [wireless,info]  6C:3B:6B:74:E1:FC@wlan1 established connection on 5540000, SSID Setad->GhDa.AP
-  5  1405/07/20 10:14:08  [dhcp,info]  dhcp1 assigned 172.29.30.29 to 40:8D:5C:9C:D5:D5
-  6  1405/07/20 11:34:08  [dhcp,info]  dhcp1 deassigned 172.29.30.29 from 40:8D:5C:9C:D5:D5
-  7  1405/07/21 08:04:02  [dhcp,info]  dhcp1 assigned 172.29.30.30 to 40:8D:5C:28:19:95
-  8  1405/07/21 08:19:53  [dhcp,info]  dhcp1 assigned 172.29.30.29 to 40:8D:5C:9C:D5:D5
-  9  1405/07/21 10:52:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 10  1405/07/21 10:52:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 11  1405/07/21 12:10:54  [dhcp,info]  dhcp1 deassigned 172.29.30.30 from 40:8D:5C:28:19:95
- 12  1405/07/21 12:44:53  [dhcp,info]  dhcp1 deassigned 172.29.30.29 from 40:8D:5C:9C:D5:D5
- 13  1405/07/22 08:10:32  [dhcp,info]  dhcp1 assigned 172.29.30.30 to 40:8D:5C:28:19:95
- 14  1405/07/22 08:11:13  [dhcp,info]  dhcp1 assigned 172.29.30.29 to 40:8D:5C:9C:D5:D5
- 15  1405/07/22 10:21:17  [wireless,info]  6C:3B:6B:74:E1:FC@wlan1: lost connection, extensive data loss
- 16  1405/07/22 10:21:23  [wireless,info]  6C:3B:6B:74:E1:FC@wlan1 established connection on 5540000, SSID Setad->GhDa.AP
- 17  1405/07/22 10:21:54  [wireless,info]  6C:3B:6B:74:E1:FC@wlan1: lost connection, extensive data loss
- 18  1405/07/22 10:21:59  [wireless,info]  6C:3B:6B:74:E1:FC@wlan1 established connection on 5540000, SSID Setad->GhDa.AP
- 19  1405/07/22 10:49:43  [wireless,info]  6C:3B:6B:74:E1:FC@wlan1: lost connection, extensive data loss
- 20  1405/07/22 10:49:48  [wireless,info]  6C:3B:6B:74:E1:FC@wlan1 established connection on 5540000, SSID Setad->GhDa.AP
- 21  1405/07/22 11:15:09  [wireless,info]  6C:3B:6B:74:E1:FC@wlan1: lost connection, extensive data loss
- 22  1405/07/22 11:15:14  [wireless,info]  6C:3B:6B:74:E1:FC@wlan1 established connection on 5540000, SSID Setad->GhDa.AP
- 23  1405/07/22 11:46:12  [dhcp,info]  dhcp1 deassigned 172.29.30.29 from 40:8D:5C:9C:D5:D5
- 24  1405/07/22 12:40:34  [dhcp,info]  dhcp1 deassigned 172.29.30.30 from 40:8D:5C:28:19:95
- 25  1405/07/22 13:12:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 26  1405/07/22 13:12:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 27  1405/07/23 12:20:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:27:57
+# ساعت دستگاه (خام): 1975-03-18 10:44:55
+# افست اصلاحی (سرور − دستگاه): +452282:13:02
+  1  1405/07/28 09:35:57  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/28 09:35:58  [bridge,info]  "bridge1" mac address changed to 4C:5E:0C:A7:F8:0B
+  3  1405/07/28 09:35:58  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/28 09:36:03  [wireless,info]  6C:3B:6B:74:E1:FC@wlan1 established connection on 5540000, SSID Setad->GhDa.AP
+  5  1405/07/28 09:37:31  [dhcp,info]  dhcp1 assigned 172.29.30.30 to 40:8D:5C:28:19:95
+  6  1405/07/28 09:41:57  [dhcp,info]  dhcp1 deassigned 172.29.30.29 from 40:8D:5C:9C:D5:D5
+  7  1405/07/28 10:17:29  [dhcp,info]  dhcp1 assigned 172.29.30.29 to 40:8D:5C:9C:D5:D5
+  8  1405/07/28 11:52:31  [dhcp,info]  dhcp1 deassigned 172.29.30.30 from 40:8D:5C:28:19:95
+  9  1405/07/28 12:57:55  [dhcp,info]  dhcp1 deassigned 172.29.30.29 from 40:8D:5C:9C:D5:D5
+ 10  1405/07/29 07:58:45  [dhcp,info]  dhcp1 assigned 172.29.30.30 to 40:8D:5C:28:19:95
+ 11  1405/07/29 08:39:35  [dhcp,info]  dhcp1 assigned 172.29.30.29 to 40:8D:5C:9C:D5:D5
+ 12  1405/07/29 10:24:16  [wireless,info]  6C:3B:6B:74:E1:FC@wlan1: lost connection, extensive data loss
+ 13  1405/07/29 10:24:21  [wireless,info]  6C:3B:6B:74:E1:FC@wlan1 established connection on 5540000, SSID Setad->GhDa.AP
+ 14  1405/07/29 11:49:35  [dhcp,info]  dhcp1 deassigned 172.29.30.29 from 40:8D:5C:9C:D5:D5
+ 15  1405/07/29 12:33:46  [dhcp,info]  dhcp1 deassigned 172.29.30.30 from 40:8D:5C:28:19:95
+ 16  1405/07/29 16:27:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

@@ -1,5 +1,5 @@
 IP: 172.18.9.38
-Collected at: 2026-10-14T10:24:37.108047+00:00
+Collected at: 2026-10-21T13:18:05.091720+00:00
 source: RouterOS API
 identity: Moghitieyh
 device_type: ST
@@ -25,37 +25,120 @@ name=wlan1  mode=station-bridge  ssid=Abadan-Khezr2  band=5ghz-a/n  frequency=53
 
 ----- neighbors -----
 === /ip neighbor ===
-  1  identity=-  address=-  interface=ether1
-  2  identity=KhezrNabi-MK  address=172.18.9.33  interface=wlan1
-  3  identity=Abadan-Khezr2  address=172.18.9.34  interface=wlan1
+  1  identity=KhezrNabi-MK  address=172.18.9.33  interface=wlan1
+  2  identity=Abadan-Khezr2  address=172.18.9.34  interface=wlan1
+  3  identity=SeyedHassanHakim.Client  address=172.18.9.37  interface=wlan1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:37:17
-# ساعت دستگاه (خام): 1974-08-10 09:13:54
-# افست اصلاحی (سرور − دستگاه): +457392:53:23
-  1  1405/07/21 09:37:49  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/21 09:37:57  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
-  3  1405/07/21 09:37:59  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/21 09:38:00  [interface,info]  ether1 link down
-  5  1405/07/21 09:38:02  [interface,info]  ether1 link up (speed 100M, full duplex)
-  6  1405/07/21 09:42:17  [dhcp,info]  dhcp1 assigned 172.29.68.190 to D2:AE:F2:7F:17:DC
-  7  1405/07/21 09:42:27  [dhcp,info]  dhcp1 assigned 172.29.68.187 to 1C:1B:0D:B9:02:AA
-  8  1405/07/21 09:42:31  [dhcp,info]  dhcp1 assigned 172.29.68.189 to 7C:F1:7E:F4:1A:23
-  9  1405/07/21 10:00:25  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: lost connection, not polled for too long
- 10  1405/07/21 10:00:30  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
- 11  1405/07/21 11:49:56  [dhcp,info]  dhcp1 deassigned 172.29.68.190 from D2:AE:F2:7F:17:DC
- 12  1405/07/21 12:47:28  [dhcp,info]  dhcp1 deassigned 172.29.68.187 from 1C:1B:0D:B9:02:AA
- 13  1405/07/21 12:47:30  [dhcp,info]  dhcp1 deassigned 172.29.68.189 from 7C:F1:7E:F4:1A:23
- 14  1405/07/22 07:51:47  [dhcp,info]  dhcp1 assigned 172.29.68.187 to 1C:1B:0D:B9:02:AA
- 15  1405/07/22 07:51:53  [dhcp,info]  dhcp1 assigned 172.29.68.189 to 7C:F1:7E:F4:1A:23
- 16  1405/07/22 13:37:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:41:23
+# ساعت دستگاه (خام): 1974-08-17 12:20:47
+# افست اصلاحی (سرور − دستگاه): +457392:50:36
+  1  1405/07/21 09:35:02  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/21 09:35:10  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
+  3  1405/07/21 09:35:12  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/21 09:35:13  [interface,info]  ether1 link down
+  5  1405/07/21 09:35:15  [interface,info]  ether1 link up (speed 100M, full duplex)
+  6  1405/07/21 09:39:30  [dhcp,info]  dhcp1 assigned 172.29.68.190 to D2:AE:F2:7F:17:DC
+  7  1405/07/21 09:39:40  [dhcp,info]  dhcp1 assigned 172.29.68.187 to 1C:1B:0D:B9:02:AA
+  8  1405/07/21 09:39:44  [dhcp,info]  dhcp1 assigned 172.29.68.189 to 7C:F1:7E:F4:1A:23
+  9  1405/07/21 09:57:38  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: lost connection, not polled for too long
+ 10  1405/07/21 09:57:43  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
+ 11  1405/07/21 11:47:09  [dhcp,info]  dhcp1 deassigned 172.29.68.190 from D2:AE:F2:7F:17:DC
+ 12  1405/07/21 12:44:41  [dhcp,info]  dhcp1 deassigned 172.29.68.187 from 1C:1B:0D:B9:02:AA
+ 13  1405/07/21 12:44:43  [dhcp,info]  dhcp1 deassigned 172.29.68.189 from 7C:F1:7E:F4:1A:23
+ 14  1405/07/22 07:49:00  [dhcp,info]  dhcp1 assigned 172.29.68.187 to 1C:1B:0D:B9:02:AA
+ 15  1405/07/22 07:49:06  [dhcp,info]  dhcp1 assigned 172.29.68.189 to 7C:F1:7E:F4:1A:23
+ 16  1405/07/22 13:34:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 17  1405/07/22 13:34:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 18  1405/07/22 13:45:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 19  1405/07/22 13:46:00  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 20  1405/07/23 02:10:01  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: lost connection, not polled for too long
+ 21  1405/07/23 02:10:06  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
+ 22  1405/07/23 12:22:56  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: lost connection, not polled for too long
+ 23  1405/07/23 12:23:02  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
+ 24  1405/07/24 02:23:01  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: lost connection, not polled for too long
+ 25  1405/07/24 02:23:06  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
+ 26  1405/07/24 02:23:29  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: lost connection, extensive data loss
+ 27  1405/07/24 02:23:36  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
+ 28  1405/07/24 02:23:38  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: lost connection, not polled for too long
+ 29  1405/07/24 02:23:46  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
+ 30  1405/07/24 02:23:51  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: lost connection, extensive data loss
+ 31  1405/07/24 02:23:57  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
+ 32  1405/07/24 02:24:53  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: lost connection, extensive data loss
+ 33  1405/07/24 02:25:02  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: failed to connect, on 5720/20/an, association timeout
+ 34  1405/07/24 02:25:15  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
+ 35  1405/07/24 04:14:40  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: lost connection, not polled for too long
+ 36  1405/07/24 04:14:45  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
+ 37  1405/07/24 15:44:55  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 38  1405/07/24 15:44:57  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 39  1405/07/24 16:07:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 40  1405/07/24 16:07:50  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 41  1405/07/24 20:11:54  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: lost connection, not polled for too long
+ 42  1405/07/24 20:12:03  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: failed to connect, on 5720/20/an, authentication timeout
+ 43  1405/07/24 20:12:18  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: failed to connect, on 5720/20/an, association timeout
+ 44  1405/07/24 20:12:32  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: failed to connect, on 5720/20/an, authentication timeout
+ 45  1405/07/24 20:12:46  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: failed to connect, on 5720/20/an, association timeout
+ 46  1405/07/24 20:12:56  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
+ 47  1405/07/25 12:49:13  [dhcp,info]  dhcp1 deassigned 172.29.68.187 from 1C:1B:0D:B9:02:AA
+ 48  1405/07/25 12:49:20  [dhcp,info]  dhcp1 deassigned 172.29.68.189 from 7C:F1:7E:F4:1A:23
+ 49  1405/07/26 07:43:42  [dhcp,info]  dhcp1 assigned 172.29.68.187 to 1C:1B:0D:B9:02:AA
+ 50  1405/07/26 07:43:44  [dhcp,info]  dhcp1 assigned 172.29.68.189 to 7C:F1:7E:F4:1A:23
+ 51  1405/07/26 09:12:21  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 52  1405/07/26 09:12:23  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 53  1405/07/26 09:14:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 54  1405/07/26 09:14:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 55  1405/07/26 09:21:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 56  1405/07/26 09:21:45  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 57  1405/07/26 09:23:21  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 58  1405/07/26 09:23:23  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 59  1405/07/26 09:32:32  [dhcp,info]  dhcp1 assigned 172.29.68.190 to D2:AE:F2:7F:17:DC
+ 60  1405/07/26 09:53:42  [dhcp,info]  dhcp1 deassigned 172.29.68.187 from 1C:1B:0D:B9:02:AA
+ 61  1405/07/26 09:53:49  [dhcp,info]  dhcp1 deassigned 172.29.68.189 from 7C:F1:7E:F4:1A:23
+ 62  1405/07/26 10:47:59  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: lost connection, not polled for too long
+ 63  1405/07/26 10:48:04  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
+ 64  1405/07/26 10:48:39  [interface,info]  ether1 link down
+ 65  1405/07/26 10:48:41  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 66  1405/07/26 10:54:07  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: lost connection, not polled for too long
+ 67  1405/07/26 10:54:12  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
+ 68  1405/07/26 12:27:34  [dhcp,info]  dhcp1 deassigned 172.29.68.190 from D2:AE:F2:7F:17:DC
+ 69  1405/07/27 07:54:03  [dhcp,info]  dhcp1 assigned 172.29.68.190 to D2:AE:F2:7F:17:DC
+ 70  1405/07/27 12:14:04  [dhcp,info]  dhcp1 deassigned 172.29.68.190 from D2:AE:F2:7F:17:DC
+ 71  1405/07/28 07:47:27  [dhcp,info]  dhcp1 assigned 172.29.68.190 to D2:AE:F2:7F:17:DC
+ 72  1405/07/28 08:15:06  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: lost connection, extensive data loss
+ 73  1405/07/28 08:15:13  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
+ 74  1405/07/28 08:15:17  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: lost connection, extensive data loss
+ 75  1405/07/28 08:15:23  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
+ 76  1405/07/28 08:16:05  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: lost connection, extensive data loss
+ 77  1405/07/28 08:16:10  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
+ 78  1405/07/28 08:16:36  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: lost connection, extensive data loss
+ 79  1405/07/28 08:16:43  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
+ 80  1405/07/28 08:32:02  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: lost connection, extensive data loss
+ 81  1405/07/28 08:32:09  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
+ 82  1405/07/28 08:32:16  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: lost connection, extensive data loss
+ 83  1405/07/28 08:32:21  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
+ 84  1405/07/28 08:32:23  [dhcp,info]  dhcp1 assigned 172.29.68.187 to 1C:1B:0D:B9:02:AA
+ 85  1405/07/28 08:32:26  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: lost connection, not polled for too long
+ 86  1405/07/28 08:32:28  [dhcp,info]  dhcp1 assigned 172.29.68.189 to 7C:F1:7E:F4:1A:23
+ 87  1405/07/28 08:32:32  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
+ 88  1405/07/28 08:32:38  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: lost connection, extensive data loss
+ 89  1405/07/28 08:32:44  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
+ 90  1405/07/28 09:07:28  [dhcp,info]  dhcp1 deassigned 172.29.68.190 from D2:AE:F2:7F:17:DC
+ 91  1405/07/28 09:48:49  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: lost connection, not polled for too long
+ 92  1405/07/28 09:48:54  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
+ 93  1405/07/28 09:51:19  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: lost connection, not polled for too long
+ 94  1405/07/28 09:51:24  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
+ 95  1405/07/28 12:37:23  [dhcp,info]  dhcp1 deassigned 172.29.68.187 from 1C:1B:0D:B9:02:AA
+ 96  1405/07/28 12:37:28  [dhcp,info]  dhcp1 deassigned 172.29.68.189 from 7C:F1:7E:F4:1A:23
+ 97  1405/07/29 14:00:07  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: lost connection, not polled for too long
+ 98  1405/07/29 14:00:12  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
+ 99  1405/07/29 15:24:07  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1: lost connection, not polled for too long
+100  1405/07/29 15:24:13  [wireless,info]  6C:3B:6B:AB:D2:B0@wlan1 established connection on 5720000, SSID Abadan-Khezr2
+101  1405/07/29 16:41:21  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
 ether1  6C:3B:6B:97:E7:DC  (ether)
 wlan1  6C:3B:6B:97:E7:DD  (wlan)
 --- /ip arp ---
-ether1  1C:1B:0D:B9:02:AA  (arp 172.29.68.187)
-ether1  7C:F1:7E:F4:1A:23  (arp 172.29.68.189)
 wlan1  6C:3B:6B:85:AC:9C  (arp 172.18.9.33)

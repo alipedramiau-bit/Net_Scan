@@ -1,5 +1,5 @@
 IP: 172.29.209.161
-Collected at: 2026-10-14T10:25:30.261508+00:00
+Collected at: 2026-10-18T05:59:25.561634+00:00
 source: RouterOS API
 identity: Soeichi->Sobeh1.Client
 device_type: ST
@@ -27,31 +27,89 @@ name=wlan1  mode=station-bridge  ssid=SVCHSBH1  band=5ghz-a/n  frequency=auto
 
 ----- neighbors -----
 === /ip neighbor ===
-  1  identity=MK_Soeichi  address=172.18.26.105  interface=wlan1
-  2  identity=Soeichi->Sobeh1.AP  address=172.18.26.106  interface=wlan1
+  1  identity=-  address=-  interface=ether1,bridge1
+  2  identity=MK_Soeichi  address=172.18.26.105  interface=wlan1
+  3  identity=Soeichi->Sobeh1.AP  address=172.18.26.106  interface=wlan1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:47:03
-# ساعت دستگاه (خام): 2023-05-30 03:02:26
-# افست اصلاحی (سرور − دستگاه): +29599:14:37
-  1  1405/07/22 11:44:28  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 11:44:29  [bridge,info]  "bridge1" mac address changed to 4C:5E:0C:A7:F6:32
-  3  1405/07/22 11:44:29  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
-  4  1405/07/22 11:44:29  [interface,info]  ether1 link up (speed 100M, full duplex)
-  5  1405/07/22 11:47:30  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
-  6  1405/07/22 12:04:59  [dhcp,info]  dhcp1 deassigned 172.29.209.189 from A0:36:BC:34:77:76
-  7  1405/07/22 20:52:50  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: lost connection, not polled for too long
-  8  1405/07/22 20:52:56  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
-  9  1405/07/23 00:23:40  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: lost connection, not polled for too long
- 10  1405/07/23 00:23:47  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
- 11  1405/07/23 02:34:40  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: lost connection, not polled for too long
- 12  1405/07/23 02:34:45  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
- 13  1405/07/23 08:14:40  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: lost connection, not polled for too long
- 14  1405/07/23 08:14:45  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
- 15  1405/07/22 13:26:12  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 16  1405/07/22 13:26:14  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 17  1405/07/22 13:47:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/26 09:21:52
+# ساعت دستگاه (خام): 2023-06-02 03:33:27
+# افست اصلاحی (سرور − دستگاه): +29618:18:25
+  1  1405/07/23 06:48:15  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/23 06:48:15  [bridge,info]  "bridge1" mac address changed to 4C:5E:0C:A7:F6:32
+  3  1405/07/23 06:48:15  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  4  1405/07/23 06:48:17  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/07/23 06:51:38  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
+  6  1405/07/23 08:25:59  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: lost connection, not polled for too long
+  7  1405/07/23 08:26:05  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
+  8  1405/07/23 08:40:49  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: lost connection, not polled for too long
+  9  1405/07/23 08:40:55  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
+ 10  1405/07/23 12:30:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 11  1405/07/23 12:30:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 12  1405/07/23 18:03:04  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: lost connection, not polled for too long
+ 13  1405/07/23 18:03:09  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
+ 14  1405/07/23 18:55:49  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: lost connection, not polled for too long
+ 15  1405/07/23 18:55:55  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
+ 16  1405/07/23 19:08:49  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: lost connection, not polled for too long
+ 17  1405/07/23 19:08:57  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: failed to connect, on 5280/20/an, authentication timeout
+ 18  1405/07/23 19:09:11  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: failed to connect, on 5280/20/an, authentication timeout
+ 19  1405/07/23 19:09:22  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
+ 20  1405/07/23 19:09:49  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: lost connection, not polled for too long
+ 21  1405/07/23 19:09:55  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
+ 22  1405/07/23 21:28:50  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: lost connection, extensive data loss
+ 23  1405/07/23 21:28:58  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: failed to connect, on 5280/20/an, authentication timeout
+ 24  1405/07/23 21:29:09  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
+ 25  1405/07/23 22:13:49  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: lost connection, not polled for too long
+ 26  1405/07/23 22:13:54  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
+ 27  1405/07/24 00:13:23  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: lost connection, extensive data loss
+ 28  1405/07/24 00:13:32  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: failed to connect, on 5280/20/an, authentication timeout
+ 29  1405/07/24 00:13:50  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
+ 30  1405/07/24 15:27:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 31  1405/07/24 15:27:05  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 32  1405/07/24 15:43:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 33  1405/07/24 15:43:37  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 34  1405/07/24 15:56:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 35  1405/07/24 15:56:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 36  1405/07/25 04:49:48  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: lost connection, not polled for too long
+ 37  1405/07/25 04:49:53  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
+ 38  1405/07/26 08:54:13  [dhcp,info]  dhcp1 assigned 172.29.209.189 to A0:36:BC:34:77:76
+ 39  1405/07/26 11:44:12  [dhcp,info]  dhcp1 deassigned 172.29.209.189 from A0:36:BC:34:77:76
+ 40  1405/07/26 21:34:57  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: lost connection, not polled for too long
+ 41  1405/07/26 21:35:05  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
+ 42  1405/07/26 21:36:54  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: lost connection, not polled for too long
+ 43  1405/07/26 21:37:02  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: failed to connect, on 5280/20/an, association timeout
+ 44  1405/07/26 21:37:38  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: failed to connect, on 5280/20/an, authentication timeout
+ 45  1405/07/26 21:37:50  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
+ 46  1405/07/26 21:37:58  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: lost connection, not polled for too long
+ 47  1405/07/26 21:38:06  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
+ 48  1405/07/26 21:38:12  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: lost connection, not polled for too long
+ 49  1405/07/26 21:38:23  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
+ 50  1405/07/26 21:55:02  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: lost connection, not polled for too long
+ 51  1405/07/26 21:55:08  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
+ 52  1405/07/26 23:30:41  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: lost connection, no beacons received
+ 53  1405/07/26 23:31:25  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
+ 54  1405/07/26 23:31:27  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: lost connection, not polled for too long
+ 55  1405/07/26 23:31:35  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: failed to connect, on 5280/20/an, authentication timeout
+ 56  1405/07/26 23:31:46  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
+ 57  1405/07/26 23:32:26  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: lost connection, not polled for too long
+ 58  1405/07/26 23:32:35  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: failed to connect, on 5280/20/an, authentication timeout
+ 59  1405/07/26 23:32:49  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: failed to connect, on 5280/20/an, association timeout
+ 60  1405/07/26 23:33:03  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: failed to connect, on 5280/20/an, authentication timeout
+ 61  1405/07/26 23:33:17  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: failed to connect, on 5280/20/an, authentication timeout
+ 62  1405/07/26 23:33:28  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
+ 63  1405/07/26 08:52:41  [interface,info]  ether1 link down
+ 64  1405/07/26 08:52:45  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 65  1405/07/26 08:52:46  [interface,info]  ether1 link down
+ 66  1405/07/26 08:52:55  [interface,info]  ether1 link up (speed 10M, full duplex)
+ 67  1405/07/26 08:55:07  [dhcp,info]  dhcp1 assigned 172.29.209.189 to A0:36:BC:34:77:76
+ 68  1405/07/26 09:02:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 69  1405/07/26 09:02:49  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 70  1405/07/26 09:05:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 71  1405/07/26 09:05:23  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 72  1405/07/26 09:20:10  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 73  1405/07/26 09:20:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 74  1405/07/26 09:21:50  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -60,3 +118,4 @@ wlan1  4C:5E:0C:A7:F6:33  (wlan)
 bridge1  4C:5E:0C:A7:F6:32  (bridge)
 --- /ip arp ---
 wlan1  6C:3B:6B:2B:BA:16  (arp 172.18.26.105)
+bridge1  A0:36:BC:34:77:76  (arp 172.29.209.189)

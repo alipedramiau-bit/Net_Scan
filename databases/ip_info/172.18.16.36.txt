@@ -1,5 +1,5 @@
 IP: 172.18.16.36
-Collected at: 2026-10-11T06:39:30.631369+00:00
+Collected at: 2026-10-18T05:55:06.239082+00:00
 source: RouterOS API
 identity: HafarGarbi.Client
 device_type: ST
@@ -31,15 +31,17 @@ name=wlan1  mode=station-bridge  ssid=Khoramshahr-Shabakeh3  band=5ghz-a/n  freq
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/19 09:32:48
-# ساعت دستگاه (خام): 1970-08-06 05:54:19
-# افست اصلاحی (سرور − دستگاه): +492480:08:29
-  1  1405/07/19 08:12:43  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/19 08:12:53  [interface,info]  ether1 link up (speed 100M, full duplex)
-  3  1405/07/19 08:13:11  [interface,info]  ether1 link down
-  4  1405/07/19 08:13:13  [interface,info]  ether1 link up (speed 100M, full duplex)
-  5  1405/07/19 08:42:51  [wireless,info]  6C:3B:6B:9C:4B:23@wlan1 established connection on 5500000, SSID Khoramshahr-Shabakeh3
-  6  1405/07/19 09:32:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/26 08:50:45
+# ساعت دستگاه (خام): 1970-08-06 05:12:03
+# افست اصلاحی (سرور − دستگاه): +492648:08:42
+  1  1405/07/26 08:12:56  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/26 08:13:04  [wireless,info]  6C:3B:6B:9C:4B:23@wlan1 established connection on 5500000, SSID Khoramshahr-Shabakeh3
+  3  1405/07/26 08:13:06  [dhcp,info]  dhcp1 deassigned 172.29.129.62 from B4:2E:99:20:F7:BB
+  4  1405/07/26 08:13:06  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/07/26 08:13:11  [dhcp,info]  dhcp1 assigned 172.29.129.62 to B4:2E:99:20:F7:BB
+  6  1405/07/26 08:49:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  7  1405/07/26 08:49:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  8  1405/07/26 08:50:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

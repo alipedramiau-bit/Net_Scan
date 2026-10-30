@@ -1,5 +1,5 @@
 IP: 172.29.131.67
-Collected at: 2026-10-14T10:25:04.837462+00:00
+Collected at: 2026-10-21T13:18:15.153427+00:00
 source: RouterOS API
 identity: Sooreh_Router
 device_type: AP
@@ -31,59 +31,151 @@ name=wlan1  mode=ap-bridge  ssid=MyHomeWiFi  band=2ghz-b/g/n  frequency=2412
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:40:51
-# ساعت دستگاه (خام): 1970-03-06 04:02:38
-# افست اصلاحی (سرور − دستگاه): +496230:08:13
-  1  1405/07/20 09:38:20  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/20 09:38:21  [bridge,info]  "bridge-local" mac address changed to E4:8D:8C:69:C8:F2
-  3  1405/07/20 09:38:21  [bridge,info]  hardware offloading activated on bridge "bridge-local" ports: ether1,ether2,ether3
-  4  1405/07/20 09:38:21  [bridge,info]  hardware offloading activated on bridge "bridge-local" ports: ether4
-  5  1405/07/20 09:38:23  [interface,info]  ether1 link up (speed 100M, full duplex)
-  6  1405/07/20 09:38:23  [interface,info]  ether2 link up (speed 100M, full duplex)
-  7  1405/07/20 09:38:27  [interface,info]  ether1 link down
-  8  1405/07/20 09:38:37  [interface,info]  ether1 link up (speed 100M, full duplex)
-  9  1405/07/20 09:38:43  [dhcp,info]  dhcp-client on bridge-local got IP address 172.29.131.67
- 10  1405/07/20 09:39:44  [interface,info]  ether2 link down
- 11  1405/07/20 09:39:46  [interface,info]  ether2 link up (speed 100M, full duplex)
- 12  1405/07/20 09:39:54  [interface,info]  ether2 link down
- 13  1405/07/20 09:39:56  [interface,info]  ether2 link up (speed 100M, full duplex)
- 14  1405/07/20 09:43:06  [interface,info]  ether2 link down
- 15  1405/07/20 09:43:07  [interface,info]  ether2 link up (speed 10M, full duplex)
- 16  1405/07/20 09:43:31  [interface,info]  ether2 link down
- 17  1405/07/20 09:43:32  [interface,info]  ether2 link up (speed 100M, full duplex)
- 18  1405/07/20 09:43:38  [interface,info]  ether2 link down
- 19  1405/07/20 09:43:40  [interface,info]  ether2 link up (speed 100M, full duplex)
- 20  1405/07/20 10:16:31  [interface,info]  ether2 link down
- 21  1405/07/20 10:16:33  [interface,info]  ether2 link up (speed 10M, full duplex)
- 22  1405/07/20 10:16:48  [interface,info]  ether2 link down
- 23  1405/07/20 10:16:50  [interface,info]  ether2 link up (speed 100M, full duplex)
- 24  1405/07/20 10:16:56  [interface,info]  ether2 link down
- 25  1405/07/20 10:16:58  [interface,info]  ether2 link up (speed 100M, full duplex)
- 26  1405/07/20 10:20:39  [interface,info]  ether2 link down
- 27  1405/07/20 10:20:41  [interface,info]  ether2 link up (speed 10M, full duplex)
- 28  1405/07/21 09:12:58  [interface,info]  ether2 link down
- 29  1405/07/21 09:12:59  [interface,info]  ether2 link up (speed 100M, full duplex)
- 30  1405/07/21 09:13:08  [interface,info]  ether2 link down
- 31  1405/07/21 09:13:09  [interface,info]  ether2 link up (speed 100M, full duplex)
- 32  1405/07/21 11:16:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 33  1405/07/21 11:17:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 34  1405/07/21 12:51:38  [interface,info]  ether2 link down
- 35  1405/07/21 12:51:40  [interface,info]  ether2 link up (speed 10M, full duplex)
- 36  1405/07/22 02:01:51  [wireless,info]  BA:AC:D5:95:38:72@wlan1: connected, signal strength -70
- 37  1405/07/22 02:01:57  [wireless,info]  BA:AC:D5:95:38:72@wlan1: disconnected, unicast key exchange timeout, signal strength -73
- 38  1405/07/22 02:02:08  [wireless,info]  BA:AC:D5:95:38:72@wlan1: connected, signal strength -72
- 39  1405/07/22 02:02:13  [wireless,info]  BA:AC:D5:95:38:72@wlan1: disconnected, unicast key exchange timeout, signal strength -72
- 40  1405/07/22 02:02:29  [wireless,info]  BA:AC:D5:95:38:72@wlan1: connected, signal strength -73
- 41  1405/07/22 02:02:34  [wireless,info]  BA:AC:D5:95:38:72@wlan1: disconnected, unicast key exchange timeout, signal strength -73
- 42  1405/07/22 11:04:47  [interface,info]  ether2 link down
- 43  1405/07/22 11:04:49  [interface,info]  ether2 link up (speed 100M, full duplex)
- 44  1405/07/22 11:49:52  [interface,info]  ether2 link down
- 45  1405/07/22 11:49:53  [interface,info]  ether2 link up (speed 10M, full duplex)
- 46  1405/07/22 12:32:29  [wireless,info]  BC:A5:8B:AE:DB:CA@wlan1: connected, signal strength -92
- 47  1405/07/22 12:32:34  [wireless,info]  BC:A5:8B:AE:DB:CA@wlan1: disconnected, unicast key exchange timeout, signal strength -93
- 48  1405/07/22 12:32:45  [wireless,info]  BC:A5:8B:AE:DB:CA@wlan1: connected, signal strength -90
- 49  1405/07/22 12:32:50  [wireless,info]  BC:A5:8B:AE:DB:CA@wlan1: disconnected, unicast key exchange timeout, signal strength -92
- 50  1405/07/22 13:40:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:42:39
+# ساعت دستگاه (خام): 1970-03-13 07:07:16
+# افست اصلاحی (سرور − دستگاه): +496230:05:23
+  1  1405/07/20 09:35:30  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/20 09:35:31  [bridge,info]  "bridge-local" mac address changed to E4:8D:8C:69:C8:F2
+  3  1405/07/20 09:35:31  [bridge,info]  hardware offloading activated on bridge "bridge-local" ports: ether1,ether2,ether3
+  4  1405/07/20 09:35:31  [bridge,info]  hardware offloading activated on bridge "bridge-local" ports: ether4
+  5  1405/07/20 09:35:33  [interface,info]  ether1 link up (speed 100M, full duplex)
+  6  1405/07/20 09:35:33  [interface,info]  ether2 link up (speed 100M, full duplex)
+  7  1405/07/20 09:35:37  [interface,info]  ether1 link down
+  8  1405/07/20 09:35:47  [interface,info]  ether1 link up (speed 100M, full duplex)
+  9  1405/07/20 09:35:53  [dhcp,info]  dhcp-client on bridge-local got IP address 172.29.131.67
+ 10  1405/07/20 09:36:54  [interface,info]  ether2 link down
+ 11  1405/07/20 09:36:56  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 12  1405/07/20 09:37:04  [interface,info]  ether2 link down
+ 13  1405/07/20 09:37:06  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 14  1405/07/20 09:40:16  [interface,info]  ether2 link down
+ 15  1405/07/20 09:40:17  [interface,info]  ether2 link up (speed 10M, full duplex)
+ 16  1405/07/20 09:40:41  [interface,info]  ether2 link down
+ 17  1405/07/20 09:40:42  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 18  1405/07/20 09:40:48  [interface,info]  ether2 link down
+ 19  1405/07/20 09:40:50  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 20  1405/07/20 10:13:41  [interface,info]  ether2 link down
+ 21  1405/07/20 10:13:43  [interface,info]  ether2 link up (speed 10M, full duplex)
+ 22  1405/07/20 10:13:58  [interface,info]  ether2 link down
+ 23  1405/07/20 10:14:00  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 24  1405/07/20 10:14:06  [interface,info]  ether2 link down
+ 25  1405/07/20 10:14:08  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 26  1405/07/20 10:17:49  [interface,info]  ether2 link down
+ 27  1405/07/20 10:17:51  [interface,info]  ether2 link up (speed 10M, full duplex)
+ 28  1405/07/21 09:10:08  [interface,info]  ether2 link down
+ 29  1405/07/21 09:10:09  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 30  1405/07/21 09:10:18  [interface,info]  ether2 link down
+ 31  1405/07/21 09:10:19  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 32  1405/07/21 11:14:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 33  1405/07/21 11:14:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 34  1405/07/21 12:48:48  [interface,info]  ether2 link down
+ 35  1405/07/21 12:48:50  [interface,info]  ether2 link up (speed 10M, full duplex)
+ 36  1405/07/22 01:59:01  [wireless,info]  BA:AC:D5:95:38:72@wlan1: connected, signal strength -70
+ 37  1405/07/22 01:59:07  [wireless,info]  BA:AC:D5:95:38:72@wlan1: disconnected, unicast key exchange timeout, signal strength -73
+ 38  1405/07/22 01:59:18  [wireless,info]  BA:AC:D5:95:38:72@wlan1: connected, signal strength -72
+ 39  1405/07/22 01:59:23  [wireless,info]  BA:AC:D5:95:38:72@wlan1: disconnected, unicast key exchange timeout, signal strength -72
+ 40  1405/07/22 01:59:39  [wireless,info]  BA:AC:D5:95:38:72@wlan1: connected, signal strength -73
+ 41  1405/07/22 01:59:44  [wireless,info]  BA:AC:D5:95:38:72@wlan1: disconnected, unicast key exchange timeout, signal strength -73
+ 42  1405/07/22 11:01:57  [interface,info]  ether2 link down
+ 43  1405/07/22 11:01:59  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 44  1405/07/22 11:47:02  [interface,info]  ether2 link down
+ 45  1405/07/22 11:47:03  [interface,info]  ether2 link up (speed 10M, full duplex)
+ 46  1405/07/22 12:29:39  [wireless,info]  BC:A5:8B:AE:DB:CA@wlan1: connected, signal strength -92
+ 47  1405/07/22 12:29:44  [wireless,info]  BC:A5:8B:AE:DB:CA@wlan1: disconnected, unicast key exchange timeout, signal strength -93
+ 48  1405/07/22 12:29:55  [wireless,info]  BC:A5:8B:AE:DB:CA@wlan1: connected, signal strength -90
+ 49  1405/07/22 12:30:00  [wireless,info]  BC:A5:8B:AE:DB:CA@wlan1: disconnected, unicast key exchange timeout, signal strength -92
+ 50  1405/07/22 13:37:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 51  1405/07/22 13:38:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 52  1405/07/23 11:57:43  [interface,info]  ether2 link down
+ 53  1405/07/23 11:57:45  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 54  1405/07/23 12:18:13  [interface,info]  ether2 link down
+ 55  1405/07/23 12:18:14  [interface,info]  ether2 link up (speed 10M, full duplex)
+ 56  1405/07/23 16:23:52  [wireless,info]  DE:F4:54:DA:7F:F1@wlan1: connected, signal strength -71
+ 57  1405/07/23 16:23:57  [wireless,info]  DE:F4:54:DA:7F:F1@wlan1: disconnected, unicast key exchange timeout, signal strength -68
+ 58  1405/07/23 16:24:07  [wireless,info]  DE:F4:54:DA:7F:F1@wlan1: connected, signal strength -72
+ 59  1405/07/23 16:24:12  [wireless,info]  DE:F4:54:DA:7F:F1@wlan1: disconnected, unicast key exchange timeout, signal strength -71
+ 60  1405/07/24 15:00:50  [interface,info]  ether2 link down
+ 61  1405/07/24 15:00:52  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 62  1405/07/24 15:38:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 63  1405/07/24 15:38:45  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 64  1405/07/24 15:45:53  [interface,info]  ether2 link down
+ 65  1405/07/24 15:45:54  [interface,info]  ether2 link up (speed 10M, full duplex)
+ 66  1405/07/24 16:04:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 67  1405/07/24 16:04:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 68  1405/07/25 08:02:32  [interface,info]  ether2 link down
+ 69  1405/07/25 08:02:34  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 70  1405/07/25 08:49:57  [interface,info]  ether2 link down
+ 71  1405/07/25 08:49:59  [interface,info]  ether2 link up (speed 10M, full duplex)
+ 72  1405/07/25 23:25:47  [wireless,info]  BA:AC:D5:95:38:72@wlan1: connected, signal strength -67
+ 73  1405/07/25 23:25:51  [wireless,info]  BA:AC:D5:95:38:72@wlan1: disconnected, received deauth: sending station leaving (3), signal strength -67
+ 74  1405/07/25 23:26:02  [wireless,info]  BA:AC:D5:95:38:72@wlan1: connected, signal strength -71
+ 75  1405/07/25 23:26:07  [wireless,info]  BA:AC:D5:95:38:72@wlan1: disconnected, unicast key exchange timeout, signal strength -72
+ 76  1405/07/25 23:26:15  [wireless,info]  BA:AC:D5:95:38:72@wlan1: connected, signal strength -66
+ 77  1405/07/25 23:26:20  [wireless,info]  BA:AC:D5:95:38:72@wlan1: disconnected, unicast key exchange timeout, signal strength -72
+ 78  1405/07/25 23:26:30  [wireless,info]  BA:AC:D5:95:38:72@wlan1: connected, signal strength -73
+ 79  1405/07/25 23:26:35  [wireless,info]  BA:AC:D5:95:38:72@wlan1: disconnected, unicast key exchange timeout, signal strength -75
+ 80  1405/07/25 23:34:46  [wireless,info]  BA:AC:D5:95:38:72@wlan1: connected, signal strength -69
+ 81  1405/07/25 23:34:51  [wireless,info]  BA:AC:D5:95:38:72@wlan1: disconnected, unicast key exchange timeout, signal strength -74
+ 82  1405/07/25 23:35:01  [wireless,info]  BA:AC:D5:95:38:72@wlan1: connected, signal strength -69
+ 83  1405/07/25 23:35:06  [wireless,info]  BA:AC:D5:95:38:72@wlan1: disconnected, unicast key exchange timeout, signal strength -75
+ 84  1405/07/25 23:38:21  [wireless,info]  BA:AC:D5:95:38:72@wlan1: connected, signal strength -64
+ 85  1405/07/25 23:38:26  [wireless,info]  BA:AC:D5:95:38:72@wlan1: disconnected, unicast key exchange timeout, signal strength -68
+ 86  1405/07/25 23:39:03  [wireless,info]  BA:AC:D5:95:38:72@wlan1: connected, signal strength -63
+ 87  1405/07/25 23:39:08  [wireless,info]  BA:AC:D5:95:38:72@wlan1: disconnected, unicast key exchange timeout, signal strength -71
+ 88  1405/07/25 23:41:32  [wireless,info]  BA:AC:D5:95:38:72@wlan1: connected, signal strength -76
+ 89  1405/07/25 23:41:37  [wireless,info]  BA:AC:D5:95:38:72@wlan1: disconnected, unicast key exchange timeout, signal strength -73
+ 90  1405/07/26 07:51:15  [interface,info]  ether2 link down
+ 91  1405/07/26 07:51:17  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 92  1405/07/26 07:51:25  [interface,info]  ether2 link down
+ 93  1405/07/26 07:51:27  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 94  1405/07/26 07:52:23  [interface,info]  ether2 link down
+ 95  1405/07/26 07:52:25  [interface,info]  ether2 link up (speed 10M, full duplex)
+ 96  1405/07/26 07:52:37  [interface,info]  ether2 link down
+ 97  1405/07/26 07:52:39  [interface,info]  ether2 link up (speed 100M, full duplex)
+ 98  1405/07/26 07:52:45  [interface,info]  ether2 link down
+ 99  1405/07/26 07:52:46  [interface,info]  ether2 link up (speed 100M, full duplex)
+100  1405/07/26 09:15:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+101  1405/07/26 09:15:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+102  1405/07/26 09:17:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+103  1405/07/26 09:17:37  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+104  1405/07/26 12:02:22  [interface,info]  ether2 link down
+105  1405/07/26 12:02:23  [interface,info]  ether2 link up (speed 10M, full duplex)
+106  1405/07/26 12:19:34  [interface,info]  ether2 link down
+107  1405/07/26 12:19:35  [interface,info]  ether2 link up (speed 100M, full duplex)
+108  1405/07/26 12:19:42  [interface,info]  ether2 link down
+109  1405/07/26 12:19:43  [interface,info]  ether2 link up (speed 100M, full duplex)
+110  1405/07/26 13:10:08  [interface,info]  ether2 link down
+111  1405/07/26 13:10:09  [interface,info]  ether2 link up (speed 10M, full duplex)
+112  1405/07/27 07:59:01  [interface,info]  ether2 link down
+113  1405/07/27 07:59:03  [interface,info]  ether2 link up (speed 100M, full duplex)
+114  1405/07/27 08:54:25  [interface,info]  ether2 link down
+115  1405/07/27 08:54:26  [interface,info]  ether2 link up (speed 10M, full duplex)
+116  1405/07/27 10:14:04  [interface,info]  ether2 link down
+117  1405/07/27 10:14:06  [interface,info]  ether2 link up (speed 100M, full duplex)
+118  1405/07/27 11:55:45  [interface,info]  ether2 link down
+119  1405/07/27 11:55:46  [interface,info]  ether2 link up (speed 10M, full duplex)
+120  1405/07/27 17:51:42  [interface,info]  ether2 link down
+121  1405/07/27 17:51:44  [interface,info]  ether2 link up (speed 100M, full duplex)
+122  1405/07/27 20:13:46  [interface,info]  ether2 link down
+123  1405/07/27 20:13:48  [interface,info]  ether2 link up (speed 10M, full duplex)
+124  1405/07/28 08:18:34  [interface,info]  ether2 link down
+125  1405/07/28 08:18:36  [interface,info]  ether2 link up (speed 100M, full duplex)
+126  1405/07/28 11:57:59  [interface,info]  ether2 link down
+127  1405/07/28 11:58:01  [interface,info]  ether2 link up (speed 10M, full duplex)
+128  1405/07/29 07:22:53  [interface,info]  ether2 link down
+129  1405/07/29 07:22:55  [interface,info]  ether2 link up (speed 100M, full duplex)
+130  1405/07/29 08:08:35  [interface,info]  ether2 link down
+131  1405/07/29 08:08:37  [interface,info]  ether2 link up (speed 10M, full duplex)
+132  1405/07/29 08:11:48  [interface,info]  ether2 link down
+133  1405/07/29 08:11:50  [interface,info]  ether2 link up (speed 100M, full duplex)
+134  1405/07/29 12:22:10  [interface,info]  ether2 link down
+135  1405/07/29 12:22:12  [interface,info]  ether2 link up (speed 10M, full duplex)
+136  1405/07/29 12:47:46  [interface,info]  ether2 link down
+137  1405/07/29 12:47:48  [interface,info]  ether2 link up (speed 100M, full duplex)
+138  1405/07/29 12:47:54  [interface,info]  ether2 link down
+139  1405/07/29 12:47:56  [interface,info]  ether2 link up (speed 100M, full duplex)
+140  1405/07/29 13:10:52  [interface,info]  ether2 link down
+141  1405/07/29 13:10:54  [interface,info]  ether2 link up (speed 10M, full duplex)
+142  1405/07/29 16:42:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

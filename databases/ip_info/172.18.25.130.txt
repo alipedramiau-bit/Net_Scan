@@ -1,5 +1,5 @@
 IP: 172.18.25.130
-Collected at: 2026-10-15T10:08:28.568395+00:00
+Collected at: 2026-10-21T13:16:45.648758+00:00
 source: RouterOS API
 identity: Shadegan-Abshar1
 device_type: AP
@@ -32,159 +32,189 @@ name=wlan1  mode=ap-bridge  ssid=Shadegan-Abshar1  band=5ghz-a/n  frequency=5765
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:29:42
-# ساعت دستگاه (خام): 2025-10-18 05:24:34
-# افست اصلاحی (سرور − دستگاه): +8691:35:08
-  1  1405/06/17 16:00:16  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/06/17 16:00:20  [bridge,info]  "bridge1" mac address changed to 6E:3B:6B:5D:72:4D
-  3  1405/06/17 16:00:22  [wireless,info]  6C:3B:6B:10:B2:A7@wlan1: connected, signal strength -62
-  4  1405/06/17 16:00:26  [interface,info]  ether1 link up (speed 1G, full duplex)
-  5  1405/06/17 16:00:34  [wireless,info]  E4:8D:8C:61:6E:19@wlan1: connected, signal strength -78
-  6  1405/06/18 08:46:57  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
-  7  1405/06/18 09:22:32  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -82
-  8  1405/06/18 13:13:48  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
-  9  1405/06/18 13:33:16  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, control frame timeout
- 10  1405/06/19 09:13:22  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
- 11  1405/06/19 12:18:52  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
- 12  1405/06/22 09:17:11  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -82
- 13  1405/06/22 09:40:42  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
- 14  1405/06/22 12:03:01  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
- 15  1405/06/22 13:02:30  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
- 16  1405/06/22 13:15:37  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
- 17  1405/06/22 13:27:40  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
- 18  1405/06/23 09:35:09  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
- 19  1405/06/23 09:39:35  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
- 20  1405/06/23 12:30:19  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, control frame timeout
- 21  1405/06/23 13:20:21  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
- 22  1405/06/24 10:22:16  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
- 23  1405/06/24 13:12:00  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
- 24  1405/06/25 09:28:47  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
- 25  1405/06/25 09:45:42  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
- 26  1405/06/25 12:48:03  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, control frame timeout
- 27  1405/06/25 13:35:56  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
- 28  1405/06/26 09:28:51  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -66
- 29  1405/06/26 09:29:02  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
- 30  1405/06/26 10:40:28  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
- 31  1405/06/26 11:39:48  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
- 32  1405/06/28 08:26:01  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
- 33  1405/06/28 08:54:07  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
- 34  1405/06/28 09:26:06  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
- 35  1405/06/28 09:26:23  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
- 36  1405/06/29 08:17:45  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
- 37  1405/06/29 08:32:50  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -78
- 38  1405/06/29 11:41:18  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
- 39  1405/06/29 12:40:27  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, control frame timeout
- 40  1405/06/30 08:25:28  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -78
- 41  1405/06/30 08:48:16  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
- 42  1405/06/30 12:07:35  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, control frame timeout
- 43  1405/06/30 12:25:02  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
- 44  1405/06/31 08:24:34  [wireless,info]  6C:3B:6B:13:54:97@wlan1: reconnecting
- 45  1405/06/31 08:24:36  [wireless,info]  6C:3B:6B:13:54:97@wlan1: reconnecting
- 46  1405/06/31 08:24:36  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -82
- 47  1405/06/31 09:10:08  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
- 48  1405/06/31 10:56:56  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, control frame timeout
- 49  1405/06/31 12:32:43  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
- 50  1405/07/01 08:20:32  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
- 51  1405/07/01 09:05:53  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
- 52  1405/07/01 11:50:50  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, control frame timeout
- 53  1405/07/01 11:51:52  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -68
- 54  1405/07/01 12:05:40  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, control frame timeout
- 55  1405/07/01 12:31:44  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
- 56  1405/07/02 07:58:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 57  1405/07/02 08:11:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 58  1405/07/02 08:11:43  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
- 59  1405/07/02 08:36:16  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
- 60  1405/07/02 08:47:11  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
- 61  1405/07/02 10:30:06  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
- 62  1405/07/04 07:59:42  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -78
- 63  1405/07/04 10:43:21  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
- 64  1405/07/04 10:44:18  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -82
- 65  1405/07/04 12:28:23  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
- 66  1405/07/05 08:08:03  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -78
- 67  1405/07/05 08:38:46  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
- 68  1405/07/05 11:39:08  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, control frame timeout
- 69  1405/07/05 12:33:56  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
- 70  1405/07/06 08:14:18  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
- 71  1405/07/06 08:27:57  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
- 72  1405/07/06 09:55:07  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
- 73  1405/07/06 12:31:51  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, control frame timeout
- 74  1405/07/07 08:20:13  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
- 75  1405/07/07 08:44:22  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
- 76  1405/07/07 11:35:12  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
- 77  1405/07/07 12:36:42  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
- 78  1405/07/08 08:07:50  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
- 79  1405/07/08 08:26:26  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
- 80  1405/07/08 12:27:10  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
- 81  1405/07/08 12:41:44  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, control frame timeout
- 82  1405/07/09 08:40:37  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -78
- 83  1405/07/09 08:44:24  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
- 84  1405/07/09 09:31:38  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
- 85  1405/07/09 11:09:56  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
- 86  1405/07/11 08:47:18  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
- 87  1405/07/11 08:47:57  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
- 88  1405/07/11 11:43:32  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
- 89  1405/07/11 12:24:42  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
- 90  1405/07/12 08:17:17  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
- 91  1405/07/12 09:13:07  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
- 92  1405/07/12 11:46:54  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
- 93  1405/07/12 12:30:17  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
- 94  1405/07/13 08:54:54  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
- 95  1405/07/13 11:58:31  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
- 96  1405/07/14 08:27:16  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -78
- 97  1405/07/14 08:27:31  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
- 98  1405/07/14 10:41:01  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
- 99  1405/07/14 12:39:24  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
-100  1405/07/15 08:33:11  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
-101  1405/07/15 08:34:12  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -78
-102  1405/07/15 09:00:26  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
-103  1405/07/15 12:30:31  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
-104  1405/07/16 08:42:40  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
-105  1405/07/16 09:56:54  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
-106  1405/07/16 10:38:30  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
-107  1405/07/16 10:57:14  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
-108  1405/07/16 14:30:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-109  1405/07/16 14:30:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-110  1405/07/16 15:41:25  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-111  1405/07/16 15:41:26  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-112  1405/07/17 08:33:05  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-113  1405/07/17 08:33:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-114  1405/07/18 08:17:45  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -78
-115  1405/07/18 08:18:27  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
-116  1405/07/18 10:31:25  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-117  1405/07/18 10:31:26  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-118  1405/07/18 10:55:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-119  1405/07/18 10:55:29  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-120  1405/07/18 11:18:57  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, control frame timeout
-121  1405/07/18 12:08:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-122  1405/07/18 12:08:01  [system,info]  user olom1 added by garnaf
-123  1405/07/18 12:08:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-124  1405/07/18 12:28:51  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
-125  1405/07/19 08:22:18  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
-126  1405/07/19 08:29:28  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
-127  1405/07/19 09:41:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-128  1405/07/19 09:41:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-129  1405/07/19 11:36:13  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, control frame timeout
-130  1405/07/19 12:36:12  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
-131  1405/07/19 17:42:49  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-132  1405/07/19 17:42:50  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-133  1405/07/20 08:15:17  [wireless,info]  6C:3B:6B:13:54:97@wlan1: reconnecting
-134  1405/07/20 08:15:17  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
-135  1405/07/20 08:33:24  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
-136  1405/07/20 11:41:16  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
-137  1405/07/20 12:36:01  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
-138  1405/07/21 08:15:02  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
-139  1405/07/21 08:24:03  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
-140  1405/07/21 11:04:04  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-141  1405/07/21 11:04:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-142  1405/07/21 11:34:57  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
-143  1405/07/21 11:55:29  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
-144  1405/07/22 08:48:16  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
-145  1405/07/22 09:27:56  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
-146  1405/07/22 11:46:03  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
-147  1405/07/22 12:23:48  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
-148  1405/07/22 13:21:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-149  1405/07/22 13:22:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-150  1405/07/23 12:29:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:33:25
+# ساعت دستگاه (خام): 2025-10-24 09:31:07
+# افست اصلاحی (سرور − دستگاه): +8691:32:18
+  1  1405/06/17 15:57:26  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/06/17 15:57:30  [bridge,info]  "bridge1" mac address changed to 6E:3B:6B:5D:72:4D
+  3  1405/06/17 15:57:32  [wireless,info]  6C:3B:6B:10:B2:A7@wlan1: connected, signal strength -62
+  4  1405/06/17 15:57:36  [interface,info]  ether1 link up (speed 1G, full duplex)
+  5  1405/06/17 15:57:44  [wireless,info]  E4:8D:8C:61:6E:19@wlan1: connected, signal strength -78
+  6  1405/06/18 08:44:07  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
+  7  1405/06/18 09:19:42  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -82
+  8  1405/06/18 13:10:58  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+  9  1405/06/18 13:30:26  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, control frame timeout
+ 10  1405/06/19 09:10:32  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
+ 11  1405/06/19 12:16:02  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+ 12  1405/06/22 09:14:21  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -82
+ 13  1405/06/22 09:37:52  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
+ 14  1405/06/22 12:00:11  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
+ 15  1405/06/22 12:59:40  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+ 16  1405/06/22 13:12:47  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
+ 17  1405/06/22 13:24:50  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+ 18  1405/06/23 09:32:19  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
+ 19  1405/06/23 09:36:45  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
+ 20  1405/06/23 12:27:29  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, control frame timeout
+ 21  1405/06/23 13:17:31  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+ 22  1405/06/24 10:19:26  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
+ 23  1405/06/24 13:09:10  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+ 24  1405/06/25 09:25:57  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
+ 25  1405/06/25 09:42:52  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
+ 26  1405/06/25 12:45:13  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, control frame timeout
+ 27  1405/06/25 13:33:06  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+ 28  1405/06/26 09:26:01  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -66
+ 29  1405/06/26 09:26:12  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
+ 30  1405/06/26 10:37:38  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+ 31  1405/06/26 11:36:58  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
+ 32  1405/06/28 08:23:11  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
+ 33  1405/06/28 08:51:17  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
+ 34  1405/06/28 09:23:16  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+ 35  1405/06/28 09:23:33  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
+ 36  1405/06/29 08:14:55  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
+ 37  1405/06/29 08:30:00  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -78
+ 38  1405/06/29 11:38:28  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
+ 39  1405/06/29 12:37:37  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, control frame timeout
+ 40  1405/06/30 08:22:38  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -78
+ 41  1405/06/30 08:45:26  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
+ 42  1405/06/30 12:04:45  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, control frame timeout
+ 43  1405/06/30 12:22:12  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+ 44  1405/06/31 08:21:44  [wireless,info]  6C:3B:6B:13:54:97@wlan1: reconnecting
+ 45  1405/06/31 08:21:46  [wireless,info]  6C:3B:6B:13:54:97@wlan1: reconnecting
+ 46  1405/06/31 08:21:46  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -82
+ 47  1405/06/31 09:07:18  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
+ 48  1405/06/31 10:54:06  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, control frame timeout
+ 49  1405/06/31 12:29:53  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+ 50  1405/07/01 08:17:42  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
+ 51  1405/07/01 09:03:03  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
+ 52  1405/07/01 11:48:00  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, control frame timeout
+ 53  1405/07/01 11:49:02  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -68
+ 54  1405/07/01 12:02:50  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, control frame timeout
+ 55  1405/07/01 12:28:54  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+ 56  1405/07/02 07:56:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 57  1405/07/02 08:08:37  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 58  1405/07/02 08:08:53  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
+ 59  1405/07/02 08:33:26  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
+ 60  1405/07/02 08:44:21  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
+ 61  1405/07/02 10:27:16  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+ 62  1405/07/04 07:56:52  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -78
+ 63  1405/07/04 10:40:31  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+ 64  1405/07/04 10:41:28  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -82
+ 65  1405/07/04 12:25:33  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+ 66  1405/07/05 08:05:13  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -78
+ 67  1405/07/05 08:35:56  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
+ 68  1405/07/05 11:36:18  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, control frame timeout
+ 69  1405/07/05 12:31:06  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+ 70  1405/07/06 08:11:28  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
+ 71  1405/07/06 08:25:07  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
+ 72  1405/07/06 09:52:17  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
+ 73  1405/07/06 12:29:01  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, control frame timeout
+ 74  1405/07/07 08:17:23  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
+ 75  1405/07/07 08:41:32  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
+ 76  1405/07/07 11:32:22  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
+ 77  1405/07/07 12:33:52  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+ 78  1405/07/08 08:05:00  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
+ 79  1405/07/08 08:23:36  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
+ 80  1405/07/08 12:24:20  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+ 81  1405/07/08 12:38:54  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, control frame timeout
+ 82  1405/07/09 08:37:47  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -78
+ 83  1405/07/09 08:41:34  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
+ 84  1405/07/09 09:28:48  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+ 85  1405/07/09 11:07:06  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
+ 86  1405/07/11 08:44:28  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
+ 87  1405/07/11 08:45:07  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
+ 88  1405/07/11 11:40:42  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
+ 89  1405/07/11 12:21:52  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+ 90  1405/07/12 08:14:27  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
+ 91  1405/07/12 09:10:17  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
+ 92  1405/07/12 11:44:04  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
+ 93  1405/07/12 12:27:27  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+ 94  1405/07/13 08:52:04  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
+ 95  1405/07/13 11:55:41  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
+ 96  1405/07/14 08:24:26  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -78
+ 97  1405/07/14 08:24:41  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
+ 98  1405/07/14 10:38:11  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
+ 99  1405/07/14 12:36:34  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+100  1405/07/15 08:30:21  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
+101  1405/07/15 08:31:22  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -78
+102  1405/07/15 08:57:36  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+103  1405/07/15 12:27:41  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
+104  1405/07/16 08:39:50  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
+105  1405/07/16 09:54:04  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
+106  1405/07/16 10:35:40  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+107  1405/07/16 10:54:24  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
+108  1405/07/16 14:27:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+109  1405/07/16 14:27:40  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+110  1405/07/16 15:38:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+111  1405/07/16 15:38:36  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+112  1405/07/17 08:30:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+113  1405/07/17 08:30:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+114  1405/07/18 08:14:55  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -78
+115  1405/07/18 08:15:37  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
+116  1405/07/18 10:28:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+117  1405/07/18 10:28:36  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+118  1405/07/18 10:52:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+119  1405/07/18 10:52:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+120  1405/07/18 11:16:07  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, control frame timeout
+121  1405/07/18 12:05:10  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+122  1405/07/18 12:05:11  [system,info]  user olom1 added by garnaf
+123  1405/07/18 12:05:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+124  1405/07/18 12:26:01  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+125  1405/07/19 08:19:28  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
+126  1405/07/19 08:26:38  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
+127  1405/07/19 09:38:37  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+128  1405/07/19 09:38:40  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+129  1405/07/19 11:33:23  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, control frame timeout
+130  1405/07/19 12:33:22  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+131  1405/07/19 17:39:59  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+132  1405/07/19 17:40:00  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+133  1405/07/20 08:12:27  [wireless,info]  6C:3B:6B:13:54:97@wlan1: reconnecting
+134  1405/07/20 08:12:27  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
+135  1405/07/20 08:30:34  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
+136  1405/07/20 11:38:26  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
+137  1405/07/20 12:33:11  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+138  1405/07/21 08:12:12  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
+139  1405/07/21 08:21:13  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
+140  1405/07/21 11:01:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+141  1405/07/21 11:01:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+142  1405/07/21 11:32:07  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
+143  1405/07/21 11:52:39  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+144  1405/07/22 08:45:26  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
+145  1405/07/22 09:25:06  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
+146  1405/07/22 11:43:13  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
+147  1405/07/22 12:20:58  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+148  1405/07/22 13:19:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+149  1405/07/22 13:19:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+150  1405/07/23 12:26:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+151  1405/07/23 12:26:53  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+152  1405/07/24 15:23:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+153  1405/07/24 15:23:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+154  1405/07/24 15:54:37  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+155  1405/07/24 15:54:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+156  1405/07/25 08:10:45  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
+157  1405/07/25 08:23:04  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
+158  1405/07/25 11:56:09  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+159  1405/07/25 12:22:41  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
+160  1405/07/26 08:16:48  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -78
+161  1405/07/26 08:59:10  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+162  1405/07/26 08:59:14  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+163  1405/07/26 09:01:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+164  1405/07/26 09:01:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+165  1405/07/26 09:18:01  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
+166  1405/07/26 12:08:06  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
+167  1405/07/26 12:37:19  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+168  1405/07/27 08:18:49  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -64
+169  1405/07/27 08:22:29  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -80
+170  1405/07/27 11:48:33  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
+171  1405/07/27 12:26:16  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+172  1405/07/28 08:07:44  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -76
+173  1405/07/28 08:19:25  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
+174  1405/07/28 11:47:57  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
+175  1405/07/28 13:02:57  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+176  1405/07/29 08:20:40  [wireless,info]  6C:3B:6B:13:54:97@wlan1: connected, signal strength -76
+177  1405/07/29 08:28:36  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: connected, signal strength -62
+178  1405/07/29 12:08:15  [wireless,info]  6C:3B:6B:13:54:97@wlan1: disconnected, not responding
+179  1405/07/29 12:10:45  [wireless,info]  6C:3B:6B:13:57:8D@wlan1: disconnected, not responding
+180  1405/07/29 16:33:23  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

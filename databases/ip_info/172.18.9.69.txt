@@ -1,5 +1,5 @@
 IP: 172.18.9.69
-Collected at: 2026-10-14T10:24:39.134407+00:00
+Collected at: 2026-10-21T13:18:07.925609+00:00
 source: RouterOS API
 identity: Seydavieh2.Client
 device_type: ST
@@ -26,17 +26,49 @@ name=wlan1  mode=station-bridge  ssid=Abadan-Khezr4  band=5ghz-a/n  frequency=52
 ----- neighbors -----
 === /ip neighbor ===
   1  identity=Abadan-Khezr4.AP  address=172.18.9.66  interface=wlan1
-  2  identity=Tangeh2.Client  address=172.18.9.71  interface=wlan1
+  2  identity=Seydavieh1.Client  address=172.18.9.68  interface=wlan1
+  3  identity=Tangeh2.Client  address=172.18.9.71  interface=wlan1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:38:01
-# ساعت دستگاه (خام): 1974-10-26 06:46:22
-# افست اصلاحی (سرور − دستگاه): +455547:21:39
-  1  1405/07/21 09:36:51  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/21 09:36:59  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
-  3  1405/07/21 09:37:01  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/22 13:38:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:41:46
+# ساعت دستگاه (خام): 1974-11-02 09:52:57
+# افست اصلاحی (سرور − دستگاه): +455547:18:49
+  1  1405/07/21 09:34:01  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/21 09:34:09  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+  3  1405/07/21 09:34:11  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/22 13:35:10  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  5  1405/07/22 13:35:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  6  1405/07/22 13:46:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  7  1405/07/22 13:46:43  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  8  1405/07/24 04:18:35  [dhcp,info]  dhcp1 deassigned 172.29.69.220 from 98:DE:D0:26:FB:35
+  9  1405/07/24 15:36:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 10  1405/07/24 15:36:21  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 11  1405/07/24 15:44:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 12  1405/07/24 15:45:00  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 13  1405/07/24 16:03:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 14  1405/07/24 16:03:49  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 15  1405/07/24 16:07:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 16  1405/07/24 16:07:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 17  1405/07/25 08:36:39  [dhcp,info]  dhcp1 deassigned 172.29.69.221 from F0:2F:74:F9:BA:B9
+ 18  1405/07/25 08:36:39  [dhcp,info]  dhcp1 assigned 172.29.69.221 to F0:2F:74:F9:BA:B9
+ 19  1405/07/25 10:17:47  [dhcp,info]  dhcp1 assigned 172.29.69.220 to 98:DE:D0:26:FB:35
+ 20  1405/07/26 00:02:18  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, no beacons received
+ 21  1405/07/26 00:02:29  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+ 22  1405/07/26 00:14:35  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, no beacons received
+ 23  1405/07/26 00:14:46  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+ 24  1405/07/26 07:18:52  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, no beacons received
+ 25  1405/07/26 07:18:57  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+ 26  1405/07/26 09:12:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 27  1405/07/26 09:12:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 28  1405/07/26 09:15:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 29  1405/07/26 09:15:10  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 30  1405/07/26 09:21:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 31  1405/07/26 09:21:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 32  1405/07/26 09:23:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 33  1405/07/26 09:23:32  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 34  1405/07/28 10:31:00  [dhcp,info]  dhcp1 deassigned 172.29.69.220 from 98:DE:D0:26:FB:35
+ 35  1405/07/29 16:41:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

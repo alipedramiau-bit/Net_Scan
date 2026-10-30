@@ -1,5 +1,5 @@
 IP: 172.27.240.19
-Collected at: 2026-10-14T10:24:51.086418+00:00
+Collected at: 2026-10-21T13:18:11.260832+00:00
 source: RouterOS API
 identity: LINK-MALI-CL
 device_type: ST
@@ -33,20 +33,30 @@ name=wlan1  mode=station-bridge  ssid=LINK-MALI  band=5ghz-a/n  frequency=5765
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:39:14
-# ساعت دستگاه (خام): 1972-12-19 02:05:50
-# افست اصلاحی (سرور − دستگاه): +471776:03:24
-  1  1405/07/19 15:24:18  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/19 15:24:20  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:61:6E:33
-  3  1405/07/19 15:24:28  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/19 15:24:35  [wireless,info]  E4:8D:8C:61:69:87@wlan1 established connection on 5460000, SSID LINK-MALI
-  5  1405/07/19 15:24:39  [interface,info]  ether1 link down
-  6  1405/07/19 15:24:48  [interface,info]  ether1 link up (speed 100M, full duplex)
-  7  1405/07/19 17:45:36  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-  8  1405/07/19 17:45:36  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-  9  1405/07/21 11:15:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 10  1405/07/21 11:15:40  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 11  1405/07/22 13:39:12  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:42:09
+# ساعت دستگاه (خام): 1972-12-26 05:11:33
+# افست اصلاحی (سرور − دستگاه): +471776:00:36
+  1  1405/07/19 15:21:30  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/19 15:21:32  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:61:6E:33
+  3  1405/07/19 15:21:40  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/19 15:21:47  [wireless,info]  E4:8D:8C:61:69:87@wlan1 established connection on 5460000, SSID LINK-MALI
+  5  1405/07/19 15:21:51  [interface,info]  ether1 link down
+  6  1405/07/19 15:22:00  [interface,info]  ether1 link up (speed 100M, full duplex)
+  7  1405/07/19 17:42:48  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+  8  1405/07/19 17:42:48  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+  9  1405/07/21 11:12:50  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 10  1405/07/21 11:12:52  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 11  1405/07/22 13:36:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 12  1405/07/22 13:36:26  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 13  1405/07/24 15:37:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 14  1405/07/24 15:37:17  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 15  1405/07/24 16:04:10  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 16  1405/07/24 16:04:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 17  1405/07/26 09:13:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 18  1405/07/26 09:13:45  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 19  1405/07/26 09:16:13  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 20  1405/07/26 09:16:14  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 21  1405/07/29 16:42:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

@@ -1,5 +1,5 @@
 IP: 172.18.26.68
-Collected at: 2026-10-15T10:09:00.049502+00:00
+Collected at: 2026-10-21T13:17:07.490319+00:00
 source: RouterOS API
 identity: DerisiyehVasati.Client
 device_type: ST
@@ -34,215 +34,93 @@ name=wlan1  mode=station-bridge  ssid=Shadegan-OmolGhazlan1  band=5ghz-a/n  freq
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:34:42
-# ساعت دستگاه (خام): 2024-01-01 02:22:00
-# افست اصلاحی (سرور − دستگاه): +24438:42:42
-  1  1405/07/20 18:34:14  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/20 18:34:24  [wireless,info]  6C:3B:6B:4D:A4:02@wlan1 established connection on 5520000, SSID Shadegan-OmolGhazlan1
-  3  1405/07/20 18:34:24  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/20 18:38:40  [dhcp,info]  dhcp1 deassigned 172.29.207.168 from 3C:0E:23:92:FA:C0
-  5  1405/07/20 18:38:40  [dhcp,info]  dhcp1 assigned 172.29.207.168 to 3C:0E:23:92:FA:C0
-  6  1405/07/20 18:38:49  [dhcp,info]  dhcp1 deassigned 172.29.207.167 from 84:16:F9:45:42:B3
-  7  1405/07/20 18:38:49  [dhcp,info]  dhcp1 assigned 172.29.207.167 to 84:16:F9:45:42:B3
-  8  1405/07/21 09:01:39  [dhcp,info]  dhcp1 deassigned 172.29.207.165 from 1C:1B:0D:A0:58:4E
-  9  1405/07/21 09:01:39  [dhcp,info]  dhcp1 assigned 172.29.207.165 to 1C:1B:0D:A0:58:4E
- 10  1405/07/21 09:13:55  [dhcp,info]  dhcp1 deassigned 172.29.207.166 from 58:11:22:9D:23:87
- 11  1405/07/21 09:13:55  [dhcp,info]  dhcp1 assigned 172.29.207.166 to 58:11:22:9D:23:87
- 12  1405/07/21 09:14:59  [dhcp,info]  dhcp1 deassigned 172.29.207.174 from 1C:1B:0D:EC:09:21
- 13  1405/07/21 09:14:59  [dhcp,info]  dhcp1 assigned 172.29.207.174 to 1C:1B:0D:EC:09:21
- 14  1405/07/21 09:15:07  [dhcp,info]  dhcp1 deassigned 172.29.207.169 from F0:2F:74:F9:BA:DD
- 15  1405/07/21 09:15:07  [dhcp,info]  dhcp1 assigned 172.29.207.169 to F0:2F:74:F9:BA:DD
- 16  1405/07/21 09:27:26  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
- 17  1405/07/21 09:27:26  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
- 18  1405/07/21 09:27:26  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
- 19  1405/07/21 09:27:26  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
- 20  1405/07/21 09:29:13  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
- 21  1405/07/21 09:29:13  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
- 22  1405/07/21 09:29:14  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
- 23  1405/07/21 09:29:14  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
- 24  1405/07/21 09:30:42  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
- 25  1405/07/21 09:30:42  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
- 26  1405/07/21 09:30:43  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
- 27  1405/07/21 09:30:43  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
- 28  1405/07/21 09:31:50  [dhcp,info]  dhcp1 deassigned 172.29.207.177 from 74:D4:35:20:11:8F
- 29  1405/07/21 09:31:50  [dhcp,info]  dhcp1 assigned 172.29.207.177 to 74:D4:35:20:11:8F
- 30  1405/07/21 09:31:53  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
- 31  1405/07/21 09:31:53  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
- 32  1405/07/21 09:31:54  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
- 33  1405/07/21 09:31:54  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
- 34  1405/07/21 09:33:20  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
- 35  1405/07/21 09:33:20  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
- 36  1405/07/21 09:33:20  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
- 37  1405/07/21 09:33:20  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
- 38  1405/07/21 10:07:18  [dhcp,info]  dhcp1 deassigned 172.29.207.174 from 1C:1B:0D:EC:09:21
- 39  1405/07/21 10:07:18  [dhcp,info]  dhcp1 assigned 172.29.207.174 to 1C:1B:0D:EC:09:21
- 40  1405/07/21 10:37:57  [dhcp,info]  dhcp1 deassigned 172.29.207.174 from 1C:1B:0D:EC:09:21
- 41  1405/07/21 10:37:57  [dhcp,info]  dhcp1 assigned 172.29.207.174 to 1C:1B:0D:EC:09:21
- 42  1405/07/21 10:46:30  [dhcp,info]  dhcp1 deassigned 172.29.207.169 from F0:2F:74:F9:BA:DD
- 43  1405/07/21 10:46:30  [dhcp,info]  dhcp1 assigned 172.29.207.169 to F0:2F:74:F9:BA:DD
- 44  1405/07/21 11:08:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 45  1405/07/21 11:08:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 46  1405/07/21 11:08:34  [dhcp,info]  dhcp1 deassigned 172.29.207.174 from 1C:1B:0D:EC:09:21
- 47  1405/07/21 11:08:34  [dhcp,info]  dhcp1 assigned 172.29.207.174 to 1C:1B:0D:EC:09:21
- 48  1405/07/21 11:21:06  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 49  1405/07/21 11:21:15  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 50  1405/07/21 11:39:07  [dhcp,info]  dhcp1 deassigned 172.29.207.174 from 1C:1B:0D:EC:09:21
- 51  1405/07/21 11:39:07  [dhcp,info]  dhcp1 assigned 172.29.207.174 to 1C:1B:0D:EC:09:21
- 52  1405/07/21 12:09:46  [dhcp,info]  dhcp1 deassigned 172.29.207.174 from 1C:1B:0D:EC:09:21
- 53  1405/07/21 12:09:46  [dhcp,info]  dhcp1 assigned 172.29.207.174 to 1C:1B:0D:EC:09:21
- 54  1405/07/21 12:30:34  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
- 55  1405/07/21 12:30:34  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
- 56  1405/07/21 12:30:34  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
- 57  1405/07/21 12:30:34  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
- 58  1405/07/21 12:31:24  [dhcp,info]  dhcp1 deassigned 172.29.207.165 from 1C:1B:0D:A0:58:4E
- 59  1405/07/21 12:31:24  [dhcp,info]  dhcp1 assigned 172.29.207.165 to 1C:1B:0D:A0:58:4E
- 60  1405/07/21 12:32:36  [dhcp,info]  dhcp1 deassigned 172.29.207.166 from 58:11:22:9D:23:87
- 61  1405/07/21 12:32:36  [dhcp,info]  dhcp1 assigned 172.29.207.166 to 58:11:22:9D:23:87
- 62  1405/07/21 15:21:28  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
- 63  1405/07/21 15:21:28  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
- 64  1405/07/21 15:21:28  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
- 65  1405/07/21 15:21:28  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
- 66  1405/07/21 15:21:50  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
- 67  1405/07/21 15:21:50  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
- 68  1405/07/21 15:21:51  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
- 69  1405/07/21 15:21:51  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
- 70  1405/07/21 15:22:16  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
- 71  1405/07/21 15:22:16  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
- 72  1405/07/21 15:22:17  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
- 73  1405/07/21 15:22:17  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
- 74  1405/07/21 15:22:33  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
- 75  1405/07/21 15:22:33  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
- 76  1405/07/21 15:22:33  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
- 77  1405/07/21 15:22:33  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
- 78  1405/07/21 15:23:29  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
- 79  1405/07/21 15:23:29  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
- 80  1405/07/21 15:23:30  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
- 81  1405/07/21 15:23:30  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
- 82  1405/07/21 15:23:46  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
- 83  1405/07/21 15:23:46  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
- 84  1405/07/21 15:23:46  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
- 85  1405/07/21 15:23:46  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
- 86  1405/07/21 20:49:38  [wireless,info]  6C:3B:6B:4D:A4:02@wlan1: lost connection, no beacons received
- 87  1405/07/21 20:49:45  [wireless,info]  6E:3B:6B:4D:A4:02@wlan1 established connection on 5520000, SSID Shadegan-OmolGhazlan1
- 88  1405/07/21 20:49:50  [wireless,info]  6E:3B:6B:4D:A4:02@wlan1: lost connection, received deauth: 4-way handshake timeout (15)
- 89  1405/07/21 20:49:57  [wireless,info]  6C:3B:6B:4D:A4:02@wlan1 established connection on 5520000, SSID Shadegan-OmolGhazlan1
- 90  1405/07/21 23:36:14  [wireless,info]  6C:3B:6B:4D:A4:02@wlan1: lost connection, extensive data loss
- 91  1405/07/21 23:36:21  [wireless,info]  6E:3B:6B:4D:A4:02@wlan1 established connection on 5520000, SSID Shadegan-OmolGhazlan1
- 92  1405/07/21 23:36:26  [wireless,info]  6E:3B:6B:4D:A4:02@wlan1: lost connection, received deauth: 4-way handshake timeout (15)
- 93  1405/07/21 23:36:32  [wireless,info]  6C:3B:6B:4D:A4:02@wlan1 established connection on 5520000, SSID Shadegan-OmolGhazlan1
- 94  1405/07/22 08:04:00  [dhcp,info]  dhcp1 deassigned 172.29.207.172 from B4:2E:99:5A:10:2E
- 95  1405/07/22 08:26:30  [dhcp,info]  dhcp1 deassigned 172.29.207.166 from 58:11:22:9D:23:87
- 96  1405/07/22 08:26:30  [dhcp,info]  dhcp1 assigned 172.29.207.166 to 58:11:22:9D:23:87
- 97  1405/07/22 08:29:18  [dhcp,info]  dhcp1 deassigned 172.29.207.169 from F0:2F:74:F9:BA:DD
- 98  1405/07/22 08:29:18  [dhcp,info]  dhcp1 assigned 172.29.207.169 to F0:2F:74:F9:BA:DD
- 99  1405/07/22 08:29:34  [dhcp,info]  dhcp1 deassigned 172.29.207.165 from 1C:1B:0D:A0:58:4E
-100  1405/07/22 08:29:34  [dhcp,info]  dhcp1 assigned 172.29.207.165 to 1C:1B:0D:A0:58:4E
-101  1405/07/22 08:41:58  [dhcp,info]  dhcp1 assigned 172.29.207.172 to B4:2E:99:5A:10:2E
-102  1405/07/22 08:50:45  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-103  1405/07/22 08:50:45  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-104  1405/07/22 08:50:46  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-105  1405/07/22 08:50:46  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-106  1405/07/22 09:01:43  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-107  1405/07/22 09:01:43  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-108  1405/07/22 09:01:44  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-109  1405/07/22 09:01:44  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-110  1405/07/22 09:11:04  [dhcp,info]  dhcp1 deassigned 172.29.207.174 from 1C:1B:0D:EC:09:21
-111  1405/07/22 09:11:04  [dhcp,info]  dhcp1 assigned 172.29.207.174 to 1C:1B:0D:EC:09:21
-112  1405/07/22 09:23:05  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-113  1405/07/22 09:23:05  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-114  1405/07/22 09:23:05  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-115  1405/07/22 09:23:05  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-116  1405/07/22 09:23:42  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-117  1405/07/22 09:23:42  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-118  1405/07/22 09:23:43  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-119  1405/07/22 09:23:43  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-120  1405/07/22 09:23:53  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-121  1405/07/22 09:23:53  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-122  1405/07/22 09:23:53  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-123  1405/07/22 09:23:53  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-124  1405/07/22 09:28:36  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-125  1405/07/22 09:28:36  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-126  1405/07/22 09:28:37  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-127  1405/07/22 09:28:37  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-128  1405/07/22 09:28:48  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-129  1405/07/22 09:28:48  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-130  1405/07/22 09:28:49  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-131  1405/07/22 09:28:49  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-132  1405/07/22 09:40:29  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-133  1405/07/22 09:40:29  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-134  1405/07/22 09:40:29  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-135  1405/07/22 09:40:29  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-136  1405/07/22 09:42:20  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-137  1405/07/22 09:42:20  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-138  1405/07/22 09:42:20  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-139  1405/07/22 09:42:20  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-140  1405/07/23 10:26:17  [dhcp,info]  dhcp1 deassigned 172.29.207.174 from 1C:1B:0D:EC:09:21
-141  1405/07/23 10:26:17  [dhcp,info]  dhcp1 assigned 172.29.207.174 to 1C:1B:0D:EC:09:21
-142  1405/07/23 10:38:56  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-143  1405/07/23 10:38:56  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-144  1405/07/23 10:38:56  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-145  1405/07/23 10:38:56  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-146  1405/07/23 10:41:58  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-147  1405/07/23 10:41:58  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-148  1405/07/23 10:41:58  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-149  1405/07/23 10:41:58  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-150  1405/07/23 10:48:00  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-151  1405/07/23 10:48:00  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-152  1405/07/23 10:48:00  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-153  1405/07/23 10:48:00  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-154  1405/07/23 10:58:23  [dhcp,info]  dhcp1 deassigned 172.29.207.174 from 1C:1B:0D:EC:09:21
-155  1405/07/23 10:58:23  [dhcp,info]  dhcp1 assigned 172.29.207.174 to 1C:1B:0D:EC:09:21
-156  1405/07/23 11:37:01  [dhcp,info]  dhcp1 deassigned 172.29.207.174 from 1C:1B:0D:EC:09:21
-157  1405/07/23 11:37:01  [dhcp,info]  dhcp1 assigned 172.29.207.174 to 1C:1B:0D:EC:09:21
-158  1405/07/23 11:43:14  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-159  1405/07/23 11:43:14  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-160  1405/07/23 11:43:14  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-161  1405/07/23 11:43:14  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-162  1405/07/23 11:46:51  [dhcp,info]  dhcp1 deassigned 172.29.207.166 from 58:11:22:9D:23:87
-163  1405/07/23 11:46:51  [dhcp,info]  dhcp1 assigned 172.29.207.166 to 58:11:22:9D:23:87
-164  1405/07/23 11:58:57  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-165  1405/07/23 11:58:57  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-166  1405/07/23 11:58:57  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-167  1405/07/23 11:58:57  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-168  1405/07/23 12:00:48  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-169  1405/07/23 12:00:48  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-170  1405/07/23 12:00:48  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
-171  1405/07/23 12:00:48  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
-172  1405/07/23 12:38:03  [dhcp,info]  dhcp1 deassigned 172.29.207.166 from 58:11:22:9D:23:87
-173  1405/07/23 12:38:03  [dhcp,info]  dhcp1 assigned 172.29.207.166 to 58:11:22:9D:23:87
-174  1405/07/23 12:39:26  [wireless,info]  6C:3B:6B:4D:A4:02@wlan1: lost connection, no beacons received
-175  1405/07/23 12:39:52  [wireless,info]  6C:3B:6B:4D:A4:02@wlan1 established connection on 5520000, SSID Shadegan-OmolGhazlan1
-176  1405/07/23 13:27:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-177  1405/07/23 13:27:29  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-178  1405/07/23 13:46:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-179  1405/07/23 13:46:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-180  1405/07/24 05:19:56  [wireless,info]  6C:3B:6B:4D:A4:02@wlan1: lost connection, extensive data loss
-181  1405/07/24 05:20:30  [wireless,info]  6E:3B:6B:4D:A4:02@wlan1 established connection on 5520000, SSID Shadegan-OmolGhazlan1
-182  1405/07/24 05:20:35  [wireless,info]  6E:3B:6B:4D:A4:02@wlan1: lost connection, received deauth: 4-way handshake timeout (15)
-183  1405/07/24 05:20:41  [wireless,info]  6E:3B:6B:4D:A4:02@wlan1 established connection on 5520000, SSID Shadegan-OmolGhazlan1
-184  1405/07/24 05:20:46  [wireless,info]  6E:3B:6B:4D:A4:02@wlan1: lost connection, received deauth: 4-way handshake timeout (15)
-185  1405/07/24 05:20:53  [wireless,info]  6E:3B:6B:4D:A4:02@wlan1 established connection on 5520000, SSID Shadegan-OmolGhazlan1
-186  1405/07/24 05:20:58  [wireless,info]  6E:3B:6B:4D:A4:02@wlan1: lost connection, received deauth: 4-way handshake timeout (15)
-187  1405/07/24 05:21:05  [wireless,info]  6C:3B:6B:4D:A4:02@wlan1 established connection on 5520000, SSID Shadegan-OmolGhazlan1
-188  1405/07/24 08:39:18  [dhcp,info]  dhcp1 deassigned 172.29.207.169 from F0:2F:74:F9:BA:DD
-189  1405/07/24 08:39:34  [dhcp,info]  dhcp1 deassigned 172.29.207.165 from 1C:1B:0D:A0:58:4E
-190  1405/07/24 08:51:58  [dhcp,info]  dhcp1 deassigned 172.29.207.172 from B4:2E:99:5A:10:2E
-191  1405/07/23 11:47:01  [dhcp,info]  dhcp1 deassigned 172.29.207.174 from 1C:1B:0D:EC:09:21
-192  1405/07/23 12:34:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:35:56
+# ساعت دستگاه (خام): 2024-01-05 18:46:16
+# افست اصلاحی (سرور − دستگاه): +24474:19:40
+  1  1405/07/27 20:56:41  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/27 20:56:50  [wireless,info]  6C:3B:6B:4D:A4:02@wlan1 established connection on 5520000, SSID Shadegan-OmolGhazlan1
+  3  1405/07/27 20:56:51  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/27 21:01:06  [dhcp,info]  dhcp1 deassigned 172.29.207.168 from 3C:0E:23:92:FA:C0
+  5  1405/07/27 21:01:06  [dhcp,info]  dhcp1 assigned 172.29.207.168 to 3C:0E:23:92:FA:C0
+  6  1405/07/27 21:01:23  [dhcp,info]  dhcp1 deassigned 172.29.207.167 from 84:16:F9:45:42:B3
+  7  1405/07/27 21:01:23  [dhcp,info]  dhcp1 assigned 172.29.207.167 to 84:16:F9:45:42:B3
+  8  1405/07/28 08:10:58  [dhcp,info]  dhcp1 deassigned 172.29.207.174 from 1C:1B:0D:EC:09:21
+  9  1405/07/28 08:10:58  [dhcp,info]  dhcp1 assigned 172.29.207.174 to 1C:1B:0D:EC:09:21
+ 10  1405/07/28 08:18:12  [wireless,info]  6C:3B:6B:4D:A4:02@wlan1: lost connection, no beacons received
+ 11  1405/07/28 08:18:38  [wireless,info]  6C:3B:6B:4D:A4:02@wlan1 established connection on 5520000, SSID Shadegan-OmolGhazlan1
+ 12  1405/07/28 08:20:56  [dhcp,info]  dhcp1 assigned 172.29.207.165 to 1C:1B:0D:A0:58:4E
+ 13  1405/07/28 09:00:10  [dhcp,info]  dhcp1 deassigned 172.29.207.174 from 1C:1B:0D:EC:09:21
+ 14  1405/07/28 09:00:10  [dhcp,info]  dhcp1 assigned 172.29.207.174 to 1C:1B:0D:EC:09:21
+ 15  1405/07/28 09:33:44  [dhcp,info]  dhcp1 deassigned 172.29.207.165 from 1C:1B:0D:A0:58:4E
+ 16  1405/07/28 09:33:44  [dhcp,info]  dhcp1 assigned 172.29.207.165 to 1C:1B:0D:A0:58:4E
+ 17  1405/07/28 09:55:46  [dhcp,info]  dhcp1 deassigned 172.29.207.174 from 1C:1B:0D:EC:09:21
+ 18  1405/07/28 09:55:46  [dhcp,info]  dhcp1 assigned 172.29.207.174 to 1C:1B:0D:EC:09:21
+ 19  1405/07/28 10:05:34  [dhcp,info]  dhcp1 deassigned 172.29.207.169 from F0:2F:74:F9:BA:DD
+ 20  1405/07/28 10:05:34  [dhcp,info]  dhcp1 assigned 172.29.207.169 to F0:2F:74:F9:BA:DD
+ 21  1405/07/28 10:25:20  [dhcp,info]  dhcp1 deassigned 172.29.207.169 from F0:2F:74:F9:BA:DD
+ 22  1405/07/28 10:25:20  [dhcp,info]  dhcp1 assigned 172.29.207.169 to F0:2F:74:F9:BA:DD
+ 23  1405/07/28 10:35:50  [dhcp,info]  dhcp1 deassigned 172.29.207.174 from 1C:1B:0D:EC:09:21
+ 24  1405/07/28 10:35:50  [dhcp,info]  dhcp1 assigned 172.29.207.174 to 1C:1B:0D:EC:09:21
+ 25  1405/07/28 12:26:52  [dhcp,info]  dhcp1 deassigned 172.29.207.169 from F0:2F:74:F9:BA:DD
+ 26  1405/07/28 12:26:52  [dhcp,info]  dhcp1 assigned 172.29.207.169 to F0:2F:74:F9:BA:DD
+ 27  1405/07/28 13:39:15  [dhcp,info]  dhcp1 deassigned 172.29.207.169 from F0:2F:74:F9:BA:DD
+ 28  1405/07/28 13:39:15  [dhcp,info]  dhcp1 assigned 172.29.207.169 to F0:2F:74:F9:BA:DD
+ 29  1405/07/28 21:02:17  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
+ 30  1405/07/28 21:04:50  [dhcp,info]  dhcp1 deassigned 172.29.207.166 from 58:11:22:9D:23:87
+ 31  1405/07/29 08:14:22  [dhcp,info]  dhcp1 assigned 172.29.207.166 to 58:11:22:9D:23:87
+ 32  1405/07/29 08:16:23  [dhcp,info]  dhcp1 deassigned 172.29.207.169 from F0:2F:74:F9:BA:DD
+ 33  1405/07/29 08:16:23  [dhcp,info]  dhcp1 assigned 172.29.207.169 to F0:2F:74:F9:BA:DD
+ 34  1405/07/29 08:20:18  [dhcp,info]  dhcp1 deassigned 172.29.207.174 from 1C:1B:0D:EC:09:21
+ 35  1405/07/29 08:20:18  [dhcp,info]  dhcp1 assigned 172.29.207.174 to 1C:1B:0D:EC:09:21
+ 36  1405/07/29 08:31:38  [dhcp,info]  dhcp1 deassigned 172.29.207.166 from 58:11:22:9D:23:87
+ 37  1405/07/29 08:31:38  [dhcp,info]  dhcp1 assigned 172.29.207.166 to 58:11:22:9D:23:87
+ 38  1405/07/29 08:52:21  [dhcp,info]  dhcp1 deassigned 172.29.207.166 from 58:11:22:9D:23:87
+ 39  1405/07/29 08:52:21  [dhcp,info]  dhcp1 assigned 172.29.207.166 to 58:11:22:9D:23:87
+ 40  1405/07/29 08:54:46  [dhcp,info]  dhcp1 deassigned 172.29.207.166 from 58:11:22:9D:23:87
+ 41  1405/07/29 08:54:46  [dhcp,info]  dhcp1 assigned 172.29.207.166 to 58:11:22:9D:23:87
+ 42  1405/07/29 09:15:12  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
+ 43  1405/07/29 09:15:12  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
+ 44  1405/07/29 09:15:12  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
+ 45  1405/07/29 09:30:29  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
+ 46  1405/07/29 09:30:29  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
+ 47  1405/07/29 09:30:29  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
+ 48  1405/07/29 09:30:29  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
+ 49  1405/07/29 10:11:48  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
+ 50  1405/07/29 10:11:48  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
+ 51  1405/07/29 10:11:48  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
+ 52  1405/07/29 10:11:48  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
+ 53  1405/07/29 10:24:09  [dhcp,info]  dhcp1 deassigned 172.29.207.174 from 1C:1B:0D:EC:09:21
+ 54  1405/07/29 10:24:09  [dhcp,info]  dhcp1 assigned 172.29.207.174 to 1C:1B:0D:EC:09:21
+ 55  1405/07/29 11:03:07  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
+ 56  1405/07/29 11:03:07  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
+ 57  1405/07/29 11:03:08  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
+ 58  1405/07/29 11:03:08  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
+ 59  1405/07/29 11:03:18  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
+ 60  1405/07/29 11:03:18  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
+ 61  1405/07/29 11:03:18  [dhcp,info]  dhcp1 deassigned 172.29.207.176 from 00:17:6F:20:63:83
+ 62  1405/07/29 11:03:18  [dhcp,info]  dhcp1 assigned 172.29.207.176 to 00:17:6F:20:63:83
+ 63  1405/07/29 11:05:18  [dhcp,info]  dhcp1 deassigned 172.29.207.166 from 58:11:22:9D:23:87
+ 64  1405/07/29 11:05:18  [dhcp,info]  dhcp1 assigned 172.29.207.166 to 58:11:22:9D:23:87
+ 65  1405/07/29 11:15:02  [dhcp,info]  dhcp1 deassigned 172.29.207.174 from 1C:1B:0D:EC:09:21
+ 66  1405/07/29 11:15:02  [dhcp,info]  dhcp1 assigned 172.29.207.174 to 1C:1B:0D:EC:09:21
+ 67  1405/07/29 12:35:44  [dhcp,info]  dhcp1 deassigned 172.29.207.169 from F0:2F:74:F9:BA:DD
+ 68  1405/07/29 12:35:44  [dhcp,info]  dhcp1 assigned 172.29.207.169 to F0:2F:74:F9:BA:DD
+ 69  1405/07/29 12:41:33  [dhcp,info]  dhcp1 deassigned 172.29.207.169 from F0:2F:74:F9:BA:DD
+ 70  1405/07/29 12:41:33  [dhcp,info]  dhcp1 assigned 172.29.207.169 to F0:2F:74:F9:BA:DD
+ 71  1405/07/29 16:35:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
 ether1  6C:3B:6B:4D:A3:15  (ether)
 wlan1  6C:3B:6B:4D:A3:16  (wlan)
 --- /ip arp ---
-ether1  6C:3B:6B:34:00:82  (arp 172.29.207.163)
-ether1  74:D4:35:20:11:8F  (arp 172.29.207.177)
-ether1  84:16:F9:45:42:B3  (arp 172.29.207.167)
-ether1  00:02:65:15:E1:36  (arp 172.29.207.180)
-ether1  B8:69:F4:69:5F:0B  (arp 172.29.207.164)
 ether1  00:12:43:15:3A:F1  (arp 172.29.207.170)
-ether1  F6:70:00:07:92:DC  (arp 172.29.207.175)
-wlan1  6C:3B:6B:A9:FE:77  (arp 172.18.26.65)
-ether1  F6:70:00:07:92:DA  (arp 172.29.207.173)
-ether1  CC:2D:E0:44:EA:7D  (arp 172.29.207.162)
+ether1  00:02:65:15:E1:36  (arp 172.29.207.180)
+ether1  74:D4:35:20:11:8F  (arp 172.29.207.177)
 ether1  00:17:6F:20:63:83  (arp 172.29.207.176)
+wlan1  6C:3B:6B:A9:FE:77  (arp 172.18.26.65)
+ether1  B8:69:F4:69:5F:0B  (arp 172.29.207.164)
+ether1  84:16:F9:45:42:B3  (arp 172.29.207.167)
+ether1  6C:3B:6B:34:00:82  (arp 172.29.207.163)
+ether1  F6:70:00:07:92:DA  (arp 172.29.207.172)
+ether1  F6:70:00:07:92:DC  (arp 172.29.207.175)

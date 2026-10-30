@@ -1,5 +1,5 @@
 IP: 172.29.195.3
-Collected at: 2026-10-14T10:25:13.265112+00:00
+Collected at: 2026-10-21T13:18:20.973307+00:00
 source: RouterOS API
 identity: Salemi-hAplite
 device_type: ST
@@ -38,19 +38,35 @@ name=wlan1  mode=station  ssid=MikroTik  band=2ghz-b/g  frequency=2412
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:42:29
-# ساعت دستگاه (خام): 2025-03-28 16:23:18
-# افست اصلاحی (سرور − دستگاه): +13553:49:11
-  1  1405/07/22 10:10:17  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 10:10:25  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:C7:B9:C8
-  3  1405/07/22 10:10:27  [interface,info]  ether2-AccPoint link up (speed 100M, full duplex)
-  4  1405/07/22 10:10:27  [interface,info]  ether3 link up (speed 100M, full duplex)
-  5  1405/07/22 10:10:27  [interface,info]  ether4 link up (speed 100M, full duplex)
-  6  1405/07/22 10:10:27  [interface,info]  ether5-QRT link up (speed 100M, full duplex)
-  7  1405/07/22 10:10:29  [interface,info]  ether3 link down
-  8  1405/07/22 10:10:30  [interface,info]  ether1-Input link up (speed 100M, full duplex)
-  9  1405/07/22 10:10:30  [interface,info]  ether3 link up (speed 100M, full duplex)
- 10  1405/07/22 13:42:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:43:00
+# ساعت دستگاه (خام): 2025-04-04 19:26:37
+# افست اصلاحی (سرور − دستگاه): +13553:46:23
+  1  1405/07/22 10:07:29  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/22 10:07:37  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:C7:B9:C8
+  3  1405/07/22 10:07:39  [interface,info]  ether2-AccPoint link up (speed 100M, full duplex)
+  4  1405/07/22 10:07:39  [interface,info]  ether3 link up (speed 100M, full duplex)
+  5  1405/07/22 10:07:39  [interface,info]  ether4 link up (speed 100M, full duplex)
+  6  1405/07/22 10:07:39  [interface,info]  ether5-QRT link up (speed 100M, full duplex)
+  7  1405/07/22 10:07:41  [interface,info]  ether3 link down
+  8  1405/07/22 10:07:42  [interface,info]  ether1-Input link up (speed 100M, full duplex)
+  9  1405/07/22 10:07:42  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 10  1405/07/22 13:39:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 11  1405/07/22 13:39:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 12  1405/07/24 15:40:16  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 13  1405/07/24 15:40:17  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 14  1405/07/24 16:05:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 15  1405/07/24 16:05:21  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 16  1405/07/26 09:17:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 17  1405/07/26 09:17:17  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 18  1405/07/26 09:19:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 19  1405/07/26 09:19:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 20  1405/07/26 12:04:57  [interface,info]  ether4 link down
+ 21  1405/07/27 08:36:24  [interface,info]  ether4 link up (speed 100M, full duplex)
+ 22  1405/07/27 12:11:54  [interface,info]  ether4 link down
+ 23  1405/07/28 08:16:15  [interface,info]  ether4 link up (speed 100M, full duplex)
+ 24  1405/07/29 12:15:29  [interface,info]  ether4 link down
+ 25  1405/07/29 15:27:12  [interface,info]  ether4 link up (speed 100M, full duplex)
+ 26  1405/07/29 16:42:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

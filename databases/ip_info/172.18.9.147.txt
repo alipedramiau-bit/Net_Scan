@@ -1,5 +1,5 @@
 IP: 172.18.9.147
-Collected at: 2026-10-14T10:24:21.058284+00:00
+Collected at: 2026-10-21T13:17:45.058364+00:00
 source: RouterOS API
 identity: Choebdeh2.Client
 device_type: ST
@@ -25,21 +25,19 @@ name=wlan1  mode=station-bridge  ssid=Abadan-Choebdeh2  band=5ghz-a/n  frequency
 
 ----- neighbors -----
 === /ip neighbor ===
-  1  identity=-  address=-  interface=ether1
-  2  identity=Choebdeh-MK  address=172.18.9.145  interface=wlan1
-  3  identity=Abadan-Choebdeh2.AP  address=172.18.9.146  interface=wlan1
+  1  identity=Choebdeh-MK  address=172.18.9.145  interface=wlan1
+  2  identity=Abadan-Choebdeh2.AP  address=172.18.9.146  interface=wlan1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:34:52
-# ساعت دستگاه (خام): 1970-04-13 09:01:48
-# افست اصلاحی (سرور − دستگاه): +495313:03:04
-  1  1405/07/22 08:28:29  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 08:28:36  [wireless,info]  CC:2D:E0:11:36:FD@wlan1 established connection on 5500000, SSID Abadan-Choebdeh2
-  3  1405/07/22 08:28:39  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/22 09:32:50  [dhcp,info]  dhcp1 deassigned 172.29.71.114 from A0:36:BC:2C:E9:74
-  5  1405/07/22 09:32:50  [dhcp,info]  dhcp1 assigned 172.29.71.114 to A0:36:BC:2C:E9:74
-  6  1405/07/22 13:34:50  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:39:47
+# ساعت دستگاه (خام): 1970-04-17 12:15:46
+# افست اصلاحی (سرور − دستگاه): +495384:54:01
+  1  1405/07/28 08:19:25  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/28 08:19:33  [wireless,info]  CC:2D:E0:11:36:FD@wlan1 established connection on 5500000, SSID Abadan-Choebdeh2
+  3  1405/07/28 08:19:35  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/28 09:34:36  [dhcp,info]  dhcp1 assigned 172.29.71.114 to A0:36:BC:2C:E9:74
+  5  1405/07/29 16:39:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

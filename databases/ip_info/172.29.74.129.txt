@@ -1,12 +1,12 @@
 IP: 172.29.74.129
-Collected at: 2026-10-14T10:25:46.666507+00:00
+Collected at: 2026-10-21T13:18:40.998658+00:00
 source: RouterOS API
 identity: NahrHamid.Client
 device_type: ST
 
 ----- interfaces -----
 === /interface ===
-  1  name=ether1  type=ether  running=false  mac=6C:3B:6B:34:02:3C
+  1  name=ether1  type=ether  running=true  mac=6C:3B:6B:34:02:3C
   2  name=wlan1  type=wlan  running=true  mac=6C:3B:6B:34:02:3D
 
 ----- wireless -----
@@ -21,7 +21,7 @@ name=wlan1  mode=station-bridge  ssid=Abadan-ArvanKenar1  band=5ghz-a/n  frequen
 === /ip route ===
   1  dst=0.0.0.0/0  gw=172.18.9.225  distance=1
   2  dst=172.18.9.224/28  gw=wlan1  distance=0
-  3  dst=172.29.74.128/27  gw=ether1  distance=255
+  3  dst=172.29.74.128/27  gw=ether1  distance=0
 
 ----- neighbors -----
 === /ip neighbor ===
@@ -31,16 +31,17 @@ name=wlan1  mode=station-bridge  ssid=Abadan-ArvanKenar1  band=5ghz-a/n  frequen
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:51:04
-# ساعت دستگاه (خام): 1972-04-29 10:35:11
-# افست اصلاحی (سرور − دستگاه): +477383:45:53
-  1  1405/07/22 06:44:41  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 06:45:34  [wireless,info]  6C:3B:6B:94:8C:48@wlan1 established connection on 5860000, SSID Abadan-ArvanKenar1
-  3  1405/07/22 06:59:32  [wireless,info]  6C:3B:6B:94:8C:48@wlan1: lost connection, extensive data loss
-  4  1405/07/22 07:00:24  [wireless,info]  6C:3B:6B:94:8C:48@wlan1 established connection on 5860000, SSID Abadan-ArvanKenar1
-  5  1405/07/22 13:36:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  6  1405/07/22 13:36:18  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  7  1405/07/22 13:51:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:45:37
+# ساعت دستگاه (خام): 1972-05-04 07:18:47
+# افست اصلاحی (سرور − دستگاه): +477437:56:50
+  1  1405/07/28 12:55:36  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/28 12:55:47  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/28 12:56:29  [wireless,info]  6C:3B:6B:94:8C:48@wlan1 established connection on 5860000, SSID Abadan-ArvanKenar1
+  4  1405/07/29 09:29:00  [wireless,info]  6C:3B:6B:94:8C:48@wlan1: lost connection, extensive data loss
+  5  1405/07/29 09:29:51  [wireless,info]  6C:3B:6B:94:8C:48@wlan1 established connection on 5860000, SSID Abadan-ArvanKenar1
+  6  1405/07/29 16:40:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  7  1405/07/29 16:40:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  8  1405/07/29 16:45:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

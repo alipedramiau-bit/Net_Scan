@@ -1,5 +1,5 @@
 IP: 172.29.206.1
-Collected at: 2026-10-14T10:25:26.214796+00:00
+Collected at: 2026-10-21T13:18:27.781847+00:00
 source: RouterOS API
 identity: CRS-Darkhovein
 device_type: Router
@@ -21,7 +21,7 @@ device_type: Router
  13  name=ether13  type=ether  running=false  mac=6C:3B:6B:09:35:1F
  14  name=ether14  type=ether  running=false  mac=6C:3B:6B:09:35:20
  15  name=ether15  type=ether  running=false  mac=6C:3B:6B:09:35:21
- 16  name=ether16  type=ether  running=true  mac=6C:3B:6B:09:35:22
+ 16  name=ether16  type=ether  running=false  mac=6C:3B:6B:09:35:22
  17  name=ether17  type=ether  running=false  mac=6C:3B:6B:09:35:23
  18  name=ether18  type=ether  running=false  mac=6C:3B:6B:09:35:24
  19  name=ether19  type=ether  running=false  mac=6C:3B:6B:09:35:25
@@ -57,82 +57,209 @@ device_type: Router
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:46:13
-# ساعت دستگاه (خام): 1972-04-04 04:45:47
-# افست اصلاحی (سرور − دستگاه): +477989:30:26
-  1  1405/07/22 09:54:10  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 09:54:10  [bridge,info]  "bridge-Local" mac address changed to 6C:3B:6B:09:35:14
-  3  1405/07/22 09:54:12  [interface,info]  ether1-input-from-rb2011 link up (speed 1G, full duplex)
-  4  1405/07/22 09:54:12  [interface,info]  ether3 link up (speed 100M, full duplex)
-  5  1405/07/22 09:54:13  [interface,info]  ether8 link up (speed 1G, full duplex)
-  6  1405/07/22 09:54:13  [interface,info]  ether23 link up (speed 100M, full duplex)
-  7  1405/07/22 09:54:13  [interface,info]  ether24 link up (speed 100M, full duplex)
-  8  1405/07/22 09:54:17  [dhcp,info]  dhcp1 deassigned 172.29.206.23 from 6C:5A:B0:4B:17:39
-  9  1405/07/22 09:54:17  [dhcp,info]  dhcp1 assigned 172.29.206.23 to 6C:5A:B0:4B:17:39
- 10  1405/07/22 09:54:17  [dhcp,info]  dhcp1 deassigned 172.29.206.33 from 1C:1B:0D:77:9A:00
- 11  1405/07/22 09:54:17  [dhcp,info]  dhcp1 assigned 172.29.206.33 to 1C:1B:0D:77:9A:00
- 12  1405/07/22 09:54:25  [dhcp,info]  dhcp1 deassigned 172.29.206.21 from E0:D5:5E:46:0F:9E
- 13  1405/07/22 09:54:25  [dhcp,info]  dhcp1 assigned 172.29.206.21 to E0:D5:5E:46:0F:9E
- 14  1405/07/22 09:54:25  [interface,info]  ether16 link up (speed 100M, full duplex)
- 15  1405/07/22 09:54:35  [dhcp,info]  dhcp1 deassigned 172.29.206.35 from 98:DE:D0:26:FD:62
- 16  1405/07/22 09:54:35  [dhcp,info]  dhcp1 assigned 172.29.206.35 to 98:DE:D0:26:FD:62
- 17  1405/07/22 09:54:39  [dhcp,info]  dhcp1 deassigned 172.29.206.36 from 98:DE:D0:26:FA:E3
- 18  1405/07/22 09:54:43  [dhcp,info]  dhcp1 assigned 172.29.206.36 to 98:DE:D0:26:FA:E3
- 19  1405/07/22 09:58:52  [dhcp,info]  dhcp1 deassigned 172.29.206.37 from D0:37:45:DD:2D:23
- 20  1405/07/22 09:58:52  [dhcp,info]  dhcp1 assigned 172.29.206.37 to D0:37:45:DD:2D:23
- 21  1405/07/22 10:00:34  [dhcp,info]  dhcp1 deassigned 172.29.206.24 from 50:3E:AA:6A:2F:6C
- 22  1405/07/22 10:00:47  [dhcp,info]  dhcp1 deassigned 172.29.206.31 from 50:EB:F6:99:84:3A
- 23  1405/07/22 10:07:17  [interface,info]  ether16 link down
- 24  1405/07/22 10:07:39  [interface,info]  ether16 link up (speed 100M, full duplex)
- 25  1405/07/22 10:07:48  [dhcp,info]  dhcp1 assigned 172.29.206.31 to 50:EB:F6:99:84:3A
- 26  1405/07/22 10:07:53  [dhcp,info]  dhcp1 assigned 172.29.206.24 to 50:3E:AA:6A:2F:6C
- 27  1405/07/22 10:26:43  [interface,info]  ether23 link down
- 28  1405/07/22 10:26:48  [interface,info]  ether23 link up (speed 100M, full duplex)
- 29  1405/07/22 10:36:51  [interface,info]  ether8 link down
- 30  1405/07/22 10:36:53  [interface,info]  ether8 link up (speed 10M, full duplex)
- 31  1405/07/22 10:36:59  [interface,info]  ether8 link down
- 32  1405/07/22 10:37:01  [interface,info]  ether8 link up (speed 1G, full duplex)
- 33  1405/07/22 11:07:02  [interface,info]  ether8 link down
- 34  1405/07/22 11:07:04  [interface,info]  ether8 link up (speed 10M, full duplex)
- 35  1405/07/22 11:07:10  [interface,info]  ether8 link down
- 36  1405/07/22 11:07:13  [interface,info]  ether8 link up (speed 1G, full duplex)
- 37  1405/07/22 11:14:26  [dhcp,info]  dhcp1 assigned 172.29.206.22 to 64:A2:00:37:30:9A
- 38  1405/07/22 11:20:03  [dhcp,info]  dhcp1 deassigned 172.29.206.35 from 98:DE:D0:26:FD:62
- 39  1405/07/22 11:30:07  [dhcp,info]  dhcp1 deassigned 172.29.206.22 from 64:A2:00:37:30:9A
- 40  1405/07/22 11:30:09  [dhcp,info]  dhcp1 assigned 172.29.206.22 to 64:A2:00:37:30:9A
- 41  1405/07/22 11:37:15  [interface,info]  ether8 link down
- 42  1405/07/22 11:37:17  [interface,info]  ether8 link up (speed 10M, full duplex)
- 43  1405/07/22 11:37:23  [interface,info]  ether8 link down
- 44  1405/07/22 11:37:25  [interface,info]  ether8 link up (speed 1G, full duplex)
- 45  1405/07/22 11:43:07  [dhcp,info]  dhcp1 assigned 172.29.206.35 to 98:DE:D0:26:FD:62
- 46  1405/07/22 11:52:25  [interface,info]  ether16 link down
- 47  1405/07/22 11:52:27  [interface,info]  ether16 link up (speed 10M, full duplex)
- 48  1405/07/22 11:53:56  [interface,info]  ether16 link down
- 49  1405/07/22 11:54:10  [interface,info]  ether16 link up (speed 100M, full duplex)
- 50  1405/07/22 12:10:02  [dhcp,info]  dhcp1 deassigned 172.29.206.22 from 64:A2:00:37:30:9A
- 51  1405/07/22 12:19:26  [interface,info]  ether16 link down
- 52  1405/07/22 12:19:28  [interface,info]  ether16 link up (speed 10M, full duplex)
- 53  1405/07/22 12:23:52  [interface,info]  ether16 link down
- 54  1405/07/22 12:23:54  [dhcp,info]  dhcp1 deassigned 172.29.206.37 from D0:37:45:DD:2D:23
- 55  1405/07/22 12:24:06  [interface,info]  ether16 link up (speed 100M, full duplex)
- 56  1405/07/22 12:24:47  [interface,info]  ether16 link down
- 57  1405/07/22 12:24:49  [interface,info]  ether16 link up (speed 10M, full duplex)
- 58  1405/07/22 12:33:57  [dhcp,info]  dhcp1 deassigned 172.29.206.24 from 50:3E:AA:6A:2F:6C
- 59  1405/07/22 12:34:09  [dhcp,info]  dhcp1 deassigned 172.29.206.31 from 50:EB:F6:99:84:3A
- 60  1405/07/22 12:34:20  [dhcp,info]  dhcp1 deassigned 172.29.206.23 from 6C:5A:B0:4B:17:39
- 61  1405/07/22 12:39:52  [dhcp,warning]  Detected conflict by ARP response for 172.29.206.22 from 64:A2:00:37:30:9A
- 62  1405/07/22 12:39:55  [dhcp,info]  dhcp1 assigned 172.29.206.25 to 64:A2:00:37:30:9A
- 63  1405/07/22 12:53:47  [dhcp,info]  dhcp1 deassigned 172.29.206.26 from D0:37:45:D9:66:0A
- 64  1405/07/22 12:54:47  [dhcp,info]  dhcp1 deassigned 172.29.206.25 from 64:A2:00:37:30:9A
- 65  1405/07/22 12:54:48  [dhcp,info]  dhcp1 assigned 172.29.206.25 to 64:A2:00:37:30:9A
- 66  1405/07/22 13:06:01  [dhcp,info]  dhcp1 deassigned 172.29.206.25 from 64:A2:00:37:30:9A
- 67  1405/07/22 13:06:03  [dhcp,info]  dhcp1 assigned 172.29.206.25 to 64:A2:00:37:30:9A
- 68  1405/07/22 13:09:42  [dhcp,info]  dhcp1 deassigned 172.29.206.36 from 98:DE:D0:26:FA:E3
- 69  1405/07/22 13:23:08  [dhcp,info]  dhcp1 deassigned 172.29.206.35 from 98:DE:D0:26:FD:62
- 70  1405/07/22 13:26:55  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 71  1405/07/22 13:26:57  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 72  1405/07/22 13:46:09  [dhcp,info]  dhcp1 deassigned 172.29.206.25 from 64:A2:00:37:30:9A
- 73  1405/07/22 13:46:12  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:43:58
+# ساعت دستگاه (خام): 1972-04-09 00:35:38
+# افست اصلاحی (سرور − دستگاه): +478044:38:20
+  1  1405/07/29 03:55:48  [interface,info]  ether8 link down
+  2  1405/07/29 03:55:50  [interface,info]  ether8 link up (speed 10M, full duplex)
+  3  1405/07/29 03:55:57  [interface,info]  ether8 link down
+  4  1405/07/29 03:55:59  [interface,info]  ether8 link up (speed 1G, full duplex)
+  5  1405/07/29 03:59:01  [dhcp,info]  dhcp1 assigned 172.29.206.21 to E0:D5:5E:46:0F:9E
+  6  1405/07/29 04:09:01  [dhcp,info]  dhcp1 deassigned 172.29.206.21 from E0:D5:5E:46:0F:9E
+  7  1405/07/29 04:13:50  [dhcp,info]  dhcp1 assigned 172.29.206.21 to E0:D5:5E:46:0F:9E
+  8  1405/07/29 04:23:50  [dhcp,info]  dhcp1 deassigned 172.29.206.21 from E0:D5:5E:46:0F:9E
+  9  1405/07/29 04:26:04  [interface,info]  ether8 link down
+ 10  1405/07/29 04:26:05  [interface,info]  ether8 link up (speed 10M, full duplex)
+ 11  1405/07/29 04:26:12  [interface,info]  ether8 link down
+ 12  1405/07/29 04:26:14  [interface,info]  ether8 link up (speed 1G, full duplex)
+ 13  1405/07/29 04:29:00  [dhcp,info]  dhcp1 assigned 172.29.206.21 to E0:D5:5E:46:0F:9E
+ 14  1405/07/29 04:39:00  [dhcp,info]  dhcp1 deassigned 172.29.206.21 from E0:D5:5E:46:0F:9E
+ 15  1405/07/29 04:43:49  [dhcp,info]  dhcp1 assigned 172.29.206.21 to E0:D5:5E:46:0F:9E
+ 16  1405/07/29 04:53:49  [dhcp,info]  dhcp1 deassigned 172.29.206.21 from E0:D5:5E:46:0F:9E
+ 17  1405/07/29 04:56:19  [interface,info]  ether8 link down
+ 18  1405/07/29 04:56:20  [interface,info]  ether8 link up (speed 10M, full duplex)
+ 19  1405/07/29 04:56:27  [interface,info]  ether8 link down
+ 20  1405/07/29 04:56:29  [interface,info]  ether8 link up (speed 1G, full duplex)
+ 21  1405/07/29 04:59:05  [dhcp,info]  dhcp1 assigned 172.29.206.21 to E0:D5:5E:46:0F:9E
+ 22  1405/07/29 05:09:05  [dhcp,info]  dhcp1 deassigned 172.29.206.21 from E0:D5:5E:46:0F:9E
+ 23  1405/07/29 05:14:05  [dhcp,info]  dhcp1 assigned 172.29.206.21 to E0:D5:5E:46:0F:9E
+ 24  1405/07/29 05:24:05  [dhcp,info]  dhcp1 deassigned 172.29.206.21 from E0:D5:5E:46:0F:9E
+ 25  1405/07/29 05:26:33  [interface,info]  ether8 link down
+ 26  1405/07/29 05:26:35  [interface,info]  ether8 link up (speed 10M, full duplex)
+ 27  1405/07/29 05:26:41  [interface,info]  ether8 link down
+ 28  1405/07/29 05:26:43  [interface,info]  ether8 link up (speed 1G, full duplex)
+ 29  1405/07/29 05:29:24  [dhcp,info]  dhcp1 assigned 172.29.206.21 to E0:D5:5E:46:0F:9E
+ 30  1405/07/29 05:39:24  [dhcp,info]  dhcp1 deassigned 172.29.206.21 from E0:D5:5E:46:0F:9E
+ 31  1405/07/29 05:44:13  [dhcp,info]  dhcp1 assigned 172.29.206.21 to E0:D5:5E:46:0F:9E
+ 32  1405/07/29 05:54:13  [dhcp,info]  dhcp1 deassigned 172.29.206.21 from E0:D5:5E:46:0F:9E
+ 33  1405/07/29 05:56:48  [interface,info]  ether8 link down
+ 34  1405/07/29 05:56:49  [interface,info]  ether8 link up (speed 10M, full duplex)
+ 35  1405/07/29 05:56:56  [interface,info]  ether8 link down
+ 36  1405/07/29 05:56:58  [interface,info]  ether8 link up (speed 1G, full duplex)
+ 37  1405/07/29 05:59:18  [dhcp,info]  dhcp1 assigned 172.29.206.21 to E0:D5:5E:46:0F:9E
+ 38  1405/07/29 06:09:18  [dhcp,info]  dhcp1 deassigned 172.29.206.21 from E0:D5:5E:46:0F:9E
+ 39  1405/07/29 06:14:05  [dhcp,info]  dhcp1 assigned 172.29.206.21 to E0:D5:5E:46:0F:9E
+ 40  1405/07/29 06:24:05  [dhcp,info]  dhcp1 deassigned 172.29.206.21 from E0:D5:5E:46:0F:9E
+ 41  1405/07/29 06:27:04  [interface,info]  ether8 link down
+ 42  1405/07/29 06:27:05  [interface,info]  ether8 link up (speed 10M, full duplex)
+ 43  1405/07/29 06:27:12  [interface,info]  ether8 link down
+ 44  1405/07/29 06:27:14  [interface,info]  ether8 link up (speed 1G, full duplex)
+ 45  1405/07/29 06:29:12  [dhcp,info]  dhcp1 assigned 172.29.206.21 to E0:D5:5E:46:0F:9E
+ 46  1405/07/29 06:39:12  [dhcp,info]  dhcp1 deassigned 172.29.206.21 from E0:D5:5E:46:0F:9E
+ 47  1405/07/29 06:44:05  [dhcp,info]  dhcp1 assigned 172.29.206.21 to E0:D5:5E:46:0F:9E
+ 48  1405/07/29 06:53:01  [dhcp,info]  dhcp1 assigned 172.29.206.31 to 4C:63:71:56:C2:DD
+ 49  1405/07/29 06:54:05  [dhcp,info]  dhcp1 deassigned 172.29.206.21 from E0:D5:5E:46:0F:9E
+ 50  1405/07/29 06:57:18  [interface,info]  ether8 link down
+ 51  1405/07/29 06:57:20  [interface,info]  ether8 link up (speed 10M, full duplex)
+ 52  1405/07/29 06:57:26  [interface,info]  ether8 link down
+ 53  1405/07/29 06:57:28  [interface,info]  ether8 link up (speed 1G, full duplex)
+ 54  1405/07/29 06:59:05  [dhcp,info]  dhcp1 assigned 172.29.206.21 to E0:D5:5E:46:0F:9E
+ 55  1405/07/29 07:09:05  [dhcp,info]  dhcp1 deassigned 172.29.206.21 from E0:D5:5E:46:0F:9E
+ 56  1405/07/29 07:14:05  [dhcp,info]  dhcp1 assigned 172.29.206.21 to E0:D5:5E:46:0F:9E
+ 57  1405/07/29 07:24:05  [dhcp,info]  dhcp1 deassigned 172.29.206.21 from E0:D5:5E:46:0F:9E
+ 58  1405/07/29 07:27:33  [interface,info]  ether8 link down
+ 59  1405/07/29 07:27:35  [interface,info]  ether8 link up (speed 10M, full duplex)
+ 60  1405/07/29 07:27:41  [interface,info]  ether8 link down
+ 61  1405/07/29 07:27:44  [interface,info]  ether8 link up (speed 1G, full duplex)
+ 62  1405/07/29 07:28:02  [dhcp,info]  dhcp1 deassigned 172.29.206.31 from 4C:63:71:56:C2:DD
+ 63  1405/07/29 07:29:20  [dhcp,info]  dhcp1 assigned 172.29.206.21 to E0:D5:5E:46:0F:9E
+ 64  1405/07/29 07:39:20  [dhcp,info]  dhcp1 deassigned 172.29.206.21 from E0:D5:5E:46:0F:9E
+ 65  1405/07/29 07:44:05  [dhcp,info]  dhcp1 assigned 172.29.206.21 to E0:D5:5E:46:0F:9E
+ 66  1405/07/29 07:49:36  [dhcp,info]  dhcp1 assigned 172.29.206.23 to 6C:5A:B0:4B:17:39
+ 67  1405/07/29 07:53:18  [dhcp,info]  dhcp1 assigned 172.29.206.35 to 98:DE:D0:26:FD:62
+ 68  1405/07/29 07:54:05  [dhcp,info]  dhcp1 deassigned 172.29.206.21 from E0:D5:5E:46:0F:9E
+ 69  1405/07/29 07:57:49  [interface,info]  ether8 link down
+ 70  1405/07/29 07:57:50  [interface,info]  ether8 link up (speed 10M, full duplex)
+ 71  1405/07/29 07:57:57  [interface,info]  ether8 link down
+ 72  1405/07/29 07:57:59  [interface,info]  ether8 link up (speed 1G, full duplex)
+ 73  1405/07/29 07:59:21  [dhcp,info]  dhcp1 assigned 172.29.206.21 to E0:D5:5E:46:0F:9E
+ 74  1405/07/29 07:59:52  [dhcp,info]  dhcp1 assigned 172.29.206.32 to 64:A2:00:37:30:9A
+ 75  1405/07/29 08:03:44  [dhcp,info]  dhcp1 assigned 172.29.206.25 to E6:A3:75:A8:58:1A
+ 76  1405/07/29 08:06:36  [dhcp,info]  dhcp1 assigned 172.29.206.36 to 98:DE:D0:26:FA:E3
+ 77  1405/07/29 08:12:18  [dhcp,info]  dhcp1 assigned 172.29.206.28 to D0:37:45:D9:66:0A
+ 78  1405/07/29 08:16:02  [dhcp,info]  dhcp1 deassigned 172.29.206.21 from E0:D5:5E:46:0F:9E
+ 79  1405/07/29 08:16:02  [dhcp,info]  dhcp1 assigned 172.29.206.21 to E0:D5:5E:46:0F:9E
+ 80  1405/07/29 08:21:49  [dhcp,info]  dhcp1 deassigned 172.29.206.32 from 64:A2:00:37:30:9A
+ 81  1405/07/29 08:21:51  [dhcp,info]  dhcp1 assigned 172.29.206.32 to 64:A2:00:37:30:9A
+ 82  1405/07/29 08:22:36  [dhcp,info]  dhcp1 deassigned 172.29.206.21 from E0:D5:5E:46:0F:9E
+ 83  1405/07/29 08:22:36  [dhcp,info]  dhcp1 assigned 172.29.206.21 to E0:D5:5E:46:0F:9E
+ 84  1405/07/29 08:22:47  [interface,info]  ether16 link up (speed 1G, full duplex)
+ 85  1405/07/29 08:23:04  [interface,info]  ether16 link down
+ 86  1405/07/29 08:23:07  [interface,info]  ether16 link up (speed 1G, full duplex)
+ 87  1405/07/29 08:23:09  [interface,info]  ether16 link down
+ 88  1405/07/29 08:23:12  [interface,info]  ether16 link up (speed 1G, full duplex)
+ 89  1405/07/29 08:23:24  [dhcp,info]  dhcp1 assigned 172.29.206.27 to 50:EB:F6:99:84:3A
+ 90  1405/07/29 08:23:29  [dhcp,info]  dhcp1 assigned 172.29.206.26 to 50:3E:AA:6A:2F:6C
+ 91  1405/07/29 08:29:39  [dhcp,info]  dhcp1 deassigned 172.29.206.25 from E6:A3:75:A8:58:1A
+ 92  1405/07/29 08:33:09  [dhcp,info]  dhcp1 assigned 172.29.206.34 to EE:33:BE:74:91:88
+ 93  1405/07/29 08:35:56  [dhcp,info]  dhcp1 deassigned 172.29.206.23 from 6C:5A:B0:4B:17:39
+ 94  1405/07/29 08:39:44  [interface,info]  ether16 link down
+ 95  1405/07/29 08:39:48  [interface,info]  ether16 link up (speed 1G, full duplex)
+ 96  1405/07/29 08:42:08  [interface,info]  ether16 link down
+ 97  1405/07/29 08:42:12  [interface,info]  ether16 link up (speed 1G, full duplex)
+ 98  1405/07/29 08:43:02  [interface,info]  ether16 link down
+ 99  1405/07/29 08:43:06  [interface,info]  ether16 link up (speed 1G, full duplex)
+100  1405/07/29 08:43:07  [interface,info]  ether16 link down
+101  1405/07/29 08:43:10  [interface,info]  ether16 link up (speed 1G, full duplex)
+102  1405/07/29 08:43:20  [interface,info]  ether16 link down
+103  1405/07/29 08:43:24  [interface,info]  ether16 link up (speed 1G, full duplex)
+104  1405/07/29 08:43:25  [interface,info]  ether16 link down
+105  1405/07/29 08:43:29  [interface,info]  ether16 link up (speed 1G, full duplex)
+106  1405/07/29 08:43:33  [interface,info]  ether16 link down
+107  1405/07/29 08:43:36  [interface,info]  ether16 link up (speed 1G, full duplex)
+108  1405/07/29 08:44:16  [interface,info]  ether16 link down
+109  1405/07/29 08:44:16  [dhcp,info]  dhcp1 assigned 172.29.206.37 to D0:37:45:DD:2D:23
+110  1405/07/29 08:44:20  [interface,info]  ether16 link up (speed 1G, full duplex)
+111  1405/07/29 08:44:26  [interface,info]  ether16 link down
+112  1405/07/29 08:44:29  [interface,info]  ether16 link up (speed 1G, full duplex)
+113  1405/07/29 08:45:53  [interface,info]  ether16 link down
+114  1405/07/29 08:45:57  [interface,info]  ether16 link up (speed 1G, full duplex)
+115  1405/07/29 08:46:50  [dhcp,info]  dhcp1 assigned 172.29.206.23 to 6C:5A:B0:4B:17:39
+116  1405/07/29 08:48:51  [interface,info]  ether16 link down
+117  1405/07/29 08:48:54  [interface,info]  ether16 link up (speed 1G, full duplex)
+118  1405/07/29 08:50:08  [interface,info]  ether16 link down
+119  1405/07/29 08:50:11  [interface,info]  ether16 link up (speed 1G, full duplex)
+120  1405/07/29 08:50:22  [interface,info]  ether16 link down
+121  1405/07/29 08:50:36  [interface,info]  ether16 link up (speed 100M, full duplex)
+122  1405/07/29 09:01:20  [dhcp,info]  dhcp1 deassigned 172.29.206.35 from 98:DE:D0:26:FD:62
+123  1405/07/29 09:12:03  [interface,info]  ether16 link down
+124  1405/07/29 09:12:06  [interface,info]  ether16 link up (speed 1G, full duplex)
+125  1405/07/29 09:12:07  [interface,info]  ether16 link down
+126  1405/07/29 09:12:13  [interface,info]  ether16 link up (speed 1G, full duplex)
+127  1405/07/29 09:13:44  [dhcp,info]  dhcp1 assigned 172.29.206.35 to 98:DE:D0:26:FD:62
+128  1405/07/29 09:16:12  [interface,info]  ether16 link down
+129  1405/07/29 09:16:16  [interface,info]  ether16 link up (speed 1G, full duplex)
+130  1405/07/29 09:17:50  [interface,info]  ether16 link down
+131  1405/07/29 09:17:57  [interface,info]  ether16 link up (speed 1G, full duplex)
+132  1405/07/29 09:20:39  [interface,info]  ether16 link down
+133  1405/07/29 09:20:43  [interface,info]  ether16 link up (speed 1G, full duplex)
+134  1405/07/29 09:20:44  [interface,info]  ether16 link down
+135  1405/07/29 09:20:47  [interface,info]  ether16 link up (speed 1G, full duplex)
+136  1405/07/29 09:23:54  [interface,info]  ether16 link down
+137  1405/07/29 09:23:58  [interface,info]  ether16 link up (speed 1G, full duplex)
+138  1405/07/29 09:24:00  [interface,info]  ether16 link down
+139  1405/07/29 09:24:04  [interface,info]  ether16 link up (speed 1G, full duplex)
+140  1405/07/29 09:25:05  [interface,info]  ether16 link down
+141  1405/07/29 09:25:12  [interface,info]  ether16 link up (speed 1G, full duplex)
+142  1405/07/29 09:25:13  [interface,info]  ether16 link down
+143  1405/07/29 09:25:16  [interface,info]  ether16 link up (speed 1G, full duplex)
+144  1405/07/29 09:25:17  [interface,info]  ether16 link down
+145  1405/07/29 09:25:19  [interface,info]  ether16 link up (speed 100M, full duplex)
+146  1405/07/29 10:00:37  [interface,info]  ether16 link down
+147  1405/07/29 10:00:40  [interface,info]  ether16 link up (speed 10M, full duplex)
+148  1405/07/29 10:08:28  [dhcp,info]  dhcp1 deassigned 172.29.206.26 from 50:3E:AA:6A:2F:6C
+149  1405/07/29 10:10:25  [dhcp,info]  dhcp1 deassigned 172.29.206.27 from 50:EB:F6:99:84:3A
+150  1405/07/29 10:14:18  [interface,info]  ether16 link down
+151  1405/07/29 10:14:33  [interface,info]  ether16 link up (speed 100M, full duplex)
+152  1405/07/29 10:14:34  [dhcp,info]  dhcp1 assigned 172.29.206.26 to 50:3E:AA:6A:2F:6C
+153  1405/07/29 10:14:36  [dhcp,info]  dhcp1 assigned 172.29.206.27 to 50:EB:F6:99:84:3A
+154  1405/07/29 10:39:48  [interface,info]  ether16 link down
+155  1405/07/29 10:39:50  [interface,info]  ether16 link up (speed 10M, full duplex)
+156  1405/07/29 10:44:18  [interface,info]  ether16 link down
+157  1405/07/29 10:44:25  [interface,info]  ether16 link up (speed 100M, full duplex)
+158  1405/07/29 10:54:41  [interface,info]  ether16 link down
+159  1405/07/29 10:54:55  [interface,info]  ether16 link up (speed 100M, full duplex)
+160  1405/07/29 10:54:56  [interface,info]  ether16 link down
+161  1405/07/29 10:54:59  [interface,info]  ether16 link up (speed 100M, full duplex)
+162  1405/07/29 11:08:20  [interface,info]  ether16 link down
+163  1405/07/29 11:08:34  [interface,info]  ether16 link up (speed 100M, full duplex)
+164  1405/07/29 11:17:07  [interface,info]  ether16 link down
+165  1405/07/29 11:17:21  [interface,info]  ether16 link up (speed 100M, full duplex)
+166  1405/07/29 11:17:42  [interface,info]  ether16 link down
+167  1405/07/29 11:17:56  [interface,info]  ether16 link up (speed 100M, full duplex)
+168  1405/07/29 11:17:57  [interface,info]  ether16 link down
+169  1405/07/29 11:17:59  [interface,info]  ether16 link up (speed 100M, full duplex)
+170  1405/07/29 11:18:00  [interface,info]  ether16 link down
+171  1405/07/29 11:18:02  [interface,info]  ether16 link up (speed 100M, full duplex)
+172  1405/07/29 11:18:03  [interface,info]  ether16 link down
+173  1405/07/29 11:18:05  [interface,info]  ether16 link up (speed 10M, full duplex)
+174  1405/07/29 11:28:14  [dhcp,info]  dhcp1 deassigned 172.29.206.34 from EE:33:BE:74:91:88
+175  1405/07/29 11:40:29  [interface,info]  ether16 link down
+176  1405/07/29 11:48:10  [dhcp,info]  dhcp1 deassigned 172.29.206.27 from 50:EB:F6:99:84:3A
+177  1405/07/29 11:49:22  [dhcp,info]  dhcp1 deassigned 172.29.206.26 from 50:3E:AA:6A:2F:6C
+178  1405/07/29 11:58:46  [dhcp,info]  dhcp1 deassigned 172.29.206.35 from 98:DE:D0:26:FD:62
+179  1405/07/29 12:32:18  [dhcp,info]  dhcp1 deassigned 172.29.206.28 from D0:37:45:D9:66:0A
+180  1405/07/29 12:35:57  [dhcp,info]  dhcp1 assigned 172.29.206.34 to EE:33:BE:74:91:88
+181  1405/07/29 12:40:02  [dhcp,info]  dhcp1 deassigned 172.29.206.23 from 6C:5A:B0:4B:17:39
+182  1405/07/29 12:44:17  [dhcp,info]  dhcp1 deassigned 172.29.206.37 from D0:37:45:DD:2D:23
+183  1405/07/29 12:59:24  [interface,info]  ether8 link down
+184  1405/07/29 12:59:25  [interface,info]  ether8 link up (speed 10M, full duplex)
+185  1405/07/29 12:59:35  [interface,info]  ether8 link down
+186  1405/07/29 12:59:37  [interface,info]  ether8 link up (speed 1G, full duplex)
+187  1405/07/29 13:14:41  [dhcp,info]  dhcp1 deassigned 172.29.206.32 from 64:A2:00:37:30:9A
+188  1405/07/29 13:16:37  [dhcp,info]  dhcp1 deassigned 172.29.206.36 from 98:DE:D0:26:FA:E3
+189  1405/07/29 13:40:57  [dhcp,info]  dhcp1 deassigned 172.29.206.34 from EE:33:BE:74:91:88
+190  1405/07/29 14:06:49  [interface,info]  ether8 link down
+191  1405/07/29 14:06:51  [interface,info]  ether8 link up (speed 10M, full duplex)
+192  1405/07/29 14:06:58  [interface,info]  ether8 link down
+193  1405/07/29 14:07:00  [interface,info]  ether8 link up (speed 1G, full duplex)
+194  1405/07/29 14:55:57  [dhcp,info]  dhcp1 assigned 172.29.206.34 to EE:33:BE:74:91:88
+195  1405/07/29 16:05:59  [dhcp,info]  dhcp1 deassigned 172.29.206.34 from EE:33:BE:74:91:88
+196  1405/07/29 16:13:02  [interface,info]  ether8 link down
+197  1405/07/29 16:13:04  [interface,info]  ether8 link up (speed 10M, full duplex)
+198  1405/07/29 16:13:44  [interface,info]  ether8 link down
+199  1405/07/29 16:13:46  [interface,info]  ether8 link up (speed 1G, full duplex)
+200  1405/07/29 16:43:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -163,8 +290,7 @@ ether24  6C:3B:6B:09:35:2A  (ether)
 sfp1  6C:3B:6B:09:35:2B  (ether)
 bridge-Local  6C:3B:6B:09:35:14  (bridge)
 --- /ip arp ---
+bridge-Local  00:17:6F:34:9C:59  (arp 172.29.206.99)
+bridge-Local  1C:1B:0D:77:9A:00  (arp 172.29.206.33)
 bridge-Local  E0:D5:5E:46:0F:9E  (arp 172.29.206.21)
 ether1-input-from-rb2011  E4:8D:8C:0D:18:B8  (arp 172.18.26.17)
-bridge-Local  98:DE:D0:26:FD:62  (arp 172.29.206.35)
-bridge-Local  64:A2:00:37:30:9A  (arp 172.29.206.25)
-bridge-Local  1C:1B:0D:77:9A:00  (arp 172.29.206.33)

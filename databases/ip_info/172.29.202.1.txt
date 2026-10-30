@@ -1,5 +1,5 @@
 IP: 172.29.202.1
-Collected at: 2026-10-14T10:25:23.795174+00:00
+Collected at: 2026-10-21T13:18:26.665102+00:00
 source: RouterOS API
 identity: Boozi seyf.Client
 device_type: ST
@@ -31,28 +31,21 @@ name=wlan1  mode=station-bridge  ssid=Shadegan-Abshar3-1  band=5ghz-a/n  frequen
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:45:54
-# ساعت دستگاه (خام): 1972-09-29 07:11:24
-# افست اصلاحی (سرور − دستگاه): +473715:04:30
-  1  1405/07/21 09:45:48  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/21 09:45:50  [dhcp,info]  dhcp1 deassigned 172.29.202.26 from B4:2E:99:5A:0D:22
-  3  1405/07/21 09:45:51  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/21 09:45:53  [dhcp,info]  dhcp1 deassigned 172.29.202.29 from 1C:1B:0D:A0:5A:ED
-  5  1405/07/21 09:45:53  [dhcp,info]  dhcp1 assigned 172.29.202.29 to 1C:1B:0D:A0:5A:ED
-  6  1405/07/21 09:45:53  [dhcp,info]  dhcp1 assigned 172.29.202.26 to B4:2E:99:5A:0D:22
-  7  1405/07/21 09:45:56  [wireless,info]  6E:3B:6B:4A:2C:B4@wlan1 established connection on 5540000, SSID Shadegan-Abshar3-1
-  8  1405/07/21 11:04:40  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  9  1405/07/21 11:04:42  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 10  1405/07/21 11:20:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 11  1405/07/21 11:20:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 12  1405/07/22 13:23:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 13  1405/07/22 13:23:10  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 14  1405/07/22 13:45:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:43:49
+# ساعت دستگاه (خام): 1972-10-06 09:39:31
+# افست اصلاحی (سرور − دستگاه): +473715:34:18
+  1  1405/07/26 10:15:35  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/26 10:15:36  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/26 10:15:42  [wireless,info]  6E:3B:6B:4A:2C:B4@wlan1 established connection on 5540000, SSID Shadegan-Abshar3-1
+  4  1405/07/27 10:11:38  [dhcp,info]  dhcp1 deassigned 172.29.202.29 from 1C:1B:0D:A0:5A:ED
+  5  1405/07/28 08:27:55  [dhcp,info]  dhcp1 assigned 172.29.202.28 to 94:DE:80:4D:E7:FF
+  6  1405/07/28 09:00:07  [dhcp,info]  dhcp1 assigned 172.29.202.29 to 1C:1B:0D:A0:5A:ED
+  7  1405/07/29 16:43:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
 ether1  48:8F:5A:6F:A2:C4  (ether)
 wlan1  48:8F:5A:6F:A2:C5  (wlan)
 --- /ip arp ---
-wlan1  6C:3B:6B:4A:2C:B4  (arp 172.18.25.162)
 wlan1  4C:5E:0C:9B:0F:01  (arp 172.18.25.161)
+wlan1  6C:3B:6B:4A:2C:B4  (arp 172.18.25.162)

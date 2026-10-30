@@ -1,5 +1,5 @@
 IP: 172.18.25.50
-Collected at: 2026-10-15T10:08:42.235559+00:00
+Collected at: 2026-10-21T13:16:57.193455+00:00
 source: RouterOS API
 identity: Shadegan-Alvan2_AP
 device_type: AP
@@ -7,7 +7,7 @@ device_type: AP
 ----- interfaces -----
 === /interface ===
   1  name=ether1  type=ether  running=true  mac=64:D1:54:03:0D:23
-  2  name=wlan1  type=wlan  running=true  mac=64:D1:54:03:0D:24
+  2  name=wlan1  type=wlan  running=false  mac=64:D1:54:03:0D:24
   3  name=bridge1  type=bridge  running=true  mac=64:D1:54:03:0D:23
 
 ----- wireless -----
@@ -25,111 +25,34 @@ name=wlan1  mode=ap-bridge  ssid=Shadegan-Alvan2  band=5ghz-a/n  frequency=5780
 ----- neighbors -----
 === /ip neighbor ===
   1  identity=MK_Alvan  address=172.18.25.49  interface=ether1,bridge1
-  2  identity=SafrayeMoghadam.Client  address=172.18.25.53  interface=wlan1,bridge1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:32:48
-# ساعت دستگاه (خام): 1976-01-17 13:01:12
-# افست اصلاحی (سرور − دستگاه): +444812:01:36
-  1  1405/07/17 14:06:31  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/17 14:06:32  [bridge,info]  "bridge1" mac address changed to 64:D1:54:03:0D:23
-  3  1405/07/17 14:06:34  [interface,info]  ether1 link up (speed 1G, full duplex)
-  4  1405/07/17 14:06:36  [interface,info]  ether1 link down
-  5  1405/07/17 14:06:38  [interface,info]  ether1 link up (speed 1G, full duplex)
-  6  1405/07/18 01:13:14  [interface,info]  ether1 link down
-  7  1405/07/18 01:13:16  [interface,info]  ether1 link up (speed 1G, full duplex)
-  8  1405/07/18 08:31:05  [wireless,info]  6C:3B:6B:DF:E8:9D@wlan1: connected, signal strength -68, wants bridge
-  9  1405/07/18 10:32:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 10  1405/07/18 10:32:21  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 11  1405/07/18 10:56:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 12  1405/07/18 10:56:38  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 13  1405/07/18 11:00:57  [interface,info]  ether1 link down
- 14  1405/07/18 11:00:58  [interface,info]  ether1 link up (speed 1G, full duplex)
- 15  1405/07/18 11:44:28  [wireless,info]  6C:3B:6B:DF:E8:9D@wlan1: disconnected, extensive data loss, signal strength -68
- 16  1405/07/18 12:09:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 17  1405/07/18 12:09:25  [system,info]  user olom1 added by garnaf
- 18  1405/07/18 12:09:25  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 19  1405/07/18 15:38:53  [interface,info]  ether1 link down
- 20  1405/07/18 15:38:54  [interface,info]  ether1 link up (speed 1G, full duplex)
- 21  1405/07/19 08:25:35  [wireless,info]  6C:3B:6B:DF:E8:9D@wlan1: connected, signal strength -66, wants bridge
- 22  1405/07/19 09:44:05  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 23  1405/07/19 09:44:07  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 24  1405/07/19 11:58:39  [wireless,info]  6C:3B:6B:DF:E8:9D@wlan1: disconnected, extensive data loss, signal strength -66
- 25  1405/07/19 16:44:20  [interface,info]  ether1 link down
- 26  1405/07/19 16:44:22  [interface,info]  ether1 link up (speed 1G, full duplex)
- 27  1405/07/19 17:43:12  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 28  1405/07/19 17:43:12  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 29  1405/07/19 18:51:43  [interface,info]  ether1 link down
- 30  1405/07/19 18:51:45  [interface,info]  ether1 link up (speed 1G, full duplex)
- 31  1405/07/20 01:14:34  [interface,info]  ether1 link down
- 32  1405/07/20 01:14:36  [interface,info]  ether1 link up (speed 1G, full duplex)
- 33  1405/07/20 08:35:25  [wireless,info]  6C:3B:6B:DF:E8:9D@wlan1: connected, signal strength -67, wants bridge
- 34  1405/07/20 12:04:01  [wireless,info]  6C:3B:6B:DF:E8:9D@wlan1: disconnected, extensive data loss, signal strength -67
- 35  1405/07/20 21:20:49  [interface,info]  ether1 link down
- 36  1405/07/20 21:20:51  [interface,info]  ether1 link up (speed 1G, full duplex)
- 37  1405/07/21 08:28:15  [wireless,info]  2C:C8:1B:B1:DD:E5@wlan1: connected, signal strength -81, wants bridge
- 38  1405/07/21 08:28:33  [wireless,info]  6C:3B:6B:DF:E8:9D@wlan1: connected, signal strength -67, wants bridge
- 39  1405/07/21 11:06:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 40  1405/07/21 11:06:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 41  1405/07/21 11:49:26  [wireless,info]  6C:3B:6B:DF:E8:9D@wlan1: disconnected, extensive data loss, signal strength -67
- 42  1405/07/21 11:59:00  [wireless,info]  2C:C8:1B:B1:DD:E5@wlan1: disconnected, extensive data loss, signal strength -81
- 43  1405/07/22 08:31:59  [wireless,info]  6C:3B:6B:DF:E8:9D@wlan1: connected, signal strength -67, wants bridge
- 44  1405/07/22 08:55:02  [wireless,info]  2C:C8:1B:B1:DD:E5@wlan1: connected, signal strength -83, wants bridge
- 45  1405/07/22 09:01:39  [wireless,info]  2C:C8:1B:B1:DD:E5@wlan1: disconnected, extensive data loss, signal strength -83
- 46  1405/07/22 09:51:47  [wireless,info]  04:F4:1C:5C:92:D4@wlan1: connected, signal strength -87, wants bridge
- 47  1405/07/22 09:51:52  [wireless,info]  04:F4:1C:5C:92:D4@wlan1: disconnected, unicast key exchange timeout, signal strength -88
- 48  1405/07/22 09:52:46  [wireless,info]  04:F4:1C:5C:92:D4@wlan1: connected, signal strength -88, wants bridge
- 49  1405/07/22 09:52:51  [wireless,info]  04:F4:1C:5C:92:D4@wlan1: disconnected, unicast key exchange timeout, signal strength -89
- 50  1405/07/22 09:53:44  [wireless,info]  04:F4:1C:5C:92:D4@wlan1: connected, signal strength -89, wants bridge
- 51  1405/07/22 09:53:49  [wireless,info]  04:F4:1C:5C:92:D4@wlan1: disconnected, unicast key exchange timeout, signal strength -88
- 52  1405/07/22 09:53:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 53  1405/07/22 09:54:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via telnet
- 54  1405/07/22 09:54:43  [wireless,info]  04:F4:1C:5C:92:D4@wlan1: connected, signal strength -88, wants bridge
- 55  1405/07/22 09:54:48  [wireless,info]  04:F4:1C:5C:92:D4@wlan1: disconnected, unicast key exchange timeout, signal strength -88
- 56  1405/07/22 09:54:56  [wireless,info]  6C:3B:6B:DF:E8:9D@wlan1: disconnected, received deauth: sending station leaving (3), signal strength -68
- 57  1405/07/22 09:55:50  [system,info]  device changed by garnaf
- 58  1405/07/22 09:56:05  [wireless,info]  6C:3B:6B:DF:E8:9D@wlan1: connected, signal strength -68
- 59  1405/07/22 09:58:11  [wireless,info]  04:F4:1C:5C:92:D4@wlan1: connected, signal strength -82
- 60  1405/07/22 09:59:13  [system,info]  device changed by garnaf
- 61  1405/07/22 09:59:38  [wireless,info]  6C:3B:6B:DF:E8:9D@wlan1: connected, signal strength -68
- 62  1405/07/22 10:01:33  [wireless,info]  04:F4:1C:5C:92:D4@wlan1: connected, signal strength -86
- 63  1405/07/22 10:02:20  [system,info]  device changed by garnaf
- 64  1405/07/22 10:02:33  [system,info]  device changed by garnaf
- 65  1405/07/22 10:04:54  [system,info]  device changed by garnaf
- 66  1405/07/22 10:06:24  [wireless,info]  04:F4:1C:5C:92:D4@wlan1: connected, signal strength -82
- 67  1405/07/22 10:07:15  [system,info]  device changed by garnaf
- 68  1405/07/22 10:08:03  [system,info]  device changed by garnaf
- 69  1405/07/22 10:12:13  [system,info]  device changed by garnaf
- 70  1405/07/22 10:12:47  [system,info]  wireless security profile <default> changed by garnaf
- 71  1405/07/22 10:14:10  [system,info]  device changed by garnaf
- 72  1405/07/22 10:14:57  [system,info]  device changed by garnaf
- 73  1405/07/22 10:15:08  [system,info]  device changed by garnaf
- 74  1405/07/22 10:15:32  [system,info,account]  user garnaf logged out from 172.18.4.76 via telnet
- 75  1405/07/22 10:17:19  [system,info]  device changed by garnaf
- 76  1405/07/22 10:17:23  [wireless,info]  6C:3B:6B:DF:E8:9D@wlan1: connected, signal strength -66
- 77  1405/07/22 10:18:21  [wireless,info]  04:F4:1C:5C:92:D4@wlan1: connected, signal strength -80
- 78  1405/07/22 10:19:00  [system,info]  device changed by garnaf
- 79  1405/07/22 10:19:25  [wireless,info]  6C:3B:6B:DF:E8:9D@wlan1: connected, signal strength -66
- 80  1405/07/22 10:19:59  [wireless,info]  04:F4:1C:5C:92:D4@wlan1: connected, signal strength -86
- 81  1405/07/22 10:20:51  [system,info]  wireless security profile <prg> added by garnaf
- 82  1405/07/22 10:41:09  [wireless,info]  04:F4:1C:5C:92:D4@wlan1: disconnected, control frame timeout
- 83  1405/07/22 10:46:20  [wireless,info]  2C:C8:1B:B1:DD:E5@wlan1: connected, signal strength -82
- 84  1405/07/22 10:47:55  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 85  1405/07/22 10:49:40  [wireless,info]  2C:C8:1B:B1:DD:E5@wlan1: disconnected, control frame timeout
- 86  1405/07/22 11:03:57  [wireless,info]  2C:C8:1B:B1:DD:E5@wlan1: connected, signal strength -82
- 87  1405/07/22 11:58:18  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 88  1405/07/22 11:58:18  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 89  1405/07/22 11:58:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 90  1405/07/22 11:58:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 91  1405/07/22 11:58:34  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 92  1405/07/22 11:58:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 93  1405/07/22 12:12:28  [wireless,info]  2C:C8:1B:B1:DD:E5@wlan1: disconnected, not responding
- 94  1405/07/22 13:25:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 95  1405/07/22 13:25:21  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 96  1405/07/22 20:40:17  [interface,info]  ether1 link down
- 97  1405/07/22 20:40:19  [interface,info]  ether1 link up (speed 1G, full duplex)
- 98  1405/07/23 12:32:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:34:39
+# ساعت دستگاه (خام): 1976-01-22 20:53:05
+# افست اصلاحی (سرور − دستگاه): +444832:11:34
+  1  1405/07/26 10:16:29  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/26 10:16:31  [bridge,info]  "bridge1" mac address changed to 64:D1:54:03:0D:23
+  3  1405/07/26 10:16:32  [interface,info]  ether1 link up (speed 1G, full duplex)
+  4  1405/07/26 10:16:33  [interface,info]  ether1 link down
+  5  1405/07/26 10:16:36  [interface,info]  ether1 link up (speed 1G, full duplex)
+  6  1405/07/26 10:16:58  [wireless,info]  6C:3B:6B:DF:E8:9D@wlan1: connected, signal strength -62
+  7  1405/07/26 13:18:46  [interface,info]  ether1 link down
+  8  1405/07/26 13:18:48  [interface,info]  ether1 link up (speed 1G, full duplex)
+  9  1405/07/27 05:43:21  [interface,info]  ether1 link down
+ 10  1405/07/27 05:43:23  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 11  1405/07/27 08:35:33  [wireless,info]  2C:C8:1B:B1:DD:E5@wlan1: connected, signal strength -80
+ 12  1405/07/27 11:55:15  [wireless,info]  2C:C8:1B:B1:DD:E5@wlan1: disconnected, not responding
+ 13  1405/07/27 15:00:00  [interface,info]  ether1 link down
+ 14  1405/07/27 15:00:02  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 15  1405/07/28 09:13:46  [wireless,info]  2C:C8:1B:B1:DD:E5@wlan1: connected, signal strength -80
+ 16  1405/07/28 11:31:42  [wireless,info]  2C:C8:1B:B1:DD:E5@wlan1: disconnected, not responding
+ 17  1405/07/28 11:41:21  [wireless,info]  6C:3B:6B:DF:E8:9D@wlan1: disconnected, not responding
+ 18  1405/07/29 08:25:27  [wireless,info]  6C:3B:6B:DF:E8:9D@wlan1: connected, signal strength -62
+ 19  1405/07/29 08:38:27  [wireless,info]  2C:C8:1B:B1:DD:E5@wlan1: connected, signal strength -80
+ 20  1405/07/29 11:49:42  [wireless,info]  6C:3B:6B:DF:E8:9D@wlan1: disconnected, not responding
+ 21  1405/07/29 12:03:20  [wireless,info]  2C:C8:1B:B1:DD:E5@wlan1: disconnected, not responding
+ 22  1405/07/29 16:34:37  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

@@ -1,5 +1,5 @@
 IP: 172.18.4.139
-Collected at: 2026-10-15T10:09:28.253415+00:00
+Collected at: 2026-10-21T13:17:26.936283+00:00
 source: RouterOS API
 identity: CL-PTP-SHALAMCHE-BK
 device_type: ST
@@ -30,151 +30,173 @@ name=wlan1  mode=station-bridge  ssid=PTP-SHALAMCHE-BK  band=5ghz-a/n  frequency
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:38:46
-# ساعت دستگاه (خام): 2026-10-07 21:36:17
-# افست اصلاحی (سرور − دستگاه): +179:32:29
-  1  1405/06/14 21:03:26  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/06/14 21:03:34  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
-  3  1405/06/14 21:03:50  [interface,info]  ether1 link up (speed 1G, full duplex)
-  4  1405/06/22 10:12:23  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, synchronization timeout
-  5  1405/06/22 10:18:29  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
-  6  1405/06/23 22:38:05  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, control frame timeout
-  7  1405/06/23 22:38:11  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
-  8  1405/06/23 22:38:38  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, not responding
-  9  1405/06/23 22:38:45  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 10  1405/06/23 22:38:58  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 11  1405/06/23 22:39:11  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 12  1405/06/23 22:39:25  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 13  1405/06/23 22:39:38  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 14  1405/06/23 22:39:52  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 15  1405/06/23 22:40:05  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 16  1405/06/23 22:40:18  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 17  1405/06/23 22:40:31  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 18  1405/06/23 22:40:43  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 19  1405/06/23 22:40:56  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 20  1405/06/23 22:41:10  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 21  1405/06/23 22:41:22  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 22  1405/06/23 22:41:36  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 23  1405/06/23 22:41:49  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 24  1405/06/23 22:42:02  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 25  1405/06/23 22:42:14  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 26  1405/06/23 22:42:27  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 27  1405/06/23 22:42:45  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, ranging timeout
- 28  1405/06/23 22:42:58  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 29  1405/06/23 22:43:11  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 30  1405/06/23 22:43:24  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 31  1405/06/23 22:43:37  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 32  1405/06/23 22:43:50  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 33  1405/06/23 22:44:03  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 34  1405/06/23 22:44:16  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 35  1405/06/23 22:44:29  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 36  1405/06/23 22:44:42  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 37  1405/06/23 22:44:55  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 38  1405/06/23 22:45:08  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 39  1405/06/23 22:45:21  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 40  1405/06/23 22:45:34  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 41  1405/06/23 22:45:47  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 42  1405/06/23 22:45:59  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 43  1405/06/23 22:46:12  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 44  1405/06/23 22:46:25  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 45  1405/06/23 22:46:38  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 46  1405/06/23 22:46:56  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, ranging timeout
- 47  1405/06/23 22:47:09  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 48  1405/06/23 22:47:22  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 49  1405/06/23 22:47:35  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 50  1405/06/23 22:47:48  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 51  1405/06/23 22:48:01  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 52  1405/06/23 22:48:14  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 53  1405/06/23 22:48:27  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 54  1405/06/23 22:48:40  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 55  1405/06/23 22:48:53  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 56  1405/06/23 22:49:06  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 57  1405/06/23 22:49:20  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 58  1405/06/23 22:49:33  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 59  1405/06/23 22:49:46  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 60  1405/06/23 22:50:00  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 61  1405/06/23 22:50:13  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 62  1405/06/23 22:50:26  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 63  1405/06/23 22:50:40  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 64  1405/06/23 22:50:57  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, ranging timeout
- 65  1405/06/23 22:51:13  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
- 66  1405/06/23 22:52:39  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, control frame timeout
- 67  1405/06/23 22:52:50  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
- 68  1405/06/23 23:01:14  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, control frame timeout
- 69  1405/06/23 23:01:21  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 70  1405/06/23 23:01:34  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 71  1405/06/23 23:01:47  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 72  1405/06/23 23:02:00  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 73  1405/06/23 23:02:15  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
- 74  1405/06/23 23:04:09  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, control frame timeout
- 75  1405/06/23 23:04:22  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
- 76  1405/06/23 23:05:09  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, control frame timeout
- 77  1405/06/23 23:05:22  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 78  1405/06/23 23:05:35  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
- 79  1405/06/24 03:40:22  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, synchronization timeout
- 80  1405/06/24 03:49:40  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
- 81  1405/06/30 10:15:49  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, synchronization timeout
- 82  1405/06/30 10:21:12  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
- 83  1405/07/06 22:13:05  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, synchronization timeout
- 84  1405/07/06 22:24:22  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
- 85  1405/07/10 04:38:22  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, control frame timeout
- 86  1405/07/10 04:38:29  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 87  1405/07/10 04:38:43  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 88  1405/07/10 04:38:56  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 89  1405/07/10 04:39:09  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 90  1405/07/10 04:39:22  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
- 91  1405/07/10 04:39:36  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
- 92  1405/07/15 13:37:08  [system,error,critical]  login failure for user garnaf from 172.18.4.76 via api
- 93  1405/07/15 13:45:11  [system,info,account]  user ums1 logged in from 172.18.4.76 via winbox
- 94  1405/07/15 13:45:33  [system,info]  user garnaf added by ums1
- 95  1405/07/15 13:45:35  [system,info,account]  user ums1 logged out from 172.18.4.76 via winbox
- 96  1405/07/15 13:50:04  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 97  1405/07/15 13:50:04  [system,info]  changed snmp settings by garnaf
- 98  1405/07/15 13:50:04  [system,info]  item changed by garnaf
- 99  1405/07/15 13:50:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-100  1405/07/15 15:00:37  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-101  1405/07/15 15:00:37  [system,info]  user olom1 added by garnaf
-102  1405/07/15 15:00:38  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-103  1405/07/15 15:06:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-104  1405/07/15 15:06:27  [system,info]  user ums1 removed by garnaf
-105  1405/07/15 15:06:27  [system,info]  user ums2 removed by garnaf
-106  1405/07/15 15:06:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-107  1405/07/16 10:17:01  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-108  1405/07/16 10:17:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-109  1405/07/16 10:39:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-110  1405/07/16 10:39:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-111  1405/07/16 13:54:10  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-112  1405/07/16 13:54:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-113  1405/07/16 14:08:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-114  1405/07/16 14:08:42  [system,info]  changed snmp settings by garnaf
-115  1405/07/16 14:08:42  [system,info]  item changed by garnaf
-116  1405/07/16 14:08:42  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-117  1405/07/16 14:34:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-118  1405/07/16 14:34:21  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-119  1405/07/16 15:45:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-120  1405/07/16 15:45:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-121  1405/07/17 08:37:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-122  1405/07/17 08:37:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-123  1405/07/18 10:34:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-124  1405/07/18 10:35:00  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-125  1405/07/18 10:59:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-126  1405/07/18 10:59:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-127  1405/07/18 12:10:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-128  1405/07/18 12:10:59  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-129  1405/07/19 06:50:34  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, synchronization timeout
-130  1405/07/19 08:42:47  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
-131  1405/07/19 09:51:06  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-132  1405/07/19 09:51:09  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-133  1405/07/19 17:45:08  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-134  1405/07/19 17:45:08  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-135  1405/07/21 11:12:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-136  1405/07/21 11:12:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-137  1405/07/22 13:31:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-138  1405/07/22 13:31:42  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-139  1405/07/22 23:17:27  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, control frame timeout
-140  1405/07/22 23:17:34  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
-141  1405/07/22 23:17:47  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
-142  1405/07/23 12:38:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:37:56
+# ساعت دستگاه (خام): 2026-10-14 01:38:17
+# افست اصلاحی (سرور − دستگاه): +179:29:39
+  1  1405/06/14 21:00:36  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/06/14 21:00:44  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
+  3  1405/06/14 21:01:00  [interface,info]  ether1 link up (speed 1G, full duplex)
+  4  1405/06/22 10:09:33  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, synchronization timeout
+  5  1405/06/22 10:15:39  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
+  6  1405/06/23 22:35:15  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, control frame timeout
+  7  1405/06/23 22:35:21  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
+  8  1405/06/23 22:35:48  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, not responding
+  9  1405/06/23 22:35:55  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 10  1405/06/23 22:36:08  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 11  1405/06/23 22:36:21  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 12  1405/06/23 22:36:35  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 13  1405/06/23 22:36:48  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 14  1405/06/23 22:37:02  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 15  1405/06/23 22:37:15  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 16  1405/06/23 22:37:28  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 17  1405/06/23 22:37:41  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 18  1405/06/23 22:37:53  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 19  1405/06/23 22:38:06  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 20  1405/06/23 22:38:20  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 21  1405/06/23 22:38:32  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 22  1405/06/23 22:38:46  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 23  1405/06/23 22:38:59  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 24  1405/06/23 22:39:12  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 25  1405/06/23 22:39:24  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 26  1405/06/23 22:39:37  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 27  1405/06/23 22:39:55  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, ranging timeout
+ 28  1405/06/23 22:40:08  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 29  1405/06/23 22:40:21  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 30  1405/06/23 22:40:34  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 31  1405/06/23 22:40:47  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 32  1405/06/23 22:41:00  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 33  1405/06/23 22:41:13  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 34  1405/06/23 22:41:26  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 35  1405/06/23 22:41:39  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 36  1405/06/23 22:41:52  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 37  1405/06/23 22:42:05  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 38  1405/06/23 22:42:18  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 39  1405/06/23 22:42:31  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 40  1405/06/23 22:42:44  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 41  1405/06/23 22:42:57  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 42  1405/06/23 22:43:09  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 43  1405/06/23 22:43:22  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 44  1405/06/23 22:43:35  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 45  1405/06/23 22:43:48  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 46  1405/06/23 22:44:06  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, ranging timeout
+ 47  1405/06/23 22:44:19  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 48  1405/06/23 22:44:32  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 49  1405/06/23 22:44:45  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 50  1405/06/23 22:44:58  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 51  1405/06/23 22:45:11  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 52  1405/06/23 22:45:24  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 53  1405/06/23 22:45:37  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 54  1405/06/23 22:45:50  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 55  1405/06/23 22:46:03  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 56  1405/06/23 22:46:16  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 57  1405/06/23 22:46:30  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 58  1405/06/23 22:46:43  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 59  1405/06/23 22:46:56  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 60  1405/06/23 22:47:10  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 61  1405/06/23 22:47:23  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 62  1405/06/23 22:47:36  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 63  1405/06/23 22:47:50  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 64  1405/06/23 22:48:07  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, ranging timeout
+ 65  1405/06/23 22:48:23  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
+ 66  1405/06/23 22:49:49  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, control frame timeout
+ 67  1405/06/23 22:50:00  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
+ 68  1405/06/23 22:58:24  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, control frame timeout
+ 69  1405/06/23 22:58:31  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 70  1405/06/23 22:58:44  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 71  1405/06/23 22:58:57  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 72  1405/06/23 22:59:10  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 73  1405/06/23 22:59:25  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
+ 74  1405/06/23 23:01:19  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, control frame timeout
+ 75  1405/06/23 23:01:32  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
+ 76  1405/06/23 23:02:19  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, control frame timeout
+ 77  1405/06/23 23:02:32  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 78  1405/06/23 23:02:45  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
+ 79  1405/06/24 03:37:32  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, synchronization timeout
+ 80  1405/06/24 03:46:50  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
+ 81  1405/06/30 10:12:59  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, synchronization timeout
+ 82  1405/06/30 10:18:22  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
+ 83  1405/07/06 22:10:15  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, synchronization timeout
+ 84  1405/07/06 22:21:32  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
+ 85  1405/07/10 04:35:32  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, control frame timeout
+ 86  1405/07/10 04:35:39  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 87  1405/07/10 04:35:53  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 88  1405/07/10 04:36:06  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 89  1405/07/10 04:36:19  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 90  1405/07/10 04:36:32  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+ 91  1405/07/10 04:36:46  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
+ 92  1405/07/15 13:34:18  [system,error,critical]  login failure for user garnaf from 172.18.4.76 via api
+ 93  1405/07/15 13:42:21  [system,info,account]  user ums1 logged in from 172.18.4.76 via winbox
+ 94  1405/07/15 13:42:43  [system,info]  user garnaf added by ums1
+ 95  1405/07/15 13:42:45  [system,info,account]  user ums1 logged out from 172.18.4.76 via winbox
+ 96  1405/07/15 13:47:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 97  1405/07/15 13:47:14  [system,info]  changed snmp settings by garnaf
+ 98  1405/07/15 13:47:14  [system,info]  item changed by garnaf
+ 99  1405/07/15 13:47:14  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+100  1405/07/15 14:57:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+101  1405/07/15 14:57:47  [system,info]  user olom1 added by garnaf
+102  1405/07/15 14:57:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+103  1405/07/15 15:03:37  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+104  1405/07/15 15:03:37  [system,info]  user ums1 removed by garnaf
+105  1405/07/15 15:03:37  [system,info]  user ums2 removed by garnaf
+106  1405/07/15 15:03:37  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+107  1405/07/16 10:14:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+108  1405/07/16 10:14:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+109  1405/07/16 10:36:13  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+110  1405/07/16 10:36:14  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+111  1405/07/16 13:51:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+112  1405/07/16 13:51:22  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+113  1405/07/16 14:05:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+114  1405/07/16 14:05:52  [system,info]  changed snmp settings by garnaf
+115  1405/07/16 14:05:52  [system,info]  item changed by garnaf
+116  1405/07/16 14:05:52  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+117  1405/07/16 14:31:30  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+118  1405/07/16 14:31:31  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+119  1405/07/16 15:42:12  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+120  1405/07/16 15:42:13  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+121  1405/07/17 08:34:55  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+122  1405/07/17 08:34:57  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+123  1405/07/18 10:32:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+124  1405/07/18 10:32:10  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+125  1405/07/18 10:56:37  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+126  1405/07/18 10:56:38  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+127  1405/07/18 12:08:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+128  1405/07/18 12:08:09  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+129  1405/07/19 06:47:44  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, synchronization timeout
+130  1405/07/19 08:39:57  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
+131  1405/07/19 09:48:16  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+132  1405/07/19 09:48:19  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+133  1405/07/19 17:42:18  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+134  1405/07/19 17:42:18  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+135  1405/07/21 11:09:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+136  1405/07/21 11:09:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+137  1405/07/22 13:28:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+138  1405/07/22 13:28:52  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+139  1405/07/22 23:14:37  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, control frame timeout
+140  1405/07/22 23:14:44  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+141  1405/07/22 23:14:57  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
+142  1405/07/23 12:35:55  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+143  1405/07/23 12:35:57  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+144  1405/07/24 15:31:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+145  1405/07/24 15:31:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+146  1405/07/24 15:59:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+147  1405/07/24 15:59:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+148  1405/07/24 20:24:06  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, control frame timeout
+149  1405/07/24 20:24:32  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
+150  1405/07/24 20:24:41  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, control frame timeout
+151  1405/07/24 20:24:48  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+152  1405/07/24 20:25:02  [wireless,info]  64:D1:54:95:F9:BA@wlan1: failed to connect, on 5470000, registration timeout
+153  1405/07/24 20:25:14  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
+154  1405/07/24 20:25:35  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, medium-access timeout
+155  1405/07/24 20:25:42  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
+156  1405/07/25 06:45:16  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, control frame timeout
+157  1405/07/25 06:45:29  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
+158  1405/07/26 09:07:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+159  1405/07/26 09:07:33  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+160  1405/07/26 09:10:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+161  1405/07/26 09:10:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+162  1405/07/27 01:23:06  [wireless,info]  64:D1:54:95:F9:BA@wlan1: lost connection, control frame timeout
+163  1405/07/27 01:23:19  [wireless,info]  64:D1:54:95:F9:BA@wlan1 established connection on 5470000, SSID PTP-SHALAMCHE-BK
+164  1405/07/29 16:37:55  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

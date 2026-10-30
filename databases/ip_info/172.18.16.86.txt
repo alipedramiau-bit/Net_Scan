@@ -1,5 +1,5 @@
 IP: 172.18.16.86
-Collected at: 2026-10-15T10:07:35.453779+00:00
+Collected at: 2026-10-21T13:16:03.333548+00:00
 source: RouterOS API
 identity: PolNo.Client
 device_type: ST
@@ -30,27 +30,16 @@ name=wlan1  mode=station-bridge  ssid=Khoramshahr-Taleghani2  band=5ghz-a/n  fre
   1  identity=MikroTik  address=-  interface=ether1
   2  identity=RouterMarkazTaleghzani  address=172.18.16.81  interface=wlan1
   3  identity=Khoramshahr-Taleghani2  address=172.18.16.82  interface=wlan1
-  4  identity=sooreh.client  address=172.18.16.83  interface=wlan1
-  5  identity=KH-B-JODEYDEH  address=172.18.16.84  interface=wlan1
-  6  identity=CL-KH-B-JODEIDEH2  address=172.18.16.85  interface=wlan1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:22:03
-# ساعت دستگاه (خام): 1972-12-01 09:16:49
-# افست اصلاحی (سرور − دستگاه): +472223:35:14
-  1  1405/07/22 00:09:04  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 00:09:14  [interface,info]  ether1 link up (speed 100M, full duplex)
-  3  1405/07/22 00:10:08  [wireless,info]  6C:3B:6B:3E:4B:81@wlan1: failed to connect, on 5700/20-Ce/an, association timeout
-  4  1405/07/22 00:11:11  [wireless,info]  6E:3B:6B:3E:4B:81@wlan1: failed to connect, on 5700/20-Ce/an, association timeout
-  5  1405/07/22 00:12:12  [wireless,info]  6C:3B:6B:3E:4B:81@wlan1 established connection on 5700000, SSID Khoramshahr-Taleghani2
-  6  1405/07/22 13:14:04  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  7  1405/07/22 13:14:07  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  8  1405/07/22 13:40:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  9  1405/07/22 13:40:37  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 10  1405/07/22 21:24:18  [wireless,info]  6C:3B:6B:3E:4B:81@wlan1: lost connection, extensive data loss
- 11  1405/07/22 21:25:16  [wireless,info]  6E:3B:6B:3E:4B:81@wlan1 established connection on 5700000, SSID Khoramshahr-Taleghani2
- 12  1405/07/23 12:22:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:29:05
+# ساعت دستگاه (خام): 1972-12-06 21:37:31
+# افست اصلاحی (سرور − دستگاه): +472239:21:34
+  1  1405/07/29 15:55:23  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/29 15:55:33  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/29 15:56:24  [wireless,info]  6C:3B:6B:3E:4B:81@wlan1 established connection on 5700000, SSID Khoramshahr-Taleghani2
+  4  1405/07/29 16:29:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

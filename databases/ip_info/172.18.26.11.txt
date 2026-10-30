@@ -1,5 +1,5 @@
 IP: 172.18.26.11
-Collected at: 2026-10-15T10:08:47.723238+00:00
+Collected at: 2026-10-21T13:16:59.496990+00:00
 source: RouterOS API
 identity: Darkhovein->OmolGhazlan.Client
 device_type: ST
@@ -30,20 +30,14 @@ name=wlan1  mode=station-bridge  ssid=DRKHOMGH  band=5ghz-a/n  frequency=auto
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:33:38
-# ساعت دستگاه (خام): 2024-09-17 02:14:58
-# افست اصلاحی (سرور − دستگاه): +18198:48:40
-  1  1405/07/23 12:39:43  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/23 12:39:44  [bridge,info]  "bridge1" mac address changed to 4C:5E:0C:CD:FE:9F
-  3  1405/07/23 12:39:51  [wireless,info]  4C:5E:0C:CD:FA:18@wlan1 established connection on 5660000, SSID DRKHOMGH
-  4  1405/07/23 12:39:58  [interface,info]  ether1 link up (speed 100M, full duplex)
-  5  1405/07/23 13:26:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  6  1405/07/23 13:26:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  7  1405/07/24 05:40:09  [wireless,info]  4C:5E:0C:CD:FA:18@wlan1: lost connection, extensive data loss
-  8  1405/07/24 05:40:15  [wireless,info]  4C:5E:0C:CD:FA:18@wlan1 established connection on 5660000, SSID DRKHOMGH
-  9  1405/07/24 07:42:54  [wireless,info]  4C:5E:0C:CD:FA:18@wlan1: lost connection, no beacons received
- 10  1405/07/24 07:51:06  [wireless,info]  4C:5E:0C:CD:FA:18@wlan1 established connection on 5660000, SSID DRKHOMGH
- 11  1405/07/23 12:33:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:35:09
+# ساعت دستگاه (خام): 2024-09-22 07:16:40
+# افست اصلاحی (سرور − دستگاه): +18221:48:29
+  1  1405/07/28 08:18:32  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/28 08:18:33  [bridge,info]  "bridge1" mac address changed to 4C:5E:0C:CD:FE:9F
+  3  1405/07/28 08:18:39  [wireless,info]  4C:5E:0C:CD:FA:18@wlan1 established connection on 5660000, SSID DRKHOMGH
+  4  1405/07/28 08:18:50  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/07/29 16:35:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

@@ -1,5 +1,5 @@
 IP: 172.18.3.18
-Collected at: 2026-10-15T10:09:11.032867+00:00
+Collected at: 2026-10-21T13:17:12.961966+00:00
 source: RouterOS API
 identity: Setad.AbuShanak.AP
 device_type: AP
@@ -31,167 +31,198 @@ name=wlan1  mode=ap-bridge  ssid=Setad Aboshanak.AP  band=5ghz-a/n  frequency=49
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:36:29
-# ساعت دستگاه (خام): 1975-05-14 15:05:12
-# افست اصلاحی (سرور − دستگاه): +450762:01:17
-  1  1405/03/05 12:21:05  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/03/05 12:21:09  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:3C:78:BF
-  3  1405/03/05 12:22:07  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -66
-  4  1405/03/05 12:23:30  [interface,info]  ether1 link up (speed 1G, full duplex)
-  5  1405/03/16 10:04:53  [system,info,account]  user garnaf logged in from 172.29.40.4 via winbox
-  6  1405/03/16 10:04:54  [system,info,account]  user garnaf logged in from 172.29.40.4 via telnet
-  7  1405/03/16 10:53:04  [system,info,account]  user garnaf logged out from 172.29.40.4 via winbox
-  8  1405/03/16 10:53:04  [system,info,account]  user garnaf logged out from 172.29.40.4 via telnet
-  9  1405/03/20 01:11:11  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, not responding
- 10  1405/03/20 01:11:43  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: reconnecting
- 11  1405/03/20 01:11:43  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: reconnecting
- 12  1405/03/20 01:11:43  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -80
- 13  1405/03/20 05:42:29  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
- 14  1405/03/20 05:43:07  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -88
- 15  1405/03/20 05:43:18  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
- 16  1405/03/20 05:44:34  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -86
- 17  1405/03/20 05:48:43  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
- 18  1405/03/20 05:50:03  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -86
- 19  1405/03/20 05:50:31  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
- 20  1405/03/20 05:51:10  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -86
- 21  1405/03/20 05:51:54  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
- 22  1405/03/20 05:52:32  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -80
- 23  1405/03/20 06:14:49  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
- 24  1405/03/20 06:15:28  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -86
- 25  1405/03/20 06:49:59  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
- 26  1405/03/20 06:51:18  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -82
- 27  1405/04/13 06:51:48  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, not responding
- 28  1405/04/13 06:52:24  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -88
- 29  1405/04/31 10:33:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 30  1405/04/31 10:33:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via telnet
- 31  1405/04/31 10:36:21  [system,info]  device changed by garnaf
- 32  1405/04/31 10:37:05  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -70
- 33  1405/04/31 10:37:24  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, access-list changed
- 34  1405/04/31 10:37:24  [system,info]  wireless access-list entry added by garnaf
- 35  1405/04/31 10:37:40  [system,info]  wireless access-list entry removed by garnaf
- 36  1405/04/31 10:37:43  [system,info]  wireless access-list entry removed by garnaf
- 37  1405/04/31 10:38:03  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -70
- 38  1405/04/31 10:49:26  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 39  1405/04/31 10:49:26  [system,info,account]  user garnaf logged out from 172.18.4.76 via telnet
- 40  1405/05/04 14:17:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
- 41  1405/05/04 14:17:19  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
- 42  1405/05/04 14:22:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
- 43  1405/05/04 14:22:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
- 44  1405/05/04 14:36:01  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
- 45  1405/05/04 14:36:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
- 46  1405/05/04 14:43:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
- 47  1405/05/04 14:43:49  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
- 48  1405/05/04 14:45:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
- 49  1405/05/04 14:45:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
- 50  1405/05/05 12:01:21  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 51  1405/05/05 12:01:21  [system,info,account]  user garnaf logged in from 172.18.4.76 via telnet
- 52  1405/05/05 12:14:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 53  1405/05/05 12:14:50  [system,info,account]  user garnaf logged in from 172.18.4.76 via telnet
- 54  1405/05/05 13:03:14  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 55  1405/05/05 13:03:14  [system,info,account]  user garnaf logged out from 172.18.4.76 via telnet
- 56  1405/05/05 13:03:14  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 57  1405/05/05 13:03:14  [system,info,account]  user garnaf logged out from 172.18.4.76 via telnet
- 58  1405/05/06 08:33:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 59  1405/05/06 08:33:55  [system,info,account]  user garnaf logged in from 172.18.4.76 via telnet
- 60  1405/05/06 08:55:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via telnet
- 61  1405/05/06 09:00:21  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
- 62  1405/05/06 09:00:33  [system,info,account]  user garnaf logged out from 172.18.4.76 via telnet
- 63  1405/05/06 09:00:54  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -68
- 64  1405/05/06 09:12:15  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 65  1405/05/06 09:12:15  [system,info,account]  user garnaf logged out from 172.18.4.76 via telnet
- 66  1405/05/12 10:21:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 67  1405/05/12 10:22:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via telnet
- 68  1405/05/12 10:25:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 69  1405/05/12 10:25:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via telnet
- 70  1405/05/23 18:41:40  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
- 71  1405/05/23 18:42:54  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -88
- 72  1405/06/04 06:06:14  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
- 73  1405/06/04 06:07:31  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -78
- 74  1405/06/06 14:21:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 75  1405/06/06 14:22:22  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 76  1405/06/13 02:24:44  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
- 77  1405/06/13 02:25:23  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -86
- 78  1405/06/13 02:27:49  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, not responding
- 79  1405/06/13 02:29:06  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -84
- 80  1405/06/13 02:39:29  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
- 81  1405/06/13 02:40:08  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -86
- 82  1405/06/13 04:54:04  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
- 83  1405/06/13 04:54:42  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: reconnecting
- 84  1405/06/13 04:54:42  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -85
- 85  1405/06/19 23:49:19  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
- 86  1405/06/19 23:50:01  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -90
- 87  1405/06/19 23:50:08  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
- 88  1405/06/19 23:51:25  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -86
- 89  1405/06/19 23:53:33  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
- 90  1405/06/19 23:58:42  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -88
- 91  1405/06/23 02:26:22  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
- 92  1405/06/23 02:26:55  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -88
- 93  1405/06/23 02:27:42  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, not responding
- 94  1405/06/23 02:28:13  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -88
- 95  1405/06/23 02:31:02  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
- 96  1405/06/23 02:31:39  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -86
- 97  1405/06/23 23:16:47  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
- 98  1405/06/23 23:17:26  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -68
- 99  1405/06/28 02:57:37  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
-100  1405/06/28 02:58:50  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -82
-101  1405/07/09 20:13:29  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
-102  1405/07/09 20:14:01  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -70
-103  1405/07/11 22:43:48  [interface,info]  ether1 link down
-104  1405/07/11 22:46:31  [interface,info]  ether1 link up (speed 1G, full duplex)
-105  1405/07/15 13:36:50  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-106  1405/07/15 13:36:50  [system,info]  changed snmp settings by garnaf
-107  1405/07/15 13:36:50  [system,info]  item changed by garnaf
-108  1405/07/15 13:36:50  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-109  1405/07/15 15:00:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-110  1405/07/15 15:00:26  [system,info]  user olom1 added by garnaf
-111  1405/07/15 15:00:26  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-112  1405/07/15 15:06:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-113  1405/07/15 15:06:18  [system,info]  user ums1 removed by garnaf
-114  1405/07/15 15:06:18  [system,info]  user ums2 removed by garnaf
-115  1405/07/15 15:06:18  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-116  1405/07/16 00:12:16  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
-117  1405/07/16 00:12:59  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -76
-118  1405/07/16 01:19:01  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
-119  1405/07/16 01:21:31  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -84
-120  1405/07/16 01:22:06  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
-121  1405/07/16 01:23:57  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -82
-122  1405/07/16 10:16:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-123  1405/07/16 10:16:37  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-124  1405/07/16 10:38:34  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-125  1405/07/16 10:38:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-126  1405/07/16 13:53:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-127  1405/07/16 13:53:36  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-128  1405/07/16 14:08:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-129  1405/07/16 14:08:27  [system,info]  changed snmp settings by garnaf
-130  1405/07/16 14:08:27  [system,info]  item changed by garnaf
-131  1405/07/16 14:08:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-132  1405/07/16 14:33:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-133  1405/07/16 14:33:25  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-134  1405/07/16 15:44:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-135  1405/07/16 15:44:09  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-136  1405/07/16 19:16:42  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
-137  1405/07/16 19:17:57  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -74
-138  1405/07/17 08:36:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-139  1405/07/17 08:36:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-140  1405/07/18 10:33:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-141  1405/07/18 10:33:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-142  1405/07/18 10:58:12  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-143  1405/07/18 10:58:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-144  1405/07/18 12:10:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-145  1405/07/18 12:10:18  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-146  1405/07/19 09:48:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-147  1405/07/19 09:48:26  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-148  1405/07/19 17:44:20  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-149  1405/07/19 17:44:20  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-150  1405/07/21 11:09:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-151  1405/07/21 11:09:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-152  1405/07/22 10:34:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-153  1405/07/22 10:50:42  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-154  1405/07/22 13:29:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-155  1405/07/22 13:29:13  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-156  1405/07/23 02:07:34  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
-157  1405/07/23 02:08:13  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -78
-158  1405/07/23 12:36:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:36:41
+# ساعت دستگاه (خام): 1975-05-20 19:08:15
+# افست اصلاحی (سرور − دستگاه): +450761:58:26
+  1  1405/03/05 12:18:14  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/03/05 12:18:18  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:3C:78:BF
+  3  1405/03/05 12:19:16  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -66
+  4  1405/03/05 12:20:39  [interface,info]  ether1 link up (speed 1G, full duplex)
+  5  1405/03/16 10:02:02  [system,info,account]  user garnaf logged in from 172.29.40.4 via winbox
+  6  1405/03/16 10:02:03  [system,info,account]  user garnaf logged in from 172.29.40.4 via telnet
+  7  1405/03/16 10:50:13  [system,info,account]  user garnaf logged out from 172.29.40.4 via winbox
+  8  1405/03/16 10:50:13  [system,info,account]  user garnaf logged out from 172.29.40.4 via telnet
+  9  1405/03/20 01:08:20  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, not responding
+ 10  1405/03/20 01:08:52  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: reconnecting
+ 11  1405/03/20 01:08:52  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: reconnecting
+ 12  1405/03/20 01:08:52  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -80
+ 13  1405/03/20 05:39:38  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+ 14  1405/03/20 05:40:16  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -88
+ 15  1405/03/20 05:40:27  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+ 16  1405/03/20 05:41:43  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -86
+ 17  1405/03/20 05:45:52  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+ 18  1405/03/20 05:47:12  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -86
+ 19  1405/03/20 05:47:40  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+ 20  1405/03/20 05:48:19  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -86
+ 21  1405/03/20 05:49:03  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+ 22  1405/03/20 05:49:41  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -80
+ 23  1405/03/20 06:11:58  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+ 24  1405/03/20 06:12:37  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -86
+ 25  1405/03/20 06:47:08  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+ 26  1405/03/20 06:48:27  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -82
+ 27  1405/04/13 06:48:57  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, not responding
+ 28  1405/04/13 06:49:33  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -88
+ 29  1405/04/31 10:30:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 30  1405/04/31 10:30:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via telnet
+ 31  1405/04/31 10:33:30  [system,info]  device changed by garnaf
+ 32  1405/04/31 10:34:14  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -70
+ 33  1405/04/31 10:34:33  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, access-list changed
+ 34  1405/04/31 10:34:33  [system,info]  wireless access-list entry added by garnaf
+ 35  1405/04/31 10:34:49  [system,info]  wireless access-list entry removed by garnaf
+ 36  1405/04/31 10:34:52  [system,info]  wireless access-list entry removed by garnaf
+ 37  1405/04/31 10:35:12  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -70
+ 38  1405/04/31 10:46:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 39  1405/04/31 10:46:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via telnet
+ 40  1405/05/04 14:14:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
+ 41  1405/05/04 14:14:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
+ 42  1405/05/04 14:19:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
+ 43  1405/05/04 14:19:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
+ 44  1405/05/04 14:33:10  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
+ 45  1405/05/04 14:33:10  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
+ 46  1405/05/04 14:40:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
+ 47  1405/05/04 14:40:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
+ 48  1405/05/04 14:43:05  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
+ 49  1405/05/04 14:43:05  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
+ 50  1405/05/05 11:58:30  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 51  1405/05/05 11:58:30  [system,info,account]  user garnaf logged in from 172.18.4.76 via telnet
+ 52  1405/05/05 12:11:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 53  1405/05/05 12:11:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via telnet
+ 54  1405/05/05 13:00:23  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 55  1405/05/05 13:00:23  [system,info,account]  user garnaf logged out from 172.18.4.76 via telnet
+ 56  1405/05/05 13:00:23  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 57  1405/05/05 13:00:23  [system,info,account]  user garnaf logged out from 172.18.4.76 via telnet
+ 58  1405/05/06 08:31:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 59  1405/05/06 08:31:04  [system,info,account]  user garnaf logged in from 172.18.4.76 via telnet
+ 60  1405/05/06 08:52:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via telnet
+ 61  1405/05/06 08:57:30  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+ 62  1405/05/06 08:57:42  [system,info,account]  user garnaf logged out from 172.18.4.76 via telnet
+ 63  1405/05/06 08:58:03  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -68
+ 64  1405/05/06 09:09:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 65  1405/05/06 09:09:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via telnet
+ 66  1405/05/12 10:19:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 67  1405/05/12 10:19:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via telnet
+ 68  1405/05/12 10:22:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 69  1405/05/12 10:22:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via telnet
+ 70  1405/05/23 18:38:49  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+ 71  1405/05/23 18:40:03  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -88
+ 72  1405/06/04 06:03:23  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+ 73  1405/06/04 06:04:40  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -78
+ 74  1405/06/06 14:19:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 75  1405/06/06 14:19:31  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 76  1405/06/13 02:21:53  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+ 77  1405/06/13 02:22:32  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -86
+ 78  1405/06/13 02:24:58  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, not responding
+ 79  1405/06/13 02:26:15  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -84
+ 80  1405/06/13 02:36:38  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+ 81  1405/06/13 02:37:17  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -86
+ 82  1405/06/13 04:51:13  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+ 83  1405/06/13 04:51:51  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: reconnecting
+ 84  1405/06/13 04:51:51  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -85
+ 85  1405/06/19 23:46:28  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+ 86  1405/06/19 23:47:10  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -90
+ 87  1405/06/19 23:47:17  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+ 88  1405/06/19 23:48:34  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -86
+ 89  1405/06/19 23:50:42  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+ 90  1405/06/19 23:55:51  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -88
+ 91  1405/06/23 02:23:31  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+ 92  1405/06/23 02:24:04  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -88
+ 93  1405/06/23 02:24:51  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, not responding
+ 94  1405/06/23 02:25:22  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -88
+ 95  1405/06/23 02:28:11  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+ 96  1405/06/23 02:28:48  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -86
+ 97  1405/06/23 23:13:56  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+ 98  1405/06/23 23:14:35  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -68
+ 99  1405/06/28 02:54:46  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+100  1405/06/28 02:55:59  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -82
+101  1405/07/09 20:10:38  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+102  1405/07/09 20:11:10  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -70
+103  1405/07/11 22:40:57  [interface,info]  ether1 link down
+104  1405/07/11 22:43:40  [interface,info]  ether1 link up (speed 1G, full duplex)
+105  1405/07/15 13:33:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+106  1405/07/15 13:33:59  [system,info]  changed snmp settings by garnaf
+107  1405/07/15 13:33:59  [system,info]  item changed by garnaf
+108  1405/07/15 13:33:59  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+109  1405/07/15 14:57:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+110  1405/07/15 14:57:35  [system,info]  user olom1 added by garnaf
+111  1405/07/15 14:57:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+112  1405/07/15 15:03:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+113  1405/07/15 15:03:27  [system,info]  user ums1 removed by garnaf
+114  1405/07/15 15:03:27  [system,info]  user ums2 removed by garnaf
+115  1405/07/15 15:03:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+116  1405/07/16 00:09:25  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+117  1405/07/16 00:10:08  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -76
+118  1405/07/16 01:16:10  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+119  1405/07/16 01:18:40  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -84
+120  1405/07/16 01:19:15  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+121  1405/07/16 01:21:06  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -82
+122  1405/07/16 10:13:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+123  1405/07/16 10:13:46  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+124  1405/07/16 10:35:43  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+125  1405/07/16 10:35:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+126  1405/07/16 13:50:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+127  1405/07/16 13:50:45  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+128  1405/07/16 14:05:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+129  1405/07/16 14:05:36  [system,info]  changed snmp settings by garnaf
+130  1405/07/16 14:05:36  [system,info]  item changed by garnaf
+131  1405/07/16 14:05:36  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+132  1405/07/16 14:30:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+133  1405/07/16 14:30:34  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+134  1405/07/16 15:41:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+135  1405/07/16 15:41:18  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+136  1405/07/16 19:13:51  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+137  1405/07/16 19:15:06  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -74
+138  1405/07/17 08:33:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+139  1405/07/17 08:33:10  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+140  1405/07/18 10:30:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+141  1405/07/18 10:30:57  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+142  1405/07/18 10:55:21  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+143  1405/07/18 10:55:21  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+144  1405/07/18 12:07:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+145  1405/07/18 12:07:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+146  1405/07/19 09:45:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+147  1405/07/19 09:45:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+148  1405/07/19 17:41:29  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+149  1405/07/19 17:41:29  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+150  1405/07/21 11:06:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+151  1405/07/21 11:06:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+152  1405/07/22 10:31:40  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+153  1405/07/22 10:47:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+154  1405/07/22 13:26:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+155  1405/07/22 13:26:22  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+156  1405/07/23 02:04:43  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+157  1405/07/23 02:05:22  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -78
+158  1405/07/23 12:33:37  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+159  1405/07/23 12:33:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+160  1405/07/24 15:29:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+161  1405/07/24 15:29:19  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+162  1405/07/24 15:58:13  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+163  1405/07/24 15:58:15  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+164  1405/07/25 11:20:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+165  1405/07/25 11:22:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+166  1405/07/25 11:23:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+167  1405/07/25 11:34:42  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+168  1405/07/26 00:16:58  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+169  1405/07/26 00:18:11  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -70
+170  1405/07/26 02:06:55  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+171  1405/07/26 02:12:46  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -80
+172  1405/07/26 02:14:31  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+173  1405/07/26 02:17:03  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -78
+174  1405/07/26 06:13:52  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+175  1405/07/26 06:15:04  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: reconnecting
+176  1405/07/26 06:15:04  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: reconnecting
+177  1405/07/26 06:15:04  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: reconnecting
+178  1405/07/26 06:15:04  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: reconnecting
+179  1405/07/26 06:15:04  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: reconnecting
+180  1405/07/26 06:15:05  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: reconnecting
+181  1405/07/26 06:15:43  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: reconnecting
+182  1405/07/26 06:15:44  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -82
+183  1405/07/26 06:33:30  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: disconnected, control frame timeout
+184  1405/07/26 06:38:35  [wireless,info]  E4:8D:8C:FA:63:BD@wlan1: connected, signal strength -82
+185  1405/07/26 09:05:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+186  1405/07/26 09:05:22  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+187  1405/07/26 09:07:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+188  1405/07/26 09:07:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+189  1405/07/29 16:36:40  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

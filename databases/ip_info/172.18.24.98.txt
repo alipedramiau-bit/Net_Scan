@@ -1,5 +1,5 @@
 IP: 172.18.24.98
-Collected at: 2026-10-15T10:08:24.937960+00:00
+Collected at: 2026-10-21T13:16:42.709800+00:00
 source: RouterOS API
 identity: Shadegan-Shabakeh6
 device_type: AP
@@ -28,214 +28,215 @@ name=wlan1  mode=ap-bridge  ssid=Shadegan-Shabakeh6  band=5ghz-a/n  frequency=57
   2  identity=RB-UMS-SHDGN-CoreRouter  address=172.18.24.97  interface=ether1,bridge1
   3  identity=Markaz-Salemi.Client  address=172.18.24.100  interface=wlan1,bridge1
   4  identity=KhoroosiShomali.Client  address=172.18.24.102  interface=wlan1,bridge1
-  5  identity=fayazi  address=172.18.24.107  interface=wlan1,bridge1
-  6  identity=khaneh-behdasht-salemi  address=172.18.24.108  interface=wlan1,bridge1
+  5  identity=NahrSadi.Client  address=172.18.24.106  interface=wlan1,bridge1
+  6  identity=fayazi  address=172.18.24.107  interface=wlan1,bridge1
+  7  identity=khaneh-behdasht-salemi  address=172.18.24.108  interface=wlan1,bridge1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:28:46
-# ساعت دستگاه (خام): 2026-07-24 12:42:04
-# افست اصلاحی (سرور − دستگاه): +1988:16:42
-  1  1405/07/21 11:22:41  [wireless,info]  2E:0D:F3:46:D8:C1@wlan1: connected, signal strength -91
-  2  1405/07/21 11:22:46  [wireless,info]  2E:0D:F3:46:D8:C1@wlan1: disconnected, unicast key exchange timeout, signal strength -91
-  3  1405/07/21 12:04:23  [wireless,info]  08:55:31:CF:FD:52@wlan1: disconnected, extensive data loss, signal strength -65
-  4  1405/07/21 12:06:22  [wireless,info]  C4:AD:34:94:41:F3@wlan1: disconnected, extensive data loss, signal strength -59
-  5  1405/07/21 12:16:16  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, extensive data loss, signal strength -81
-  6  1405/07/21 12:16:35  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -79, wants bridge
-  7  1405/07/21 12:45:30  [wireless,info]  6C:3B:6B:06:5C:15@wlan1: disconnected, extensive data loss, signal strength -57
-  8  1405/07/21 15:47:30  [wireless,info]  6C:3B:6B:10:AE:61@wlan1: disconnected, extensive data loss, signal strength -70
-  9  1405/07/21 20:06:33  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
- 10  1405/07/21 20:06:33  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -79
- 11  1405/07/21 20:06:33  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -84, wants bridge
- 12  1405/07/21 20:07:30  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -84
- 13  1405/07/21 20:07:35  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -86, wants bridge
- 14  1405/07/21 20:37:10  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
- 15  1405/07/21 20:37:10  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -86
- 16  1405/07/21 20:37:10  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -87, wants bridge
- 17  1405/07/21 20:37:27  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -87
- 18  1405/07/21 20:37:33  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -86, wants bridge
- 19  1405/07/21 21:23:02  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -86
- 20  1405/07/21 21:23:07  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -84, wants bridge
- 21  1405/07/21 21:31:02  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -84
- 22  1405/07/21 21:31:04  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -85, wants bridge
- 23  1405/07/21 21:46:20  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -85
- 24  1405/07/21 21:46:26  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -87, wants bridge
- 25  1405/07/21 21:58:44  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, group key exchange timeout, signal strength -86
- 26  1405/07/21 21:58:54  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -89, wants bridge
- 27  1405/07/21 22:01:30  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -89
- 28  1405/07/21 22:01:46  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -86, wants bridge
- 29  1405/07/21 22:03:12  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -86
- 30  1405/07/21 22:03:14  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -84, wants bridge
- 31  1405/07/21 22:14:00  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -84
- 32  1405/07/21 22:14:05  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -87, wants bridge
- 33  1405/07/21 22:14:39  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -87
- 34  1405/07/21 22:15:09  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -88, wants bridge
- 35  1405/07/21 22:15:43  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
- 36  1405/07/21 22:15:43  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -88
- 37  1405/07/21 22:15:43  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -87, wants bridge
- 38  1405/07/21 22:16:08  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -87
- 39  1405/07/21 22:16:24  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -89, wants bridge
- 40  1405/07/21 22:16:46  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
- 41  1405/07/21 22:16:46  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -89
- 42  1405/07/21 22:16:46  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -89, wants bridge
- 43  1405/07/21 22:17:06  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
- 44  1405/07/21 22:17:06  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -89
- 45  1405/07/21 22:17:06  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -90, wants bridge
- 46  1405/07/21 22:17:19  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -90
- 47  1405/07/21 22:17:24  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -89, wants bridge
- 48  1405/07/21 22:17:30  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -89
- 49  1405/07/21 22:17:36  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -88, wants bridge
- 50  1405/07/21 22:18:06  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -88
- 51  1405/07/21 22:18:13  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -88, wants bridge
- 52  1405/07/21 22:18:36  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
- 53  1405/07/21 22:18:36  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -88
- 54  1405/07/21 22:18:36  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -88, wants bridge
- 55  1405/07/21 22:18:36  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
- 56  1405/07/21 22:18:36  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -88
- 57  1405/07/21 22:18:36  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -88, wants bridge
- 58  1405/07/21 22:19:02  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -88
- 59  1405/07/21 22:19:08  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -87, wants bridge
- 60  1405/07/21 22:19:41  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -87
- 61  1405/07/21 22:19:46  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -87, wants bridge
- 62  1405/07/21 22:20:32  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -87
- 63  1405/07/21 22:20:39  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -89, wants bridge
- 64  1405/07/21 22:21:31  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, extensive data loss, signal strength -89
- 65  1405/07/21 22:21:48  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -84, wants bridge
- 66  1405/07/21 22:28:17  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -84
- 67  1405/07/21 22:28:20  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -84, wants bridge
- 68  1405/07/21 22:31:18  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -84
- 69  1405/07/21 22:32:08  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -86, wants bridge
- 70  1405/07/21 22:32:50  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
- 71  1405/07/21 22:32:50  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -86
- 72  1405/07/21 22:32:50  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -88, wants bridge
- 73  1405/07/21 22:33:03  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -88
- 74  1405/07/21 22:33:11  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -85, wants bridge
- 75  1405/07/21 22:33:39  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
- 76  1405/07/21 22:33:39  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -85
- 77  1405/07/21 22:33:39  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -87, wants bridge
- 78  1405/07/21 22:48:41  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
- 79  1405/07/21 22:48:41  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -87
- 80  1405/07/21 22:48:41  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -88, wants bridge
- 81  1405/07/21 22:49:05  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
- 82  1405/07/21 22:49:05  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -88
- 83  1405/07/21 22:49:05  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -89, wants bridge
- 84  1405/07/21 22:50:14  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -89
- 85  1405/07/21 22:50:45  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -88, wants bridge
- 86  1405/07/21 22:51:08  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -88
- 87  1405/07/21 22:51:14  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -89, wants bridge
- 88  1405/07/21 22:51:46  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
- 89  1405/07/21 22:51:46  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -89
- 90  1405/07/21 22:51:46  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -89, wants bridge
- 91  1405/07/21 22:55:51  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, extensive data loss, signal strength -89
- 92  1405/07/21 22:56:23  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -82, wants bridge
- 93  1405/07/21 23:07:51  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -82
- 94  1405/07/21 23:07:57  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -88, wants bridge
- 95  1405/07/21 23:08:51  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -88
- 96  1405/07/21 23:08:58  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -86, wants bridge
- 97  1405/07/21 23:10:08  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
- 98  1405/07/21 23:10:08  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -86
- 99  1405/07/21 23:10:08  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -87, wants bridge
-100  1405/07/21 23:10:39  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
-101  1405/07/21 23:10:39  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -87
-102  1405/07/21 23:10:39  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -84, wants bridge
-103  1405/07/21 23:12:20  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
-104  1405/07/21 23:12:20  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -84
-105  1405/07/21 23:12:20  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -86, wants bridge
-106  1405/07/22 03:14:31  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -86
-107  1405/07/22 03:14:36  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -85, wants bridge
-108  1405/07/22 03:15:14  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -85
-109  1405/07/22 03:15:19  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -85, wants bridge
-110  1405/07/22 03:15:34  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -85
-111  1405/07/22 03:15:39  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -86, wants bridge
-112  1405/07/22 03:16:04  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -86
-113  1405/07/22 03:16:09  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -84, wants bridge
-114  1405/07/22 03:16:35  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -84
-115  1405/07/22 03:16:40  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -85, wants bridge
-116  1405/07/22 03:20:13  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
-117  1405/07/22 03:20:13  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -85
-118  1405/07/22 03:20:13  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -89, wants bridge
-119  1405/07/22 07:32:47  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
-120  1405/07/22 07:32:47  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -82
-121  1405/07/22 07:32:47  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -88, wants bridge
-122  1405/07/22 07:35:31  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
-123  1405/07/22 07:35:31  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -82
-124  1405/07/22 07:35:31  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -86, wants bridge
-125  1405/07/22 07:35:31  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
-126  1405/07/22 07:35:31  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -82
-127  1405/07/22 07:35:31  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -85, wants bridge
-128  1405/07/22 07:35:38  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -82
-129  1405/07/22 07:35:44  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -86, wants bridge
-130  1405/07/22 07:35:54  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -86
-131  1405/07/22 07:35:59  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -88, wants bridge
-132  1405/07/22 07:40:12  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
-133  1405/07/22 07:40:12  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -88
-134  1405/07/22 07:40:12  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -87, wants bridge
-135  1405/07/22 07:40:40  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -87
-136  1405/07/22 07:40:46  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -86, wants bridge
-137  1405/07/22 07:40:55  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -86
-138  1405/07/22 07:41:12  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -86, wants bridge
-139  1405/07/22 07:41:25  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
-140  1405/07/22 07:41:25  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -86
-141  1405/07/22 07:41:25  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -88, wants bridge
-142  1405/07/22 07:41:43  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -88
-143  1405/07/22 07:41:49  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -87, wants bridge
-144  1405/07/22 07:41:58  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -87
-145  1405/07/22 07:42:16  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -90, wants bridge
-146  1405/07/22 07:42:26  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
-147  1405/07/22 07:42:26  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -90
-148  1405/07/22 07:42:26  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -89, wants bridge
-149  1405/07/22 07:42:45  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -89
-150  1405/07/22 07:42:51  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -87, wants bridge
-151  1405/07/22 07:42:56  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -87
-152  1405/07/22 07:43:01  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -86, wants bridge
-153  1405/07/22 07:43:05  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -86
-154  1405/07/22 07:43:11  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -84, wants bridge
-155  1405/07/22 07:46:16  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -84
-156  1405/07/22 07:46:22  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -85, wants bridge
-157  1405/07/22 08:23:41  [wireless,info]  08:55:31:CF:FD:52@wlan1: connected, signal strength -65
-158  1405/07/22 08:24:46  [wireless,info]  C4:AD:34:94:41:F3@wlan1: connected, signal strength -61, wants bridge
-159  1405/07/22 08:29:47  [wireless,info]  6C:3B:6B:06:5C:15@wlan1: connected, signal strength -59, wants bridge
-160  1405/07/22 09:20:32  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -85
-161  1405/07/22 09:20:34  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -81, wants bridge
-162  1405/07/22 09:46:03  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
-163  1405/07/22 09:46:03  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -81
-164  1405/07/22 09:46:03  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -82, wants bridge
-165  1405/07/22 10:01:18  [wireless,info]  C4:AD:34:94:41:F3@wlan1: disconnected, extensive data loss, signal strength -61
-166  1405/07/22 10:01:18  [wireless,info]  6C:3B:6B:06:5B:C3@wlan1: disconnected, extensive data loss, signal strength -61
-167  1405/07/22 10:01:23  [wireless,info]  6C:3B:6B:06:5C:15@wlan1: disconnected, extensive data loss, signal strength -59
-168  1405/07/22 10:01:24  [wireless,info]  E4:8D:8C:B4:C7:E1@wlan1: disconnected, extensive data loss, signal strength -63
-169  1405/07/22 10:01:28  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, extensive data loss, signal strength -82
-170  1405/07/22 10:01:28  [wireless,info]  08:55:31:CF:FD:52@wlan1: disconnected, extensive data loss, signal strength -65
-171  1405/07/22 10:09:54  [wireless,info]  6C:3B:6B:06:5C:15@wlan1: connected, signal strength -58, wants bridge
-172  1405/07/22 10:09:56  [wireless,info]  C4:AD:34:94:41:F3@wlan1: connected, signal strength -60, wants bridge
-173  1405/07/22 10:10:28  [wireless,info]  6C:3B:6B:06:5B:C3@wlan1: connected, signal strength -61, wants bridge
-174  1405/07/22 10:10:31  [wireless,info]  E4:8D:8C:B4:C7:E1@wlan1: connected, signal strength -61, wants bridge
-175  1405/07/22 10:11:00  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -81, wants bridge
-176  1405/07/22 10:11:02  [wireless,info]  08:55:31:CF:FD:52@wlan1: connected, signal strength -65
-177  1405/07/22 12:01:07  [wireless,info]  C4:AD:34:94:41:F3@wlan1: disconnected, extensive data loss, signal strength -60
-178  1405/07/22 12:04:30  [wireless,info]  08:55:31:CF:FD:52@wlan1: disconnected, extensive data loss, signal strength -65
-179  1405/07/22 12:50:37  [wireless,info]  6C:3B:6B:06:5C:15@wlan1: disconnected, extensive data loss, signal strength -58
-180  1405/07/22 13:20:57  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-181  1405/07/22 13:21:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-182  1405/07/22 20:04:50  [wireless,info]  A2:DA:68:5E:29:1D@wlan1: connected, signal strength -82
-183  1405/07/22 20:04:55  [wireless,info]  A2:DA:68:5E:29:1D@wlan1: disconnected, unicast key exchange timeout, signal strength -84
-184  1405/07/22 22:08:42  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -81
-185  1405/07/22 22:09:01  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -90, wants bridge
-186  1405/07/23 03:48:45  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, extensive data loss, signal strength -90
-187  1405/07/23 03:49:03  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -90, wants bridge
-188  1405/07/23 04:03:45  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, extensive data loss, signal strength -90
-189  1405/07/23 04:07:23  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -87, wants bridge
-190  1405/07/23 04:23:45  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, extensive data loss, signal strength -87
-191  1405/07/23 04:24:21  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -89, wants bridge
-192  1405/07/23 07:39:02  [wireless,info]  50:8E:49:D9:DB:27@wlan1: connected, signal strength -85
-193  1405/07/23 07:39:07  [wireless,info]  50:8E:49:D9:DB:27@wlan1: disconnected, unicast key exchange timeout, signal strength -88
-194  1405/07/23 12:16:01  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
-195  1405/07/23 12:16:01  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -82
-196  1405/07/23 12:16:01  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -80, wants bridge
-197  1405/07/23 12:16:01  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
-198  1405/07/23 12:16:01  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -82
-199  1405/07/23 12:16:01  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -80, wants bridge
-200  1405/07/23 12:28:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:32:56
+# ساعت دستگاه (خام): 2026-07-30 16:49:05
+# افست اصلاحی (سرور − دستگاه): +1988:13:51
+  1  1405/07/26 11:04:00  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -78, wants bridge
+  2  1405/07/26 11:58:15  [wireless,info]  C4:AD:34:94:41:F3@wlan1: disconnected, extensive data loss, signal strength -62
+  3  1405/07/26 12:06:04  [wireless,info]  08:55:31:CF:FD:52@wlan1: disconnected, extensive data loss, signal strength -66
+  4  1405/07/26 12:45:59  [wireless,info]  6C:3B:6B:06:5C:15@wlan1: disconnected, extensive data loss, signal strength -60
+  5  1405/07/26 15:43:04  [wireless,info]  6C:3B:6B:10:AE:61@wlan1: disconnected, extensive data loss, signal strength -73
+  6  1405/07/26 16:02:15  [wireless,info]  6C:3B:6B:10:AE:61@wlan1: connected, signal strength -72, wants bridge
+  7  1405/07/26 17:36:45  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -77
+  8  1405/07/26 17:36:47  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -80, wants bridge
+  9  1405/07/26 17:43:17  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -80
+ 10  1405/07/26 17:43:25  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -76, wants bridge
+ 11  1405/07/26 17:48:04  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, extensive data loss, signal strength -76
+ 12  1405/07/26 17:48:46  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -84, wants bridge
+ 13  1405/07/26 17:55:54  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
+ 14  1405/07/26 17:55:54  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -84
+ 15  1405/07/26 17:55:54  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -82, wants bridge
+ 16  1405/07/26 17:55:54  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
+ 17  1405/07/26 17:55:54  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -82
+ 18  1405/07/26 17:55:54  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -83, wants bridge
+ 19  1405/07/26 18:03:48  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, extensive data loss, signal strength -83
+ 20  1405/07/26 18:04:09  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -83, wants bridge
+ 21  1405/07/26 18:06:49  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, extensive data loss, signal strength -83
+ 22  1405/07/26 18:07:19  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -85, wants bridge
+ 23  1405/07/26 18:09:37  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
+ 24  1405/07/26 18:09:37  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -85
+ 25  1405/07/26 18:09:37  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -87, wants bridge
+ 26  1405/07/26 18:09:37  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
+ 27  1405/07/26 18:09:37  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -87
+ 28  1405/07/26 18:09:37  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -90, wants bridge
+ 29  1405/07/26 18:12:40  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
+ 30  1405/07/26 18:12:40  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -90
+ 31  1405/07/26 18:12:40  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -86, wants bridge
+ 32  1405/07/26 18:19:10  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -86
+ 33  1405/07/26 18:19:16  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -87, wants bridge
+ 34  1405/07/26 18:20:20  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, extensive data loss, signal strength -87
+ 35  1405/07/26 18:20:38  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -89, wants bridge
+ 36  1405/07/26 18:20:53  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -89
+ 37  1405/07/26 18:20:59  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -90, wants bridge
+ 38  1405/07/26 18:22:22  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -90
+ 39  1405/07/26 18:22:28  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -88, wants bridge
+ 40  1405/07/26 18:22:38  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, extensive data loss, signal strength -88
+ 41  1405/07/26 18:22:41  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -87, wants bridge
+ 42  1405/07/26 18:22:45  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -87
+ 43  1405/07/26 18:22:51  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -89, wants bridge
+ 44  1405/07/26 18:22:55  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -89
+ 45  1405/07/26 18:23:01  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -88, wants bridge
+ 46  1405/07/26 18:23:05  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -88
+ 47  1405/07/26 18:23:11  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -89, wants bridge
+ 48  1405/07/26 18:24:29  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, extensive data loss, signal strength -89
+ 49  1405/07/26 18:24:30  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -87, wants bridge
+ 50  1405/07/26 18:25:36  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
+ 51  1405/07/26 18:25:36  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -87
+ 52  1405/07/26 18:25:36  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -88, wants bridge
+ 53  1405/07/26 18:25:49  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -88
+ 54  1405/07/26 18:25:51  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -87, wants bridge
+ 55  1405/07/26 18:26:04  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
+ 56  1405/07/26 18:26:04  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -87
+ 57  1405/07/26 18:26:04  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -89, wants bridge
+ 58  1405/07/26 18:26:04  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
+ 59  1405/07/26 18:26:04  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -89
+ 60  1405/07/26 18:26:04  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -87, wants bridge
+ 61  1405/07/26 18:26:41  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -87
+ 62  1405/07/26 18:26:46  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -88, wants bridge
+ 63  1405/07/26 18:26:56  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
+ 64  1405/07/26 18:26:56  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -88
+ 65  1405/07/26 18:26:56  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -88, wants bridge
+ 66  1405/07/26 18:27:03  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -88
+ 67  1405/07/26 18:27:09  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -86, wants bridge
+ 68  1405/07/26 18:27:24  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -86
+ 69  1405/07/26 18:27:29  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -86, wants bridge
+ 70  1405/07/26 18:27:59  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
+ 71  1405/07/26 18:27:59  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -86
+ 72  1405/07/26 18:27:59  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -89, wants bridge
+ 73  1405/07/26 18:28:32  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
+ 74  1405/07/26 18:28:32  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -89
+ 75  1405/07/26 18:28:32  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -89, wants bridge
+ 76  1405/07/26 18:31:15  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -89
+ 77  1405/07/26 18:31:20  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -87, wants bridge
+ 78  1405/07/26 18:31:52  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, extensive data loss, signal strength -87
+ 79  1405/07/26 18:31:55  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -86, wants bridge
+ 80  1405/07/26 18:37:51  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -86
+ 81  1405/07/26 18:37:57  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -88, wants bridge
+ 82  1405/07/26 18:40:39  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
+ 83  1405/07/26 18:40:39  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -88
+ 84  1405/07/26 18:40:39  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -84, wants bridge
+ 85  1405/07/26 18:40:39  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
+ 86  1405/07/26 18:40:39  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -84
+ 87  1405/07/26 18:40:39  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -85, wants bridge
+ 88  1405/07/26 19:12:02  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
+ 89  1405/07/26 19:12:02  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -85
+ 90  1405/07/26 19:12:02  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -88, wants bridge
+ 91  1405/07/26 19:15:08  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -88
+ 92  1405/07/26 19:15:13  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -87, wants bridge
+ 93  1405/07/26 19:15:39  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
+ 94  1405/07/26 19:15:39  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -87
+ 95  1405/07/26 19:15:39  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -85, wants bridge
+ 96  1405/07/26 19:47:10  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -85
+ 97  1405/07/26 19:47:12  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -88, wants bridge
+ 98  1405/07/26 19:51:10  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -88
+ 99  1405/07/26 19:51:16  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -87, wants bridge
+100  1405/07/26 20:09:00  [wireless,info]  6C:3B:6B:10:AE:61@wlan1: disconnected, extensive data loss, signal strength -72
+101  1405/07/26 20:14:16  [wireless,info]  6C:3B:6B:10:AE:61@wlan1: connected, signal strength -72, wants bridge
+102  1405/07/26 20:53:57  [wireless,info]  C6:AB:0A:5C:FB:F6@wlan1: connected, signal strength -85
+103  1405/07/26 20:54:02  [wireless,info]  C6:AB:0A:5C:FB:F6@wlan1: disconnected, unicast key exchange timeout, signal strength -84
+104  1405/07/26 21:09:19  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
+105  1405/07/26 21:09:19  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -87
+106  1405/07/26 21:09:19  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -90, wants bridge
+107  1405/07/26 21:26:18  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
+108  1405/07/26 21:26:18  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -90
+109  1405/07/26 21:26:18  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -86, wants bridge
+110  1405/07/26 21:27:52  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
+111  1405/07/26 21:27:52  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -86
+112  1405/07/26 21:27:52  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -86, wants bridge
+113  1405/07/26 21:32:43  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
+114  1405/07/26 21:32:43  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -86
+115  1405/07/26 21:32:43  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -85, wants bridge
+116  1405/07/26 21:33:00  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
+117  1405/07/26 21:33:00  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -85
+118  1405/07/26 21:33:00  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -85, wants bridge
+119  1405/07/26 21:33:18  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
+120  1405/07/26 21:33:18  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -85
+121  1405/07/26 21:33:18  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -87, wants bridge
+122  1405/07/26 21:35:40  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -87
+123  1405/07/26 21:35:42  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -84, wants bridge
+124  1405/07/26 21:41:01  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, group key exchange timeout, signal strength -87
+125  1405/07/26 21:41:22  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -87, wants bridge
+126  1405/07/26 21:42:51  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -87
+127  1405/07/26 21:49:46  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -87, wants bridge
+128  1405/07/27 00:56:53  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -87
+129  1405/07/27 00:56:59  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -85, wants bridge
+130  1405/07/27 07:04:05  [wireless,info]  FA:68:7B:CA:68:C7@wlan1: connected, signal strength -70
+131  1405/07/27 07:04:05  [wireless,info]  FA:68:7B:CA:68:C7@wlan1: disconnected, received deauth: class 3 frame received (7), signal strength -70
+132  1405/07/27 07:04:06  [wireless,info]  FA:68:7B:CA:68:C7@wlan1: connected, signal strength -72
+133  1405/07/27 07:04:06  [wireless,info]  FA:68:7B:CA:68:C7@wlan1: disconnected, received deauth: class 3 frame received (7), signal strength -72
+134  1405/07/27 07:53:50  [wireless,info]  6C:3B:6B:10:AE:61@wlan1: disconnected, extensive data loss, signal strength -72
+135  1405/07/27 07:56:08  [wireless,info]  08:55:31:CF:FD:52@wlan1: connected, signal strength -65
+136  1405/07/27 08:00:30  [wireless,info]  6C:3B:6B:10:AE:61@wlan1: connected, signal strength -76, wants bridge
+137  1405/07/27 08:24:51  [wireless,info]  6C:3B:6B:06:5C:15@wlan1: connected, signal strength -58, wants bridge
+138  1405/07/27 10:31:21  [wireless,info]  6C:3B:6B:10:AE:61@wlan1: disconnected, extensive data loss, signal strength -76
+139  1405/07/27 10:55:41  [wireless,info]  6C:3B:6B:10:AE:61@wlan1: connected, signal strength -72, wants bridge
+140  1405/07/27 12:06:07  [wireless,info]  08:55:31:CF:FD:52@wlan1: disconnected, extensive data loss, signal strength -65
+141  1405/07/27 12:38:36  [wireless,info]  6C:3B:6B:06:5C:15@wlan1: disconnected, extensive data loss, signal strength -58
+142  1405/07/27 15:26:34  [wireless,info]  AE:7E:AB:DB:DC:4D@wlan1: connected, signal strength -76
+143  1405/07/27 15:26:39  [wireless,info]  AE:7E:AB:DB:DC:4D@wlan1: disconnected, unicast key exchange timeout, signal strength -88
+144  1405/07/27 18:00:54  [wireless,info]  48:A9:8A:5D:66:FE@wlan1: disconnected, extensive data loss, signal strength -72
+145  1405/07/27 18:17:25  [wireless,info]  48:A9:8A:5D:66:FE@wlan1: connected, signal strength -72, wants bridge
+146  1405/07/28 07:55:52  [wireless,info]  6C:3B:6B:06:5C:15@wlan1: connected, signal strength -58, wants bridge
+147  1405/07/28 07:56:07  [wireless,info]  08:55:31:CF:FD:52@wlan1: connected, signal strength -65
+148  1405/07/28 08:14:38  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -79
+149  1405/07/28 08:15:35  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -82, wants bridge
+150  1405/07/28 08:31:48  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, extensive data loss, signal strength -82
+151  1405/07/28 08:32:45  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -82, wants bridge
+152  1405/07/28 08:34:01  [wireless,info]  C4:AD:34:94:41:F3@wlan1: connected, signal strength -61, wants bridge
+153  1405/07/28 09:49:10  [wireless,info]  48:A9:8A:5D:66:FE@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -72
+154  1405/07/28 09:49:12  [wireless,info]  48:A9:8A:5D:66:FE@wlan1: connected, signal strength -72, wants bridge
+155  1405/07/28 09:49:16  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, extensive data loss, signal strength -82
+156  1405/07/28 09:49:46  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -81, wants bridge
+157  1405/07/28 09:51:35  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, extensive data loss, signal strength -81
+158  1405/07/28 09:52:04  [wireless,info]  48:A9:8A:5D:66:FE@wlan1: disconnected, received deauth: authentication not valid (2), signal strength -72
+159  1405/07/28 09:52:10  [wireless,info]  48:A9:8A:5D:66:FE@wlan1: connected, signal strength -75, wants bridge
+160  1405/07/28 09:52:11  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -82, wants bridge
+161  1405/07/28 10:30:04  [wireless,info]  BE:B0:7C:E4:32:2F@wlan1: connected, signal strength -82
+162  1405/07/28 10:30:09  [wireless,info]  BE:B0:7C:E4:32:2F@wlan1: disconnected, unicast key exchange timeout, signal strength -82
+163  1405/07/28 11:59:25  [wireless,info]  C4:AD:34:94:41:F3@wlan1: disconnected, extensive data loss, signal strength -61
+164  1405/07/28 12:09:53  [wireless,info]  08:55:31:CF:FD:52@wlan1: disconnected, extensive data loss, signal strength -65
+165  1405/07/28 12:20:50  [wireless,info]  6C:3B:6B:10:AE:61@wlan1: disconnected, extensive data loss, signal strength -72
+166  1405/07/28 12:44:31  [wireless,info]  6C:3B:6B:06:5C:15@wlan1: disconnected, extensive data loss, signal strength -58
+167  1405/07/29 01:02:53  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
+168  1405/07/29 01:02:53  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -83
+169  1405/07/29 01:02:53  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -86, wants bridge
+170  1405/07/29 01:02:53  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
+171  1405/07/29 01:02:53  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -83
+172  1405/07/29 01:02:53  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -88, wants bridge
+173  1405/07/29 01:04:30  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
+174  1405/07/29 01:04:30  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -83
+175  1405/07/29 01:04:30  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -87, wants bridge
+176  1405/07/29 01:04:30  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
+177  1405/07/29 01:04:30  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -83
+178  1405/07/29 01:04:30  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -89, wants bridge
+179  1405/07/29 07:50:49  [wireless,info]  08:55:31:CF:FD:52@wlan1: connected, signal strength -65
+180  1405/07/29 08:13:12  [wireless,info]  6C:3B:6B:06:5C:15@wlan1: connected, signal strength -60, wants bridge
+181  1405/07/29 08:18:55  [wireless,info]  C4:AD:34:94:41:F3@wlan1: connected, signal strength -62, wants bridge
+182  1405/07/29 08:33:59  [wireless,info]  6C:3B:6B:10:AE:61@wlan1: connected, signal strength -75, wants bridge
+183  1405/07/29 11:56:21  [wireless,info]  C4:AD:34:94:41:F3@wlan1: disconnected, extensive data loss, signal strength -62
+184  1405/07/29 12:04:23  [wireless,info]  08:55:31:CF:FD:52@wlan1: disconnected, extensive data loss, signal strength -65
+185  1405/07/29 12:36:02  [wireless,info]  6C:3B:6B:06:5C:15@wlan1: disconnected, extensive data loss, signal strength -60
+186  1405/07/29 15:27:51  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
+187  1405/07/29 15:27:51  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -83
+188  1405/07/29 15:27:51  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -76, wants bridge
+189  1405/07/29 15:27:51  [wireless,info]  08:55:31:E2:79:BA@wlan1: reassociating
+190  1405/07/29 15:27:51  [wireless,info]  08:55:31:E2:79:BA@wlan1: disconnected, ok, signal strength -83
+191  1405/07/29 15:27:51  [wireless,info]  08:55:31:E2:79:BA@wlan1: connected, signal strength -77, wants bridge
+192  1405/07/29 16:15:27  [wireless,info]  82:B7:7A:D1:2B:70@wlan1: connected, signal strength -79
+193  1405/07/29 16:15:32  [wireless,info]  82:B7:7A:D1:2B:70@wlan1: disconnected, unicast key exchange timeout, signal strength -84
+194  1405/07/29 16:17:22  [wireless,info]  82:B7:7A:D1:2B:70@wlan1: connected, signal strength -81
+195  1405/07/29 16:17:27  [wireless,info]  82:B7:7A:D1:2B:70@wlan1: disconnected, unicast key exchange timeout, signal strength -81
+196  1405/07/29 16:25:17  [wireless,info]  82:B7:7A:D1:2B:70@wlan1: connected, signal strength -77
+197  1405/07/29 16:25:22  [wireless,info]  82:B7:7A:D1:2B:70@wlan1: disconnected, unicast key exchange timeout, signal strength -81
+198  1405/07/29 16:31:55  [wireless,info]  82:B7:7A:D1:2B:70@wlan1: connected, signal strength -80
+199  1405/07/29 16:32:00  [wireless,info]  82:B7:7A:D1:2B:70@wlan1: disconnected, unicast key exchange timeout, signal strength -81
+200  1405/07/29 16:32:55  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

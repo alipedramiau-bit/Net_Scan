@@ -1,5 +1,5 @@
 IP: 172.18.24.19
-Collected at: 2026-10-15T10:08:11.839176+00:00
+Collected at: 2026-10-21T13:16:35.973308+00:00
 source: RouterOS API
 identity: Shabakeh->Alvan.Client
 device_type: ST
@@ -31,34 +31,14 @@ name=wlan1  mode=station-bridge  ssid=SHBKALVN  band=5ghz-a/n  frequency=5180
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:26:38
-# ساعت دستگاه (خام): 2024-12-07 21:20:01
-# افست اصلاحی (سرور − دستگاه): +16235:36:37
-  1  1405/07/17 14:06:31  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/17 14:06:35  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:5D:71:71
-  3  1405/07/17 14:06:41  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/17 14:07:03  [wireless,info]  6C:3B:6B:5D:71:6F@wlan1 established connection on 5360000, SSID SHBKALVN
-  5  1405/07/18 09:56:10  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  6  1405/07/18 09:56:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  7  1405/07/18 10:30:23  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  8  1405/07/18 10:30:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  9  1405/07/18 10:54:30  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 10  1405/07/18 10:54:31  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 11  1405/07/18 12:07:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 12  1405/07/18 12:07:38  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 13  1405/07/19 09:38:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 14  1405/07/19 09:38:57  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 15  1405/07/19 17:42:07  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 16  1405/07/19 17:42:07  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 17  1405/07/21 11:01:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 18  1405/07/21 11:01:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 19  1405/07/22 04:17:03  [wireless,info]  6C:3B:6B:5D:71:6F@wlan1: lost connection, not polled for too long
- 20  1405/07/22 04:17:31  [wireless,info]  6C:3B:6B:5D:71:6F@wlan1 established connection on 5360000, SSID SHBKALVN
- 21  1405/07/22 07:37:15  [wireless,info]  6C:3B:6B:5D:71:6F@wlan1: lost connection, not polled for too long
- 22  1405/07/22 07:37:44  [wireless,info]  6C:3B:6B:5D:71:6F@wlan1 established connection on 5360000, SSID SHBKALVN
- 23  1405/07/22 13:18:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 24  1405/07/22 13:18:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 25  1405/07/23 12:26:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:31:55
+# ساعت دستگاه (خام): 2024-12-13 05:15:20
+# افست اصلاحی (سرور − دستگاه): +16255:46:35
+  1  1405/07/26 10:16:29  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/26 10:16:33  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:5D:71:71
+  3  1405/07/26 10:16:40  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/26 10:17:01  [wireless,info]  6C:3B:6B:5D:71:6F@wlan1 established connection on 5360000, SSID SHBKALVN
+  5  1405/07/29 16:31:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

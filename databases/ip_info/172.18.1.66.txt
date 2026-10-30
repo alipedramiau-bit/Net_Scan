@@ -1,5 +1,5 @@
 IP: 172.18.1.66
-Collected at: 2026-10-15T10:07:21.969737+00:00
+Collected at: 2026-10-21T13:15:55.538351+00:00
 source: RouterOS API
 identity: UMS-ABD-SLM-AP
 device_type: AP
@@ -9,7 +9,7 @@ device_type: AP
   1  name=ether1  type=ether  running=true  mac=08:55:31:24:BE:FD
   2  name=wlan1  type=wlan  running=true  mac=08:55:31:24:BE:FE
   3  name=bridge1  type=bridge  running=true  mac=08:55:31:24:BE:FD
-  4  name=wds233  type=wds  running=true  mac=08:55:31:24:BE:FE
+  4  name=wds250  type=wds  running=true  mac=08:55:31:24:BE:FE
 
 ----- wireless -----
 === /interface wireless ===
@@ -28,223 +28,223 @@ name=wlan1  mode=ap-bridge  ssid=PTP-UMS-SALMANEH  band=5ghz-a/n  frequency=5800
 ----- neighbors -----
 === /ip neighbor ===
   1  identity=SW-Wireless1.aums.ir  address=172.18.1.65  interface=ether1,bridge1
-  2  identity=UMS-ABD-SLM-CL  address=172.18.1.67  interface=wds233,bridge1
-  3  identity=RB-Salmaneh  address=172.18.1.68  interface=wds233,bridge1
-  4  identity=UMS-SLMNH-AP  address=172.18.1.69  interface=wds233,bridge1
-  5  identity=UMS-SLMNH-SHDGN-CL  address=172.18.1.70  interface=wds233,bridge1
-  6  identity=RB-UMS-SHDGN-CoreRouter  address=172.18.1.71  interface=wds233,bridge1
+  2  identity=UMS-ABD-SLM-CL  address=172.18.1.67  interface=wds250,bridge1
+  3  identity=RB-Salmaneh  address=172.18.1.68  interface=wds250,bridge1
+  4  identity=UMS-SLMNH-AP  address=172.18.1.69  interface=wds250,bridge1
+  5  identity=UMS-SLMNH-SHDGN-CL  address=172.18.1.70  interface=wds250,bridge1
+  6  identity=RB-UMS-SHDGN-CoreRouter  address=172.18.1.71  interface=wds250,bridge1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:20:34
-# ساعت دستگاه (خام): 1972-12-06 10:10:07
-# افست اصلاحی (سرور − دستگاه): +472102:40:27
-  1  1405/06/16 01:38:29  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -86
-  2  1405/06/16 01:39:14  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-  3  1405/06/16 01:42:08  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -78
-  4  1405/06/16 01:43:10  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-  5  1405/06/16 01:52:01  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -80
-  6  1405/06/16 01:53:57  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-  7  1405/06/16 01:55:29  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -82
-  8  1405/06/16 01:57:22  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-  9  1405/06/16 01:58:57  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -86
- 10  1405/06/16 02:00:01  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 11  1405/06/16 02:01:22  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -82
- 12  1405/06/16 02:01:35  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 13  1405/06/16 02:02:17  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -80
- 14  1405/06/16 02:04:32  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 15  1405/06/16 02:05:16  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -80
- 16  1405/06/16 02:07:46  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 17  1405/06/16 02:09:10  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -86
- 18  1405/06/16 02:10:49  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 19  1405/06/16 02:11:27  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -82
- 20  1405/06/16 02:12:23  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 21  1405/06/16 02:13:11  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -80
- 22  1405/06/16 02:14:29  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 23  1405/06/16 02:15:12  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -80
- 24  1405/06/16 02:17:35  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 25  1405/06/16 02:18:15  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -82
- 26  1405/06/16 02:19:00  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 27  1405/06/16 02:19:45  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -88
- 28  1405/06/16 02:20:34  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 29  1405/06/16 02:21:59  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -84
- 30  1405/06/16 02:23:02  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 31  1405/06/16 02:24:25  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -84
- 32  1405/06/16 02:24:43  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 33  1405/06/16 02:25:24  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -80
- 34  1405/06/16 02:26:00  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 35  1405/06/16 02:26:38  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -84
- 36  1405/06/16 02:26:45  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 37  1405/06/16 02:28:57  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -86
- 38  1405/06/16 02:29:41  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 39  1405/06/16 02:33:28  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -88
- 40  1405/06/16 02:33:40  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 41  1405/06/16 02:34:26  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -86
- 42  1405/06/16 02:34:48  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 43  1405/06/16 02:43:46  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -86
- 44  1405/06/16 02:44:02  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 45  1405/06/16 02:53:41  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -86
- 46  1405/06/16 02:54:04  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 47  1405/06/16 02:54:42  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -86
- 48  1405/06/16 02:55:35  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 49  1405/06/16 03:26:51  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -84
- 50  1405/06/16 03:27:17  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 51  1405/06/16 03:36:49  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -86
- 52  1405/06/16 03:37:09  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 53  1405/06/16 03:40:48  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -82
- 54  1405/06/16 03:41:05  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 55  1405/06/16 03:43:16  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: reconnecting
- 56  1405/06/16 03:43:17  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -85
- 57  1405/06/16 03:43:25  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 58  1405/06/16 03:50:19  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -80
- 59  1405/06/16 03:50:24  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 60  1405/06/16 03:53:26  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: reconnecting
- 61  1405/06/16 03:53:30  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -90
- 62  1405/06/16 03:53:40  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 63  1405/06/16 03:54:23  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -84
- 64  1405/06/16 03:54:35  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 65  1405/06/16 04:07:42  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: reconnecting
- 66  1405/06/16 04:07:42  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: reconnecting
- 67  1405/06/16 04:07:43  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -83
- 68  1405/06/16 04:09:42  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 69  1405/06/16 04:10:20  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -82
- 70  1405/06/16 04:12:13  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 71  1405/06/16 04:12:57  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -90
- 72  1405/06/16 04:17:04  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 73  1405/06/16 04:17:44  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -84
- 74  1405/06/16 04:23:08  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 75  1405/06/16 04:24:33  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -80
- 76  1405/06/16 04:30:09  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 77  1405/06/16 04:30:50  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -84
- 78  1405/06/16 04:31:16  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 79  1405/06/16 04:34:49  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -76
- 80  1405/06/16 04:58:33  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 81  1405/06/16 04:59:56  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -82
- 82  1405/06/16 05:04:07  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 83  1405/06/16 05:05:28  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: reconnecting
- 84  1405/06/16 05:05:29  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -85
- 85  1405/06/16 05:05:42  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 86  1405/06/16 05:07:49  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -84
- 87  1405/06/16 05:08:31  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 88  1405/06/16 05:10:38  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -82
- 89  1405/06/16 08:06:38  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 90  1405/06/16 08:19:19  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
- 91  1405/06/16 15:03:43  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 92  1405/06/16 16:05:57  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
- 93  1405/06/17 13:03:33  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 94  1405/06/17 14:04:40  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
- 95  1405/06/18 15:02:49  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 96  1405/06/18 16:05:32  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -54
- 97  1405/06/18 22:30:40  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
- 98  1405/06/18 22:36:24  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -56
- 99  1405/06/19 13:00:37  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-100  1405/06/19 14:04:46  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -54
-101  1405/06/20 19:17:44  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-102  1405/06/20 19:18:22  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -76
-103  1405/06/21 13:02:47  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-104  1405/06/21 14:03:26  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
-105  1405/06/22 15:03:05  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-106  1405/06/22 16:04:21  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
-107  1405/06/25 05:13:05  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-108  1405/06/25 05:13:43  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -68
-109  1405/06/25 05:25:06  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-110  1405/06/25 05:25:45  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -76
-111  1405/06/29 11:28:58  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-112  1405/06/29 13:23:27  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
-113  1405/07/01 06:05:50  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-114  1405/07/01 06:14:56  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -48
-115  1405/07/01 10:02:28  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-116  1405/07/01 10:04:17  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
-117  1405/07/03 03:02:36  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-118  1405/07/03 03:10:49  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -56
-119  1405/07/03 09:02:04  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-120  1405/07/03 09:10:06  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
-121  1405/07/03 11:52:31  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-122  1405/07/03 12:10:49  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
-123  1405/07/04 09:29:07  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-124  1405/07/04 09:36:46  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -56
-125  1405/07/04 10:05:53  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-126  1405/07/04 10:11:24  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
-127  1405/07/05 09:14:30  [system,info]  route changed
-128  1405/07/05 09:15:07  [system,info]  route changed
-129  1405/07/05 12:25:10  [system,info]  route changed
-130  1405/07/05 12:33:38  [system,info]  route changed
-131  1405/07/05 12:34:00  [system,info]  route changed
-132  1405/07/05 12:34:37  [system,info]  route changed
-133  1405/07/05 13:08:30  [system,info]  route changed
-134  1405/07/05 13:08:57  [system,info]  route changed
-135  1405/07/05 15:02:30  [system,info]  route changed
-136  1405/07/05 15:04:47  [system,info]  route changed
-137  1405/07/07 04:52:58  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-138  1405/07/07 04:56:52  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
-139  1405/07/07 11:42:17  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-140  1405/07/07 12:00:29  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -54
-141  1405/07/08 08:07:54  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-142  1405/07/08 08:26:24  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -50
-143  1405/07/11 22:43:53  [interface,info]  ether1 link down
-144  1405/07/11 22:44:00  [system,info]  route changed
-145  1405/07/11 22:46:51  [interface,info]  ether1 link up (speed 100M, full duplex)
-146  1405/07/11 22:47:07  [system,info]  route changed
-147  1405/07/12 14:02:10  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-148  1405/07/12 14:11:38  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -56
-149  1405/07/15 08:03:42  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-150  1405/07/15 08:12:02  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -58
-151  1405/07/16 14:26:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-152  1405/07/16 14:26:53  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-153  1405/07/16 15:37:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-154  1405/07/16 15:37:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-155  1405/07/17 06:27:29  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-156  1405/07/17 06:34:43  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
-157  1405/07/17 08:28:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-158  1405/07/17 08:28:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-159  1405/07/17 08:42:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-160  1405/07/17 08:42:29  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-161  1405/07/17 10:17:51  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-162  1405/07/17 10:25:45  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
-163  1405/07/17 12:15:13  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-164  1405/07/17 12:21:46  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
-165  1405/07/18 07:56:24  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-166  1405/07/18 08:07:57  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -56
-167  1405/07/18 10:27:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-168  1405/07/18 10:27:25  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-169  1405/07/18 10:51:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-170  1405/07/18 10:51:45  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-171  1405/07/18 12:06:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-172  1405/07/18 12:06:47  [system,info]  user olom1 added by garnaf
-173  1405/07/18 12:06:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-174  1405/07/19 09:31:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-175  1405/07/19 09:31:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-176  1405/07/19 12:02:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-177  1405/07/19 12:06:30  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-178  1405/07/19 12:07:25  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
-179  1405/07/19 12:09:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via telnet
-180  1405/07/19 12:11:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via telnet
-181  1405/07/19 12:12:00  [system,info,account]  user garnaf logged out from 172.18.4.76 via telnet
-182  1405/07/19 12:12:10  [system,info]  device changed by garnaf
-183  1405/07/19 12:12:38  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -50
-184  1405/07/19 12:14:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-185  1405/07/19 12:14:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via telnet
-186  1405/07/19 17:40:56  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-187  1405/07/19 17:40:57  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-188  1405/07/20 10:31:30  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-189  1405/07/20 10:39:29  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -50
-190  1405/07/20 11:36:00  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-191  1405/07/20 11:51:58  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
-192  1405/07/21 10:53:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-193  1405/07/21 10:53:49  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-194  1405/07/22 09:42:47  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-195  1405/07/22 09:52:50  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -50
-196  1405/07/22 13:12:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-197  1405/07/22 13:12:26  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-198  1405/07/23 07:42:53  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
-199  1405/07/23 07:49:48  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -50
-200  1405/07/23 12:20:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:28:09
+# ساعت دستگاه (خام): 1972-12-12 14:20:30
+# افست اصلاحی (سرور − دستگاه): +472102:37:39
+  1  1405/06/16 02:52:47  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+  2  1405/06/16 03:24:03  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -84
+  3  1405/06/16 03:24:29  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+  4  1405/06/16 03:34:01  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -86
+  5  1405/06/16 03:34:21  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+  6  1405/06/16 03:38:00  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -82
+  7  1405/06/16 03:38:17  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+  8  1405/06/16 03:40:28  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: reconnecting
+  9  1405/06/16 03:40:29  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -85
+ 10  1405/06/16 03:40:37  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 11  1405/06/16 03:47:31  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -80
+ 12  1405/06/16 03:47:36  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 13  1405/06/16 03:50:38  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: reconnecting
+ 14  1405/06/16 03:50:42  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -90
+ 15  1405/06/16 03:50:52  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 16  1405/06/16 03:51:35  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -84
+ 17  1405/06/16 03:51:47  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 18  1405/06/16 04:04:54  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: reconnecting
+ 19  1405/06/16 04:04:54  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: reconnecting
+ 20  1405/06/16 04:04:55  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -83
+ 21  1405/06/16 04:06:54  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 22  1405/06/16 04:07:32  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -82
+ 23  1405/06/16 04:09:25  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 24  1405/06/16 04:10:09  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -90
+ 25  1405/06/16 04:14:16  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 26  1405/06/16 04:14:56  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -84
+ 27  1405/06/16 04:20:20  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 28  1405/06/16 04:21:45  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -80
+ 29  1405/06/16 04:27:21  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 30  1405/06/16 04:28:02  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -84
+ 31  1405/06/16 04:28:28  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 32  1405/06/16 04:32:01  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -76
+ 33  1405/06/16 04:55:45  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 34  1405/06/16 04:57:08  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -82
+ 35  1405/06/16 05:01:19  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 36  1405/06/16 05:02:40  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: reconnecting
+ 37  1405/06/16 05:02:41  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -85
+ 38  1405/06/16 05:02:54  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 39  1405/06/16 05:05:01  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -84
+ 40  1405/06/16 05:05:43  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 41  1405/06/16 05:07:50  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -82
+ 42  1405/06/16 08:03:50  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 43  1405/06/16 08:16:31  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
+ 44  1405/06/16 15:00:55  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 45  1405/06/16 16:03:09  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
+ 46  1405/06/17 13:00:45  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 47  1405/06/17 14:01:52  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
+ 48  1405/06/18 15:00:01  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 49  1405/06/18 16:02:44  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -54
+ 50  1405/06/18 22:27:52  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 51  1405/06/18 22:33:36  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -56
+ 52  1405/06/19 12:57:49  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 53  1405/06/19 14:01:58  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -54
+ 54  1405/06/20 19:14:56  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 55  1405/06/20 19:15:34  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -76
+ 56  1405/06/21 12:59:59  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 57  1405/06/21 14:00:38  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
+ 58  1405/06/22 15:00:17  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 59  1405/06/22 16:01:33  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
+ 60  1405/06/25 05:10:17  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 61  1405/06/25 05:10:55  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -68
+ 62  1405/06/25 05:22:18  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 63  1405/06/25 05:22:57  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -76
+ 64  1405/06/29 11:26:10  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 65  1405/06/29 13:20:39  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
+ 66  1405/07/01 06:03:02  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 67  1405/07/01 06:12:08  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -48
+ 68  1405/07/01 09:59:40  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 69  1405/07/01 10:01:29  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
+ 70  1405/07/03 02:59:48  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 71  1405/07/03 03:08:01  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -56
+ 72  1405/07/03 08:59:16  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 73  1405/07/03 09:07:18  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
+ 74  1405/07/03 11:49:43  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 75  1405/07/03 12:08:01  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
+ 76  1405/07/04 09:26:19  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 77  1405/07/04 09:33:58  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -56
+ 78  1405/07/04 10:03:05  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 79  1405/07/04 10:08:36  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
+ 80  1405/07/05 09:11:42  [system,info]  route changed
+ 81  1405/07/05 09:12:19  [system,info]  route changed
+ 82  1405/07/05 12:22:22  [system,info]  route changed
+ 83  1405/07/05 12:30:50  [system,info]  route changed
+ 84  1405/07/05 12:31:12  [system,info]  route changed
+ 85  1405/07/05 12:31:49  [system,info]  route changed
+ 86  1405/07/05 13:05:42  [system,info]  route changed
+ 87  1405/07/05 13:06:09  [system,info]  route changed
+ 88  1405/07/05 14:59:42  [system,info]  route changed
+ 89  1405/07/05 15:01:59  [system,info]  route changed
+ 90  1405/07/07 04:50:10  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 91  1405/07/07 04:54:04  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
+ 92  1405/07/07 11:39:29  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 93  1405/07/07 11:57:41  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -54
+ 94  1405/07/08 08:05:06  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+ 95  1405/07/08 08:23:36  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -50
+ 96  1405/07/11 22:41:05  [interface,info]  ether1 link down
+ 97  1405/07/11 22:41:12  [system,info]  route changed
+ 98  1405/07/11 22:44:03  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 99  1405/07/11 22:44:19  [system,info]  route changed
+100  1405/07/12 13:59:22  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+101  1405/07/12 14:08:50  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -56
+102  1405/07/15 08:00:54  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+103  1405/07/15 08:09:14  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -58
+104  1405/07/16 14:24:04  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+105  1405/07/16 14:24:05  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+106  1405/07/16 15:34:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+107  1405/07/16 15:34:59  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+108  1405/07/17 06:24:41  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+109  1405/07/17 06:31:55  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
+110  1405/07/17 08:25:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+111  1405/07/17 08:25:32  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+112  1405/07/17 08:39:40  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+113  1405/07/17 08:39:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+114  1405/07/17 10:15:03  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+115  1405/07/17 10:22:57  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
+116  1405/07/17 12:12:25  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+117  1405/07/17 12:18:58  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
+118  1405/07/18 07:53:36  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+119  1405/07/18 08:05:09  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -56
+120  1405/07/18 10:24:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+121  1405/07/18 10:24:37  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+122  1405/07/18 10:48:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+123  1405/07/18 10:48:57  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+124  1405/07/18 12:03:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+125  1405/07/18 12:03:59  [system,info]  user olom1 added by garnaf
+126  1405/07/18 12:03:59  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+127  1405/07/19 09:29:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+128  1405/07/19 09:29:08  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+129  1405/07/19 11:59:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+130  1405/07/19 12:03:42  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+131  1405/07/19 12:04:37  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
+132  1405/07/19 12:06:23  [system,info,account]  user garnaf logged in from 172.18.4.76 via telnet
+133  1405/07/19 12:08:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via telnet
+134  1405/07/19 12:09:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via telnet
+135  1405/07/19 12:09:22  [system,info]  device changed by garnaf
+136  1405/07/19 12:09:50  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -50
+137  1405/07/19 12:11:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+138  1405/07/19 12:11:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via telnet
+139  1405/07/19 17:38:08  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+140  1405/07/19 17:38:09  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+141  1405/07/20 10:28:42  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+142  1405/07/20 10:36:41  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -50
+143  1405/07/20 11:33:12  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+144  1405/07/20 11:49:10  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
+145  1405/07/21 10:50:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+146  1405/07/21 10:51:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+147  1405/07/22 09:39:59  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+148  1405/07/22 09:50:02  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -50
+149  1405/07/22 13:09:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+150  1405/07/22 13:09:38  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+151  1405/07/23 07:40:05  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+152  1405/07/23 07:47:00  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -50
+153  1405/07/23 12:17:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+154  1405/07/23 12:17:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+155  1405/07/24 15:14:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+156  1405/07/24 15:14:21  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+157  1405/07/24 15:48:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+158  1405/07/24 15:48:22  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+159  1405/07/25 06:50:52  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+160  1405/07/25 06:51:58  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -72
+161  1405/07/25 20:26:29  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+162  1405/07/25 20:27:25  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -82
+163  1405/07/25 20:31:32  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+164  1405/07/25 20:32:33  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: reconnecting
+165  1405/07/25 20:32:33  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -80
+166  1405/07/25 20:39:53  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+167  1405/07/25 20:44:02  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -76
+168  1405/07/25 20:47:52  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+169  1405/07/25 20:51:56  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: reconnecting
+170  1405/07/25 20:51:56  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -82
+171  1405/07/25 20:52:12  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+172  1405/07/25 20:55:23  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -82
+173  1405/07/25 21:00:45  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+174  1405/07/25 21:02:51  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -78
+175  1405/07/25 21:06:35  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+176  1405/07/25 21:09:42  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -86
+177  1405/07/25 21:10:08  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+178  1405/07/25 21:12:10  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -82
+179  1405/07/25 21:14:02  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+180  1405/07/25 21:15:09  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -86
+181  1405/07/25 21:16:51  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+182  1405/07/25 21:18:54  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: reconnecting
+183  1405/07/25 21:18:54  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -76
+184  1405/07/25 21:20:27  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+185  1405/07/25 21:21:32  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -78
+186  1405/07/25 21:22:45  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+187  1405/07/25 21:23:51  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -74
+188  1405/07/26 04:30:12  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+189  1405/07/26 04:34:15  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -72
+190  1405/07/26 04:35:10  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+191  1405/07/26 04:36:11  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -78
+192  1405/07/26 08:48:50  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+193  1405/07/26 08:48:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+194  1405/07/26 08:49:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+195  1405/07/26 08:49:34  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+196  1405/07/27 12:24:23  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+197  1405/07/27 12:31:58  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -52
+198  1405/07/27 14:49:00  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: disconnected, control frame timeout
+199  1405/07/27 18:03:38  [wireless,info]  CC:2D:E0:F6:65:45@wlan1: connected, signal strength -50
+200  1405/07/29 16:28:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
 ether1  08:55:31:24:BE:FD  (ether)
 wlan1  08:55:31:24:BE:FE  (wlan)
 bridge1  08:55:31:24:BE:FD  (bridge)
-wds233  08:55:31:24:BE:FE  (wds)
+wds250  08:55:31:24:BE:FE  (wds)
 --- /ip arp ---
 bridge1  10:8C:CF:33:51:49  (arp 172.18.1.65)

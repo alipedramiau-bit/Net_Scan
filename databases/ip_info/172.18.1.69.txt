@@ -1,5 +1,5 @@
 IP: 172.18.1.69
-Collected at: 2026-10-15T10:07:23.227582+00:00
+Collected at: 2026-10-21T13:15:56.505995+00:00
 source: RouterOS API
 identity: UMS-SLMNH-AP
 device_type: AP
@@ -37,16 +37,36 @@ name=wlan1  mode=ap-bridge  ssid=UMS-SLMNH  band=5ghz-a/n  frequency=5850
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:20:40
-# ساعت دستگاه (خام): 2025-12-10 01:25:50
-# افست اصلاحی (سرور − دستگاه): +7423:24:50
-  1  1405/07/23 07:48:42  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/23 07:48:46  [bridge,info]  "bridge1" mac address changed to 18:FD:74:8E:D8:42
-  3  1405/07/23 07:48:47  [system,info]  route changed
-  4  1405/07/23 07:48:52  [interface,info]  ether1 link up (speed 1G, full duplex)
-  5  1405/07/23 07:49:39  [wireless,info]  18:FD:74:8E:D7:1E@wlan1: connected, signal strength -64, wants bridge
-  6  1405/07/23 07:49:51  [system,info]  route changed
-  7  1405/07/23 12:20:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:28:17
+# ساعت دستگاه (خام): 2025-12-15 19:19:41
+# افست اصلاحی (سرور − دستگاه): +7433:38:36
+  1  1405/07/27 18:02:28  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/27 18:02:32  [bridge,info]  "bridge1" mac address changed to 18:FD:74:8E:D8:42
+  3  1405/07/27 18:02:33  [system,info]  route changed
+  4  1405/07/27 18:02:49  [wireless,info]  18:FD:74:8E:D7:1E@wlan1: connected, signal strength -57, wants bridge
+  5  1405/07/27 18:04:01  [interface,info]  ether1 link up (speed 1G, full duplex)
+  6  1405/07/27 18:04:24  [interface,info]  ether1 link down
+  7  1405/07/27 18:04:28  [interface,info]  ether1 link up (speed 1G, full duplex)
+  8  1405/07/27 18:04:56  [system,info]  route changed
+  9  1405/07/27 18:44:22  [wireless,info]  18:FD:74:8E:D7:1E@wlan1: disconnected, too many poll timeouts, signal strength -57
+ 10  1405/07/27 18:45:14  [wireless,info]  18:FD:74:8E:D7:1E@wlan1: connected, signal strength -52, wants bridge
+ 11  1405/07/27 20:10:39  [system,info]  route changed
+ 12  1405/07/27 20:10:46  [system,info]  route changed
+ 13  1405/07/27 21:52:39  [system,info]  route changed
+ 14  1405/07/27 21:52:46  [system,info]  route changed
+ 15  1405/07/27 21:57:39  [system,info]  route changed
+ 16  1405/07/27 21:57:46  [system,info]  route changed
+ 17  1405/07/28 17:05:59  [system,info]  route changed
+ 18  1405/07/28 17:06:06  [system,info]  route changed
+ 19  1405/07/28 21:00:59  [system,info]  route changed
+ 20  1405/07/28 21:01:06  [system,info]  route changed
+ 21  1405/07/28 21:24:39  [system,info]  route changed
+ 22  1405/07/28 21:24:46  [system,info]  route changed
+ 23  1405/07/29 04:32:59  [system,info]  route changed
+ 24  1405/07/29 04:33:06  [system,info]  route changed
+ 25  1405/07/29 12:32:19  [system,info]  route changed
+ 26  1405/07/29 12:32:26  [system,info]  route changed
+ 27  1405/07/29 16:28:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

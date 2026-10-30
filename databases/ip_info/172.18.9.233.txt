@@ -1,5 +1,5 @@
 IP: 172.18.9.233
-Collected at: 2026-10-14T10:24:33.908900+00:00
+Collected at: 2026-10-18T05:58:37.521855+00:00
 source: RouterOS API
 identity: NahrAriz.Client
 device_type: ST
@@ -27,17 +27,20 @@ name=wlan1  mode=station-bridge  ssid=Abadan-ArvanKenar1  band=5ghz-a/n  frequen
 === /ip neighbor ===
   1  identity=Router.Markaz.ArvandKanar  address=172.18.9.225  interface=wlan1
   2  identity=Abadan-ArvanKenar1  address=172.18.9.226  interface=wlan1
-  3  identity=ShohadayeSaduni.Client  address=172.18.9.252  interface=wlan1
+  3  identity=Sadooni.Client  address=172.18.9.232  interface=wlan1
+  4  identity=ShohadayeSaduni.Client  address=172.18.9.252  interface=wlan1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:36:19
-# ساعت دستگاه (خام): 1974-01-10 12:48:15
-# افست اصلاحی (سرور − دستگاه): +462477:18:04
-  1  1405/07/22 09:46:15  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 09:46:24  [interface,info]  ether1 link up (speed 100M, full duplex)
-  3  1405/07/22 09:47:13  [wireless,info]  6C:3B:6B:94:8C:48@wlan1 established connection on 5860000, SSID Abadan-ArvanKenar1
-  4  1405/07/22 13:36:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/26 09:14:07
+# ساعت دستگاه (خام): 1974-01-13 12:31:59
+# افست اصلاحی (سرور − دستگاه): +462497:12:08
+  1  1405/07/26 05:40:18  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/26 05:40:20  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/26 05:41:16  [wireless,info]  6C:3B:6B:94:8C:48@wlan1 established connection on 5860000, SSID Abadan-ArvanKenar1
+  4  1405/07/26 09:11:40  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  5  1405/07/26 09:11:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  6  1405/07/26 09:14:06  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

@@ -1,5 +1,5 @@
 IP: 172.29.193.133
-Collected at: 2026-10-14T10:25:10.393186+00:00
+Collected at: 2026-10-21T13:18:17.127744+00:00
 source: RouterOS API
 identity: Router.MarkazShavli
 device_type: Router
@@ -8,7 +8,7 @@ device_type: Router
 === /interface ===
   1  name=ether1  type=ether  running=true  mac=64:D1:54:5A:34:E6
   2  name=ether2  type=ether  running=true  mac=64:D1:54:5A:34:E7
-  3  name=ether3  type=ether  running=true  mac=64:D1:54:5A:34:E8
+  3  name=ether3  type=ether  running=false  mac=64:D1:54:5A:34:E8
   4  name=ether4  type=ether  running=false  mac=64:D1:54:5A:34:E9
   5  name=ether5  type=ether  running=true  mac=64:D1:54:5A:34:EA
   6  name=ether6  type=ether  running=true  mac=64:D1:54:5A:34:EB
@@ -37,86 +37,26 @@ device_type: Router
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:41:43
-# ساعت دستگاه (خام): 1976-07-11 18:12:14
-# افست اصلاحی (سرور − دستگاه): +440559:59:29
-  1  1405/06/31 08:06:51  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/06/31 08:06:53  [bridge,info]  "bridge1" mac address changed to 64:D1:54:5A:34:E6
-  3  1405/06/31 08:06:55  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/06/31 08:06:55  [interface,info]  ether2 link up (speed 100M, full duplex)
-  5  1405/06/31 08:06:55  [interface,info]  ether6 link up (speed 100M, full duplex)
-  6  1405/06/31 08:06:58  [interface,info]  ether6 link down
-  7  1405/06/31 08:06:59  [interface,info]  ether2 link down
-  8  1405/06/31 08:06:59  [interface,info]  ether6 link up (speed 100M, full duplex)
-  9  1405/06/31 08:07:00  [interface,info]  ether2 link up (speed 100M, full duplex)
- 10  1405/06/31 08:07:00  [interface,info]  ether5 link up (speed 100M, full duplex)
- 11  1405/06/31 08:08:16  [interface,info]  ether3 link up (speed 100M, full duplex)
- 12  1405/06/31 12:43:10  [interface,info]  ether3 link down
- 13  1405/07/01 08:13:14  [interface,info]  ether3 link up (speed 100M, full duplex)
- 14  1405/07/01 12:45:39  [interface,info]  ether3 link down
- 15  1405/07/02 08:11:57  [interface,info]  ether3 link up (speed 100M, full duplex)
- 16  1405/07/02 11:16:45  [interface,info]  ether3 link down
- 17  1405/07/04 07:36:14  [interface,info]  ether3 link up (speed 100M, full duplex)
- 18  1405/07/04 12:36:11  [interface,info]  ether3 link down
- 19  1405/07/05 07:54:33  [interface,info]  ether3 link up (speed 100M, full duplex)
- 20  1405/07/05 12:37:06  [interface,info]  ether3 link down
- 21  1405/07/06 07:47:47  [interface,info]  ether3 link up (speed 100M, full duplex)
- 22  1405/07/07 12:45:05  [interface,info]  ether3 link down
- 23  1405/07/08 07:33:33  [interface,info]  ether3 link up (speed 100M, full duplex)
- 24  1405/07/11 12:44:58  [interface,info]  ether3 link down
- 25  1405/07/12 08:11:06  [interface,info]  ether3 link up (speed 100M, full duplex)
- 26  1405/07/12 12:45:11  [interface,info]  ether3 link down
- 27  1405/07/13 07:41:17  [interface,info]  ether3 link up (speed 100M, full duplex)
- 28  1405/07/14 11:54:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 29  1405/07/14 11:54:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 30  1405/07/14 12:39:14  [interface,info]  ether3 link down
- 31  1405/07/15 07:42:07  [interface,info]  ether3 link up (speed 100M, full duplex)
- 32  1405/07/15 13:55:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 33  1405/07/15 13:55:16  [system,info]  changed snmp settings by garnaf
- 34  1405/07/15 13:55:16  [system,info]  item changed by garnaf
- 35  1405/07/15 13:55:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 36  1405/07/15 15:01:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 37  1405/07/15 15:01:07  [system,info]  user olom1 added by garnaf
- 38  1405/07/15 15:01:07  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 39  1405/07/15 15:03:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 40  1405/07/15 15:03:22  [system,info]  user ums1 removed by garnaf
- 41  1405/07/15 15:03:22  [system,info]  user ums2 removed by garnaf
- 42  1405/07/15 15:03:23  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 43  1405/07/16 10:09:59  [interface,info]  ether3 link down
- 44  1405/07/16 10:21:42  [interface,info]  ether3 link up (speed 100M, full duplex)
- 45  1405/07/16 10:22:21  [interface,info]  ether3 link down
- 46  1405/07/16 10:28:56  [interface,info]  ether3 link up (speed 100M, full duplex)
- 47  1405/07/16 10:39:53  [interface,info]  ether3 link down
- 48  1405/07/16 10:40:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 49  1405/07/16 10:40:09  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 50  1405/07/16 13:56:10  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 51  1405/07/16 13:56:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 52  1405/07/16 14:09:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 53  1405/07/16 14:09:26  [system,info]  changed snmp settings by garnaf
- 54  1405/07/16 14:09:26  [system,info]  item changed by garnaf
- 55  1405/07/16 14:09:26  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 56  1405/07/16 14:36:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 57  1405/07/16 14:36:52  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 58  1405/07/16 15:47:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 59  1405/07/16 15:47:09  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 60  1405/07/17 08:40:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 61  1405/07/17 08:40:34  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 62  1405/07/18 08:15:12  [interface,info]  ether3 link up (speed 100M, full duplex)
- 63  1405/07/18 10:39:43  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 64  1405/07/18 10:39:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 65  1405/07/18 11:04:04  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 66  1405/07/18 11:04:05  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 67  1405/07/18 12:12:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 68  1405/07/18 12:12:53  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 69  1405/07/19 10:00:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 70  1405/07/19 10:00:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 71  1405/07/19 17:46:08  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 72  1405/07/19 17:46:08  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 73  1405/07/21 11:17:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 74  1405/07/21 11:17:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 75  1405/07/21 12:32:29  [interface,info]  ether3 link down
- 76  1405/07/21 14:07:16  [interface,info]  ether3 link up (speed 100M, full duplex)
- 77  1405/07/22 13:41:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:42:52
+# ساعت دستگاه (خام): 1976-07-18 10:50:10
+# افست اصلاحی (سرور − دستگاه): +440570:22:42
+  1  1405/07/27 18:30:03  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/27 18:30:06  [bridge,info]  "bridge1" mac address changed to 64:D1:54:5A:34:E6
+  3  1405/07/27 18:30:07  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/27 18:30:07  [interface,info]  ether3 link up (speed 100M, full duplex)
+  5  1405/07/27 18:30:08  [interface,info]  ether6 link up (speed 100M, full duplex)
+  6  1405/07/27 18:30:09  [interface,info]  ether2 link up (speed 100M, full duplex)
+  7  1405/07/27 18:30:10  [interface,info]  ether6 link down
+  8  1405/07/27 18:30:11  [interface,info]  ether5 link up (speed 100M, full duplex)
+  9  1405/07/27 18:30:12  [interface,info]  ether6 link up (speed 100M, full duplex)
+ 10  1405/07/28 12:47:01  [interface,info]  ether3 link down
+ 11  1405/07/28 17:30:22  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 12  1405/07/28 17:32:08  [interface,info]  ether3 link down
+ 13  1405/07/28 19:45:33  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 14  1405/07/28 19:50:28  [interface,info]  ether3 link down
+ 15  1405/07/29 09:04:01  [interface,info]  ether3 link up (speed 100M, full duplex)
+ 16  1405/07/29 13:02:59  [interface,info]  ether3 link down
+ 17  1405/07/29 16:42:50  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

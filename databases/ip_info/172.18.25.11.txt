@@ -1,5 +1,5 @@
 IP: 172.18.25.11
-Collected at: 2026-10-15T10:08:27.056381+00:00
+Collected at: 2026-10-21T13:16:44.272840+00:00
 source: RouterOS API
 identity: Alvan->Ghatrani.Client
 device_type: ST
@@ -30,16 +30,138 @@ name=wlan1  mode=station-bridge  ssid=ALVNGHTRNI  band=5ghz-a/n  frequency=auto
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:29:16
-# ساعت دستگاه (خام): 2024-10-24 00:26:13
-# افست اصلاحی (سرور − دستگاه): +17312:33:03
-  1  1405/07/22 11:03:03  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 11:03:05  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:5D:71:62
-  3  1405/07/22 11:03:07  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/22 11:03:11  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
-  5  1405/07/23 13:21:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  6  1405/07/23 13:21:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  7  1405/07/23 12:29:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:33:05
+# ساعت دستگاه (خام): 2024-10-29 20:04:13
+# افست اصلاحی (سرور − دستگاه): +17320:58:52
+  1  1405/07/24 19:28:52  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/24 19:28:53  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:5D:71:62
+  3  1405/07/24 19:28:55  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/24 19:29:00  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+  5  1405/07/24 20:33:22  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, control frame timeout
+  6  1405/07/24 20:33:33  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+  7  1405/07/24 20:34:59  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+  8  1405/07/24 20:35:16  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+  9  1405/07/24 20:35:37  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, medium-access timeout
+ 10  1405/07/24 20:35:43  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 11  1405/07/24 20:36:03  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+ 12  1405/07/24 20:36:25  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 13  1405/07/24 20:37:52  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+ 14  1405/07/24 20:38:32  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: failed to connect, on 5280000, medium-access timeout
+ 15  1405/07/24 20:38:50  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: failed to connect, on 5280000, registration timeout
+ 16  1405/07/24 20:39:34  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 17  1405/07/24 20:40:09  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+ 18  1405/07/24 20:41:22  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: failed to connect, on 5280000, synchronization timeout
+ 19  1405/07/24 20:41:54  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: failed to connect, on 5280000, registration timeout
+ 20  1405/07/24 20:42:06  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: failed to connect, on 5280000, registration timeout
+ 21  1405/07/24 20:42:19  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: failed to connect, on 5280000, registration timeout
+ 22  1405/07/24 20:42:51  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: failed to connect, on 5280000, ranging timeout
+ 23  1405/07/24 20:43:04  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: failed to connect, on 5280000, registration timeout
+ 24  1405/07/24 20:43:16  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 25  1405/07/24 20:43:51  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, medium-access timeout
+ 26  1405/07/24 20:43:58  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 27  1405/07/24 20:44:11  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+ 28  1405/07/24 20:44:23  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 29  1405/07/24 20:44:35  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+ 30  1405/07/24 20:44:46  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 31  1405/07/24 20:45:12  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+ 32  1405/07/24 20:45:25  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: failed to connect, on 5280000, registration timeout
+ 33  1405/07/24 20:45:36  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 34  1405/07/24 20:47:48  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+ 35  1405/07/24 20:47:59  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: failed to connect, on 5280000, registration timeout
+ 36  1405/07/24 20:48:17  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: failed to connect, on 5280000, synchronization timeout
+ 37  1405/07/24 20:48:39  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 38  1405/07/24 20:49:19  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+ 39  1405/07/24 20:49:41  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 40  1405/07/24 20:50:17  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, medium-access timeout
+ 41  1405/07/24 20:50:28  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 42  1405/07/24 21:02:52  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+ 43  1405/07/24 21:03:31  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 44  1405/07/24 21:26:02  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, medium-access timeout
+ 45  1405/07/24 21:26:08  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 46  1405/07/24 21:26:54  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+ 47  1405/07/24 21:27:16  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 48  1405/07/24 21:27:33  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+ 49  1405/07/24 21:27:55  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 50  1405/07/24 21:28:25  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+ 51  1405/07/24 21:28:36  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 52  1405/07/24 21:30:17  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, medium-access timeout
+ 53  1405/07/24 21:30:23  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 54  1405/07/24 21:32:29  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, control frame timeout
+ 55  1405/07/24 21:32:58  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 56  1405/07/24 21:50:27  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+ 57  1405/07/24 21:50:39  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 58  1405/07/24 22:08:31  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, medium-access timeout
+ 59  1405/07/24 22:08:59  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 60  1405/07/24 22:11:53  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+ 61  1405/07/24 22:12:04  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 62  1405/07/24 22:16:48  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, medium-access timeout
+ 63  1405/07/24 22:17:21  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 64  1405/07/24 22:38:25  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, medium-access timeout
+ 65  1405/07/24 22:38:31  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 66  1405/07/25 04:03:12  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, medium-access timeout
+ 67  1405/07/25 04:03:39  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 68  1405/07/25 04:10:19  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+ 69  1405/07/25 04:10:36  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 70  1405/07/25 05:03:43  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+ 71  1405/07/25 05:03:59  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 72  1405/07/25 05:09:59  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, medium-access timeout
+ 73  1405/07/25 05:10:11  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 74  1405/07/25 05:14:37  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+ 75  1405/07/25 05:15:02  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: failed to connect, on 5280000, registration timeout
+ 76  1405/07/25 05:15:35  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 77  1405/07/25 05:19:04  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, control frame timeout
+ 78  1405/07/25 05:19:17  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 79  1405/07/25 05:20:33  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, medium-access timeout
+ 80  1405/07/25 05:21:06  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 81  1405/07/25 05:22:00  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+ 82  1405/07/25 05:22:52  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 83  1405/07/25 05:42:57  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, medium-access timeout
+ 84  1405/07/25 05:43:16  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 85  1405/07/25 23:58:36  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+ 86  1405/07/25 23:59:31  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 87  1405/07/26 00:01:56  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+ 88  1405/07/26 00:02:56  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 89  1405/07/26 00:05:00  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+ 90  1405/07/26 00:05:24  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 91  1405/07/26 00:06:18  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+ 92  1405/07/26 00:06:50  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: failed to connect, on 5280000, medium-access timeout
+ 93  1405/07/26 00:07:34  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 94  1405/07/26 00:42:25  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, medium-access timeout
+ 95  1405/07/26 00:43:04  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 96  1405/07/26 00:44:15  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+ 97  1405/07/26 00:44:44  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+ 98  1405/07/26 00:50:02  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+ 99  1405/07/26 00:50:50  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+100  1405/07/26 00:51:49  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, medium-access timeout
+101  1405/07/26 00:52:05  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+102  1405/07/26 00:55:33  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+103  1405/07/26 00:55:48  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+104  1405/07/26 01:29:36  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+105  1405/07/26 01:30:00  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+106  1405/07/26 01:34:48  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+107  1405/07/26 01:36:16  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+108  1405/07/26 01:36:37  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+109  1405/07/26 01:37:21  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+110  1405/07/26 01:38:03  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+111  1405/07/26 01:38:19  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+112  1405/07/26 08:58:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+113  1405/07/26 08:58:43  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+114  1405/07/26 09:01:12  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+115  1405/07/26 09:01:15  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+116  1405/07/26 10:08:09  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+117  1405/07/26 10:16:43  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+118  1405/07/27 05:22:09  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, medium-access timeout
+119  1405/07/27 05:22:32  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+120  1405/07/27 05:42:34  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+121  1405/07/27 05:45:20  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: failed to connect, on 5280000, registration timeout
+122  1405/07/27 05:45:31  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+123  1405/07/27 05:46:15  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, control frame timeout
+124  1405/07/27 05:47:33  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+125  1405/07/29 03:53:04  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, synchronization timeout
+126  1405/07/29 03:53:26  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+127  1405/07/29 03:54:06  [wireless,info]  48:8F:5A:8F:F1:47@wlan1: lost connection, medium-access timeout
+128  1405/07/29 03:54:17  [wireless,info]  48:8F:5A:8F:F1:47@wlan1 established connection on 5280000, SSID ALVNGHTRNI
+129  1405/07/29 16:33:04  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

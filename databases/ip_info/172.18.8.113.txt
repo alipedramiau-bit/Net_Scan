@@ -1,5 +1,5 @@
 IP: 172.18.8.113
-Collected at: 2026-10-15T10:09:35.759446+00:00
+Collected at: 2026-10-21T13:17:34.477309+00:00
 source: RouterOS API
 identity: R2-MA(Router.Amozeshi)
 device_type: Router
@@ -136,220 +136,219 @@ device_type: Router
  16  identity=Abadan-Amoozesh2.AP  address=172.18.8.130  interface=ether12
  17  identity=Sadat.Client  address=172.18.8.132  interface=ether12
  18  identity=EmamAli.Client  address=172.18.8.133  interface=ether12
- 19  identity=KH-B-NEMIEH  address=172.18.8.134  interface=ether12
- 20  identity=Khabgah.drifarm.Ap  address=172.18.3.202  interface=ether15-Drifam
- 21  identity=Khabgah.drifarm.Client  address=172.18.3.203  interface=ether15-Drifam
- 22  identity=Router.Khabgah-shohada-mena-deirifarm  address=172.18.3.204  interface=ether15-Drifam
- 23  identity=Az3-1  address=192.168.22.23  interface=ether16
- 24  identity=LaboratoryCorona.Ap  address=172.18.1.202  interface=ether20
- 25  identity=Laboratory.Client  address=172.18.1.203  interface=ether20
- 26  identity=SW-Wireless1.aums.ir  address=172.18.3.153  interface=ether22-uplink-mimosa-from-setad
+ 19  identity=Khabgah.drifarm.Ap  address=172.18.3.202  interface=ether15-Drifam
+ 20  identity=Khabgah.drifarm.Client  address=172.18.3.203  interface=ether15-Drifam
+ 21  identity=Router.Khabgah-shohada-mena-deirifarm  address=172.18.3.204  interface=ether15-Drifam
+ 22  identity=Az3-1  address=192.168.22.23  interface=ether16
+ 23  identity=LaboratoryCorona.Ap  address=172.18.1.202  interface=ether20
+ 24  identity=Laboratory.Client  address=172.18.1.203  interface=ether20
+ 25  identity=SW-Wireless1.aums.ir  address=172.18.3.153  interface=ether22-uplink-mimosa-from-setad
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:39:36
-# ساعت دستگاه (خام): 1976-10-10 20:58:12
-# افست اصلاحی (سرور − دستگاه): +438396:11:24
-  1  1405/07/16 15:44:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  2  1405/07/16 15:44:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  3  1405/07/16 15:44:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  4  1405/07/16 15:45:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  5  1405/07/16 15:45:49  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  6  1405/07/16 15:45:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  7  1405/07/16 15:45:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  8  1405/07/16 15:45:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  9  1405/07/16 15:46:00  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 10  1405/07/17 08:27:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 11  1405/07/17 08:27:50  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 12  1405/07/17 08:27:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 13  1405/07/17 08:27:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 14  1405/07/17 08:27:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 15  1405/07/17 08:27:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 16  1405/07/17 08:28:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 17  1405/07/17 08:28:05  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 18  1405/07/17 08:36:04  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 19  1405/07/17 08:36:07  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 20  1405/07/17 08:36:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 21  1405/07/17 08:36:43  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 22  1405/07/17 08:38:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 23  1405/07/17 08:38:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 24  1405/07/17 08:38:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 25  1405/07/17 08:38:50  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 26  1405/07/17 08:38:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 27  1405/07/17 08:38:59  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 28  1405/07/17 08:42:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 29  1405/07/17 08:42:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 30  1405/07/17 08:42:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 31  1405/07/17 08:42:05  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 32  1405/07/17 08:42:05  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 33  1405/07/17 08:42:08  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 34  1405/07/17 08:42:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 35  1405/07/17 08:42:17  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 36  1405/07/17 08:45:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 37  1405/07/17 08:47:46  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 38  1405/07/18 10:27:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 39  1405/07/18 10:27:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 40  1405/07/18 10:27:05  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 41  1405/07/18 10:27:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 42  1405/07/18 10:27:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 43  1405/07/18 10:27:08  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 44  1405/07/18 10:27:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 45  1405/07/18 10:27:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 46  1405/07/18 10:27:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 47  1405/07/18 10:27:19  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 48  1405/07/18 10:33:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 49  1405/07/18 10:33:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 50  1405/07/18 10:34:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 51  1405/07/18 10:34:19  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 52  1405/07/18 10:35:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 53  1405/07/18 10:35:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 54  1405/07/18 10:35:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 55  1405/07/18 10:35:46  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 56  1405/07/18 10:35:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 57  1405/07/18 10:35:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 58  1405/07/18 10:51:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 59  1405/07/18 10:51:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 60  1405/07/18 10:51:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 61  1405/07/18 10:51:22  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 62  1405/07/18 10:51:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 63  1405/07/18 10:51:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 64  1405/07/18 10:51:25  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 65  1405/07/18 10:51:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 66  1405/07/18 10:51:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 67  1405/07/18 10:51:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 68  1405/07/18 10:58:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 69  1405/07/18 10:58:22  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 70  1405/07/18 10:58:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 71  1405/07/18 10:58:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 72  1405/07/18 11:00:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 73  1405/07/18 11:00:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 74  1405/07/18 11:00:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 75  1405/07/18 11:00:17  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 76  1405/07/18 11:00:21  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 77  1405/07/18 11:00:22  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 78  1405/07/18 12:06:55  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 79  1405/07/18 12:06:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 80  1405/07/18 12:06:55  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 81  1405/07/18 12:06:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 82  1405/07/18 12:06:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 83  1405/07/18 12:06:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 84  1405/07/18 12:06:57  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 85  1405/07/18 12:06:57  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 86  1405/07/18 12:06:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 87  1405/07/18 12:06:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 88  1405/07/18 12:10:34  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 89  1405/07/18 12:10:34  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 90  1405/07/18 12:10:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 91  1405/07/18 12:10:49  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 92  1405/07/18 12:11:23  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 93  1405/07/18 12:11:23  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 94  1405/07/18 12:11:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 95  1405/07/18 12:11:25  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 96  1405/07/18 12:11:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 97  1405/07/18 12:11:26  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 98  1405/07/19 08:40:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 99  1405/07/19 08:40:45  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-100  1405/07/19 08:51:01  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-101  1405/07/19 08:51:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-102  1405/07/19 09:30:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-103  1405/07/19 09:30:19  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-104  1405/07/19 09:30:21  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-105  1405/07/19 09:30:26  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-106  1405/07/19 09:30:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-107  1405/07/19 09:30:32  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-108  1405/07/19 09:30:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-109  1405/07/19 09:30:40  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-110  1405/07/19 09:30:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-111  1405/07/19 09:31:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-112  1405/07/19 09:48:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-113  1405/07/19 09:48:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-114  1405/07/19 09:49:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-115  1405/07/19 09:49:18  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-116  1405/07/19 09:52:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-117  1405/07/19 09:52:31  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-118  1405/07/19 09:52:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-119  1405/07/19 09:52:42  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-120  1405/07/19 09:52:50  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-121  1405/07/19 09:52:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-122  1405/07/19 17:40:49  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-123  1405/07/19 17:40:49  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-124  1405/07/19 17:40:50  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-125  1405/07/19 17:40:50  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-126  1405/07/19 17:40:50  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-127  1405/07/19 17:40:51  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-128  1405/07/19 17:40:52  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-129  1405/07/19 17:40:53  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-130  1405/07/19 17:40:55  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-131  1405/07/19 17:40:56  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-132  1405/07/19 17:44:27  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-133  1405/07/19 17:44:27  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-134  1405/07/19 17:44:45  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-135  1405/07/19 17:44:45  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-136  1405/07/19 17:45:30  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-137  1405/07/19 17:45:31  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-138  1405/07/19 17:45:33  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-139  1405/07/19 17:45:33  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-140  1405/07/19 17:45:35  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-141  1405/07/19 17:45:35  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-142  1405/07/21 10:52:01  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-143  1405/07/21 10:52:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-144  1405/07/21 10:52:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-145  1405/07/21 10:52:10  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-146  1405/07/21 10:52:10  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-147  1405/07/21 10:52:14  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-148  1405/07/21 10:52:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-149  1405/07/21 10:52:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-150  1405/07/21 10:52:37  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-151  1405/07/21 10:52:40  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-152  1405/07/21 11:09:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-153  1405/07/21 11:09:31  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-154  1405/07/21 11:10:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-155  1405/07/21 11:10:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-156  1405/07/21 11:13:37  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-157  1405/07/21 11:13:40  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-158  1405/07/21 11:13:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-159  1405/07/21 11:13:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-160  1405/07/21 11:13:57  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-161  1405/07/21 11:14:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-162  1405/07/22 03:04:28  [interface,info]  ether22-uplink-mimosa-from-setad link down
-163  1405/07/22 03:04:31  [interface,info]  ether22-uplink-mimosa-from-setad link up (speed 1G, full duplex)
-164  1405/07/22 13:11:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-165  1405/07/22 13:11:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-166  1405/07/22 13:11:10  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-167  1405/07/22 13:11:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-168  1405/07/22 13:11:13  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-169  1405/07/22 13:11:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-170  1405/07/22 13:11:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-171  1405/07/22 13:11:22  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-172  1405/07/22 13:11:40  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-173  1405/07/22 13:11:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-174  1405/07/22 13:28:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-175  1405/07/22 13:28:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-176  1405/07/22 13:29:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-177  1405/07/22 13:29:52  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-178  1405/07/22 13:32:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-179  1405/07/22 13:32:49  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-180  1405/07/22 13:32:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-181  1405/07/22 13:33:00  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-182  1405/07/22 13:33:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-183  1405/07/22 13:33:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-184  1405/07/22 16:06:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-185  1405/07/22 16:06:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-186  1405/07/23 12:19:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-187  1405/07/23 12:19:15  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-188  1405/07/23 12:19:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-189  1405/07/23 12:19:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-190  1405/07/23 12:19:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-191  1405/07/23 12:19:23  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-192  1405/07/23 12:19:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-193  1405/07/23 12:19:29  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-194  1405/07/23 12:19:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-195  1405/07/23 12:19:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-196  1405/07/23 12:36:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-197  1405/07/23 12:36:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-198  1405/07/23 12:36:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-199  1405/07/23 12:37:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-200  1405/07/23 12:39:34  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:38:40
+# ساعت دستگاه (خام): 1976-10-17 00:59:44
+# افست اصلاحی (سرور − دستگاه): +438396:08:56
+  1  1405/07/18 10:48:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  2  1405/07/18 10:48:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  3  1405/07/18 10:48:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  4  1405/07/18 10:48:57  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  5  1405/07/18 10:48:59  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  6  1405/07/18 10:49:05  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  7  1405/07/18 10:49:07  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  8  1405/07/18 10:55:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  9  1405/07/18 10:55:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 10  1405/07/18 10:56:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 11  1405/07/18 10:56:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 12  1405/07/18 10:57:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 13  1405/07/18 10:57:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 14  1405/07/18 10:57:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 15  1405/07/18 10:57:49  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 16  1405/07/18 10:57:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 17  1405/07/18 10:57:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 18  1405/07/18 12:04:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 19  1405/07/18 12:04:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 20  1405/07/18 12:04:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 21  1405/07/18 12:04:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 22  1405/07/18 12:04:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 23  1405/07/18 12:04:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 24  1405/07/18 12:04:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 25  1405/07/18 12:04:29  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 26  1405/07/18 12:04:30  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 27  1405/07/18 12:04:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 28  1405/07/18 12:08:06  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 29  1405/07/18 12:08:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 30  1405/07/18 12:08:21  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 31  1405/07/18 12:08:21  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 32  1405/07/18 12:08:55  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 33  1405/07/18 12:08:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 34  1405/07/18 12:08:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 35  1405/07/18 12:08:57  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 36  1405/07/18 12:08:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 37  1405/07/18 12:08:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 38  1405/07/19 08:38:10  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 39  1405/07/19 08:38:17  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 40  1405/07/19 08:48:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 41  1405/07/19 08:48:36  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 42  1405/07/19 09:27:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 43  1405/07/19 09:27:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 44  1405/07/19 09:27:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 45  1405/07/19 09:27:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 46  1405/07/19 09:27:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 47  1405/07/19 09:28:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 48  1405/07/19 09:28:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 49  1405/07/19 09:28:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 50  1405/07/19 09:28:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 51  1405/07/19 09:28:36  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 52  1405/07/19 09:45:43  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 53  1405/07/19 09:45:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 54  1405/07/19 09:46:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 55  1405/07/19 09:46:50  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 56  1405/07/19 09:49:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 57  1405/07/19 09:50:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 58  1405/07/19 09:50:10  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 59  1405/07/19 09:50:14  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 60  1405/07/19 09:50:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 61  1405/07/19 09:50:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 62  1405/07/19 17:38:21  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 63  1405/07/19 17:38:21  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 64  1405/07/19 17:38:22  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 65  1405/07/19 17:38:22  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 66  1405/07/19 17:38:22  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 67  1405/07/19 17:38:23  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 68  1405/07/19 17:38:24  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 69  1405/07/19 17:38:25  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 70  1405/07/19 17:38:27  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 71  1405/07/19 17:38:28  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 72  1405/07/19 17:41:59  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 73  1405/07/19 17:41:59  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 74  1405/07/19 17:42:17  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 75  1405/07/19 17:42:17  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 76  1405/07/19 17:43:02  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 77  1405/07/19 17:43:03  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 78  1405/07/19 17:43:05  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 79  1405/07/19 17:43:05  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 80  1405/07/19 17:43:07  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 81  1405/07/19 17:43:07  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 82  1405/07/21 10:49:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 83  1405/07/21 10:49:36  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 84  1405/07/21 10:49:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 85  1405/07/21 10:49:42  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 86  1405/07/21 10:49:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 87  1405/07/21 10:49:46  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 88  1405/07/21 10:49:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 89  1405/07/21 10:49:52  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 90  1405/07/21 10:50:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 91  1405/07/21 10:50:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 92  1405/07/21 11:07:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 93  1405/07/21 11:07:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 94  1405/07/21 11:07:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 95  1405/07/21 11:08:07  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 96  1405/07/21 11:11:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 97  1405/07/21 11:11:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 98  1405/07/21 11:11:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 99  1405/07/21 11:11:23  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+100  1405/07/21 11:11:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+101  1405/07/21 11:11:33  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+102  1405/07/22 03:02:00  [interface,info]  ether22-uplink-mimosa-from-setad link down
+103  1405/07/22 03:02:03  [interface,info]  ether22-uplink-mimosa-from-setad link up (speed 1G, full duplex)
+104  1405/07/22 13:08:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+105  1405/07/22 13:08:38  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+106  1405/07/22 13:08:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+107  1405/07/22 13:08:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+108  1405/07/22 13:08:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+109  1405/07/22 13:08:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+110  1405/07/22 13:08:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+111  1405/07/22 13:08:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+112  1405/07/22 13:09:12  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+113  1405/07/22 13:09:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+114  1405/07/22 13:26:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+115  1405/07/22 13:26:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+116  1405/07/22 13:27:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+117  1405/07/22 13:27:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+118  1405/07/22 13:30:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+119  1405/07/22 13:30:21  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+120  1405/07/22 13:30:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+121  1405/07/22 13:30:32  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+122  1405/07/22 13:30:40  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+123  1405/07/22 13:30:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+124  1405/07/22 16:04:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+125  1405/07/22 16:04:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+126  1405/07/23 12:16:43  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+127  1405/07/23 12:16:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+128  1405/07/23 12:16:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+129  1405/07/23 12:16:52  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+130  1405/07/23 12:16:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+131  1405/07/23 12:16:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+132  1405/07/23 12:16:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+133  1405/07/23 12:17:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+134  1405/07/23 12:17:16  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+135  1405/07/23 12:17:19  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+136  1405/07/23 12:33:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+137  1405/07/23 12:33:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+138  1405/07/23 12:34:30  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+139  1405/07/23 12:34:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+140  1405/07/23 12:37:06  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+141  1405/07/23 12:37:10  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+142  1405/07/23 12:37:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+143  1405/07/23 12:37:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+144  1405/07/24 15:12:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+145  1405/07/24 15:12:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+146  1405/07/24 15:12:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+147  1405/07/24 15:13:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+148  1405/07/24 15:13:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+149  1405/07/24 15:13:10  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+150  1405/07/24 15:13:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+151  1405/07/24 15:13:18  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+152  1405/07/24 15:13:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+153  1405/07/24 15:13:40  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+154  1405/07/24 15:29:16  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+155  1405/07/24 15:29:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+156  1405/07/24 15:30:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+157  1405/07/24 15:30:10  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+158  1405/07/24 15:32:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+159  1405/07/24 15:32:38  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+160  1405/07/24 15:32:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+161  1405/07/24 15:32:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+162  1405/07/24 15:32:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+163  1405/07/24 15:33:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+164  1405/07/24 16:00:57  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+165  1405/07/24 16:01:00  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+166  1405/07/26 08:47:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+167  1405/07/26 08:47:25  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+168  1405/07/26 08:47:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+169  1405/07/26 08:47:36  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+170  1405/07/26 08:47:40  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+171  1405/07/26 08:47:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+172  1405/07/26 08:47:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+173  1405/07/26 08:47:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+174  1405/07/26 08:47:53  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+175  1405/07/26 08:47:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+176  1405/07/26 08:47:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+177  1405/07/26 08:48:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+178  1405/07/26 08:48:34  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+179  1405/07/26 08:48:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+180  1405/07/26 09:05:12  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+181  1405/07/26 09:05:15  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+182  1405/07/26 09:05:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+183  1405/07/26 09:06:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+184  1405/07/26 09:07:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+185  1405/07/26 09:07:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+186  1405/07/26 09:08:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+187  1405/07/26 09:08:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+188  1405/07/26 09:08:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+189  1405/07/26 09:08:36  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+190  1405/07/26 09:08:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+191  1405/07/26 09:08:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+192  1405/07/26 09:08:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+193  1405/07/26 09:08:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+194  1405/07/26 09:11:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+195  1405/07/26 09:11:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+196  1405/07/26 09:11:23  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+197  1405/07/26 09:11:26  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+198  1405/07/26 09:11:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+199  1405/07/26 09:11:37  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+200  1405/07/29 16:38:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -391,7 +390,6 @@ ether10  B8:69:F4:11:5E:7F  (arp 172.18.8.148)
 ether5  E4:8D:8C:F0:3E:F0  (arp 172.18.1.154)
 ether3  6C:3B:6B:2C:6A:DB  (arp 172.18.1.146)
 ether10  B8:69:F4:94:2B:6F  (arp 172.18.8.157)
-ether12  78:9A:18:C0:68:FC  (arp 172.18.8.134)
 ether5  E4:8D:8C:F0:B2:A9  (arp 172.18.1.155)
 ether5  E4:8D:8C:A5:1B:FB  (arp 172.18.1.156)
 ether3  E4:8D:8C:96:39:F2  (arp 172.18.1.147)

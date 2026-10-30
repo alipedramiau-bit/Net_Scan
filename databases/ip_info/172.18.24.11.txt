@@ -1,5 +1,5 @@
 IP: 172.18.24.11
-Collected at: 2026-10-15T10:08:07.298132+00:00
+Collected at: 2026-10-21T13:16:29.668105+00:00
 source: RouterOS API
 identity: Shabakeh->Abshar.Client
 device_type: ST
@@ -31,209 +31,209 @@ name=wlan1  mode=station-bridge  ssid=VSP Abshar AP  band=5ghz-a/n  frequency=52
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:25:21
-# ساعت دستگاه (خام): 2025-08-01 06:58:42
-# افست اصلاحی (سرور − دستگاه): +10561:56:39
-  1  1405/02/27 14:04:13  [system,info,account]  user garnaf logged in from 172.29.40.4 via ssh
-  2  1405/02/27 14:04:14  [system,info]  changed snmp settings by garnaf
-  3  1405/02/27 14:04:14  [system,info]  item changed by garnaf
-  4  1405/02/27 14:04:14  [system,info]  filter rule added by garnaf
-  5  1405/02/27 14:04:14  [system,info,account]  user garnaf logged out from 172.29.40.4 via ssh
-  6  1405/02/27 14:10:39  [system,info,account]  user garnaf logged in from 172.29.40.4 via ssh
-  7  1405/02/27 14:10:40  [system,info]  changed snmp settings by garnaf
-  8  1405/02/27 14:10:40  [system,info]  item changed by garnaf
-  9  1405/02/27 14:10:40  [system,info]  item removed by garnaf
- 10  1405/02/27 14:10:40  [system,info]  filter rule added by garnaf
- 11  1405/02/27 14:10:40  [system,info,account]  user garnaf logged out from 172.29.40.4 via ssh
- 12  1405/02/27 14:17:59  [system,info,account]  user garnaf logged in from 172.29.40.4 via ssh
- 13  1405/02/27 14:17:59  [system,info]  changed snmp settings by garnaf
- 14  1405/02/27 14:17:59  [system,info]  item changed by garnaf
- 15  1405/02/27 14:18:00  [system,info]  filter rule added by garnaf
- 16  1405/02/27 14:18:00  [system,info,account]  user garnaf logged out from 172.29.40.4 via ssh
- 17  1405/02/31 13:18:15  [system,error,critical]  router was rebooted without proper shutdown
- 18  1405/02/31 13:18:19  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
- 19  1405/02/31 13:18:25  [interface,info]  ether1 link up (speed 1G, full duplex)
- 20  1405/02/31 13:18:39  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
- 21  1405/03/02 14:34:59  [system,error,critical]  router was rebooted without proper shutdown
- 22  1405/03/02 14:35:02  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
- 23  1405/03/02 14:35:09  [interface,info]  ether1 link up (speed 1G, full duplex)
- 24  1405/03/02 14:35:22  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
- 25  1405/03/06 20:51:53  [system,error,critical]  router was rebooted without proper shutdown
- 26  1405/03/06 20:51:57  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
- 27  1405/03/06 20:52:03  [interface,info]  ether1 link up (speed 1G, full duplex)
- 28  1405/03/06 20:52:17  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
- 29  1405/03/10 06:30:28  [system,error,critical]  router was rebooted without proper shutdown
- 30  1405/03/10 06:30:31  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
- 31  1405/03/10 06:30:38  [interface,info]  ether1 link up (speed 1G, full duplex)
- 32  1405/03/10 06:30:52  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
- 33  1405/03/25 06:26:42  [system,error,critical]  router was rebooted without proper shutdown
- 34  1405/03/25 06:26:45  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
- 35  1405/03/25 06:26:51  [interface,info]  ether1 link up (speed 1G, full duplex)
- 36  1405/03/25 06:27:05  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
- 37  1405/03/31 06:26:42  [system,error,critical]  router was rebooted without proper shutdown
- 38  1405/03/31 06:26:45  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
- 39  1405/03/31 06:26:51  [interface,info]  ether1 link up (speed 1G, full duplex)
- 40  1405/03/31 06:27:05  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
- 41  1405/04/03 06:26:42  [system,error,critical]  router was rebooted without proper shutdown
- 42  1405/04/03 06:26:46  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
- 43  1405/04/03 06:26:52  [interface,info]  ether1 link up (speed 1G, full duplex)
- 44  1405/04/03 06:27:06  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
- 45  1405/04/06 06:26:42  [system,error,critical]  router was rebooted without proper shutdown
- 46  1405/04/06 06:26:46  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
- 47  1405/04/06 06:26:52  [interface,info]  ether1 link up (speed 1G, full duplex)
- 48  1405/04/06 06:27:06  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
- 49  1405/04/09 06:26:43  [system,error,critical]  router was rebooted without proper shutdown
- 50  1405/04/09 06:26:45  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
- 51  1405/04/09 06:26:52  [interface,info]  ether1 link up (speed 1G, full duplex)
- 52  1405/04/09 06:27:06  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
- 53  1405/04/11 06:26:42  [system,error,critical]  router was rebooted without proper shutdown
- 54  1405/04/11 06:26:46  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
- 55  1405/04/11 06:26:51  [interface,info]  ether1 link up (speed 1G, full duplex)
- 56  1405/04/11 06:27:06  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
- 57  1405/04/13 06:26:43  [system,error,critical]  router was rebooted without proper shutdown
- 58  1405/04/13 06:26:46  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
- 59  1405/04/13 06:26:53  [interface,info]  ether1 link up (speed 1G, full duplex)
- 60  1405/04/13 06:27:06  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
- 61  1405/04/13 06:26:42  [system,error,critical]  router was rebooted without proper shutdown
- 62  1405/04/13 06:26:45  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
- 63  1405/04/13 06:26:51  [interface,info]  ether1 link up (speed 1G, full duplex)
- 64  1405/04/13 06:27:05  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
- 65  1405/04/13 06:26:42  [system,error,critical]  router was rebooted without proper shutdown
- 66  1405/04/13 06:26:45  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
- 67  1405/04/13 06:26:52  [interface,info]  ether1 link up (speed 1G, full duplex)
- 68  1405/04/13 06:27:05  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
- 69  1405/04/23 06:26:42  [system,error,critical]  router was rebooted without proper shutdown
- 70  1405/04/23 06:26:46  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
- 71  1405/04/23 06:26:52  [interface,info]  ether1 link up (speed 1G, full duplex)
- 72  1405/04/23 06:27:06  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
- 73  1405/04/23 06:26:43  [system,error,critical]  router was rebooted without proper shutdown
- 74  1405/04/23 06:26:46  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
- 75  1405/04/23 06:26:52  [interface,info]  ether1 link up (speed 1G, full duplex)
- 76  1405/04/23 06:27:06  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
- 77  1405/04/23 06:26:43  [system,error,critical]  router was rebooted without proper shutdown
- 78  1405/04/23 06:26:46  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
- 79  1405/04/23 06:26:52  [interface,info]  ether1 link up (speed 1G, full duplex)
- 80  1405/04/23 06:27:06  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
- 81  1405/04/26 06:26:42  [system,error,critical]  router was rebooted without proper shutdown
- 82  1405/04/26 06:26:45  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
- 83  1405/04/26 06:26:52  [interface,info]  ether1 link up (speed 1G, full duplex)
- 84  1405/04/26 06:27:06  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
- 85  1405/04/28 06:26:43  [system,error,critical]  router was rebooted without proper shutdown
- 86  1405/04/28 06:26:47  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
- 87  1405/04/28 06:26:53  [interface,info]  ether1 link up (speed 1G, full duplex)
- 88  1405/04/28 06:27:07  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
- 89  1405/04/29 06:26:41  [system,error,critical]  router was rebooted without proper shutdown
- 90  1405/04/29 06:26:45  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
- 91  1405/04/29 06:26:51  [interface,info]  ether1 link up (speed 1G, full duplex)
- 92  1405/04/29 06:27:05  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
- 93  1405/04/29 06:26:43  [system,error,critical]  router was rebooted without proper shutdown
- 94  1405/04/29 06:26:46  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
- 95  1405/04/29 06:26:52  [interface,info]  ether1 link up (speed 1G, full duplex)
- 96  1405/04/29 06:27:06  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
- 97  1405/05/08 07:12:40  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
- 98  1405/05/08 07:12:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
- 99  1405/05/08 07:16:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
-100  1405/05/08 07:16:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
-101  1405/05/08 07:35:55  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
-102  1405/05/08 07:35:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
-103  1405/05/08 07:41:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
-104  1405/05/08 07:41:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
-105  1405/05/08 07:54:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
-106  1405/05/08 07:54:36  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
-107  1405/05/08 08:02:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
-108  1405/05/08 08:02:23  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
-109  1405/05/08 08:04:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
-110  1405/05/08 08:04:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
-111  1405/05/08 08:07:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
-112  1405/05/08 08:07:32  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
-113  1405/05/09 06:26:43  [system,error,critical]  router was rebooted without proper shutdown
-114  1405/05/09 06:26:46  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
-115  1405/05/09 06:26:53  [interface,info]  ether1 link up (speed 1G, full duplex)
-116  1405/05/09 06:27:06  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
-117  1405/05/15 06:26:40  [system,error,critical]  router was rebooted without proper shutdown
-118  1405/05/15 06:26:44  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
-119  1405/05/15 06:26:50  [interface,info]  ether1 link up (speed 1G, full duplex)
-120  1405/05/15 06:27:04  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
-121  1405/05/17 12:30:51  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1: lost connection, not polled for too long
-122  1405/05/17 12:31:11  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
-123  1405/05/20 06:26:41  [system,error,critical]  router was rebooted without proper shutdown
-124  1405/05/20 06:26:45  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
-125  1405/05/20 06:26:52  [interface,info]  ether1 link up (speed 1G, full duplex)
-126  1405/05/20 06:27:05  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
-127  1405/05/20 06:26:41  [system,error,critical]  router was rebooted without proper shutdown
-128  1405/05/20 06:26:44  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
-129  1405/05/20 06:26:51  [interface,info]  ether1 link up (speed 1G, full duplex)
-130  1405/05/20 06:27:04  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
-131  1405/05/23 06:26:41  [system,error,critical]  router was rebooted without proper shutdown
-132  1405/05/23 06:26:44  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
-133  1405/05/23 06:26:51  [interface,info]  ether1 link up (speed 1G, full duplex)
-134  1405/05/23 06:27:04  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
-135  1405/06/02 06:26:41  [system,error,critical]  router was rebooted without proper shutdown
-136  1405/06/02 06:26:45  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
-137  1405/06/02 06:26:51  [interface,info]  ether1 link up (speed 1G, full duplex)
-138  1405/06/02 06:27:05  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
-139  1405/06/05 02:02:34  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1: lost connection, not polled for too long
-140  1405/06/05 02:03:15  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
-141  1405/06/17 15:00:26  [system,error,critical]  router was rebooted without proper shutdown
-142  1405/06/17 15:00:30  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
-143  1405/06/17 15:00:36  [interface,info]  ether1 link up (speed 1G, full duplex)
-144  1405/06/17 15:00:50  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
-145  1405/06/17 15:00:26  [system,error,critical]  router was rebooted without proper shutdown
-146  1405/06/17 15:00:29  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
-147  1405/06/17 15:00:36  [interface,info]  ether1 link up (speed 1G, full duplex)
-148  1405/06/17 15:00:49  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
-149  1405/07/15 13:32:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-150  1405/07/15 13:32:42  [system,info]  changed snmp settings by garnaf
-151  1405/07/15 13:32:42  [system,info]  item changed by garnaf
-152  1405/07/15 13:32:42  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-153  1405/07/15 13:34:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-154  1405/07/15 13:34:27  [system,info]  changed snmp settings by garnaf
-155  1405/07/15 13:34:27  [system,info]  item changed by garnaf
-156  1405/07/15 13:34:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-157  1405/07/15 13:37:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-158  1405/07/15 13:37:56  [system,info]  changed snmp settings by garnaf
-159  1405/07/15 13:37:56  [system,info]  item changed by garnaf
-160  1405/07/15 13:37:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-161  1405/07/15 14:55:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-162  1405/07/15 14:55:48  [system,info]  user olom1 added by garnaf
-163  1405/07/15 14:55:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-164  1405/07/15 15:05:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-165  1405/07/15 15:05:07  [system,info]  user ums1 removed by garnaf
-166  1405/07/15 15:05:07  [system,info]  user ums2 removed by garnaf
-167  1405/07/15 15:05:07  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-168  1405/07/16 10:14:01  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-169  1405/07/16 10:14:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-170  1405/07/16 10:36:04  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-171  1405/07/16 10:36:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-172  1405/07/16 13:49:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-173  1405/07/16 13:49:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-174  1405/07/16 14:06:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-175  1405/07/16 14:06:35  [system,info]  changed snmp settings by garnaf
-176  1405/07/16 14:06:35  [system,info]  item changed by garnaf
-177  1405/07/16 14:06:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-178  1405/07/16 14:28:57  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-179  1405/07/16 14:28:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-180  1405/07/16 15:40:01  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-181  1405/07/16 15:40:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-182  1405/07/17 08:31:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-183  1405/07/17 08:31:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-184  1405/07/18 09:55:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-185  1405/07/18 09:55:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-186  1405/07/18 10:29:55  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-187  1405/07/18 10:29:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-188  1405/07/18 10:54:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-189  1405/07/18 10:54:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-190  1405/07/18 12:07:23  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-191  1405/07/18 12:07:23  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-192  1405/07/19 09:37:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-193  1405/07/19 09:37:32  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-194  1405/07/19 17:41:57  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-195  1405/07/19 17:41:57  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-196  1405/07/21 11:00:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-197  1405/07/21 11:00:43  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-198  1405/07/22 13:17:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-199  1405/07/22 13:17:36  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-200  1405/07/23 12:25:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:31:05
+# ساعت دستگاه (خام): 2025-08-07 11:07:14
+# افست اصلاحی (سرور − دستگاه): +10561:53:51
+  1  1405/02/27 14:07:52  [system,info,account]  user garnaf logged out from 172.29.40.4 via ssh
+  2  1405/02/27 14:15:11  [system,info,account]  user garnaf logged in from 172.29.40.4 via ssh
+  3  1405/02/27 14:15:11  [system,info]  changed snmp settings by garnaf
+  4  1405/02/27 14:15:11  [system,info]  item changed by garnaf
+  5  1405/02/27 14:15:12  [system,info]  filter rule added by garnaf
+  6  1405/02/27 14:15:12  [system,info,account]  user garnaf logged out from 172.29.40.4 via ssh
+  7  1405/02/31 13:15:27  [system,error,critical]  router was rebooted without proper shutdown
+  8  1405/02/31 13:15:31  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+  9  1405/02/31 13:15:37  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 10  1405/02/31 13:15:51  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+ 11  1405/03/02 14:32:11  [system,error,critical]  router was rebooted without proper shutdown
+ 12  1405/03/02 14:32:14  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+ 13  1405/03/02 14:32:21  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 14  1405/03/02 14:32:34  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+ 15  1405/03/06 20:49:05  [system,error,critical]  router was rebooted without proper shutdown
+ 16  1405/03/06 20:49:09  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+ 17  1405/03/06 20:49:15  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 18  1405/03/06 20:49:29  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+ 19  1405/03/10 06:27:40  [system,error,critical]  router was rebooted without proper shutdown
+ 20  1405/03/10 06:27:43  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+ 21  1405/03/10 06:27:50  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 22  1405/03/10 06:28:04  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+ 23  1405/03/25 06:23:54  [system,error,critical]  router was rebooted without proper shutdown
+ 24  1405/03/25 06:23:57  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+ 25  1405/03/25 06:24:03  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 26  1405/03/25 06:24:17  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+ 27  1405/03/31 06:23:54  [system,error,critical]  router was rebooted without proper shutdown
+ 28  1405/03/31 06:23:57  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+ 29  1405/03/31 06:24:03  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 30  1405/03/31 06:24:17  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+ 31  1405/04/03 06:23:54  [system,error,critical]  router was rebooted without proper shutdown
+ 32  1405/04/03 06:23:58  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+ 33  1405/04/03 06:24:04  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 34  1405/04/03 06:24:18  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+ 35  1405/04/06 06:23:54  [system,error,critical]  router was rebooted without proper shutdown
+ 36  1405/04/06 06:23:58  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+ 37  1405/04/06 06:24:04  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 38  1405/04/06 06:24:18  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+ 39  1405/04/09 06:23:55  [system,error,critical]  router was rebooted without proper shutdown
+ 40  1405/04/09 06:23:57  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+ 41  1405/04/09 06:24:04  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 42  1405/04/09 06:24:18  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+ 43  1405/04/11 06:23:54  [system,error,critical]  router was rebooted without proper shutdown
+ 44  1405/04/11 06:23:58  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+ 45  1405/04/11 06:24:03  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 46  1405/04/11 06:24:18  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+ 47  1405/04/13 06:23:55  [system,error,critical]  router was rebooted without proper shutdown
+ 48  1405/04/13 06:23:58  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+ 49  1405/04/13 06:24:05  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 50  1405/04/13 06:24:18  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+ 51  1405/04/13 06:23:54  [system,error,critical]  router was rebooted without proper shutdown
+ 52  1405/04/13 06:23:57  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+ 53  1405/04/13 06:24:03  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 54  1405/04/13 06:24:17  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+ 55  1405/04/13 06:23:54  [system,error,critical]  router was rebooted without proper shutdown
+ 56  1405/04/13 06:23:57  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+ 57  1405/04/13 06:24:04  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 58  1405/04/13 06:24:17  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+ 59  1405/04/23 06:23:54  [system,error,critical]  router was rebooted without proper shutdown
+ 60  1405/04/23 06:23:58  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+ 61  1405/04/23 06:24:04  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 62  1405/04/23 06:24:18  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+ 63  1405/04/23 06:23:55  [system,error,critical]  router was rebooted without proper shutdown
+ 64  1405/04/23 06:23:58  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+ 65  1405/04/23 06:24:04  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 66  1405/04/23 06:24:18  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+ 67  1405/04/23 06:23:55  [system,error,critical]  router was rebooted without proper shutdown
+ 68  1405/04/23 06:23:58  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+ 69  1405/04/23 06:24:04  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 70  1405/04/23 06:24:18  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+ 71  1405/04/26 06:23:54  [system,error,critical]  router was rebooted without proper shutdown
+ 72  1405/04/26 06:23:57  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+ 73  1405/04/26 06:24:04  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 74  1405/04/26 06:24:18  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+ 75  1405/04/28 06:23:55  [system,error,critical]  router was rebooted without proper shutdown
+ 76  1405/04/28 06:23:59  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+ 77  1405/04/28 06:24:05  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 78  1405/04/28 06:24:19  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+ 79  1405/04/29 06:23:53  [system,error,critical]  router was rebooted without proper shutdown
+ 80  1405/04/29 06:23:57  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+ 81  1405/04/29 06:24:03  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 82  1405/04/29 06:24:17  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+ 83  1405/04/29 06:23:55  [system,error,critical]  router was rebooted without proper shutdown
+ 84  1405/04/29 06:23:58  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+ 85  1405/04/29 06:24:04  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 86  1405/04/29 06:24:18  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+ 87  1405/05/08 07:09:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
+ 88  1405/05/08 07:09:53  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
+ 89  1405/05/08 07:13:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
+ 90  1405/05/08 07:13:59  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
+ 91  1405/05/08 07:33:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
+ 92  1405/05/08 07:33:07  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
+ 93  1405/05/08 07:38:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
+ 94  1405/05/08 07:38:15  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
+ 95  1405/05/08 07:51:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
+ 96  1405/05/08 07:51:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
+ 97  1405/05/08 07:59:34  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
+ 98  1405/05/08 07:59:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
+ 99  1405/05/08 08:01:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
+100  1405/05/08 08:01:36  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
+101  1405/05/08 08:04:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
+102  1405/05/08 08:04:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
+103  1405/05/09 06:23:55  [system,error,critical]  router was rebooted without proper shutdown
+104  1405/05/09 06:23:58  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+105  1405/05/09 06:24:05  [interface,info]  ether1 link up (speed 1G, full duplex)
+106  1405/05/09 06:24:18  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+107  1405/05/15 06:23:52  [system,error,critical]  router was rebooted without proper shutdown
+108  1405/05/15 06:23:56  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+109  1405/05/15 06:24:02  [interface,info]  ether1 link up (speed 1G, full duplex)
+110  1405/05/15 06:24:16  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+111  1405/05/17 12:28:03  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1: lost connection, not polled for too long
+112  1405/05/17 12:28:23  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+113  1405/05/20 06:23:53  [system,error,critical]  router was rebooted without proper shutdown
+114  1405/05/20 06:23:57  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+115  1405/05/20 06:24:04  [interface,info]  ether1 link up (speed 1G, full duplex)
+116  1405/05/20 06:24:17  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+117  1405/05/20 06:23:53  [system,error,critical]  router was rebooted without proper shutdown
+118  1405/05/20 06:23:56  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+119  1405/05/20 06:24:03  [interface,info]  ether1 link up (speed 1G, full duplex)
+120  1405/05/20 06:24:16  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+121  1405/05/23 06:23:53  [system,error,critical]  router was rebooted without proper shutdown
+122  1405/05/23 06:23:56  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+123  1405/05/23 06:24:03  [interface,info]  ether1 link up (speed 1G, full duplex)
+124  1405/05/23 06:24:16  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+125  1405/06/02 06:23:53  [system,error,critical]  router was rebooted without proper shutdown
+126  1405/06/02 06:23:57  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+127  1405/06/02 06:24:03  [interface,info]  ether1 link up (speed 1G, full duplex)
+128  1405/06/02 06:24:17  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+129  1405/06/05 01:59:46  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1: lost connection, not polled for too long
+130  1405/06/05 02:00:27  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+131  1405/06/17 14:57:38  [system,error,critical]  router was rebooted without proper shutdown
+132  1405/06/17 14:57:42  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+133  1405/06/17 14:57:48  [interface,info]  ether1 link up (speed 1G, full duplex)
+134  1405/06/17 14:58:02  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+135  1405/06/17 14:57:38  [system,error,critical]  router was rebooted without proper shutdown
+136  1405/06/17 14:57:41  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:FF:8B:09
+137  1405/06/17 14:57:48  [interface,info]  ether1 link up (speed 1G, full duplex)
+138  1405/06/17 14:58:01  [wireless,info]  6C:3B:6B:94:8C:A6@wlan1 established connection on 5500000, SSID VSP Abshar AP
+139  1405/07/15 13:29:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+140  1405/07/15 13:29:54  [system,info]  changed snmp settings by garnaf
+141  1405/07/15 13:29:54  [system,info]  item changed by garnaf
+142  1405/07/15 13:29:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+143  1405/07/15 13:31:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+144  1405/07/15 13:31:39  [system,info]  changed snmp settings by garnaf
+145  1405/07/15 13:31:39  [system,info]  item changed by garnaf
+146  1405/07/15 13:31:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+147  1405/07/15 13:35:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+148  1405/07/15 13:35:08  [system,info]  changed snmp settings by garnaf
+149  1405/07/15 13:35:08  [system,info]  item changed by garnaf
+150  1405/07/15 13:35:08  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+151  1405/07/15 14:53:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+152  1405/07/15 14:53:00  [system,info]  user olom1 added by garnaf
+153  1405/07/15 14:53:00  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+154  1405/07/15 15:02:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+155  1405/07/15 15:02:19  [system,info]  user ums1 removed by garnaf
+156  1405/07/15 15:02:19  [system,info]  user ums2 removed by garnaf
+157  1405/07/15 15:02:19  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+158  1405/07/16 10:11:13  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+159  1405/07/16 10:11:14  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+160  1405/07/16 10:33:16  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+161  1405/07/16 10:33:18  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+162  1405/07/16 13:47:01  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+163  1405/07/16 13:47:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+164  1405/07/16 14:03:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+165  1405/07/16 14:03:47  [system,info]  changed snmp settings by garnaf
+166  1405/07/16 14:03:47  [system,info]  item changed by garnaf
+167  1405/07/16 14:03:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+168  1405/07/16 14:26:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+169  1405/07/16 14:26:10  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+170  1405/07/16 15:37:13  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+171  1405/07/16 15:37:14  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+172  1405/07/17 08:28:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+173  1405/07/17 08:28:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+174  1405/07/18 09:52:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+175  1405/07/18 09:52:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+176  1405/07/18 10:27:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+177  1405/07/18 10:27:10  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+178  1405/07/18 10:51:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+179  1405/07/18 10:51:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+180  1405/07/18 12:04:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+181  1405/07/18 12:04:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+182  1405/07/19 09:34:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+183  1405/07/19 09:34:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+184  1405/07/19 17:39:09  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+185  1405/07/19 17:39:09  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+186  1405/07/21 10:57:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+187  1405/07/21 10:57:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+188  1405/07/22 13:14:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+189  1405/07/22 13:14:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+190  1405/07/23 12:22:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+191  1405/07/23 12:22:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+192  1405/07/24 15:19:23  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+193  1405/07/24 15:19:31  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+194  1405/07/24 15:51:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+195  1405/07/24 15:51:53  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+196  1405/07/26 08:54:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+197  1405/07/26 08:54:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+198  1405/07/26 08:57:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+199  1405/07/26 08:57:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+200  1405/07/29 16:31:04  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

@@ -1,5 +1,5 @@
 IP: 172.18.9.20
-Collected at: 2026-10-14T10:24:27.371518+00:00
+Collected at: 2026-10-21T13:17:52.813534+00:00
 source: RouterOS API
 identity: ShahidRajaei.Client
 device_type: ST
@@ -31,133 +31,213 @@ name=wlan1  mode=station-bridge  ssid=Abadan-Khezr1  band=5ghz-a/n  frequency=52
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:35:33
-# ساعت دستگاه (خام): 1974-07-22 19:45:31
-# افست اصلاحی (سرور − دستگاه): +457838:20:02
-  1  1405/07/19 08:22:07  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/19 08:22:15  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
-  3  1405/07/19 08:22:17  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/19 08:22:19  [dhcp,info]  dhcp1 deassigned 172.29.67.142 from C0:C9:E3:B2:33:F8
-  5  1405/07/19 08:22:19  [dhcp,info]  dhcp1 assigned 172.29.67.142 to C0:C9:E3:B2:33:F8
-  6  1405/07/19 08:27:16  [dhcp,info]  dhcp1 deassigned 172.29.67.141 from 12:8A:C7:6C:D4:4E
-  7  1405/07/19 08:28:07  [dhcp,info]  dhcp1 assigned 172.29.67.141 to 12:8A:C7:6C:D4:4E
-  8  1405/07/19 08:29:42  [dhcp,info]  dhcp1 assigned 172.29.67.140 to 7C:F1:7E:F4:3A:CD
-  9  1405/07/19 08:30:07  [dhcp,info]  dhcp1 deassigned 172.29.67.140 from 7C:F1:7E:F4:3A:CD
- 10  1405/07/19 08:30:07  [dhcp,info]  dhcp1 assigned 172.29.67.140 to 7C:F1:7E:F4:3A:CD
- 11  1405/07/19 08:30:34  [dhcp,info]  dhcp1 deassigned 172.29.67.140 from 7C:F1:7E:F4:3A:CD
- 12  1405/07/19 08:30:37  [dhcp,info]  dhcp1 assigned 172.29.67.140 to 7C:F1:7E:F4:3A:CD
- 13  1405/07/19 08:32:06  [dhcp,info]  dhcp1 assigned 172.29.67.133 to 18:C0:4D:11:17:5E
- 14  1405/07/19 08:35:59  [dhcp,info]  dhcp1 assigned 172.29.67.131 to C8:3A:35:C1:24:A8
- 15  1405/07/19 09:13:54  [dhcp,info]  dhcp1 assigned 172.29.67.134 to 7C:F1:7E:F4:3B:EA
- 16  1405/07/19 09:21:05  [dhcp,info]  dhcp1 assigned 172.29.67.130 to C8:3A:35:C4:94:0B
- 17  1405/07/19 09:24:57  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, no beacons received
- 18  1405/07/19 09:25:42  [dhcp,info]  dhcp1 assigned 172.29.67.138 to D0:37:45:DD:ED:83
- 19  1405/07/19 09:26:17  [dhcp,info]  dhcp1 deassigned 172.29.67.140 from 7C:F1:7E:F4:3A:CD
- 20  1405/07/19 09:26:21  [dhcp,info]  dhcp1 assigned 172.29.67.140 to 7C:F1:7E:F4:3A:CD
- 21  1405/07/19 09:36:16  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
- 22  1405/07/19 09:36:21  [dhcp,info]  dhcp1 deassigned 172.29.67.140 from 7C:F1:7E:F4:3A:CD
- 23  1405/07/19 09:39:22  [dhcp,info]  dhcp1 assigned 172.29.67.140 to 7C:F1:7E:F4:3A:CD
- 24  1405/07/19 09:40:56  [dhcp,info]  dhcp1 deassigned 172.29.67.140 from 7C:F1:7E:F4:3A:CD
- 25  1405/07/19 09:40:56  [dhcp,info]  dhcp1 assigned 172.29.67.140 to 7C:F1:7E:F4:3A:CD
- 26  1405/07/19 09:41:32  [dhcp,info]  dhcp1 deassigned 172.29.67.140 from 7C:F1:7E:F4:3A:CD
- 27  1405/07/19 09:41:32  [dhcp,info]  dhcp1 assigned 172.29.67.140 to 7C:F1:7E:F4:3A:CD
- 28  1405/07/19 09:54:27  [dhcp,info]  dhcp1 deassigned 172.29.67.141 from 12:8A:C7:6C:D4:4E
- 29  1405/07/19 09:54:27  [dhcp,info]  dhcp1 assigned 172.29.67.141 to 12:8A:C7:6C:D4:4E
- 30  1405/07/19 09:54:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 31  1405/07/19 09:54:53  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 32  1405/07/19 10:04:27  [dhcp,info]  dhcp1 deassigned 172.29.67.141 from 12:8A:C7:6C:D4:4E
- 33  1405/07/19 10:55:47  [dhcp,info]  dhcp1 deassigned 172.29.67.133 from 18:C0:4D:11:17:5E
- 34  1405/07/19 11:25:08  [dhcp,info]  dhcp1 deassigned 172.29.67.140 from 7C:F1:7E:F4:3A:CD
- 35  1405/07/19 11:25:36  [dhcp,info]  dhcp1 assigned 172.29.67.140 to 7C:F1:7E:F4:3A:CD
- 36  1405/07/19 11:43:47  [dhcp,info]  dhcp1 deassigned 172.29.67.140 from 7C:F1:7E:F4:3A:CD
- 37  1405/07/19 12:28:31  [dhcp,info]  dhcp1 deassigned 172.29.67.130 from C8:3A:35:C4:94:0B
- 38  1405/07/19 12:30:03  [dhcp,info]  dhcp1 deassigned 172.29.67.134 from 7C:F1:7E:F4:3B:EA
- 39  1405/07/19 12:33:01  [dhcp,info]  dhcp1 assigned 172.29.67.141 to 12:8A:C7:6C:D4:4E
- 40  1405/07/19 13:42:46  [dhcp,info]  dhcp1 deassigned 172.29.67.138 from D0:37:45:DD:ED:83
- 41  1405/07/19 13:42:51  [dhcp,info]  dhcp1 deassigned 172.29.67.131 from C8:3A:35:C1:24:A8
- 42  1405/07/20 08:12:19  [dhcp,info]  dhcp1 assigned 172.29.67.140 to 7C:F1:7E:F4:3A:CD
- 43  1405/07/20 08:13:16  [dhcp,info]  dhcp1 assigned 172.29.67.130 to C8:3A:35:C4:94:0B
- 44  1405/07/20 08:14:29  [dhcp,info]  dhcp1 deassigned 172.29.67.140 from 7C:F1:7E:F4:3A:CD
- 45  1405/07/20 08:14:33  [dhcp,info]  dhcp1 assigned 172.29.67.140 to 7C:F1:7E:F4:3A:CD
- 46  1405/07/20 08:34:47  [dhcp,info]  dhcp1 assigned 172.29.67.131 to C8:3A:35:C1:24:A8
- 47  1405/07/20 08:38:24  [dhcp,info]  dhcp1 assigned 172.29.67.133 to 18:C0:4D:11:17:5E
- 48  1405/07/20 09:04:41  [dhcp,info]  dhcp1 deassigned 172.29.67.141 from 12:8A:C7:6C:D4:4E
- 49  1405/07/20 11:28:17  [dhcp,info]  dhcp1 deassigned 172.29.67.130 from C8:3A:35:C4:94:0B
- 50  1405/07/20 11:29:47  [dhcp,info]  dhcp1 deassigned 172.29.67.131 from C8:3A:35:C1:24:A8
- 51  1405/07/20 11:32:04  [dhcp,info]  dhcp1 deassigned 172.29.67.140 from 7C:F1:7E:F4:3A:CD
- 52  1405/07/20 11:32:04  [dhcp,info]  dhcp1 assigned 172.29.67.140 to 7C:F1:7E:F4:3A:CD
- 53  1405/07/20 11:42:04  [dhcp,info]  dhcp1 deassigned 172.29.67.140 from 7C:F1:7E:F4:3A:CD
- 54  1405/07/20 11:58:27  [dhcp,info]  dhcp1 deassigned 172.29.67.133 from 18:C0:4D:11:17:5E
- 55  1405/07/21 06:50:41  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, no beacons received
- 56  1405/07/21 07:39:36  [dhcp,info]  dhcp1 assigned 172.29.67.140 to 7C:F1:7E:F4:3A:CD
- 57  1405/07/21 07:43:30  [dhcp,info]  dhcp1 deassigned 172.29.67.140 from 7C:F1:7E:F4:3A:CD
- 58  1405/07/21 07:43:30  [dhcp,info]  dhcp1 assigned 172.29.67.140 to 7C:F1:7E:F4:3A:CD
- 59  1405/07/21 08:17:37  [dhcp,info]  dhcp1 assigned 172.29.67.133 to 18:C0:4D:11:17:5E
- 60  1405/07/21 08:31:05  [dhcp,info]  dhcp1 assigned 172.29.67.131 to C8:3A:35:C1:24:A8
- 61  1405/07/21 08:33:41  [dhcp,info]  dhcp1 assigned 172.29.67.134 to 7C:F1:7E:F4:3B:EA
- 62  1405/07/21 08:33:56  [dhcp,info]  dhcp1 assigned 172.29.67.137 to 9C:53:22:05:EE:53
- 63  1405/07/21 08:35:29  [dhcp,info]  dhcp1 deassigned 172.29.67.137 from 9C:53:22:05:EE:53
- 64  1405/07/21 08:35:34  [dhcp,info]  dhcp1 assigned 172.29.67.137 to 9C:53:22:05:EE:53
- 65  1405/07/21 08:43:14  [dhcp,info]  dhcp1 assigned 172.29.67.138 to D0:37:45:DD:ED:83
- 66  1405/07/21 08:47:16  [dhcp,info]  dhcp1 deassigned 172.29.67.137 from 9C:53:22:05:EE:53
- 67  1405/07/21 08:50:22  [dhcp,info]  dhcp1 deassigned 172.29.67.140 from 7C:F1:7E:F4:3A:CD
- 68  1405/07/21 08:50:26  [dhcp,info]  dhcp1 assigned 172.29.67.140 to 7C:F1:7E:F4:3A:CD
- 69  1405/07/21 08:57:24  [dhcp,info]  dhcp1 deassigned 172.29.67.138 from D0:37:45:DD:ED:83
- 70  1405/07/21 08:58:30  [dhcp,info]  dhcp1 assigned 172.29.67.130 to C8:3A:35:C4:94:0B
- 71  1405/07/21 09:13:03  [dhcp,info]  dhcp1 deassigned 172.29.67.140 from 7C:F1:7E:F4:3A:CD
- 72  1405/07/21 09:36:54  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
- 73  1405/07/21 09:41:41  [dhcp,info]  dhcp1 assigned 172.29.67.140 to 7C:F1:7E:F4:3A:CD
- 74  1405/07/21 09:45:45  [dhcp,info]  dhcp1 assigned 172.29.67.138 to D0:37:45:DD:ED:83
- 75  1405/07/21 09:51:41  [dhcp,info]  dhcp1 deassigned 172.29.67.140 from 7C:F1:7E:F4:3A:CD
- 76  1405/07/21 10:03:21  [dhcp,info]  dhcp1 assigned 172.29.67.140 to 7C:F1:7E:F4:3A:CD
- 77  1405/07/21 10:18:22  [dhcp,info]  dhcp1 deassigned 172.29.67.140 from 7C:F1:7E:F4:3A:CD
- 78  1405/07/21 10:52:39  [dhcp,info]  dhcp1 deassigned 172.29.67.133 from 18:C0:4D:11:17:5E
- 79  1405/07/21 11:11:48  [dhcp,info]  dhcp1 assigned 172.29.67.133 to 18:C0:4D:11:17:5E
- 80  1405/07/21 12:01:49  [dhcp,info]  dhcp1 deassigned 172.29.67.133 from 18:C0:4D:11:17:5E
- 81  1405/07/21 12:17:29  [dhcp,info]  dhcp1 assigned 172.29.67.141 to 12:8A:C7:6C:D4:4E
- 82  1405/07/21 12:28:30  [dhcp,info]  dhcp1 deassigned 172.29.67.130 from C8:3A:35:C4:94:0B
- 83  1405/07/21 12:30:22  [dhcp,info]  dhcp1 deassigned 172.29.67.138 from D0:37:45:DD:ED:83
- 84  1405/07/21 12:32:36  [dhcp,info]  dhcp1 deassigned 172.29.67.134 from 7C:F1:7E:F4:3B:EA
- 85  1405/07/21 12:33:29  [dhcp,info]  dhcp1 deassigned 172.29.67.131 from C8:3A:35:C1:24:A8
- 86  1405/07/21 23:23:43  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
- 87  1405/07/21 23:23:50  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
- 88  1405/07/21 23:24:41  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
- 89  1405/07/21 23:24:46  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
- 90  1405/07/21 23:26:45  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
- 91  1405/07/21 23:26:51  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
- 92  1405/07/21 23:27:17  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
- 93  1405/07/21 23:27:23  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
- 94  1405/07/22 07:31:15  [dhcp,info]  dhcp1 assigned 172.29.67.140 to 7C:F1:7E:F4:3A:CD
- 95  1405/07/22 08:15:16  [dhcp,info]  dhcp1 assigned 172.29.67.131 to C8:3A:35:C1:24:A8
- 96  1405/07/22 08:15:23  [dhcp,info]  dhcp1 assigned 172.29.67.138 to D0:37:45:DD:ED:83
- 97  1405/07/22 08:32:24  [dhcp,info]  dhcp1 assigned 172.29.67.133 to 18:C0:4D:11:17:5E
- 98  1405/07/22 08:39:44  [dhcp,info]  dhcp1 deassigned 172.29.67.140 from 7C:F1:7E:F4:3A:CD
- 99  1405/07/22 08:42:36  [dhcp,info]  dhcp1 assigned 172.29.67.140 to 7C:F1:7E:F4:3A:CD
-100  1405/07/22 08:47:05  [dhcp,info]  dhcp1 assigned 172.29.67.130 to C8:3A:35:C4:94:0B
-101  1405/07/22 08:59:08  [dhcp,info]  dhcp1 deassigned 172.29.67.141 from 12:8A:C7:6C:D4:4E
-102  1405/07/22 09:01:15  [dhcp,info]  dhcp1 assigned 172.29.67.132 to EC:08:6B:95:DD:D4
-103  1405/07/22 09:01:31  [dhcp,info]  dhcp1 assigned 172.29.67.134 to 7C:F1:7E:F4:3B:EA
-104  1405/07/22 09:42:35  [dhcp,info]  dhcp1 deassigned 172.29.67.140 from 7C:F1:7E:F4:3A:CD
-105  1405/07/22 09:42:54  [dhcp,info]  dhcp1 assigned 172.29.67.140 to 7C:F1:7E:F4:3A:CD
-106  1405/07/22 10:36:43  [dhcp,info]  dhcp1 deassigned 172.29.67.140 from 7C:F1:7E:F4:3A:CD
-107  1405/07/22 10:36:48  [dhcp,info]  dhcp1 assigned 172.29.67.140 to 7C:F1:7E:F4:3A:CD
-108  1405/07/22 11:01:15  [dhcp,info]  dhcp1 deassigned 172.29.67.132 from EC:08:6B:95:DD:D4
-109  1405/07/22 11:43:16  [dhcp,info]  dhcp1 deassigned 172.29.67.140 from 7C:F1:7E:F4:3A:CD
-110  1405/07/22 12:04:23  [dhcp,info]  dhcp1 deassigned 172.29.67.133 from 18:C0:4D:11:17:5E
-111  1405/07/22 12:08:30  [dhcp,info]  dhcp1 assigned 172.29.67.140 to 7C:F1:7E:F4:3A:CD
-112  1405/07/22 12:18:30  [dhcp,info]  dhcp1 deassigned 172.29.67.140 from 7C:F1:7E:F4:3A:CD
-113  1405/07/22 12:20:16  [dhcp,info]  dhcp1 deassigned 172.29.67.138 from D0:37:45:DD:ED:83
-114  1405/07/22 12:20:19  [dhcp,info]  dhcp1 deassigned 172.29.67.131 from C8:3A:35:C1:24:A8
-115  1405/07/22 12:22:05  [dhcp,info]  dhcp1 deassigned 172.29.67.130 from C8:3A:35:C4:94:0B
-116  1405/07/22 12:26:37  [dhcp,info]  dhcp1 deassigned 172.29.67.134 from 7C:F1:7E:F4:3B:EA
-117  1405/07/22 12:47:55  [dhcp,info]  dhcp1 assigned 172.29.67.141 to 12:8A:C7:6C:D4:4E
-118  1405/07/22 13:35:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:40:21
+# ساعت دستگاه (خام): 1974-07-27 21:08:36
+# افست اصلاحی (سرور − دستگاه): +457888:01:45
+  1  1405/07/25 10:03:50  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/25 10:03:58  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
+  3  1405/07/25 10:03:59  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/25 10:04:03  [dhcp,info]  dhcp1 deassigned 172.29.67.142 from C0:C9:E3:B2:33:F8
+  5  1405/07/25 10:04:03  [dhcp,info]  dhcp1 assigned 172.29.67.142 to C0:C9:E3:B2:33:F8
+  6  1405/07/25 10:04:14  [dhcp,info]  dhcp1 assigned 172.29.67.137 to 9C:53:22:05:EE:53
+  7  1405/07/25 10:04:29  [dhcp,info]  dhcp1 assigned 172.29.67.136 to 7C:F1:7E:F4:3A:CD
+  8  1405/07/25 10:05:14  [dhcp,info]  dhcp1 assigned 172.29.67.133 to 18:C0:4D:11:17:5E
+  9  1405/07/25 10:11:43  [dhcp,info]  dhcp1 assigned 172.29.67.132 to C8:3A:35:C4:94:0B
+ 10  1405/07/25 10:13:35  [dhcp,info]  dhcp1 deassigned 172.29.67.141 from 12:8A:C7:6C:D4:4E
+ 11  1405/07/25 10:15:03  [dhcp,info]  dhcp1 assigned 172.29.67.141 to 12:8A:C7:6C:D4:4E
+ 12  1405/07/25 10:19:00  [dhcp,info]  dhcp1 assigned 172.29.67.131 to C8:3A:35:C1:24:A8
+ 13  1405/07/25 10:19:07  [dhcp,info]  dhcp1 assigned 172.29.67.138 to D0:37:45:DD:ED:83
+ 14  1405/07/25 10:30:03  [dhcp,info]  dhcp1 deassigned 172.29.67.141 from 12:8A:C7:6C:D4:4E
+ 15  1405/07/25 11:46:43  [dhcp,info]  dhcp1 deassigned 172.29.67.132 from C8:3A:35:C4:94:0B
+ 16  1405/07/25 11:58:59  [dhcp,info]  dhcp1 deassigned 172.29.67.131 from C8:3A:35:C1:24:A8
+ 17  1405/07/25 11:59:16  [dhcp,info]  dhcp1 deassigned 172.29.67.137 from 9C:53:22:05:EE:53
+ 18  1405/07/25 12:00:33  [dhcp,info]  dhcp1 deassigned 172.29.67.136 from 7C:F1:7E:F4:3A:CD
+ 19  1405/07/25 12:02:10  [dhcp,info]  dhcp1 deassigned 172.29.67.138 from D0:37:45:DD:ED:83
+ 20  1405/07/25 12:05:16  [dhcp,info]  dhcp1 deassigned 172.29.67.133 from 18:C0:4D:11:17:5E
+ 21  1405/07/25 12:25:04  [dhcp,info]  dhcp1 assigned 172.29.67.141 to 12:8A:C7:6C:D4:4E
+ 22  1405/07/26 01:25:55  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
+ 23  1405/07/26 01:26:05  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, association timeout
+ 24  1405/07/26 01:26:20  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, association timeout
+ 25  1405/07/26 01:26:33  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, received deauth: class 2 frame received (6)
+ 26  1405/07/26 01:26:44  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
+ 27  1405/07/26 01:51:00  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
+ 28  1405/07/26 01:51:06  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
+ 29  1405/07/26 02:10:26  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
+ 30  1405/07/26 02:10:35  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, authentication timeout
+ 31  1405/07/26 02:10:51  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, association timeout
+ 32  1405/07/26 02:11:05  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, association timeout
+ 33  1405/07/26 02:11:19  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, association timeout
+ 34  1405/07/26 02:11:35  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, association timeout
+ 35  1405/07/26 02:11:49  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, authentication timeout
+ 36  1405/07/26 02:12:03  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, authentication timeout
+ 37  1405/07/26 02:12:17  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, authentication timeout
+ 38  1405/07/26 02:12:29  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
+ 39  1405/07/26 02:12:34  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
+ 40  1405/07/26 02:12:43  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, association timeout
+ 41  1405/07/26 02:12:56  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, association timeout
+ 42  1405/07/26 02:13:10  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, authentication timeout
+ 43  1405/07/26 02:13:24  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, authentication timeout
+ 44  1405/07/26 02:13:38  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, authentication timeout
+ 45  1405/07/26 02:13:52  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, authentication timeout
+ 46  1405/07/26 02:14:06  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, authentication timeout
+ 47  1405/07/26 02:14:20  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, association timeout
+ 48  1405/07/26 02:14:34  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, association timeout
+ 49  1405/07/26 02:14:48  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, authentication timeout
+ 50  1405/07/26 02:15:03  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, association timeout
+ 51  1405/07/26 02:15:18  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, association timeout
+ 52  1405/07/26 02:15:32  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
+ 53  1405/07/26 02:16:11  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
+ 54  1405/07/26 02:16:19  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, association timeout
+ 55  1405/07/26 02:16:33  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, association timeout
+ 56  1405/07/26 02:16:47  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, authentication timeout
+ 57  1405/07/26 02:16:59  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
+ 58  1405/07/26 02:17:14  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
+ 59  1405/07/26 02:17:21  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
+ 60  1405/07/26 08:22:03  [dhcp,info]  dhcp1 assigned 172.29.67.136 to 7C:F1:7E:F4:3A:CD
+ 61  1405/07/26 08:29:05  [dhcp,info]  dhcp1 assigned 172.29.67.133 to 18:C0:4D:11:17:5E
+ 62  1405/07/26 08:29:10  [dhcp,info]  dhcp1 assigned 172.29.67.131 to C8:3A:35:C1:24:A8
+ 63  1405/07/26 08:29:13  [dhcp,info]  dhcp1 assigned 172.29.67.138 to D0:37:45:DD:ED:83
+ 64  1405/07/26 08:33:20  [dhcp,info]  dhcp1 assigned 172.29.67.137 to 9C:53:22:05:EE:53
+ 65  1405/07/26 08:36:48  [dhcp,info]  dhcp1 assigned 172.29.67.132 to C8:3A:35:C4:94:0B
+ 66  1405/07/26 08:56:41  [dhcp,info]  dhcp1 deassigned 172.29.67.141 from 12:8A:C7:6C:D4:4E
+ 67  1405/07/26 09:08:18  [dhcp,info]  dhcp1 assigned 172.29.67.134 to 7C:F1:7E:F4:3B:EA
+ 68  1405/07/26 09:09:07  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, received deauth: group key handshake timeout (16)
+ 69  1405/07/26 09:09:13  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
+ 70  1405/07/26 09:10:40  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 71  1405/07/26 09:10:43  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 72  1405/07/26 09:13:04  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 73  1405/07/26 09:13:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 74  1405/07/26 10:32:34  [dhcp,info]  dhcp1 assigned 172.29.67.130 to 24:6F:8C:78:38:4A
+ 75  1405/07/26 11:01:13  [dhcp,info]  dhcp1 deassigned 172.29.67.130 from 24:6F:8C:78:38:4A
+ 76  1405/07/26 11:39:07  [dhcp,info]  dhcp1 deassigned 172.29.67.133 from 18:C0:4D:11:17:5E
+ 77  1405/07/26 11:54:20  [dhcp,info]  dhcp1 deassigned 172.29.67.136 from 7C:F1:7E:F4:3A:CD
+ 78  1405/07/26 11:54:25  [dhcp,info]  dhcp1 assigned 172.29.67.136 to 7C:F1:7E:F4:3A:CD
+ 79  1405/07/26 11:55:38  [dhcp,info]  dhcp1 deassigned 172.29.67.137 from 9C:53:22:05:EE:53
+ 80  1405/07/26 11:56:48  [dhcp,info]  dhcp1 deassigned 172.29.67.136 from 7C:F1:7E:F4:3A:CD
+ 81  1405/07/26 11:56:48  [dhcp,info]  dhcp1 assigned 172.29.67.136 to 7C:F1:7E:F4:3A:CD
+ 82  1405/07/26 12:06:48  [dhcp,info]  dhcp1 deassigned 172.29.67.136 from 7C:F1:7E:F4:3A:CD
+ 83  1405/07/26 12:21:48  [dhcp,info]  dhcp1 deassigned 172.29.67.132 from C8:3A:35:C4:94:0B
+ 84  1405/07/26 12:23:18  [dhcp,info]  dhcp1 deassigned 172.29.67.134 from 7C:F1:7E:F4:3B:EA
+ 85  1405/07/26 12:44:10  [dhcp,info]  dhcp1 deassigned 172.29.67.131 from C8:3A:35:C1:24:A8
+ 86  1405/07/26 12:47:16  [dhcp,info]  dhcp1 deassigned 172.29.67.138 from D0:37:45:DD:ED:83
+ 87  1405/07/26 13:00:10  [dhcp,info]  dhcp1 assigned 172.29.67.141 to 12:8A:C7:6C:D4:4E
+ 88  1405/07/26 21:12:26  [dhcp,info]  dhcp1 assigned 172.29.67.131 to C8:3A:35:C1:24:A8
+ 89  1405/07/26 21:12:34  [dhcp,info]  dhcp1 assigned 172.29.67.138 to D0:37:45:DD:ED:83
+ 90  1405/07/26 21:22:26  [dhcp,info]  dhcp1 deassigned 172.29.67.131 from C8:3A:35:C1:24:A8
+ 91  1405/07/26 21:22:34  [dhcp,info]  dhcp1 deassigned 172.29.67.138 from D0:37:45:DD:ED:83
+ 92  1405/07/26 22:17:39  [dhcp,info]  dhcp1 assigned 172.29.67.131 to C8:3A:35:C1:24:A8
+ 93  1405/07/26 22:17:45  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
+ 94  1405/07/26 22:17:46  [dhcp,info]  dhcp1 assigned 172.29.67.138 to D0:37:45:DD:ED:83
+ 95  1405/07/26 22:17:53  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
+ 96  1405/07/26 22:17:58  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
+ 97  1405/07/26 22:18:05  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
+ 98  1405/07/26 22:18:10  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
+ 99  1405/07/26 22:18:19  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, association timeout
+100  1405/07/26 22:18:31  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
+101  1405/07/26 22:18:47  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
+102  1405/07/26 22:18:56  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, association timeout
+103  1405/07/26 22:19:10  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, association timeout
+104  1405/07/26 22:19:23  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, association timeout
+105  1405/07/26 22:19:34  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
+106  1405/07/26 22:19:42  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
+107  1405/07/26 22:19:48  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
+108  1405/07/26 22:20:58  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
+109  1405/07/26 22:21:07  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, association timeout
+110  1405/07/26 22:21:21  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, association timeout
+111  1405/07/26 22:21:34  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
+112  1405/07/26 22:21:44  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
+113  1405/07/26 22:21:50  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
+114  1405/07/26 22:27:39  [dhcp,info]  dhcp1 deassigned 172.29.67.131 from C8:3A:35:C1:24:A8
+115  1405/07/26 22:27:53  [dhcp,info]  dhcp1 deassigned 172.29.67.138 from D0:37:45:DD:ED:83
+116  1405/07/27 01:25:40  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
+117  1405/07/27 01:25:50  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, association timeout
+118  1405/07/27 01:26:04  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, association timeout
+119  1405/07/27 01:26:18  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, association timeout
+120  1405/07/27 01:26:30  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
+121  1405/07/27 01:32:38  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
+122  1405/07/27 01:32:44  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
+123  1405/07/27 01:32:49  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
+124  1405/07/27 01:32:58  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: failed to connect, on 5700/20/an, association timeout
+125  1405/07/27 01:33:09  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
+126  1405/07/27 08:11:04  [dhcp,info]  dhcp1 assigned 172.29.67.136 to 7C:F1:7E:F4:3A:CD
+127  1405/07/27 08:17:43  [dhcp,info]  dhcp1 assigned 172.29.67.133 to 18:C0:4D:11:17:5E
+128  1405/07/27 08:43:14  [dhcp,info]  dhcp1 assigned 172.29.67.137 to 9C:53:22:05:EE:53
+129  1405/07/27 08:47:22  [dhcp,info]  dhcp1 assigned 172.29.67.132 to C8:3A:35:C4:94:0B
+130  1405/07/27 09:01:42  [dhcp,info]  dhcp1 deassigned 172.29.67.141 from 12:8A:C7:6C:D4:4E
+131  1405/07/27 09:40:04  [dhcp,info]  dhcp1 assigned 172.29.67.134 to 7C:F1:7E:F4:3B:EA
+132  1405/07/27 10:30:09  [dhcp,info]  dhcp1 assigned 172.29.67.141 to 12:8A:C7:6C:D4:4E
+133  1405/07/27 11:03:27  [dhcp,info]  dhcp1 deassigned 172.29.67.136 from 7C:F1:7E:F4:3A:CD
+134  1405/07/27 11:31:27  [dhcp,info]  dhcp1 assigned 172.29.67.136 to 7C:F1:7E:F4:3A:CD
+135  1405/07/27 11:38:13  [dhcp,info]  dhcp1 deassigned 172.29.67.137 from 9C:53:22:05:EE:53
+136  1405/07/27 11:41:27  [dhcp,info]  dhcp1 deassigned 172.29.67.136 from 7C:F1:7E:F4:3A:CD
+137  1405/07/27 12:16:34  [dhcp,info]  dhcp1 deassigned 172.29.67.133 from 18:C0:4D:11:17:5E
+138  1405/07/27 12:30:03  [dhcp,info]  dhcp1 deassigned 172.29.67.134 from 7C:F1:7E:F4:3B:EA
+139  1405/07/27 12:32:22  [dhcp,info]  dhcp1 deassigned 172.29.67.132 from C8:3A:35:C4:94:0B
+140  1405/07/28 08:42:29  [dhcp,info]  dhcp1 assigned 172.29.67.137 to 9C:53:22:05:EE:53
+141  1405/07/28 08:42:37  [dhcp,info]  dhcp1 assigned 172.29.67.134 to 7C:F1:7E:F4:3B:EA
+142  1405/07/28 08:44:11  [dhcp,info]  dhcp1 assigned 172.29.67.132 to C8:3A:35:C4:94:0B
+143  1405/07/28 08:47:33  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
+144  1405/07/28 08:47:38  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
+145  1405/07/28 08:47:44  [dhcp,warning]  Detected conflict by ARP response for 172.29.67.135 from 00:17:6F:3A:60:96
+146  1405/07/28 08:47:57  [dhcp,info]  dhcp1 assigned 172.29.67.139 to EC:08:6B:95:DD:D4
+147  1405/07/28 08:48:04  [dhcp,info]  dhcp1 deassigned 172.29.67.137 from 9C:53:22:05:EE:53
+148  1405/07/28 08:48:04  [dhcp,info]  dhcp1 assigned 172.29.67.137 to 9C:53:22:05:EE:53
+149  1405/07/28 09:04:28  [dhcp,info]  dhcp1 assigned 172.29.67.133 to 18:C0:4D:11:17:5E
+150  1405/07/28 09:06:31  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
+151  1405/07/28 09:06:37  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
+152  1405/07/28 09:06:40  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
+153  1405/07/28 09:06:47  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
+154  1405/07/28 09:06:52  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
+155  1405/07/28 09:06:58  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
+156  1405/07/28 09:07:08  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
+157  1405/07/28 09:07:14  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
+158  1405/07/28 09:07:23  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
+159  1405/07/28 09:07:29  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
+160  1405/07/28 09:09:10  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, received deauth: group key handshake timeout (16)
+161  1405/07/28 09:09:16  [dhcp,info]  dhcp1 deassigned 172.29.67.137 from 9C:53:22:05:EE:53
+162  1405/07/28 09:09:16  [dhcp,info]  dhcp1 assigned 172.29.67.137 to 9C:53:22:05:EE:53
+163  1405/07/28 09:09:16  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
+164  1405/07/28 09:09:34  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
+165  1405/07/28 09:09:40  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
+166  1405/07/28 09:11:39  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1: lost connection, extensive data loss
+167  1405/07/28 09:11:45  [wireless,info]  6C:3B:6B:AB:D2:6C@wlan1 established connection on 5700000, SSID Abadan-Khezr1
+168  1405/07/28 09:36:56  [dhcp,info]  dhcp1 deassigned 172.29.67.141 from 12:8A:C7:6C:D4:4E
+169  1405/07/28 10:12:49  [dhcp,info]  dhcp1 deassigned 172.29.67.133 from 18:C0:4D:11:17:5E
+170  1405/07/28 10:31:46  [dhcp,info]  dhcp1 assigned 172.29.67.133 to 18:C0:4D:11:17:5E
+171  1405/07/28 10:57:57  [dhcp,info]  dhcp1 deassigned 172.29.67.139 from EC:08:6B:95:DD:D4
+172  1405/07/28 11:11:46  [dhcp,info]  dhcp1 deassigned 172.29.67.133 from 18:C0:4D:11:17:5E
+173  1405/07/28 11:28:36  [dhcp,info]  dhcp1 assigned 172.29.67.133 to 18:C0:4D:11:17:5E
+174  1405/07/28 11:52:54  [dhcp,info]  dhcp1 deassigned 172.29.67.137 from 9C:53:22:05:EE:53
+175  1405/07/28 12:08:37  [dhcp,info]  dhcp1 deassigned 172.29.67.133 from 18:C0:4D:11:17:5E
+176  1405/07/28 12:26:47  [dhcp,info]  dhcp1 deassigned 172.29.67.132 from C8:3A:35:C4:94:0B
+177  1405/07/28 12:27:38  [dhcp,info]  dhcp1 deassigned 172.29.67.134 from 7C:F1:7E:F4:3B:EA
+178  1405/07/28 12:40:02  [dhcp,info]  dhcp1 assigned 172.29.67.141 to 12:8A:C7:6C:D4:4E
+179  1405/07/29 08:02:53  [dhcp,info]  dhcp1 assigned 172.29.67.136 to 7C:F1:7E:F4:3A:CD
+180  1405/07/29 08:22:45  [dhcp,info]  dhcp1 assigned 172.29.67.134 to 7C:F1:7E:F4:3B:EA
+181  1405/07/29 08:23:06  [dhcp,info]  dhcp1 assigned 172.29.67.137 to 9C:53:22:05:EE:53
+182  1405/07/29 08:24:02  [dhcp,info]  dhcp1 assigned 172.29.67.132 to C8:3A:35:C4:94:0B
+183  1405/07/29 08:24:44  [dhcp,info]  dhcp1 assigned 172.29.67.139 to EC:08:6B:95:DD:D4
+184  1405/07/29 08:28:50  [dhcp,info]  dhcp1 assigned 172.29.67.133 to 18:C0:4D:11:17:5E
+185  1405/07/29 08:36:37  [dhcp,info]  dhcp1 deassigned 172.29.67.141 from 12:8A:C7:6C:D4:4E
+186  1405/07/29 08:52:52  [dhcp,info]  dhcp1 deassigned 172.29.67.136 from 7C:F1:7E:F4:3A:CD
+187  1405/07/29 09:38:51  [dhcp,info]  dhcp1 deassigned 172.29.67.133 from 18:C0:4D:11:17:5E
+188  1405/07/29 09:43:33  [dhcp,info]  dhcp1 assigned 172.29.67.133 to 18:C0:4D:11:17:5E
+189  1405/07/29 09:54:30  [dhcp,info]  dhcp1 assigned 172.29.67.136 to 7C:F1:7E:F4:3A:CD
+190  1405/07/29 11:20:32  [dhcp,info]  dhcp1 deassigned 172.29.67.133 from 18:C0:4D:11:17:5E
+191  1405/07/29 11:23:26  [dhcp,info]  dhcp1 assigned 172.29.67.133 to 18:C0:4D:11:17:5E
+192  1405/07/29 11:26:35  [dhcp,info]  dhcp1 deassigned 172.29.67.136 from 7C:F1:7E:F4:3A:CD
+193  1405/07/29 11:48:27  [dhcp,info]  dhcp1 deassigned 172.29.67.139 from EC:08:6B:95:DD:D4
+194  1405/07/29 12:03:00  [dhcp,info]  dhcp1 deassigned 172.29.67.137 from 9C:53:22:05:EE:53
+195  1405/07/29 12:13:25  [dhcp,info]  dhcp1 deassigned 172.29.67.133 from 18:C0:4D:11:17:5E
+196  1405/07/29 12:19:03  [dhcp,info]  dhcp1 deassigned 172.29.67.132 from C8:3A:35:C4:94:0B
+197  1405/07/29 12:22:45  [dhcp,info]  dhcp1 deassigned 172.29.67.134 from 7C:F1:7E:F4:3B:EA
+198  1405/07/29 12:39:12  [dhcp,info]  dhcp1 assigned 172.29.67.141 to 12:8A:C7:6C:D4:4E
+199  1405/07/29 16:40:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
 ether1  6C:3B:6B:34:02:58  (ether)
 wlan1  6C:3B:6B:34:02:59  (wlan)
 --- /ip arp ---
-ether1  C0:C9:E3:B2:33:F8  (arp 172.29.67.142)
-ether1  12:8A:C7:6C:D4:4E  (arp 172.29.67.141)
 wlan1  6C:3B:6B:85:AC:9B  (arp 172.18.9.17)
+ether1  C0:C9:E3:B2:33:F8  (arp 172.29.67.142)

@@ -1,5 +1,5 @@
 IP: 172.18.16.67
-Collected at: 2026-10-15T10:07:33.808678+00:00
+Collected at: 2026-10-21T13:15:59.852227+00:00
 source: RouterOS API
 identity: Maslayi_clayent
 device_type: ST
@@ -35,15 +35,209 @@ name=wlan1  mode=station-bridge  ssid=Khoramshahr-Taleghani1  band=5ghz-a/n  fre
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:21:45
-# ساعت دستگاه (خام): 1971-03-01 23:43:51
-# افست اصلاحی (سرور − دستگاه): +487593:07:54
-  1  1405/07/23 11:48:02  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/23 11:48:10  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:97:E6:4C
-  3  1405/07/23 11:48:10  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
-  4  1405/07/23 11:48:12  [interface,info]  ether1 link up (speed 100M, full duplex)
-  5  1405/07/23 11:48:55  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1 established connection on 5150000, SSID Khoramshahr-Taleghani1
-  6  1405/07/23 12:21:43  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:28:50
+# ساعت دستگاه (خام): 1971-03-06 04:41:52
+# افست اصلاحی (سرور − دستگاه): +487640:16:58
+  1  1405/07/29 03:50:07  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+  2  1405/07/29 03:51:00  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1 established connection on 5150000, SSID Khoramshahr-Taleghani1
+  3  1405/07/29 03:51:10  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: lost connection, unicast key exchange timeout
+  4  1405/07/29 03:52:04  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+  5  1405/07/29 03:52:56  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1 established connection on 5150000, SSID Khoramshahr-Taleghani1
+  6  1405/07/29 03:53:17  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: lost connection, extensive data loss
+  7  1405/07/29 03:54:11  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+  8  1405/07/29 03:55:05  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+  9  1405/07/29 03:56:00  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 10  1405/07/29 03:56:54  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 11  1405/07/29 03:57:50  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 12  1405/07/29 03:58:43  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1 established connection on 5150000, SSID Khoramshahr-Taleghani1
+ 13  1405/07/29 04:00:28  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: lost connection, extensive data loss
+ 14  1405/07/29 04:01:24  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 15  1405/07/29 04:02:17  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1 established connection on 5150000, SSID Khoramshahr-Taleghani1
+ 16  1405/07/29 04:02:27  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: lost connection, unicast key exchange timeout
+ 17  1405/07/29 04:03:22  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 18  1405/07/29 04:04:15  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1 established connection on 5150000, SSID Khoramshahr-Taleghani1
+ 19  1405/07/29 04:16:23  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: lost connection, extensive data loss
+ 20  1405/07/29 04:17:17  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1 established connection on 5150000, SSID Khoramshahr-Taleghani1
+ 21  1405/07/29 04:17:38  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: lost connection, extensive data loss
+ 22  1405/07/29 04:18:32  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 23  1405/07/29 04:19:23  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1 established connection on 5150000, SSID Khoramshahr-Taleghani1
+ 24  1405/07/29 04:19:34  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: lost connection, unicast key exchange timeout
+ 25  1405/07/29 04:20:29  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 26  1405/07/29 04:21:23  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 27  1405/07/29 04:22:17  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 28  1405/07/29 04:23:10  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1 established connection on 5150000, SSID Khoramshahr-Taleghani1
+ 29  1405/07/29 04:23:20  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: lost connection, unicast key exchange timeout
+ 30  1405/07/29 04:24:14  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 31  1405/07/29 04:25:08  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 32  1405/07/29 04:26:03  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 33  1405/07/29 04:26:57  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 34  1405/07/29 04:27:51  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 35  1405/07/29 04:28:45  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 36  1405/07/29 04:29:40  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 37  1405/07/29 04:30:34  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 38  1405/07/29 04:31:28  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 39  1405/07/29 04:32:22  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 40  1405/07/29 04:33:17  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 41  1405/07/29 04:34:11  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 42  1405/07/29 04:35:05  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 43  1405/07/29 04:36:01  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 44  1405/07/29 04:36:55  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 45  1405/07/29 04:37:51  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 46  1405/07/29 04:38:45  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 47  1405/07/29 04:39:40  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 48  1405/07/29 04:40:34  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 49  1405/07/29 04:41:28  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 50  1405/07/29 04:42:24  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 51  1405/07/29 04:43:18  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 52  1405/07/29 04:44:12  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 53  1405/07/29 04:45:06  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 54  1405/07/29 04:46:03  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 55  1405/07/29 04:46:57  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 56  1405/07/29 04:47:51  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 57  1405/07/29 04:48:46  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 58  1405/07/29 05:52:01  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 59  1405/07/29 05:52:55  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 60  1405/07/29 05:53:50  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 61  1405/07/29 05:54:45  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 62  1405/07/29 05:55:39  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 63  1405/07/29 05:56:34  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 64  1405/07/29 05:57:29  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 65  1405/07/29 05:58:24  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 66  1405/07/29 05:59:19  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 67  1405/07/29 06:00:14  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 68  1405/07/29 06:01:09  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 69  1405/07/29 06:02:03  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 70  1405/07/29 06:02:59  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 71  1405/07/29 06:03:56  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 72  1405/07/29 06:04:51  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 73  1405/07/29 06:05:45  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 74  1405/07/29 06:06:40  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 75  1405/07/29 06:07:34  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 76  1405/07/29 06:08:28  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 77  1405/07/29 06:09:23  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 78  1405/07/29 06:10:17  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 79  1405/07/29 06:11:11  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 80  1405/07/29 06:12:05  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 81  1405/07/29 06:13:01  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 82  1405/07/29 06:13:53  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1 established connection on 5150000, SSID Khoramshahr-Taleghani1
+ 83  1405/07/29 06:16:40  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: lost connection, extensive data loss
+ 84  1405/07/29 06:17:34  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 85  1405/07/29 06:18:28  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 86  1405/07/29 06:19:24  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 87  1405/07/29 06:20:16  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1 established connection on 5150000, SSID Khoramshahr-Taleghani1
+ 88  1405/07/29 07:15:24  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: lost connection, extensive data loss
+ 89  1405/07/29 07:16:15  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1 established connection on 5150000, SSID Khoramshahr-Taleghani1
+ 90  1405/07/29 07:16:25  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: lost connection, unicast key exchange timeout
+ 91  1405/07/29 07:17:17  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1 established connection on 5150000, SSID Khoramshahr-Taleghani1
+ 92  1405/07/29 07:17:38  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: lost connection, extensive data loss
+ 93  1405/07/29 07:18:30  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1 established connection on 5150000, SSID Khoramshahr-Taleghani1
+ 94  1405/07/29 07:18:40  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: lost connection, unicast key exchange timeout
+ 95  1405/07/29 07:19:35  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 96  1405/07/29 07:20:31  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+ 97  1405/07/29 07:21:25  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+ 98  1405/07/29 07:22:18  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1 established connection on 5150000, SSID Khoramshahr-Taleghani1
+ 99  1405/07/29 07:22:33  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: lost connection, extensive data loss
+100  1405/07/29 07:23:28  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+101  1405/07/29 07:24:23  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+102  1405/07/29 07:25:18  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+103  1405/07/29 07:26:12  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+104  1405/07/29 07:27:09  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+105  1405/07/29 07:28:02  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1 established connection on 5150000, SSID Khoramshahr-Taleghani1
+106  1405/07/29 07:40:15  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: lost connection, extensive data loss
+107  1405/07/29 07:41:10  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+108  1405/07/29 07:42:04  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+109  1405/07/29 07:42:59  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+110  1405/07/29 07:43:53  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1 established connection on 5150000, SSID Khoramshahr-Taleghani1
+111  1405/07/29 07:44:03  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: lost connection, unicast key exchange timeout
+112  1405/07/29 07:44:58  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+113  1405/07/29 07:45:55  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+114  1405/07/29 07:46:49  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+115  1405/07/29 07:47:43  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+116  1405/07/29 07:48:38  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+117  1405/07/29 07:49:35  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+118  1405/07/29 07:50:29  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+119  1405/07/29 07:51:23  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+120  1405/07/29 07:52:18  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+121  1405/07/29 07:53:12  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+122  1405/07/29 07:54:07  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+123  1405/07/29 07:55:03  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+124  1405/07/29 07:55:58  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+125  1405/07/29 07:56:52  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+126  1405/07/29 07:57:47  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+127  1405/07/29 07:58:41  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+128  1405/07/29 07:59:36  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+129  1405/07/29 08:00:31  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+130  1405/07/29 08:01:25  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+131  1405/07/29 08:02:20  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+132  1405/07/29 08:03:14  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+133  1405/07/29 08:04:08  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+134  1405/07/29 08:05:02  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+135  1405/07/29 08:05:57  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+136  1405/07/29 08:06:51  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+137  1405/07/29 08:07:45  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+138  1405/07/29 08:08:40  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+139  1405/07/29 08:09:34  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+140  1405/07/29 08:10:28  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+141  1405/07/29 08:11:22  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+142  1405/07/29 08:12:17  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+143  1405/07/29 08:13:11  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+144  1405/07/29 08:14:05  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+145  1405/07/29 08:15:00  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+146  1405/07/29 08:15:54  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+147  1405/07/29 08:16:48  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+148  1405/07/29 08:17:42  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+149  1405/07/29 08:18:37  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+150  1405/07/29 08:19:31  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+151  1405/07/29 08:20:25  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+152  1405/07/29 08:21:19  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+153  1405/07/29 08:22:14  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+154  1405/07/29 08:23:08  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+155  1405/07/29 08:24:02  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+156  1405/07/29 08:24:57  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+157  1405/07/29 08:25:51  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+158  1405/07/29 08:26:45  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+159  1405/07/29 08:27:39  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+160  1405/07/29 08:28:34  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+161  1405/07/29 08:29:28  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+162  1405/07/29 08:30:22  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+163  1405/07/29 08:31:17  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+164  1405/07/29 08:32:12  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+165  1405/07/29 08:33:06  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+166  1405/07/29 08:34:00  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+167  1405/07/29 08:34:55  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+168  1405/07/29 08:35:49  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+169  1405/07/29 08:36:43  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+170  1405/07/29 08:37:38  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+171  1405/07/29 08:38:30  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1 established connection on 5150000, SSID Khoramshahr-Taleghani1
+172  1405/07/29 08:38:40  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: lost connection, unicast key exchange timeout
+173  1405/07/29 08:38:52  [dhcp,info]  dhcp1 assigned 172.29.131.30 to 60:CF:84:69:2A:E2
+174  1405/07/29 08:39:31  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1 established connection on 5150000, SSID Khoramshahr-Taleghani1
+175  1405/07/29 08:39:59  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: lost connection, extensive data loss
+176  1405/07/29 08:40:54  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+177  1405/07/29 08:41:45  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1 established connection on 5150000, SSID Khoramshahr-Taleghani1
+178  1405/07/29 08:42:34  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: lost connection, extensive data loss
+179  1405/07/29 08:43:25  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1 established connection on 5150000, SSID Khoramshahr-Taleghani1
+180  1405/07/29 08:44:03  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: lost connection, extensive data loss
+181  1405/07/29 08:44:54  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1 established connection on 5150000, SSID Khoramshahr-Taleghani1
+182  1405/07/29 08:45:59  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: lost connection, extensive data loss
+183  1405/07/29 08:46:50  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1 established connection on 5150000, SSID Khoramshahr-Taleghani1
+184  1405/07/29 08:47:00  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: lost connection, unicast key exchange timeout
+185  1405/07/29 08:47:52  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1 established connection on 5150000, SSID Khoramshahr-Taleghani1
+186  1405/07/29 08:51:32  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: lost connection, extensive data loss
+187  1405/07/29 08:52:27  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+188  1405/07/29 08:53:21  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, authentication timeout
+189  1405/07/29 08:54:16  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+190  1405/07/29 08:55:10  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+191  1405/07/29 08:56:02  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1 established connection on 5150000, SSID Khoramshahr-Taleghani1
+192  1405/07/29 08:56:12  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: lost connection, extensive data loss
+193  1405/07/29 08:57:05  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1 established connection on 5150000, SSID Khoramshahr-Taleghani1
+194  1405/07/29 08:57:13  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: lost connection, extensive data loss
+195  1405/07/29 08:58:07  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1: failed to connect, on 5150/20/an, association timeout
+196  1405/07/29 08:58:58  [wireless,info]  E4:8D:8C:F4:BA:39@wlan1 established connection on 5150000, SSID Khoramshahr-Taleghani1
+197  1405/07/29 09:08:52  [dhcp,info]  dhcp1 deassigned 172.29.131.30 from 60:CF:84:69:2A:E2
+198  1405/07/29 09:31:42  [dhcp,info]  dhcp1 assigned 172.29.131.30 to 60:CF:84:69:2A:E2
+199  1405/07/29 09:41:42  [dhcp,info]  dhcp1 deassigned 172.29.131.30 from 60:CF:84:69:2A:E2
+200  1405/07/29 16:28:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

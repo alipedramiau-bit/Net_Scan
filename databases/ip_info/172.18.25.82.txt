@@ -1,5 +1,5 @@
 IP: 172.18.25.82
-Collected at: 2026-10-15T10:08:45.521762+00:00
+Collected at: 2026-10-21T13:16:58.408265+00:00
 source: RouterOS API
 identity: Shadegan-Soofieh-AP
 device_type: AP
@@ -29,14 +29,16 @@ name=wlan1  mode=ap-bridge  ssid=Shadegan-Soofieh2  band=5ghz-a/n  frequency=510
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:33:18
-# ساعت دستگاه (خام): 1970-03-01 01:19:15
-# افست اصلاحی (سرور − دستگاه): +496375:44:03
-  1  1405/07/22 11:14:07  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 11:14:22  [interface,info]  ether1 link up (speed 100M, full duplex)
-  3  1405/07/22 13:25:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  4  1405/07/22 13:25:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  5  1405/07/23 12:33:16  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:34:58
+# ساعت دستگاه (خام): 1970-03-06 21:05:45
+# افست اصلاحی (سرور − دستگاه): +496383:59:13
+  1  1405/07/24 19:29:16  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/24 19:29:31  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/26 09:02:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  4  1405/07/26 09:02:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  5  1405/07/26 09:04:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  6  1405/07/26 09:05:00  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  7  1405/07/29 16:34:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

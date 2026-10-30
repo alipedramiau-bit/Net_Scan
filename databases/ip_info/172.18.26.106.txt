@@ -1,5 +1,5 @@
 IP: 172.18.26.106
-Collected at: 2026-10-15T10:08:47.291948+00:00
+Collected at: 2026-10-21T13:16:59.000659+00:00
 source: RouterOS API
 identity: Soeichi->Sobeh1.AP
 device_type: AP
@@ -29,18 +29,14 @@ name=wlan1  mode=ap-bridge  ssid=SVCHSBH1  band=5ghz-onlyn  frequency=5280
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:33:34
-# ساعت دستگاه (خام): 2024-05-09 06:39:16
-# افست اصلاحی (سرور − دستگاه): +21338:24:18
-  1  1405/07/23 06:54:17  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/23 06:54:18  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:94:8C:7B
-  3  1405/07/23 06:54:20  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/23 06:54:28  [wireless,info]  4C:5E:0C:A7:F6:33@wlan1: connected, signal strength -76, wants bridge
-  5  1405/07/23 08:28:47  [wireless,info]  4C:5E:0C:A7:F6:33@wlan1: disconnected, extensive data loss, signal strength -76
-  6  1405/07/23 08:28:55  [wireless,info]  4C:5E:0C:A7:F6:33@wlan1: connected, signal strength -72, wants bridge
-  7  1405/07/23 08:43:37  [wireless,info]  4C:5E:0C:A7:F6:33@wlan1: disconnected, extensive data loss, signal strength -72
-  8  1405/07/23 08:43:45  [wireless,info]  4C:5E:0C:A7:F6:33@wlan1: connected, signal strength -71, wants bridge
-  9  1405/07/23 12:33:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:35:03
+# ساعت دستگاه (خام): 2024-05-12 09:16:17
+# افست اصلاحی (سرور − دستگاه): +21411:48:46
+  1  1405/07/29 08:18:44  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/29 08:18:45  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:94:8C:7B
+  3  1405/07/29 08:18:47  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/29 08:18:56  [wireless,info]  4C:5E:0C:A7:F6:33@wlan1: connected, signal strength -65, wants bridge
+  5  1405/07/29 16:35:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

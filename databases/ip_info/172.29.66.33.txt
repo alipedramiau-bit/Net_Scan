@@ -1,5 +1,5 @@
 IP: 172.29.66.33
-Collected at: 2026-10-14T10:25:38.524049+00:00
+Collected at: 2026-10-18T05:59:35.878460+00:00
 source: RouterOS API
 identity: Sadat.Client
 device_type: ST
@@ -32,102 +32,87 @@ name=wlan1  mode=station-bridge  ssid=Abadan-Amoozesh2  band=5ghz-a/n  frequency
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:48:32
-# ساعت دستگاه (خام): 1972-09-05 10:19:03
-# افست اصلاحی (سرور − دستگاه): +474287:59:29
-  1  1405/07/17 17:03:46  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/17 17:03:54  [interface,info]  ether1 link up (speed 100M, full duplex)
-  3  1405/07/17 17:04:46  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
-  4  1405/07/18 08:58:04  [dhcp,info]  dhcp1 assigned 172.29.66.62 to 1C:1B:0D:3D:A5:C4
-  5  1405/07/18 10:35:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  6  1405/07/18 10:35:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  7  1405/07/18 10:42:13  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  8  1405/07/18 10:42:14  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  9  1405/07/18 11:00:01  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 10  1405/07/18 11:00:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 11  1405/07/18 11:06:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 12  1405/07/18 11:06:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 13  1405/07/18 12:11:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 14  1405/07/18 12:11:08  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 15  1405/07/18 12:15:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 16  1405/07/18 12:15:17  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 17  1405/07/18 17:49:31  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
- 18  1405/07/18 17:52:22  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 19  1405/07/18 18:01:28  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
- 20  1405/07/18 18:02:25  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 21  1405/07/18 18:03:56  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
- 22  1405/07/18 18:07:44  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 23  1405/07/18 23:55:51  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
- 24  1405/07/18 23:57:45  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 25  1405/07/19 00:04:46  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
- 26  1405/07/19 00:06:40  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 27  1405/07/19 00:14:38  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
- 28  1405/07/19 00:15:36  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 29  1405/07/19 00:15:46  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
- 30  1405/07/19 00:17:40  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 31  1405/07/19 00:21:21  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
- 32  1405/07/19 00:24:12  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 33  1405/07/19 08:10:23  [dhcp,info]  dhcp1 deassigned 172.29.66.62 from 1C:1B:0D:3D:A5:C4
- 34  1405/07/19 08:10:23  [dhcp,info]  dhcp1 assigned 172.29.66.62 to 1C:1B:0D:3D:A5:C4
- 35  1405/07/19 09:36:41  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
- 36  1405/07/19 09:38:35  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 37  1405/07/19 09:52:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 38  1405/07/19 09:52:34  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 39  1405/07/19 10:05:04  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 40  1405/07/19 10:05:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 41  1405/07/19 17:45:21  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 42  1405/07/19 17:45:21  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 43  1405/07/19 17:47:21  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 44  1405/07/19 17:47:22  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 45  1405/07/19 20:38:46  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
- 46  1405/07/19 20:44:27  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 47  1405/07/19 20:44:36  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
- 48  1405/07/19 20:47:29  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 49  1405/07/19 20:51:26  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
- 50  1405/07/19 20:56:10  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 51  1405/07/19 20:56:16  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
- 52  1405/07/19 20:57:13  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 53  1405/07/20 09:47:11  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
- 54  1405/07/20 09:49:05  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 55  1405/07/20 10:32:17  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
- 56  1405/07/20 10:36:05  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 57  1405/07/21 09:01:01  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
- 58  1405/07/21 09:02:55  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 59  1405/07/21 09:04:16  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
- 60  1405/07/21 09:07:08  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 61  1405/07/21 09:07:21  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
- 62  1405/07/21 09:10:12  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 63  1405/07/21 09:13:51  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
- 64  1405/07/21 09:15:45  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 65  1405/07/21 10:00:26  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
- 66  1405/07/21 10:02:20  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 67  1405/07/21 10:35:30  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, medium-access timeout
- 68  1405/07/21 10:41:13  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 69  1405/07/21 11:13:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 70  1405/07/21 11:13:49  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 71  1405/07/21 11:22:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 72  1405/07/21 11:22:50  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 73  1405/07/21 11:52:52  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, medium-access timeout
- 74  1405/07/21 11:53:50  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 75  1405/07/21 11:54:04  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, medium-access timeout
- 76  1405/07/21 11:55:09  [wireless,info]  64:D1:54:03:0F:42@wlan1: failed to connect, on 5850000, medium-access timeout
- 77  1405/07/21 11:56:07  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 78  1405/07/21 11:57:19  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
- 79  1405/07/21 11:58:17  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 80  1405/07/21 11:58:40  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, medium-access timeout
- 81  1405/07/21 11:59:37  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 82  1405/07/21 12:02:17  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, medium-access timeout
- 83  1405/07/21 12:03:15  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 84  1405/07/21 12:10:41  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
- 85  1405/07/21 12:12:35  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 86  1405/07/21 12:15:43  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
- 87  1405/07/21 12:16:41  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 88  1405/07/21 18:15:44  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
- 89  1405/07/21 18:16:41  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
- 90  1405/07/22 13:07:40  [dhcp,info]  dhcp1 deassigned 172.29.66.62 from 1C:1B:0D:3D:A5:C4
- 91  1405/07/22 13:33:01  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 92  1405/07/22 13:33:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 93  1405/07/22 13:48:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/26 09:23:12
+# ساعت دستگاه (خام): 1972-09-08 14:49:28
+# افست اصلاحی (سرور − دستگاه): +474303:03:44
+  1  1405/07/23 08:08:01  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/23 08:08:10  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/23 08:09:01  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+  4  1405/07/23 12:12:10  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
+  5  1405/07/23 12:13:08  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+  6  1405/07/23 12:18:54  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
+  7  1405/07/23 12:19:51  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+  8  1405/07/23 12:20:14  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, medium-access timeout
+  9  1405/07/23 12:21:12  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+ 10  1405/07/23 12:21:55  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, medium-access timeout
+ 11  1405/07/23 12:23:49  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+ 12  1405/07/23 12:24:10  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, medium-access timeout
+ 13  1405/07/23 12:25:07  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+ 14  1405/07/23 12:25:49  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, medium-access timeout
+ 15  1405/07/23 12:27:44  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+ 16  1405/07/23 12:28:08  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, medium-access timeout
+ 17  1405/07/23 12:29:05  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+ 18  1405/07/23 12:29:54  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, medium-access timeout
+ 19  1405/07/23 12:30:51  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+ 20  1405/07/23 12:34:05  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
+ 21  1405/07/23 12:35:05  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+ 22  1405/07/23 12:36:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 23  1405/07/23 12:37:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 24  1405/07/23 13:18:41  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
+ 25  1405/07/23 13:20:34  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+ 26  1405/07/23 13:35:49  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, medium-access timeout
+ 27  1405/07/23 13:36:48  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+ 28  1405/07/23 13:37:01  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, medium-access timeout
+ 29  1405/07/23 13:38:55  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+ 30  1405/07/23 13:39:54  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
+ 31  1405/07/23 13:41:48  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+ 32  1405/07/23 13:42:58  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, medium-access timeout
+ 33  1405/07/23 13:47:42  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+ 34  1405/07/23 14:06:00  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
+ 35  1405/07/23 14:10:48  [wireless,info]  64:D1:54:03:0F:42@wlan1: failed to connect, on 5850000, medium-access timeout
+ 36  1405/07/23 14:11:45  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+ 37  1405/07/23 14:12:31  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, medium-access timeout
+ 38  1405/07/23 14:13:30  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+ 39  1405/07/23 14:13:50  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
+ 40  1405/07/23 14:17:37  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+ 41  1405/07/23 14:18:10  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, medium-access timeout
+ 42  1405/07/23 14:19:08  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+ 43  1405/07/23 23:02:19  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
+ 44  1405/07/23 23:04:12  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+ 45  1405/07/23 23:06:19  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
+ 46  1405/07/23 23:08:15  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+ 47  1405/07/23 23:08:24  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, synchronization timeout
+ 48  1405/07/23 23:11:16  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+ 49  1405/07/24 02:20:49  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, control frame timeout
+ 50  1405/07/24 02:21:46  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+ 51  1405/07/24 02:23:05  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, medium-access timeout
+ 52  1405/07/24 02:24:02  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+ 53  1405/07/24 02:25:01  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, medium-access timeout
+ 54  1405/07/24 02:25:58  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+ 55  1405/07/24 05:17:54  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, control frame timeout
+ 56  1405/07/24 05:19:12  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+ 57  1405/07/24 15:32:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 58  1405/07/24 15:32:34  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 59  1405/07/24 15:44:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 60  1405/07/24 15:44:49  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 61  1405/07/24 16:00:50  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 62  1405/07/24 16:00:52  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 63  1405/07/24 20:11:57  [wireless,info]  64:D1:54:03:0F:42@wlan1: lost connection, medium-access timeout
+ 64  1405/07/24 20:12:54  [wireless,info]  64:D1:54:03:0F:42@wlan1 established connection on 5850000, SSID Abadan-Amoozesh2
+ 65  1405/07/25 08:19:23  [dhcp,info]  dhcp1 assigned 172.29.66.62 to 1C:1B:0D:3D:A5:C4
+ 66  1405/07/26 08:06:47  [dhcp,info]  dhcp1 deassigned 172.29.66.62 from 1C:1B:0D:3D:A5:C4
+ 67  1405/07/26 08:06:47  [dhcp,info]  dhcp1 assigned 172.29.66.62 to 1C:1B:0D:3D:A5:C4
+ 68  1405/07/26 08:23:40  [interface,info]  ether1 link down
+ 69  1405/07/26 08:23:41  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 70  1405/07/26 08:23:54  [interface,info]  ether1 link down
+ 71  1405/07/26 08:23:56  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 72  1405/07/26 09:08:34  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 73  1405/07/26 09:08:36  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 74  1405/07/26 09:11:16  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 75  1405/07/26 09:11:18  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 76  1405/07/26 09:21:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 77  1405/07/26 09:21:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 78  1405/07/26 09:23:10  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -135,3 +120,4 @@ ether1  6C:3B:6B:91:10:7D  (ether)
 wlan1  6C:3B:6B:91:10:7E  (wlan)
 --- /ip arp ---
 wlan1  6C:3B:6B:09:28:B7  (arp 172.18.8.129)
+ether1  1C:1B:0D:3D:A5:C4  (arp 172.29.66.62)

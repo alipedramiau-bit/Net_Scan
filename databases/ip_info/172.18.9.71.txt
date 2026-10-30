@@ -1,5 +1,5 @@
 IP: 172.18.9.71
-Collected at: 2026-10-14T10:24:39.543680+00:00
+Collected at: 2026-10-21T13:18:08.499992+00:00
 source: RouterOS API
 identity: Tangeh2.Client
 device_type: ST
@@ -26,75 +26,214 @@ name=wlan1  mode=station-bridge  ssid=Abadan-Khezr4  band=5ghz-a/n  frequency=55
 ----- neighbors -----
 === /ip neighbor ===
   1  identity=Abadan-Khezr4.AP  address=172.18.9.66  interface=wlan1
-  2  identity=Seydavieh2.Client  address=172.18.9.69  interface=wlan1
+  2  identity=Seydavieh1.Client  address=172.18.9.68  interface=wlan1
+  3  identity=Seydavieh2.Client  address=172.18.9.69  interface=wlan1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:38:15
-# ساعت دستگاه (خام): 1975-10-02 09:11:50
-# افست اصلاحی (سرور − دستگاه): +447360:56:25
-  1  1405/07/18 15:05:28  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/18 15:05:37  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
-  3  1405/07/18 16:10:34  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, no beacons received
-  4  1405/07/18 16:13:35  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
-  5  1405/07/19 08:23:30  [interface,info]  ether1 link up (speed 1G, full duplex)
-  6  1405/07/19 08:23:33  [dhcp,info]  dhcp1 deassigned 172.29.70.30 from F8:75:A4:29:88:37
-  7  1405/07/19 08:23:33  [dhcp,info]  dhcp1 assigned 172.29.70.30 to F8:75:A4:29:88:37
-  8  1405/07/19 08:42:13  [interface,info]  ether1 link down
-  9  1405/07/19 08:42:19  [interface,info]  ether1 link up (speed 100M, full duplex)
- 10  1405/07/19 09:24:56  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, extensive data loss
- 11  1405/07/19 09:36:14  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
- 12  1405/07/19 09:56:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 13  1405/07/19 09:56:52  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 14  1405/07/19 10:05:30  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 15  1405/07/19 10:05:32  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 16  1405/07/19 11:33:49  [interface,info]  ether1 link down
- 17  1405/07/19 11:33:51  [interface,info]  ether1 link up (speed 100M, full duplex)
- 18  1405/07/20 08:15:28  [interface,info]  ether1 link down
- 19  1405/07/20 08:15:30  [interface,info]  ether1 link up (speed 1G, full duplex)
- 20  1405/07/20 11:25:54  [interface,info]  ether1 link down
- 21  1405/07/20 11:25:57  [interface,info]  ether1 link up (speed 1G, full duplex)
- 22  1405/07/20 11:26:14  [interface,info]  ether1 link down
- 23  1405/07/20 11:26:17  [interface,info]  ether1 link up (speed 1G, full duplex)
- 24  1405/07/20 12:15:50  [interface,info]  ether1 link down
- 25  1405/07/20 12:15:51  [interface,info]  ether1 link up (speed 100M, full duplex)
- 26  1405/07/21 04:35:19  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, extensive data loss
- 27  1405/07/21 04:35:26  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
- 28  1405/07/21 06:50:37  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, extensive data loss
- 29  1405/07/21 08:07:19  [interface,info]  ether1 link down
- 30  1405/07/21 08:07:22  [interface,info]  ether1 link up (speed 1G, full duplex)
- 31  1405/07/21 09:36:56  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
- 32  1405/07/21 09:52:13  [interface,info]  ether1 link down
- 33  1405/07/21 09:52:16  [interface,info]  ether1 link up (speed 1G, full duplex)
- 34  1405/07/21 09:52:18  [interface,info]  ether1 link down
- 35  1405/07/21 09:52:21  [interface,info]  ether1 link up (speed 1G, full duplex)
- 36  1405/07/21 09:52:27  [interface,info]  ether1 link down
- 37  1405/07/21 09:52:30  [interface,info]  ether1 link up (speed 1G, full duplex)
- 38  1405/07/21 09:52:34  [interface,info]  ether1 link down
- 39  1405/07/21 09:52:37  [interface,info]  ether1 link up (speed 1G, full duplex)
- 40  1405/07/21 09:53:27  [interface,info]  ether1 link down
- 41  1405/07/21 09:53:30  [interface,info]  ether1 link up (speed 1G, full duplex)
- 42  1405/07/21 12:23:46  [interface,info]  ether1 link down
- 43  1405/07/21 12:23:47  [interface,info]  ether1 link up (speed 100M, full duplex)
- 44  1405/07/21 15:23:47  [interface,info]  ether1 link down
- 45  1405/07/21 15:23:52  [interface,info]  ether1 link up (speed 1G, full duplex)
- 46  1405/07/21 15:24:15  [interface,info]  ether1 link down
- 47  1405/07/21 15:24:16  [interface,info]  ether1 link up (speed 100M, full duplex)
- 48  1405/07/22 05:11:00  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, extensive data loss
- 49  1405/07/22 05:11:50  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
- 50  1405/07/22 08:01:19  [interface,info]  ether1 link down
- 51  1405/07/22 08:01:21  [interface,info]  ether1 link up (speed 1G, full duplex)
- 52  1405/07/22 08:13:05  [interface,info]  ether1 link down
- 53  1405/07/22 08:13:07  [interface,info]  ether1 link up (speed 1G, full duplex)
- 54  1405/07/22 08:13:08  [interface,info]  ether1 link down
- 55  1405/07/22 08:13:10  [interface,info]  ether1 link up (speed 1G, full duplex)
- 56  1405/07/22 08:13:11  [interface,info]  ether1 link down
- 57  1405/07/22 08:13:13  [interface,info]  ether1 link up (speed 1G, full duplex)
- 58  1405/07/22 08:13:14  [interface,info]  ether1 link down
- 59  1405/07/22 08:13:16  [interface,info]  ether1 link up (speed 100M, full duplex)
- 60  1405/07/22 08:41:05  [interface,info]  ether1 link down
- 61  1405/07/22 08:41:06  [interface,info]  ether1 link up (speed 100M, full duplex)
- 62  1405/07/22 13:38:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:41:48
+# ساعت دستگاه (خام): 1975-10-09 12:18:15
+# افست اصلاحی (سرور − دستگاه): +447360:53:33
+  1  1405/07/19 09:53:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  2  1405/07/19 09:54:00  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  3  1405/07/19 10:02:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  4  1405/07/19 10:02:40  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  5  1405/07/19 11:30:57  [interface,info]  ether1 link down
+  6  1405/07/19 11:30:59  [interface,info]  ether1 link up (speed 100M, full duplex)
+  7  1405/07/20 08:12:36  [interface,info]  ether1 link down
+  8  1405/07/20 08:12:38  [interface,info]  ether1 link up (speed 1G, full duplex)
+  9  1405/07/20 11:23:02  [interface,info]  ether1 link down
+ 10  1405/07/20 11:23:05  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 11  1405/07/20 11:23:22  [interface,info]  ether1 link down
+ 12  1405/07/20 11:23:25  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 13  1405/07/20 12:12:58  [interface,info]  ether1 link down
+ 14  1405/07/20 12:12:59  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 15  1405/07/21 04:32:27  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, extensive data loss
+ 16  1405/07/21 04:32:34  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+ 17  1405/07/21 06:47:45  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, extensive data loss
+ 18  1405/07/21 08:04:27  [interface,info]  ether1 link down
+ 19  1405/07/21 08:04:30  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 20  1405/07/21 09:34:04  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+ 21  1405/07/21 09:49:21  [interface,info]  ether1 link down
+ 22  1405/07/21 09:49:24  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 23  1405/07/21 09:49:26  [interface,info]  ether1 link down
+ 24  1405/07/21 09:49:29  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 25  1405/07/21 09:49:35  [interface,info]  ether1 link down
+ 26  1405/07/21 09:49:38  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 27  1405/07/21 09:49:42  [interface,info]  ether1 link down
+ 28  1405/07/21 09:49:45  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 29  1405/07/21 09:50:35  [interface,info]  ether1 link down
+ 30  1405/07/21 09:50:38  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 31  1405/07/21 12:20:54  [interface,info]  ether1 link down
+ 32  1405/07/21 12:20:55  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 33  1405/07/21 15:20:55  [interface,info]  ether1 link down
+ 34  1405/07/21 15:21:00  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 35  1405/07/21 15:21:23  [interface,info]  ether1 link down
+ 36  1405/07/21 15:21:24  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 37  1405/07/22 05:08:08  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, extensive data loss
+ 38  1405/07/22 05:08:58  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+ 39  1405/07/22 07:58:27  [interface,info]  ether1 link down
+ 40  1405/07/22 07:58:29  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 41  1405/07/22 08:10:13  [interface,info]  ether1 link down
+ 42  1405/07/22 08:10:15  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 43  1405/07/22 08:10:16  [interface,info]  ether1 link down
+ 44  1405/07/22 08:10:18  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 45  1405/07/22 08:10:19  [interface,info]  ether1 link down
+ 46  1405/07/22 08:10:21  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 47  1405/07/22 08:10:22  [interface,info]  ether1 link down
+ 48  1405/07/22 08:10:24  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 49  1405/07/22 08:38:13  [interface,info]  ether1 link down
+ 50  1405/07/22 08:38:14  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 51  1405/07/22 13:35:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 52  1405/07/22 13:35:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 53  1405/07/22 13:46:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 54  1405/07/22 13:46:59  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 55  1405/07/23 04:28:02  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, extensive data loss
+ 56  1405/07/23 04:28:25  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+ 57  1405/07/23 05:14:04  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, extensive data loss
+ 58  1405/07/23 05:14:38  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+ 59  1405/07/23 05:19:50  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, extensive data loss
+ 60  1405/07/23 05:20:42  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: failed to connect, on 5745/20/an, authentication timeout
+ 61  1405/07/23 05:20:56  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: failed to connect, on 5745/20/an, authentication timeout
+ 62  1405/07/23 05:21:08  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+ 63  1405/07/23 05:59:23  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, no beacons received
+ 64  1405/07/23 05:59:51  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+ 65  1405/07/23 06:34:41  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, extensive data loss
+ 66  1405/07/23 06:34:48  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+ 67  1405/07/24 01:59:53  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, received deauth: class 2 frame received (6)
+ 68  1405/07/24 02:00:32  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+ 69  1405/07/24 05:40:46  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, received deauth: class 2 frame received (6)
+ 70  1405/07/24 05:41:01  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: failed to connect, on 5745/20/an, association timeout
+ 71  1405/07/24 05:41:13  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+ 72  1405/07/24 07:27:37  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, extensive data loss
+ 73  1405/07/24 07:27:54  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+ 74  1405/07/24 07:28:09  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, no beacons received
+ 75  1405/07/24 07:28:25  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+ 76  1405/07/24 15:36:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 77  1405/07/24 15:36:22  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 78  1405/07/24 15:44:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 79  1405/07/24 15:45:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 80  1405/07/24 16:03:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 81  1405/07/24 16:03:50  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 82  1405/07/24 16:07:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 83  1405/07/24 16:07:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 84  1405/07/24 21:25:36  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, no beacons received
+ 85  1405/07/24 21:25:52  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+ 86  1405/07/25 02:48:21  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, no beacons received
+ 87  1405/07/25 02:48:26  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+ 88  1405/07/25 03:08:44  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, no beacons received
+ 89  1405/07/25 03:08:49  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+ 90  1405/07/25 05:00:50  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, extensive data loss
+ 91  1405/07/25 05:01:20  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+ 92  1405/07/25 06:42:42  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, no beacons received
+ 93  1405/07/25 06:44:50  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+ 94  1405/07/25 08:05:32  [interface,info]  ether1 link down
+ 95  1405/07/25 08:05:39  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 96  1405/07/25 08:05:49  [interface,info]  ether1 link down
+ 97  1405/07/25 08:05:51  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 98  1405/07/25 08:05:52  [interface,info]  ether1 link down
+ 99  1405/07/25 08:05:54  [interface,info]  ether1 link up (speed 1G, full duplex)
+100  1405/07/25 08:05:55  [interface,info]  ether1 link down
+101  1405/07/25 08:05:57  [interface,info]  ether1 link up (speed 1G, full duplex)
+102  1405/07/25 08:06:14  [interface,info]  ether1 link down
+103  1405/07/25 08:06:17  [interface,info]  ether1 link up (speed 1G, full duplex)
+104  1405/07/25 08:06:18  [interface,info]  ether1 link down
+105  1405/07/25 08:06:25  [interface,info]  ether1 link up (speed 100M, full duplex)
+106  1405/07/25 11:44:12  [interface,info]  ether1 link down
+107  1405/07/25 11:44:13  [interface,info]  ether1 link up (speed 100M, full duplex)
+108  1405/07/25 23:41:56  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, no beacons received
+109  1405/07/25 23:42:02  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+110  1405/07/25 23:42:07  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, no beacons received
+111  1405/07/25 23:42:15  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+112  1405/07/26 01:18:42  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, no beacons received
+113  1405/07/26 01:18:48  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+114  1405/07/26 01:19:13  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, no beacons received
+115  1405/07/26 01:19:19  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+116  1405/07/26 03:00:41  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, no beacons received
+117  1405/07/26 03:07:33  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+118  1405/07/26 03:55:19  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, no beacons received
+119  1405/07/26 03:56:05  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+120  1405/07/26 03:58:35  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, no beacons received
+121  1405/07/26 03:58:46  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+122  1405/07/26 04:01:52  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, no beacons received
+123  1405/07/26 04:05:23  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: failed to connect, on 5745/20/an, authentication timeout
+124  1405/07/26 04:05:37  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: failed to connect, on 5745/20/an, authentication timeout
+125  1405/07/26 04:06:40  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: failed to connect, on 5745/20/an, association timeout
+126  1405/07/26 04:06:54  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: failed to connect, on 5745/20/an, authentication timeout
+127  1405/07/26 04:07:41  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: failed to connect, on 5745/20/an, authentication timeout
+128  1405/07/26 04:07:55  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: failed to connect, on 5745/20/an, authentication timeout
+129  1405/07/26 04:08:14  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: failed to connect, on 5745/20/an, association timeout
+130  1405/07/26 04:08:25  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+131  1405/07/26 04:08:40  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, no beacons received
+132  1405/07/26 04:08:54  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: failed to connect, on 5745/20/an, authentication timeout
+133  1405/07/26 04:09:05  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+134  1405/07/26 04:09:20  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, no beacons received
+135  1405/07/26 04:10:20  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+136  1405/07/26 08:06:39  [interface,info]  ether1 link down
+137  1405/07/26 08:06:41  [interface,info]  ether1 link up (speed 1G, full duplex)
+138  1405/07/26 09:12:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+139  1405/07/26 09:12:45  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+140  1405/07/26 09:15:12  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+141  1405/07/26 09:15:15  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+142  1405/07/26 09:15:48  [interface,info]  ether1 link down
+143  1405/07/26 09:15:51  [interface,info]  ether1 link up (speed 1G, full duplex)
+144  1405/07/26 09:15:52  [interface,info]  ether1 link down
+145  1405/07/26 09:15:54  [interface,info]  ether1 link up (speed 1G, full duplex)
+146  1405/07/26 09:15:55  [interface,info]  ether1 link down
+147  1405/07/26 09:15:58  [interface,info]  ether1 link up (speed 1G, full duplex)
+148  1405/07/26 09:15:59  [interface,info]  ether1 link down
+149  1405/07/26 09:16:01  [interface,info]  ether1 link up (speed 1G, full duplex)
+150  1405/07/26 09:16:02  [interface,info]  ether1 link down
+151  1405/07/26 09:16:04  [interface,info]  ether1 link up (speed 1G, full duplex)
+152  1405/07/26 09:16:05  [interface,info]  ether1 link down
+153  1405/07/26 09:16:08  [interface,info]  ether1 link up (speed 1G, full duplex)
+154  1405/07/26 09:16:09  [interface,info]  ether1 link down
+155  1405/07/26 09:16:12  [interface,info]  ether1 link up (speed 1G, full duplex)
+156  1405/07/26 09:16:25  [interface,info]  ether1 link down
+157  1405/07/26 09:16:27  [interface,info]  ether1 link up (speed 1G, full duplex)
+158  1405/07/26 09:16:28  [interface,info]  ether1 link down
+159  1405/07/26 09:16:30  [interface,info]  ether1 link up (speed 1G, full duplex)
+160  1405/07/26 09:16:40  [interface,info]  ether1 link down
+161  1405/07/26 09:16:43  [interface,info]  ether1 link up (speed 1G, full duplex)
+162  1405/07/26 09:16:49  [interface,info]  ether1 link down
+163  1405/07/26 09:16:51  [interface,info]  ether1 link up (speed 1G, full duplex)
+164  1405/07/26 09:16:53  [interface,info]  ether1 link down
+165  1405/07/26 09:16:59  [interface,info]  ether1 link up (speed 1G, full duplex)
+166  1405/07/26 09:17:04  [interface,info]  ether1 link down
+167  1405/07/26 09:17:06  [interface,info]  ether1 link up (speed 1G, full duplex)
+168  1405/07/26 09:17:15  [interface,info]  ether1 link down
+169  1405/07/26 09:17:17  [interface,info]  ether1 link up (speed 1G, full duplex)
+170  1405/07/26 09:17:18  [interface,info]  ether1 link down
+171  1405/07/26 09:17:26  [interface,info]  ether1 link up (speed 100M, full duplex)
+172  1405/07/26 09:21:57  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+173  1405/07/26 09:21:59  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+174  1405/07/26 09:23:34  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+175  1405/07/26 09:23:36  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+176  1405/07/26 12:25:38  [interface,info]  ether1 link down
+177  1405/07/26 12:25:40  [interface,info]  ether1 link up (speed 100M, full duplex)
+178  1405/07/26 20:28:22  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, extensive data loss
+179  1405/07/26 20:28:33  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+180  1405/07/27 00:49:09  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, extensive data loss
+181  1405/07/27 00:49:31  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+182  1405/07/27 01:58:29  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, extensive data loss
+183  1405/07/27 01:58:34  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+184  1405/07/27 02:18:42  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, no beacons received
+185  1405/07/27 02:18:47  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+186  1405/07/27 03:07:41  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, extensive data loss
+187  1405/07/27 03:07:52  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+188  1405/07/27 04:03:29  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, no beacons received
+189  1405/07/27 04:03:45  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+190  1405/07/27 21:17:14  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, no beacons received
+191  1405/07/27 21:17:37  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+192  1405/07/27 21:21:23  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, no beacons received
+193  1405/07/27 21:22:36  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+194  1405/07/28 04:49:04  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1: lost connection, no beacons received
+195  1405/07/28 04:49:26  [wireless,info]  6C:3B:6B:AB:D2:56@wlan1 established connection on 5745000, SSID Abadan-Khezr4
+196  1405/07/28 08:10:31  [interface,info]  ether1 link down
+197  1405/07/28 08:10:33  [interface,info]  ether1 link up (speed 1G, full duplex)
+198  1405/07/28 11:57:11  [interface,info]  ether1 link down
+199  1405/07/28 11:57:12  [interface,info]  ether1 link up (speed 100M, full duplex)
+200  1405/07/29 16:41:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

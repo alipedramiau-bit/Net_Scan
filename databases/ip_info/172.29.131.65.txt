@@ -1,5 +1,5 @@
 IP: 172.29.131.65
-Collected at: 2026-10-14T10:25:04.479220+00:00
+Collected at: 2026-10-18T05:58:57.581125+00:00
 source: RouterOS API
 identity: sooreh.client
 device_type: ST
@@ -25,37 +25,63 @@ name=wlan1  mode=station-bridge  ssid=Khoramshahr-Taleghani2  band=5ghz-a/n  fre
 
 ----- neighbors -----
 === /ip neighbor ===
-  1  identity=Sooreh_Router  address=172.29.131.67  interface=ether1
-  2  identity=RouterMarkazTaleghzani  address=172.18.16.81  interface=wlan1
-  3  identity=Khoramshahr-Taleghani2  address=172.18.16.82  interface=wlan1
+  1  identity=-  address=-  interface=ether1
+  2  identity=Sooreh_Router  address=172.29.131.67  interface=ether1
+  3  identity=RouterMarkazTaleghzani  address=172.18.16.81  interface=wlan1
+  4  identity=Khoramshahr-Taleghani2  address=172.18.16.82  interface=wlan1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:40:48
-# ساعت دستگاه (خام): 1974-03-29 13:30:01
-# افست اصلاحی (سرور − دستگاه): +460604:40:47
-  1  1405/07/20 09:38:27  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/20 09:38:35  [wireless,info]  6C:3B:6B:3E:4B:81@wlan1 established connection on 5700000, SSID Khoramshahr-Taleghani2
-  3  1405/07/20 09:38:37  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/20 09:38:41  [dhcp,info]  dhcp1 deassigned 172.29.131.67 from E4:8D:8C:69:C8:F2
-  5  1405/07/20 09:38:42  [dhcp,info]  dhcp1 assigned 172.29.131.67 to E4:8D:8C:69:C8:F2
-  6  1405/07/20 09:40:03  [dhcp,info]  dhcp1 assigned 172.29.131.66 to CC:28:AA:D1:0C:36
-  7  1405/07/20 09:43:46  [dhcp,info]  dhcp1 deassigned 172.29.131.66 from CC:28:AA:D1:0C:36
-  8  1405/07/20 09:43:46  [dhcp,info]  dhcp1 assigned 172.29.131.66 to CC:28:AA:D1:0C:36
-  9  1405/07/20 10:17:03  [dhcp,info]  dhcp1 deassigned 172.29.131.66 from CC:28:AA:D1:0C:36
- 10  1405/07/20 10:17:03  [dhcp,info]  dhcp1 assigned 172.29.131.66 to CC:28:AA:D1:0C:36
- 11  1405/07/20 10:27:03  [dhcp,info]  dhcp1 deassigned 172.29.131.66 from CC:28:AA:D1:0C:36
- 12  1405/07/21 09:13:16  [dhcp,info]  dhcp1 assigned 172.29.131.66 to CC:28:AA:D1:0C:36
- 13  1405/07/21 10:54:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 14  1405/07/21 10:54:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 15  1405/07/21 11:16:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 16  1405/07/21 11:16:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 17  1405/07/21 12:58:17  [dhcp,info]  dhcp1 deassigned 172.29.131.66 from CC:28:AA:D1:0C:36
- 18  1405/07/22 11:05:00  [dhcp,info]  dhcp1 assigned 172.29.131.66 to CC:28:AA:D1:0C:36
- 19  1405/07/22 11:55:00  [dhcp,info]  dhcp1 deassigned 172.29.131.66 from CC:28:AA:D1:0C:36
- 20  1405/07/22 13:13:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 21  1405/07/22 13:14:00  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 22  1405/07/22 13:40:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/26 09:17:34
+# ساعت دستگاه (خام): 1974-04-02 09:09:38
+# افست اصلاحی (سرور − دستگاه): +460604:37:56
+  1  1405/07/20 09:35:36  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/20 09:35:44  [wireless,info]  6C:3B:6B:3E:4B:81@wlan1 established connection on 5700000, SSID Khoramshahr-Taleghani2
+  3  1405/07/20 09:35:46  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/20 09:35:50  [dhcp,info]  dhcp1 deassigned 172.29.131.67 from E4:8D:8C:69:C8:F2
+  5  1405/07/20 09:35:51  [dhcp,info]  dhcp1 assigned 172.29.131.67 to E4:8D:8C:69:C8:F2
+  6  1405/07/20 09:37:12  [dhcp,info]  dhcp1 assigned 172.29.131.66 to CC:28:AA:D1:0C:36
+  7  1405/07/20 09:40:55  [dhcp,info]  dhcp1 deassigned 172.29.131.66 from CC:28:AA:D1:0C:36
+  8  1405/07/20 09:40:55  [dhcp,info]  dhcp1 assigned 172.29.131.66 to CC:28:AA:D1:0C:36
+  9  1405/07/20 10:14:12  [dhcp,info]  dhcp1 deassigned 172.29.131.66 from CC:28:AA:D1:0C:36
+ 10  1405/07/20 10:14:12  [dhcp,info]  dhcp1 assigned 172.29.131.66 to CC:28:AA:D1:0C:36
+ 11  1405/07/20 10:24:12  [dhcp,info]  dhcp1 deassigned 172.29.131.66 from CC:28:AA:D1:0C:36
+ 12  1405/07/21 09:10:25  [dhcp,info]  dhcp1 assigned 172.29.131.66 to CC:28:AA:D1:0C:36
+ 13  1405/07/21 10:52:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 14  1405/07/21 10:52:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 15  1405/07/21 11:14:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 16  1405/07/21 11:14:05  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 17  1405/07/21 12:55:26  [dhcp,info]  dhcp1 deassigned 172.29.131.66 from CC:28:AA:D1:0C:36
+ 18  1405/07/22 11:02:09  [dhcp,info]  dhcp1 assigned 172.29.131.66 to CC:28:AA:D1:0C:36
+ 19  1405/07/22 11:52:09  [dhcp,info]  dhcp1 deassigned 172.29.131.66 from CC:28:AA:D1:0C:36
+ 20  1405/07/22 13:11:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 21  1405/07/22 13:11:09  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 22  1405/07/22 13:37:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 23  1405/07/22 13:37:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 24  1405/07/23 11:57:55  [dhcp,info]  dhcp1 assigned 172.29.131.66 to CC:28:AA:D1:0C:36
+ 25  1405/07/23 12:19:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 26  1405/07/23 12:19:05  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 27  1405/07/23 12:27:56  [dhcp,info]  dhcp1 deassigned 172.29.131.66 from CC:28:AA:D1:0C:36
+ 28  1405/07/24 15:01:04  [dhcp,info]  dhcp1 assigned 172.29.131.66 to CC:28:AA:D1:0C:36
+ 29  1405/07/24 15:15:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 30  1405/07/24 15:15:40  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 31  1405/07/24 15:38:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 32  1405/07/24 15:38:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 33  1405/07/24 15:49:05  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 34  1405/07/24 15:49:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 35  1405/07/24 15:51:03  [dhcp,info]  dhcp1 deassigned 172.29.131.66 from CC:28:AA:D1:0C:36
+ 36  1405/07/25 08:02:45  [dhcp,info]  dhcp1 assigned 172.29.131.66 to CC:28:AA:D1:0C:36
+ 37  1405/07/25 08:57:45  [dhcp,info]  dhcp1 deassigned 172.29.131.66 from CC:28:AA:D1:0C:36
+ 38  1405/07/26 07:51:34  [dhcp,info]  dhcp1 assigned 172.29.131.66 to CC:28:AA:D1:0C:36
+ 39  1405/07/26 07:52:51  [dhcp,info]  dhcp1 deassigned 172.29.131.66 from CC:28:AA:D1:0C:36
+ 40  1405/07/26 07:52:51  [dhcp,info]  dhcp1 assigned 172.29.131.66 to CC:28:AA:D1:0C:36
+ 41  1405/07/26 08:50:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 42  1405/07/26 08:50:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 43  1405/07/26 08:53:05  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 44  1405/07/26 08:53:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 45  1405/07/26 09:15:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 46  1405/07/26 09:15:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 47  1405/07/26 09:17:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -63,3 +89,5 @@ ether1  6C:3B:6B:10:AF:AC  (ether)
 wlan1  6C:3B:6B:10:AF:AD  (wlan)
 --- /ip arp ---
 wlan1  6C:3B:6B:09:34:B6  (arp 172.18.16.81)
+ether1  CC:28:AA:D1:0C:36  (arp 172.29.131.66)
+ether1  E4:8D:8C:69:C8:F2  (arp 172.29.131.67)

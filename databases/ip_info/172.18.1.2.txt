@@ -1,5 +1,5 @@
 IP: 172.18.1.2
-Collected at: 2026-10-15T10:07:07.353939+00:00
+Collected at: 2026-10-21T13:15:51.631746+00:00
 source: RouterOS API
 identity: OPA-Daroo.AP
 device_type: AP
@@ -33,209 +33,209 @@ name=wlan1  mode=ap-bridge  ssid=OPA-Daroo  band=5ghz-a/n  frequency=5320
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:19:42
-# ساعت دستگاه (خام): 1975-10-27 04:06:54
-# افست اصلاحی (سرور − دستگاه): +446788:42:48
-  1  1405/06/07 21:42:28  [wireless,info]  56:76:36:33:78:0F@wlan1: connected, signal strength -89
-  2  1405/06/07 21:42:31  [wireless,info]  56:76:36:33:78:0F@wlan1: disconnected, extensive data loss
-  3  1405/06/09 16:14:24  [wireless,debug]  wlan1: 56:76:36:33:78:0F attempts to associate
-  4  1405/06/09 16:14:24  [wireless,debug]  wlan1: 56:76:36:33:78:0F not in local ACL, by default accept
-  5  1405/06/09 16:14:24  [wireless,info]  56:76:36:33:78:0F@wlan1: connected, signal strength -91
-  6  1405/06/09 16:14:27  [wireless,info]  56:76:36:33:78:0F@wlan1: disconnected, extensive data loss
-  7  1405/06/10 03:29:50  [wireless,debug]  wlan1: A4:4B:D5:D0:DC:42 attempts to associate
-  8  1405/06/10 03:29:50  [wireless,debug]  wlan1: A4:4B:D5:D0:DC:42 not in local ACL, by default accept
-  9  1405/06/10 03:29:50  [wireless,info]  A4:4B:D5:D0:DC:42@wlan1: connected, signal strength -86
- 10  1405/06/10 03:29:55  [wireless,info]  A4:4B:D5:D0:DC:42@wlan1: disconnected, unicast key exchange timeout
- 11  1405/06/11 07:02:32  [wireless,debug]  wlan1: A6:4A:F3:D4:13:3A attempts to associate
- 12  1405/06/11 07:02:32  [wireless,debug]  wlan1: A6:4A:F3:D4:13:3A not in local ACL, by default accept
- 13  1405/06/11 07:02:32  [wireless,info]  A6:4A:F3:D4:13:3A@wlan1: connected, signal strength -76
- 14  1405/06/11 07:02:37  [wireless,info]  A6:4A:F3:D4:13:3A@wlan1: disconnected, unicast key exchange timeout
- 15  1405/06/11 07:02:47  [wireless,debug]  wlan1: A6:4A:F3:D4:13:3A attempts to associate
- 16  1405/06/11 07:02:47  [wireless,debug]  wlan1: A6:4A:F3:D4:13:3A not in local ACL, by default accept
- 17  1405/06/11 07:02:47  [wireless,info]  A6:4A:F3:D4:13:3A@wlan1: connected, signal strength -80
- 18  1405/06/11 07:02:52  [wireless,info]  A6:4A:F3:D4:13:3A@wlan1: disconnected, unicast key exchange timeout
- 19  1405/06/11 07:02:59  [wireless,debug]  wlan1: A6:4A:F3:D4:13:3A attempts to associate
- 20  1405/06/11 07:02:59  [wireless,debug]  wlan1: A6:4A:F3:D4:13:3A not in local ACL, by default accept
- 21  1405/06/11 07:02:59  [wireless,info]  A6:4A:F3:D4:13:3A@wlan1: connected, signal strength -80
- 22  1405/06/11 07:03:04  [wireless,info]  A6:4A:F3:D4:13:3A@wlan1: disconnected, unicast key exchange timeout
- 23  1405/06/11 07:03:07  [wireless,debug]  we: AE:C1:59:80:BD:C0 attempts to associate
- 24  1405/06/11 07:03:07  [wireless,debug]  we: AE:C1:59:80:BD:C0 not in local ACL, by default accept
- 25  1405/06/11 07:03:07  [wireless,info]  AE:C1:59:80:BD:C0@we: connected, signal strength -78
- 26  1405/06/11 07:03:09  [wireless,info]  AE:C1:59:80:BD:C0@we: disconnected, received deauth: sending station leaving (3)
- 27  1405/06/11 07:03:09  [wireless,debug]  wlan1: A6:4A:F3:D4:13:3A attempts to associate
- 28  1405/06/11 07:03:09  [wireless,debug]  wlan1: reject A6:4A:F3:D4:13:3A, banned (last failure - unicast key exchange timeout)
- 29  1405/06/11 07:03:09  [wireless,debug]  wlan1: A6:4A:F3:D4:13:3A attempts to associate
- 30  1405/06/11 07:03:09  [wireless,debug]  wlan1: reject A6:4A:F3:D4:13:3A, banned (last failure - unicast key exchange timeout)
- 31  1405/06/11 07:03:10  [wireless,debug]  wlan1: A6:4A:F3:D4:13:3A attempts to associate
- 32  1405/06/11 07:03:10  [wireless,debug]  wlan1: reject A6:4A:F3:D4:13:3A, banned (last failure - unicast key exchange timeout)
- 33  1405/06/11 07:03:10  [wireless,debug]  wlan1: A6:4A:F3:D4:13:3A attempts to associate
- 34  1405/06/11 07:03:10  [wireless,debug]  wlan1: reject A6:4A:F3:D4:13:3A, banned (last failure - unicast key exchange timeout)
- 35  1405/06/11 07:03:11  [wireless,debug]  wlan1: A6:4A:F3:D4:13:3A attempts to associate
- 36  1405/06/11 07:03:11  [wireless,debug]  wlan1: reject A6:4A:F3:D4:13:3A, banned (last failure - unicast key exchange timeout)
- 37  1405/06/11 07:03:13  [wireless,debug]  wlan1: A6:4A:F3:D4:13:3A attempts to associate
- 38  1405/06/11 07:03:13  [wireless,debug]  wlan1: reject A6:4A:F3:D4:13:3A, banned (last failure - unicast key exchange timeout)
- 39  1405/06/11 07:03:13  [wireless,debug]  we: AE:C1:59:80:BD:C0 attempts to associate
- 40  1405/06/11 07:03:13  [wireless,debug]  we: AE:C1:59:80:BD:C0 not in local ACL, by default accept
- 41  1405/06/11 07:03:13  [wireless,info]  AE:C1:59:80:BD:C0@we: connected, signal strength -79
- 42  1405/06/11 07:03:18  [wireless,info]  AE:C1:59:80:BD:C0@we: disconnected, unicast key exchange timeout
- 43  1405/06/11 07:03:23  [wireless,debug]  wlan1: A6:4A:F3:D4:13:3A attempts to associate
- 44  1405/06/11 07:03:23  [wireless,debug]  wlan1: A6:4A:F3:D4:13:3A not in local ACL, by default accept
- 45  1405/06/11 07:03:23  [wireless,info]  A6:4A:F3:D4:13:3A@wlan1: connected, signal strength -81
- 46  1405/06/11 07:03:28  [wireless,info]  A6:4A:F3:D4:13:3A@wlan1: disconnected, unicast key exchange timeout
- 47  1405/06/12 07:37:01  [wireless,debug]  wlan1: 56:76:36:33:78:0F attempts to associate
- 48  1405/06/12 07:37:01  [wireless,debug]  wlan1: 56:76:36:33:78:0F not in local ACL, by default accept
- 49  1405/06/12 07:37:01  [wireless,info]  56:76:36:33:78:0F@wlan1: connected, signal strength -89
- 50  1405/06/12 07:37:04  [wireless,info]  56:76:36:33:78:0F@wlan1: disconnected, extensive data loss
- 51  1405/06/12 19:05:12  [wireless,debug]  wlan1: 56:76:36:33:78:0F attempts to associate
- 52  1405/06/12 19:05:12  [wireless,debug]  wlan1: 56:76:36:33:78:0F not in local ACL, by default accept
- 53  1405/06/12 19:05:12  [wireless,info]  56:76:36:33:78:0F@wlan1: connected, signal strength -88
- 54  1405/06/12 19:05:15  [wireless,info]  56:76:36:33:78:0F@wlan1: disconnected, extensive data loss
- 55  1405/06/12 23:12:01  [wireless,debug]  wlan1: 56:76:36:33:78:0F attempts to associate
- 56  1405/06/12 23:12:01  [wireless,debug]  wlan1: 56:76:36:33:78:0F not in local ACL, by default accept
- 57  1405/06/12 23:12:01  [wireless,info]  56:76:36:33:78:0F@wlan1: connected, signal strength -86
- 58  1405/06/12 23:12:02  [wireless,info]  56:76:36:33:78:0F@wlan1: disconnected, received deauth: sending station leaving (3)
- 59  1405/06/12 23:12:04  [wireless,debug]  wlan1: 56:76:36:33:78:0F attempts to associate
- 60  1405/06/12 23:12:04  [wireless,debug]  wlan1: 56:76:36:33:78:0F not in local ACL, by default accept
- 61  1405/06/12 23:12:04  [wireless,info]  56:76:36:33:78:0F@wlan1: connected, signal strength -87
- 62  1405/06/12 23:12:07  [wireless,info]  56:76:36:33:78:0F@wlan1: disconnected, extensive data loss
- 63  1405/06/12 23:21:24  [wireless,debug]  wlan1: 56:76:36:33:78:0F attempts to associate
- 64  1405/06/12 23:21:24  [wireless,debug]  wlan1: 56:76:36:33:78:0F not in local ACL, by default accept
- 65  1405/06/12 23:21:24  [wireless,info]  56:76:36:33:78:0F@wlan1: connected, signal strength -88
- 66  1405/06/12 23:21:27  [wireless,info]  56:76:36:33:78:0F@wlan1: disconnected, extensive data loss
- 67  1405/06/12 23:23:28  [wireless,debug]  wlan1: 56:76:36:33:78:0F attempts to associate
- 68  1405/06/12 23:23:28  [wireless,debug]  wlan1: 56:76:36:33:78:0F not in local ACL, by default accept
- 69  1405/06/12 23:23:28  [wireless,info]  56:76:36:33:78:0F@wlan1: connected, signal strength -89
- 70  1405/06/12 23:23:31  [wireless,info]  56:76:36:33:78:0F@wlan1: disconnected, extensive data loss
- 71  1405/06/13 02:49:29  [wireless,debug]  wlan1: A4:4B:D5:D0:DC:42 attempts to associate
- 72  1405/06/13 02:49:29  [wireless,debug]  wlan1: A4:4B:D5:D0:DC:42 not in local ACL, by default accept
- 73  1405/06/13 02:49:29  [wireless,info]  A4:4B:D5:D0:DC:42@wlan1: connected, signal strength -87
- 74  1405/06/13 02:49:32  [wireless,info]  A4:4B:D5:D0:DC:42@wlan1: disconnected, extensive data loss
- 75  1405/06/15 13:04:15  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB attempts to associate
- 76  1405/06/15 13:04:15  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB not in local ACL, by default accept
- 77  1405/06/15 13:04:15  [wireless,info]  62:6A:B6:43:33:CB@wlan1: connected, signal strength -84
- 78  1405/06/15 13:04:20  [wireless,info]  62:6A:B6:43:33:CB@wlan1: disconnected, unicast key exchange timeout
- 79  1405/06/17 10:01:52  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB attempts to associate
- 80  1405/06/17 10:01:52  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB not in local ACL, by default accept
- 81  1405/06/17 10:01:52  [wireless,info]  62:6A:B6:43:33:CB@wlan1: connected, signal strength -88
- 82  1405/06/17 10:01:57  [wireless,info]  62:6A:B6:43:33:CB@wlan1: disconnected, unicast key exchange timeout
- 83  1405/06/22 10:01:56  [wireless,debug]  we: C2:AB:4D:C9:28:93 attempts to associate
- 84  1405/06/22 10:01:56  [wireless,debug]  we: C2:AB:4D:C9:28:93 not in local ACL, by default accept
- 85  1405/06/22 10:01:56  [wireless,info]  C2:AB:4D:C9:28:93@we: connected, signal strength -86
- 86  1405/06/22 10:02:00  [wireless,info]  C2:AB:4D:C9:28:93@we: disconnected, extensive data loss
- 87  1405/06/23 13:43:36  [wireless,debug]  wlan1: A4:4B:D5:D0:DC:42 attempts to associate
- 88  1405/06/23 13:43:36  [wireless,debug]  wlan1: A4:4B:D5:D0:DC:42 not in local ACL, by default accept
- 89  1405/06/23 13:43:36  [wireless,info]  A4:4B:D5:D0:DC:42@wlan1: connected, signal strength -89
- 90  1405/06/23 13:43:40  [wireless,info]  A4:4B:D5:D0:DC:42@wlan1: disconnected, extensive data loss
- 91  1405/06/25 05:19:16  [wireless,debug]  we: A4:4B:D5:D0:DC:42 attempts to associate
- 92  1405/06/25 05:19:16  [wireless,debug]  we: A4:4B:D5:D0:DC:42 not in local ACL, by default accept
- 93  1405/06/25 05:19:16  [wireless,info]  A4:4B:D5:D0:DC:42@we: connected, signal strength -89
- 94  1405/06/25 05:19:19  [wireless,info]  A4:4B:D5:D0:DC:42@we: disconnected, extensive data loss
- 95  1405/06/26 14:31:50  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB attempts to associate
- 96  1405/06/26 14:31:50  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB not in local ACL, by default accept
- 97  1405/06/26 14:31:50  [wireless,info]  62:6A:B6:43:33:CB@wlan1: connected, signal strength -82
- 98  1405/06/26 14:31:55  [wireless,info]  62:6A:B6:43:33:CB@wlan1: disconnected, unicast key exchange timeout
- 99  1405/06/29 01:56:45  [wireless,debug]  wlan1: AE:F4:1D:24:88:BA attempts to associate
-100  1405/06/29 01:56:45  [wireless,debug]  wlan1: AE:F4:1D:24:88:BA not in local ACL, by default accept
-101  1405/06/29 01:56:45  [wireless,info]  AE:F4:1D:24:88:BA@wlan1: connected, signal strength -80
-102  1405/06/29 01:56:50  [wireless,info]  AE:F4:1D:24:88:BA@wlan1: disconnected, unicast key exchange timeout
-103  1405/06/29 03:09:39  [wireless,debug]  we: A4:4B:D5:D0:DC:42 attempts to associate
-104  1405/06/29 03:09:39  [wireless,debug]  we: A4:4B:D5:D0:DC:42 not in local ACL, by default accept
-105  1405/06/29 03:09:39  [wireless,info]  A4:4B:D5:D0:DC:42@we: connected, signal strength -88
-106  1405/06/29 03:09:42  [wireless,info]  A4:4B:D5:D0:DC:42@we: disconnected, extensive data loss
-107  1405/06/29 12:28:26  [wireless,debug]  wlan1: F4:A5:9D:13:FC:B8 attempts to associate
-108  1405/06/29 12:28:26  [wireless,debug]  wlan1: F4:A5:9D:13:FC:B8 not in local ACL, by default accept
-109  1405/06/29 12:28:26  [wireless,info]  F4:A5:9D:13:FC:B8@wlan1: connected, signal strength -88
-110  1405/06/29 12:28:31  [wireless,info]  F4:A5:9D:13:FC:B8@wlan1: disconnected, unicast key exchange timeout
-111  1405/06/30 06:42:15  [wireless,debug]  wlan1: 72:A7:D8:B3:1F:1D attempts to associate
-112  1405/06/30 06:42:15  [wireless,debug]  wlan1: 72:A7:D8:B3:1F:1D not in local ACL, by default accept
-113  1405/06/30 06:42:15  [wireless,info]  72:A7:D8:B3:1F:1D@wlan1: connected, signal strength -86
-114  1405/06/30 06:42:20  [wireless,info]  72:A7:D8:B3:1F:1D@wlan1: disconnected, unicast key exchange timeout
-115  1405/07/05 14:21:26  [wireless,debug]  we: A4:4B:D5:D0:DC:42 attempts to associate
-116  1405/07/05 14:21:26  [wireless,debug]  we: A4:4B:D5:D0:DC:42 not in local ACL, by default accept
-117  1405/07/05 14:21:26  [wireless,info]  A4:4B:D5:D0:DC:42@we: connected, signal strength -87
-118  1405/07/05 14:21:29  [wireless,info]  A4:4B:D5:D0:DC:42@we: disconnected, extensive data loss
-119  1405/07/06 00:13:40  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB attempts to associate
-120  1405/07/06 00:13:40  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB not in local ACL, by default accept
-121  1405/07/06 00:13:40  [wireless,info]  62:6A:B6:43:33:CB@wlan1: connected, signal strength -87
-122  1405/07/06 00:13:45  [wireless,info]  62:6A:B6:43:33:CB@wlan1: disconnected, unicast key exchange timeout
-123  1405/07/06 22:18:14  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB attempts to associate
-124  1405/07/06 22:18:14  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB not in local ACL, by default accept
-125  1405/07/06 22:18:14  [wireless,info]  62:6A:B6:43:33:CB@wlan1: connected, signal strength -85
-126  1405/07/06 22:18:19  [wireless,info]  62:6A:B6:43:33:CB@wlan1: disconnected, unicast key exchange timeout
-127  1405/07/06 22:18:24  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB attempts to associate
-128  1405/07/06 22:18:24  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB not in local ACL, by default accept
-129  1405/07/06 22:18:24  [wireless,info]  62:6A:B6:43:33:CB@wlan1: connected, signal strength -84
-130  1405/07/06 22:18:29  [wireless,info]  62:6A:B6:43:33:CB@wlan1: disconnected, received disassoc: sending station leaving (3)
-131  1405/07/06 23:14:55  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB attempts to associate
-132  1405/07/06 23:14:55  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB not in local ACL, by default accept
-133  1405/07/06 23:14:55  [wireless,info]  62:6A:B6:43:33:CB@wlan1: connected, signal strength -80
-134  1405/07/06 23:15:00  [wireless,info]  62:6A:B6:43:33:CB@wlan1: disconnected, unicast key exchange timeout
-135  1405/07/06 23:15:24  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB attempts to associate
-136  1405/07/06 23:15:24  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB not in local ACL, by default accept
-137  1405/07/06 23:15:24  [wireless,info]  62:6A:B6:43:33:CB@wlan1: connected, signal strength -81
-138  1405/07/06 23:15:29  [wireless,info]  62:6A:B6:43:33:CB@wlan1: disconnected, unicast key exchange timeout
-139  1405/07/06 23:24:35  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB attempts to associate
-140  1405/07/06 23:24:35  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB not in local ACL, by default accept
-141  1405/07/06 23:24:35  [wireless,info]  62:6A:B6:43:33:CB@wlan1: connected, signal strength -84
-142  1405/07/06 23:24:40  [wireless,info]  62:6A:B6:43:33:CB@wlan1: disconnected, unicast key exchange timeout
-143  1405/07/06 23:31:41  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB attempts to associate
-144  1405/07/06 23:31:41  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB not in local ACL, by default accept
-145  1405/07/06 23:31:41  [wireless,info]  62:6A:B6:43:33:CB@wlan1: connected, signal strength -89
-146  1405/07/06 23:31:46  [wireless,info]  62:6A:B6:43:33:CB@wlan1: disconnected, unicast key exchange timeout
-147  1405/07/11 14:21:18  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB attempts to associate
-148  1405/07/11 14:21:18  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB not in local ACL, by default accept
-149  1405/07/11 14:21:18  [wireless,info]  62:6A:B6:43:33:CB@wlan1: connected, signal strength -83
-150  1405/07/11 14:21:23  [wireless,info]  62:6A:B6:43:33:CB@wlan1: disconnected, unicast key exchange timeout
-151  1405/07/11 14:21:27  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB attempts to associate
-152  1405/07/11 14:21:27  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB not in local ACL, by default accept
-153  1405/07/11 14:21:27  [wireless,info]  62:6A:B6:43:33:CB@wlan1: connected, signal strength -82
-154  1405/07/11 14:21:32  [wireless,info]  62:6A:B6:43:33:CB@wlan1: disconnected, unicast key exchange timeout
-155  1405/07/11 14:21:37  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB attempts to associate
-156  1405/07/11 14:21:37  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB not in local ACL, by default accept
-157  1405/07/11 14:21:37  [wireless,info]  62:6A:B6:43:33:CB@wlan1: connected, signal strength -79
-158  1405/07/11 14:21:42  [wireless,info]  62:6A:B6:43:33:CB@wlan1: disconnected, unicast key exchange timeout
-159  1405/07/11 22:43:48  [interface,info]  ether1 link down
-160  1405/07/11 22:46:29  [interface,info]  ether1 link up (speed 1G, full duplex)
-161  1405/07/15 12:33:57  [wireless,debug]  wlan1: 56:76:36:33:78:0F attempts to associate
-162  1405/07/15 12:33:57  [wireless,debug]  wlan1: 56:76:36:33:78:0F not in local ACL, by default accept
-163  1405/07/15 12:33:57  [wireless,info]  56:76:36:33:78:0F@wlan1: connected, signal strength -87
-164  1405/07/15 12:34:01  [wireless,info]  56:76:36:33:78:0F@wlan1: disconnected, extensive data loss
-165  1405/07/15 12:35:30  [wireless,debug]  wlan1: 56:76:36:33:78:0F attempts to associate
-166  1405/07/15 12:35:30  [wireless,debug]  wlan1: 56:76:36:33:78:0F not in local ACL, by default accept
-167  1405/07/15 12:35:30  [wireless,info]  56:76:36:33:78:0F@wlan1: connected, signal strength -88
-168  1405/07/15 12:35:34  [wireless,info]  56:76:36:33:78:0F@wlan1: disconnected, extensive data loss
-169  1405/07/16 14:26:23  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-170  1405/07/16 14:26:23  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-171  1405/07/16 15:37:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-172  1405/07/16 15:37:17  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-173  1405/07/17 08:27:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-174  1405/07/17 08:27:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-175  1405/07/17 08:41:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-176  1405/07/17 08:41:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-177  1405/07/18 10:26:57  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-178  1405/07/18 10:26:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-179  1405/07/18 10:51:13  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-180  1405/07/18 10:51:14  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-181  1405/07/18 12:06:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-182  1405/07/18 12:06:39  [system,info]  user olom1 added by garnaf
-183  1405/07/18 12:06:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-184  1405/07/19 09:30:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-185  1405/07/19 09:30:43  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-186  1405/07/19 17:40:40  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-187  1405/07/19 17:40:41  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-188  1405/07/19 23:21:11  [wireless,debug]  wlan1: 56:76:36:33:78:0F attempts to associate
-189  1405/07/19 23:21:11  [wireless,debug]  wlan1: 56:76:36:33:78:0F not in local ACL, by default accept
-190  1405/07/19 23:21:11  [wireless,info]  56:76:36:33:78:0F@wlan1: connected, signal strength -86
-191  1405/07/19 23:21:15  [wireless,info]  56:76:36:33:78:0F@wlan1: disconnected, extensive data loss
-192  1405/07/20 15:21:42  [wireless,debug]  wlan1: A4:4B:D5:D0:DC:42 attempts to associate
-193  1405/07/20 15:21:42  [wireless,debug]  wlan1: A4:4B:D5:D0:DC:42 not in local ACL, by default accept
-194  1405/07/20 15:21:42  [wireless,info]  A4:4B:D5:D0:DC:42@wlan1: connected, signal strength -87
-195  1405/07/20 15:21:45  [wireless,info]  A4:4B:D5:D0:DC:42@wlan1: disconnected, extensive data loss
-196  1405/07/21 10:52:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-197  1405/07/21 10:52:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-198  1405/07/22 13:11:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-199  1405/07/22 13:11:36  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-200  1405/07/23 12:19:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:27:41
+# ساعت دستگاه (خام): 1975-11-02 08:17:43
+# افست اصلاحی (سرور − دستگاه): +446788:39:58
+  1  1405/06/11 07:00:17  [wireless,debug]  we: AE:C1:59:80:BD:C0 attempts to associate
+  2  1405/06/11 07:00:17  [wireless,debug]  we: AE:C1:59:80:BD:C0 not in local ACL, by default accept
+  3  1405/06/11 07:00:17  [wireless,info]  AE:C1:59:80:BD:C0@we: connected, signal strength -78
+  4  1405/06/11 07:00:19  [wireless,info]  AE:C1:59:80:BD:C0@we: disconnected, received deauth: sending station leaving (3)
+  5  1405/06/11 07:00:19  [wireless,debug]  wlan1: A6:4A:F3:D4:13:3A attempts to associate
+  6  1405/06/11 07:00:19  [wireless,debug]  wlan1: reject A6:4A:F3:D4:13:3A, banned (last failure - unicast key exchange timeout)
+  7  1405/06/11 07:00:19  [wireless,debug]  wlan1: A6:4A:F3:D4:13:3A attempts to associate
+  8  1405/06/11 07:00:19  [wireless,debug]  wlan1: reject A6:4A:F3:D4:13:3A, banned (last failure - unicast key exchange timeout)
+  9  1405/06/11 07:00:20  [wireless,debug]  wlan1: A6:4A:F3:D4:13:3A attempts to associate
+ 10  1405/06/11 07:00:20  [wireless,debug]  wlan1: reject A6:4A:F3:D4:13:3A, banned (last failure - unicast key exchange timeout)
+ 11  1405/06/11 07:00:20  [wireless,debug]  wlan1: A6:4A:F3:D4:13:3A attempts to associate
+ 12  1405/06/11 07:00:20  [wireless,debug]  wlan1: reject A6:4A:F3:D4:13:3A, banned (last failure - unicast key exchange timeout)
+ 13  1405/06/11 07:00:21  [wireless,debug]  wlan1: A6:4A:F3:D4:13:3A attempts to associate
+ 14  1405/06/11 07:00:21  [wireless,debug]  wlan1: reject A6:4A:F3:D4:13:3A, banned (last failure - unicast key exchange timeout)
+ 15  1405/06/11 07:00:23  [wireless,debug]  wlan1: A6:4A:F3:D4:13:3A attempts to associate
+ 16  1405/06/11 07:00:23  [wireless,debug]  wlan1: reject A6:4A:F3:D4:13:3A, banned (last failure - unicast key exchange timeout)
+ 17  1405/06/11 07:00:23  [wireless,debug]  we: AE:C1:59:80:BD:C0 attempts to associate
+ 18  1405/06/11 07:00:23  [wireless,debug]  we: AE:C1:59:80:BD:C0 not in local ACL, by default accept
+ 19  1405/06/11 07:00:23  [wireless,info]  AE:C1:59:80:BD:C0@we: connected, signal strength -79
+ 20  1405/06/11 07:00:28  [wireless,info]  AE:C1:59:80:BD:C0@we: disconnected, unicast key exchange timeout
+ 21  1405/06/11 07:00:33  [wireless,debug]  wlan1: A6:4A:F3:D4:13:3A attempts to associate
+ 22  1405/06/11 07:00:33  [wireless,debug]  wlan1: A6:4A:F3:D4:13:3A not in local ACL, by default accept
+ 23  1405/06/11 07:00:33  [wireless,info]  A6:4A:F3:D4:13:3A@wlan1: connected, signal strength -81
+ 24  1405/06/11 07:00:38  [wireless,info]  A6:4A:F3:D4:13:3A@wlan1: disconnected, unicast key exchange timeout
+ 25  1405/06/12 07:34:11  [wireless,debug]  wlan1: 56:76:36:33:78:0F attempts to associate
+ 26  1405/06/12 07:34:11  [wireless,debug]  wlan1: 56:76:36:33:78:0F not in local ACL, by default accept
+ 27  1405/06/12 07:34:11  [wireless,info]  56:76:36:33:78:0F@wlan1: connected, signal strength -89
+ 28  1405/06/12 07:34:14  [wireless,info]  56:76:36:33:78:0F@wlan1: disconnected, extensive data loss
+ 29  1405/06/12 19:02:22  [wireless,debug]  wlan1: 56:76:36:33:78:0F attempts to associate
+ 30  1405/06/12 19:02:22  [wireless,debug]  wlan1: 56:76:36:33:78:0F not in local ACL, by default accept
+ 31  1405/06/12 19:02:22  [wireless,info]  56:76:36:33:78:0F@wlan1: connected, signal strength -88
+ 32  1405/06/12 19:02:25  [wireless,info]  56:76:36:33:78:0F@wlan1: disconnected, extensive data loss
+ 33  1405/06/12 23:09:11  [wireless,debug]  wlan1: 56:76:36:33:78:0F attempts to associate
+ 34  1405/06/12 23:09:11  [wireless,debug]  wlan1: 56:76:36:33:78:0F not in local ACL, by default accept
+ 35  1405/06/12 23:09:11  [wireless,info]  56:76:36:33:78:0F@wlan1: connected, signal strength -86
+ 36  1405/06/12 23:09:12  [wireless,info]  56:76:36:33:78:0F@wlan1: disconnected, received deauth: sending station leaving (3)
+ 37  1405/06/12 23:09:14  [wireless,debug]  wlan1: 56:76:36:33:78:0F attempts to associate
+ 38  1405/06/12 23:09:14  [wireless,debug]  wlan1: 56:76:36:33:78:0F not in local ACL, by default accept
+ 39  1405/06/12 23:09:14  [wireless,info]  56:76:36:33:78:0F@wlan1: connected, signal strength -87
+ 40  1405/06/12 23:09:17  [wireless,info]  56:76:36:33:78:0F@wlan1: disconnected, extensive data loss
+ 41  1405/06/12 23:18:34  [wireless,debug]  wlan1: 56:76:36:33:78:0F attempts to associate
+ 42  1405/06/12 23:18:34  [wireless,debug]  wlan1: 56:76:36:33:78:0F not in local ACL, by default accept
+ 43  1405/06/12 23:18:34  [wireless,info]  56:76:36:33:78:0F@wlan1: connected, signal strength -88
+ 44  1405/06/12 23:18:37  [wireless,info]  56:76:36:33:78:0F@wlan1: disconnected, extensive data loss
+ 45  1405/06/12 23:20:38  [wireless,debug]  wlan1: 56:76:36:33:78:0F attempts to associate
+ 46  1405/06/12 23:20:38  [wireless,debug]  wlan1: 56:76:36:33:78:0F not in local ACL, by default accept
+ 47  1405/06/12 23:20:38  [wireless,info]  56:76:36:33:78:0F@wlan1: connected, signal strength -89
+ 48  1405/06/12 23:20:41  [wireless,info]  56:76:36:33:78:0F@wlan1: disconnected, extensive data loss
+ 49  1405/06/13 02:46:39  [wireless,debug]  wlan1: A4:4B:D5:D0:DC:42 attempts to associate
+ 50  1405/06/13 02:46:39  [wireless,debug]  wlan1: A4:4B:D5:D0:DC:42 not in local ACL, by default accept
+ 51  1405/06/13 02:46:39  [wireless,info]  A4:4B:D5:D0:DC:42@wlan1: connected, signal strength -87
+ 52  1405/06/13 02:46:42  [wireless,info]  A4:4B:D5:D0:DC:42@wlan1: disconnected, extensive data loss
+ 53  1405/06/15 13:01:25  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB attempts to associate
+ 54  1405/06/15 13:01:25  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB not in local ACL, by default accept
+ 55  1405/06/15 13:01:25  [wireless,info]  62:6A:B6:43:33:CB@wlan1: connected, signal strength -84
+ 56  1405/06/15 13:01:30  [wireless,info]  62:6A:B6:43:33:CB@wlan1: disconnected, unicast key exchange timeout
+ 57  1405/06/17 09:59:02  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB attempts to associate
+ 58  1405/06/17 09:59:02  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB not in local ACL, by default accept
+ 59  1405/06/17 09:59:02  [wireless,info]  62:6A:B6:43:33:CB@wlan1: connected, signal strength -88
+ 60  1405/06/17 09:59:07  [wireless,info]  62:6A:B6:43:33:CB@wlan1: disconnected, unicast key exchange timeout
+ 61  1405/06/22 09:59:06  [wireless,debug]  we: C2:AB:4D:C9:28:93 attempts to associate
+ 62  1405/06/22 09:59:06  [wireless,debug]  we: C2:AB:4D:C9:28:93 not in local ACL, by default accept
+ 63  1405/06/22 09:59:06  [wireless,info]  C2:AB:4D:C9:28:93@we: connected, signal strength -86
+ 64  1405/06/22 09:59:10  [wireless,info]  C2:AB:4D:C9:28:93@we: disconnected, extensive data loss
+ 65  1405/06/23 13:40:46  [wireless,debug]  wlan1: A4:4B:D5:D0:DC:42 attempts to associate
+ 66  1405/06/23 13:40:46  [wireless,debug]  wlan1: A4:4B:D5:D0:DC:42 not in local ACL, by default accept
+ 67  1405/06/23 13:40:46  [wireless,info]  A4:4B:D5:D0:DC:42@wlan1: connected, signal strength -89
+ 68  1405/06/23 13:40:50  [wireless,info]  A4:4B:D5:D0:DC:42@wlan1: disconnected, extensive data loss
+ 69  1405/06/25 05:16:26  [wireless,debug]  we: A4:4B:D5:D0:DC:42 attempts to associate
+ 70  1405/06/25 05:16:26  [wireless,debug]  we: A4:4B:D5:D0:DC:42 not in local ACL, by default accept
+ 71  1405/06/25 05:16:26  [wireless,info]  A4:4B:D5:D0:DC:42@we: connected, signal strength -89
+ 72  1405/06/25 05:16:29  [wireless,info]  A4:4B:D5:D0:DC:42@we: disconnected, extensive data loss
+ 73  1405/06/26 14:29:00  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB attempts to associate
+ 74  1405/06/26 14:29:00  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB not in local ACL, by default accept
+ 75  1405/06/26 14:29:00  [wireless,info]  62:6A:B6:43:33:CB@wlan1: connected, signal strength -82
+ 76  1405/06/26 14:29:05  [wireless,info]  62:6A:B6:43:33:CB@wlan1: disconnected, unicast key exchange timeout
+ 77  1405/06/29 01:53:55  [wireless,debug]  wlan1: AE:F4:1D:24:88:BA attempts to associate
+ 78  1405/06/29 01:53:55  [wireless,debug]  wlan1: AE:F4:1D:24:88:BA not in local ACL, by default accept
+ 79  1405/06/29 01:53:55  [wireless,info]  AE:F4:1D:24:88:BA@wlan1: connected, signal strength -80
+ 80  1405/06/29 01:54:00  [wireless,info]  AE:F4:1D:24:88:BA@wlan1: disconnected, unicast key exchange timeout
+ 81  1405/06/29 03:06:49  [wireless,debug]  we: A4:4B:D5:D0:DC:42 attempts to associate
+ 82  1405/06/29 03:06:49  [wireless,debug]  we: A4:4B:D5:D0:DC:42 not in local ACL, by default accept
+ 83  1405/06/29 03:06:49  [wireless,info]  A4:4B:D5:D0:DC:42@we: connected, signal strength -88
+ 84  1405/06/29 03:06:52  [wireless,info]  A4:4B:D5:D0:DC:42@we: disconnected, extensive data loss
+ 85  1405/06/29 12:25:36  [wireless,debug]  wlan1: F4:A5:9D:13:FC:B8 attempts to associate
+ 86  1405/06/29 12:25:36  [wireless,debug]  wlan1: F4:A5:9D:13:FC:B8 not in local ACL, by default accept
+ 87  1405/06/29 12:25:36  [wireless,info]  F4:A5:9D:13:FC:B8@wlan1: connected, signal strength -88
+ 88  1405/06/29 12:25:41  [wireless,info]  F4:A5:9D:13:FC:B8@wlan1: disconnected, unicast key exchange timeout
+ 89  1405/06/30 06:39:25  [wireless,debug]  wlan1: 72:A7:D8:B3:1F:1D attempts to associate
+ 90  1405/06/30 06:39:25  [wireless,debug]  wlan1: 72:A7:D8:B3:1F:1D not in local ACL, by default accept
+ 91  1405/06/30 06:39:25  [wireless,info]  72:A7:D8:B3:1F:1D@wlan1: connected, signal strength -86
+ 92  1405/06/30 06:39:30  [wireless,info]  72:A7:D8:B3:1F:1D@wlan1: disconnected, unicast key exchange timeout
+ 93  1405/07/05 14:18:36  [wireless,debug]  we: A4:4B:D5:D0:DC:42 attempts to associate
+ 94  1405/07/05 14:18:36  [wireless,debug]  we: A4:4B:D5:D0:DC:42 not in local ACL, by default accept
+ 95  1405/07/05 14:18:36  [wireless,info]  A4:4B:D5:D0:DC:42@we: connected, signal strength -87
+ 96  1405/07/05 14:18:39  [wireless,info]  A4:4B:D5:D0:DC:42@we: disconnected, extensive data loss
+ 97  1405/07/06 00:10:50  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB attempts to associate
+ 98  1405/07/06 00:10:50  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB not in local ACL, by default accept
+ 99  1405/07/06 00:10:50  [wireless,info]  62:6A:B6:43:33:CB@wlan1: connected, signal strength -87
+100  1405/07/06 00:10:55  [wireless,info]  62:6A:B6:43:33:CB@wlan1: disconnected, unicast key exchange timeout
+101  1405/07/06 22:15:24  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB attempts to associate
+102  1405/07/06 22:15:24  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB not in local ACL, by default accept
+103  1405/07/06 22:15:24  [wireless,info]  62:6A:B6:43:33:CB@wlan1: connected, signal strength -85
+104  1405/07/06 22:15:29  [wireless,info]  62:6A:B6:43:33:CB@wlan1: disconnected, unicast key exchange timeout
+105  1405/07/06 22:15:34  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB attempts to associate
+106  1405/07/06 22:15:34  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB not in local ACL, by default accept
+107  1405/07/06 22:15:34  [wireless,info]  62:6A:B6:43:33:CB@wlan1: connected, signal strength -84
+108  1405/07/06 22:15:39  [wireless,info]  62:6A:B6:43:33:CB@wlan1: disconnected, received disassoc: sending station leaving (3)
+109  1405/07/06 23:12:05  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB attempts to associate
+110  1405/07/06 23:12:05  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB not in local ACL, by default accept
+111  1405/07/06 23:12:05  [wireless,info]  62:6A:B6:43:33:CB@wlan1: connected, signal strength -80
+112  1405/07/06 23:12:10  [wireless,info]  62:6A:B6:43:33:CB@wlan1: disconnected, unicast key exchange timeout
+113  1405/07/06 23:12:34  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB attempts to associate
+114  1405/07/06 23:12:34  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB not in local ACL, by default accept
+115  1405/07/06 23:12:34  [wireless,info]  62:6A:B6:43:33:CB@wlan1: connected, signal strength -81
+116  1405/07/06 23:12:39  [wireless,info]  62:6A:B6:43:33:CB@wlan1: disconnected, unicast key exchange timeout
+117  1405/07/06 23:21:45  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB attempts to associate
+118  1405/07/06 23:21:45  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB not in local ACL, by default accept
+119  1405/07/06 23:21:45  [wireless,info]  62:6A:B6:43:33:CB@wlan1: connected, signal strength -84
+120  1405/07/06 23:21:50  [wireless,info]  62:6A:B6:43:33:CB@wlan1: disconnected, unicast key exchange timeout
+121  1405/07/06 23:28:51  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB attempts to associate
+122  1405/07/06 23:28:51  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB not in local ACL, by default accept
+123  1405/07/06 23:28:51  [wireless,info]  62:6A:B6:43:33:CB@wlan1: connected, signal strength -89
+124  1405/07/06 23:28:56  [wireless,info]  62:6A:B6:43:33:CB@wlan1: disconnected, unicast key exchange timeout
+125  1405/07/11 14:18:28  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB attempts to associate
+126  1405/07/11 14:18:28  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB not in local ACL, by default accept
+127  1405/07/11 14:18:28  [wireless,info]  62:6A:B6:43:33:CB@wlan1: connected, signal strength -83
+128  1405/07/11 14:18:33  [wireless,info]  62:6A:B6:43:33:CB@wlan1: disconnected, unicast key exchange timeout
+129  1405/07/11 14:18:37  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB attempts to associate
+130  1405/07/11 14:18:37  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB not in local ACL, by default accept
+131  1405/07/11 14:18:37  [wireless,info]  62:6A:B6:43:33:CB@wlan1: connected, signal strength -82
+132  1405/07/11 14:18:42  [wireless,info]  62:6A:B6:43:33:CB@wlan1: disconnected, unicast key exchange timeout
+133  1405/07/11 14:18:47  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB attempts to associate
+134  1405/07/11 14:18:47  [wireless,debug]  wlan1: 62:6A:B6:43:33:CB not in local ACL, by default accept
+135  1405/07/11 14:18:47  [wireless,info]  62:6A:B6:43:33:CB@wlan1: connected, signal strength -79
+136  1405/07/11 14:18:52  [wireless,info]  62:6A:B6:43:33:CB@wlan1: disconnected, unicast key exchange timeout
+137  1405/07/11 22:40:58  [interface,info]  ether1 link down
+138  1405/07/11 22:43:39  [interface,info]  ether1 link up (speed 1G, full duplex)
+139  1405/07/15 12:31:07  [wireless,debug]  wlan1: 56:76:36:33:78:0F attempts to associate
+140  1405/07/15 12:31:07  [wireless,debug]  wlan1: 56:76:36:33:78:0F not in local ACL, by default accept
+141  1405/07/15 12:31:07  [wireless,info]  56:76:36:33:78:0F@wlan1: connected, signal strength -87
+142  1405/07/15 12:31:11  [wireless,info]  56:76:36:33:78:0F@wlan1: disconnected, extensive data loss
+143  1405/07/15 12:32:40  [wireless,debug]  wlan1: 56:76:36:33:78:0F attempts to associate
+144  1405/07/15 12:32:40  [wireless,debug]  wlan1: 56:76:36:33:78:0F not in local ACL, by default accept
+145  1405/07/15 12:32:40  [wireless,info]  56:76:36:33:78:0F@wlan1: connected, signal strength -88
+146  1405/07/15 12:32:44  [wireless,info]  56:76:36:33:78:0F@wlan1: disconnected, extensive data loss
+147  1405/07/16 14:23:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+148  1405/07/16 14:23:33  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+149  1405/07/16 15:34:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+150  1405/07/16 15:34:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+151  1405/07/17 08:24:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+152  1405/07/17 08:24:49  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+153  1405/07/17 08:38:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+154  1405/07/17 08:39:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+155  1405/07/18 10:24:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+156  1405/07/18 10:24:08  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+157  1405/07/18 10:48:23  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+158  1405/07/18 10:48:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+159  1405/07/18 12:03:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+160  1405/07/18 12:03:49  [system,info]  user olom1 added by garnaf
+161  1405/07/18 12:03:49  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+162  1405/07/19 09:27:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+163  1405/07/19 09:27:53  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+164  1405/07/19 17:37:50  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+165  1405/07/19 17:37:51  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+166  1405/07/19 23:18:21  [wireless,debug]  wlan1: 56:76:36:33:78:0F attempts to associate
+167  1405/07/19 23:18:21  [wireless,debug]  wlan1: 56:76:36:33:78:0F not in local ACL, by default accept
+168  1405/07/19 23:18:21  [wireless,info]  56:76:36:33:78:0F@wlan1: connected, signal strength -86
+169  1405/07/19 23:18:25  [wireless,info]  56:76:36:33:78:0F@wlan1: disconnected, extensive data loss
+170  1405/07/20 15:18:52  [wireless,debug]  wlan1: A4:4B:D5:D0:DC:42 attempts to associate
+171  1405/07/20 15:18:52  [wireless,debug]  wlan1: A4:4B:D5:D0:DC:42 not in local ACL, by default accept
+172  1405/07/20 15:18:52  [wireless,info]  A4:4B:D5:D0:DC:42@wlan1: connected, signal strength -87
+173  1405/07/20 15:18:55  [wireless,info]  A4:4B:D5:D0:DC:42@wlan1: disconnected, extensive data loss
+174  1405/07/21 10:49:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+175  1405/07/21 10:49:38  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+176  1405/07/22 13:08:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+177  1405/07/22 13:08:46  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+178  1405/07/23 12:16:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+179  1405/07/23 12:16:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+180  1405/07/24 15:13:13  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+181  1405/07/24 15:13:17  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+182  1405/07/24 15:47:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+183  1405/07/24 15:47:50  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+184  1405/07/25 17:08:07  [wireless,debug]  wlan1: 56:76:36:33:78:0F attempts to associate
+185  1405/07/25 17:08:07  [wireless,debug]  wlan1: 56:76:36:33:78:0F not in local ACL, by default accept
+186  1405/07/25 17:08:07  [wireless,info]  56:76:36:33:78:0F@wlan1: connected, signal strength -87
+187  1405/07/25 17:08:10  [wireless,info]  56:76:36:33:78:0F@wlan1: disconnected, extensive data loss
+188  1405/07/26 08:47:30  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+189  1405/07/26 08:47:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+190  1405/07/26 08:48:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+191  1405/07/26 08:48:22  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+192  1405/07/27 14:53:14  [wireless,debug]  wlan1: 56:76:36:33:78:0F attempts to associate
+193  1405/07/27 14:53:14  [wireless,debug]  wlan1: 56:76:36:33:78:0F not in local ACL, by default accept
+194  1405/07/27 14:53:14  [wireless,info]  56:76:36:33:78:0F@wlan1: connected, signal strength -87
+195  1405/07/27 14:53:17  [wireless,info]  56:76:36:33:78:0F@wlan1: disconnected, extensive data loss
+196  1405/07/28 00:12:02  [wireless,debug]  wlan1: 7A:2E:06:B0:F5:3F attempts to associate
+197  1405/07/28 00:12:02  [wireless,debug]  wlan1: 7A:2E:06:B0:F5:3F not in local ACL, by default accept
+198  1405/07/28 00:12:02  [wireless,info]  7A:2E:06:B0:F5:3F@wlan1: connected, signal strength -81
+199  1405/07/28 00:12:07  [wireless,info]  7A:2E:06:B0:F5:3F@wlan1: disconnected, unicast key exchange timeout
+200  1405/07/29 16:27:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

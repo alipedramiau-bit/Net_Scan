@@ -1,5 +1,5 @@
 IP: 172.18.8.115
-Collected at: 2026-10-15T10:09:36.604013+00:00
+Collected at: 2026-10-21T13:17:35.173774+00:00
 source: RouterOS API
 identity: Samadieh.Client
 device_type: ST
@@ -31,13 +31,25 @@ name=wlan1  mode=station  ssid=Abadan-Amoozesh1  band=5ghz-a/n  frequency=auto
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:39:41
-# ساعت دستگاه (خام): 1972-11-28 13:39:53
-# افست اصلاحی (سرور − دستگاه): +472291:29:48
-  1  1405/07/23 08:10:33  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/23 08:10:42  [interface,info]  ether1 link up (speed 100M, full duplex)
-  3  1405/07/23 08:11:32  [wireless,info]  6C:3B:6B:56:27:DF@wlan1 established connection on 5260000, SSID Abadan-Amoozesh1
-  4  1405/07/23 12:39:40  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:38:46
+# ساعت دستگاه (خام): 1972-12-04 14:32:50
+# افست اصلاحی (سرور − دستگاه): +472294:35:56
+  1  1405/07/28 11:16:40  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/28 11:16:50  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/28 11:16:51  [dhcp,info]  dhcp1 deassigned 172.29.64.221 from F8:75:A4:29:87:50
+  4  1405/07/28 11:16:51  [dhcp,info]  dhcp1 assigned 172.29.64.221 to F8:75:A4:29:87:50
+  5  1405/07/28 11:17:39  [wireless,info]  6C:3B:6B:56:27:DF@wlan1 established connection on 5260000, SSID Abadan-Amoozesh1
+  6  1405/07/28 11:22:12  [dhcp,info]  dhcp1 deassigned 172.29.64.222 from B4:2E:99:4A:C0:9E
+  7  1405/07/28 12:03:27  [dhcp,info]  dhcp1 assigned 172.29.64.222 to B4:2E:99:4A:C0:9E
+  8  1405/07/28 12:31:51  [dhcp,info]  dhcp1 deassigned 172.29.64.221 from F8:75:A4:29:87:50
+  9  1405/07/28 13:13:27  [dhcp,info]  dhcp1 deassigned 172.29.64.222 from B4:2E:99:4A:C0:9E
+ 10  1405/07/29 07:47:08  [dhcp,info]  dhcp1 assigned 172.29.64.221 to F8:75:A4:29:87:50
+ 11  1405/07/29 08:39:21  [dhcp,info]  dhcp1 assigned 172.29.64.222 to B4:2E:99:4A:C0:9E
+ 12  1405/07/29 10:02:11  [dhcp,info]  dhcp1 deassigned 172.29.64.221 from F8:75:A4:29:87:50
+ 13  1405/07/29 11:29:43  [wireless,info]  6C:3B:6B:56:27:DF@wlan1: lost connection, not polled for too long
+ 14  1405/07/29 11:30:40  [wireless,info]  6C:3B:6B:56:27:DF@wlan1 established connection on 5260000, SSID Abadan-Amoozesh1
+ 15  1405/07/29 13:29:22  [dhcp,info]  dhcp1 deassigned 172.29.64.222 from B4:2E:99:4A:C0:9E
+ 16  1405/07/29 16:38:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

@@ -1,5 +1,5 @@
 IP: 172.18.1.68
-Collected at: 2026-10-15T10:07:22.756265+00:00
+Collected at: 2026-10-21T13:15:56.207797+00:00
 source: RouterOS API
 identity: RB-Salmaneh
 device_type: Router
@@ -62,20 +62,48 @@ device_type: Router
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:20:38
-# ساعت دستگاه (خام): 1972-11-13 10:14:22
-# افست اصلاحی (سرور − دستگاه): +472654:36:16
-  1  1405/07/23 07:48:45  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/23 07:48:49  [bridge,info]  "BR-link-abdn-to-link-shdgn" mac address changed to 6C:3B:6B:87:70:99
-  3  1405/07/23 07:48:49  [bridge,info]  hardware offloading activated on bridge "BR-link-abdn-to-link-shdgn" ports: ether2-abdn,ether1-shdgn
-  4  1405/07/23 07:48:50  [bridge,info]  "BR-LAN" mac address changed to 6C:3B:6B:87:70:AF
-  5  1405/07/23 07:48:50  [bridge,info]  hardware offloading activated on bridge "BR-LAN" ports: ether23-Local,ether24-Local
-  6  1405/07/23 07:48:50  [system,info]  route changed
-  7  1405/07/23 07:48:52  [interface,info]  ether1-shdgn link up (speed 1G, full duplex)
-  8  1405/07/23 07:48:52  [interface,info]  ether2-abdn link up (speed 1G, full duplex)
-  9  1405/07/23 07:48:53  [interface,info]  ether23-Local link up (speed 100M, full duplex)
- 10  1405/07/23 07:49:56  [system,info]  route changed
- 11  1405/07/23 12:20:37  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:28:15
+# ساعت دستگاه (خام): 1972-11-19 04:06:14
+# افست اصلاحی (سرور − دستگاه): +472664:52:01
+  1  1405/07/27 18:04:30  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/27 18:04:34  [bridge,info]  "BR-link-abdn-to-link-shdgn" mac address changed to 6C:3B:6B:87:70:99
+  3  1405/07/27 18:04:34  [bridge,info]  hardware offloading activated on bridge "BR-link-abdn-to-link-shdgn" ports: ether2-abdn,ether1-shdgn
+  4  1405/07/27 18:04:34  [bridge,info]  "BR-LAN" mac address changed to 6C:3B:6B:87:70:AF
+  5  1405/07/27 18:04:34  [bridge,info]  hardware offloading activated on bridge "BR-LAN" ports: ether23-Local,ether24-Local
+  6  1405/07/27 18:04:35  [system,info]  route changed
+  7  1405/07/27 18:04:36  [interface,info]  ether1-shdgn link up (speed 1G, full duplex)
+  8  1405/07/27 18:04:36  [interface,info]  ether2-abdn link up (speed 1G, full duplex)
+  9  1405/07/27 18:04:36  [interface,info]  ether23-Local link up (speed 100M, full duplex)
+ 10  1405/07/27 18:04:41  [system,info]  route changed
+ 11  1405/07/28 08:50:07  [interface,info]  ether24-Local link up (speed 100M, full duplex)
+ 12  1405/07/28 08:52:18  [interface,info]  ether24-Local link down
+ 13  1405/07/28 08:52:21  [interface,info]  ether24-Local link up (speed 1G, full duplex)
+ 14  1405/07/28 08:52:39  [dhcp,info]  dhcp1 assigned 172.29.196.189 to 18:C0:4D:11:16:BF
+ 15  1405/07/28 09:35:46  [interface,info]  ether24-Local link down
+ 16  1405/07/28 09:35:53  [interface,info]  ether24-Local link up (speed 1G, full duplex)
+ 17  1405/07/28 09:35:57  [interface,info]  ether24-Local link down
+ 18  1405/07/28 09:36:00  [interface,info]  ether24-Local link up (speed 1G, full duplex)
+ 19  1405/07/28 09:36:01  [interface,info]  ether24-Local link down
+ 20  1405/07/28 09:36:04  [interface,info]  ether24-Local link up (speed 1G, full duplex)
+ 21  1405/07/28 09:36:32  [interface,info]  ether24-Local link down
+ 22  1405/07/28 09:36:35  [interface,info]  ether24-Local link up (speed 1G, full duplex)
+ 23  1405/07/28 09:36:45  [interface,info]  ether24-Local link down
+ 24  1405/07/28 09:36:48  [interface,info]  ether24-Local link up (speed 1G, full duplex)
+ 25  1405/07/28 12:11:02  [interface,info]  ether24-Local link down
+ 26  1405/07/28 12:17:27  [dhcp,info]  dhcp1 deassigned 172.29.196.189 from 18:C0:4D:11:16:BF
+ 27  1405/07/29 08:25:45  [interface,info]  ether24-Local link up (speed 100M, full duplex)
+ 28  1405/07/29 08:26:35  [interface,info]  ether24-Local link down
+ 29  1405/07/29 08:26:37  [interface,info]  ether24-Local link up (speed 1G, full duplex)
+ 30  1405/07/29 08:26:45  [dhcp,info]  dhcp1 assigned 172.29.196.189 to 18:C0:4D:11:16:BF
+ 31  1405/07/29 08:27:02  [interface,info]  ether24-Local link down
+ 32  1405/07/29 08:27:09  [interface,info]  ether24-Local link up (speed 1G, full duplex)
+ 33  1405/07/29 08:43:13  [interface,info]  ether24-Local link down
+ 34  1405/07/29 08:43:16  [interface,info]  ether24-Local link up (speed 1G, full duplex)
+ 35  1405/07/29 08:43:17  [interface,info]  ether24-Local link down
+ 36  1405/07/29 08:43:20  [interface,info]  ether24-Local link up (speed 1G, full duplex)
+ 37  1405/07/29 11:54:48  [interface,info]  ether24-Local link down
+ 38  1405/07/29 12:03:43  [dhcp,info]  dhcp1 deassigned 172.29.196.189 from 18:C0:4D:11:16:BF
+ 39  1405/07/29 16:28:13  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -107,6 +135,6 @@ sfp1  6C:3B:6B:87:70:B1  (ether)
 BR-LAN  6C:3B:6B:87:70:AF  (bridge)
 BR-link-abdn-to-link-shdgn  6C:3B:6B:87:70:99  (bridge)
 --- /ip arp ---
-BR-link-abdn-to-link-shdgn  64:D1:54:98:E3:25  (arp 172.18.1.71)
-BR-LAN  64:D1:54:41:73:96  (arp 172.29.196.162)
 BR-link-abdn-to-link-shdgn  10:8C:CF:33:51:49  (arp 172.18.1.65)
+BR-LAN  64:D1:54:41:73:96  (arp 172.29.196.162)
+BR-link-abdn-to-link-shdgn  64:D1:54:98:E3:25  (arp 172.18.1.71)

@@ -1,5 +1,5 @@
 IP: 172.29.2.193
-Collected at: 2026-10-14T10:25:21.670748+00:00
+Collected at: 2026-10-18T05:59:12.466973+00:00
 source: RouterOS API
 identity: Foriat.B.Client
 device_type: ST
@@ -39,9 +39,9 @@ name=wlan1  mode=station  ssid=Foriat.B  band=5ghz-a/n  frequency=5680
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:45:06
-# ساعت دستگاه (خام): 2025-10-19 15:04:16
-# افست اصلاحی (سرور − دستگاه): +8635:10:50
+# زمان سرور هنگام خواندن: 1405/07/26 09:20:35
+# ساعت دستگاه (خام): 2025-10-23 10:42:34
+# افست اصلاحی (سرور − دستگاه): +8635:08:01
   1  2025-10-09 12:08:50  [system,error,critical]  router was rebooted without proper shutdown
   2  2025-10-09 12:08:51  [interface,info]  lo link up
   3  2025-10-09 12:08:51  [interface,info]  ether1 link up (speed 100M, full duplex)
@@ -124,6 +124,22 @@ name=wlan1  mode=station  ssid=Foriat.B  band=5ghz-a/n  frequency=5680
  80  2025-10-19 14:33:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
  81  2025-10-19 14:33:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
  82  2025-10-19 15:04:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 83  2025-10-19 15:04:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 84  2025-10-20 13:41:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 85  2025-10-20 13:41:50  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 86  2025-10-21 16:38:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 87  2025-10-21 16:38:34  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 88  2025-10-21 17:04:16  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 89  2025-10-21 17:04:18  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 90  2025-10-21 17:11:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 91  2025-10-21 17:11:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 92  2025-10-23 10:13:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 93  2025-10-23 10:13:29  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 94  2025-10-23 10:16:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 95  2025-10-23 10:16:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 96  2025-10-23 10:40:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 97  2025-10-23 10:40:40  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 98  2025-10-23 10:42:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

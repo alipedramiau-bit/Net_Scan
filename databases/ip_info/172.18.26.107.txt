@@ -1,5 +1,5 @@
 IP: 172.18.26.107
-Collected at: 2026-10-15T10:08:47.482077+00:00
+Collected at: 2026-10-21T13:16:59.204795+00:00
 source: RouterOS API
 identity: Soeichi->Sobeh1.Client
 device_type: ST
@@ -32,19 +32,17 @@ name=wlan1  mode=station-bridge  ssid=SVCHSBH1  band=5ghz-a/n  frequency=auto
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:33:36
-# ساعت دستگاه (خام): 2023-05-30 06:42:21
-# افست اصلاحی (سرور − دستگاه): +29618:21:15
-  1  1405/07/23 06:51:05  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/23 06:51:05  [bridge,info]  "bridge1" mac address changed to 4C:5E:0C:A7:F6:32
-  3  1405/07/23 06:51:05  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
-  4  1405/07/23 06:51:07  [interface,info]  ether1 link up (speed 100M, full duplex)
-  5  1405/07/23 06:54:28  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
-  6  1405/07/23 08:28:49  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: lost connection, not polled for too long
-  7  1405/07/23 08:28:55  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
-  8  1405/07/23 08:43:39  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1: lost connection, not polled for too long
-  9  1405/07/23 08:43:45  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
- 10  1405/07/23 12:33:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:35:06
+# ساعت دستگاه (خام): 2023-06-02 09:19:25
+# افست اصلاحی (سرور − دستگاه): +29691:45:41
+  1  1405/07/29 08:15:32  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/29 08:15:33  [bridge,info]  "bridge1" mac address changed to 4C:5E:0C:A7:F6:32
+  3  1405/07/29 08:15:33  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  4  1405/07/29 08:15:34  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/07/29 08:18:56  [wireless,info]  6C:3B:6B:94:8C:7C@wlan1 established connection on 5280000, SSID SVCHSBH1
+  6  1405/07/29 08:32:46  [dhcp,info]  dhcp1 assigned 172.29.209.189 to A0:36:BC:34:77:76
+  7  1405/07/29 12:02:47  [dhcp,info]  dhcp1 deassigned 172.29.209.189 from A0:36:BC:34:77:76
+  8  1405/07/29 16:35:04  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

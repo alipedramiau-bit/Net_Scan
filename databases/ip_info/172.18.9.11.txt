@@ -1,5 +1,5 @@
 IP: 172.18.9.11
-Collected at: 2026-10-14T10:24:18.883826+00:00
+Collected at: 2026-10-21T13:17:41.496990+00:00
 source: RouterOS API
 identity: CL-22BHMN
 device_type: ST
@@ -32,14 +32,209 @@ name=wlan1  mode=station-wds  ssid=KHZR22BHMN  band=5ghz-a/n  frequency=5180
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:34:12
-# ساعت دستگاه (خام): 1971-12-28 02:39:22
-# افست اصلاحی (سرور − دستگاه): +480343:24:50
-  1  1405/07/22 10:54:32  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 10:54:39  [bridge,info]  "bridge1" mac address changed to 48:A9:8A:56:35:35
-  3  1405/07/22 10:54:41  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/22 10:54:43  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
-  5  1405/07/22 13:34:10  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:39:25
+# ساعت دستگاه (خام): 1972-01-02 11:28:40
+# افست اصلاحی (سرور − دستگاه): +480385:40:45
+  1  1405/07/26 02:01:45  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, association timeout
+  2  1405/07/26 02:02:02  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, authentication timeout
+  3  1405/07/26 02:02:17  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+  4  1405/07/26 02:02:27  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: authentication not valid (2)
+  5  1405/07/26 02:02:38  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, association timeout
+  6  1405/07/26 02:03:12  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+  7  1405/07/26 02:03:27  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, no beacons received
+  8  1405/07/26 02:03:36  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+  9  1405/07/26 02:03:51  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, no beacons received
+ 10  1405/07/26 02:05:08  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, authentication timeout
+ 11  1405/07/26 02:05:25  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, authentication timeout
+ 12  1405/07/26 02:05:40  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 13  1405/07/26 02:05:43  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, extensive data loss
+ 14  1405/07/26 02:05:51  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 15  1405/07/26 02:05:56  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: class 2 frame received (6)
+ 16  1405/07/26 02:06:03  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 17  1405/07/26 02:06:13  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, no beacons received
+ 18  1405/07/26 02:06:43  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, authentication timeout
+ 19  1405/07/26 02:07:00  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, authentication timeout
+ 20  1405/07/26 02:07:17  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, authentication timeout
+ 21  1405/07/26 02:07:33  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, authentication timeout
+ 22  1405/07/26 02:09:31  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, association timeout
+ 23  1405/07/26 02:09:48  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, association timeout
+ 24  1405/07/26 02:10:25  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, association timeout
+ 25  1405/07/26 02:12:41  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 26  1405/07/26 02:13:01  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, no beacons received
+ 27  1405/07/26 02:13:09  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 28  1405/07/26 02:13:12  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, extensive data loss
+ 29  1405/07/26 02:13:23  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, association timeout
+ 30  1405/07/26 02:13:37  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 31  1405/07/26 02:13:44  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: class 2 frame received (6)
+ 32  1405/07/26 02:15:27  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 33  1405/07/26 02:15:40  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, extensive data loss
+ 34  1405/07/26 02:18:37  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 35  1405/07/26 02:18:41  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: authentication not valid (2)
+ 36  1405/07/26 02:18:48  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 37  1405/07/26 02:19:22  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: class 2 frame received (6)
+ 38  1405/07/26 02:19:31  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 39  1405/07/26 02:19:51  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, extensive data loss
+ 40  1405/07/26 02:20:01  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, association timeout
+ 41  1405/07/26 02:20:18  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, association timeout
+ 42  1405/07/26 02:20:35  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, association timeout
+ 43  1405/07/26 02:20:52  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, association timeout
+ 44  1405/07/26 02:21:05  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 45  1405/07/26 02:21:19  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: class 2 frame received (6)
+ 46  1405/07/26 02:21:31  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, association timeout
+ 47  1405/07/26 02:22:22  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, authentication timeout
+ 48  1405/07/26 02:22:36  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 49  1405/07/26 02:22:56  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, no beacons received
+ 50  1405/07/26 02:23:06  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, association timeout
+ 51  1405/07/26 02:23:23  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, association timeout
+ 52  1405/07/26 02:23:37  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 53  1405/07/26 02:24:00  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, extensive data loss
+ 54  1405/07/26 02:24:11  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, association timeout
+ 55  1405/07/26 02:24:27  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, association timeout
+ 56  1405/07/26 02:24:42  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 57  1405/07/26 02:25:15  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, extensive data loss
+ 58  1405/07/26 02:25:21  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 59  1405/07/26 02:25:41  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, extensive data loss
+ 60  1405/07/26 02:25:49  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 61  1405/07/26 02:27:32  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, extensive data loss
+ 62  1405/07/26 02:27:39  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 63  1405/07/26 02:28:11  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, extensive data loss
+ 64  1405/07/26 02:28:40  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 65  1405/07/26 02:28:46  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: authentication not valid (2)
+ 66  1405/07/26 02:30:10  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, authentication timeout
+ 67  1405/07/26 02:30:45  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 68  1405/07/26 02:30:49  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: authentication not valid (2)
+ 69  1405/07/26 02:30:56  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 70  1405/07/26 02:31:00  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: class 2 frame received (6)
+ 71  1405/07/26 02:31:40  [interface,info]  ether1 link down
+ 72  1405/07/26 02:31:41  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 73  1405/07/26 02:31:43  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 74  1405/07/26 02:31:45  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: authentication not valid (2)
+ 75  1405/07/26 02:31:51  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 76  1405/07/26 02:31:57  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: class 2 frame received (6)
+ 77  1405/07/26 02:32:05  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 78  1405/07/26 02:32:06  [interface,info]  ether1 link down
+ 79  1405/07/26 02:32:08  [interface,info]  ether1 link up (speed 100M, full duplex)
+ 80  1405/07/26 02:32:10  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: class 2 frame received (6)
+ 81  1405/07/26 02:32:16  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 82  1405/07/26 02:32:21  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: class 2 frame received (6)
+ 83  1405/07/26 02:32:29  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 84  1405/07/26 02:32:34  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: authentication not valid (2)
+ 85  1405/07/26 02:32:41  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 86  1405/07/26 02:32:45  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: class 2 frame received (6)
+ 87  1405/07/26 02:32:52  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 88  1405/07/26 02:32:57  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: class 2 frame received (6)
+ 89  1405/07/26 02:33:04  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 90  1405/07/26 02:33:13  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: class 2 frame received (6)
+ 91  1405/07/26 02:33:28  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 92  1405/07/26 02:33:35  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: authentication not valid (2)
+ 93  1405/07/26 02:34:30  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 94  1405/07/26 02:34:35  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: authentication not valid (2)
+ 95  1405/07/26 02:34:42  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 96  1405/07/26 02:34:50  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: authentication not valid (2)
+ 97  1405/07/26 02:37:19  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+ 98  1405/07/26 02:37:24  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: class 2 frame received (6)
+ 99  1405/07/26 02:37:34  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, association timeout
+100  1405/07/26 02:37:55  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+101  1405/07/26 02:37:59  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: authentication not valid (2)
+102  1405/07/26 02:38:05  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+103  1405/07/26 02:38:14  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: class 2 frame received (6)
+104  1405/07/26 02:38:24  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, association timeout
+105  1405/07/26 02:38:38  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+106  1405/07/26 02:38:58  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, no beacons received
+107  1405/07/26 02:39:07  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+108  1405/07/26 02:39:17  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, no beacons received
+109  1405/07/26 02:39:25  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+110  1405/07/26 02:39:30  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: authentication not valid (2)
+111  1405/07/26 02:39:40  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, association timeout
+112  1405/07/26 02:39:55  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+113  1405/07/26 02:40:03  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: class 2 frame received (6)
+114  1405/07/26 02:40:23  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+115  1405/07/26 02:41:02  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, extensive data loss
+116  1405/07/26 02:41:10  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+117  1405/07/26 02:41:25  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: class 2 frame received (6)
+118  1405/07/26 02:41:35  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, authentication timeout
+119  1405/07/26 02:41:49  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+120  1405/07/26 02:42:04  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, no beacons received
+121  1405/07/26 02:42:46  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+122  1405/07/26 02:42:50  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: authentication not valid (2)
+123  1405/07/26 02:43:01  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, association timeout
+124  1405/07/26 02:43:35  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+125  1405/07/26 02:43:40  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: class 2 frame received (6)
+126  1405/07/26 02:43:47  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+127  1405/07/26 02:48:00  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, extensive data loss
+128  1405/07/26 02:48:34  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+129  1405/07/26 02:48:44  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, unicast key exchange timeout
+130  1405/07/26 02:49:06  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+131  1405/07/26 02:49:09  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: authentication not valid (2)
+132  1405/07/26 02:49:16  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+133  1405/07/26 02:49:19  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: authentication not valid (2)
+134  1405/07/26 02:49:26  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, association failed: unspecified (1)
+135  1405/07/26 02:49:40  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+136  1405/07/26 02:50:21  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: authentication not valid (2)
+137  1405/07/26 02:50:34  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+138  1405/07/26 02:55:11  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: authentication not valid (2)
+139  1405/07/26 02:55:18  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+140  1405/07/26 02:55:21  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: authentication not valid (2)
+141  1405/07/26 02:55:28  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+142  1405/07/26 02:55:35  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: authentication not valid (2)
+143  1405/07/26 02:55:42  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+144  1405/07/26 02:55:50  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: class 2 frame received (6)
+145  1405/07/26 02:56:03  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+146  1405/07/26 03:04:14  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, no beacons received
+147  1405/07/26 03:04:26  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, association timeout
+148  1405/07/26 03:05:13  [interface,info]  ether1 link down
+149  1405/07/26 03:05:16  [interface,info]  ether1 link up (speed 100M, full duplex)
+150  1405/07/26 03:05:38  [interface,info]  ether1 link down
+151  1405/07/26 03:05:40  [interface,info]  ether1 link up (speed 100M, full duplex)
+152  1405/07/26 03:06:35  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+153  1405/07/26 03:06:55  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, no beacons received
+154  1405/07/26 03:07:08  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+155  1405/07/26 03:14:15  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: class 2 frame received (6)
+156  1405/07/26 03:14:29  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+157  1405/07/26 03:14:44  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, no beacons received
+158  1405/07/26 03:15:18  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+159  1405/07/26 03:18:10  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: class 2 frame received (6)
+160  1405/07/26 03:18:24  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+161  1405/07/26 03:47:24  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: class 2 frame received (6)
+162  1405/07/26 03:47:31  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+163  1405/07/26 03:54:08  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, extensive data loss
+164  1405/07/26 03:54:15  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+165  1405/07/26 05:32:55  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, extensive data loss
+166  1405/07/26 05:33:03  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+167  1405/07/26 05:33:11  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: authentication not valid (2)
+168  1405/07/26 05:33:20  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+169  1405/07/26 05:33:24  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: authentication not valid (2)
+170  1405/07/26 05:33:31  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+171  1405/07/26 05:39:17  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, extensive data loss
+172  1405/07/26 05:39:51  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+173  1405/07/26 09:09:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+174  1405/07/26 09:09:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+175  1405/07/26 09:12:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+176  1405/07/26 09:12:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+177  1405/07/26 21:13:31  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: authentication not valid (2)
+178  1405/07/26 21:13:46  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+179  1405/07/26 22:04:07  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: authentication not valid (2)
+180  1405/07/26 22:04:30  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: failed to connect, on 5580/20/an, authentication timeout
+181  1405/07/26 22:04:43  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+182  1405/07/26 22:05:05  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, extensive data loss
+183  1405/07/26 22:05:12  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+184  1405/07/26 22:13:51  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, extensive data loss
+185  1405/07/26 22:14:31  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+186  1405/07/26 22:19:16  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, extensive data loss
+187  1405/07/26 22:19:23  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+188  1405/07/26 22:21:08  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, extensive data loss
+189  1405/07/26 22:21:22  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+190  1405/07/26 22:27:22  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, no beacons received
+191  1405/07/26 22:27:43  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+192  1405/07/29 01:09:24  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: group key handshake timeout (16)
+193  1405/07/29 01:09:31  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+194  1405/07/29 02:20:27  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: authentication not valid (2)
+195  1405/07/29 02:20:34  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+196  1405/07/29 02:20:39  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: 4-way handshake timeout (15)
+197  1405/07/29 02:20:46  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+198  1405/07/29 03:39:24  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1: lost connection, received deauth: group key handshake timeout (16)
+199  1405/07/29 03:39:31  [wireless,info]  E4:8D:8C:7C:E4:EF@wlan1 established connection on 5580000, SSID KHZR22BHMN
+200  1405/07/29 16:39:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

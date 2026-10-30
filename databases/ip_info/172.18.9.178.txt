@@ -1,5 +1,5 @@
 IP: 172.18.9.178
-Collected at: 2026-10-14T10:24:22.618333+00:00
+Collected at: 2026-10-21T13:17:47.538017+00:00
 source: RouterOS API
 identity: PTP-AP-22BAHMAN-ARVAN
 device_type: AP
@@ -30,14 +30,104 @@ name=wlan1  mode=ap-bridge  ssid=22BHMNAVKNR  band=5ghz-a/n  frequency=5325
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:35:05
-# ساعت دستگاه (خام): 1971-12-28 02:40:18
-# افست اصلاحی (سرور − دستگاه): +480343:24:47
-  1  1405/07/22 10:54:32  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 10:54:36  [bridge,info]  "bridge1" mac address changed to 48:A9:8A:56:43:A2
-  3  1405/07/22 10:54:43  [interface,info]  ether1 link up (speed 1G, full duplex)
-  4  1405/07/22 10:54:52  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -54, wants bridge
-  5  1405/07/22 13:35:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:39:58
+# ساعت دستگاه (خام): 1972-01-02 11:29:21
+# افست اصلاحی (سرور − دستگاه): +480385:40:37
+  1  1405/07/25 05:10:23  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/25 05:10:26  [bridge,info]  "bridge1" mac address changed to 48:A9:8A:56:43:A2
+  3  1405/07/25 05:10:33  [interface,info]  ether1 link up (speed 1G, full duplex)
+  4  1405/07/25 05:10:45  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -54, wants bridge
+  5  1405/07/25 07:07:43  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, extensive data loss
+  6  1405/07/25 07:08:00  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -86, wants bridge
+  7  1405/07/25 07:08:01  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: reassociating
+  8  1405/07/25 07:08:01  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, ok
+  9  1405/07/25 07:08:01  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -87, wants bridge
+ 10  1405/07/25 07:08:02  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: reassociating
+ 11  1405/07/25 07:08:02  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, ok
+ 12  1405/07/25 07:08:02  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -86, wants bridge
+ 13  1405/07/25 20:37:11  [interface,info]  ether1 link down
+ 14  1405/07/25 20:37:13  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 15  1405/07/25 20:37:36  [interface,info]  ether1 link down
+ 16  1405/07/25 20:37:38  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 17  1405/07/25 21:30:15  [interface,info]  ether1 link down
+ 18  1405/07/25 21:30:17  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 19  1405/07/25 21:30:40  [interface,info]  ether1 link down
+ 20  1405/07/25 21:30:42  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 21  1405/07/25 23:30:31  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, extensive data loss
+ 22  1405/07/25 23:30:53  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -67, wants bridge
+ 23  1405/07/25 23:32:40  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, received deauth: authentication not valid (2)
+ 24  1405/07/25 23:32:48  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -69, wants bridge
+ 25  1405/07/25 23:32:49  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: reassociating
+ 26  1405/07/25 23:32:49  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, ok
+ 27  1405/07/25 23:32:49  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -68, wants bridge
+ 28  1405/07/26 02:00:36  [interface,info]  ether1 link down
+ 29  1405/07/26 02:00:38  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 30  1405/07/26 02:01:00  [interface,info]  ether1 link down
+ 31  1405/07/26 02:01:02  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 32  1405/07/26 02:08:20  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, extensive data loss
+ 33  1405/07/26 02:08:44  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -74, wants bridge
+ 34  1405/07/26 02:31:39  [interface,info]  ether1 link down
+ 35  1405/07/26 02:31:40  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 36  1405/07/26 02:32:04  [interface,info]  ether1 link down
+ 37  1405/07/26 02:32:06  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 38  1405/07/26 02:34:17  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, extensive data loss
+ 39  1405/07/26 02:38:46  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -75, wants bridge
+ 40  1405/07/26 02:43:58  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, received deauth: authentication not valid (2)
+ 41  1405/07/26 02:44:04  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -72, wants bridge
+ 42  1405/07/26 02:44:37  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: reassociating
+ 43  1405/07/26 02:44:37  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, ok
+ 44  1405/07/26 02:44:37  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -72, wants bridge
+ 45  1405/07/26 02:45:58  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, extensive data loss
+ 46  1405/07/26 02:46:06  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -76, wants bridge
+ 47  1405/07/26 03:05:13  [interface,info]  ether1 link down
+ 48  1405/07/26 03:05:15  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 49  1405/07/26 03:05:38  [interface,info]  ether1 link down
+ 50  1405/07/26 03:05:41  [interface,info]  ether1 link up (speed 1G, full duplex)
+ 51  1405/07/26 03:39:53  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, extensive data loss
+ 52  1405/07/26 03:40:13  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -72, wants bridge
+ 53  1405/07/26 04:13:33  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, extensive data loss
+ 54  1405/07/26 04:13:40  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -69, wants bridge
+ 55  1405/07/26 04:27:40  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, extensive data loss
+ 56  1405/07/26 04:27:40  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -69, wants bridge
+ 57  1405/07/26 04:28:11  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, extensive data loss
+ 58  1405/07/26 04:28:18  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -70, wants bridge
+ 59  1405/07/26 04:37:31  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, received deauth: authentication not valid (2)
+ 60  1405/07/26 04:37:37  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -72, wants bridge
+ 61  1405/07/26 04:43:04  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, extensive data loss
+ 62  1405/07/26 04:43:11  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -68, wants bridge
+ 63  1405/07/26 09:10:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 64  1405/07/26 09:10:09  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 65  1405/07/26 09:12:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 66  1405/07/26 09:12:33  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 67  1405/07/26 09:50:06  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 68  1405/07/26 09:50:15  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 69  1405/07/26 22:42:30  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, received deauth: authentication not valid (2)
+ 70  1405/07/26 22:43:02  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -63, wants bridge
+ 71  1405/07/26 23:30:29  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, extensive data loss
+ 72  1405/07/26 23:31:01  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -73, wants bridge
+ 73  1405/07/26 23:31:02  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: reassociating
+ 74  1405/07/26 23:31:02  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, ok
+ 75  1405/07/26 23:31:02  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -73, wants bridge
+ 76  1405/07/26 23:31:03  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: reassociating
+ 77  1405/07/26 23:31:03  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, ok
+ 78  1405/07/26 23:31:03  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -74, wants bridge
+ 79  1405/07/26 23:31:07  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, extensive data loss
+ 80  1405/07/26 23:31:18  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -73, wants bridge
+ 81  1405/07/26 23:31:19  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: reassociating
+ 82  1405/07/26 23:31:19  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, ok
+ 83  1405/07/26 23:31:19  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -73, wants bridge
+ 84  1405/07/26 23:31:20  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: reassociating
+ 85  1405/07/26 23:31:20  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, ok
+ 86  1405/07/26 23:31:20  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -72, wants bridge
+ 87  1405/07/26 23:31:25  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, extensive data loss
+ 88  1405/07/26 23:31:34  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -65, wants bridge
+ 89  1405/07/27 00:37:29  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, received deauth: authentication not valid (2)
+ 90  1405/07/27 00:37:48  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -62, wants bridge
+ 91  1405/07/28 01:41:28  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, extensive data loss
+ 92  1405/07/28 01:41:51  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -77, wants bridge
+ 93  1405/07/29 09:29:01  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: disconnected, extensive data loss
+ 94  1405/07/29 09:29:34  [wireless,info]  E4:8D:8C:7C:E4:FB@wlan1: connected, signal strength -54, wants bridge
+ 95  1405/07/29 16:39:57  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

@@ -1,5 +1,5 @@
 IP: 172.18.1.59
-Collected at: 2026-10-15T10:07:20.600821+00:00
+Collected at: 2026-10-21T13:15:55.269172+00:00
 source: RouterOS API
 identity: CL-SHABAKEH-VALIASR
 device_type: ST
@@ -30,113 +30,123 @@ name=wlan1  mode=station-bridge  ssid=Shabake  band=5ghz-a/n  frequency=5500
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:20:29
-# ساعت دستگاه (خام): 1970-11-01 23:31:22
-# افست اصلاحی (سرور − دستگاه): +490473:19:07
-  1  1405/04/20 12:49:19  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/04/20 12:49:22  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:F7:F3:37
-  3  1405/04/20 12:49:30  [interface,info]  ether1 link up (speed 1G, full duplex)
-  4  1405/04/20 13:49:42  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
-  5  1405/04/23 07:38:20  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
-  6  1405/04/23 08:56:38  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
-  7  1405/04/27 09:22:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-  8  1405/04/27 09:46:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-  9  1405/04/28 12:03:21  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 10  1405/04/28 12:20:00  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 11  1405/04/29 10:19:19  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
- 12  1405/04/29 11:48:27  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
- 13  1405/04/29 20:35:45  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
- 14  1405/04/29 21:16:41  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
- 15  1405/04/29 21:24:41  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
- 16  1405/04/29 21:40:15  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
- 17  1405/05/04 09:20:40  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
- 18  1405/05/04 09:39:22  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
- 19  1405/05/04 14:04:12  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
- 20  1405/05/04 14:31:10  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
- 21  1405/05/04 14:36:10  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
- 22  1405/05/04 14:36:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
- 23  1405/05/04 14:43:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
- 24  1405/05/04 14:43:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
- 25  1405/05/04 14:46:05  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
- 26  1405/05/04 14:46:05  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
- 27  1405/05/04 14:49:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
- 28  1405/05/04 14:49:15  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
- 29  1405/05/10 13:43:27  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
- 30  1405/05/10 14:28:12  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
- 31  1405/05/11 11:37:58  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
- 32  1405/05/11 11:58:24  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
- 33  1405/05/12 06:02:37  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
- 34  1405/05/12 06:11:36  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
- 35  1405/05/29 18:47:36  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
- 36  1405/05/29 19:02:56  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
- 37  1405/05/29 20:35:16  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
- 38  1405/05/29 20:56:51  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
- 39  1405/05/31 06:35:41  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
- 40  1405/05/31 08:35:02  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
- 41  1405/06/06 01:08:48  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
- 42  1405/06/06 01:15:05  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
- 43  1405/06/08 14:41:57  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
- 44  1405/06/08 14:59:34  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
- 45  1405/06/10 11:32:02  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
- 46  1405/06/10 11:32:27  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
- 47  1405/06/10 11:43:22  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
- 48  1405/06/10 21:17:39  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
- 49  1405/06/10 23:08:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 50  1405/06/10 23:32:17  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 51  1405/06/10 23:34:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 52  1405/06/10 23:37:22  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 53  1405/06/10 23:41:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 54  1405/06/10 23:46:19  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 55  1405/06/10 23:57:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 56  1405/06/11 00:00:49  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 57  1405/06/11 00:05:43  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 58  1405/06/11 00:08:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 59  1405/06/11 00:18:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 60  1405/06/11 00:20:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 61  1405/06/11 00:22:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 62  1405/06/11 00:25:18  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 63  1405/06/15 13:18:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 64  1405/06/15 13:19:34  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 65  1405/06/22 09:12:26  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
- 66  1405/06/22 09:18:32  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
- 67  1405/06/24 02:40:25  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
- 68  1405/06/24 02:49:40  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
- 69  1405/06/30 09:15:51  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
- 70  1405/06/30 09:21:15  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
- 71  1405/07/05 11:20:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 72  1405/07/05 11:20:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 73  1405/07/06 21:13:06  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
- 74  1405/07/06 21:24:21  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
- 75  1405/07/16 14:26:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 76  1405/07/16 14:26:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 77  1405/07/16 15:37:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 78  1405/07/16 15:37:42  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 79  1405/07/16 16:43:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 80  1405/07/16 16:43:33  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 81  1405/07/17 08:28:12  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 82  1405/07/17 08:28:13  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 83  1405/07/17 08:35:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 84  1405/07/17 08:35:14  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 85  1405/07/17 08:42:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 86  1405/07/17 08:42:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 87  1405/07/18 10:27:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 88  1405/07/18 10:27:21  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 89  1405/07/18 10:51:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 90  1405/07/18 10:51:40  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 91  1405/07/18 12:06:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 92  1405/07/18 12:06:45  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 93  1405/07/18 12:06:45  [system,info]  user olom1 added by garnaf
- 94  1405/07/19 06:50:34  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
- 95  1405/07/19 08:42:47  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
- 96  1405/07/19 09:31:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 97  1405/07/19 09:31:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 98  1405/07/19 17:40:54  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 99  1405/07/19 17:40:54  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-100  1405/07/21 10:53:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-101  1405/07/21 10:53:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-102  1405/07/22 13:12:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-103  1405/07/22 13:12:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-104  1405/07/23 12:20:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:28:07
+# ساعت دستگاه (خام): 1970-11-08 03:41:49
+# افست اصلاحی (سرور − دستگاه): +490473:16:18
+  1  1405/04/20 12:46:30  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/04/20 12:46:33  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:F7:F3:37
+  3  1405/04/20 12:46:41  [interface,info]  ether1 link up (speed 1G, full duplex)
+  4  1405/04/20 13:46:53  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
+  5  1405/04/23 07:35:31  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
+  6  1405/04/23 08:53:49  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
+  7  1405/04/27 09:20:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+  8  1405/04/27 09:44:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+  9  1405/04/28 12:00:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 10  1405/04/28 12:17:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 11  1405/04/29 10:16:30  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
+ 12  1405/04/29 11:45:38  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
+ 13  1405/04/29 20:32:56  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
+ 14  1405/04/29 21:13:52  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
+ 15  1405/04/29 21:21:52  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
+ 16  1405/04/29 21:37:26  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
+ 17  1405/05/04 09:17:51  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
+ 18  1405/05/04 09:36:33  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
+ 19  1405/05/04 14:01:23  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
+ 20  1405/05/04 14:28:21  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
+ 21  1405/05/04 14:33:21  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
+ 22  1405/05/04 14:33:22  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
+ 23  1405/05/04 14:41:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
+ 24  1405/05/04 14:41:09  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
+ 25  1405/05/04 14:43:16  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
+ 26  1405/05/04 14:43:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
+ 27  1405/05/04 14:46:25  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
+ 28  1405/05/04 14:46:26  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
+ 29  1405/05/10 13:40:38  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
+ 30  1405/05/10 14:25:23  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
+ 31  1405/05/11 11:35:09  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
+ 32  1405/05/11 11:55:35  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
+ 33  1405/05/12 05:59:48  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
+ 34  1405/05/12 06:08:47  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
+ 35  1405/05/29 18:44:47  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
+ 36  1405/05/29 19:00:07  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
+ 37  1405/05/29 20:32:27  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
+ 38  1405/05/29 20:54:02  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
+ 39  1405/05/31 06:32:52  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
+ 40  1405/05/31 08:32:13  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
+ 41  1405/06/06 01:05:59  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
+ 42  1405/06/06 01:12:16  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
+ 43  1405/06/08 14:39:08  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
+ 44  1405/06/08 14:56:45  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
+ 45  1405/06/10 11:29:13  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
+ 46  1405/06/10 11:29:38  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
+ 47  1405/06/10 11:40:33  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
+ 48  1405/06/10 21:14:50  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
+ 49  1405/06/10 23:05:57  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 50  1405/06/10 23:29:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 51  1405/06/10 23:31:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 52  1405/06/10 23:34:33  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 53  1405/06/10 23:38:43  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 54  1405/06/10 23:43:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 55  1405/06/10 23:55:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 56  1405/06/10 23:58:00  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 57  1405/06/11 00:02:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 58  1405/06/11 00:05:23  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 59  1405/06/11 00:15:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 60  1405/06/11 00:17:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 61  1405/06/11 00:19:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 62  1405/06/11 00:22:29  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 63  1405/06/15 13:16:04  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 64  1405/06/15 13:16:45  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 65  1405/06/22 09:09:37  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
+ 66  1405/06/22 09:15:43  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
+ 67  1405/06/24 02:37:36  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
+ 68  1405/06/24 02:46:51  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
+ 69  1405/06/30 09:13:02  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
+ 70  1405/06/30 09:18:26  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
+ 71  1405/07/05 11:17:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 72  1405/07/05 11:18:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 73  1405/07/06 21:10:17  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
+ 74  1405/07/06 21:21:32  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
+ 75  1405/07/16 14:23:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 76  1405/07/16 14:23:59  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 77  1405/07/16 15:34:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 78  1405/07/16 15:34:53  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 79  1405/07/16 16:40:40  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 80  1405/07/16 16:40:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 81  1405/07/17 08:25:23  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 82  1405/07/17 08:25:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 83  1405/07/17 08:32:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 84  1405/07/17 08:32:25  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 85  1405/07/17 08:39:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 86  1405/07/17 08:39:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 87  1405/07/18 10:24:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 88  1405/07/18 10:24:32  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 89  1405/07/18 10:48:50  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 90  1405/07/18 10:48:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 91  1405/07/18 12:03:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 92  1405/07/18 12:03:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 93  1405/07/18 12:03:56  [system,info]  user olom1 added by garnaf
+ 94  1405/07/19 06:47:45  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1: lost connection, synchronization timeout
+ 95  1405/07/19 08:39:58  [wireless,info]  6C:3B:6B:3D:BE:7E@wlan1 established connection on 5080000, SSID Shabake
+ 96  1405/07/19 09:28:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 97  1405/07/19 09:28:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 98  1405/07/19 17:38:05  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 99  1405/07/19 17:38:05  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+100  1405/07/21 10:50:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+101  1405/07/21 10:50:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+102  1405/07/22 13:09:30  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+103  1405/07/22 13:09:31  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+104  1405/07/23 12:17:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+105  1405/07/23 12:17:40  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+106  1405/07/24 15:14:10  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+107  1405/07/24 15:14:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+108  1405/07/24 15:48:16  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+109  1405/07/24 15:48:18  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+110  1405/07/26 08:48:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+111  1405/07/26 08:48:46  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+112  1405/07/26 08:49:21  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+113  1405/07/26 08:49:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+114  1405/07/29 16:28:06  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

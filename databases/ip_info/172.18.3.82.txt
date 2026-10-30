@@ -1,5 +1,5 @@
 IP: 172.18.3.82
-Collected at: 2026-10-15T10:09:20.625299+00:00
+Collected at: 2026-10-21T13:17:20.533014+00:00
 source: RouterOS API
 identity: Setad->Forit-Meydoon.AP
 device_type: AP
@@ -30,200 +30,209 @@ name=wlan1  mode=ap-bridge  ssid=Setad->For  band=5ghz-onlyn  frequency=5520
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:37:48
-# ساعت دستگاه (خام): 1976-04-30 20:26:24
-# افست اصلاحی (سرور − دستگاه): +442308:41:24
-  1  1405/03/05 12:20:38  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/03/05 12:20:41  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:8F:3B:F8
-  3  1405/03/05 12:20:51  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -58, wants bridge
-  4  1405/03/05 12:24:18  [interface,info]  ether1 link up (speed 100M, full duplex)
-  5  1405/04/17 14:04:37  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -58
-  6  1405/04/17 16:00:54  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -61, wants bridge
-  7  1405/04/22 15:05:16  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -57
-  8  1405/04/22 17:01:44  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -57, wants bridge
-  9  1405/04/24 15:03:37  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -60
- 10  1405/04/24 17:04:21  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -57, wants bridge
- 11  1405/04/28 10:55:17  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -59
- 12  1405/04/28 12:48:16  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -56, wants bridge
- 13  1405/05/04 14:17:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
- 14  1405/05/04 14:17:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
- 15  1405/05/04 14:22:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
- 16  1405/05/04 14:22:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
- 17  1405/05/04 14:35:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
- 18  1405/05/04 14:35:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
- 19  1405/05/04 14:43:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
- 20  1405/05/04 14:43:32  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
- 21  1405/05/04 14:45:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
- 22  1405/05/04 14:45:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
- 23  1405/05/04 14:48:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
- 24  1405/05/04 14:48:49  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
- 25  1405/05/17 14:03:36  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -59
- 26  1405/05/17 16:03:42  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -54, wants bridge
- 27  1405/05/19 16:03:40  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -65
- 28  1405/05/19 18:03:38  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -58, wants bridge
- 29  1405/05/21 18:08:15  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -59
- 30  1405/05/21 19:03:22  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -57, wants bridge
- 31  1405/05/24 19:03:26  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -58
- 32  1405/05/24 20:03:28  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -58, wants bridge
- 33  1405/05/25 08:30:44  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -58
- 34  1405/05/25 08:36:12  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -59, wants bridge
- 35  1405/05/26 17:03:43  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -65
- 36  1405/05/26 18:04:00  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -58, wants bridge
- 37  1405/05/28 01:24:05  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -58
- 38  1405/05/28 01:24:29  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -60, wants bridge
- 39  1405/05/28 15:03:18  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -60
- 40  1405/05/28 16:03:42  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -58, wants bridge
- 41  1405/05/29 13:03:57  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -57
- 42  1405/05/29 14:02:14  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -59, wants bridge
- 43  1405/06/01 09:20:35  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -59
- 44  1405/06/01 10:03:44  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -62, wants bridge
- 45  1405/06/03 10:53:21  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -57
- 46  1405/06/03 12:03:55  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -60, wants bridge
- 47  1405/06/03 12:42:03  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, group key exchange timeout, signal strength -58
- 48  1405/06/03 12:42:10  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -58, wants bridge
- 49  1405/06/04 13:03:40  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -62
- 50  1405/06/04 14:02:41  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -59, wants bridge
- 51  1405/06/05 15:03:52  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -59
- 52  1405/06/05 16:01:51  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -58, wants bridge
- 53  1405/06/07 14:57:06  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, group key exchange timeout, signal strength -58
- 54  1405/06/07 16:01:59  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -58, wants bridge
- 55  1405/06/08 17:03:20  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -61
- 56  1405/06/08 18:02:18  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -58, wants bridge
- 57  1405/06/09 18:58:13  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -62
- 58  1405/06/09 20:02:23  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -58, wants bridge
- 59  1405/06/10 12:29:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 60  1405/06/10 12:32:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 61  1405/06/10 12:33:16  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 62  1405/06/10 13:03:23  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 63  1405/06/10 14:09:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 64  1405/06/10 14:12:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 65  1405/06/10 14:13:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 66  1405/06/10 14:38:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 67  1405/06/10 14:41:40  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 68  1405/06/10 14:42:14  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 69  1405/06/10 14:48:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 70  1405/06/10 14:49:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 71  1405/06/10 14:50:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 72  1405/06/10 14:52:53  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 73  1405/06/10 15:00:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 74  1405/06/10 15:04:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 75  1405/06/10 15:08:23  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 76  1405/06/10 15:08:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 77  1405/06/10 15:10:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 78  1405/06/10 15:15:19  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 79  1405/06/10 15:16:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 80  1405/06/10 15:18:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 81  1405/06/10 15:22:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 82  1405/06/10 15:26:14  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 83  1405/06/10 15:40:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 84  1405/06/10 15:41:08  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 85  1405/06/10 15:42:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 86  1405/06/10 15:42:57  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 87  1405/06/10 19:05:19  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -58
- 88  1405/06/10 20:02:39  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -60, wants bridge
- 89  1405/06/10 23:02:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 90  1405/06/10 23:31:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 91  1405/06/10 23:34:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 92  1405/06/10 23:37:05  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 93  1405/06/10 23:41:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 94  1405/06/10 23:45:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 95  1405/06/10 23:57:37  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 96  1405/06/11 00:00:32  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 97  1405/06/11 00:05:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
- 98  1405/06/11 00:07:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
- 99  1405/06/11 00:18:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-100  1405/06/11 00:20:17  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-101  1405/06/11 00:22:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-102  1405/06/11 00:25:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-103  1405/06/11 11:14:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-104  1405/06/11 12:06:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-105  1405/06/11 12:19:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-106  1405/06/11 12:26:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-107  1405/06/15 11:03:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-108  1405/06/15 11:03:29  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -63
-109  1405/06/15 11:03:36  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-110  1405/06/15 12:02:40  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -58, wants bridge
-111  1405/06/18 17:03:56  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -58
-112  1405/06/18 18:02:20  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -58, wants bridge
-113  1405/06/21 18:18:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-114  1405/06/21 18:23:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-115  1405/06/21 18:24:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-116  1405/06/21 18:31:43  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-117  1405/06/22 13:40:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-118  1405/06/22 13:42:43  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-119  1405/06/28 17:18:34  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-120  1405/06/28 17:21:10  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-121  1405/06/28 17:58:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-122  1405/06/28 17:58:53  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-123  1405/06/28 22:11:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-124  1405/06/28 22:14:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-125  1405/06/31 10:42:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-126  1405/06/31 11:31:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-127  1405/07/03 18:44:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-128  1405/07/03 18:45:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via telnet
-129  1405/07/03 18:45:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via telnet
-130  1405/07/03 18:50:15  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-131  1405/07/04 07:26:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-132  1405/07/04 07:27:19  [system,error,critical]  login failure for user admin from 172.18.4.76 via winbox
-133  1405/07/04 07:27:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-134  1405/07/04 07:33:25  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-135  1405/07/04 07:34:34  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-136  1405/07/04 13:40:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-137  1405/07/04 13:43:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-138  1405/07/04 13:56:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-139  1405/07/04 13:57:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-140  1405/07/04 13:59:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-141  1405/07/04 13:59:34  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-142  1405/07/09 11:34:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-143  1405/07/09 11:37:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-144  1405/07/09 12:00:13  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-145  1405/07/09 12:11:33  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-146  1405/07/11 20:40:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-147  1405/07/11 20:43:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-148  1405/07/14 14:37:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-149  1405/07/14 17:21:07  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-150  1405/07/15 13:36:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-151  1405/07/15 13:36:51  [system,info]  changed snmp settings by garnaf
-152  1405/07/15 13:36:51  [system,info]  item changed by garnaf
-153  1405/07/15 13:36:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-154  1405/07/15 15:00:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-155  1405/07/15 15:00:30  [system,info]  user olom1 added by garnaf
-156  1405/07/15 15:00:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-157  1405/07/15 15:06:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-158  1405/07/15 15:06:19  [system,info]  user ums1 removed by garnaf
-159  1405/07/15 15:06:19  [system,info]  user ums2 removed by garnaf
-160  1405/07/15 15:06:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-161  1405/07/16 10:16:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-162  1405/07/16 10:16:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-163  1405/07/16 10:38:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-164  1405/07/16 10:38:45  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-165  1405/07/16 13:53:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-166  1405/07/16 13:53:49  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-167  1405/07/16 14:08:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-168  1405/07/16 14:08:32  [system,info]  changed snmp settings by garnaf
-169  1405/07/16 14:08:32  [system,info]  item changed by garnaf
-170  1405/07/16 14:08:32  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-171  1405/07/16 14:33:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-172  1405/07/16 14:33:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-173  1405/07/16 15:44:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-174  1405/07/16 15:44:36  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-175  1405/07/17 08:36:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-176  1405/07/17 08:36:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-177  1405/07/18 10:34:25  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-178  1405/07/18 10:34:25  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-179  1405/07/18 10:58:51  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-180  1405/07/18 10:58:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-181  1405/07/18 12:10:43  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-182  1405/07/18 12:10:43  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-183  1405/07/19 09:49:50  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-184  1405/07/19 09:49:53  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-185  1405/07/19 17:44:46  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-186  1405/07/19 17:44:46  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-187  1405/07/21 11:11:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-188  1405/07/21 11:11:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-189  1405/07/22 13:30:23  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-190  1405/07/22 13:30:26  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-191  1405/07/23 12:37:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:37:17
+# ساعت دستگاه (خام): 1976-05-07 00:28:44
+# افست اصلاحی (سرور − دستگاه): +442308:38:33
+  1  1405/03/05 12:17:50  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:8F:3B:F8
+  2  1405/03/05 12:18:00  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -58, wants bridge
+  3  1405/03/05 12:21:27  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/04/17 14:01:46  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -58
+  5  1405/04/17 15:58:03  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -61, wants bridge
+  6  1405/04/22 15:02:25  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -57
+  7  1405/04/22 16:58:53  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -57, wants bridge
+  8  1405/04/24 15:00:46  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -60
+  9  1405/04/24 17:01:30  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -57, wants bridge
+ 10  1405/04/28 10:52:26  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -59
+ 11  1405/04/28 12:45:25  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -56, wants bridge
+ 12  1405/05/04 14:14:12  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
+ 13  1405/05/04 14:14:13  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
+ 14  1405/05/04 14:19:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
+ 15  1405/05/04 14:19:29  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
+ 16  1405/05/04 14:32:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
+ 17  1405/05/04 14:32:53  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
+ 18  1405/05/04 14:40:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
+ 19  1405/05/04 14:40:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
+ 20  1405/05/04 14:42:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
+ 21  1405/05/04 14:42:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
+ 22  1405/05/04 14:45:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via ssh
+ 23  1405/05/04 14:45:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via ssh
+ 24  1405/05/17 14:00:45  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -59
+ 25  1405/05/17 16:00:51  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -54, wants bridge
+ 26  1405/05/19 16:00:49  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -65
+ 27  1405/05/19 18:00:47  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -58, wants bridge
+ 28  1405/05/21 18:05:24  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -59
+ 29  1405/05/21 19:00:31  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -57, wants bridge
+ 30  1405/05/24 19:00:35  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -58
+ 31  1405/05/24 20:00:37  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -58, wants bridge
+ 32  1405/05/25 08:27:53  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -58
+ 33  1405/05/25 08:33:21  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -59, wants bridge
+ 34  1405/05/26 17:00:52  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -65
+ 35  1405/05/26 18:01:09  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -58, wants bridge
+ 36  1405/05/28 01:21:14  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -58
+ 37  1405/05/28 01:21:38  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -60, wants bridge
+ 38  1405/05/28 15:00:27  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -60
+ 39  1405/05/28 16:00:51  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -58, wants bridge
+ 40  1405/05/29 13:01:06  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -57
+ 41  1405/05/29 13:59:23  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -59, wants bridge
+ 42  1405/06/01 09:17:44  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -59
+ 43  1405/06/01 10:00:53  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -62, wants bridge
+ 44  1405/06/03 10:50:30  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -57
+ 45  1405/06/03 12:01:04  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -60, wants bridge
+ 46  1405/06/03 12:39:12  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, group key exchange timeout, signal strength -58
+ 47  1405/06/03 12:39:19  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -58, wants bridge
+ 48  1405/06/04 13:00:49  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -62
+ 49  1405/06/04 13:59:50  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -59, wants bridge
+ 50  1405/06/05 15:01:01  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -59
+ 51  1405/06/05 15:59:00  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -58, wants bridge
+ 52  1405/06/07 14:54:15  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, group key exchange timeout, signal strength -58
+ 53  1405/06/07 15:59:08  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -58, wants bridge
+ 54  1405/06/08 17:00:29  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -61
+ 55  1405/06/08 17:59:27  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -58, wants bridge
+ 56  1405/06/09 18:55:22  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -62
+ 57  1405/06/09 19:59:32  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -58, wants bridge
+ 58  1405/06/10 12:26:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 59  1405/06/10 12:30:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 60  1405/06/10 12:30:25  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 61  1405/06/10 13:00:32  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 62  1405/06/10 14:07:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 63  1405/06/10 14:09:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 64  1405/06/10 14:10:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 65  1405/06/10 14:36:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 66  1405/06/10 14:38:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 67  1405/06/10 14:39:23  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 68  1405/06/10 14:45:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 69  1405/06/10 14:47:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 70  1405/06/10 14:47:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 71  1405/06/10 14:50:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 72  1405/06/10 14:57:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 73  1405/06/10 15:02:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 74  1405/06/10 15:05:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 75  1405/06/10 15:05:36  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 76  1405/06/10 15:07:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 77  1405/06/10 15:12:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 78  1405/06/10 15:13:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 79  1405/06/10 15:15:33  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 80  1405/06/10 15:19:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 81  1405/06/10 15:23:23  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 82  1405/06/10 15:37:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 83  1405/06/10 15:38:17  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 84  1405/06/10 15:39:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 85  1405/06/10 15:40:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 86  1405/06/10 19:02:28  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -58
+ 87  1405/06/10 19:59:48  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -60, wants bridge
+ 88  1405/06/10 22:59:40  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 89  1405/06/10 23:29:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 90  1405/06/10 23:31:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 91  1405/06/10 23:34:14  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 92  1405/06/10 23:38:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 93  1405/06/10 23:43:05  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 94  1405/06/10 23:54:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 95  1405/06/10 23:57:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 96  1405/06/11 00:02:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 97  1405/06/11 00:05:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 98  1405/06/11 00:15:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 99  1405/06/11 00:17:26  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+100  1405/06/11 00:19:37  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+101  1405/06/11 00:22:13  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+102  1405/06/11 11:11:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+103  1405/06/11 12:04:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+104  1405/06/11 12:16:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+105  1405/06/11 12:23:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+106  1405/06/15 11:00:23  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+107  1405/06/15 11:00:38  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -63
+108  1405/06/15 11:00:45  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+109  1405/06/15 11:59:49  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -58, wants bridge
+110  1405/06/18 17:01:05  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: disconnected, extensive data loss, signal strength -58
+111  1405/06/18 17:59:29  [wireless,info]  6C:3B:6B:4D:A4:3C@wlan1: connected, signal strength -58, wants bridge
+112  1405/06/21 18:16:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+113  1405/06/21 18:21:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+114  1405/06/21 18:21:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+115  1405/06/21 18:28:52  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+116  1405/06/22 13:37:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+117  1405/06/22 13:39:52  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+118  1405/06/28 17:15:43  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+119  1405/06/28 17:18:19  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+120  1405/06/28 17:55:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+121  1405/06/28 17:56:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+122  1405/06/28 22:09:05  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+123  1405/06/28 22:12:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+124  1405/06/31 10:39:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+125  1405/06/31 11:28:37  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+126  1405/07/03 18:42:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+127  1405/07/03 18:42:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via telnet
+128  1405/07/03 18:42:15  [system,info,account]  user garnaf logged out from 172.18.4.76 via telnet
+129  1405/07/03 18:47:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+130  1405/07/04 07:23:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+131  1405/07/04 07:24:28  [system,error,critical]  login failure for user admin from 172.18.4.76 via winbox
+132  1405/07/04 07:24:40  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+133  1405/07/04 07:30:34  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+134  1405/07/04 07:31:43  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+135  1405/07/04 13:37:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+136  1405/07/04 13:40:53  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+137  1405/07/04 13:53:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+138  1405/07/04 13:55:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+139  1405/07/04 13:56:09  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+140  1405/07/04 13:56:43  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+141  1405/07/09 11:31:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+142  1405/07/09 11:34:12  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+143  1405/07/09 11:57:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+144  1405/07/09 12:08:42  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+145  1405/07/11 20:37:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+146  1405/07/11 20:40:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+147  1405/07/14 14:35:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+148  1405/07/14 17:18:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+149  1405/07/15 13:34:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+150  1405/07/15 13:34:00  [system,info]  changed snmp settings by garnaf
+151  1405/07/15 13:34:00  [system,info]  item changed by garnaf
+152  1405/07/15 13:34:00  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+153  1405/07/15 14:57:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+154  1405/07/15 14:57:39  [system,info]  user olom1 added by garnaf
+155  1405/07/15 14:57:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+156  1405/07/15 15:03:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+157  1405/07/15 15:03:28  [system,info]  user ums1 removed by garnaf
+158  1405/07/15 15:03:28  [system,info]  user ums2 removed by garnaf
+159  1405/07/15 15:03:29  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+160  1405/07/16 10:13:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+161  1405/07/16 10:13:53  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+162  1405/07/16 10:35:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+163  1405/07/16 10:35:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+164  1405/07/16 13:50:57  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+165  1405/07/16 13:50:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+166  1405/07/16 14:05:40  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+167  1405/07/16 14:05:41  [system,info]  changed snmp settings by garnaf
+168  1405/07/16 14:05:41  [system,info]  item changed by garnaf
+169  1405/07/16 14:05:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+170  1405/07/16 14:31:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+171  1405/07/16 14:31:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+172  1405/07/16 15:41:44  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+173  1405/07/16 15:41:45  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+174  1405/07/17 08:34:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+175  1405/07/17 08:34:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+176  1405/07/18 10:31:34  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+177  1405/07/18 10:31:34  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+178  1405/07/18 10:56:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+179  1405/07/18 10:56:00  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+180  1405/07/18 12:07:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+181  1405/07/18 12:07:52  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+182  1405/07/19 09:46:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+183  1405/07/19 09:47:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+184  1405/07/19 17:41:55  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+185  1405/07/19 17:41:55  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+186  1405/07/21 11:08:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+187  1405/07/21 11:08:50  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+188  1405/07/22 13:27:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+189  1405/07/22 13:27:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+190  1405/07/23 12:34:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+191  1405/07/23 12:34:59  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+192  1405/07/24 15:30:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+193  1405/07/24 15:30:25  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+194  1405/07/24 15:59:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+195  1405/07/24 15:59:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+196  1405/07/26 09:06:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+197  1405/07/26 09:06:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+198  1405/07/26 09:08:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+199  1405/07/26 09:08:57  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+200  1405/07/29 16:37:16  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

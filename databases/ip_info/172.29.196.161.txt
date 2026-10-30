@@ -1,5 +1,5 @@
 IP: 172.29.196.161
-Collected at: 2026-10-14T10:25:14.745104+00:00
+Collected at: 2026-10-18T05:59:05.467343+00:00
 source: RouterOS API
 identity: RB-Salmaneh
 device_type: Router
@@ -62,22 +62,79 @@ device_type: Router
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:42:57
-# ساعت دستگاه (خام): 1972-11-13 09:33:37
-# افست اصلاحی (سرور − دستگاه): +472632:39:20
-  1  1405/07/22 09:51:49  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 09:51:54  [bridge,info]  "BR-link-abdn-to-link-shdgn" mac address changed to 6C:3B:6B:87:70:99
-  3  1405/07/22 09:51:54  [bridge,info]  hardware offloading activated on bridge "BR-link-abdn-to-link-shdgn" ports: ether2-abdn,ether1-shdgn
-  4  1405/07/22 09:51:54  [bridge,info]  "BR-LAN" mac address changed to 6C:3B:6B:87:70:AF
-  5  1405/07/22 09:51:54  [bridge,info]  hardware offloading activated on bridge "BR-LAN" ports: ether23-Local,ether24-Local
-  6  1405/07/22 09:51:54  [system,info]  route changed
-  7  1405/07/22 09:51:56  [interface,info]  ether1-shdgn link up (speed 1G, full duplex)
-  8  1405/07/22 09:51:56  [interface,info]  ether2-abdn link up (speed 1G, full duplex)
-  9  1405/07/22 09:51:56  [interface,info]  ether23-Local link up (speed 100M, full duplex)
- 10  1405/07/22 09:52:52  [system,info]  route changed
- 11  1405/07/22 13:12:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 12  1405/07/22 13:12:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 13  1405/07/22 13:42:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/26 09:19:26
+# ساعت دستگاه (خام): 1972-11-16 07:15:50
+# افست اصلاحی (سرور − دستگاه): +472654:33:36
+  1  1405/07/23 07:46:05  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/23 07:46:09  [bridge,info]  "BR-link-abdn-to-link-shdgn" mac address changed to 6C:3B:6B:87:70:99
+  3  1405/07/23 07:46:09  [bridge,info]  hardware offloading activated on bridge "BR-link-abdn-to-link-shdgn" ports: ether2-abdn,ether1-shdgn
+  4  1405/07/23 07:46:10  [bridge,info]  "BR-LAN" mac address changed to 6C:3B:6B:87:70:AF
+  5  1405/07/23 07:46:10  [bridge,info]  hardware offloading activated on bridge "BR-LAN" ports: ether23-Local,ether24-Local
+  6  1405/07/23 07:46:10  [system,info]  route changed
+  7  1405/07/23 07:46:12  [interface,info]  ether1-shdgn link up (speed 1G, full duplex)
+  8  1405/07/23 07:46:12  [interface,info]  ether2-abdn link up (speed 1G, full duplex)
+  9  1405/07/23 07:46:13  [interface,info]  ether23-Local link up (speed 100M, full duplex)
+ 10  1405/07/23 07:47:16  [system,info]  route changed
+ 11  1405/07/23 12:17:57  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 12  1405/07/23 12:17:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 13  1405/07/24 15:14:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 14  1405/07/24 15:14:27  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 15  1405/07/24 15:40:43  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 16  1405/07/24 15:40:45  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 17  1405/07/24 15:48:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 18  1405/07/24 15:48:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 19  1405/07/25 06:50:59  [system,info]  route changed
+ 20  1405/07/25 06:52:06  [system,info]  route changed
+ 21  1405/07/25 07:28:09  [system,info]  route changed
+ 22  1405/07/25 07:28:16  [system,info]  route changed
+ 23  1405/07/25 17:19:34  [system,error,critical]  login failure for user  from 172.16.0.21 via ssh
+ 24  1405/07/25 20:26:29  [system,info]  route changed
+ 25  1405/07/25 20:27:27  [system,info]  route changed
+ 26  1405/07/25 20:30:09  [system,info]  route changed
+ 27  1405/07/25 20:30:16  [system,info]  route changed
+ 28  1405/07/25 20:31:29  [system,info]  route changed
+ 29  1405/07/25 20:32:36  [system,info]  route changed
+ 30  1405/07/25 20:39:29  [system,info]  route changed
+ 31  1405/07/25 20:39:36  [system,info]  route changed
+ 32  1405/07/25 20:39:49  [system,info]  route changed
+ 33  1405/07/25 20:44:06  [system,info]  route changed
+ 34  1405/07/25 20:47:59  [system,info]  route changed
+ 35  1405/07/25 20:51:56  [system,info]  route changed
+ 36  1405/07/25 20:52:09  [system,info]  route changed
+ 37  1405/07/25 20:55:26  [system,info]  route changed
+ 38  1405/07/25 20:55:49  [system,info]  route changed
+ 39  1405/07/25 20:55:56  [system,info]  route changed
+ 40  1405/07/25 20:57:19  [system,info]  route changed
+ 41  1405/07/25 20:57:26  [system,info]  route changed
+ 42  1405/07/25 21:00:39  [system,info]  route changed
+ 43  1405/07/25 21:02:56  [system,info]  route changed
+ 44  1405/07/25 21:06:29  [system,info]  route changed
+ 45  1405/07/25 21:12:17  [system,info]  route changed
+ 46  1405/07/25 21:14:09  [system,info]  route changed
+ 47  1405/07/25 21:15:16  [system,info]  route changed
+ 48  1405/07/25 21:16:29  [system,info]  route changed
+ 49  1405/07/25 21:16:37  [system,info]  route changed
+ 50  1405/07/25 21:16:49  [system,info]  route changed
+ 51  1405/07/25 21:18:56  [system,info]  route changed
+ 52  1405/07/25 21:19:29  [system,info]  route changed
+ 53  1405/07/25 21:19:37  [system,info]  route changed
+ 54  1405/07/25 21:20:09  [system,info]  route changed
+ 55  1405/07/25 21:21:36  [system,info]  route changed
+ 56  1405/07/25 21:22:49  [system,info]  route changed
+ 57  1405/07/25 21:23:56  [system,info]  route changed
+ 58  1405/07/25 23:24:39  [system,info]  route changed
+ 59  1405/07/25 23:24:46  [system,info]  route changed
+ 60  1405/07/26 04:30:09  [system,info]  route changed
+ 61  1405/07/26 04:34:16  [system,info]  route changed
+ 62  1405/07/26 04:35:09  [system,info]  route changed
+ 63  1405/07/26 04:36:17  [system,info]  route changed
+ 64  1405/07/26 08:48:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 65  1405/07/26 08:48:57  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 66  1405/07/26 08:49:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 67  1405/07/26 08:49:37  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 68  1405/07/26 09:17:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 69  1405/07/26 09:17:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 70  1405/07/26 09:19:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -109,6 +166,6 @@ sfp1  6C:3B:6B:87:70:B1  (ether)
 BR-LAN  6C:3B:6B:87:70:AF  (bridge)
 BR-link-abdn-to-link-shdgn  6C:3B:6B:87:70:99  (bridge)
 --- /ip arp ---
-BR-link-abdn-to-link-shdgn  10:8C:CF:33:51:49  (arp 172.18.1.65)
-BR-LAN  64:D1:54:41:73:96  (arp 172.29.196.162)
 BR-link-abdn-to-link-shdgn  64:D1:54:98:E3:25  (arp 172.18.1.71)
+BR-LAN  64:D1:54:41:73:96  (arp 172.29.196.162)
+BR-link-abdn-to-link-shdgn  10:8C:CF:33:51:49  (arp 172.18.1.65)

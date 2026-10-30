@@ -1,5 +1,5 @@
 IP: 172.18.26.3
-Collected at: 2026-10-15T10:08:55.116195+00:00
+Collected at: 2026-10-21T13:17:04.718470+00:00
 source: RouterOS API
 identity: shadegan->Darkhovein-ST
 device_type: ST
@@ -31,20 +31,74 @@ name=wlan1  mode=station-bridge  ssid=SLMNDRKH  band=5ghz-a/n  frequency=5180
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:34:21
-# ساعت دستگاه (خام): 2025-03-02 18:08:11
-# افست اصلاحی (سرور − دستگاه): +14198:56:10
-  1  1405/07/23 07:51:01  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/23 07:51:02  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:5C:67:03
-  3  1405/07/23 07:51:04  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/23 07:51:05  [interface,info]  ether1 link down
-  5  1405/07/23 07:51:08  [interface,info]  ether1 link up (speed 100M, full duplex)
-  6  1405/07/23 07:51:10  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
-  7  1405/07/23 08:00:28  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, extensive data loss
-  8  1405/07/23 08:00:35  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
-  9  1405/07/23 08:04:11  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, not polled for too long
- 10  1405/07/23 08:04:19  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
- 11  1405/07/23 12:34:20  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:35:32
+# ساعت دستگاه (خام): 2025-03-08 16:58:28
+# افست اصلاحی (سرور − دستگاه): +14204:07:04
+  1  1405/07/27 17:01:54  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/27 17:01:55  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:5C:67:03
+  3  1405/07/27 17:02:01  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/27 17:02:03  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+  5  1405/07/27 21:00:01  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, not polled for too long
+  6  1405/07/27 21:00:08  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+  7  1405/07/28 00:22:35  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, extensive data loss
+  8  1405/07/28 00:22:42  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+  9  1405/07/28 00:46:36  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, extensive data loss
+ 10  1405/07/28 00:46:44  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 11  1405/07/28 00:51:16  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, not polled for too long
+ 12  1405/07/28 00:51:23  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 13  1405/07/28 01:11:02  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, not polled for too long
+ 14  1405/07/28 01:11:09  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 15  1405/07/28 02:32:31  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, extensive data loss
+ 16  1405/07/28 02:32:38  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 17  1405/07/28 07:44:14  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, extensive data loss
+ 18  1405/07/28 07:44:22  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 19  1405/07/28 08:06:54  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, not polled for too long
+ 20  1405/07/28 08:07:01  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 21  1405/07/28 08:08:17  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, not polled for too long
+ 22  1405/07/28 08:08:25  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 23  1405/07/28 08:09:13  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, not polled for too long
+ 24  1405/07/28 08:09:21  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 25  1405/07/28 10:58:49  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, extensive data loss
+ 26  1405/07/28 10:58:57  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 27  1405/07/28 11:38:14  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, not polled for too long
+ 28  1405/07/28 11:38:22  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 29  1405/07/28 11:54:00  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, extensive data loss
+ 30  1405/07/28 11:54:08  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 31  1405/07/28 12:07:43  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, extensive data loss
+ 32  1405/07/28 12:07:51  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 33  1405/07/28 12:21:52  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, extensive data loss
+ 34  1405/07/28 12:21:59  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 35  1405/07/28 12:32:52  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, extensive data loss
+ 36  1405/07/28 12:32:59  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 37  1405/07/28 13:11:38  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, extensive data loss
+ 38  1405/07/28 13:11:46  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 39  1405/07/28 13:13:23  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, not polled for too long
+ 40  1405/07/28 13:13:31  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 41  1405/07/29 02:45:58  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, extensive data loss
+ 42  1405/07/29 02:46:06  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 43  1405/07/29 05:35:02  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, not polled for too long
+ 44  1405/07/29 05:35:09  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 45  1405/07/29 07:17:34  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, extensive data loss
+ 46  1405/07/29 07:17:41  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 47  1405/07/29 07:19:08  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, extensive data loss
+ 48  1405/07/29 07:19:15  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 49  1405/07/29 12:49:33  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, extensive data loss
+ 50  1405/07/29 12:49:40  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 51  1405/07/29 12:52:52  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, extensive data loss
+ 52  1405/07/29 12:52:59  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 53  1405/07/29 13:01:59  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, extensive data loss
+ 54  1405/07/29 13:02:06  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 55  1405/07/29 13:03:56  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, extensive data loss
+ 56  1405/07/29 13:04:04  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 57  1405/07/29 13:27:02  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, not polled for too long
+ 58  1405/07/29 13:27:10  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 59  1405/07/29 15:00:43  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, extensive data loss
+ 60  1405/07/29 15:00:50  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 61  1405/07/29 15:01:15  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, extensive data loss
+ 62  1405/07/29 15:01:23  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 63  1405/07/29 15:22:20  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1: lost connection, extensive data loss
+ 64  1405/07/29 15:22:27  [wireless,info]  E4:8D:8C:17:FF:0F@wlan1 established connection on 5405000, SSID SLMNDRKH
+ 65  1405/07/29 16:35:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

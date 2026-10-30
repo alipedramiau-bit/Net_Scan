@@ -1,5 +1,5 @@
 IP: 172.18.1.155
-Collected at: 2026-10-15T10:07:06.102100+00:00
+Collected at: 2026-10-21T13:15:51.295522+00:00
 source: RouterOS API
 identity: MoavenatAmoozeshi -> Khabgah-khaharan-Client
 device_type: ST
@@ -30,14 +30,18 @@ name=wlan1  mode=station-bridge  ssid=OPA-KHABA  band=5ghz-a/n  frequency=5180
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:19:33
-# ساعت دستگاه (خام): 1972-11-16 03:36:23
-# افست اصلاحی (سرور − دستگاه): +472589:13:10
-  1  1405/07/23 08:10:19  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/23 08:10:22  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:F0:B2:A9
-  3  1405/07/23 08:10:24  [wireless,info]  E4:8D:8C:F0:3E:F0@wlan1 established connection on 5340000, SSID OPA-KHABA
-  4  1405/07/23 08:10:33  [interface,info]  ether1 link up (speed 1G, full duplex)
-  5  1405/07/23 12:19:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:27:40
+# ساعت دستگاه (خام): 1972-11-22 00:59:55
+# افست اصلاحی (سرور − دستگاه): +472595:57:45
+  1  1405/07/25 14:54:54  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/25 14:54:57  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:F0:B2:A9
+  3  1405/07/25 14:54:59  [wireless,info]  E4:8D:8C:F0:3E:F0@wlan1 established connection on 5340000, SSID OPA-KHABA
+  4  1405/07/25 14:55:07  [interface,info]  ether1 link up (speed 1G, full duplex)
+  5  1405/07/26 08:47:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  6  1405/07/26 08:47:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  7  1405/07/26 08:47:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  8  1405/07/26 08:48:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  9  1405/07/29 16:27:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

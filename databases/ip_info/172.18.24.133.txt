@@ -1,5 +1,5 @@
 IP: 172.18.24.133
-Collected at: 2026-10-13T07:54:00.632221+00:00
+Collected at: 2026-10-18T05:55:57.668105+00:00
 source: RouterOS API
 identity: Choomeh-CL
 device_type: ST
@@ -34,24 +34,23 @@ name=wlan1  mode=station-bridge  ssid=Shadegan-Shabakeh1  band=5ghz-a/n  frequen
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/21 11:01:24
-# ساعت دستگاه (خام): 1970-10-18 09:40:43
-# افست اصلاحی (سرور − دستگاه): +490773:50:41
-  1  1405/07/21 07:28:19  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/21 07:28:22  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:61:6E:4F
-  3  1405/07/21 07:28:27  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
-  4  1405/07/21 07:28:30  [interface,info]  ether1 link up (speed 100M, full duplex)
-  5  1405/07/21 07:29:14  [wireless,info]  48:A9:8A:2D:0E:47@wlan1 established connection on 4990000, SSID Shadegan-Shabakeh1
-  6  1405/07/21 07:29:17  [dhcp,info]  dhcp1 deassigned 172.29.192.21 from 48:A9:8A:2D:0E:47
-  7  1405/07/21 07:29:17  [dhcp,info]  dhcp1 assigned 172.29.192.21 to 48:A9:8A:2D:0E:47
-  8  1405/07/21 07:56:17  [dhcp,info]  dhcp1 assigned 172.29.192.18 to 50:3E:AA:6A:2F:78
-  9  1405/07/21 08:09:36  [dhcp,info]  dhcp1 assigned 172.29.192.16 to 50:3E:AA:33:45:BA
- 10  1405/07/21 08:14:56  [dhcp,info]  dhcp1 assigned 172.29.192.23 to 50:3E:AA:6A:93:17
- 11  1405/07/21 08:25:15  [dhcp,info]  dhcp1 assigned 172.29.192.19 to D4:6E:0E:07:FE:82
- 12  1405/07/21 09:23:02  [dhcp,info]  dhcp1 deassigned 172.29.192.16 from 50:3E:AA:33:45:BA
- 13  1405/07/21 10:47:14  [dhcp,info]  dhcp1 deassigned 172.29.192.18 from 50:3E:AA:6A:2F:78
- 14  1405/07/21 11:00:54  [dhcp,info]  dhcp1 assigned 172.29.192.18 to 50:3E:AA:6A:2F:78
- 15  1405/07/21 11:01:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/26 08:58:13
+# ساعت دستگاه (خام): 1970-10-18 07:56:49
+# افست اصلاحی (سرور − دستگاه): +490893:31:24
+  1  1405/07/26 07:09:02  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/26 07:09:04  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:61:6E:4F
+  3  1405/07/26 07:09:10  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  4  1405/07/26 07:09:12  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/07/26 07:09:56  [wireless,info]  48:A9:8A:2D:0E:47@wlan1 established connection on 4990000, SSID Shadegan-Shabakeh1
+  6  1405/07/26 07:10:03  [dhcp,info]  dhcp1 deassigned 172.29.192.21 from 48:A9:8A:2D:0E:47
+  7  1405/07/26 07:10:03  [dhcp,info]  dhcp1 assigned 172.29.192.21 to 48:A9:8A:2D:0E:47
+  8  1405/07/26 07:57:26  [dhcp,info]  dhcp1 assigned 172.29.192.20 to 50:3E:AA:33:8E:CD
+  9  1405/07/26 08:04:11  [dhcp,info]  dhcp1 assigned 172.29.192.19 to D4:6E:0E:07:FE:82
+ 10  1405/07/26 08:13:47  [dhcp,info]  dhcp1 assigned 172.29.192.23 to 50:3E:AA:6A:93:17
+ 11  1405/07/26 08:28:12  [dhcp,info]  dhcp1 assigned 172.29.192.18 to 50:3E:AA:33:45:BA
+ 12  1405/07/26 08:55:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 13  1405/07/26 08:55:08  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 14  1405/07/26 08:58:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -60,6 +59,7 @@ wlan1  E4:8D:8C:61:6E:4F  (wlan)
 bridge1  E4:8D:8C:61:6E:4F  (bridge)
 --- /ip arp ---
 bridge1  64:D1:54:98:E3:2E  (arp 172.18.24.129)
-bridge1  50:3E:AA:6A:2F:78  (arp 172.29.192.18)
+bridge1  50:3E:AA:33:45:BA  (arp 172.29.192.18)
 bridge1  D4:6E:0E:07:FE:82  (arp 172.29.192.19)
+bridge1  50:3E:AA:33:8E:CD  (arp 172.29.192.20)
 bridge1  50:3E:AA:6A:93:17  (arp 172.29.192.23)

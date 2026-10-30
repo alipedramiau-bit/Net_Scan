@@ -1,5 +1,5 @@
 IP: 172.18.1.154
-Collected at: 2026-10-15T10:07:05.715840+00:00
+Collected at: 2026-10-21T13:15:51.082380+00:00
 source: RouterOS API
 identity: MoavenatAmoozeshi -> Khabgah-khaharan.AP
 device_type: AP
@@ -30,41 +30,55 @@ name=wlan1  mode=bridge  ssid=OPA-KHABA  band=5ghz-a/n  frequency=5340
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:19:30
-# ساعت دستگاه (خام): 2026-03-21 09:00:40
-# افست اصلاحی (سرور − دستگاه): +4991:48:50
-  1  1405/07/08 09:30:27  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/08 09:30:30  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:F0:3E:F0
-  3  1405/07/08 09:30:32  [wireless,info]  E4:8D:8C:F0:B2:A9@wlan1: connected, signal strength -40
-  4  1405/07/08 09:30:49  [interface,info]  ether1 link up (speed 100M, full duplex)
-  5  1405/07/16 14:26:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  6  1405/07/16 14:26:18  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  7  1405/07/16 14:43:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-  8  1405/07/16 14:43:05  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
-  9  1405/07/16 15:37:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 10  1405/07/16 15:37:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 11  1405/07/18 10:26:55  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 12  1405/07/18 10:26:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 13  1405/07/18 10:51:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 14  1405/07/18 10:51:11  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 15  1405/07/18 12:06:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 16  1405/07/18 12:06:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 17  1405/07/18 12:06:41  [system,info]  user olom1 added by garnaf
- 18  1405/07/19 04:11:42  [wireless,info]  E4:8D:8C:F0:B2:A9@wlan1: disconnected, control frame timeout
- 19  1405/07/19 06:51:19  [wireless,info]  E4:8D:8C:F0:B2:A9@wlan1: reconnecting
- 20  1405/07/19 06:51:19  [wireless,info]  E4:8D:8C:F0:B2:A9@wlan1: reconnecting
- 21  1405/07/19 06:51:20  [wireless,info]  E4:8D:8C:F0:B2:A9@wlan1: connected, signal strength -47
- 22  1405/07/19 09:30:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 23  1405/07/19 09:30:29  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 24  1405/07/19 17:40:41  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 25  1405/07/19 17:40:41  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
- 26  1405/07/21 10:52:13  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 27  1405/07/21 10:52:15  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 28  1405/07/22 13:11:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 29  1405/07/22 13:11:21  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 30  1405/07/23 06:57:59  [wireless,info]  E4:8D:8C:F0:B2:A9@wlan1: disconnected, control frame timeout
- 31  1405/07/23 08:10:25  [wireless,info]  E4:8D:8C:F0:B2:A9@wlan1: connected, signal strength -44
- 32  1405/07/23 12:19:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:27:38
+# ساعت دستگاه (خام): 2026-03-27 14:11:35
+# افست اصلاحی (سرور − دستگاه): +4990:46:03
+  1  1405/07/08 08:27:40  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/08 08:27:43  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:F0:3E:F0
+  3  1405/07/08 08:27:45  [wireless,info]  E4:8D:8C:F0:B2:A9@wlan1: connected, signal strength -40
+  4  1405/07/08 08:28:02  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/07/16 13:23:30  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  6  1405/07/16 13:23:31  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  7  1405/07/16 13:40:16  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+  8  1405/07/16 13:40:18  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+  9  1405/07/16 14:34:28  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 10  1405/07/16 14:34:29  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 11  1405/07/18 09:24:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 12  1405/07/18 09:24:09  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 13  1405/07/18 09:48:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 14  1405/07/18 09:48:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 15  1405/07/18 11:03:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 16  1405/07/18 11:03:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 17  1405/07/18 11:03:54  [system,info]  user olom1 added by garnaf
+ 18  1405/07/19 03:08:55  [wireless,info]  E4:8D:8C:F0:B2:A9@wlan1: disconnected, control frame timeout
+ 19  1405/07/19 05:48:32  [wireless,info]  E4:8D:8C:F0:B2:A9@wlan1: reconnecting
+ 20  1405/07/19 05:48:32  [wireless,info]  E4:8D:8C:F0:B2:A9@wlan1: reconnecting
+ 21  1405/07/19 05:48:33  [wireless,info]  E4:8D:8C:F0:B2:A9@wlan1: connected, signal strength -47
+ 22  1405/07/19 08:27:40  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 23  1405/07/19 08:27:42  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 24  1405/07/19 16:37:54  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 25  1405/07/19 16:37:54  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+ 26  1405/07/21 09:49:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 27  1405/07/21 09:49:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 28  1405/07/22 12:08:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 29  1405/07/22 12:08:34  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 30  1405/07/23 05:55:12  [wireless,info]  E4:8D:8C:F0:B2:A9@wlan1: disconnected, control frame timeout
+ 31  1405/07/23 07:07:38  [wireless,info]  E4:8D:8C:F0:B2:A9@wlan1: connected, signal strength -44
+ 32  1405/07/23 11:16:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 33  1405/07/23 11:16:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 34  1405/07/24 15:13:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 35  1405/07/24 15:13:05  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 36  1405/07/24 15:47:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 37  1405/07/24 15:47:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 38  1405/07/25 14:21:33  [wireless,info]  E4:8D:8C:F0:B2:A9@wlan1: disconnected, control frame timeout
+ 39  1405/07/25 14:54:58  [wireless,info]  E4:8D:8C:F0:B2:A9@wlan1: reconnecting
+ 40  1405/07/25 14:54:58  [wireless,info]  E4:8D:8C:F0:B2:A9@wlan1: reconnecting
+ 41  1405/07/25 14:54:58  [wireless,info]  E4:8D:8C:F0:B2:A9@wlan1: connected, signal strength -46
+ 42  1405/07/26 08:47:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 43  1405/07/26 08:47:18  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 44  1405/07/26 08:47:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 45  1405/07/26 08:47:56  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 46  1405/07/29 16:27:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

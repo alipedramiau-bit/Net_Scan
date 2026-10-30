@@ -1,5 +1,5 @@
 IP: 172.29.71.33
-Collected at: 2026-10-14T10:25:42.883971+00:00
+Collected at: 2026-10-21T13:18:37.797523+00:00
 source: RouterOS API
 identity: Tangeh1.2.Client
 device_type: ST
@@ -30,209 +30,209 @@ name=wlan1  mode=station-bridge  ssid=Abadan-Choebdeh1  band=5ghz-a/n  frequency
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:50:36
-# ساعت دستگاه (خام): 1973-01-07 02:04:00
-# افست اصلاحی (سرور − دستگاه): +471320:16:36
-  1  1405/07/19 21:47:49  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-  2  1405/07/19 23:41:37  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-  3  1405/07/19 23:41:46  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-  4  1405/07/19 23:45:45  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-  5  1405/07/19 23:45:52  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-  6  1405/07/19 23:48:45  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-  7  1405/07/19 23:48:51  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-  8  1405/07/19 23:49:01  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-  9  1405/07/19 23:49:07  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
- 10  1405/07/19 23:50:35  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
- 11  1405/07/19 23:50:44  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
- 12  1405/07/19 23:50:57  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
- 13  1405/07/19 23:51:35  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
- 14  1405/07/19 23:51:40  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
- 15  1405/07/19 23:52:36  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, extensive data loss
- 16  1405/07/19 23:52:45  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
- 17  1405/07/19 23:53:00  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
- 18  1405/07/19 23:53:13  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, received deauth: class 2 frame received (6)
- 19  1405/07/19 23:53:25  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
- 20  1405/07/19 23:53:45  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
- 21  1405/07/19 23:53:53  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
- 22  1405/07/19 23:54:04  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
- 23  1405/07/19 23:55:01  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
- 24  1405/07/19 23:55:10  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
- 25  1405/07/19 23:55:21  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
- 26  1405/07/19 23:55:55  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
- 27  1405/07/19 23:56:01  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
- 28  1405/07/20 00:08:35  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
- 29  1405/07/20 00:08:40  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
- 30  1405/07/20 00:10:45  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
- 31  1405/07/20 00:10:53  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
- 32  1405/07/20 02:38:35  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
- 33  1405/07/20 02:38:49  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
- 34  1405/07/20 02:39:10  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
- 35  1405/07/20 02:39:25  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
- 36  1405/07/20 02:39:40  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
- 37  1405/07/20 02:39:54  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
- 38  1405/07/20 02:40:08  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
- 39  1405/07/20 02:40:20  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
- 40  1405/07/20 02:40:23  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
- 41  1405/07/20 02:40:28  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
- 42  1405/07/20 02:40:31  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
- 43  1405/07/20 02:40:39  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
- 44  1405/07/20 02:40:53  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
- 45  1405/07/20 02:40:55  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
- 46  1405/07/20 02:41:02  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association failed: unspecified (1)
- 47  1405/07/20 02:41:13  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
- 48  1405/07/20 02:44:55  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
- 49  1405/07/20 02:45:03  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
- 50  1405/07/20 02:45:09  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, extensive data loss
- 51  1405/07/20 02:45:17  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
- 52  1405/07/20 02:45:33  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
- 53  1405/07/20 02:45:47  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
- 54  1405/07/20 02:45:58  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
- 55  1405/07/20 02:46:22  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
- 56  1405/07/20 02:46:29  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
- 57  1405/07/20 02:46:31  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
- 58  1405/07/20 02:46:40  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
- 59  1405/07/20 02:46:45  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
- 60  1405/07/20 02:46:51  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
- 61  1405/07/20 02:46:58  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, extensive data loss
- 62  1405/07/20 02:47:07  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
- 63  1405/07/20 02:47:21  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
- 64  1405/07/20 02:47:35  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
- 65  1405/07/20 02:47:48  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
- 66  1405/07/20 02:48:02  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
- 67  1405/07/20 02:48:16  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
- 68  1405/07/20 02:48:31  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
- 69  1405/07/20 02:48:43  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
- 70  1405/07/20 02:48:43  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, extensive data loss
- 71  1405/07/20 02:48:49  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
- 72  1405/07/20 02:49:23  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
- 73  1405/07/20 02:49:31  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
- 74  1405/07/20 02:49:45  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
- 75  1405/07/20 02:49:59  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
- 76  1405/07/20 02:50:13  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
- 77  1405/07/20 02:50:27  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
- 78  1405/07/20 02:50:42  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
- 79  1405/07/20 02:50:57  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
- 80  1405/07/20 02:51:16  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
- 81  1405/07/20 02:51:30  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
- 82  1405/07/20 02:51:44  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
- 83  1405/07/20 02:51:58  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
- 84  1405/07/20 02:52:12  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
- 85  1405/07/20 02:52:26  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
- 86  1405/07/20 02:52:33  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, extensive data loss
- 87  1405/07/20 02:52:42  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
- 88  1405/07/20 02:52:56  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
- 89  1405/07/20 02:53:10  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
- 90  1405/07/20 02:53:21  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
- 91  1405/07/20 02:53:45  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
- 92  1405/07/20 02:53:50  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
- 93  1405/07/20 03:14:55  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
- 94  1405/07/20 03:15:03  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
- 95  1405/07/20 03:15:45  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
- 96  1405/07/20 03:15:54  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
- 97  1405/07/20 03:16:06  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
- 98  1405/07/20 03:16:11  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
- 99  1405/07/20 03:16:17  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-100  1405/07/20 03:16:55  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-101  1405/07/20 03:17:03  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-102  1405/07/20 03:17:41  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, extensive data loss
-103  1405/07/20 03:17:49  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-104  1405/07/20 03:18:36  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-105  1405/07/20 03:18:41  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-106  1405/07/20 03:20:03  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-107  1405/07/20 03:20:11  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
-108  1405/07/20 03:20:22  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-109  1405/07/20 03:55:45  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-110  1405/07/20 03:55:54  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
-111  1405/07/20 03:56:10  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
-112  1405/07/20 03:56:24  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
-113  1405/07/20 03:56:35  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-114  1405/07/20 03:56:53  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, extensive data loss
-115  1405/07/20 03:56:58  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-116  1405/07/20 07:02:35  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-117  1405/07/20 07:02:40  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-118  1405/07/20 07:06:39  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-119  1405/07/20 07:06:44  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-120  1405/07/20 07:06:46  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-121  1405/07/20 07:06:55  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
-122  1405/07/20 07:07:07  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-123  1405/07/20 07:11:55  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-124  1405/07/20 07:12:00  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-125  1405/07/20 07:14:41  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-126  1405/07/20 07:14:47  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-127  1405/07/20 09:00:37  [dhcp,info]  dhcp1 assigned 172.29.71.62 to 74:D4:35:20:10:F8
-128  1405/07/20 10:46:36  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-129  1405/07/20 10:47:03  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-130  1405/07/20 11:15:37  [dhcp,info]  dhcp1 deassigned 172.29.71.62 from 74:D4:35:20:10:F8
-131  1405/07/20 19:21:52  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-132  1405/07/20 19:22:05  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, received deauth: class 2 frame received (6)
-133  1405/07/20 19:22:17  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-134  1405/07/20 19:22:52  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-135  1405/07/20 19:22:59  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-136  1405/07/20 19:23:03  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-137  1405/07/20 19:23:09  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-138  1405/07/20 19:27:02  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-139  1405/07/20 19:27:07  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-140  1405/07/21 02:18:41  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-141  1405/07/21 02:18:47  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-142  1405/07/21 02:19:09  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-143  1405/07/21 02:19:17  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
-144  1405/07/21 02:19:29  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-145  1405/07/21 02:20:16  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-146  1405/07/21 02:20:26  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
-147  1405/07/21 02:20:37  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-148  1405/07/21 02:38:51  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-149  1405/07/21 02:38:59  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-150  1405/07/21 02:40:16  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, extensive data loss
-151  1405/07/21 02:40:25  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
-152  1405/07/21 02:40:39  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-153  1405/07/21 04:15:01  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-154  1405/07/21 04:15:07  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-155  1405/07/21 07:48:26  [dhcp,info]  dhcp1 assigned 172.29.71.62 to 74:D4:35:20:10:F8
-156  1405/07/21 07:51:35  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-157  1405/07/21 08:01:31  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-158  1405/07/21 08:07:35  [dhcp,info]  dhcp1 assigned 172.29.71.61 to 5C:87:9C:9A:06:C8
-159  1405/07/21 09:18:37  [dhcp,info]  dhcp1 deassigned 172.29.71.61 from 5C:87:9C:9A:06:C8
-160  1405/07/21 09:20:05  [dhcp,info]  dhcp1 assigned 172.29.71.61 to 5C:87:9C:9A:06:C8
-161  1405/07/21 10:23:01  [dhcp,info]  dhcp1 deassigned 172.29.71.61 from 5C:87:9C:9A:06:C8
-162  1405/07/21 10:30:06  [dhcp,info]  dhcp1 assigned 172.29.71.61 to 5C:87:9C:9A:06:C8
-163  1405/07/21 11:35:08  [dhcp,info]  dhcp1 deassigned 172.29.71.61 from 5C:87:9C:9A:06:C8
-164  1405/07/21 11:52:00  [dhcp,info]  dhcp1 deassigned 172.29.71.62 from 74:D4:35:20:10:F8
-165  1405/07/21 15:04:02  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-166  1405/07/21 15:04:29  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-167  1405/07/21 21:19:02  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-168  1405/07/21 21:19:07  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-169  1405/07/21 21:19:26  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-170  1405/07/21 21:19:34  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
-171  1405/07/21 21:19:47  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-172  1405/07/21 21:54:58  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-173  1405/07/21 21:55:04  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-174  1405/07/21 23:10:02  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-175  1405/07/21 23:10:07  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-176  1405/07/21 23:55:26  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-177  1405/07/21 23:55:31  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-178  1405/07/22 00:27:13  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-179  1405/07/22 00:27:22  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
-180  1405/07/22 00:27:33  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-181  1405/07/22 00:28:11  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
-182  1405/07/22 00:28:16  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-183  1405/07/22 08:15:11  [dhcp,info]  dhcp1 assigned 172.29.71.62 to 74:D4:35:20:10:F8
-184  1405/07/22 08:46:05  [dhcp,info]  dhcp1 assigned 172.29.71.61 to 5C:87:9C:9A:06:C8
-185  1405/07/22 09:18:05  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, extensive data loss
-186  1405/07/22 09:18:10  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-187  1405/07/22 09:18:25  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, extensive data loss
-188  1405/07/22 09:18:31  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-189  1405/07/22 09:18:38  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, extensive data loss
-190  1405/07/22 09:18:46  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
-191  1405/07/22 09:18:57  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-192  1405/07/22 09:19:10  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, extensive data loss
-193  1405/07/22 09:19:17  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-194  1405/07/22 09:19:18  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, extensive data loss
-195  1405/07/22 09:19:24  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
-196  1405/07/22 11:14:37  [dhcp,info]  dhcp1 deassigned 172.29.71.61 from 5C:87:9C:9A:06:C8
-197  1405/07/22 11:50:12  [dhcp,info]  dhcp1 deassigned 172.29.71.62 from 74:D4:35:20:10:F8
-198  1405/07/22 13:34:32  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-199  1405/07/22 13:34:34  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-200  1405/07/22 13:50:33  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:45:07
+# ساعت دستگاه (خام): 1973-01-12 11:21:46
+# افست اصلاحی (سرور − دستگاه): +471361:53:21
+  1  1405/07/28 09:17:46  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, extensive data loss
+  2  1405/07/28 09:17:53  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+  3  1405/07/28 09:18:10  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, extensive data loss
+  4  1405/07/28 09:18:15  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+  5  1405/07/28 09:34:51  [dhcp,info]  dhcp1 deassigned 172.29.71.60 from 5C:87:9C:9A:06:C8
+  6  1405/07/28 11:37:46  [dhcp,info]  dhcp1 deassigned 172.29.71.62 from 74:D4:35:20:10:F8
+  7  1405/07/28 19:56:19  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+  8  1405/07/28 19:56:25  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+  9  1405/07/29 00:19:18  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, extensive data loss
+ 10  1405/07/29 00:19:24  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+ 11  1405/07/29 00:19:37  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, extensive data loss
+ 12  1405/07/29 00:19:44  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+ 13  1405/07/29 00:20:30  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+ 14  1405/07/29 00:20:39  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+ 15  1405/07/29 00:20:53  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 16  1405/07/29 00:21:07  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 17  1405/07/29 00:21:21  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 18  1405/07/29 00:21:36  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+ 19  1405/07/29 00:21:50  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+ 20  1405/07/29 00:22:05  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+ 21  1405/07/29 00:22:19  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 22  1405/07/29 00:22:33  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 23  1405/07/29 00:22:48  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+ 24  1405/07/29 00:23:01  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 25  1405/07/29 00:23:15  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 26  1405/07/29 00:23:29  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 27  1405/07/29 00:23:43  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 28  1405/07/29 00:23:57  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 29  1405/07/29 00:24:11  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 30  1405/07/29 00:24:25  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+ 31  1405/07/29 00:24:40  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+ 32  1405/07/29 00:24:56  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+ 33  1405/07/29 00:25:09  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+ 34  1405/07/29 00:25:11  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+ 35  1405/07/29 00:25:22  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+ 36  1405/07/29 00:25:35  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 37  1405/07/29 00:25:49  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+ 38  1405/07/29 00:26:03  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 39  1405/07/29 00:26:17  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+ 40  1405/07/29 00:26:31  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 41  1405/07/29 00:26:43  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+ 42  1405/07/29 00:26:45  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+ 43  1405/07/29 00:26:56  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+ 44  1405/07/29 00:27:08  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+ 45  1405/07/29 00:27:15  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, extensive data loss
+ 46  1405/07/29 00:27:23  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+ 47  1405/07/29 00:27:25  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+ 48  1405/07/29 00:27:33  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 49  1405/07/29 00:27:47  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+ 50  1405/07/29 00:27:59  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+ 51  1405/07/29 00:28:01  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+ 52  1405/07/29 00:28:09  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 53  1405/07/29 00:28:25  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+ 54  1405/07/29 00:28:38  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+ 55  1405/07/29 00:29:21  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+ 56  1405/07/29 00:29:26  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+ 57  1405/07/29 00:29:28  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+ 58  1405/07/29 00:29:37  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+ 59  1405/07/29 00:29:48  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+ 60  1405/07/29 00:30:30  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+ 61  1405/07/29 00:30:36  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+ 62  1405/07/29 00:31:39  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+ 63  1405/07/29 00:31:45  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+ 64  1405/07/29 01:06:56  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, extensive data loss
+ 65  1405/07/29 01:07:04  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 66  1405/07/29 01:07:18  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 67  1405/07/29 01:07:32  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 68  1405/07/29 01:07:46  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+ 69  1405/07/29 01:08:00  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 70  1405/07/29 01:08:14  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+ 71  1405/07/29 01:08:28  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 72  1405/07/29 01:08:42  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 73  1405/07/29 01:08:56  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+ 74  1405/07/29 01:09:10  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 75  1405/07/29 01:09:21  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+ 76  1405/07/29 01:09:24  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, extensive data loss
+ 77  1405/07/29 01:09:32  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+ 78  1405/07/29 01:09:46  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 79  1405/07/29 01:10:00  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 80  1405/07/29 01:10:14  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 81  1405/07/29 01:10:26  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+ 82  1405/07/29 01:10:32  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+ 83  1405/07/29 01:10:40  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 84  1405/07/29 01:10:54  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+ 85  1405/07/29 01:11:08  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 86  1405/07/29 01:11:22  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 87  1405/07/29 01:11:36  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 88  1405/07/29 01:11:50  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 89  1405/07/29 01:12:04  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 90  1405/07/29 01:12:18  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 91  1405/07/29 01:12:32  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 92  1405/07/29 01:12:46  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 93  1405/07/29 01:13:00  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 94  1405/07/29 01:13:14  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 95  1405/07/29 01:13:28  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 96  1405/07/29 01:13:42  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+ 97  1405/07/29 01:13:56  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+ 98  1405/07/29 01:14:08  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+ 99  1405/07/29 01:24:30  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+100  1405/07/29 01:24:36  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+101  1405/07/29 01:24:36  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, extensive data loss
+102  1405/07/29 01:24:44  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+103  1405/07/29 01:24:50  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+104  1405/07/29 01:24:59  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+105  1405/07/29 01:25:13  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+106  1405/07/29 01:25:27  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+107  1405/07/29 01:25:41  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+108  1405/07/29 01:25:55  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+109  1405/07/29 01:26:08  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+110  1405/07/29 01:26:22  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+111  1405/07/29 01:26:27  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+112  1405/07/29 01:26:34  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, extensive data loss
+113  1405/07/29 01:26:43  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+114  1405/07/29 01:26:54  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+115  1405/07/29 01:27:20  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+116  1405/07/29 01:27:26  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+117  1405/07/29 01:27:28  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+118  1405/07/29 01:27:36  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+119  1405/07/29 01:30:19  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, extensive data loss
+120  1405/07/29 01:30:28  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+121  1405/07/29 01:30:42  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+122  1405/07/29 01:30:56  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+123  1405/07/29 01:31:15  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+124  1405/07/29 01:31:26  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+125  1405/07/29 01:31:49  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+126  1405/07/29 01:31:58  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+127  1405/07/29 01:32:13  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+128  1405/07/29 01:32:27  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+129  1405/07/29 01:32:41  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+130  1405/07/29 01:32:55  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+131  1405/07/29 01:33:09  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+132  1405/07/29 01:33:23  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+133  1405/07/29 01:33:42  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+134  1405/07/29 01:33:56  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+135  1405/07/29 01:34:10  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+136  1405/07/29 01:34:24  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+137  1405/07/29 01:34:37  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+138  1405/07/29 01:37:29  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+139  1405/07/29 01:37:35  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+140  1405/07/29 01:38:30  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+141  1405/07/29 01:38:36  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+142  1405/07/29 01:38:43  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, extensive data loss
+143  1405/07/29 01:38:52  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+144  1405/07/29 01:39:03  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+145  1405/07/29 01:40:22  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+146  1405/07/29 01:40:31  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+147  1405/07/29 01:40:46  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+148  1405/07/29 01:41:00  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+149  1405/07/29 01:41:14  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+150  1405/07/29 01:41:27  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+151  1405/07/29 01:41:31  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+152  1405/07/29 01:41:39  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+153  1405/07/29 01:41:53  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+154  1405/07/29 01:42:07  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+155  1405/07/29 01:42:22  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+156  1405/07/29 01:42:36  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+157  1405/07/29 01:42:50  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+158  1405/07/29 01:43:04  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+159  1405/07/29 01:43:18  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+160  1405/07/29 01:43:34  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+161  1405/07/29 01:43:48  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+162  1405/07/29 01:44:02  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+163  1405/07/29 01:44:16  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+164  1405/07/29 01:44:31  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+165  1405/07/29 01:44:43  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+166  1405/07/29 01:44:45  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+167  1405/07/29 01:44:53  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+168  1405/07/29 01:45:07  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+169  1405/07/29 01:45:19  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+170  1405/07/29 02:10:20  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+171  1405/07/29 02:10:25  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+172  1405/07/29 02:10:48  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+173  1405/07/29 02:10:56  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+174  1405/07/29 02:11:10  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, authentication timeout
+175  1405/07/29 02:11:24  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+176  1405/07/29 02:11:37  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+177  1405/07/29 02:11:42  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, extensive data loss
+178  1405/07/29 02:11:47  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+179  1405/07/29 04:55:16  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+180  1405/07/29 04:55:21  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+181  1405/07/29 05:37:19  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+182  1405/07/29 05:37:25  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+183  1405/07/29 06:59:38  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, extensive data loss
+184  1405/07/29 06:59:46  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+185  1405/07/29 07:00:27  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, extensive data loss
+186  1405/07/29 07:00:36  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+187  1405/07/29 07:00:50  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+188  1405/07/29 07:01:01  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+189  1405/07/29 07:01:03  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+190  1405/07/29 07:01:08  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+191  1405/07/29 07:05:20  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+192  1405/07/29 07:05:28  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: failed to connect, on 5620/20/an, association timeout
+193  1405/07/29 07:05:40  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+194  1405/07/29 07:05:44  [wireless,info]  6C:3B:6B:94:8C:94@wlan1: lost connection, not polled for too long
+195  1405/07/29 07:05:51  [wireless,info]  6C:3B:6B:94:8C:94@wlan1 established connection on 5620000, SSID Abadan-Choebdeh1
+196  1405/07/29 08:24:00  [dhcp,info]  dhcp1 assigned 172.29.71.60 to 5C:87:9C:9A:06:C8
+197  1405/07/29 11:19:58  [dhcp,info]  dhcp1 deassigned 172.29.71.60 from 5C:87:9C:9A:06:C8
+198  1405/07/29 16:39:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+199  1405/07/29 16:39:38  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+200  1405/07/29 16:45:06  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

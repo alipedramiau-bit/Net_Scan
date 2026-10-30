@@ -1,5 +1,5 @@
 IP: 172.18.25.213
-Collected at: 2026-10-15T10:08:36.576765+00:00
+Collected at: 2026-10-18T05:56:41.949399+00:00
 source: RouterOS API
 identity: Maleki.Client
 device_type: ST
@@ -31,37 +31,57 @@ name=wlan1  mode=station-bridge  ssid=Shadegan-Jafal1  band=5ghz-a/n  frequency=
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:31:36
-# ساعت دستگاه (خام): 2023-05-25 12:06:51
-# افست اصلاحی (سرور − دستگاه): +29732:54:45
-  1  1405/07/21 01:24:37  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/21 01:24:40  [interface,info]  ether1 link up (speed 100M, full duplex)
-  3  1405/07/21 01:25:31  [wireless,info]  6C:3B:6B:4A:2C:B8@wlan1 established connection on 5375000, SSID Shadegan-Jafal1
-  4  1405/07/21 01:45:01  [wireless,info]  6C:3B:6B:4A:2C:B8@wlan1: lost connection, synchronization timeout
-  5  1405/07/21 01:47:36  [wireless,info]  6C:3B:6B:4A:2C:B8@wlan1 established connection on 5375000, SSID Shadegan-Jafal1
-  6  1405/07/21 08:18:33  [dhcp,info]  dhcp1 assigned 172.29.203.254 to 8C:89:A5:E3:FA:2D
-  7  1405/07/21 08:30:53  [dhcp,info]  dhcp1 assigned 172.29.203.250 to 00:E0:4C:4D:B6:BE
-  8  1405/07/21 08:38:28  [dhcp,info]  dhcp1 assigned 172.29.203.252 to E0:B9:A5:F0:E4:10
-  9  1405/07/21 08:48:28  [dhcp,info]  dhcp1 deassigned 172.29.203.252 from E0:B9:A5:F0:E4:10
- 10  1405/07/21 09:26:43  [dhcp,info]  dhcp1 deassigned 172.29.203.250 from 00:E0:4C:4D:B6:BE
- 11  1405/07/21 09:42:04  [dhcp,info]  dhcp1 assigned 172.29.203.252 to E0:B9:A5:F0:E4:10
- 12  1405/07/21 12:51:37  [dhcp,info]  dhcp1 deassigned 172.29.203.252 from E0:B9:A5:F0:E4:10
- 13  1405/07/21 12:53:37  [dhcp,info]  dhcp1 deassigned 172.29.203.254 from 8C:89:A5:E3:FA:2D
- 14  1405/07/22 06:31:54  [wireless,info]  6C:3B:6B:4A:2C:B8@wlan1: lost connection, control frame timeout
- 15  1405/07/22 06:32:46  [wireless,info]  6C:3B:6B:4A:2C:B8@wlan1 established connection on 5375000, SSID Shadegan-Jafal1
- 16  1405/07/22 08:23:18  [dhcp,info]  dhcp1 assigned 172.29.203.250 to 00:E0:4C:4D:B6:BE
- 17  1405/07/22 08:55:48  [wireless,info]  6C:3B:6B:4A:2C:B8@wlan1: lost connection, synchronization timeout
- 18  1405/07/22 08:57:30  [wireless,info]  6C:3B:6B:4A:2C:B8@wlan1 established connection on 5375000, SSID Shadegan-Jafal1
- 19  1405/07/22 09:57:50  [dhcp,info]  dhcp1 assigned 172.29.203.254 to 8C:89:A5:E3:FA:2D
- 20  1405/07/22 11:24:55  [dhcp,info]  dhcp1 deassigned 172.29.203.254 from 8C:89:A5:E3:FA:2D
- 21  1405/07/22 11:53:18  [dhcp,info]  dhcp1 deassigned 172.29.203.250 from 00:E0:4C:4D:B6:BE
- 22  1405/07/22 13:24:06  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 23  1405/07/22 13:24:08  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 24  1405/07/22 14:16:29  [dhcp,info]  dhcp1 assigned 172.29.203.254 to 8C:89:A5:E3:FA:2D
- 25  1405/07/22 14:26:29  [dhcp,info]  dhcp1 deassigned 172.29.203.254 from 8C:89:A5:E3:FA:2D
- 26  1405/07/22 20:47:12  [dhcp,info]  dhcp1 assigned 172.29.203.249 to A2:33:BA:FE:B9:5C
- 27  1405/07/22 20:57:12  [dhcp,info]  dhcp1 deassigned 172.29.203.249 from A2:33:BA:FE:B9:5C
- 28  1405/07/23 12:31:34  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/26 09:03:38
+# ساعت دستگاه (خام): 2023-05-28 08:41:42
+# افست اصلاحی (سرور − دستگاه): +29732:51:56
+  1  1405/07/21 01:21:48  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/21 01:21:51  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/21 01:22:42  [wireless,info]  6C:3B:6B:4A:2C:B8@wlan1 established connection on 5375000, SSID Shadegan-Jafal1
+  4  1405/07/21 01:42:12  [wireless,info]  6C:3B:6B:4A:2C:B8@wlan1: lost connection, synchronization timeout
+  5  1405/07/21 01:44:47  [wireless,info]  6C:3B:6B:4A:2C:B8@wlan1 established connection on 5375000, SSID Shadegan-Jafal1
+  6  1405/07/21 08:15:44  [dhcp,info]  dhcp1 assigned 172.29.203.254 to 8C:89:A5:E3:FA:2D
+  7  1405/07/21 08:28:04  [dhcp,info]  dhcp1 assigned 172.29.203.250 to 00:E0:4C:4D:B6:BE
+  8  1405/07/21 08:35:39  [dhcp,info]  dhcp1 assigned 172.29.203.252 to E0:B9:A5:F0:E4:10
+  9  1405/07/21 08:45:39  [dhcp,info]  dhcp1 deassigned 172.29.203.252 from E0:B9:A5:F0:E4:10
+ 10  1405/07/21 09:23:54  [dhcp,info]  dhcp1 deassigned 172.29.203.250 from 00:E0:4C:4D:B6:BE
+ 11  1405/07/21 09:39:15  [dhcp,info]  dhcp1 assigned 172.29.203.252 to E0:B9:A5:F0:E4:10
+ 12  1405/07/21 12:48:48  [dhcp,info]  dhcp1 deassigned 172.29.203.252 from E0:B9:A5:F0:E4:10
+ 13  1405/07/21 12:50:48  [dhcp,info]  dhcp1 deassigned 172.29.203.254 from 8C:89:A5:E3:FA:2D
+ 14  1405/07/22 06:29:05  [wireless,info]  6C:3B:6B:4A:2C:B8@wlan1: lost connection, control frame timeout
+ 15  1405/07/22 06:29:57  [wireless,info]  6C:3B:6B:4A:2C:B8@wlan1 established connection on 5375000, SSID Shadegan-Jafal1
+ 16  1405/07/22 08:20:29  [dhcp,info]  dhcp1 assigned 172.29.203.250 to 00:E0:4C:4D:B6:BE
+ 17  1405/07/22 08:52:59  [wireless,info]  6C:3B:6B:4A:2C:B8@wlan1: lost connection, synchronization timeout
+ 18  1405/07/22 08:54:41  [wireless,info]  6C:3B:6B:4A:2C:B8@wlan1 established connection on 5375000, SSID Shadegan-Jafal1
+ 19  1405/07/22 09:55:01  [dhcp,info]  dhcp1 assigned 172.29.203.254 to 8C:89:A5:E3:FA:2D
+ 20  1405/07/22 11:22:06  [dhcp,info]  dhcp1 deassigned 172.29.203.254 from 8C:89:A5:E3:FA:2D
+ 21  1405/07/22 11:50:29  [dhcp,info]  dhcp1 deassigned 172.29.203.250 from 00:E0:4C:4D:B6:BE
+ 22  1405/07/22 13:21:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 23  1405/07/22 13:21:19  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 24  1405/07/22 14:13:40  [dhcp,info]  dhcp1 assigned 172.29.203.254 to 8C:89:A5:E3:FA:2D
+ 25  1405/07/22 14:23:40  [dhcp,info]  dhcp1 deassigned 172.29.203.254 from 8C:89:A5:E3:FA:2D
+ 26  1405/07/22 20:44:23  [dhcp,info]  dhcp1 assigned 172.29.203.249 to A2:33:BA:FE:B9:5C
+ 27  1405/07/22 20:54:23  [dhcp,info]  dhcp1 deassigned 172.29.203.249 from A2:33:BA:FE:B9:5C
+ 28  1405/07/23 12:28:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 29  1405/07/23 12:28:47  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 30  1405/07/24 15:25:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 31  1405/07/24 15:25:31  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 32  1405/07/24 15:55:40  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 33  1405/07/24 15:55:42  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 34  1405/07/24 16:33:01  [dhcp,info]  dhcp1 assigned 172.29.203.248 to C6:4D:AD:C3:35:20
+ 35  1405/07/24 16:43:01  [dhcp,info]  dhcp1 deassigned 172.29.203.248 from C6:4D:AD:C3:35:20
+ 36  1405/07/25 08:11:03  [dhcp,info]  dhcp1 assigned 172.29.203.254 to 8C:89:A5:E3:FA:2D
+ 37  1405/07/25 08:16:11  [dhcp,info]  dhcp1 assigned 172.29.203.250 to 00:E0:4C:4D:B6:BE
+ 38  1405/07/25 09:11:03  [dhcp,info]  dhcp1 deassigned 172.29.203.254 from 8C:89:A5:E3:FA:2D
+ 39  1405/07/25 10:10:06  [dhcp,info]  dhcp1 assigned 172.29.203.254 to 8C:89:A5:E3:FA:2D
+ 40  1405/07/25 10:18:32  [dhcp,info]  dhcp1 deassigned 172.29.203.250 from 00:E0:4C:4D:B6:BE
+ 41  1405/07/25 12:32:48  [dhcp,info]  dhcp1 assigned 172.29.203.250 to 00:E0:4C:4D:B6:BE
+ 42  1405/07/25 12:35:06  [dhcp,info]  dhcp1 deassigned 172.29.203.254 from 8C:89:A5:E3:FA:2D
+ 43  1405/07/25 13:02:49  [dhcp,info]  dhcp1 deassigned 172.29.203.250 from 00:E0:4C:4D:B6:BE
+ 44  1405/07/26 08:11:56  [dhcp,info]  dhcp1 assigned 172.29.203.254 to 8C:89:A5:E3:FA:2D
+ 45  1405/07/26 08:15:19  [dhcp,info]  dhcp1 assigned 172.29.203.250 to 00:E0:4C:4D:B6:BE
+ 46  1405/07/26 09:00:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 47  1405/07/26 09:01:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 48  1405/07/26 09:03:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -70,3 +90,5 @@ wlan1  6C:3B:6B:10:B1:EB  (wlan)
 --- /ip arp ---
 ether1  E4:8D:8C:65:4D:E2  (arp 172.29.203.226)
 wlan1  6C:3B:6B:0C:28:9A  (arp 172.18.25.209)
+ether1  8C:89:A5:E3:FA:2D  (arp 172.29.203.254)
+ether1  00:E0:4C:4D:B6:BE  (arp 172.29.203.250)

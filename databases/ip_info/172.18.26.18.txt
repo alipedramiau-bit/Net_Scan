@@ -1,5 +1,5 @@
 IP: 172.18.26.18
-Collected at: 2026-10-15T10:08:51.450737+00:00
+Collected at: 2026-10-21T13:17:01.567370+00:00
 source: RouterOS API
 identity: Shadegan-Darkhovein1
 device_type: AP
@@ -33,16 +33,20 @@ name=wlan1  mode=ap-bridge  ssid=Shadegan-Darkhovein1  band=5ghz-a/n  frequency=
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:34:03
-# ساعت دستگاه (خام): 2025-06-11 05:43:01
-# افست اصلاحی (سرور − دستگاه): +11787:21:02
-  1  1405/07/23 07:51:00  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/23 07:51:03  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:4D:A3:0C
-  3  1405/07/23 07:51:10  [interface,info]  ether1 link up (speed 1G, full duplex)
-  4  1405/07/23 07:52:16  [wireless,info]  18:FD:74:92:95:E0@wlan1: connected, signal strength -72
-  5  1405/07/23 07:52:16  [wireless,info]  6C:3B:6B:13:57:B1@wlan1: connected, signal strength -80
-  6  1405/07/23 07:52:20  [wireless,info]  64:D1:54:52:D3:FB@wlan1: connected, signal strength -58
-  7  1405/07/23 12:34:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:35:23
+# ساعت دستگاه (خام): 2025-06-16 00:33:28
+# افست اصلاحی (سرور − دستگاه): +11820:31:55
+  1  1405/07/27 17:01:53  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/27 17:01:56  [bridge,info]  "bridge1" mac address changed to 6C:3B:6B:4D:A3:0C
+  3  1405/07/27 17:02:03  [interface,info]  ether1 link up (speed 1G, full duplex)
+  4  1405/07/27 17:03:29  [wireless,info]  64:D1:54:52:D3:FB@wlan1: connected, signal strength -46
+  5  1405/07/27 17:11:34  [wireless,info]  18:FD:74:92:95:E0@wlan1: connected, signal strength -70
+  6  1405/07/27 20:27:59  [wireless,info]  18:FD:74:92:95:E0@wlan1: disconnected, not responding
+  7  1405/07/27 20:58:18  [wireless,info]  18:FD:74:92:95:E0@wlan1: connected, signal strength -72
+  8  1405/07/27 21:00:53  [wireless,info]  6C:3B:6B:13:57:B1@wlan1: connected, signal strength -80
+  9  1405/07/30 03:23:07  [wireless,info]  6C:3B:6B:13:57:B1@wlan1: disconnected, control frame timeout
+ 10  1405/07/30 03:25:01  [wireless,info]  6C:3B:6B:13:57:B1@wlan1: connected, signal strength -90
+ 11  1405/07/29 16:35:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

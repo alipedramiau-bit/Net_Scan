@@ -1,5 +1,5 @@
 IP: 172.29.204.113
-Collected at: 2026-10-14T10:25:25.465291+00:00
+Collected at: 2026-10-18T05:59:18.195762+00:00
 source: RouterOS API
 identity: Albo.Hesar.Behdasht
 device_type: ST
@@ -25,30 +25,32 @@ name=wlan1  mode=station-bridge  ssid=Shadegan-Jafal2  band=5ghz-a/n  frequency=
   3  dst=172.29.204.112/28  gw=bridge1  distance=0
 
 ----- neighbors -----
-(empty)
+=== /ip neighbor ===
+  1  identity=-  address=-  interface=ether1,bridge1
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:46:05
-# ساعت دستگاه (خام): 1970-05-16 02:39:03
-# افست اصلاحی (سرور − دستگاه): +494527:37:02
-  1  1405/07/22 11:07:02  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 11:07:02  [bridge,info]  "bridge1" mac address changed to 78:9A:18:77:0D:A2
-  3  1405/07/22 11:07:02  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
-  4  1405/07/22 11:07:03  [interface,info]  ether1 link up (speed 100M, full duplex)
-  5  1405/07/22 11:07:31  [dhcp,info]  defconf deassigned 172.29.204.120 from 60:CF:84:69:5C:97
-  6  1405/07/22 11:07:36  [dhcp,info]  defconf assigned 172.29.204.120 to 60:CF:84:69:5C:97
-  7  1405/07/22 11:08:06  [wireless,info]  6C:3B:6B:5D:72:81@wlan1 established connection on 5100000, SSID Shadegan-Jafal2
-  8  1405/07/22 11:08:06  [dhcp,error]  temporary moving client wlan1 from slave to master port, update your config!!!
-  9  1405/07/22 11:08:27  [dhcp,info]  defconf deassigned 172.29.204.119 from 60:CF:84:69:62:B0
- 10  1405/07/22 11:08:27  [dhcp,info]  defconf assigned 172.29.204.119 to 60:CF:84:69:62:B0
- 11  1405/07/22 11:18:42  [dhcp,info]  defconf deassigned 172.29.204.120 from 60:CF:84:69:5C:97
- 12  1405/07/22 11:18:42  [dhcp,info]  defconf assigned 172.29.204.120 to 60:CF:84:69:5C:97
- 13  1405/07/22 11:48:44  [dhcp,info]  defconf deassigned 172.29.204.120 from 60:CF:84:69:5C:97
- 14  1405/07/22 12:38:27  [dhcp,info]  defconf deassigned 172.29.204.119 from 60:CF:84:69:62:B0
- 15  1405/07/22 13:24:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 16  1405/07/22 13:24:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 17  1405/07/22 13:46:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/26 09:21:19
+# ساعت دستگاه (خام): 1970-05-19 13:48:30
+# افست اصلاحی (سرور − دستگاه): +494536:02:49
+  1  1405/07/24 19:32:49  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/24 19:32:49  [bridge,info]  "bridge1" mac address changed to 78:9A:18:77:0D:A2
+  3  1405/07/24 19:32:49  [bridge,info]  hardware offloading activated on bridge "bridge1" ports: ether1
+  4  1405/07/24 19:32:50  [interface,info]  ether1 link up (speed 100M, full duplex)
+  5  1405/07/24 19:33:52  [wireless,info]  6C:3B:6B:5D:72:81@wlan1 established connection on 5100000, SSID Shadegan-Jafal2
+  6  1405/07/24 19:33:52  [dhcp,error]  temporary moving client wlan1 from slave to master port, update your config!!!
+  7  1405/07/25 08:02:06  [dhcp,info]  defconf assigned 172.29.204.120 to 60:CF:84:69:5C:97
+  8  1405/07/25 08:42:30  [dhcp,info]  defconf assigned 172.29.204.119 to 60:CF:84:69:62:B0
+  9  1405/07/25 11:52:15  [dhcp,info]  defconf deassigned 172.29.204.120 from 60:CF:84:69:5C:97
+ 10  1405/07/25 12:52:34  [dhcp,info]  defconf deassigned 172.29.204.119 from 60:CF:84:69:62:B0
+ 11  1405/07/26 07:56:43  [dhcp,info]  defconf assigned 172.29.204.120 to 60:CF:84:69:5C:97
+ 12  1405/07/26 09:01:13  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 13  1405/07/26 09:01:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 14  1405/07/26 09:03:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 15  1405/07/26 09:03:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 16  1405/07/26 09:19:34  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 17  1405/07/26 09:19:36  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 18  1405/07/26 09:21:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -56,4 +58,5 @@ ether1  78:9A:18:77:0D:A2  (ether)
 wlan1  78:9A:18:77:0D:A3  (wlan)
 bridge1  78:9A:18:77:0D:A2  (bridge)
 --- /ip arp ---
+bridge1  60:CF:84:69:5C:97  (arp 172.29.204.120)
 bridge1  6C:3B:6B:0C:28:9E  (arp 172.18.25.225)

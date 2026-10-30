@@ -1,5 +1,5 @@
 IP: 172.29.206.225
-Collected at: 2026-10-14T10:25:28.663437+00:00
+Collected at: 2026-10-16T12:41:21.110514+00:00
 source: RouterOS API
 identity: ShakhtolKhan.Client
 device_type: ST
@@ -30,20 +30,32 @@ name=wlan1  mode=station-bridge  ssid=Shadegan-Darkhovein2  band=5ghz-a/n  frequ
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:46:20
-# ساعت دستگاه (خام): 1974-05-07 14:09:04
-# افست اصلاحی (سرور − دستگاه): +459668:07:16
-  1  1405/07/22 08:13:38  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/22 08:13:41  [interface,info]  ether1 link up (speed 100M, full duplex)
-  3  1405/07/22 08:13:45  [wireless,info]  B8:69:F4:90:60:F7@wlan1 established connection on 5260000, SSID Shadegan-Darkhovein2
-  4  1405/07/22 09:42:51  [wireless,info]  B8:69:F4:90:60:F7@wlan1: lost connection, no beacons received
-  5  1405/07/22 09:54:19  [wireless,info]  B8:69:F4:90:60:F7@wlan1 established connection on 5260000, SSID Shadegan-Darkhovein2
-  6  1405/07/22 10:10:12  [interface,info]  ether1 link down
-  7  1405/07/22 10:10:13  [interface,info]  ether1 link up (speed 10M, full duplex)
-  8  1405/07/22 10:18:42  [dhcp,info]  dhcp1 deassigned 172.29.206.254 from B4:2E:99:2B:DC:D3
-  9  1405/07/22 13:27:07  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 10  1405/07/22 13:27:09  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 11  1405/07/22 13:46:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/24 16:07:02
+# ساعت دستگاه (خام): 1974-05-09 16:32:38
+# افست اصلاحی (سرور − دستگاه): +459668:04:24
+  1  1405/07/22 08:10:46  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/22 08:10:49  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/22 08:10:53  [wireless,info]  B8:69:F4:90:60:F7@wlan1 established connection on 5260000, SSID Shadegan-Darkhovein2
+  4  1405/07/22 09:39:59  [wireless,info]  B8:69:F4:90:60:F7@wlan1: lost connection, no beacons received
+  5  1405/07/22 09:51:27  [wireless,info]  B8:69:F4:90:60:F7@wlan1 established connection on 5260000, SSID Shadegan-Darkhovein2
+  6  1405/07/22 10:07:20  [interface,info]  ether1 link down
+  7  1405/07/22 10:07:21  [interface,info]  ether1 link up (speed 10M, full duplex)
+  8  1405/07/22 10:15:50  [dhcp,info]  dhcp1 deassigned 172.29.206.254 from B4:2E:99:2B:DC:D3
+  9  1405/07/22 13:24:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 10  1405/07/22 13:24:17  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 11  1405/07/22 13:43:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 12  1405/07/22 13:43:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 13  1405/07/23 07:40:04  [wireless,info]  B8:69:F4:90:60:F7@wlan1: lost connection, no beacons received
+ 14  1405/07/23 07:48:21  [wireless,info]  B8:69:F4:90:60:F7@wlan1 established connection on 5260000, SSID Shadegan-Darkhovein2
+ 15  1405/07/23 12:31:34  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 16  1405/07/23 12:31:35  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 17  1405/07/24 15:27:50  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 18  1405/07/24 15:27:52  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 19  1405/07/24 15:43:17  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 20  1405/07/24 15:43:18  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 21  1405/07/24 15:57:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 22  1405/07/24 15:57:16  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 23  1405/07/24 16:07:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

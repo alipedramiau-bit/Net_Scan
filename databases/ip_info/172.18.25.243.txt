@@ -1,5 +1,5 @@
 IP: 172.18.25.243
-Collected at: 2026-10-15T10:08:39.037414+00:00
+Collected at: 2026-10-18T05:56:47.567115+00:00
 source: RouterOS API
 identity: AlboArabid.Client
 device_type: ST
@@ -30,62 +30,85 @@ name=wlan1  mode=station-bridge  ssid=Shadegan-Jafal3  band=5ghz-a/n  frequency=
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:31:54
-# ساعت دستگاه (خام): 2025-01-03 13:38:06
-# افست اصلاحی (سرور − دستگاه): +15595:23:48
-  1  1405/07/21 01:22:27  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/21 01:23:27  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
-  3  1405/07/21 11:05:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  4  1405/07/21 11:05:40  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  5  1405/07/21 11:20:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  6  1405/07/21 11:20:50  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  7  1405/07/21 21:25:37  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
-  8  1405/07/21 21:27:31  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
-  9  1405/07/22 06:24:18  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
- 10  1405/07/22 06:27:09  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
- 11  1405/07/22 06:34:57  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
- 12  1405/07/22 06:35:54  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
- 13  1405/07/22 06:42:22  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
- 14  1405/07/22 06:43:19  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
- 15  1405/07/22 06:52:31  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
- 16  1405/07/22 06:53:29  [wireless,info]  18:FD:74:BA:07:39@wlan1: failed to connect, on 5750000, registration timeout
- 17  1405/07/22 06:54:26  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
- 18  1405/07/22 06:54:53  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
- 19  1405/07/22 06:55:51  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
- 20  1405/07/22 06:58:28  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
- 21  1405/07/22 06:59:26  [wireless,info]  18:FD:74:BA:07:39@wlan1: failed to connect, on 5750000, registration timeout
- 22  1405/07/22 07:00:23  [wireless,info]  18:FD:74:BA:07:39@wlan1: failed to connect, on 5750000, registration timeout
- 23  1405/07/22 07:01:20  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
- 24  1405/07/22 07:32:05  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
- 25  1405/07/22 07:33:03  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
- 26  1405/07/22 07:36:31  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
- 27  1405/07/22 07:38:26  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
- 28  1405/07/22 07:40:28  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
- 29  1405/07/22 07:43:20  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
- 30  1405/07/22 13:24:23  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 31  1405/07/22 13:24:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 32  1405/07/22 13:46:05  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 33  1405/07/22 13:46:08  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 34  1405/07/23 00:22:43  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, medium-access timeout
- 35  1405/07/23 00:23:40  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
- 36  1405/07/23 00:51:28  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
- 37  1405/07/23 00:52:26  [wireless,info]  18:FD:74:BA:07:39@wlan1: failed to connect, on 5750000, registration timeout
- 38  1405/07/23 00:53:23  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
- 39  1405/07/23 00:55:33  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, medium-access timeout
- 40  1405/07/23 00:57:27  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
- 41  1405/07/23 01:03:38  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, medium-access timeout
- 42  1405/07/23 01:04:35  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
- 43  1405/07/23 04:55:54  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
- 44  1405/07/23 04:56:51  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
- 45  1405/07/23 05:58:27  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
- 46  1405/07/23 05:59:24  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
- 47  1405/07/23 07:07:50  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
- 48  1405/07/23 07:08:47  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
- 49  1405/07/23 07:17:51  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
- 50  1405/07/23 07:18:49  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
- 51  1405/07/23 07:20:58  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, medium-access timeout
- 52  1405/07/23 07:21:55  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
- 53  1405/07/23 12:31:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/26 09:03:58
+# ساعت دستگاه (خام): 2025-01-06 10:12:59
+# افست اصلاحی (سرور − دستگاه): +15595:20:59
+  1  1405/07/21 01:19:38  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/21 01:20:38  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
+  3  1405/07/21 11:02:49  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  4  1405/07/21 11:02:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  5  1405/07/21 11:17:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  6  1405/07/21 11:18:01  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  7  1405/07/21 21:22:48  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
+  8  1405/07/21 21:24:42  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
+  9  1405/07/22 06:21:29  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
+ 10  1405/07/22 06:24:20  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
+ 11  1405/07/22 06:32:08  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
+ 12  1405/07/22 06:33:05  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
+ 13  1405/07/22 06:39:33  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
+ 14  1405/07/22 06:40:30  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
+ 15  1405/07/22 06:49:42  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
+ 16  1405/07/22 06:50:40  [wireless,info]  18:FD:74:BA:07:39@wlan1: failed to connect, on 5750000, registration timeout
+ 17  1405/07/22 06:51:37  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
+ 18  1405/07/22 06:52:04  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
+ 19  1405/07/22 06:53:02  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
+ 20  1405/07/22 06:55:39  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
+ 21  1405/07/22 06:56:37  [wireless,info]  18:FD:74:BA:07:39@wlan1: failed to connect, on 5750000, registration timeout
+ 22  1405/07/22 06:57:34  [wireless,info]  18:FD:74:BA:07:39@wlan1: failed to connect, on 5750000, registration timeout
+ 23  1405/07/22 06:58:31  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
+ 24  1405/07/22 07:29:16  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
+ 25  1405/07/22 07:30:14  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
+ 26  1405/07/22 07:33:42  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
+ 27  1405/07/22 07:35:37  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
+ 28  1405/07/22 07:37:39  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
+ 29  1405/07/22 07:40:31  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
+ 30  1405/07/22 13:21:34  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 31  1405/07/22 13:21:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 32  1405/07/22 13:43:16  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 33  1405/07/22 13:43:19  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 34  1405/07/23 00:19:54  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, medium-access timeout
+ 35  1405/07/23 00:20:51  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
+ 36  1405/07/23 00:48:39  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
+ 37  1405/07/23 00:49:37  [wireless,info]  18:FD:74:BA:07:39@wlan1: failed to connect, on 5750000, registration timeout
+ 38  1405/07/23 00:50:34  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
+ 39  1405/07/23 00:52:44  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, medium-access timeout
+ 40  1405/07/23 00:54:38  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
+ 41  1405/07/23 01:00:49  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, medium-access timeout
+ 42  1405/07/23 01:01:46  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
+ 43  1405/07/23 04:53:05  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
+ 44  1405/07/23 04:54:02  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
+ 45  1405/07/23 05:55:38  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
+ 46  1405/07/23 05:56:35  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
+ 47  1405/07/23 07:05:01  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
+ 48  1405/07/23 07:05:58  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
+ 49  1405/07/23 07:15:02  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
+ 50  1405/07/23 07:16:00  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
+ 51  1405/07/23 07:18:09  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, medium-access timeout
+ 52  1405/07/23 07:19:06  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
+ 53  1405/07/23 12:29:03  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 54  1405/07/23 12:29:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 55  1405/07/23 19:26:18  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
+ 56  1405/07/23 19:27:16  [wireless,info]  18:FD:74:BA:07:39@wlan1: failed to connect, on 5750000, registration timeout
+ 57  1405/07/23 19:28:13  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
+ 58  1405/07/23 20:52:23  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, medium-access timeout
+ 59  1405/07/23 20:53:20  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
+ 60  1405/07/24 02:30:12  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
+ 61  1405/07/24 02:31:09  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
+ 62  1405/07/24 15:25:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 63  1405/07/24 15:25:49  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 64  1405/07/24 15:43:04  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 65  1405/07/24 15:43:06  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 66  1405/07/24 16:06:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 67  1405/07/24 16:06:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 68  1405/07/26 02:28:34  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
+ 69  1405/07/26 02:29:31  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
+ 70  1405/07/26 03:35:51  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, medium-access timeout
+ 71  1405/07/26 03:36:48  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
+ 72  1405/07/26 05:24:56  [wireless,info]  18:FD:74:BA:07:39@wlan1: lost connection, control frame timeout
+ 73  1405/07/26 05:25:53  [wireless,info]  18:FD:74:BA:07:39@wlan1 established connection on 5750000, SSID Shadegan-Jafal3
+ 74  1405/07/26 09:01:26  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 75  1405/07/26 09:01:29  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 76  1405/07/26 09:03:57  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

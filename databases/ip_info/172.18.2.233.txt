@@ -1,5 +1,5 @@
 IP: 172.18.2.233
-Collected at: 2026-10-15T10:07:57.976882+00:00
+Collected at: 2026-10-18T05:55:35.891699+00:00
 source: RouterOS API
 identity: RouerForiat10
 device_type: Router
@@ -24,7 +24,7 @@ device_type: Router
  16  name=ether16  type=ether  running=false  mac=6C:3B:6B:87:6E:1E
  17  name=ether17  type=ether  running=true  mac=6C:3B:6B:87:6E:1F
  18  name=ether18  type=ether  running=false  mac=6C:3B:6B:87:6E:20
- 19  name=ether19  type=ether  running=false  mac=6C:3B:6B:87:6E:21
+ 19  name=ether19  type=ether  running=true  mac=6C:3B:6B:87:6E:21
  20  name=ether20  type=ether  running=true  mac=6C:3B:6B:87:6E:22
  21  name=ether21  type=ether  running=true  mac=6C:3B:6B:87:6E:23
  22  name=ether22  type=ether  running=true  mac=6C:3B:6B:87:6E:24
@@ -95,214 +95,218 @@ device_type: Router
  19  identity=Router_Foriat_Alghadir  address=172.29.2.130  interface=ether11-Alghadir
  20  identity=Foriatha->Emamhasan.AP  address=172.18.2.18  interface=ether12-EmamHasan
  21  identity=Ghadr.Client  address=172.18.2.20  interface=ether12-EmamHasan
- 22  identity=MK-Behdasht-istgah10  address=-  interface=ether24 - Backup MarkazBehdasht Abadan
- 23  identity=MarkazB-2  address=192.168.0.2  interface=ether24 - Backup MarkazBehdasht Abadan
+ 22  identity=-  address=-  interface=ether19,bridge1
+ 23  identity=-  address=-  interface=ether19,bridge1
+ 24  identity=-  address=-  interface=ether21,bridge1
+ 25  identity=-  address=-  interface=ether22,bridge1
+ 26  identity=MK-Behdasht-istgah10  address=-  interface=ether24 - Backup MarkazBehdasht Abadan
+ 27  identity=MarkazB-2  address=192.168.0.2  interface=ether24 - Backup MarkazBehdasht Abadan
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:23:54
-# ساعت دستگاه (خام): 1973-08-29 02:29:54
-# افست اصلاحی (سرور − دستگاه): +465726:24:00
-  1  1405/07/22 13:15:52  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  2  1405/07/22 13:16:36  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  3  1405/07/22 13:16:39  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  4  1405/07/22 13:20:12  [interface,info]  ether22 link down
-  5  1405/07/22 13:20:14  [interface,info]  ether22 link up (speed 1G, full duplex)
-  6  1405/07/22 13:21:27  [interface,info]  ether20 link down
-  7  1405/07/22 13:21:29  [interface,info]  ether20 link up (speed 10M, full duplex)
-  8  1405/07/22 13:29:56  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  9  1405/07/22 13:29:57  [dhcp,info]  dhcp1 deassigned 172.29.33.29 from 40:8D:5C:96:FA:80
- 10  1405/07/22 13:29:59  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 11  1405/07/22 13:33:38  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 12  1405/07/22 13:33:41  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 13  1405/07/22 13:35:41  [interface,info]  ether22 link down
- 14  1405/07/22 13:35:42  [interface,info]  ether22 link up (speed 10M, full duplex)
- 15  1405/07/22 13:39:39  [interface,info]  ether22 link down
- 16  1405/07/22 13:39:41  [interface,info]  ether22 link up (speed 1G, full duplex)
- 17  1405/07/22 13:47:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 18  1405/07/22 13:47:58  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 19  1405/07/22 13:55:08  [interface,info]  ether22 link down
- 20  1405/07/22 13:55:10  [interface,info]  ether22 link up (speed 10M, full duplex)
- 21  1405/07/22 13:56:03  [interface,info]  ether22 link down
- 22  1405/07/22 13:56:05  [interface,info]  ether22 link up (speed 1G, full duplex)
- 23  1405/07/22 14:11:32  [interface,info]  ether22 link down
- 24  1405/07/22 14:11:33  [interface,info]  ether22 link up (speed 10M, full duplex)
- 25  1405/07/22 14:12:09  [interface,info]  ether22 link down
- 26  1405/07/22 14:12:11  [interface,info]  ether22 link up (speed 1G, full duplex)
- 27  1405/07/22 14:27:38  [interface,info]  ether22 link down
- 28  1405/07/22 14:27:39  [interface,info]  ether22 link up (speed 10M, full duplex)
- 29  1405/07/22 14:28:16  [interface,info]  ether22 link down
- 30  1405/07/22 14:28:18  [interface,info]  ether22 link up (speed 1G, full duplex)
- 31  1405/07/22 14:43:45  [interface,info]  ether22 link down
- 32  1405/07/22 14:43:47  [interface,info]  ether22 link up (speed 10M, full duplex)
- 33  1405/07/22 14:44:24  [interface,info]  ether22 link down
- 34  1405/07/22 14:44:26  [interface,info]  ether22 link up (speed 1G, full duplex)
- 35  1405/07/22 14:59:53  [interface,info]  ether22 link down
- 36  1405/07/22 14:59:55  [interface,info]  ether22 link up (speed 10M, full duplex)
- 37  1405/07/22 15:00:32  [interface,info]  ether22 link down
- 38  1405/07/22 15:00:34  [interface,info]  ether22 link up (speed 1G, full duplex)
- 39  1405/07/22 15:16:01  [interface,info]  ether22 link down
- 40  1405/07/22 15:16:03  [interface,info]  ether22 link up (speed 10M, full duplex)
- 41  1405/07/22 15:16:40  [interface,info]  ether22 link down
- 42  1405/07/22 15:16:42  [interface,info]  ether22 link up (speed 1G, full duplex)
- 43  1405/07/22 15:32:09  [interface,info]  ether22 link down
- 44  1405/07/22 15:32:10  [interface,info]  ether22 link up (speed 10M, full duplex)
- 45  1405/07/22 15:32:47  [interface,info]  ether22 link down
- 46  1405/07/22 15:32:49  [interface,info]  ether22 link up (speed 1G, full duplex)
- 47  1405/07/22 15:48:16  [interface,info]  ether22 link down
- 48  1405/07/22 15:48:18  [interface,info]  ether22 link up (speed 10M, full duplex)
- 49  1405/07/22 15:48:55  [interface,info]  ether22 link down
- 50  1405/07/22 15:48:57  [interface,info]  ether22 link up (speed 1G, full duplex)
- 51  1405/07/22 16:04:24  [interface,info]  ether22 link down
- 52  1405/07/22 16:04:25  [interface,info]  ether22 link up (speed 10M, full duplex)
- 53  1405/07/22 16:05:01  [interface,info]  ether22 link down
- 54  1405/07/22 16:05:03  [interface,info]  ether22 link up (speed 1G, full duplex)
- 55  1405/07/22 16:20:30  [interface,info]  ether22 link down
- 56  1405/07/22 16:20:31  [interface,info]  ether22 link up (speed 10M, full duplex)
- 57  1405/07/22 16:21:08  [interface,info]  ether22 link down
- 58  1405/07/22 16:21:10  [interface,info]  ether22 link up (speed 1G, full duplex)
- 59  1405/07/22 16:36:37  [interface,info]  ether22 link down
- 60  1405/07/22 16:36:38  [interface,info]  ether22 link up (speed 10M, full duplex)
- 61  1405/07/22 16:37:16  [interface,info]  ether22 link down
- 62  1405/07/22 16:37:18  [interface,info]  ether22 link up (speed 1G, full duplex)
- 63  1405/07/22 16:52:45  [interface,info]  ether22 link down
- 64  1405/07/22 16:52:46  [interface,info]  ether22 link up (speed 10M, full duplex)
- 65  1405/07/22 16:53:23  [interface,info]  ether22 link down
- 66  1405/07/22 16:53:25  [interface,info]  ether22 link up (speed 1G, full duplex)
- 67  1405/07/22 17:08:52  [interface,info]  ether22 link down
- 68  1405/07/22 17:08:54  [interface,info]  ether22 link up (speed 10M, full duplex)
- 69  1405/07/22 17:09:31  [interface,info]  ether22 link down
- 70  1405/07/22 17:09:33  [interface,info]  ether22 link up (speed 1G, full duplex)
- 71  1405/07/22 17:25:00  [interface,info]  ether22 link down
- 72  1405/07/22 17:25:01  [interface,info]  ether22 link up (speed 10M, full duplex)
- 73  1405/07/22 17:25:09  [interface,info]  ether22 link down
- 74  1405/07/22 17:25:11  [interface,info]  ether22 link up (speed 1G, full duplex)
- 75  1405/07/22 17:40:38  [interface,info]  ether22 link down
- 76  1405/07/22 17:40:40  [interface,info]  ether22 link up (speed 10M, full duplex)
- 77  1405/07/22 17:41:52  [interface,info]  ether22 link down
- 78  1405/07/22 17:41:53  [interface,info]  ether22 link up (speed 1G, full duplex)
- 79  1405/07/22 17:57:21  [interface,info]  ether22 link down
- 80  1405/07/22 17:57:22  [interface,info]  ether22 link up (speed 10M, full duplex)
- 81  1405/07/22 17:58:05  [interface,info]  ether22 link down
- 82  1405/07/22 17:58:07  [interface,info]  ether22 link up (speed 1G, full duplex)
- 83  1405/07/22 18:13:34  [interface,info]  ether22 link down
- 84  1405/07/22 18:13:35  [interface,info]  ether22 link up (speed 10M, full duplex)
- 85  1405/07/22 18:14:10  [interface,info]  ether22 link down
- 86  1405/07/22 18:14:12  [interface,info]  ether22 link up (speed 1G, full duplex)
- 87  1405/07/22 18:29:39  [interface,info]  ether22 link down
- 88  1405/07/22 18:29:41  [interface,info]  ether22 link up (speed 10M, full duplex)
- 89  1405/07/22 18:31:31  [interface,info]  ether22 link down
- 90  1405/07/22 18:31:33  [interface,info]  ether22 link up (speed 1G, full duplex)
- 91  1405/07/22 18:47:01  [interface,info]  ether22 link down
- 92  1405/07/22 18:47:02  [interface,info]  ether22 link up (speed 10M, full duplex)
- 93  1405/07/22 18:47:10  [interface,info]  ether22 link down
- 94  1405/07/22 18:47:12  [interface,info]  ether22 link up (speed 1G, full duplex)
- 95  1405/07/22 19:02:38  [interface,info]  ether22 link down
- 96  1405/07/22 19:02:40  [interface,info]  ether22 link up (speed 10M, full duplex)
- 97  1405/07/22 19:03:11  [interface,info]  ether22 link down
- 98  1405/07/22 19:03:13  [interface,info]  ether22 link up (speed 1G, full duplex)
- 99  1405/07/22 19:18:40  [interface,info]  ether22 link down
-100  1405/07/22 19:18:41  [interface,info]  ether22 link up (speed 10M, full duplex)
-101  1405/07/22 19:19:18  [interface,info]  ether22 link down
-102  1405/07/22 19:19:20  [interface,info]  ether22 link up (speed 1G, full duplex)
-103  1405/07/22 19:34:47  [interface,info]  ether22 link down
-104  1405/07/22 19:34:48  [interface,info]  ether22 link up (speed 10M, full duplex)
-105  1405/07/22 19:34:56  [interface,info]  ether22 link down
-106  1405/07/22 19:34:58  [interface,info]  ether22 link up (speed 1G, full duplex)
-107  1405/07/22 19:50:25  [interface,info]  ether22 link down
-108  1405/07/22 19:50:27  [interface,info]  ether22 link up (speed 10M, full duplex)
-109  1405/07/22 19:50:50  [interface,info]  ether22 link down
-110  1405/07/22 19:50:52  [interface,info]  ether22 link up (speed 1G, full duplex)
-111  1405/07/22 20:06:20  [interface,info]  ether22 link down
-112  1405/07/22 20:06:21  [interface,info]  ether22 link up (speed 10M, full duplex)
-113  1405/07/22 20:06:30  [interface,info]  ether22 link down
-114  1405/07/22 20:06:32  [interface,info]  ether22 link up (speed 1G, full duplex)
-115  1405/07/22 20:21:59  [interface,info]  ether22 link down
-116  1405/07/22 20:22:00  [interface,info]  ether22 link up (speed 10M, full duplex)
-117  1405/07/22 20:22:08  [interface,info]  ether22 link down
-118  1405/07/22 20:22:10  [interface,info]  ether22 link up (speed 1G, full duplex)
-119  1405/07/22 20:37:37  [interface,info]  ether22 link down
-120  1405/07/22 20:37:39  [interface,info]  ether22 link up (speed 10M, full duplex)
-121  1405/07/22 20:37:49  [interface,info]  ether22 link down
-122  1405/07/22 20:37:51  [interface,info]  ether22 link up (speed 1G, full duplex)
-123  1405/07/22 20:53:18  [interface,info]  ether22 link down
-124  1405/07/22 20:53:20  [interface,info]  ether22 link up (speed 10M, full duplex)
-125  1405/07/22 20:53:54  [interface,info]  ether22 link down
-126  1405/07/22 20:53:56  [interface,info]  ether22 link up (speed 1G, full duplex)
-127  1405/07/22 21:09:23  [interface,info]  ether22 link down
-128  1405/07/22 21:09:24  [interface,info]  ether22 link up (speed 10M, full duplex)
-129  1405/07/22 21:09:32  [interface,info]  ether22 link down
-130  1405/07/22 21:09:34  [interface,info]  ether22 link up (speed 1G, full duplex)
-131  1405/07/22 21:25:01  [interface,info]  ether22 link down
-132  1405/07/22 21:25:03  [interface,info]  ether22 link up (speed 10M, full duplex)
-133  1405/07/22 21:25:25  [interface,info]  ether22 link down
-134  1405/07/22 21:25:27  [interface,info]  ether22 link up (speed 1G, full duplex)
-135  1405/07/22 21:40:54  [interface,info]  ether22 link down
-136  1405/07/22 21:40:55  [interface,info]  ether22 link up (speed 10M, full duplex)
-137  1405/07/22 21:41:03  [interface,info]  ether22 link down
-138  1405/07/22 21:41:05  [interface,info]  ether22 link up (speed 1G, full duplex)
-139  1405/07/22 21:56:32  [interface,info]  ether22 link down
-140  1405/07/22 21:56:34  [interface,info]  ether22 link up (speed 10M, full duplex)
-141  1405/07/22 21:57:01  [interface,info]  ether22 link down
-142  1405/07/22 21:57:03  [interface,info]  ether22 link up (speed 1G, full duplex)
-143  1405/07/22 22:12:30  [interface,info]  ether22 link down
-144  1405/07/22 22:12:32  [interface,info]  ether22 link up (speed 10M, full duplex)
-145  1405/07/22 22:12:39  [interface,info]  ether22 link down
-146  1405/07/22 22:12:41  [interface,info]  ether22 link up (speed 1G, full duplex)
-147  1405/07/22 22:28:08  [interface,info]  ether22 link down
-148  1405/07/22 22:28:10  [interface,info]  ether22 link up (speed 10M, full duplex)
-149  1405/07/22 22:28:17  [interface,info]  ether22 link down
-150  1405/07/22 22:28:19  [interface,info]  ether22 link up (speed 1G, full duplex)
-151  1405/07/22 22:43:46  [interface,info]  ether22 link down
-152  1405/07/22 22:43:48  [interface,info]  ether22 link up (speed 10M, full duplex)
-153  1405/07/22 22:44:10  [interface,info]  ether22 link down
-154  1405/07/22 22:44:12  [interface,info]  ether22 link up (speed 1G, full duplex)
-155  1405/07/22 22:59:39  [interface,info]  ether22 link down
-156  1405/07/22 22:59:41  [interface,info]  ether22 link up (speed 10M, full duplex)
-157  1405/07/22 22:59:49  [interface,info]  ether22 link down
-158  1405/07/22 22:59:50  [interface,info]  ether22 link up (speed 1G, full duplex)
-159  1405/07/22 23:15:17  [interface,info]  ether22 link down
-160  1405/07/22 23:15:19  [interface,info]  ether22 link up (speed 10M, full duplex)
-161  1405/07/22 23:15:29  [interface,info]  ether22 link down
-162  1405/07/22 23:15:31  [interface,info]  ether22 link up (speed 1G, full duplex)
-163  1405/07/22 23:30:58  [interface,info]  ether22 link down
-164  1405/07/22 23:30:59  [interface,info]  ether22 link up (speed 10M, full duplex)
-165  1405/07/22 23:31:07  [interface,info]  ether22 link down
-166  1405/07/22 23:31:09  [interface,info]  ether22 link up (speed 1G, full duplex)
-167  1405/07/22 23:46:36  [interface,info]  ether22 link down
-168  1405/07/22 23:46:37  [interface,info]  ether22 link up (speed 10M, full duplex)
-169  1405/07/22 23:46:45  [interface,info]  ether22 link down
-170  1405/07/22 23:46:47  [interface,info]  ether22 link up (speed 1G, full duplex)
-171  1405/07/23 00:02:14  [interface,info]  ether22 link down
-172  1405/07/23 00:02:16  [interface,info]  ether22 link up (speed 10M, full duplex)
-173  1405/07/23 00:02:39  [interface,info]  ether22 link down
-174  1405/07/23 00:02:41  [interface,info]  ether22 link up (speed 1G, full duplex)
-175  1405/07/23 00:18:08  [interface,info]  ether22 link down
-176  1405/07/23 00:18:10  [interface,info]  ether22 link up (speed 10M, full duplex)
-177  1405/07/23 00:27:44  [dhcp,info]  dhcp1 deassigned 172.29.33.22 from 74:D4:35:20:10:21
-178  1405/07/23 08:25:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
-179  1405/07/23 08:29:26  [interface,info]  ether3-Emam Reza link down
-180  1405/07/23 08:29:29  [interface,info]  ether3-Emam Reza link up (speed 100M, full duplex)
-181  1405/07/23 08:29:53  [interface,info]  ether3-Emam Reza link down
-182  1405/07/23 08:29:55  [interface,info]  ether3-Emam Reza link up (speed 100M, full duplex)
-183  1405/07/23 08:31:20  [interface,info]  ether3-Emam Reza link down
-184  1405/07/23 08:31:22  [interface,info]  ether3-Emam Reza link up (speed 100M, full duplex)
-185  1405/07/23 11:50:57  [interface,info]  ether20 link down
-186  1405/07/23 11:50:59  [interface,info]  ether20 link up (speed 1G, full duplex)
-187  1405/07/23 11:51:00  [dhcp,info]  dhcp1 assigned 172.29.33.29 to 40:8D:5C:96:FA:80
-188  1405/07/23 12:06:30  [interface,info]  ether20 link down
-189  1405/07/23 12:06:32  [interface,info]  ether20 link up (speed 10M, full duplex)
-190  1405/07/23 12:06:40  [interface,info]  ether20 link down
-191  1405/07/23 12:06:42  [interface,info]  ether20 link up (speed 1G, full duplex)
-192  1405/07/23 12:20:13  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-193  1405/07/23 12:20:15  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-194  1405/07/23 12:22:08  [interface,info]  ether20 link down
-195  1405/07/23 12:22:10  [interface,info]  ether20 link up (speed 10M, full duplex)
-196  1405/07/23 12:23:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-197  1405/07/23 12:23:05  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-198  1405/07/23 12:23:39  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-199  1405/07/23 12:23:42  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-200  1405/07/23 12:23:52  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/26 08:55:26
+# ساعت دستگاه (خام): 1973-08-31 23:04:05
+# افست اصلاحی (سرور − دستگاه): +465726:21:21
+  1  1405/07/25 08:16:22  [interface,info]  ether22 link down
+  2  1405/07/25 08:16:24  [interface,info]  ether22 link up (speed 1G, full duplex)
+  3  1405/07/25 08:16:28  [dhcp,info]  dhcp1 assigned 172.29.33.22 to 74:D4:35:20:10:21
+  4  1405/07/25 08:16:30  [dhcp,info]  dhcp1 assigned 172.29.33.24 to 94:DE:80:4D:E7:8B
+  5  1405/07/25 08:23:40  [interface,info]  ether20 link down
+  6  1405/07/25 08:23:42  [interface,info]  ether20 link up (speed 1G, full duplex)
+  7  1405/07/25 08:23:45  [dhcp,info]  dhcp1 assigned 172.29.33.29 to 40:8D:5C:96:FA:80
+  8  1405/07/25 08:27:39  [dhcp,info]  dhcp1 assigned 172.29.33.23 to 94:DE:80:4D:E8:3D
+  9  1405/07/25 08:40:01  [interface,info]  ether20 link down
+ 10  1405/07/25 08:40:03  [interface,info]  ether20 link up (speed 10M, full duplex)
+ 11  1405/07/25 08:48:44  [dhcp,info]  dhcp1 deassigned 172.29.33.29 from 40:8D:5C:96:FA:80
+ 12  1405/07/25 08:53:49  [interface,info]  ether20 link down
+ 13  1405/07/25 08:53:51  [interface,info]  ether20 link up (speed 1G, full duplex)
+ 14  1405/07/25 08:53:52  [dhcp,info]  dhcp1 assigned 172.29.33.29 to 40:8D:5C:96:FA:80
+ 15  1405/07/25 09:09:14  [interface,info]  ether20 link down
+ 16  1405/07/25 09:09:16  [interface,info]  ether20 link up (speed 10M, full duplex)
+ 17  1405/07/25 09:09:24  [interface,info]  ether20 link down
+ 18  1405/07/25 09:09:26  [interface,info]  ether20 link up (speed 1G, full duplex)
+ 19  1405/07/25 09:13:07  [dhcp,info]  dhcp1 assigned 172.29.33.20 to 42:22:8B:61:0E:18
+ 20  1405/07/25 09:23:02  [interface,info]  ether21 link down
+ 21  1405/07/25 09:23:07  [dhcp,info]  dhcp1 deassigned 172.29.33.20 from 42:22:8B:61:0E:18
+ 22  1405/07/25 09:23:11  [interface,info]  ether21 link up (speed 100M, full duplex)
+ 23  1405/07/25 09:23:12  [dhcp,info]  dhcp1 assigned 172.29.33.30 to 94:DE:80:4D:E4:4D
+ 24  1405/07/25 09:24:53  [interface,info]  ether20 link down
+ 25  1405/07/25 09:24:55  [interface,info]  ether20 link up (speed 10M, full duplex)
+ 26  1405/07/25 09:25:03  [interface,info]  ether20 link down
+ 27  1405/07/25 09:25:05  [interface,info]  ether20 link up (speed 1G, full duplex)
+ 28  1405/07/25 09:45:23  [interface,info]  ether20 link down
+ 29  1405/07/25 09:45:25  [interface,info]  ether20 link up (speed 10M, full duplex)
+ 30  1405/07/25 09:45:52  [interface,info]  ether22 link down
+ 31  1405/07/25 09:45:54  [interface,info]  ether22 link up (speed 10M, full duplex)
+ 32  1405/07/25 09:47:20  [interface,info]  ether22 link down
+ 33  1405/07/25 09:47:22  [interface,info]  ether22 link up (speed 1G, full duplex)
+ 34  1405/07/25 09:53:46  [interface,info]  ether20 link down
+ 35  1405/07/25 09:53:48  [interface,info]  ether20 link up (speed 1G, full duplex)
+ 36  1405/07/25 10:02:48  [interface,info]  ether22 link down
+ 37  1405/07/25 10:02:50  [interface,info]  ether22 link up (speed 10M, full duplex)
+ 38  1405/07/25 10:02:58  [interface,info]  ether22 link down
+ 39  1405/07/25 10:03:00  [interface,info]  ether22 link up (speed 1G, full duplex)
+ 40  1405/07/25 10:09:16  [interface,info]  ether20 link down
+ 41  1405/07/25 10:09:18  [interface,info]  ether20 link up (speed 10M, full duplex)
+ 42  1405/07/25 10:18:50  [dhcp,info]  dhcp1 deassigned 172.29.33.29 from 40:8D:5C:96:FA:80
+ 43  1405/07/25 10:23:54  [interface,info]  ether20 link down
+ 44  1405/07/25 10:23:57  [interface,info]  ether20 link up (speed 1G, full duplex)
+ 45  1405/07/25 10:23:58  [dhcp,info]  dhcp1 assigned 172.29.33.29 to 40:8D:5C:96:FA:80
+ 46  1405/07/25 10:31:27  [interface,info]  ether22 link down
+ 47  1405/07/25 10:31:28  [interface,info]  ether22 link up (speed 10M, full duplex)
+ 48  1405/07/25 10:34:12  [dhcp,info]  dhcp1 deassigned 172.29.33.23 from 94:DE:80:4D:E8:3D
+ 49  1405/07/25 10:36:02  [dhcp,info]  dhcp1 assigned 172.29.33.23 to 94:DE:80:4D:E8:3D
+ 50  1405/07/25 10:38:02  [dhcp,info]  dhcp1 deassigned 172.29.33.22 from 74:D4:35:20:10:21
+ 51  1405/07/25 10:38:49  [interface,info]  ether22 link down
+ 52  1405/07/25 10:38:51  [interface,info]  ether22 link up (speed 1G, full duplex)
+ 53  1405/07/25 10:38:52  [dhcp,info]  dhcp1 assigned 172.29.33.22 to 74:D4:35:20:10:21
+ 54  1405/07/25 10:39:23  [interface,info]  ether20 link down
+ 55  1405/07/25 10:39:26  [interface,info]  ether20 link up (speed 10M, full duplex)
+ 56  1405/07/25 10:39:33  [interface,info]  ether20 link down
+ 57  1405/07/25 10:39:36  [interface,info]  ether20 link up (speed 1G, full duplex)
+ 58  1405/07/25 10:45:35  [interface,info]  ether21 link down
+ 59  1405/07/25 10:45:37  [interface,info]  ether21 link up (speed 10M, full duplex)
+ 60  1405/07/25 10:50:08  [dhcp,info]  dhcp1 deassigned 172.29.33.23 from 94:DE:80:4D:E8:3D
+ 61  1405/07/25 10:53:13  [dhcp,info]  dhcp1 deassigned 172.29.33.30 from 94:DE:80:4D:E4:4D
+ 62  1405/07/25 10:53:44  [interface,info]  ether21 link down
+ 63  1405/07/25 10:53:46  [dhcp,info]  dhcp1 assigned 172.29.33.23 to 94:DE:80:4D:E8:3D
+ 64  1405/07/25 10:53:46  [interface,info]  ether21 link up (speed 1G, full duplex)
+ 65  1405/07/25 10:53:47  [dhcp,info]  dhcp1 assigned 172.29.33.30 to 94:DE:80:4D:E4:4D
+ 66  1405/07/25 10:54:17  [interface,info]  ether22 link down
+ 67  1405/07/25 10:54:19  [interface,info]  ether22 link up (speed 10M, full duplex)
+ 68  1405/07/25 10:55:02  [interface,info]  ether20 link down
+ 69  1405/07/25 10:55:05  [interface,info]  ether20 link up (speed 10M, full duplex)
+ 70  1405/07/25 10:55:48  [interface,info]  ether21 link down
+ 71  1405/07/25 10:55:53  [interface,info]  ether21 link up (speed 1G, full duplex)
+ 72  1405/07/25 10:55:54  [interface,info]  ether21 link down
+ 73  1405/07/25 10:56:04  [interface,info]  ether21 link up (speed 100M, full duplex)
+ 74  1405/07/25 10:57:35  [interface,info]  ether22 link down
+ 75  1405/07/25 10:57:37  [interface,info]  ether22 link up (speed 1G, full duplex)
+ 76  1405/07/25 11:04:37  [dhcp,info]  dhcp1 deassigned 172.29.33.29 from 40:8D:5C:96:FA:80
+ 77  1405/07/25 11:08:54  [interface,info]  ether20 link down
+ 78  1405/07/25 11:08:56  [interface,info]  ether20 link up (speed 1G, full duplex)
+ 79  1405/07/25 11:08:57  [dhcp,info]  dhcp1 assigned 172.29.33.29 to 40:8D:5C:96:FA:80
+ 80  1405/07/25 11:13:03  [interface,info]  ether22 link down
+ 81  1405/07/25 11:13:05  [interface,info]  ether22 link up (speed 10M, full duplex)
+ 82  1405/07/25 11:22:38  [dhcp,info]  dhcp1 deassigned 172.29.33.22 from 74:D4:35:20:10:21
+ 83  1405/07/25 11:23:43  [interface,info]  ether21 link down
+ 84  1405/07/25 11:23:44  [interface,info]  ether21 link up (speed 10M, full duplex)
+ 85  1405/07/25 11:24:09  [interface,info]  ether21 link down
+ 86  1405/07/25 11:24:09  [interface,info]  ether22 link down
+ 87  1405/07/25 11:24:11  [interface,info]  ether22 link up (speed 1G, full duplex)
+ 88  1405/07/25 11:24:16  [dhcp,info]  dhcp1 assigned 172.29.33.22 to 74:D4:35:20:10:21
+ 89  1405/07/25 11:24:19  [interface,info]  ether21 link up (speed 100M, full duplex)
+ 90  1405/07/25 11:25:54  [interface,info]  ether20 link down
+ 91  1405/07/25 11:25:56  [interface,info]  ether20 link up (speed 10M, full duplex)
+ 92  1405/07/25 11:27:07  [interface,info]  ether21 link down
+ 93  1405/07/25 11:27:09  [interface,info]  ether21 link up (speed 10M, full duplex)
+ 94  1405/07/25 11:33:56  [dhcp,info]  dhcp1 deassigned 172.29.33.29 from 40:8D:5C:96:FA:80
+ 95  1405/07/25 11:34:20  [dhcp,info]  dhcp1 deassigned 172.29.33.30 from 94:DE:80:4D:E4:4D
+ 96  1405/07/25 11:39:02  [interface,info]  ether20 link down
+ 97  1405/07/25 11:39:03  [interface,info]  ether21 link down
+ 98  1405/07/25 11:39:05  [interface,info]  ether20 link up (speed 1G, full duplex)
+ 99  1405/07/25 11:39:05  [interface,info]  ether21 link up (speed 1G, full duplex)
+100  1405/07/25 11:39:06  [dhcp,info]  dhcp1 assigned 172.29.33.29 to 40:8D:5C:96:FA:80
+101  1405/07/25 11:39:06  [dhcp,info]  dhcp1 assigned 172.29.33.30 to 94:DE:80:4D:E4:4D
+102  1405/07/25 11:39:37  [interface,info]  ether22 link down
+103  1405/07/25 11:39:39  [interface,info]  ether22 link up (speed 10M, full duplex)
+104  1405/07/25 11:39:52  [interface,info]  ether21 link down
+105  1405/07/25 11:40:03  [interface,info]  ether21 link up (speed 100M, full duplex)
+106  1405/07/25 11:41:35  [interface,info]  ether22 link down
+107  1405/07/25 11:41:37  [interface,info]  ether22 link up (speed 1G, full duplex)
+108  1405/07/25 11:42:02  [interface,info]  ether21 link down
+109  1405/07/25 11:42:03  [interface,info]  ether21 link up (speed 10M, full duplex)
+110  1405/07/25 11:50:05  [dhcp,info]  dhcp1 deassigned 172.29.33.30 from 94:DE:80:4D:E4:4D
+111  1405/07/25 11:53:57  [interface,info]  ether21 link down
+112  1405/07/25 11:54:07  [interface,info]  ether21 link up (speed 100M, full duplex)
+113  1405/07/25 11:54:08  [dhcp,info]  dhcp1 assigned 172.29.33.30 to 94:DE:80:4D:E4:4D
+114  1405/07/25 11:56:56  [interface,info]  ether21 link down
+115  1405/07/25 11:56:58  [interface,info]  ether21 link up (speed 10M, full duplex)
+116  1405/07/25 11:57:03  [interface,info]  ether22 link down
+117  1405/07/25 11:57:05  [interface,info]  ether22 link up (speed 10M, full duplex)
+118  1405/07/25 11:59:38  [interface,info]  ether22 link down
+119  1405/07/25 11:59:40  [interface,info]  ether22 link up (speed 1G, full duplex)
+120  1405/07/25 12:04:08  [dhcp,info]  dhcp1 deassigned 172.29.33.30 from 94:DE:80:4D:E4:4D
+121  1405/07/25 12:09:04  [interface,info]  ether20 link down
+122  1405/07/25 12:09:06  [interface,info]  ether20 link up (speed 10M, full duplex)
+123  1405/07/25 12:09:11  [interface,info]  ether21 link down
+124  1405/07/25 12:09:14  [interface,info]  ether20 link down
+125  1405/07/25 12:09:16  [interface,info]  ether20 link up (speed 1G, full duplex)
+126  1405/07/25 12:09:26  [interface,info]  ether21 link up (speed 100M, full duplex)
+127  1405/07/25 12:09:28  [dhcp,info]  dhcp1 assigned 172.29.33.30 to 94:DE:80:4D:E4:4D
+128  1405/07/25 12:12:10  [interface,info]  ether21 link down
+129  1405/07/25 12:12:12  [interface,info]  ether21 link up (speed 10M, full duplex)
+130  1405/07/25 12:15:06  [interface,info]  ether22 link down
+131  1405/07/25 12:15:08  [interface,info]  ether22 link up (speed 10M, full duplex)
+132  1405/07/25 12:19:28  [dhcp,info]  dhcp1 deassigned 172.29.33.30 from 94:DE:80:4D:E4:4D
+133  1405/07/25 12:22:46  [dhcp,info]  dhcp1 deassigned 172.29.33.24 from 94:DE:80:4D:E7:8B
+134  1405/07/25 12:24:05  [interface,info]  ether22 link down
+135  1405/07/25 12:24:07  [interface,info]  ether22 link up (speed 1G, full duplex)
+136  1405/07/25 12:25:49  [interface,info]  ether21 link down
+137  1405/07/25 12:25:58  [interface,info]  ether21 link up (speed 100M, full duplex)
+138  1405/07/25 12:26:01  [dhcp,info]  dhcp1 assigned 172.29.33.30 to 94:DE:80:4D:E4:4D
+139  1405/07/25 12:31:40  [interface,info]  ether20 link down
+140  1405/07/25 12:31:42  [interface,info]  ether20 link up (speed 10M, full duplex)
+141  1405/07/25 12:39:00  [interface,info]  ether20 link down
+142  1405/07/25 12:39:02  [interface,info]  ether20 link up (speed 1G, full duplex)
+143  1405/07/25 12:39:06  [interface,info]  ether21 link down
+144  1405/07/25 12:39:08  [interface,info]  ether21 link up (speed 10M, full duplex)
+145  1405/07/25 12:39:34  [interface,info]  ether22 link down
+146  1405/07/25 12:39:36  [interface,info]  ether22 link up (speed 10M, full duplex)
+147  1405/07/25 12:46:01  [dhcp,info]  dhcp1 deassigned 172.29.33.30 from 94:DE:80:4D:E4:4D
+148  1405/07/25 12:49:09  [dhcp,info]  dhcp1 deassigned 172.29.33.22 from 74:D4:35:20:10:21
+149  1405/07/25 12:53:55  [interface,info]  ether22 link down
+150  1405/07/25 12:53:57  [interface,info]  ether22 link up (speed 1G, full duplex)
+151  1405/07/25 12:53:58  [dhcp,info]  dhcp1 assigned 172.29.33.22 to 74:D4:35:20:10:21
+152  1405/07/25 12:54:29  [interface,info]  ether20 link down
+153  1405/07/25 12:54:31  [interface,info]  ether20 link up (speed 10M, full duplex)
+154  1405/07/25 13:04:05  [dhcp,info]  dhcp1 deassigned 172.29.33.29 from 40:8D:5C:96:FA:80
+155  1405/07/25 13:06:31  [dhcp,info]  dhcp1 deassigned 172.29.33.28 from 50:3E:AA:3F:2D:65
+156  1405/07/25 13:06:59  [dhcp,info]  dhcp1 deassigned 172.29.33.23 from 94:DE:80:4D:E8:3D
+157  1405/07/25 13:09:24  [interface,info]  ether22 link down
+158  1405/07/25 13:09:25  [interface,info]  ether22 link up (speed 10M, full duplex)
+159  1405/07/25 13:18:58  [dhcp,info]  dhcp1 deassigned 172.29.33.22 from 74:D4:35:20:10:21
+160  1405/07/26 08:04:38  [dhcp,info]  dhcp1 assigned 172.29.33.28 to 50:3E:AA:3F:2D:65
+161  1405/07/26 08:05:18  [interface,info]  ether22 link down
+162  1405/07/26 08:05:20  [interface,info]  ether22 link up (speed 1G, full duplex)
+163  1405/07/26 08:05:21  [dhcp,info]  dhcp1 assigned 172.29.33.22 to 74:D4:35:20:10:21
+164  1405/07/26 08:19:24  [dhcp,info]  dhcp1 assigned 172.29.33.24 to 94:DE:80:4D:E7:8B
+165  1405/07/26 08:20:47  [interface,info]  ether22 link down
+166  1405/07/26 08:20:48  [interface,info]  ether22 link up (speed 10M, full duplex)
+167  1405/07/26 08:29:29  [interface,info]  ether20 link down
+168  1405/07/26 08:29:29  [interface,info]  ether22 link down
+169  1405/07/26 08:29:31  [interface,info]  ether20 link up (speed 1G, full duplex)
+170  1405/07/26 08:29:31  [interface,info]  ether22 link up (speed 1G, full duplex)
+171  1405/07/26 08:29:32  [dhcp,info]  dhcp1 assigned 172.29.33.29 to 40:8D:5C:96:FA:80
+172  1405/07/26 08:32:44  [interface,info]  ether21 link down
+173  1405/07/26 08:32:46  [interface,info]  ether21 link up (speed 1G, full duplex)
+174  1405/07/26 08:32:47  [dhcp,info]  dhcp1 assigned 172.29.33.30 to 94:DE:80:4D:E4:4D
+175  1405/07/26 08:33:00  [interface,info]  ether21 link down
+176  1405/07/26 08:33:05  [interface,info]  ether21 link up (speed 1G, full duplex)
+177  1405/07/26 08:33:06  [interface,info]  ether21 link down
+178  1405/07/26 08:33:16  [interface,info]  ether21 link up (speed 100M, full duplex)
+179  1405/07/26 08:38:10  [dhcp,info]  dhcp1 assigned 172.29.33.18 to D0:37:45:67:4F:C6
+180  1405/07/26 08:44:24  [dhcp,info]  dhcp1 assigned 172.29.33.23 to 94:DE:80:4D:E8:3D
+181  1405/07/26 08:44:58  [interface,info]  ether20 link down
+182  1405/07/26 08:45:00  [interface,info]  ether20 link up (speed 10M, full duplex)
+183  1405/07/26 08:48:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+184  1405/07/26 08:48:25  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+185  1405/07/26 08:49:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+186  1405/07/26 08:49:05  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+187  1405/07/26 08:52:01  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+188  1405/07/26 08:52:05  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+189  1405/07/26 08:52:34  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+190  1405/07/26 08:52:38  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+191  1405/07/26 08:52:48  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+192  1405/07/26 08:52:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+193  1405/07/26 08:53:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+194  1405/07/26 08:53:25  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+195  1405/07/26 08:54:30  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+196  1405/07/26 08:54:33  [dhcp,info]  dhcp1 deassigned 172.29.33.29 from 40:8D:5C:96:FA:80
+197  1405/07/26 08:54:34  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+198  1405/07/26 08:55:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+199  1405/07/26 08:55:14  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+200  1405/07/26 08:55:25  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -339,7 +343,6 @@ ether12-EmamHasan  D0:EA:11:18:20:79  (arp 172.18.2.20)
 ether1-INPUT  10:8C:CF:33:51:41  (arp 172.18.1.33)
 ether6-Sangour  6C:3B:6B:74:E2:8E  (arp 172.18.8.67)
 ether6-Sangour  B8:69:F4:69:8B:3D  (arp 172.18.8.68)
-bridge1  E0:2E:FE:F5:37:81  (arp 172.29.33.26)
 ether8-maskan mehr  08:55:31:D4:51:59  (arp 172.18.2.211)
 ether6-Sangour  6C:3B:6B:8F:51:62  (arp 172.18.8.66)
 ether12-EmamHasan  B8:69:F4:6C:5A:54  (arp 172.18.2.18)
@@ -348,9 +351,15 @@ ether11-Alghadir  C4:AD:34:06:2F:7C  (arp 172.18.2.10)
 ether8-maskan mehr  78:9A:18:B9:09:20  (arp 172.18.2.210)
 ether11-Alghadir  E4:8D:8C:DB:C0:36  (arp 172.18.2.11)
 ether12-EmamHasan  08:55:31:D4:1E:4D  (arp 172.18.2.19)
-ether11-Alghadir  04:F4:1C:F9:D7:B4  (arp 172.18.2.13)
 ether3-Emam Reza  E4:8D:8C:74:FD:85  (arp 172.18.2.234)
 ether3-Emam Reza  64:D1:54:28:E3:DB  (arp 172.18.2.235)
-bridge1  40:8D:5C:96:FA:80  (arp 172.29.33.29)
-ether11-Alghadir  74:4D:28:8D:A2:87  (arp 172.18.2.12)
+bridge1  E0:2E:FE:F5:37:81  (arp 172.29.33.26)
+ether11-Alghadir  04:F4:1C:F9:D7:B4  (arp 172.18.2.13)
+bridge1  50:3E:AA:3F:2D:65  (arp 172.29.33.28)
+bridge1  94:DE:80:4D:E7:8B  (arp 172.29.33.24)
+bridge1  74:D4:35:20:10:21  (arp 172.29.33.22)
+bridge1  94:DE:80:4D:E4:4D  (arp 172.29.33.30)
+bridge1  D0:37:45:67:4F:C6  (arp 172.29.33.18)
+bridge1  94:DE:80:4D:E8:3D  (arp 172.29.33.23)
 ether11-Alghadir  04:F4:1C:F9:D7:B2  (arp 172.18.2.14)
+ether11-Alghadir  74:4D:28:8D:A2:87  (arp 172.18.2.12)

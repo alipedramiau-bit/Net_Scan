@@ -1,5 +1,5 @@
 IP: 172.18.9.179
-Collected at: 2026-10-14T10:24:22.924536+00:00
+Collected at: 2026-10-21T13:17:48.496656+00:00
 source: RouterOS API
 identity: 22Bahman->Arvandkenar.Client
 device_type: ST
@@ -30,95 +30,14 @@ name=wlan1  mode=station-bridge  ssid=22BHMNAVKNR  band=5ghz-a/n/ac  frequency=5
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:35:07
-# ساعت دستگاه (خام): 1978-08-08 06:04:40
-# افست اصلاحی (سرور − دستگاه): +422380:00:27
-  1  1405/07/14 08:34:55  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/14 08:34:57  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:7C:E4:FB
-  3  1405/07/14 08:35:10  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
-  4  1405/07/14 08:35:13  [interface,info]  ether1 link up (speed 100M, full duplex)
-  5  1405/07/14 09:58:45  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, no beacons received
-  6  1405/07/14 09:59:24  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
-  7  1405/07/14 15:56:46  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, extensive data loss
-  8  1405/07/14 15:57:25  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
-  9  1405/07/16 00:07:21  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, no beacons received
- 10  1405/07/16 00:07:48  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 11  1405/07/16 00:12:29  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, no beacons received
- 12  1405/07/16 00:12:42  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 13  1405/07/16 00:13:52  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, no beacons received
- 14  1405/07/16 00:14:47  [wireless,info]  48:A9:8A:56:43:A2@wlan1: failed to connect, on 5325/20-Ce/an, association timeout
- 15  1405/07/16 00:15:02  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 16  1405/07/16 00:16:42  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, no beacons received
- 17  1405/07/16 00:16:55  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 18  1405/07/16 00:17:23  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, extensive data loss
- 19  1405/07/16 00:17:37  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 20  1405/07/16 00:17:42  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, extensive data loss
- 21  1405/07/16 00:18:10  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 22  1405/07/16 01:09:36  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, no beacons received
- 23  1405/07/16 01:10:02  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 24  1405/07/16 01:41:31  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, no beacons received
- 25  1405/07/16 01:41:57  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 26  1405/07/16 01:44:52  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, no beacons received
- 27  1405/07/16 01:45:21  [wireless,info]  48:A9:8A:56:43:A2@wlan1: failed to connect, on 5325/20-Ce/an, authentication timeout
- 28  1405/07/16 01:45:34  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 29  1405/07/16 05:43:33  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, no beacons received
- 30  1405/07/16 05:44:12  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 31  1405/07/16 16:26:09  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, no beacons received
- 32  1405/07/16 16:26:48  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 33  1405/07/17 09:31:25  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, extensive data loss
- 34  1405/07/17 09:45:02  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 35  1405/07/18 10:36:19  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 36  1405/07/18 10:36:20  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 37  1405/07/18 11:00:54  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 38  1405/07/18 11:00:54  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 39  1405/07/18 12:11:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 40  1405/07/18 12:11:32  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 41  1405/07/18 12:11:32  [system,info]  user olom1 added by garnaf
- 42  1405/07/19 09:08:36  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, extensive data loss
- 43  1405/07/19 09:09:15  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 44  1405/07/19 09:54:24  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 45  1405/07/19 09:54:25  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 46  1405/07/19 17:48:37  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, no beacons received
- 47  1405/07/19 17:49:16  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 48  1405/07/20 13:02:49  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, extensive data loss
- 49  1405/07/20 13:03:28  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 50  1405/07/20 17:10:07  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, no beacons received
- 51  1405/07/20 17:10:46  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 52  1405/07/21 09:26:33  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, no beacons received
- 53  1405/07/21 09:27:12  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 54  1405/07/21 12:46:36  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, extensive data loss
- 55  1405/07/21 12:47:15  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 56  1405/07/21 21:11:25  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, no beacons received
- 57  1405/07/21 21:13:35  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 58  1405/07/21 21:40:03  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, no beacons received
- 59  1405/07/21 21:42:00  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 60  1405/07/21 22:37:07  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, extensive data loss
- 61  1405/07/21 22:37:46  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 62  1405/07/22 04:06:45  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, received deauth: class 2 frame received (6)
- 63  1405/07/22 04:06:59  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 64  1405/07/22 04:07:23  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, extensive data loss
- 65  1405/07/22 04:08:55  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 66  1405/07/22 04:09:43  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, received deauth: class 2 frame received (6)
- 67  1405/07/22 04:10:22  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 68  1405/07/22 04:10:52  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, no beacons received
- 69  1405/07/22 04:11:18  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 70  1405/07/22 04:35:51  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, no beacons received
- 71  1405/07/22 04:36:04  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 72  1405/07/22 04:36:09  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, no beacons received
- 73  1405/07/22 04:36:22  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 74  1405/07/22 04:37:12  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, no beacons received
- 75  1405/07/22 04:37:25  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 76  1405/07/22 04:43:56  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, no beacons received
- 77  1405/07/22 04:44:09  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 78  1405/07/22 05:28:55  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, extensive data loss
- 79  1405/07/22 05:29:21  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 80  1405/07/22 05:31:06  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, no beacons received
- 81  1405/07/22 05:31:32  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 82  1405/07/22 07:31:31  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, no beacons received
- 83  1405/07/22 07:32:10  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 84  1405/07/22 10:54:15  [wireless,info]  48:A9:8A:56:43:A2@wlan1: lost connection, no beacons received
- 85  1405/07/22 10:54:54  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
- 86  1405/07/22 13:35:06  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:40:00
+# ساعت دستگاه (خام): 1978-08-15 08:15:07
+# افست اصلاحی (سرور − دستگاه): +422380:54:53
+  1  1405/07/29 09:29:21  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/29 09:29:22  [bridge,info]  "bridge1" mac address changed to E4:8D:8C:7C:E4:FB
+  3  1405/07/29 09:29:32  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/29 09:29:35  [wireless,info]  48:A9:8A:56:43:A2@wlan1 established connection on 5325000, SSID 22BHMNAVKNR
+  5  1405/07/29 16:39:59  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

@@ -1,5 +1,5 @@
 IP: 172.18.2.99
-Collected at: 2026-10-15T10:08:05.262768+00:00
+Collected at: 2026-10-21T13:16:26.645089+00:00
 source: RouterOS API
 identity: Markaz-Taleghani.Client
 device_type: ST
@@ -30,22 +30,36 @@ name=wlan1  mode=station-bridge  ssid=MTarash  band=5ghz-a/n  frequency=5745
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/23 12:24:38
-# ساعت دستگاه (خام): 1977-09-08 22:21:22
-# افست اصلاحی (سرور − دستگاه): +430402:33:16
-  1  1405/07/19 08:03:45  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/19 08:03:49  [bridge,info]  "bridge1" mac address changed to 64:D1:54:7C:3C:7D
-  3  1405/07/19 08:03:57  [interface,info]  ether1 link up (speed 1G, full duplex)
-  4  1405/07/19 08:42:56  [wireless,info]  64:D1:54:12:B7:F6@wlan1 established connection on 5240000, SSID MTarash
-  5  1405/07/19 09:36:29  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  6  1405/07/19 09:36:31  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  7  1405/07/19 17:41:52  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-  8  1405/07/19 17:41:52  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
-  9  1405/07/21 11:00:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 10  1405/07/21 11:00:15  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 11  1405/07/22 13:16:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 12  1405/07/22 13:16:49  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 13  1405/07/23 12:24:37  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:30:48
+# ساعت دستگاه (خام): 1977-09-15 02:30:19
+# افست اصلاحی (سرور − دستگاه): +430402:30:29
+  1  1405/07/19 08:00:58  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/19 08:01:02  [bridge,info]  "bridge1" mac address changed to 64:D1:54:7C:3C:7D
+  3  1405/07/19 08:01:10  [interface,info]  ether1 link up (speed 1G, full duplex)
+  4  1405/07/19 08:40:09  [wireless,info]  64:D1:54:12:B7:F6@wlan1 established connection on 5240000, SSID MTarash
+  5  1405/07/19 09:33:42  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  6  1405/07/19 09:33:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+  7  1405/07/19 17:39:05  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+  8  1405/07/19 17:39:05  [system,error,critical]  login failure for user grnaf from 172.18.4.76 via api
+  9  1405/07/21 10:57:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 10  1405/07/21 10:57:28  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 11  1405/07/22 13:14:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 12  1405/07/22 13:14:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 13  1405/07/23 12:21:50  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 14  1405/07/23 12:21:51  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 15  1405/07/24 15:19:00  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 16  1405/07/24 15:19:02  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 17  1405/07/24 15:51:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 18  1405/07/24 15:51:34  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 19  1405/07/26 08:53:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 20  1405/07/26 08:53:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 21  1405/07/26 08:56:47  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 22  1405/07/26 08:56:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 23  1405/07/29 11:29:13  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 24  1405/07/29 11:32:07  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 25  1405/07/29 11:32:35  [system,info,account]  user garnaf logged in from 172.18.4.76 via winbox
+ 26  1405/07/29 11:36:03  [system,info,account]  user garnaf logged out from 172.18.4.76 via winbox
+ 27  1405/07/29 16:30:46  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

@@ -1,5 +1,5 @@
 IP: 172.18.8.68
-Collected at: 2026-10-14T10:24:17.488891+00:00
+Collected at: 2026-10-21T13:17:39.985982+00:00
 source: RouterOS API
 identity: Sangour2.Client
 device_type: ST
@@ -31,23 +31,47 @@ name=wlan1  mode=station-bridge  ssid=Abadan-Foriat1  band=5ghz-a/n  frequency=5
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:33:43
-# ساعت دستگاه (خام): 1974-12-31 09:46:35
-# افست اصلاحی (سرور − دستگاه): +453960:17:08
-  1  1405/07/20 08:28:13  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/20 08:28:22  [wireless,info]  6C:3B:6B:8F:51:62@wlan1 established connection on 5520000, SSID Abadan-Foriat1
-  3  1405/07/20 08:28:24  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/20 08:32:28  [dhcp,info]  dhcp1 assigned 172.29.30.140 to 18:C0:4D:11:18:DE
-  5  1405/07/20 12:12:28  [dhcp,info]  dhcp1 deassigned 172.29.30.140 from 18:C0:4D:11:18:DE
-  6  1405/07/21 08:15:37  [dhcp,info]  dhcp1 assigned 172.29.30.140 to 18:C0:4D:11:18:DE
-  7  1405/07/21 09:07:27  [dhcp,info]  dhcp1 assigned 172.29.30.142 to F0:2F:74:F9:B9:21
-  8  1405/07/21 10:38:15  [wireless,info]  6C:3B:6B:8F:51:62@wlan1: lost connection, no beacons received
-  9  1405/07/21 10:40:37  [wireless,info]  6C:3B:6B:8F:51:62@wlan1 established connection on 5520000, SSID Abadan-Foriat1
- 10  1405/07/21 10:50:49  [wireless,info]  6C:3B:6B:8F:51:62@wlan1: lost connection, no beacons received
- 11  1405/07/21 10:51:16  [wireless,info]  6C:3B:6B:8F:51:62@wlan1 established connection on 5520000, SSID Abadan-Foriat1
- 12  1405/07/21 11:04:27  [dhcp,info]  dhcp1 deassigned 172.29.30.142 from F0:2F:74:F9:B9:21
- 13  1405/07/21 11:30:38  [dhcp,info]  dhcp1 deassigned 172.29.30.140 from 18:C0:4D:11:18:DE
- 14  1405/07/22 13:33:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/29 16:39:16
+# ساعت دستگاه (خام): 1975-01-07 12:54:56
+# افست اصلاحی (سرور − دستگاه): +453960:14:20
+  1  1405/07/20 08:25:25  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/20 08:25:34  [wireless,info]  6C:3B:6B:8F:51:62@wlan1 established connection on 5520000, SSID Abadan-Foriat1
+  3  1405/07/20 08:25:36  [interface,info]  ether1 link up (speed 100M, full duplex)
+  4  1405/07/20 08:29:40  [dhcp,info]  dhcp1 assigned 172.29.30.140 to 18:C0:4D:11:18:DE
+  5  1405/07/20 12:09:40  [dhcp,info]  dhcp1 deassigned 172.29.30.140 from 18:C0:4D:11:18:DE
+  6  1405/07/21 08:12:49  [dhcp,info]  dhcp1 assigned 172.29.30.140 to 18:C0:4D:11:18:DE
+  7  1405/07/21 09:04:39  [dhcp,info]  dhcp1 assigned 172.29.30.142 to F0:2F:74:F9:B9:21
+  8  1405/07/21 10:35:27  [wireless,info]  6C:3B:6B:8F:51:62@wlan1: lost connection, no beacons received
+  9  1405/07/21 10:37:49  [wireless,info]  6C:3B:6B:8F:51:62@wlan1 established connection on 5520000, SSID Abadan-Foriat1
+ 10  1405/07/21 10:48:01  [wireless,info]  6C:3B:6B:8F:51:62@wlan1: lost connection, no beacons received
+ 11  1405/07/21 10:48:28  [wireless,info]  6C:3B:6B:8F:51:62@wlan1 established connection on 5520000, SSID Abadan-Foriat1
+ 12  1405/07/21 11:01:39  [dhcp,info]  dhcp1 deassigned 172.29.30.142 from F0:2F:74:F9:B9:21
+ 13  1405/07/21 11:27:50  [dhcp,info]  dhcp1 deassigned 172.29.30.140 from 18:C0:4D:11:18:DE
+ 14  1405/07/22 13:30:53  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 15  1405/07/22 13:30:55  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 16  1405/07/24 15:33:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 17  1405/07/24 15:33:30  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 18  1405/07/24 16:01:23  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 19  1405/07/24 16:01:25  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 20  1405/07/26 08:26:12  [dhcp,info]  dhcp1 assigned 172.29.30.140 to 18:C0:4D:11:18:DE
+ 21  1405/07/26 08:56:24  [dhcp,info]  dhcp1 assigned 172.29.30.142 to F0:2F:74:F9:B9:21
+ 22  1405/07/26 09:09:14  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 23  1405/07/26 09:09:17  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 24  1405/07/26 09:11:58  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 25  1405/07/26 09:11:59  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 26  1405/07/26 11:54:38  [dhcp,info]  dhcp1 deassigned 172.29.30.140 from 18:C0:4D:11:18:DE
+ 27  1405/07/26 12:06:24  [dhcp,info]  dhcp1 deassigned 172.29.30.142 from F0:2F:74:F9:B9:21
+ 28  1405/07/27 08:21:15  [dhcp,info]  dhcp1 assigned 172.29.30.142 to F0:2F:74:F9:B9:21
+ 29  1405/07/27 08:23:18  [dhcp,info]  dhcp1 assigned 172.29.30.140 to 18:C0:4D:11:18:DE
+ 30  1405/07/27 11:53:19  [dhcp,info]  dhcp1 deassigned 172.29.30.140 from 18:C0:4D:11:18:DE
+ 31  1405/07/28 08:17:37  [dhcp,info]  dhcp1 assigned 172.29.30.140 to 18:C0:4D:11:18:DE
+ 32  1405/07/28 11:01:17  [dhcp,info]  dhcp1 deassigned 172.29.30.142 from F0:2F:74:F9:B9:21
+ 33  1405/07/28 11:32:39  [dhcp,info]  dhcp1 deassigned 172.29.30.140 from 18:C0:4D:11:18:DE
+ 34  1405/07/29 08:19:21  [dhcp,info]  dhcp1 assigned 172.29.30.140 to 18:C0:4D:11:18:DE
+ 35  1405/07/29 10:05:01  [dhcp,info]  dhcp1 assigned 172.29.30.142 to F0:2F:74:F9:B9:21
+ 36  1405/07/29 11:15:00  [dhcp,info]  dhcp1 deassigned 172.29.30.142 from F0:2F:74:F9:B9:21
+ 37  1405/07/29 11:49:21  [dhcp,info]  dhcp1 deassigned 172.29.30.140 from 18:C0:4D:11:18:DE
+ 38  1405/07/29 16:39:15  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===

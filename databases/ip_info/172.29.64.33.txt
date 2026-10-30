@@ -1,5 +1,5 @@
 IP: 172.29.64.33
-Collected at: 2026-10-14T10:25:37.985688+00:00
+Collected at: 2026-10-18T05:59:35.657315+00:00
 source: RouterOS API
 identity: AlboEbadi
 device_type: ST
@@ -38,25 +38,64 @@ name=wlan1  mode=station-bridge  ssid=AbadanSetad-Zol30  band=5ghz-a/n  frequenc
 
 ----- log -----
 === /log (تهران / هجری شمسی) ===
-# زمان سرور هنگام خواندن: 1405/07/22 13:48:29
-# ساعت دستگاه (خام): 1971-04-12 06:28:25
-# افست اصلاحی (سرور − دستگاه): +486579:50:04
-  1  1405/07/21 07:19:45  [system,error,critical]  router was rebooted without proper shutdown
-  2  1405/07/21 07:19:54  [wireless,info]  48:8F:5A:1C:30:E7@wlan1 established connection on 5300000, SSID AbadanSetad-Zol30
-  3  1405/07/21 07:19:56  [interface,info]  ether1 link up (speed 100M, full duplex)
-  4  1405/07/21 08:19:26  [dhcp,info]  dhcp1 assigned 172.29.64.35 to 94:DE:80:4C:2F:8F
-  5  1405/07/21 11:13:11  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  6  1405/07/21 11:13:13  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  7  1405/07/21 11:22:43  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
-  8  1405/07/21 11:22:46  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
-  9  1405/07/21 12:14:26  [dhcp,info]  dhcp1 deassigned 172.29.64.35 from 94:DE:80:4C:2F:8F
- 10  1405/07/22 08:27:39  [dhcp,info]  dhcp1 assigned 172.29.64.35 to 94:DE:80:4C:2F:8F
- 11  1405/07/22 08:45:46  [dhcp,info]  dhcp1 assigned 172.29.64.34 to 5C:87:9C:99:88:56
- 12  1405/07/22 10:46:33  [dhcp,info]  dhcp1 deassigned 172.29.64.34 from 5C:87:9C:99:88:56
- 13  1405/07/22 12:07:40  [dhcp,info]  dhcp1 deassigned 172.29.64.35 from 94:DE:80:4C:2F:8F
- 14  1405/07/22 13:32:22  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
- 15  1405/07/22 13:32:24  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
- 16  1405/07/22 13:48:27  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+# زمان سرور هنگام خواندن: 1405/07/26 09:23:10
+# ساعت دستگاه (خام): 1971-04-15 08:22:00
+# افست اصلاحی (سرور − دستگاه): +486597:31:10
+  1  1405/07/24 01:00:52  [system,error,critical]  router was rebooted without proper shutdown
+  2  1405/07/24 01:01:02  [interface,info]  ether1 link up (speed 100M, full duplex)
+  3  1405/07/24 01:01:34  [wireless,info]  48:8F:5A:1C:30:E7@wlan1 established connection on 5300000, SSID AbadanSetad-Zol30
+  4  1405/07/24 04:23:34  [wireless,info]  48:8F:5A:1C:30:E7@wlan1: lost connection, control frame timeout
+  5  1405/07/24 04:23:54  [wireless,info]  48:8F:5A:1C:30:E7@wlan1 established connection on 5300000, SSID AbadanSetad-Zol30
+  6  1405/07/24 09:16:25  [wireless,info]  48:8F:5A:1C:30:E7@wlan1: lost connection, control frame timeout
+  7  1405/07/24 09:16:37  [wireless,info]  48:8F:5A:1C:30:E7@wlan1 established connection on 5300000, SSID AbadanSetad-Zol30
+  8  1405/07/24 15:31:55  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+  9  1405/07/24 15:31:57  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 10  1405/07/24 15:44:45  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 11  1405/07/24 15:44:48  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 12  1405/07/24 16:00:18  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 13  1405/07/24 16:00:21  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 14  1405/07/24 20:06:40  [wireless,info]  48:8F:5A:1C:30:E7@wlan1: lost connection, control frame timeout
+ 15  1405/07/24 20:06:46  [wireless,info]  48:8F:5A:1C:30:E7@wlan1 established connection on 5300000, SSID AbadanSetad-Zol30
+ 16  1405/07/24 20:08:25  [wireless,info]  48:8F:5A:1C:30:E7@wlan1: lost connection, control frame timeout
+ 17  1405/07/24 20:09:09  [wireless,info]  48:8F:5A:1C:30:E7@wlan1: failed to connect, on 5300000, registration timeout
+ 18  1405/07/24 20:10:05  [wireless,info]  48:8F:5A:1C:30:E7@wlan1 established connection on 5300000, SSID AbadanSetad-Zol30
+ 19  1405/07/24 20:10:25  [wireless,info]  48:8F:5A:1C:30:E7@wlan1: lost connection, control frame timeout
+ 20  1405/07/24 20:11:05  [wireless,info]  48:8F:5A:1C:30:E7@wlan1: failed to connect, on 5300000, registration timeout
+ 21  1405/07/24 20:11:18  [wireless,info]  48:8F:5A:1C:30:E7@wlan1 established connection on 5300000, SSID AbadanSetad-Zol30
+ 22  1405/07/24 20:12:25  [wireless,info]  48:8F:5A:1C:30:E7@wlan1: lost connection, control frame timeout
+ 23  1405/07/24 20:12:57  [wireless,info]  48:8F:5A:1C:30:E7@wlan1 established connection on 5300000, SSID AbadanSetad-Zol30
+ 24  1405/07/24 20:21:40  [wireless,info]  48:8F:5A:1C:30:E7@wlan1: lost connection, control frame timeout
+ 25  1405/07/24 20:21:51  [wireless,info]  48:8F:5A:1C:30:E7@wlan1 established connection on 5300000, SSID AbadanSetad-Zol30
+ 26  1405/07/24 20:39:57  [wireless,info]  48:8F:5A:1C:30:E7@wlan1: lost connection, medium-access timeout
+ 27  1405/07/24 20:40:15  [wireless,info]  48:8F:5A:1C:30:E7@wlan1 established connection on 5300000, SSID AbadanSetad-Zol30
+ 28  1405/07/24 21:15:25  [wireless,info]  48:8F:5A:1C:30:E7@wlan1: lost connection, control frame timeout
+ 29  1405/07/24 21:16:06  [wireless,info]  48:8F:5A:1C:30:E7@wlan1: failed to connect, on 5300000, registration timeout
+ 30  1405/07/24 21:16:18  [wireless,info]  48:8F:5A:1C:30:E7@wlan1 established connection on 5300000, SSID AbadanSetad-Zol30
+ 31  1405/07/24 21:18:26  [wireless,info]  48:8F:5A:1C:30:E7@wlan1: lost connection, control frame timeout
+ 32  1405/07/24 21:18:50  [wireless,info]  48:8F:5A:1C:30:E7@wlan1 established connection on 5300000, SSID AbadanSetad-Zol30
+ 33  1405/07/25 00:25:30  [wireless,info]  48:8F:5A:1C:30:E7@wlan1: lost connection, control frame timeout
+ 34  1405/07/25 00:25:46  [wireless,info]  48:8F:5A:1C:30:E7@wlan1 established connection on 5300000, SSID AbadanSetad-Zol30
+ 35  1405/07/25 00:49:25  [wireless,info]  48:8F:5A:1C:30:E7@wlan1: lost connection, control frame timeout
+ 36  1405/07/25 00:49:41  [wireless,info]  48:8F:5A:1C:30:E7@wlan1 established connection on 5300000, SSID AbadanSetad-Zol30
+ 37  1405/07/25 01:44:35  [wireless,info]  48:8F:5A:1C:30:E7@wlan1: lost connection, control frame timeout
+ 38  1405/07/25 01:44:49  [wireless,info]  48:8F:5A:1C:30:E7@wlan1 established connection on 5300000, SSID AbadanSetad-Zol30
+ 39  1405/07/25 01:46:25  [wireless,info]  48:8F:5A:1C:30:E7@wlan1: lost connection, control frame timeout
+ 40  1405/07/25 01:46:52  [wireless,info]  48:8F:5A:1C:30:E7@wlan1 established connection on 5300000, SSID AbadanSetad-Zol30
+ 41  1405/07/25 08:11:05  [dhcp,info]  dhcp1 assigned 172.29.64.35 to 94:DE:80:4C:2F:8F
+ 42  1405/07/25 08:34:44  [dhcp,info]  dhcp1 assigned 172.29.64.34 to 5C:87:9C:99:88:56
+ 43  1405/07/25 09:35:30  [dhcp,info]  dhcp1 deassigned 172.29.64.34 from 5C:87:9C:99:88:56
+ 44  1405/07/25 12:01:05  [dhcp,info]  dhcp1 deassigned 172.29.64.35 from 94:DE:80:4C:2F:8F
+ 45  1405/07/25 23:30:34  [wireless,info]  48:8F:5A:1C:30:E7@wlan1: lost connection, control frame timeout
+ 46  1405/07/25 23:30:56  [wireless,info]  48:8F:5A:1C:30:E7@wlan1 established connection on 5300000, SSID AbadanSetad-Zol30
+ 47  1405/07/26 08:28:46  [dhcp,info]  dhcp1 assigned 172.29.64.35 to 94:DE:80:4C:2F:8F
+ 48  1405/07/26 08:29:53  [dhcp,info]  dhcp1 assigned 172.29.64.34 to 5C:87:9C:99:88:56
+ 49  1405/07/26 09:08:02  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 50  1405/07/26 09:08:04  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 51  1405/07/26 09:10:41  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 52  1405/07/26 09:10:44  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 53  1405/07/26 09:21:31  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
+ 54  1405/07/26 09:21:33  [system,info,account]  user garnaf logged out from 172.18.4.76 via api
+ 55  1405/07/26 09:23:08  [system,info,account]  user garnaf logged in from 172.18.4.76 via api
 
 ----- mac -----
 === MAC addresses ===
@@ -65,3 +104,6 @@ wlan1  2C:C8:1B:AF:9E:11  (wlan)
 --- /ip arp ---
 wlan1  E4:8D:8C:71:6E:BB  (arp 172.18.4.76)
 wlan1  10:8C:CF:33:51:5F  (arp 172.18.4.65)
+ether1  C0:C9:E3:B2:34:7C  (arp 192.168.0.1)
+ether1  5C:87:9C:99:88:56  (arp 172.29.64.34)
+ether1  94:DE:80:4C:2F:8F  (arp 172.29.64.35)
