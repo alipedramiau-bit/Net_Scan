@@ -550,6 +550,31 @@ function DeviceReports({mode="devices"}={}){
     }catch(e){setError(e.message)}
     setBusyAction(false);
   }
+  async function exportCsvMikrotikSelected(){
+    // خروجی CSV کامل دستگاه‌های میکروتیک انتخاب‌شده با تمام فیلدهای خوانده‌شده
+    if(!selectedIps.length){setError("دستگاهی انتخاب نشده");return}
+    setBusyAction(true);setError("");
+    try{
+      const r=await fetch(API+"/devices/export-mikrotik.csv",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({ips:selectedIps})});
+      if(!r.ok){
+        let detail="خروجی CSV ناموفق";
+        try{const d=await r.json();detail=typeof d.detail==="string"?d.detail:detail}catch(e){}
+        throw Error(detail);
+      }
+      const blob=await r.blob();
+      const cd=r.headers.get("Content-Disposition")||"";
+      let filename="mikrotik_selected.csv";
+      const m=cd.match(/filename="?([^"]+)"?/i);
+      if(m)filename=m[1];
+      const url=URL.createObjectURL(blob);
+      const a=document.createElement("a");
+      a.href=url;a.download=filename;
+      document.body.appendChild(a);a.click();a.remove();
+      URL.revokeObjectURL(url);
+      setMsg("خروجی CSV میکروتیک ذخیره شد: "+filename+" — فقط دستگاه‌های میکروتیکِ انتخاب‌شده با تمام فیلدهای خوانده‌شده");
+    }catch(e){setError(e.message)}
+    setBusyAction(false);
+  }
   const pageCount=Math.max(1,Math.ceil(total/pageSize));const page=Math.min(pageCount,Math.floor(offset/pageSize)+1);
   const csvParams=new URLSearchParams(params);csvParams.delete("offset");csvParams.set("limit","100000");
   const paginationBar=<div className="report-pagination"><label className="page-size">تعداد در صفحه<select value={pageSize} onChange={e=>{setPageSize(Number(e.target.value));setOffset(0)}}><option value="50">50</option><option value="100">100</option><option value="200">200</option><option value="100000">همه</option></select></label><button type="button" disabled={page<=1} onClick={()=>setOffset(0)}>صفحه اول</button><button type="button" disabled={page<=1} onClick={()=>setOffset(Math.max(0,offset-pageSize))}>قبلی</button><span className="page-indicator">صفحه {page.toLocaleString("fa-IR")} از {pageCount.toLocaleString("fa-IR")} — کل {total.toLocaleString("fa-IR")}</span><button type="button" disabled={page>=pageCount} onClick={()=>setOffset(offset+pageSize)}>بعدی</button><button type="button" disabled={page>=pageCount} onClick={()=>setOffset((pageCount-1)*pageSize)}>صفحه آخر</button><label className="page-size db-inline">دیتابیس فعال<select value={activeDb} disabled={busyAction} onChange={e=>switchDb(e.target.value)}>{(dbList&&dbList.length?dbList:[{name:activeDb||"default",active:true,devices:0}]).map(d=><option key={d.name} value={d.name}>{d.name}{d.active?" ★":""} ({d.devices||0})</option>)}</select></label><button type="button" className="btn-db-mini" onClick={()=>setShowDbPanel(s=>!s)} title="مدیریت دیتابیس‌ها">⚙</button></div>;
@@ -601,6 +626,7 @@ function DeviceReports({mode="devices"}={}){
       <div className="tool-group">
         <span className="tool-label">خروجی</span>
         <a className="tool-btn tool-link" href={`${API}/devices/export.csv?${csvParams.toString()}`}><RbIcon name="csv"/><span>خروجی CSV</span></a>
+        <button type="button" className="tool-btn" disabled={busyAction||!selectedIps.length} onClick={exportCsvMikrotikSelected} title="خروجی CSV دستگاه‌های میکروتیک انتخاب‌شده با تمام فیلدهای خوانده‌شده (identity، نوع، تگ، اینترفیس، IP، همسایه، وایرلس، لاگ، MAC)"><RbIcon name="csv"/><span>خروجی CSV میکروتیک ({selectedIps.length})</span></button>
         <button type="button" className="tool-btn" disabled={busyAction||!selectedIps.length} onClick={exportExcelSelected}><RbIcon name="excel"/><span>خروجی Excel</span></button>
         <label className="tool-btn tool-file">
           <input type="file" accept=".xlsx,.xlsm,.xls,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" hidden onChange={importTags} disabled={busyAction}/>

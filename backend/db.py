@@ -509,6 +509,72 @@ def devices_to_csv(devices):
     return b"\xef\xbb\xbf" + buf.getvalue().encode("utf-8")
 
 
+def _is_mikrotik_device(d: dict) -> bool:
+    """A device counts as MikroTik when classified as a candidate or when a
+    MikroTik signature port (8291 Winbox / 8728 API) is open."""
+    if (d.get("classification") or "") == "mikrotik_candidate":
+        return True
+    ports = d.get("open_ports") or []
+    for p in ports:
+        if p in (8291, 8728) or str(p) in ("8291", "8728"):
+            return True
+    return False
+
+
+def mikrotik_selected_to_csv(ips, db_path=None) -> bytes:
+    """Full CSV export for the SELECTED MikroTik devices, one column per field.
+
+    Unlike devices_to_csv (display columns only), this export includes every
+    previously-read field from the SNMP / RouterOS API probes: identity name,
+    device type, tags, interfaces, IP addresses, neighbors, wireless info,
+    device log and MAC info — each broken out into its own column with a
+    Persian header matching the UI terminology.
+
+    Only MikroTik devices among `ips` are kept. Raises ValueError when none
+    of the selected devices is MikroTik so the API can return a clear 400.
+    """
+    devices = fetch_devices_by_ips(ips, db_path=db_path)
+    selected = [d for d in devices if _is_mikrotik_device(d)]
+    if not selected:
+        raise ValueError(
+            "در دستگاه‌های انتخاب‌شده هیچ دستگاه میکروتیکی یافت نشد "
+            "(نامزد میکروتیک یا پورت 8291/8728 باز)"
+        )
+    buf = io.StringIO()
+    writer = csv.writer(buf)
+    writer.writerow([
+        "IP", "نام دستگاه (identity)", "نوع دستگاه", "تگ", "پینگ",
+        "پورت‌های باز", "وضعیت پورت 8291 (Winbox)", "وضعیت پورت 8728 (API)",
+        "دسته‌بندی", "اینترفیس‌ها", "آدرس‌های IP", "همسایه‌ها",
+        "وایرلس", "لاگ دستگاه", "اطلاعات MAC",
+        "اولین مشاهده", "آخرین مشاهده", "تعداد مشاهده",
+    ])
+    for d in selected:
+        states = d.get("port_states") or {}
+        if not isinstance(states, dict):
+            states = {}
+        states_s = {str(k): str(v) for k, v in states.items()}
+        writer.writerow([
+            d.get("ip") or "",
+            d.get("device_name") or "",
+            d.get("device_type") or "",
+            d.get("tags") or "",
+            "yes" if d.get("ping_ok") else "no",
+            " ".join(map(str, d.get("open_ports") or [])),
+            states_s.get("8291", ""),
+            states_s.get("8728", ""),
+            classification_label(d.get("classification") or ""),
+            d.get("interfaces") or "",
+            d.get("ip_addresses") or "",
+            d.get("ip_neighbors") or "",
+            d.get("wireless_info") or "",
+            d.get("device_log") or "",
+            d.get("mac_info") or "",
+            d.get("first_seen") or "",
+            d.get("last_seen") or "",
+            d.get("seen_count") if d.get("seen_count") is not None else "",
+        ])
+    return b"\xef\xbb\xbf" + buf.getvalue().encode("utf-8")
 
 
 def fetch_devices_by_ips(ips, db_path=None):

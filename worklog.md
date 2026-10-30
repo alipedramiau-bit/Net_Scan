@@ -164,3 +164,21 @@ Stage Summary:
 - Frontend dist rebuilt and synchronized.
 - Ready to push to GitHub origin/main.
 
+
+---
+Task ID: 10
+Agent: main (Z.ai)
+Task: Add "خروجی CSV میکروتیک" button — export selected MikroTik devices with all previously-read fields
+
+Work Log:
+- Read latest commit 66b18b6 ("Update backend files"): venv package refresh + databases/ip_info runtime data + dist rebuild; no source changes to backend/frontend
+- backend/db.py: added _is_mikrotik_device() (classification=mikrotik_candidate OR ports 8291/8728 open) and mikrotik_selected_to_csv(ips) — full CSV export, one column per previously-read field (identity name, device type, tags, ping, open ports, port states 8291/8728, classification, interfaces, ip_addresses, ip_neighbors, wireless_info, device_log, mac_info, first/last seen, seen_count) with Persian headers matching UI terminology; enriches empty fields from ip_info/{ip}.txt via fetch_devices_by_ips; raises ValueError when no MikroTik in selection
+- backend/main.py: new POST /devices/export-mikrotik.csv endpoint (ExportSelectedBody{ips}); filters non-MikroTik out, 400 with Persian message when selection has no MikroTik or is empty; returns CSV with UTF-8 BOM and Content-Disposition mikrotik_selected_{stamp}.csv
+- frontend/src.jsx: added exportCsvMikrotikSelected() (POST selectedIps, blob download, filename from Content-Disposition, error toast on 400) and button "خروجی CSV میکروتیک (N)" in the خروجی tool-group of the device-management toolbar (above the device list), disabled without selection
+- Rebuilt frontend/dist with vite (npm install + npm run build)
+- Test: scripts/test_export_mikrotik_csv.py — 30/30 PASS via FastAPI TestClient (temp DB: 3 MikroTik + 1 non-MikroTik; verifies filtering, 18-column Persian header, per-field values incl. multiline device_log quoting, BOM, filename header, 400 paths, 401 for unauthenticated)
+- Full unittest suite: 15/15 OK
+
+Stage Summary:
+- Device-management tab now exports the SELECTED MikroTik devices' complete read data to CSV, field by field
+- Ready to push to GitHub origin/main

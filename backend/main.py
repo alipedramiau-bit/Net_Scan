@@ -384,6 +384,31 @@ class ExportSelectedBody(BaseModel):
     ips: list[str] = Field(default_factory=list, max_length=50000)
 
 
+@app.post("/devices/export-mikrotik.csv")
+def export_mikrotik_selected_csv(body: ExportSelectedBody):
+    """خروجی CSV کامل دستگاه‌های میکروتیک انتخاب‌شده.
+
+    تمام اطلاعاتی که قبلاً از SNMP / RouterOS API خوانده شده (نام identity،
+    نوع دستگاه، تگ، اینترفیس‌ها، آدرس‌های IP، همسایه‌ها، وایرلس، لاگ و MAC)
+    به تفکیک فیلد در ستون‌های جداگانه ذخیره می‌شود. دستگاه‌های غیر میکروتیک
+    از انتخاب حذف می‌شوند.
+    """
+    ips = [str(x).strip() for x in (body.ips or []) if str(x).strip()]
+    if not ips:
+        raise HTTPException(400, "هیچ دستگاهی انتخاب نشده است")
+    try:
+        data = db.mikrotik_selected_to_csv(ips)
+    except ValueError as e:
+        raise HTTPException(400, str(e)) from e
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+    filename = f"mikrotik_selected_{stamp}.csv"
+    return Response(
+        data,
+        media_type="text/csv; charset=utf-8",
+        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+    )
+
+
 @app.post("/devices/export.xlsx")
 def export_devices_xlsx(body: ExportSelectedBody):
     """Export selected device records as an Excel .xlsx file for download."""
