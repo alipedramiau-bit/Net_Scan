@@ -43,6 +43,7 @@ python -m unittest discover -s tests
 # تست‌های E2E در scripts/ (نمونه):
 python scripts/test_export_mikrotik_csv.py
 python scripts/test_api_probe_progress.py
+python scripts/test_json_export_route_report.py
 
 # build فرانت‌اند — بعد از هر تغییر در src.jsx یا style.css الزامی است:
 cd frontend && npm install && npm run build
@@ -63,7 +64,7 @@ cd frontend && npm install && npm run build
 5. پیام کامیت: قالب `type(scope): خلاصه انگلیسی` (مثل `feat(devices): ...`، `fix(api): ...`).
 6. قبل از کامیت: تست‌ها سبز باشند؛ `git status` را برای فایل‌های ناخواسته چک کنید.
 
-## ۵) نقشه قابلیت‌ها (تا Task 12)
+## ۵) نقشه قابلیت‌ها (تا Task 14)
 
 - **اسکن شبکه:** `POST /scans/start` (قابل لغو با `/scans/{id}/cancel`)، ورودی IP/CIDR/بازه،
   پورت‌های 8291 و 8728 همیشه اضافه می‌شوند.
@@ -79,6 +80,15 @@ cd frontend && npm install && npm run build
   انتخاب‌شده، ۱۹ ستون فارسی، با `read_missing=true` دستگاه‌های بدونِ اطلاعاتِ کامل قبل از
   خروجی زنده خوانده می‌شوند (با همان نمودار پیشرفت) و ستون «وضعیت خواندن» completeness
   هر ردیف را نشان می‌دهد (کامل / ناقص).
+- **خروجی JSON میکروتیک:** `POST /devices/export-mikrotik.json` — دقیقاً همان دستگاه‌ها و
+  همان ۱۹ فیلد فارسی (کلیدها = سرستون‌های CSV، مرجع مشترک: `db.MIKROTIK_EXPORT_FIELDS` و
+  `db.mikrotik_selected_rows()`) + متادیتا (exported_at/database/count/fields)؛
+  خواندن خودکارِ مواردِ ناقص مشترک با CSV در `_live_read_missing_devices()`.
+- **گزارش روت:** `POST /devices/route-report.csv` (ماژول `backend/route_report.py`) —
+  اجرای `tracert -d <IP>` برای تمام دستگاه‌های میکروتیکِ درخواست (لینوکس: `traceroute -n`،
+  معادلِ `-d`)، موازی با ThreadPool؛ مبدأ/مقصد از کاربر (پیش‌فرض هر دو 172.19.1.6)؛
+  اگر مبدأ≠مقصد مسیر مبدأ→مقصد هم ردیابی و به ابتدای گزارش می‌آید؛ خروجی CSV با
+  BOM و ۷ ستون فارسی (IP مبدأ، IP مقصد، نام دستگاه، شماره مرحله، IP مرحله، تاخیر، وضعیت).
 - **سایر:** گزارش‌های هوشمند، Winbox tools، مدیریت VPN، ایمیل/اطلاع‌رسانی.
 
 ## ۶) نکات دام‌دار (Gotchas)

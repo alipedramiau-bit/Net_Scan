@@ -220,3 +220,34 @@ Stage Summary:
 - CSV export now guarantees real data: devices without complete details are read live (with progress chart) before export, and the «وضعیت خواندن» column makes completeness explicit per row
 - AGENTS.md + README.md document the project for humans and AI agents
 - Ready to push to GitHub origin/main (together with Task 10 + Task 11 commits)
+
+---
+Task ID: 13
+Agent: main (Z.ai)
+Task: JSON export of selected MikroTik devices (same fields as CSV)
+
+Work Log:
+- backend/db.py: exported-row logic refactored out of mikrotik_selected_to_csv into new mikrotik_selected_rows() + MIKROTIK_EXPORT_FIELDS (the 19 Persian headers as single source of truth); CSV builder now just serializes those rows — CSV output byte-identical
+- backend/main.py: live auto-read flow extracted to shared _live_read_missing_devices() used by BOTH export endpoints; new POST /devices/export-mikrotik.json returns {"exported_at","database","count","fields","devices"} (devices = array of dicts keyed by the Persian CSV headers), attachment mikrotik_selected_{stamp}.json, application/json; charset=utf-8, same X-Export-* headers
+- frontend/src.jsx: new button «خروجی JSON میکروتیک (N)» beside the CSV button with exportJsonMikrotikSelected() (blob download, filename from Content-Disposition, read_missing=true + same progress chart polling); new RbIcon "json"
+- Test: scripts/test_json_export_route_report.py — JSON happy path (count/fields/row values incl. multiline log + read status), rows keyed exactly by the 19 fields, read_missing no-probe path, 400 paths, non-MikroTik exclusion
+
+Stage Summary:
+- CSV and JSON MikroTik exports now share one row builder, so both always carry identical data in the same Persian fields
+
+---
+Task ID: 14
+Agent: main (Z.ai)
+Task: «گزارش روت» — tracert route report of filtered MikroTik devices as CSV
+
+Work Log:
+- new backend/route_report.py: which_tracer_tool() (tracert on Windows / traceroute / tracepath), build_command() (tracert -d -h N -w ms | traceroute -n -m N -w s -q 1 | tracepath -n -m N), tolerant parse_trace_output() for all three formats (hop no, IP, latency, Persian status: پاسخ داد / بدون پاسخ (timeout) / غیرقابل‌دسترس), trace_route(), trace_many() (ThreadPool, order preserved, deduped) and build_route_report_csv() (UTF-8 BOM, 7 Persian columns: IP مبدأ، IP مقصد، نام دستگاه، شماره مرحله، IP مرحله، تاخیر (ms)، وضعیت)
+- backend/main.py: POST /devices/route-report.csv + RouteReportBody (ips, source_ip default 172.19.1.6, dest_ip default 172.19.1.6, max_hops 1..30 default 15, timeout_ms, max_workers) — traces the route to EACH filtered MikroTik device IP (`tracert -d ip_device`), records user-provided مبدأ/مقصد in the report, and when مبدأ≠مقصد additionally traces the مبدأ→مقصد base route at the top of the report; 400 Persian errors for empty/no-MikroTik selections; headers X-Route-Devices / X-Route-Hops
+- frontend/src.jsx: new button «گزارش روت» in the خروجی group → openRouteModal() fetches ALL devices matching the CURRENT report search filter (limit 100000, client-side MikroTik filter) and opens a dialog with IP مبدأ / IP مقصد (both default 172.19.1.6) + حداکثر Hop select; submitRouteReport() downloads route_report_{stamp}.csv; new RbIcon "route"; dialog explains that traces run from the app server and can take minutes
+- AGENTS.md: feature map updated (JSON export + route report), new test script listed; README.md: API list + two new sections «خروجی JSON دستگاه‌های میکروتیک انتخاب‌شده» و «گزارش روت (tracert)»
+- frontend/dist rebuilt (vite)
+- Test: scripts/test_json_export_route_report.py extended with route-report suite + parser unit checks (real Windows tracert -d / Linux traceroute -n / tracepath samples) — live trace to 127.0.0.1 device verified (single instant hop, X-Route-Devices, BOM, exact 7-column header, base-route block when مبدأ≠مقصد, 400 paths) — ALL PASS; existing suites re-run: test_export_mikrotik_csv.py ALL PASS, test_api_probe_progress.py ALL PASS, unit 15/15 OK
+
+Stage Summary:
+- Route report button now traces every MikroTik device matching the report filter with tracert -d equivalents and saves a Persian CSV; source/destination asked from the user with 172.19.1.6 defaults
+- Ready to push to GitHub origin/main (together with Task 10..13 commits)
