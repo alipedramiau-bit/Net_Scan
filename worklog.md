@@ -182,3 +182,21 @@ Work Log:
 Stage Summary:
 - Device-management tab now exports the SELECTED MikroTik devices' complete read data to CSV, field by field
 - Ready to push to GitHub origin/main
+
+---
+Task ID: 11
+Agent: main (Z.ai)
+Task: Rework "خواندن اطلاعات دستگاه با API" — parallel probe + live segmented progress chart
+
+Work Log:
+- Reviewed backend/routeros_api.py probe_devices_via_api_many: was strictly sequential (one device at a time, up to 12s timeout each) — large selections took many minutes
+- Rewrote it with a bounded ThreadPoolExecutor (max_workers, default 6, clamp 1..16): each worker opens its own RouterOS API connection; results reassembled in input order; cooperative cancel preserved (workers skip when event set, partial results kept); shared progress dict now tracks ok/failed live counts besides total/done/current_ip (thread-safe via lock)
+- backend/main.py: ApiProbeRequest gained max_workers (1..16, default 6) and passes it through; GET /api/devices/probe-api/progress now returns ok/failed/remaining as well
+- frontend/src.jsx: replaced the single-color bar with a labeled progress chart — heading shows which probe runs (API/SNMP) + current target IP; segmented bar (green=ok, red=failed, gray track=remaining); stat chips: موفق / ناموفق / باقی‌مانده / done-of-total / درصد. SNMP probe (no ok/failed fields) falls back to the classic percent bar — UI is defensive via typeof checks
+- frontend/style.css: .progress-seg.ok/.fail, .probe-progress-head, .probe-stat chips (+reduced-motion guard)
+- Rebuilt frontend/dist with vite
+- Test: scripts/test_api_probe_progress.py — parallel wall time 3.0s for 4×3s probes (vs ~12s sequential), order preserved, ok/failed counters, endpoint fields, pre-cancel and empty-list paths — ALL PASS; unit suite 15/15 OK
+
+Stage Summary:
+- API probe is now ~6× faster on large selections and the UI shows a live segmented progress chart
+- Ready to push to GitHub origin/main (together with Task 10 CSV export commit)

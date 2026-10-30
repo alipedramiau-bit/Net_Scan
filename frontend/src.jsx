@@ -581,6 +581,10 @@ function DeviceReports({mode="devices"}={}){
   function isMikrotik(d){return d.classification==="mikrotik_candidate"||(d.open_ports||[]).some(p=>p===8291||p===8728)}
   const sortMap={ip:"ip",device_name:"device_name",device_type:"device_type",tags:"tags",ping:"ping",ports:"ports",classification:"classification",first_seen:"first_seen",last_seen:"last_seen",seen_count:"seen_count"};
   const isSystem = mode === "system";
+  // live breakdown for the probe progress chart (API probe reports ok/failed; SNMP may not)
+  const pp=probeProg,ppOk=(typeof pp.ok==="number")?pp.ok:null,ppFail=(typeof pp.failed==="number")?pp.failed:null,ppTot=pp.total||0;
+  const ppOkPct=ppTot?Math.round(100*(ppOk||0)/ppTot):0;
+  const ppFailPct=ppTot?Math.max(0,Math.min(100-ppOkPct,Math.round(100*(ppFail||0)/ppTot))):0;
   return <section className={"panel device-reports"+(isSystem?" system-admin":"")} dir="rtl">
     <div className="report-heading">
       <h2>{isSystem ? "راهبری سیستم" : "مدیریت دستگاه‌های شبکه"}</h2>
@@ -703,13 +707,21 @@ function DeviceReports({mode="devices"}={}){
         <b>خواندن با API</b> برای تشخیص دقیق نوع دستگاه (مثلاً station bridge → ST) ضروری است — یوزر و رمز RouterOS را وارد کنید.
       </span>
       {(snmpBusy||apiBusy)&&<div className="probe-progress" style={{width:"100%",marginTop:8}}>
-        <div className="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow={probeProg.percent||0}>
-          <div className="progress-fill" style={{width:(probeProg.percent||0)+"%"}}/>
+        <div className="probe-progress-head">
+          <b>{apiBusy?"نمودار پیشرفت خواندن با RouterOS API":"نمودار پیشرفت خواندن SNMP"}</b>
+          {probeProg.current_ip?<span className="muted">هدف فعلی: <bdi dir="ltr">{probeProg.current_ip}</bdi></span>:null}
         </div>
-        <div className="progress-meta" style={{marginTop:4,fontSize:".85em"}}>
-          <span>{(probeProg.done||0).toLocaleString("fa-IR")} از {(probeProg.total||0).toLocaleString("fa-IR")}</span>
-          <span>{probeProg.percent||0}٪</span>
-          {probeProg.current_ip&&<span>هدف: <bdi dir="ltr">{probeProg.current_ip}</bdi></span>}
+        <div className="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow={probeProg.percent||0}>
+          {(apiBusy&&ppOk!=null)
+            ? <><div className="progress-seg ok" style={{width:ppOkPct+"%"}}/><div className="progress-seg fail" style={{width:ppFailPct+"%"}}/></>
+            : <div className="progress-fill" style={{width:(probeProg.percent||0)+"%"}}/>}
+        </div>
+        <div className="probe-stats">
+          {ppOk!=null&&<span className="probe-stat ok">موفق: {(ppOk||0).toLocaleString("fa-IR")}</span>}
+          {ppFail!=null&&<span className="probe-stat fail">ناموفق: {(ppFail||0).toLocaleString("fa-IR")}</span>}
+          <span className="probe-stat rem">باقی‌مانده: {Math.max(0,ppTot-(pp.done||0)).toLocaleString("fa-IR")}</span>
+          <span className="probe-stat">{(pp.done||0).toLocaleString("fa-IR")} از {ppTot.toLocaleString("fa-IR")}</span>
+          <span className="probe-stat pct">{probeProg.percent||0}٪</span>
         </div>
       </div>}
     </div>

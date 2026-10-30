@@ -7,7 +7,9 @@ from __future__ import annotations
 import hashlib
 import re
 import socket
+import threading
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Iterable
 
 
@@ -1044,27 +1046,69 @@ def probe_devices_via_api_many(
     timeout: float = 15.0,
     cancel_event=None,
     progress: dict | None = None,
+    max_workers: int = 6,
 ) -> list[dict]:
-    results = []
+    """Probe many devices via RouterOS API concurrently (bounded thread pool).
+
+    Improvements over the earlier sequential loop:
+    - up to `max_workers` devices are probed in parallel (each worker opens
+      its own API connection), so large selections finish in a fraction
+      of the time;
+    - the shared progress dict now tracks live ok/failed counts besides
+      total/done/current_ip so the UI can draw a segmented progress bar;
+    - cancel stays cooperative: workers skip their device when the event
+      is set and only completed probes are returned (partial results);
+    - results keep the input order.
+    """
     clean = [str(x).strip() for x in ips if str(x).strip()]
     if progress is not None:
-        progress.update({"total": len(clean), "done": 0, "current_ip": "", "running": True, "canceled": False})
-    try:
-        for ip in clean:
-            if cancel_event is not None and cancel_event.is_set():
-                if progress is not None:
-                    progress["canceled"] = True
-                break
-            if progress is not None:
+        progress.update({"total": len(clean), "done": 0, "ok": 0, "failed": 0,
+                         "current_ip": "", "running": True, "canceled": False})
+    if not clean:
+        if progress is not None:
+            progress["running"] = False
+        return []
+    workers = max(1, min(int(max_workers or 1), len(clean), 16))
+    results: dict[str, dict] = {}
+    plock = threading.Lock()
+
+    def work(ip: str):
+        # cooperative cancel: skip quietly; the caller only counts finished probes
+        if cancel_event is not None and cancel_event.is_set():
+            return None
+        if progress is not None:
+            with plock:
                 progress["current_ip"] = ip
-            results.append(
-                probe_device_via_api(ip, username, password, port=port, timeout=timeout)
-            )
-            if progress is not None:
-                progress["done"] = len(results)
+        return probe_device_via_api(ip, username, password, port=port, timeout=timeout)
+
+    try:
+        with ThreadPoolExecutor(max_workers=workers) as ex:
+            futures = {ex.submit(work, ip): ip for ip in clean}
+            for fut in as_completed(futures):
+                ip = futures[fut]
+                try:
+                    res = fut.result()
+                except Exception as exc:  # defensive: probe() normally catches its own errors
+                    res = {
+                        "ip": ip, "ok": False, "error": str(exc)[:400],
+                        "device_name": "", "interfaces": "", "wireless_info": "",
+                        "ip_addresses": "", "ip_neighbors": "", "device_type": "",
+                        "device_log": "", "mac_info": "", "modes": [],
+                    }
+                if res is None:
+                    if cancel_event is not None and cancel_event.is_set() and progress is not None:
+                        progress["canceled"] = True
+                    continue
+                results[ip] = res
+                if progress is not None:
+                    with plock:
+                        progress["done"] = len(results)
+                        key = "ok" if res.get("ok") else "failed"
+                        progress[key] = int(progress.get(key) or 0) + 1
     finally:
         if progress is not None:
             progress["running"] = False
             progress["current_ip"] = ""
-    return results
+    # preserve input order for the caller / UI table
+    return [results[ip] for ip in clean if ip in results]
 

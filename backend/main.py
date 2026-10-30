@@ -1307,6 +1307,8 @@ class ApiProbeRequest(BaseModel):
     port: int = Field(default=8728, ge=1, le=65535)
     timeout: float = Field(default=12.0, ge=2.0, le=60.0)
     save: bool = True
+    max_workers: int = Field(default=6, ge=1, le=16,
+                             description="تعداد خواندن همزمان موازی (پیش‌فرض ۶)")
 
 
 @app.post("/api/devices/probe-api")
@@ -1322,6 +1324,7 @@ def probe_devices_api(body: ApiProbeRequest):
         timeout=body.timeout,
         cancel_event=API_PROBE_CANCEL,
         progress=API_PROBE_PROGRESS,
+        max_workers=body.max_workers,
     )
     canceled = API_PROBE_CANCEL.is_set()
     saved = 0
@@ -1421,6 +1424,9 @@ def probe_devices_api_progress():
         "total": total,
         "done": done,
         "percent": pct,
+        "ok": int(p.get("ok") or 0),
+        "failed": int(p.get("failed") or 0),
+        "remaining": max(0, total - done),
         "current_ip": p.get("current_ip") or "",
         "running": bool(p.get("running")),
         "canceled": bool(p.get("canceled")),

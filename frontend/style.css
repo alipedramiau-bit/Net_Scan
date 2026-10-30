@@ -291,6 +291,21 @@ table td.col-wireless_info{
 .probe-progress .progress-track{height:14px}
 .probe-progress .progress-meta{display:flex;flex-wrap:wrap;gap:12px;opacity:.85}
 
+/* Live probe progress chart (segmented: green=ok, red=failed, track=remaining) */
+.probe-progress .progress-track{display:flex;overflow:hidden}
+.probe-progress-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.probe-progress-head b{color:#0f172a}
+.progress-seg{height:100%;min-width:0;transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.progress-seg.ok{background:linear-gradient(90deg,#16a34a,#22c55e)}
+.progress-seg.fail{background:linear-gradient(90deg,#ef4444,#b91c1c)}
+.probe-stats{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;align-items:center}
+.probe-stat{display:inline-flex;align-items:center;gap:5px;padding:3px 11px;border-radius:999px;font-size:.85rem;font-weight:700;background:#e2e8f0;color:#334155;white-space:nowrap;font-variant-numeric:tabular-nums}
+.probe-stat.ok{background:#dcfce7;color:#15803d}
+.probe-stat.fail{background:#fee2e2;color:#b91c1c}
+.probe-stat.rem{background:#e0e7ff;color:#3730a3}
+.probe-stat.pct{background:#0f172a;color:#fff}
+@media(prefers-reduced-motion:reduce){.progress-seg{transition:none}}
+
 .btn-excel{
   background:#15803d !important;
   color:#fff !important;
