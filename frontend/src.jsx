@@ -130,6 +130,10 @@ function RbIcon({name, size=20}){
       return <svg {...s}><path d="M6 3h9l5 5v13H6V3z"/><path d="M15 3v5h5M9 13h6M9 17h4"/></svg>;
     case "excel":
       return <svg {...s}><path d="M6 3h9l5 5v13H6V3z"/><path d="M15 3v5h5M10 14l4 4M14 14l-4 4"/></svg>;
+    case "json":
+      return <svg {...s}><path d="M9 4H8a2 2 0 0 0-2 2v2.5a2 2 0 0 1-2 2 2 2 0 0 1 2 2V15a2 2 0 0 0 2 2h1M15 4h1a2 2 0 0 1 2 2v2.5a2 2 0 0 0 2 2 2 2 0 0 0-2 2V15a2 2 0 0 1-2 2h-1"/></svg>;
+    case "route":
+      return <svg {...s}><circle cx="5.5" cy="18.5" r="2"/><circle cx="18.5" cy="5.5" r="2"/><path d="M7.5 18.5H14a4 4 0 0 0 4-4V7.5" strokeDasharray="2.6 2.2"/></svg>;
     case "tag":
       return <svg {...s}><path d="M3 12V5h7l9 9-7 7-9-9z"/><circle cx="8" cy="8" r="1.2" fill="currentColor" stroke="none"/></svg>;
     case "snmp":
@@ -260,7 +264,7 @@ function DeviceReports({mode="devices"}={}){
   const[winboxItems,setWinboxItems]=useState([]),[winboxPath,setWinboxPath]=useState(""),[winboxName,setWinboxName]=useState(""),[showWinboxCfg,setShowWinboxCfg]=useState(false),[busyAction,setBusyAction]=useState(false),[toolsDir,setToolsDir]=useState("");
   const[visibleCols,setVisibleCols]=useState(defaultVisible),[showColCfg,setShowColCfg]=useState(false);
   const[selected,setSelected]=useState({}),[editTagIp,setEditTagIp]=useState(null),[editTagVal,setEditTagVal]=useState(""),[editNameIp,setEditNameIp]=useState(null),[editNameVal,setEditNameVal]=useState("");// selected: { [ip]: true } only — never store false
-  const[snmpProfiles,setSnmpProfiles]=useState([]),[snmpId,setSnmpId]=useState(""),[snmpRaw,setSnmpRaw]=useState(""),[snmpName,setSnmpName]=useState(""),[showSnmp,setShowSnmp]=useState(false),[snmpBusy,setSnmpBusy]=useState(false);const[dbList,setDbList]=useState([]),[activeDb,setActiveDb]=useState("default"),[newDbName,setNewDbName]=useState(""),[showDbPanel,setShowDbPanel]=useState(false);const[showGroupCfg,setShowGroupCfg]=useState(false),[groupScript,setGroupScript]=useState(""),[groupUser,setGroupUser]=useState("admin"),[groupPass,setGroupPass]=useState("");const[apiUser,setApiUser]=useState("admin"),[apiPass,setApiPass]=useState(""),[apiBusy,setApiBusy]=useState(false);const[csvReading,setCsvReading]=useState(false);const apiAbortRef={current:null};
+  const[snmpProfiles,setSnmpProfiles]=useState([]),[snmpId,setSnmpId]=useState(""),[snmpRaw,setSnmpRaw]=useState(""),[snmpName,setSnmpName]=useState(""),[showSnmp,setShowSnmp]=useState(false),[snmpBusy,setSnmpBusy]=useState(false);const[dbList,setDbList]=useState([]),[activeDb,setActiveDb]=useState("default"),[newDbName,setNewDbName]=useState(""),[showDbPanel,setShowDbPanel]=useState(false);const[showGroupCfg,setShowGroupCfg]=useState(false),[groupScript,setGroupScript]=useState(""),[groupUser,setGroupUser]=useState("admin"),[groupPass,setGroupPass]=useState("");const[apiUser,setApiUser]=useState("admin"),[apiPass,setApiPass]=useState(""),[apiBusy,setApiBusy]=useState(false);const[csvReading,setCsvReading]=useState(false);const[showRouteModal,setShowRouteModal]=useState(false),[routeSrc,setRouteSrc]=useState("172.19.1.6"),[routeDst,setRouteDst]=useState("172.19.1.6"),[routeHops,setRouteHops]=useState(15),[routeBusy,setRouteBusy]=useState(false),[routeIps,setRouteIps]=useState([]);const apiAbortRef={current:null};
   const params=new URLSearchParams();if(classification)params.set("classification",classification);if(deviceTypeFilter)params.set("device_type",deviceTypeFilter);if(port)params.set("has_port",port);if(q)params.set("q",q);if(qField)params.set("q_fields",qField);params.set("sort",sortBy);params.set("order",sortOrder);params.set("new_only",newOnly?"true":"false");params.set("limit",String(pageSize));params.set("offset",String(offset));
   const searchAbortRef={current:null};
   function reloadRows(){
@@ -585,6 +589,85 @@ function DeviceReports({mode="devices"}={}){
     }catch(e){setError(e.message)}
     finally{clearInterval(progTimer);setCsvReading(false);setBusyAction(false);setProbeProg(p=>({...p,running:false}))}
   }
+  async function exportJsonMikrotikSelected(){
+    // خروجی JSON کامل دستگاه‌های میکروتیک انتخاب‌شده — دقیقاً همان فیلدهای
+    // خروجی CSV؛ دستگاه‌های بدونِ اطلاعاتِ کامل قبل از خروجی با RouterOS API
+    // خوانده می‌شوند (با همان نمودار پیشرفت)
+    if(!selectedIps.length){setError("دستگاهی انتخاب نشده");return}
+    setBusyAction(true);setError("");
+    setCsvReading(true);
+    setProbeProg({total:0,done:0,percent:0,current_ip:"",running:true,ok:0,failed:0});
+    const progTimer=setInterval(async()=>{try{const pr=await fetch(API+"/api/devices/probe-api/progress");const pd=await pr.json();setProbeProg(pd)}catch(e){}},400);
+    try{
+      const r=await fetch(API+"/devices/export-mikrotik.json",{method:"POST",headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({ips:selectedIps,read_missing:true,username:(apiUser||"admin").trim(),password:apiPass||"",port:8728,timeout:12})});
+      if(!r.ok){
+        let detail="خروجی JSON ناموفق";
+        try{const d=await r.json();detail=typeof d.detail==="string"?d.detail:detail}catch(e){}
+        throw Error(detail);
+      }
+      const blob=await r.blob();
+      const cd=r.headers.get("Content-Disposition")||"";
+      let filename="mikrotik_selected.json";
+      const m=cd.match(/filename="?([^"]+)"?/i);
+      if(m)filename=m[1];
+      const url=URL.createObjectURL(blob);
+      const a=document.createElement("a");
+      a.href=url;a.download=filename;
+      document.body.appendChild(a);a.click();a.remove();
+      URL.revokeObjectURL(url);
+      const rn=Number(r.headers.get("X-Export-Read-Now")||0);
+      const rf=Number(r.headers.get("X-Export-Read-Failed")||0);
+      setMsg("خروجی JSON میکروتیک ذخیره شد: "+filename+(rn||rf
+        ?(" — اطلاعات "+rn.toLocaleString("fa-IR")+" دستگاهِ بدونِ اطلاعات، زنده خوانده و ذخیره شد"+(rf?(" ("+rf.toLocaleString("fa-IR")+" دستگاه ناموفق/در دسترس نبود)"):""))
+        :" — همان فیلدهای خروجی CSV با فرمت JSON"));
+    }catch(e){setError(e.message)}
+    finally{clearInterval(progTimer);setCsvReading(false);setBusyAction(false);setProbeProg(p=>({...p,running:false}))}
+  }
+  async function openRouteModal(){
+    // گزارش روت برای «تمام دستگاه‌های میکروتیکِ منطبق با فیلتر جستجوی گزارش»
+    // (همان فیلتری که خروجی‌ها از آن پیروی می‌کنند) — نه فقط انتخاب‌ها
+    setError("");
+    const fp=new URLSearchParams(params);fp.delete("offset");fp.set("limit","100000");
+    setRouteBusy(true);
+    try{
+      const r=await fetch(`${API}/devices?${fp.toString()}`);
+      const d=await r.json();
+      if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:"خطا در دریافت دستگاه‌های فیلترشده");
+      const ips=[...new Set((d.devices||[]).filter(isMikrotik).map(x=>x.ip))];
+      if(!ips.length){setError("با فیلتر جستجوی فعلی هیچ دستگاه میکروتیکی در گزارش نیست");return}
+      setRouteIps(ips);
+      setShowRouteModal(true);
+    }catch(e){setError(e.message)}
+    setRouteBusy(false);
+  }
+  async function submitRouteReport(){
+    if(!routeIps.length){setError("دستگاه میکروتیکی برای گزارش روت یافت نشد");return}
+    setRouteBusy(true);setError("");
+    try{
+      const r=await fetch(API+"/devices/route-report.csv",{method:"POST",headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({ips:routeIps,source_ip:(routeSrc||"").trim()||"172.19.1.6",dest_ip:(routeDst||"").trim()||"172.19.1.6",max_hops:Number(routeHops)||15,timeout_ms:800})});
+      if(!r.ok){
+        let detail="گزارش روت ناموفق";
+        try{const d=await r.json();detail=typeof d.detail==="string"?d.detail:detail}catch(e){}
+        throw Error(detail);
+      }
+      const blob=await r.blob();
+      const cd=r.headers.get("Content-Disposition")||"";
+      let filename="route_report.csv";
+      const m=cd.match(/filename="?([^"]+)"?/i);
+      if(m)filename=m[1];
+      const url=URL.createObjectURL(blob);
+      const a=document.createElement("a");
+      a.href=url;a.download=filename;
+      document.body.appendChild(a);a.click();a.remove();
+      URL.revokeObjectURL(url);
+      const nd=Number(r.headers.get("X-Route-Devices")||routeIps.length);
+      setMsg("گزارش روت ذخیره شد: "+filename+" — مسیر "+nd.toLocaleString("fa-IR")+" دستگاه میکروتیک ردیابی شد");
+      setShowRouteModal(false);
+    }catch(e){setError(e.message)}
+    setRouteBusy(false);
+  }
   const pageCount=Math.max(1,Math.ceil(total/pageSize));const page=Math.min(pageCount,Math.floor(offset/pageSize)+1);
   const csvParams=new URLSearchParams(params);csvParams.delete("offset");csvParams.set("limit","100000");
   const paginationBar=<div className="report-pagination"><label className="page-size">تعداد در صفحه<select value={pageSize} onChange={e=>{setPageSize(Number(e.target.value));setOffset(0)}}><option value="50">50</option><option value="100">100</option><option value="200">200</option><option value="100000">همه</option></select></label><button type="button" disabled={page<=1} onClick={()=>setOffset(0)}>صفحه اول</button><button type="button" disabled={page<=1} onClick={()=>setOffset(Math.max(0,offset-pageSize))}>قبلی</button><span className="page-indicator">صفحه {page.toLocaleString("fa-IR")} از {pageCount.toLocaleString("fa-IR")} — کل {total.toLocaleString("fa-IR")}</span><button type="button" disabled={page>=pageCount} onClick={()=>setOffset(offset+pageSize)}>بعدی</button><button type="button" disabled={page>=pageCount} onClick={()=>setOffset((pageCount-1)*pageSize)}>صفحه آخر</button><label className="page-size db-inline">دیتابیس فعال<select value={activeDb} disabled={busyAction} onChange={e=>switchDb(e.target.value)}>{(dbList&&dbList.length?dbList:[{name:activeDb||"default",active:true,devices:0}]).map(d=><option key={d.name} value={d.name}>{d.name}{d.active?" ★":""} ({d.devices||0})</option>)}</select></label><button type="button" className="btn-db-mini" onClick={()=>setShowDbPanel(s=>!s)} title="مدیریت دیتابیس‌ها">⚙</button></div>;
@@ -641,6 +724,8 @@ function DeviceReports({mode="devices"}={}){
         <span className="tool-label">خروجی</span>
         <a className="tool-btn tool-link" href={`${API}/devices/export.csv?${csvParams.toString()}`}><RbIcon name="csv"/><span>خروجی CSV</span></a>
         <button type="button" className="tool-btn" disabled={busyAction||!selectedIps.length} onClick={exportCsvMikrotikSelected} title="خروجی CSV دستگاه‌های میکروتیک انتخاب‌شده با تمام فیلدها؛ دستگاه‌های بدونِ اطلاعاتِ کامل قبل از خروجی با RouterOS API خوانده می‌شوند (با نمودار پیشرفت)"><RbIcon name="csv"/><span>خروجی CSV میکروتیک ({selectedIps.length})</span></button>
+        <button type="button" className="tool-btn" disabled={busyAction||!selectedIps.length} onClick={exportJsonMikrotikSelected} title="همان خروجی کامل میکروتیک (۱۹ فیلد فارسی) با فرمت JSON؛ دستگاه‌های بدونِ اطلاعاتِ کامل قبل از خروجی با RouterOS API خوانده می‌شوند"><RbIcon name="json"/><span>خروجی JSON میکروتیک ({selectedIps.length})</span></button>
+        <button type="button" className="tool-btn" disabled={busyAction||routeBusy} onClick={openRouteModal} title="اجرای tracert -d برای تمام دستگاه‌های میکروتیکِ منطبق با فیلتر جستجوی گزارش و ذخیره خروجی CSV (مبدأ/مقصد پیش‌فرض: 172.19.1.6)"><RbIcon name="route"/><span>گزارش روت</span></button>
         <button type="button" className="tool-btn" disabled={busyAction||!selectedIps.length} onClick={exportExcelSelected}><RbIcon name="excel"/><span>خروجی Excel</span></button>
         <label className="tool-btn tool-file">
           <input type="file" accept=".xlsx,.xlsm,.xls,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" hidden onChange={importTags} disabled={busyAction}/>
@@ -752,6 +837,20 @@ function DeviceReports({mode="devices"}={}){
           }catch(e){setError(e.message)}
         }}>ذخیره</button>}
         <button type="button" className="btn-modal-close" onClick={()=>setTextModal(null)}>بستن</button>
+      </div>
+    </div></div>}
+    {showRouteModal&&<div className="modal-overlay" onClick={()=>{if(!routeBusy)setShowRouteModal(false)}}><div className="modal-box" dir="rtl" onClick={e=>e.stopPropagation()}>
+      <h3 style={{marginTop:0}}>گزارش روت (tracert -d)</h3>
+      <p className="muted" style={{fontSize:".9em"}}>برای تمام دستگاه‌های میکروتیکِ منطبق با فیلتر جستجوی گزارش (<b>{routeIps.length.toLocaleString("fa-IR")} دستگاه</b>) دستور <code dir="ltr">tracert -d &lt;IP دستگاه&gt;</code> اجرا و خروجی به‌صورت CSV ذخیره می‌شود.</p>
+      <div className="winbox-add-form">
+        <label>IP مبدأ<input dir="ltr" value={routeSrc} onChange={e=>setRouteSrc(e.target.value)} placeholder="172.19.1.6"/></label>
+        <label>IP مقصد<input dir="ltr" value={routeDst} onChange={e=>setRouteDst(e.target.value)} placeholder="172.19.1.6"/></label>
+        <label>حداکثر Hop<select value={routeHops} onChange={e=>setRouteHops(Number(e.target.value))}>{[10,15,20,30].map(n=><option key={n} value={n}>{n}</option>)}</select></label>
+      </div>
+      <p className="muted" style={{fontSize:".85em"}}>پیش‌فرض مبدأ و مقصد: <bdi dir="ltr">172.19.1.6</bdi> — تا وقتی مقصد با مبدأ برابر باشد فقط مسیر تا IP هر دستگاه ردیابی می‌شود؛ اگر مقصد دیگری وارد کنید، مسیر مبدأ→مقصد هم به ابتدای گزارش اضافه می‌شود. ردیابی از سرور برنامه اجرا می‌شود و برای تعداد زیاد دستگاه ممکن است چند دقیقه طول بکشد.</p>
+      <div className="modal-actions">
+        <button type="button" className="btn-modal-save" disabled={routeBusy} onClick={submitRouteReport}>{routeBusy?"در حال ردیابی مسیر…":"اجرای گزارش روت"}</button>
+        <button type="button" className="btn-modal-close" disabled={routeBusy} onClick={()=>setShowRouteModal(false)}>انصراف</button>
       </div>
     </div></div>}
     <div className="report-filters">
