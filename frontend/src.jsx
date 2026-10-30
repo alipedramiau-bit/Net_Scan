@@ -260,7 +260,7 @@ function DeviceReports({mode="devices"}={}){
   const[winboxItems,setWinboxItems]=useState([]),[winboxPath,setWinboxPath]=useState(""),[winboxName,setWinboxName]=useState(""),[showWinboxCfg,setShowWinboxCfg]=useState(false),[busyAction,setBusyAction]=useState(false),[toolsDir,setToolsDir]=useState("");
   const[visibleCols,setVisibleCols]=useState(defaultVisible),[showColCfg,setShowColCfg]=useState(false);
   const[selected,setSelected]=useState({}),[editTagIp,setEditTagIp]=useState(null),[editTagVal,setEditTagVal]=useState(""),[editNameIp,setEditNameIp]=useState(null),[editNameVal,setEditNameVal]=useState("");// selected: { [ip]: true } only — never store false
-  const[snmpProfiles,setSnmpProfiles]=useState([]),[snmpId,setSnmpId]=useState(""),[snmpRaw,setSnmpRaw]=useState(""),[snmpName,setSnmpName]=useState(""),[showSnmp,setShowSnmp]=useState(false),[snmpBusy,setSnmpBusy]=useState(false);const[dbList,setDbList]=useState([]),[activeDb,setActiveDb]=useState("default"),[newDbName,setNewDbName]=useState(""),[showDbPanel,setShowDbPanel]=useState(false);const[showGroupCfg,setShowGroupCfg]=useState(false),[groupScript,setGroupScript]=useState(""),[groupUser,setGroupUser]=useState("admin"),[groupPass,setGroupPass]=useState("");const[apiUser,setApiUser]=useState("admin"),[apiPass,setApiPass]=useState(""),[apiBusy,setApiBusy]=useState(false);const apiAbortRef={current:null};
+  const[snmpProfiles,setSnmpProfiles]=useState([]),[snmpId,setSnmpId]=useState(""),[snmpRaw,setSnmpRaw]=useState(""),[snmpName,setSnmpName]=useState(""),[showSnmp,setShowSnmp]=useState(false),[snmpBusy,setSnmpBusy]=useState(false);const[dbList,setDbList]=useState([]),[activeDb,setActiveDb]=useState("default"),[newDbName,setNewDbName]=useState(""),[showDbPanel,setShowDbPanel]=useState(false);const[showGroupCfg,setShowGroupCfg]=useState(false),[groupScript,setGroupScript]=useState(""),[groupUser,setGroupUser]=useState("admin"),[groupPass,setGroupPass]=useState("");const[apiUser,setApiUser]=useState("admin"),[apiPass,setApiPass]=useState(""),[apiBusy,setApiBusy]=useState(false);const[csvReading,setCsvReading]=useState(false);const apiAbortRef={current:null};
   const params=new URLSearchParams();if(classification)params.set("classification",classification);if(deviceTypeFilter)params.set("device_type",deviceTypeFilter);if(port)params.set("has_port",port);if(q)params.set("q",q);if(qField)params.set("q_fields",qField);params.set("sort",sortBy);params.set("order",sortOrder);params.set("new_only",newOnly?"true":"false");params.set("limit",String(pageSize));params.set("offset",String(offset));
   const searchAbortRef={current:null};
   function reloadRows(){
@@ -551,11 +551,17 @@ function DeviceReports({mode="devices"}={}){
     setBusyAction(false);
   }
   async function exportCsvMikrotikSelected(){
-    // خروجی CSV کامل دستگاه‌های میکروتیک انتخاب‌شده با تمام فیلدهای خوانده‌شده
+    // خروجی CSV کامل دستگاه‌های میکروتیک انتخاب‌شده؛ قبل از تولید فایل،
+    // دستگاه‌های بدونِ اطلاعاتِ کامل با RouterOS API زنده خوانده و ذخیره
+    // می‌شوند (با نمودار پیشرفت زنده) تا خروجی واقعاً همه فیلدها را داشته باشد
     if(!selectedIps.length){setError("دستگاهی انتخاب نشده");return}
     setBusyAction(true);setError("");
+    setCsvReading(true);
+    setProbeProg({total:0,done:0,percent:0,current_ip:"",running:true,ok:0,failed:0});
+    const progTimer=setInterval(async()=>{try{const pr=await fetch(API+"/api/devices/probe-api/progress");const pd=await pr.json();setProbeProg(pd)}catch(e){}},400);
     try{
-      const r=await fetch(API+"/devices/export-mikrotik.csv",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({ips:selectedIps})});
+      const r=await fetch(API+"/devices/export-mikrotik.csv",{method:"POST",headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({ips:selectedIps,read_missing:true,username:(apiUser||"admin").trim(),password:apiPass||"",port:8728,timeout:12})});
       if(!r.ok){
         let detail="خروجی CSV ناموفق";
         try{const d=await r.json();detail=typeof d.detail==="string"?d.detail:detail}catch(e){}
@@ -571,9 +577,13 @@ function DeviceReports({mode="devices"}={}){
       a.href=url;a.download=filename;
       document.body.appendChild(a);a.click();a.remove();
       URL.revokeObjectURL(url);
-      setMsg("خروجی CSV میکروتیک ذخیره شد: "+filename+" — فقط دستگاه‌های میکروتیکِ انتخاب‌شده با تمام فیلدهای خوانده‌شده");
+      const rn=Number(r.headers.get("X-Export-Read-Now")||0);
+      const rf=Number(r.headers.get("X-Export-Read-Failed")||0);
+      setMsg("خروجی CSV میکروتیک ذخیره شد: "+filename+(rn||rf
+        ?(" — اطلاعات "+rn.toLocaleString("fa-IR")+" دستگاهِ بدونِ اطلاعات، زنده خوانده و ذخیره شد"+(rf?(" ("+rf.toLocaleString("fa-IR")+" دستگاه ناموفق/در دسترس نبود)"):""))
+        :" — فقط دستگاه‌های میکروتیکِ انتخاب‌شده با تمام فیلدهای خوانده‌شده"));
     }catch(e){setError(e.message)}
-    setBusyAction(false);
+    finally{clearInterval(progTimer);setCsvReading(false);setBusyAction(false);setProbeProg(p=>({...p,running:false}))}
   }
   const pageCount=Math.max(1,Math.ceil(total/pageSize));const page=Math.min(pageCount,Math.floor(offset/pageSize)+1);
   const csvParams=new URLSearchParams(params);csvParams.delete("offset");csvParams.set("limit","100000");
@@ -630,7 +640,7 @@ function DeviceReports({mode="devices"}={}){
       <div className="tool-group">
         <span className="tool-label">خروجی</span>
         <a className="tool-btn tool-link" href={`${API}/devices/export.csv?${csvParams.toString()}`}><RbIcon name="csv"/><span>خروجی CSV</span></a>
-        <button type="button" className="tool-btn" disabled={busyAction||!selectedIps.length} onClick={exportCsvMikrotikSelected} title="خروجی CSV دستگاه‌های میکروتیک انتخاب‌شده با تمام فیلدهای خوانده‌شده (identity، نوع، تگ، اینترفیس، IP، همسایه، وایرلس، لاگ، MAC)"><RbIcon name="csv"/><span>خروجی CSV میکروتیک ({selectedIps.length})</span></button>
+        <button type="button" className="tool-btn" disabled={busyAction||!selectedIps.length} onClick={exportCsvMikrotikSelected} title="خروجی CSV دستگاه‌های میکروتیک انتخاب‌شده با تمام فیلدها؛ دستگاه‌های بدونِ اطلاعاتِ کامل قبل از خروجی با RouterOS API خوانده می‌شوند (با نمودار پیشرفت)"><RbIcon name="csv"/><span>خروجی CSV میکروتیک ({selectedIps.length})</span></button>
         <button type="button" className="tool-btn" disabled={busyAction||!selectedIps.length} onClick={exportExcelSelected}><RbIcon name="excel"/><span>خروجی Excel</span></button>
         <label className="tool-btn tool-file">
           <input type="file" accept=".xlsx,.xlsm,.xls,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" hidden onChange={importTags} disabled={busyAction}/>
@@ -706,13 +716,13 @@ function DeviceReports({mode="devices"}={}){
       <span className="muted" style={{fontSize:".85em",width:"100%"}}>
         <b>خواندن با API</b> برای تشخیص دقیق نوع دستگاه (مثلاً station bridge → ST) ضروری است — یوزر و رمز RouterOS را وارد کنید.
       </span>
-      {(snmpBusy||apiBusy)&&<div className="probe-progress" style={{width:"100%",marginTop:8}}>
+      {(snmpBusy||apiBusy||csvReading)&&<div className="probe-progress" style={{width:"100%",marginTop:8}}>
         <div className="probe-progress-head">
-          <b>{apiBusy?"نمودار پیشرفت خواندن با RouterOS API":"نمودار پیشرفت خواندن SNMP"}</b>
+          <b>{apiBusy?"نمودار پیشرفت خواندن با RouterOS API":(csvReading?"نمودار پیشرفت خواندن اطلاعات برای خروجی CSV":"نمودار پیشرفت خواندن SNMP")}</b>
           {probeProg.current_ip?<span className="muted">هدف فعلی: <bdi dir="ltr">{probeProg.current_ip}</bdi></span>:null}
         </div>
         <div className="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow={probeProg.percent||0}>
-          {(apiBusy&&ppOk!=null)
+          {((apiBusy||csvReading)&&ppOk!=null)
             ? <><div className="progress-seg ok" style={{width:ppOkPct+"%"}}/><div className="progress-seg fail" style={{width:ppFailPct+"%"}}/></>
             : <div className="progress-fill" style={{width:(probeProg.percent||0)+"%"}}/>}
         </div>

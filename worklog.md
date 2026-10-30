@@ -200,3 +200,23 @@ Work Log:
 Stage Summary:
 - API probe is now ~6× faster on large selections and the UI shows a live segmented progress chart
 - Ready to push to GitHub origin/main (together with Task 10 CSV export commit)
+
+---
+Task ID: 12
+Agent: main (Z.ai)
+Task: Fix empty detail fields in MikroTik CSV export (live auto-read) + AGENTS.md + docs refresh
+
+Work Log:
+- Root cause of empty CSV fields (user report: interfaces/ip/neighbors/wireless/log/mac empty for ~31 devices out of 386): those devices were never fully read via RouterOS API (only SNMP name or scan-level data), so no data existed in DB or ip_info txt files to export
+- backend/db.py: added DETAIL_CORE_FIELDS (interfaces, ip_addresses, device_log, mac_info), device_details_complete() and device_read_status(); mikrotik_selected_to_csv now writes a 19th column «وضعیت خواندن» (کامل / ناقص — اطلاعات کامل خوانده نشد) so every row explains its own completeness
+- backend/main.py: ExportSelectedBody gained read_missing/username/password/port/timeout/max_workers; export endpoint now live-reads incomplete selected devices via routeros_api.probe_devices_via_api_many (parallel, same API_PROBE_PROGRESS + cancel event) and persists them BEFORE building the CSV; new shared _persist_api_probe_results() extracted from the probe endpoint (single source of truth for DB+ip_info txt persistence); collect-ip-info txt files now written with standard "----- section -----" headers so enrich_devices_from_ip_info can parse them
+- frontend/src.jsx: export button now sends read_missing=true + RouterOS credentials (apiUser/apiPass) and polls /api/devices/probe-api/progress during export — the segmented progress chart (نمودار پیشرفت) shows live with title "نمودار پیشرفت خواندن اطلاعات برای خروجی CSV"; success toast reports how many devices were freshly read / failed; state csvReading added
+- AGENTS.md created: Persian agent guide (architecture, key paths, run/test/build commands, commit conventions incl. scripts/ gitignore force-add + worklog Task IDs, feature map, gotchas, security rules)
+- README.md updated: multi-DB catalog + new devices columns + ip_info enrichment, new sections «خواندن اطلاعات دستگاه‌ها (SNMP و RouterOS API)» (parallel probe + segmented progress chart) and «خروجی CSV دستگاه‌های میکروتیک انتخاب‌شده» (19 columns, auto-read, status column), new API endpoints listed, pointer to AGENTS.md
+- frontend/dist rebuilt (vite)
+- Test: scripts/test_export_mikrotik_csv.py extended to 40 checks — 19-column header, per-column values incl. multiline log (csv.reader parse), status column کامل/ناقص, read_missing flow (only incomplete device probed, credentials+progress+max_workers passed, X-Export-* headers, live data in CSV, DB+txt persistence, no re-read when complete), 400 paths, 401 — ALL PASS; tests/ unit suite 15/15 OK; scripts/test_api_probe_progress.py ALL PASS
+
+Stage Summary:
+- CSV export now guarantees real data: devices without complete details are read live (with progress chart) before export, and the «وضعیت خواندن» column makes completeness explicit per row
+- AGENTS.md + README.md document the project for humans and AI agents
+- Ready to push to GitHub origin/main (together with Task 10 + Task 11 commits)

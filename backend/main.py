@@ -382,6 +382,14 @@ def export_devices(
 
 class ExportSelectedBody(BaseModel):
     ips: list[str] = Field(default_factory=list, max_length=50000)
+    # خواندن خودکار دستگاه‌های میکروتیکِ بدونِ اطلاعاتِ کامل با RouterOS API
+    # قبل از تولید خروجی CSV (نمودار پیشرفت همان /api/devices/probe-api/progress)
+    read_missing: bool = Field(default=False)
+    username: str = Field(default="", max_length=128)
+    password: str = Field(default="", max_length=256)
+    port: int = Field(default=8728, ge=1, le=65535)
+    timeout: float = Field(default=12.0, ge=1.0, le=60.0)
+    max_workers: int = Field(default=6, ge=1, le=16)
 
 
 @app.post("/devices/export-mikrotik.csv")
@@ -392,10 +400,39 @@ def export_mikrotik_selected_csv(body: ExportSelectedBody):
     نوع دستگاه، تگ، اینترفیس‌ها، آدرس‌های IP، همسایه‌ها، وایرلس، لاگ و MAC)
     به تفکیک فیلد در ستون‌های جداگانه ذخیره می‌شود. دستگاه‌های غیر میکروتیک
     از انتخاب حذف می‌شوند.
+
+    با read_missing=True (رفتار پیش‌فرض دکمه در UI) ابتدا دستگاه‌هایی که
+    فیلدهای اصلیِ خوانده‌شده ندارند به‌صورت زنده با RouterOS API خوانده و
+    ذخیره می‌شوند تا خروجی CSV واقعاً شامل اطلاعاتِ همه دستگاه‌ها باشد؛
+    پیشرفتِ این خواندن از همان /api/devices/probe-api/progress قابل پیگیری است.
     """
     ips = [str(x).strip() for x in (body.ips or []) if str(x).strip()]
     if not ips:
         raise HTTPException(400, "هیچ دستگاهی انتخاب نشده است")
+    read_now = failed_read = missing_before = 0
+    if body.read_missing:
+        pre = [d for d in db.fetch_devices_by_ips(ips) if db._is_mikrotik_device(d)]
+        missing = [d["ip"] for d in pre if not db.device_details_complete(d)]
+        missing_before = len(missing)
+        if missing:
+            API_PROBE_CANCEL.clear()
+            API_PROBE_PROGRESS.update({"total": len(missing), "done": 0, "ok": 0, "failed": 0,
+                                       "current_ip": "", "running": True, "canceled": False})
+            try:
+                results = routeros_api.probe_devices_via_api_many(
+                    missing,
+                    username=body.username,
+                    password=body.password or "",
+                    port=body.port,
+                    timeout=body.timeout,
+                    cancel_event=API_PROBE_CANCEL,
+                    progress=API_PROBE_PROGRESS,
+                    max_workers=body.max_workers,
+                )
+            finally:
+                API_PROBE_PROGRESS.update({"running": False, "current_ip": ""})
+            read_now, _txt_dir = _persist_api_probe_results(results)
+            failed_read = sum(1 for r in results if not r.get("ok"))
     try:
         data = db.mikrotik_selected_to_csv(ips)
     except ValueError as e:
@@ -405,7 +442,12 @@ def export_mikrotik_selected_csv(body: ExportSelectedBody):
     return Response(
         data,
         media_type="text/csv; charset=utf-8",
-        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+        headers={
+            "Content-Disposition": f'attachment; filename="{filename}"',
+            "X-Export-Missing-Before": str(missing_before),
+            "X-Export-Read-Now": str(read_now),
+            "X-Export-Read-Failed": str(failed_read),
+        },
     )
 
 
@@ -1311,6 +1353,82 @@ class ApiProbeRequest(BaseModel):
                              description="تعداد خواندن همزمان موازی (پیش‌فرض ۶)")
 
 
+def _persist_api_probe_results(results: list) -> tuple:
+    """Persist successful RouterOS API probe results into the active database
+    and per-device txt files (databases/ip_info/{ip}.txt).
+
+    Shared by /api/devices/probe-api and /devices/export-mikrotik.csv so both
+    callers persist exactly the same fields in exactly the same format.
+    Returns (saved_count, txt_dir).
+    """
+    saved = 0
+    from pathlib import Path as _P
+    txt_dir = _P(db.db_path_for()).parent / "ip_info"
+    txt_dir.mkdir(parents=True, exist_ok=True)
+    for r in results:
+        if not r.get("ok"):
+            continue
+        ip = r["ip"]
+        try:
+            kwargs = {}
+            if r.get("device_name"):
+                kwargs["device_name"] = r["device_name"]
+            # Always persist detail fields when probe succeeded (even short text)
+            if (r.get("interfaces") or "").strip():
+                kwargs["interfaces"] = r["interfaces"]
+            if (r.get("ip_addresses") or "").strip():
+                kwargs["ip_addresses"] = r["ip_addresses"]
+            if (r.get("ip_neighbors") or "").strip():
+                kwargs["ip_neighbors"] = r["ip_neighbors"]
+            if (r.get("wireless_info") or "").strip():
+                kwargs["wireless_info"] = r["wireless_info"]
+            if r.get("device_type"):
+                kwargs["device_type"] = r["device_type"]
+            if (r.get("device_log") or "").strip():
+                kwargs["device_log"] = r["device_log"]
+            if (r.get("mac_info") or "").strip():
+                kwargs["mac_info"] = r["mac_info"]
+            if not kwargs:
+                continue
+            try:
+                db.update_device_fields(ip, **kwargs)
+            except KeyError:
+                db.add_manual_device(ip, open_ports=[8728, 8291], classification="mikrotik_candidate")
+                db.update_device_fields(ip, **kwargs)
+            saved += 1
+            safe_ip = ip.replace(":", "_").replace("/", "_")
+            fpath = txt_dir / f"{safe_ip}.txt"
+            parts = [
+                f"IP: {ip}",
+                f"Collected at: {now()}",
+                f"source: RouterOS API",
+                f"identity: {r.get('device_name') or '-'}",
+                f"device_type: {r.get('device_type') or '-'}",
+                "",
+                "----- interfaces -----",
+                r.get("interfaces") or "(empty)",
+                "",
+                "----- wireless -----",
+                r.get("wireless_info") or "(empty)",
+                "",
+                "----- ip_addresses / routes -----",
+                r.get("ip_addresses") or "(empty)",
+                "",
+                "----- neighbors -----",
+                r.get("ip_neighbors") or "(empty)",
+                "",
+                "----- log -----",
+                r.get("device_log") or "(empty)",
+                "",
+                "----- mac -----",
+                r.get("mac_info") or "(empty)",
+            ]
+            fpath.write_text(chr(10).join(parts), encoding="utf-8")
+        except Exception:
+            pass
+    return saved, txt_dir
+
+
 @app.post("/api/devices/probe-api")
 def probe_devices_api(body: ApiProbeRequest):
     """Read identity/interfaces/wireless mode/IP via RouterOS API and update DB."""
@@ -1327,73 +1445,8 @@ def probe_devices_api(body: ApiProbeRequest):
         max_workers=body.max_workers,
     )
     canceled = API_PROBE_CANCEL.is_set()
-    saved = 0
     active_db = db.get_active_db_name()
-    from pathlib import Path as _P
-    txt_dir = _P(db.db_path_for()).parent / "ip_info"
-    txt_dir.mkdir(parents=True, exist_ok=True)
-    if True:  # always persist API probe results to DB
-        for r in results:
-            if not r.get("ok"):
-                continue
-            ip = r["ip"]
-            try:
-                kwargs = {}
-                if r.get("device_name"):
-                    kwargs["device_name"] = r["device_name"]
-                # Always persist detail fields when probe succeeded (even short text)
-                if (r.get("interfaces") or "").strip():
-                    kwargs["interfaces"] = r["interfaces"]
-                if (r.get("ip_addresses") or "").strip():
-                    kwargs["ip_addresses"] = r["ip_addresses"]
-                if (r.get("ip_neighbors") or "").strip():
-                    kwargs["ip_neighbors"] = r["ip_neighbors"]
-                if (r.get("wireless_info") or "").strip():
-                    kwargs["wireless_info"] = r["wireless_info"]
-                if r.get("device_type"):
-                    kwargs["device_type"] = r["device_type"]
-                if (r.get("device_log") or "").strip():
-                    kwargs["device_log"] = r["device_log"]
-                if (r.get("mac_info") or "").strip():
-                    kwargs["mac_info"] = r["mac_info"]
-                if not kwargs:
-                    continue
-                try:
-                    db.update_device_fields(ip, **kwargs)
-                except KeyError:
-                    db.add_manual_device(ip, open_ports=[8728, 8291], classification="mikrotik_candidate")
-                    db.update_device_fields(ip, **kwargs)
-                saved += 1
-                safe_ip = ip.replace(":", "_").replace("/", "_")
-                fpath = txt_dir / f"{safe_ip}.txt"
-                parts = [
-                    f"IP: {ip}",
-                    f"Collected at: {now()}",
-                    f"source: RouterOS API",
-                    f"identity: {r.get('device_name') or '-'}",
-                    f"device_type: {r.get('device_type') or '-'}",
-                    "",
-                    "----- interfaces -----",
-                    r.get("interfaces") or "(empty)",
-                    "",
-                    "----- wireless -----",
-                    r.get("wireless_info") or "(empty)",
-                    "",
-                    "----- ip_addresses / routes -----",
-                    r.get("ip_addresses") or "(empty)",
-                    "",
-                    "----- neighbors -----",
-                    r.get("ip_neighbors") or "(empty)",
-                    "",
-                    "----- log -----",
-                    r.get("device_log") or "(empty)",
-                    "",
-                    "----- mac -----",
-                    r.get("mac_info") or "(empty)",
-                ]
-                fpath.write_text(chr(10).join(parts), encoding="utf-8")
-            except Exception:
-                pass
+    saved, txt_dir = _persist_api_probe_results(results)
     ok = sum(1 for r in results if r.get("ok"))
     return {
         "results": results,
@@ -1534,11 +1587,18 @@ def collect_ip_info_endpoint(body: CollectIpInfoRequest):
             if txt_dir is not None:
                 safe_ip = r["ip"].replace(":", "_").replace("/", "_")
                 fpath = txt_dir / f"{safe_ip}.txt"
+                # بنویسی با سکشن‌های استاندارد تا enrich_devices_from_ip_info
+                # هم بتواند این فایل‌ها را بخواند (سازگار با خروجی probe-api)
                 text = (
                     f"IP: {r['ip']}\n"
-                    f"Collected at: {now()}\n\n"
-                    f"{r.get('ip_addresses') or ''}\n\n"
-                    f"{r.get('ip_neighbors') or ''}\n"
+                    f"Collected at: {now()}\n"
+                    f"source: RouterOS API (collect-ip-info)\n"
+                    f"\n"
+                    f"----- ip_addresses / routes -----\n"
+                    f"{r.get('ip_addresses') or '(empty)'}\n"
+                    f"\n"
+                    f"----- neighbors -----\n"
+                    f"{r.get('ip_neighbors') or '(empty)'}\n"
                 )
                 fpath.write_text(text, encoding="utf-8")
         except Exception:

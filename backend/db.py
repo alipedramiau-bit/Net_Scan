@@ -521,6 +521,30 @@ def _is_mikrotik_device(d: dict) -> bool:
     return False
 
 
+# Fields a successful RouterOS API read ALWAYS produces output for:
+# /interface print, /ip address print, /log print and /ip arp print.
+# wireless_info stays optional (devices without WLAN legitimately have it
+# empty) and so does ip_neighbors (isolated devices).
+DETAIL_CORE_FIELDS = ("interfaces", "ip_addresses", "device_log", "mac_info")
+
+
+def device_details_complete(d: dict) -> bool:
+    """True when every core detail field of the device was already read.
+
+    Used both to decide which selected devices need a live RouterOS API read
+    before the CSV export and to fill the «وضعیت خواندن» status column.
+    """
+    for k in DETAIL_CORE_FIELDS:
+        if not ((d.get(k) or "").strip()):
+            return False
+    return True
+
+
+def device_read_status(d: dict) -> str:
+    """Persian status label for the CSV export status column."""
+    return "کامل" if device_details_complete(d) else "ناقص — اطلاعات کامل خوانده نشد"
+
+
 def mikrotik_selected_to_csv(ips, db_path=None) -> bytes:
     """Full CSV export for the SELECTED MikroTik devices, one column per field.
 
@@ -547,7 +571,7 @@ def mikrotik_selected_to_csv(ips, db_path=None) -> bytes:
         "پورت‌های باز", "وضعیت پورت 8291 (Winbox)", "وضعیت پورت 8728 (API)",
         "دسته‌بندی", "اینترفیس‌ها", "آدرس‌های IP", "همسایه‌ها",
         "وایرلس", "لاگ دستگاه", "اطلاعات MAC",
-        "اولین مشاهده", "آخرین مشاهده", "تعداد مشاهده",
+        "اولین مشاهده", "آخرین مشاهده", "تعداد مشاهده", "وضعیت خواندن",
     ])
     for d in selected:
         states = d.get("port_states") or {}
@@ -573,6 +597,7 @@ def mikrotik_selected_to_csv(ips, db_path=None) -> bytes:
             d.get("first_seen") or "",
             d.get("last_seen") or "",
             d.get("seen_count") if d.get("seen_count") is not None else "",
+            device_read_status(d),
         ])
     return b"\xef\xbb\xbf" + buf.getvalue().encode("utf-8")
 
