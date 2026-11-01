@@ -534,6 +534,29 @@ function DeviceReports({mode="devices"}={}){
     else setShowGroupCfg(false);
   }
   async function stopCfgPush(){try{const r=await fetch(API+"/api/devices/push-config/cancel",{method:"POST"});const d=await r.json();setMsg(d.message||"درخواست توقف ارسال شد؛ پس از پایان دستگاه جاری متوقف می‌شود…")}catch(e){}}
+  async function downloadFailedCsv(){
+    // گزارش CSV دستگاه‌های ناموفقِ آخرین کانفیگ گروهی (Task 19) — از وضعیت سرور
+    // خوانده می‌شود و نام/نوع/تگ هر دستگاه از دیتابیس غنی‌سازی شده است
+    try{
+      const r=await fetch(API+"/api/devices/push-config/failed-csv");
+      if(!r.ok){
+        let detail="دریافت گزارش CSV ناموفق";
+        try{const d=await r.json();detail=typeof d.detail==="string"?d.detail:detail}catch(e){}
+        throw Error(detail);
+      }
+      const blob=await r.blob();
+      const cd=r.headers.get("Content-Disposition")||"";
+      let filename="config_failed.csv";
+      const m=cd.match(/filename="?([^"]+)"?/i);
+      if(m)filename=m[1];
+      const url=URL.createObjectURL(blob);
+      const a=document.createElement("a");
+      a.href=url;a.download=filename;
+      document.body.appendChild(a);a.click();a.remove();
+      URL.revokeObjectURL(url);
+      setMsg("گزارش CSV دستگاه‌های ناموفق ذخیره شد: "+filename);
+    }catch(e){setError(e.message)}
+  }
   function retryFailedConfig(){
     const fails=(cfgResults||[]).filter(x=>!x.ok).map(x=>x.ip);
     if(!fails.length)return;
@@ -797,6 +820,7 @@ function DeviceReports({mode="devices"}={}){
           <span className={"cfg-state "+state}>{stateTxt}</span>
           {running&&<button type="button" className="cfg-stop" onClick={stopCfgPush}>توقف انتقال</button>}
           {!running&&fail>0&&res.length>0&&<button type="button" className="cfg-retry" onClick={retryFailedConfig}>تلاش مجدد فقط ناموفق‌ها ({fail.toLocaleString("fa-IR")})</button>}
+          {!running&&fail>0&&res.length>0&&<button type="button" className="cfg-csv" onClick={downloadFailedCsv} title="دریافت فایل CSV دستگاه‌های ناموفق آخرین اجرا">گزارش CSV ناموفق‌ها</button>}
         </div>
         <div className="cfg-bar" role="progressbar" aria-valuenow={Math.round(okPct+failPct)} aria-valuemin={0} aria-valuemax={100}>
           <span className="cfg-seg ok" style={{width:okPct+"%"}}/>

@@ -51,6 +51,7 @@ python scripts/test_route_topology_unit.py
 python scripts/test_route_topology_pdf.py
 python scripts/test_device_picker.py
 python scripts/test_push_config_progress.py
+python scripts/test_push_config_failed_csv.py
 python scripts/test_cisco_config.py
 
 # build فرانت‌اند — بعد از هر تغییر در src.jsx یا style.css الزامی است:
@@ -111,13 +112,21 @@ cd frontend && npm install && npm run build
   صفحات (چک‌باکس هدر جدول فقط ردیف‌های صفحهٔ جاری را انتخاب می‌کند). کاربردها: کانفیگ
   گروهی، خروجی‌ها، حذف گروهی.
 - **انتقال کانفیگ گروهی با نمودار پیشرفت زنده:** `POST /api/devices/push-config/start`
-  + `/progress` + `/cancel` (موازی با `push_config_many_parallel`، پیش‌فرض ۶ رشته تا ۱۶،
+  + `/progress` + `/cancel` + `GET /api/devices/push-config/failed-csv` (موازی با
+  `push_config_many_parallel`، پیش‌فرض ۶ رشته تا ۱۶،
   توقف مشارکتی با `CFG_PUSH_CANCEL`؛ مالک فلگ running فقط worker است). دو مسیر UI:
   «انتقال کانفیگ» (کانفیگ کادر SNMP + prompt یوزر/رمز) و «کانفیگ گروهی» (پنل با متن
   دستورات). نمودار (`cfgProg` در src.jsx + CSS `cfg-*`): نوار درصد سه‌بخشی سبز/قرمز/خاکستری،
   شمارنده‌ها، IP جاری، شبکهٔ خانه‌های per-device و جدول «جزئیات نتایج» با علتِ فارسیِ هر خطا
   (`classify_push_error` در routeros_api.py — timeout/refused/credentials/…). دکمهٔ
   «تلاش مجدد فقط ناموفق‌ها» با `cfgLast` (آخرین ips/user/pass/script) دوباره اجرا می‌کند.
+  **گزارش CSV ناموفق‌ها (Task 19):** دکمهٔ «گزارش CSV ناموفق‌ها» در سرستون نمودار پس از
+  پایان اجرا (فقط وقتی خطا > 0) فایل `config_failed_{زمان}.csv` را از
+  `GET /api/devices/push-config/failed-csv` می‌دهد — از `CFG_PUSH_STATE["results"]` آخرین
+  اجرا فقط ردیف‌های ناموفق (شامل متوقف‌شده‌ها با برچسب «متوقف شد») با غنی‌سازی نام/نوع/تگ
+  از دیتابیس فعال، ستون علت فارسی، جزئیات خطای خام و ستون «زمان پایان اجرا»
+  (خوانده‌شده از `CFG_PUSH_STATE["finished_at"]` که worker در `finally` پر می‌کند)؛
+  CSV با BOM؛ بدون مورد ناموفق یا بدون اجرا → 404 با پیام فارسی.
 - **گزارش مسیر تا روتر مرکزی (توپولوژی PDF):** `POST /api/reports/route-topology/start`
   + `/progress` + `/cancel` + `/result.pdf` (ماژول‌های `backend/route_topology.py` و
   `backend/route_pdf.py`) — با نام کاربری/رمز RouterOS API که کاربر وارد می‌کند به تمام

@@ -25,6 +25,8 @@ from pydantic import BaseModel, Field
 import os
 import platform
 import json
+import csv
+import io
 import re as _re
 import shutil
 import subprocess
@@ -1974,6 +1976,8 @@ def _cfg_push_worker(ips: list[str], username: str, password: str, script: str,
     finally:
         st["running"] = False
         st["current_ip"] = ""
+        # زمان پایان اجرا برای گزارش CSV ناموفق‌ها (Task 19)
+        st["finished_at"] = datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds")
 
 
 @app.post("/api/devices/push-config/start")
@@ -1991,7 +1995,7 @@ def push_config_start(body: PushConfigStartRequest):
         CFG_PUSH_CANCEL.clear()
         CFG_PUSH_STATE.update({"running": True, "total": len(ips), "done": 0, "ok": 0,
                                "failed": 0, "current_ip": "", "phase": "start", "error": None,
-                               "canceled": False, "results": None})
+                               "canceled": False, "results": None, "finished_at": None})
         Thread(target=_cfg_push_worker,
                args=(ips, body.username, body.password or "", script,
                      body.port, body.timeout, body.max_workers),
@@ -2033,6 +2037,58 @@ def push_config_cancel():
         CFG_PUSH_CANCEL.set()
         return {"cancel_requested": True, "message": "درخواست توقف انتقال کانفیگ ارسال شد"}
     return {"cancel_requested": False, "message": "انتقالی در حال اجرا نیست"}
+
+
+@app.get("/api/devices/push-config/failed-csv")
+def push_config_failed_csv():
+    """گزارش CSV دستگاه‌های ناموفقِ آخرین اجرای کانفیگ گروهی (Task 19).
+
+    فقط ردیف‌های ناموفق (از جمله موارد متوقف‌شده توسط کاربر) برمی‌گردد؛
+    نام دستگاه (identity)، نوع و تگِ هر IP از دیتابیس فعال غنی‌سازی می‌شود.
+    علتِ فارسی خطا (classify_push_error) ستون جداگانه دارد و CSV با BOM
+    ساخته می‌شود تا در اکسل فارسی درست باز شود.
+    """
+    results = CFG_PUSH_STATE.get("results") or []
+    failed = [r for r in results if isinstance(r, dict) and not r.get("ok")]
+    if not failed:
+        raise HTTPException(
+            404,
+            "دستگاه ناموفقی در آخرین اجرای کانفیگ گروهی ثبت نشده است "
+            "(یا هنوز اجرایی انجام نشده)",
+        )
+    ips = [str(r.get("ip") or "").strip() for r in failed if str(r.get("ip") or "").strip()]
+    try:
+        infos = {d.get("ip"): d for d in db.fetch_devices_by_ips(ips)}
+    except Exception:
+        infos = {}  # غنی‌سازی اختیاری است؛ گزارش بدون نام دستگاه هم معتبر است
+    finished = str(CFG_PUSH_STATE.get("finished_at") or "")
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+    buf = io.StringIO()
+    w = csv.writer(buf)
+    w.writerow(["ردیف", "IP دستگاه", "نام دستگاه (identity)", "نوع دستگاه", "تگ",
+                "وضعیت", "علت", "جزئیات خطا", "زمان پایان اجرا"])
+    for n, r in enumerate(failed, start=1):
+        ip = str(r.get("ip") or "").strip()
+        d = infos.get(ip) or {}
+        canceled = "canceled" in str(r.get("error") or "").lower()
+        w.writerow([
+            n,
+            ip,
+            d.get("device_name") or "",
+            d.get("device_type") or "",
+            d.get("tags") or "",
+            "متوقف شد" if canceled else "ناموفق",
+            r.get("reason") or "",
+            r.get("error") or "",
+            finished,
+        ])
+    data = b"\xef\xbb\xbf" + buf.getvalue().encode("utf-8")
+    filename = f"config_failed_{stamp}.csv"
+    return Response(
+        data,
+        media_type="text/csv; charset=utf-8",
+        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+    )
 
 
 class DeviceMetaRequest(BaseModel):

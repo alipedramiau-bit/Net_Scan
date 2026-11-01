@@ -324,3 +324,20 @@ Work Log:
 
 Stage Summary:
 - کاربر می‌تواند کانفیگ روتر مرکزی سیسکو را در تب گزارش هوشمند بارگذاری کند؛ گزارش مسیر حالا از ساب‌نت‌های connected و روت‌های استاتیک سیسکو برای یافتن مسیر و نمایش اینترفیس سمتِ مرکز استفاده می‌کند و گرهٔ روتر مرکزی با hostname و اینترفیس‌های واقعی در PDF ظاهر می‌شود
+
+---
+
+Task ID: 19
+Agent: main (Z.ai)
+Task: گزارش CSV دستگاه‌های ناموفق در کانفیگ گروهی
+
+Work Log:
+- کاربرد: در انتقال کانفیگ گروهی برخی دستگاه‌ها ناموفق می‌مانند (R7)؛ کاربر خواست فهرست ناموفق‌ها به‌صورت فایل CSV قابل دریافت باشد
+- backend/main.py: اندپوینت جدید `GET /api/devices/push-config/failed-csv` — از `CFG_PUSH_STATE["results"]` آخرین اجرای کانفیگ گروهی فقط ردیف‌های ناموفق (شامل متوقف‌شده‌های cancel با برچسب «متوقف شد») را برمی‌گرداند؛ هر ردیف با دیتابیس فعال غنی‌سازی می‌شود (نام دستگاه identity، نوع دستگاه، تگ — با fetch_devices_by_ips و سقوط نرم در صورت خطای دیتابیس)؛ ۹ ستون فارسی: ردیف، IP دستگاه، نام دستگاه (identity)، نوع دستگاه، تگ، وضعیت، علت (خروجی فارسی classify_push_error)، جزئیات خطا (متن خام)، زمان پایان اجرا؛ CSV با BOM (`\xef\xbb\xbf`) و filename=`config_failed_{stamp}.csv`؛ بدون اجرا یا بدون ناموفق → 404 با پیام فارسی؛ importهای stdlib `csv`/`io` اضافه شد
+- backend/main.py: `CFG_PUSH_STATE["finished_at"]` جدید — در start به None ریست و در `finally`ِ `_cfg_push_worker` (هر سه مسیر done/canceled/error) با `datetime.now(timezone.utc).astimezone().isoformat()` پر می‌شود؛ ستون «زمان پایان اجرا» گزارش از همین مقدار می‌خواند
+- frontend/src.jsx: تابع `downloadFailedCsv()` (الگوی دانلود blob مشابه exportExcelSelected با استخراج filename از Content-Disposition و پیام فارسی) + دکمهٔ «گزارش CSV ناموفق‌ها» در سرستون نمودار پیشرفت، کنار «تلاش مجدد فقط ناموفق‌ها»، فقط وقتی اجرا تمام شده و خطا > 0 است (هر دو مسیر «کانفیگ گروهی» و «انتقال کانفیگ» را پوشش می‌دهد)؛ frontend/style.css: کلاس `cfg-csv` (سبز، هم‌خانوادهٔ cfg-retry با margin-inline-start=6px تا جایگاه auto دکمهٔ retry حفظ شود)؛ frontend/dist بازسازی شد (index-DjVZ2_F6.js)
+- scripts/test_push_config_failed_csv.py (جدید، ۲۸ بررسی): 404 قبل از اجرا با پیام فارسی، اجرای فیک (۲ موفق + timeout + refused)، 200/قواعد CSV (BOM، سرستون دقیق، فقط ناموفق‌ها، شماره‌گذاری از ۱)، علت فارسی هر دو خطا، غنی‌سازی از دیتابیس موقت (identity/type/tags) و خالی‌بودن برای IP ناشناس، finished_at پرشده، برچسب «متوقف شد» برای cancel، 404 پس از اجرای کاملاً موفق، مسدود بودن درخواست بدون احراز هویت؛ مقاوم‌سازی setup برای حذف باقی‌ماندهٔ دیتابیس تست از اجرای خراب (اگر فعال مانده باشد)
+- رگرسیون: test_push_config_progress، test_route_topology_unit، test_device_picker، test_export_mikrotik_csv، test_cisco_config، pytest tests/ (20) — همه PASS
+
+Stage Summary:
+- پس از هر کانفیگ گروهی، کاربر با یک کلیک فایل CSV فقط دستگاه‌های ناموفق را با نام و تگ و علت فارسی خطا می‌گیرد و می‌تواند برای پیگیری/گزارش‌دهی از آن استفاده کند
