@@ -118,6 +118,8 @@ function RbIcon({name, size=20}){
       return <svg {...s}><rect x="4" y="5" width="10" height="12" rx="1"/><rect x="10" y="7" width="10" height="12" rx="1"/></svg>;
     case "clear":
       return <svg {...s}><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg>;
+    case "select":
+      return <svg {...s}><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>;
     case "read":
       return <svg {...s}><path d="M4 6h16v12H4z"/><path d="M8 10h8M8 13h5"/></svg>;
     case "config":
@@ -264,7 +266,7 @@ function DeviceReports({mode="devices"}={}){
   const[winboxItems,setWinboxItems]=useState([]),[winboxPath,setWinboxPath]=useState(""),[winboxName,setWinboxName]=useState(""),[showWinboxCfg,setShowWinboxCfg]=useState(false),[busyAction,setBusyAction]=useState(false),[toolsDir,setToolsDir]=useState("");
   const[visibleCols,setVisibleCols]=useState(defaultVisible),[showColCfg,setShowColCfg]=useState(false);
   const[selected,setSelected]=useState({}),[editTagIp,setEditTagIp]=useState(null),[editTagVal,setEditTagVal]=useState(""),[editNameIp,setEditNameIp]=useState(null),[editNameVal,setEditNameVal]=useState("");// selected: { [ip]: true } only — never store false
-  const[snmpProfiles,setSnmpProfiles]=useState([]),[snmpId,setSnmpId]=useState(""),[snmpRaw,setSnmpRaw]=useState(""),[snmpName,setSnmpName]=useState(""),[showSnmp,setShowSnmp]=useState(false),[snmpBusy,setSnmpBusy]=useState(false);const[dbList,setDbList]=useState([]),[activeDb,setActiveDb]=useState("default"),[newDbName,setNewDbName]=useState(""),[showDbPanel,setShowDbPanel]=useState(false);const[showGroupCfg,setShowGroupCfg]=useState(false),[groupScript,setGroupScript]=useState(""),[groupUser,setGroupUser]=useState("admin"),[groupPass,setGroupPass]=useState("");const[apiUser,setApiUser]=useState("admin"),[apiPass,setApiPass]=useState(""),[apiBusy,setApiBusy]=useState(false);const[csvReading,setCsvReading]=useState(false);const[showRouteModal,setShowRouteModal]=useState(false),[routeSrc,setRouteSrc]=useState("172.19.1.6"),[routeDst,setRouteDst]=useState("172.19.1.6"),[routeHops,setRouteHops]=useState(15),[routeBusy,setRouteBusy]=useState(false),[routeIps,setRouteIps]=useState([]);const apiAbortRef={current:null};
+  const[snmpProfiles,setSnmpProfiles]=useState([]),[snmpId,setSnmpId]=useState(""),[snmpRaw,setSnmpRaw]=useState(""),[snmpName,setSnmpName]=useState(""),[showSnmp,setShowSnmp]=useState(false),[snmpBusy,setSnmpBusy]=useState(false);const[dbList,setDbList]=useState([]),[activeDb,setActiveDb]=useState("default"),[newDbName,setNewDbName]=useState(""),[showDbPanel,setShowDbPanel]=useState(false);const[showGroupCfg,setShowGroupCfg]=useState(false),[groupScript,setGroupScript]=useState(""),[groupUser,setGroupUser]=useState("admin"),[groupPass,setGroupPass]=useState("");const[apiUser,setApiUser]=useState("admin"),[apiPass,setApiPass]=useState(""),[apiBusy,setApiBusy]=useState(false);const[csvReading,setCsvReading]=useState(false);const[cfgProg,setCfgProg]=useState(null),[cfgBusy,setCfgBusy]=useState(false),[cfgResults,setCfgResults]=useState(null),[cfgMode,setCfgMode]=useState("group"),[cfgLast,setCfgLast]=useState(null);const[showRouteModal,setShowRouteModal]=useState(false),[routeSrc,setRouteSrc]=useState("172.19.1.6"),[routeDst,setRouteDst]=useState("172.19.1.6"),[routeHops,setRouteHops]=useState(15),[routeBusy,setRouteBusy]=useState(false),[routeIps,setRouteIps]=useState([]);const apiAbortRef={current:null};
   const params=new URLSearchParams();if(classification)params.set("classification",classification);if(deviceTypeFilter)params.set("device_type",deviceTypeFilter);if(port)params.set("has_port",port);if(q)params.set("q",q);if(qField)params.set("q_fields",qField);params.set("sort",sortBy);params.set("order",sortOrder);params.set("new_only",newOnly?"true":"false");params.set("limit",String(pageSize));params.set("offset",String(offset));
   const searchAbortRef={current:null};
   function reloadRows(){
@@ -292,6 +294,20 @@ function DeviceReports({mode="devices"}={}){
   function toggleSelect(ip){setSelected(s=>{const n={...s};if(n[ip])delete n[ip];else n[ip]=true;return n})}
   function toggleSelectAll(){const ids=rows.map(d=>d.ip);const allOn=ids.length>0&&ids.every(ip=>selected[ip]);setSelected(s=>{const n={...s};ids.forEach(ip=>{if(allOn)delete n[ip];else n[ip]=true});return n})}
   function clearSelection(){setSelected({})}
+  async function selectAllFiltered(){
+    // انتخاب همهٔ دستگاه‌های منطبق با فیلتر جاری (همهٔ صفحات، نه فقط صفحهٔ نمایش)
+    setError("");
+    const fp=new URLSearchParams(params);fp.delete("offset");fp.set("limit","100000");
+    try{
+      const r=await fetch(`${API}/devices?${fp.toString()}`);
+      const d=await r.json();
+      if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:"خطا در دریافت دستگاه‌های فیلترشده");
+      const ips=[...new Set((d.devices||[]).map(x=>x.ip).filter(Boolean))];
+      if(!ips.length){setMsg("با فیلتر جاری دستگاهی برای انتخاب نیست");return}
+      setSelected(s=>{const n={...s};ips.forEach(ip=>{n[ip]=true});return n});
+      setMsg("همهٔ "+ips.length.toLocaleString("fa-IR")+" دستگاه فیلترشده انتخاب شد (همهٔ صفحات)");
+    }catch(e){setError(e.message)}
+  }
   const selectedIps=Object.keys(selected).filter(k=>selected[k]===true);
   async function submitNewDevice(e){e.preventDefault();setError("");try{const r=await fetch(API+"/devices/manual",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({ip:newIp.trim(),open_ports:newPorts.split(",").map(x=>Number(x.trim())).filter(x=>x>=1&&x<=65535)})});const d=await r.json();if(!r.ok)throw Error(d.detail||"خطا");setShowAddModal(false);setNewIp("");setNewPorts("");setOffset(0);setMsg("دستگاه ثبت شد");reloadRows()}catch(e){setError(e.message)}}
   async function openWinbox(ip){setError("");setMsg("");try{const def=(winboxItems||[]).find(x=>x.is_default);const qid=def?("?winbox_id="+encodeURIComponent(def.id)):"";const r=await fetch(`${API}/devices/${encodeURIComponent(ip)}/winbox`+qid,{method:"POST"});const d=await r.json();if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:"Winbox");setMsg("Winbox: "+ip)}catch(e){setError(e.message);setShowWinboxCfg(true)}}
@@ -483,18 +499,50 @@ function DeviceReports({mode="devices"}={}){
     const username=window.prompt("نام کاربری Winbox/API دستگاه‌ها:","admin");
     if(username===null||!username.trim())return;
     const password=window.prompt("رمز عبور Winbox/API:","")??"";
-    setSnmpBusy(true);setError("");setMsg("در حال انتقال کانفیگ به "+ips.length+" دستگاه از طریق API…");
+    setCfgMode("quick");
+    runCfgPush(ips,username.trim(),password,script,"انتقال کانفیگ");
+  }
+  async function runCfgPush(ips,username,password,script,label){
+    setCfgResults(null);setError("");setMsg("");
+    setCfgLast({ips,username,password,script,label});
+    setCfgProg({total:ips.length,done:0,ok:0,failed:0,percent:0,current_ip:"",running:true});
+    setCfgBusy(true);
     try{
-      const r=await fetch(API+"/api/devices/push-config",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({ips,username:username.trim(),password,script,port:8728})});
+      const r=await fetch(API+"/api/devices/push-config/start",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({ips,username,password,script,port:8728})});
       const d=await r.json();
-      if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:(Array.isArray(d.detail)?d.detail.map(x=>x.msg||JSON.stringify(x)).join("; "):"انتقال کانفیگ ناموفق"));
-      const fails=(d.results||[]).filter(x=>!x.ok);
-      let msg=`انتقال کانفیگ: ${d.ok||0} موفق، ${d.failed||0} ناموفق از ${d.total||ips.length}`;
-      if(fails.length)msg+=" — خطا: "+fails.slice(0,3).map(x=>x.ip+": "+(x.error||"?")).join(" | ");
-      setMsg(msg);
-      if(fails.length&&!d.ok)setError(msg);
+      if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:"شروع انتقال کانفیگ ناموفق");
+      setMsg("انتقال کانفیگ به "+d.total+" دستگاه آغاز شد؛ نمودار پیشرفت زنده است…");
+      let pd=null,tries=0;
+      while(tries++<2000){
+        await new Promise(res=>setTimeout(res,600));
+        try{const pr=await fetch(API+"/api/devices/push-config/progress");pd=await pr.json();setCfgProg(pd)}catch(e){}
+        if(pd&&!pd.running)break;
+      }
+      finishCfgPush(pd,label);
     }catch(e){setError(e.message)}
-    setSnmpBusy(false);
+    finally{setCfgBusy(false)}
+  }
+  function finishCfgPush(pd,label){
+    const results=(pd&&Array.isArray(pd.results))?pd.results:[];
+    const okN=results.filter(x=>x.ok).length,fails=results.filter(x=>!x.ok);
+    setCfgResults(results);
+    let m=label+": "+okN+" موفق، "+fails.length+" ناموفق از "+(results.length||(pd&&pd.total)||0);
+    if(pd&&pd.canceled)m="انتقال کانفیگ متوقف شد — "+m;
+    setMsg(m);
+    if(pd&&pd.error)setError("خطا در انتقال کانفیگ: "+pd.error);
+    else if(fails.length)setError(fails.length+" دستگاه ناموفق بود — علت هر دستگاه در «جزئیات نتایج» آمده است");
+    else setShowGroupCfg(false);
+  }
+  async function stopCfgPush(){try{const r=await fetch(API+"/api/devices/push-config/cancel",{method:"POST"});const d=await r.json();setMsg(d.message||"درخواست توقف ارسال شد؛ پس از پایان دستگاه جاری متوقف می‌شود…")}catch(e){}}
+  function retryFailedConfig(){
+    const fails=(cfgResults||[]).filter(x=>!x.ok).map(x=>x.ip);
+    if(!fails.length)return;
+    const last=cfgLast||{};
+    const script=(last.script||(cfgMode==="group"?groupScript:"")||"").trim();
+    if(!script){setError("متن کانفیگ را وارد کنید");return}
+    if(!confirm("تلاش مجدد فقط برای "+fails.length+" دستگاه ناموفق اجرا شود؟"))return;
+    setCfgMode("group");
+    runCfgPush(fails,last.username||groupUser||"admin",last.password||groupPass||"",script,"تلاش مجدد");
   }
   function openGroupConfig(){
     const ips=selectedMikrotikWithApi();
@@ -503,7 +551,7 @@ function DeviceReports({mode="devices"}={}){
     if(!groupScript.trim())setGroupScript('/user add name=olom1 password="Olom@2026$" group=full');
     setShowGroupCfg(true);
   }
-  async function submitGroupConfig(e){
+  function submitGroupConfig(e){
     e.preventDefault();
     const ips=selectedMikrotikWithApi();
     if(!ips.length){setError("هیچ دستگاهی با پورت API 8728 در انتخاب‌ها نیست");return}
@@ -511,19 +559,8 @@ function DeviceReports({mode="devices"}={}){
     if(!script){setError("متن کانفیگ را وارد کنید");return}
     if(!(groupUser||"").trim()){setError("نام کاربری لازم است");return}
     if(!confirm("کانفیگ گروهی روی "+ips.length+" دستگاه اجرا شود؟\n\n"+script.slice(0,240)+(script.length>240?"…":"")))return;
-    setSnmpBusy(true);setError("");setMsg("در حال انتقال کانفیگ گروهی به "+ips.length+" دستگاه…");
-    try{
-      const r=await fetch(API+"/api/devices/push-config",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({ips,username:groupUser.trim(),password:groupPass||"",script,port:8728})});
-      const d=await r.json();
-      if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:(Array.isArray(d.detail)?d.detail.map(x=>x.msg||JSON.stringify(x)).join("; "):"انتقال کانفیگ ناموفق"));
-      const fails=(d.results||[]).filter(x=>!x.ok);
-      let msg=`کانفیگ گروهی: ${d.ok||0} موفق، ${d.failed||0} ناموفق از ${d.total||ips.length}`;
-      if(fails.length)msg+=" — خطا: "+fails.slice(0,5).map(x=>x.ip+": "+(x.error||"?")).join(" | ");
-      setMsg(msg);
-      if(fails.length&&!d.ok)setError(msg);
-      else setShowGroupCfg(false);
-    }catch(err){setError(err.message)}
-    setSnmpBusy(false);
+    setCfgMode("group");
+    runCfgPush(ips,groupUser.trim(),groupPass||"",script,"کانفیگ گروهی");
   }
   async function switchDb(name){setBusyAction(true);setError("");try{const r=await fetch(API+"/api/databases/active",{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify({name})});const d=await r.json();if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:"تعویض دیتابیس ناموفق");setDbList(d.databases||[]);setActiveDb(d.active||name);setOffset(0);setSelected({});setMsg("دیتابیس فعال: "+(d.active||name));reloadRows()}catch(e){setError(e.message)}setBusyAction(false)}
   async function createDb(){if(!newDbName.trim()){setError("نام دیتابیس را وارد کنید");return}setBusyAction(true);try{const r=await fetch(API+"/api/databases",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name:newDbName.trim()})});const d=await r.json();if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:"ایجاد ناموفق");setDbList(d.databases||[]);setNewDbName("");setMsg("دیتابیس ساخته شد");await switchDb(newDbName.trim())}catch(e){setError(e.message)}setBusyAction(false)}
@@ -708,6 +745,7 @@ function DeviceReports({mode="devices"}={}){
         <button type="button" className="tool-btn" onClick={()=>setShowAddModal(s=>!s)}><RbIcon name="add"/><span>افزودن دستی</span></button>
         <button type="button" className="tool-btn danger" disabled={busyAction||!selectedIps.length} onClick={deleteSelected}><RbIcon name="trash"/><span>حذف ({selectedIps.length})</span></button>
         <button type="button" className="tool-btn warn" disabled={busyAction} onClick={dedupeDevices}><RbIcon name="dedupe"/><span>حذف تکراری</span></button>
+        <button type="button" className="tool-btn" disabled={busyAction||!total} onClick={selectAllFiltered} title="همهٔ دستگاه‌های منطبق با فیلتر جاری (همهٔ صفحات) انتخاب می‌شوند"><RbIcon name="select"/><span>انتخاب همه فیلترشده‌ها ({total.toLocaleString("fa-IR")})</span></button>
         <button type="button" className="tool-btn muted-btn" disabled={!selectedIps.length} onClick={clearSelection}><RbIcon name="clear"/><span>لغو انتخاب</span></button>
       </div>
       <div className="tool-group">
@@ -736,6 +774,55 @@ function DeviceReports({mode="devices"}={}){
     )}
 
     {showColCfg&&<div className="col-cfg">{ALL_COLS.filter(c=>!c.always).map(c=><label key={c.id} className="col-cfg-item"><input type="checkbox" checked={colOn(c.id)} onChange={()=>toggleCol(c.id)}/>{c.label}</label>)}</div>}
+    {cfgProg&&(()=>{ // نمودار پیشرفت انتقال کانفیگ (زنده) — برای «کانفیگ گروهی» و «انتقال کانفیگ»
+      const total=Number(cfgProg.total)||0,ok=Number(cfgProg.ok)||0,fail=Number(cfgProg.failed)||0;
+      const done=ok+fail,rem=Math.max(0,total-done);
+      const okPct=total?100*ok/total:0,failPct=total?100*fail/total:0;
+      const running=cfgBusy&&(cfgProg.running!==false);
+      const state=running?"run":(cfgProg.canceled?"canc":(cfgProg.error?"err":"done"));
+      const stateTxt=running?"در حال اجرا…":(cfgProg.canceled?"متوقف شد":(cfgProg.error?"خطا":(done?"پایان یافت":"آماده")));
+      const res=(cfgResults||[]);
+      const resByIp={};res.forEach(r=>{resByIp[r.ip]=r});
+      const cells=[];const cellN=Math.min(total,400);
+      for(let i=0;i<cellN;i++){
+        const cls=i<ok?"ok":(i<ok+fail?"fail":"");
+        const ip=running?"":((res[i]&&res[i].ip)||"");
+        const rr=resByIp[ip];
+        const tip=ip?(ip+(rr&&rr.ok?" — موفق":(" — "+((rr&&(rr.reason||rr.error))||"ناموفق")))):"در انتظار";
+        cells.push(<span key={i} className={"cfg-cell "+cls} title={tip}/>);
+      }
+      return <div className="cfg-progress" dir="rtl">
+        <div className="cfg-progress-head">
+          <h3 style={{margin:0}}>نمودار پیشرفت {(cfgLast&&cfgLast.label)||"انتقال کانفیگ"}</h3>
+          <span className={"cfg-state "+state}>{stateTxt}</span>
+          {running&&<button type="button" className="cfg-stop" onClick={stopCfgPush}>توقف انتقال</button>}
+          {!running&&fail>0&&res.length>0&&<button type="button" className="cfg-retry" onClick={retryFailedConfig}>تلاش مجدد فقط ناموفق‌ها ({fail.toLocaleString("fa-IR")})</button>}
+        </div>
+        <div className="cfg-bar" role="progressbar" aria-valuenow={Math.round(okPct+failPct)} aria-valuemin={0} aria-valuemax={100}>
+          <span className="cfg-seg ok" style={{width:okPct+"%"}}/>
+          <span className="cfg-seg fail" style={{width:failPct+"%"}}/>
+          <span className="cfg-pct">{(Math.round(okPct+failPct)).toLocaleString("fa-IR")}٪</span>
+        </div>
+        <div className="cfg-stats">
+          <span className="st tot">کل: <b>{total.toLocaleString("fa-IR")}</b></span>
+          <span className="st ok">موفق: <b>{ok.toLocaleString("fa-IR")}</b></span>
+          <span className="st fail">ناموفق: <b>{fail.toLocaleString("fa-IR")}</b></span>
+          <span className="st rem">باقی‌مانده: <b>{rem.toLocaleString("fa-IR")}</b></span>
+          {running&&cfgProg.current_ip&&<span className="st cur">در حال اجرا: <b dir="ltr">{cfgProg.current_ip}</b></span>}
+        </div>
+        {cellN>0&&<div className={"cfg-cells"+(cellN>=400?" dense":"")}>{cells}</div>}
+        {res.length>0&&!running&&<div className="cfg-results">
+          <table>
+            <thead><tr><th>دستگاه</th><th>وضعیت</th><th>علت / توضیح</th></tr></thead>
+            <tbody>{res.map((r,i)=><tr key={i} className={r.ok?"ok":"fail"}>
+              <td dir="ltr">{r.ip}</td>
+              <td>{r.ok?"موفق":"ناموفق"}</td>
+              <td>{r.ok?"—":(r.reason||r.error||"ناموفق")}</td>
+            </tr>)}</tbody>
+          </table>
+        </div>}
+      </div>;
+    })()}
     {showGroupCfg&&<div className="group-cfg-panel">
       <h3 style={{marginTop:0}}>انتقال کانفیگ گروهی (API / پورت 8728)</h3>
       <p className="muted">دستگاه‌های انتخاب‌شده با پورت API باز: <b>{selectedMikrotikWithApi().length}</b> — دستورات RouterOS را وارد کنید، سپس یوزر و پسورد Winbox را بزنید.</p>
@@ -746,8 +833,8 @@ function DeviceReports({mode="devices"}={}){
           <label>رمز عبور API<input dir="ltr" type="password" value={groupPass} onChange={e=>setGroupPass(e.target.value)}/></label>
         </div>
         <div className="vpn-actions">
-          <button type="submit" className="btn-group-cfg" disabled={snmpBusy}>{snmpBusy?"در حال اجرا…":"اجرا روی دستگاه‌های انتخاب‌شده"}</button>
-          <button type="button" disabled={snmpBusy} onClick={()=>setShowGroupCfg(false)}>انصراف</button>
+          <button type="submit" className="btn-group-cfg" disabled={cfgBusy||snmpBusy}>{cfgBusy?"در حال اجرا…":"اجرا روی دستگاه‌های انتخاب‌شده"}</button>
+          <button type="button" disabled={cfgBusy} onClick={()=>setShowGroupCfg(false)}>انصراف</button>
         </div>
       </form>
     </div>}

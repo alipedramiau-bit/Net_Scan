@@ -20,6 +20,8 @@ GREEN = (0.086, 0.541, 0.333)
 GREEN_BG = (0.909, 0.960, 0.933)
 RED = (0.725, 0.109, 0.109)
 RED_BG = (0.996, 0.949, 0.949)
+AMBER = (0.706, 0.443, 0.043)
+AMBER_BG = (1.0, 0.957, 0.878)
 INK = (0.058, 0.093, 0.164)
 GRAY = (0.415, 0.478, 0.560)
 LINE = (0.784, 0.815, 0.862)
@@ -182,7 +184,72 @@ def _path_diagram(c, y: float, path: dict, nodes: dict, core_key: str, central_i
         c.setFillColor(GRAY)
         c.setFont("Helvetica", 6.8)
         c.drawString(M + 10, y - 40, "No direct adjacency evidence (check MNDP neighbors, subnets and routes).")
-        return y - 50
+        y = y - 50
+        # best-effort upstream chain (default route / longest-prefix next-hops)
+        up = path.get("upstream") or []
+        if up:
+            c.setFillColor(AMBER_BG)
+            c.roundRect(M, y - 13, PAGE_W - 2 * M, 15, 3, fill=1, stroke=0)
+            c.setFillColor(AMBER)
+            c.setFont("Helvetica-Bold", 7)
+            c.drawString(M + 10, y - 9, "Best-effort upstream path (via default route / longest prefix) - core not reached:")
+            y -= 22
+            per_row = 3
+            bw = 104
+            gap = (PAGE_W - 2 * M - per_row * bw) / max(1, (per_row - 1))
+            bh = 26
+            shown_up = up[: 2 * per_row]
+            node_seq = [up[0]["from_key"]] + [h["to_key"] for h in shown_up]
+            y_start = y - 2
+            row = 0
+            col = 0
+            for bi, nkey in enumerate(node_seq):
+                nd = nodes.get(nkey) or {}
+                x = M + col * (bw + gap)
+                by = y_start - row * (bh + 30) - bh
+                if bi > 0:
+                    h = shown_up[bi - 1]
+                    if col > 0:
+                        c.setStrokeColor(BOX)
+                        c.setLineWidth(1)
+                        c.line(x - gap, by + bh / 2, x, by + bh / 2)
+                        lbl = f"{_san(h.get('from_if')) or '?'} -> {_san(h.get('to_if')) or _san(h.get('to_ip')) or '?'}"
+                        c.setFillColor(INK)
+                        c.setFont("Helvetica-Bold", 5.8)
+                        c.drawCentredString(x - gap / 2, by + bh / 2 + 4, _fit(c, lbl, "Helvetica-Bold", 5.8, gap - 4))
+                        c.setFillColor(AMBER)
+                        c.setFont("Helvetica-Oblique", 5.2)
+                        c.drawCentredString(x - gap / 2, by + bh / 2 - 9, "DEFAULT-ROUTE" if h.get("ev") == "default" else "ROUTE")
+                ghost = bool(nd.get("ghost"))
+                c.setStrokeColor(BOX)
+                c.setLineWidth(0.9)
+                c.setFillColor((0.996, 0.929, 0.780) if ghost else (0.973, 0.980, 0.988))
+                c.roundRect(x, by, bw, bh, 4, fill=1, stroke=1)
+                c.setFillColor(INK)
+                c.setFont("Helvetica-Bold", 6.6)
+                nm = (_san(nd.get("name")) or nkey)
+                if ghost:
+                    nm = nm + " (?)"
+                c.drawCentredString(x + bw / 2, by + bh - 11, _fit(c, nm, "Helvetica-Bold", 6.6, bw - 8))
+                c.setFillColor(GRAY)
+                c.setFont("Helvetica", 5.8)
+                c.drawCentredString(x + bw / 2, by + 6, _fit(c, _san(nd.get("ip")) or "", "Helvetica", 5.8, bw - 8))
+                col += 1
+                if col >= per_row + 1:
+                    col = 0
+                    row += 1
+            y = y_start - (row + 1) * (bh + 30) + 8
+            if len(up) > len(shown_up):
+                c.setFillColor(GRAY)
+                c.setFont("Helvetica-Oblique", 6.5)
+                c.drawString(M, y, f"... and {len(up) - len(shown_up)} more upstream hop(s)")
+                y -= 10
+            last_to = nodes.get(shown_up[-1]["to_key"]) or {}
+            c.setFillColor(GRAY)
+            c.setFont("Helvetica-Oblique", 6.5)
+            c.drawString(M, y, f"Evidence ends at {(_san(last_to.get('ip')) or '?')} - no routing data beyond this hop (add it to the scan to extend the path).")
+            y -= 10
+        return y
     # chain of node boxes: device -> hop1 -> ... -> core
     per_row = 3  # 3 hops = 4 boxes
     bw = 104
@@ -214,7 +281,7 @@ def _path_diagram(c, y: float, path: dict, nodes: dict, core_key: str, central_i
                 c.drawCentredString(x - gap / 2, by + bh / 2 + 4, _fit(c, lbl, "Helvetica-Bold", 5.8, gap - 4))
                 c.setFillColor(GRAY)
                 c.setFont("Helvetica-Oblique", 5.2)
-                c.drawCentredString(x - gap / 2, by + bh / 2 - 9, {"mndp": "MNDP", "subnet": "SUBNET", "route": "ROUTE"}.get(h.get("ev"), ""))
+                c.drawCentredString(x - gap / 2, by + bh / 2 - 9, {"mndp": "MNDP", "subnet": "SUBNET", "route": "ROUTE", "default": "DEFAULT-ROUTE"}.get(h.get("ev"), ""))
         c.setStrokeColor(BOX)
         c.setLineWidth(0.9)
         if is_core:
@@ -260,7 +327,8 @@ def _hops_table(c, y: float, path: dict, nodes: dict) -> float:
         tn = _san((nodes.get(h["to_key"]) or {}).get("name")) or h["to_key"]
         left = f"{fn} [{_san(h.get('from_if')) or '?'}  {_san(h.get('from_ip')) or '-'}]"
         right = f"{tn} [{_san(h.get('to_if')) or '?'}  {_san(h.get('to_ip')) or '-'}]"
-        ev = {"mndp": "MNDP neighbor", "subnet": "Shared subnet", "route": "Route gateway"}.get(h.get("ev"), "-")
+        ev = {"mndp": "MNDP neighbor", "subnet": "Shared subnet", "route": "Route gateway",
+              "default": "Default-route gateway"}.get(h.get("ev"), "-")
         c.setFillColor(INK)
         c.drawString(M + 4, y, str(i))
         c.drawString(M + 18, y, _fit(c, left, "Helvetica", 6.8, 226))
@@ -367,6 +435,8 @@ def build_route_topology_pdf(topology: dict, devices: list[dict], central_ip: st
             sp_count = "(this device is the core router)"
         elif path.get("reachable"):
             sp_count = f"({nh} link{'s' if nh != 1 else ''} to core, verified)"
+        elif path.get("upstream"):
+            sp_count = "(unreachable - best-effort upstream path shown)"
         else:
             sp_count = "(unreachable)"
         y = _section(c, y, "Shortest Path", sp_count)
@@ -383,6 +453,8 @@ def build_route_topology_pdf(topology: dict, devices: list[dict], central_ip: st
         except ImportError:
             from backend.route_topology import next_hop_evidence
         next_ip = (path.get("hops") or [{}])[0].get("to_ip", "")
+        if not next_ip:
+            next_ip = (path.get("upstream") or [{}])[0].get("to_ip", "")
         ev_lines = next_hop_evidence(info, next_ip) if ok_api else []
         y = _section(c, y, "Routing & Adjacency Evidence", f"toward core {central_ip}")
         _evidence_lines(c, y, ev_lines, bool(path.get("reachable")), central_ip)

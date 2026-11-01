@@ -603,6 +603,97 @@ def push_config_many(
     return results
 
 
+def classify_push_error(error: str | None) -> str:
+    """دسته‌بندی خطای انتقال کانفیگ → پیام فارسی کوتاه برای نمایش در نمودار پیشرفت.
+
+    رایج‌ترین حالت گزارش‌شده: پینگ برقرار و یوزر/رمز درست است اما api/winbox
+    پاسخ نمی‌دهد → معمولاً timeout/refused روی پورت 8728 (سرویس api غیرفعال
+    یا فیلتر فایروال) یا policy کاربر اجازهٔ api ندارد.
+    """
+    raw = (error or "").strip()
+    if not raw:
+        return ""
+    s = raw.lower()
+    if "canceled" in s:
+        return "متوقف شد"
+    if "timed out" in s or "timeout" in s:
+        return ("پاسخ نداد (timeout) — سرویس api روی دستگاه فعال نیست یا پورت 8728 "
+                "توسط فایروال فیلتر می‌شود")
+    if "refused" in s:
+        return "اتصال رد شد (refused) — سرویس api (پورت 8728) روی دستگاه فعال نیست"
+    if "no route to host" in s or "network is unreachable" in s or "unreachable" in s:
+        return "مسیر شبکه به دستگاه وجود ندارد (unreachable)"
+    if "getaddrinfo" in s or "name or service not known" in s:
+        return "آدرس/IP دستگاه قابل حل نیست"
+    if "reset" in s or "قطع شد" in raw:
+        return "اتصال وسط کار قطع شد (reset) — فایروال یا سرویس api اتصال را بست"
+    if ("invalid user name or password" in s or "cannot log in" in s
+            or "ورود api ناموفق" in raw or "challenge دریافت نشد" in raw):
+        return ("ورود ناموفق — نام کاربری/رمز اشتباه است یا policy کاربر اجازهٔ api "
+                "ندارد (گروه دسترسی محدود)")
+    if "trap" in s or "syntax" in s or "failure" in s:
+        return "دستگاه دستور را رد کرد: " + raw[:180]
+    return raw[:200]
+
+
+def push_config_many_parallel(
+    ips: list[str],
+    username: str,
+    password: str,
+    script: str,
+    port: int = 8728,
+    timeout: float = 15.0,
+    cancel_event: threading.Event | None = None,
+    progress: dict | None = None,
+    max_workers: int = 6,
+) -> list[dict]:
+    """انتقال موازی کانفیگ با حفظ ترتیب ورودی، پیشرفت زنده و توقف مشارکتی.
+
+    نکته: مالک فلگ running فراخواننده است (worker گزارش در main.py)؛ این تابع
+    فقط total/done/ok/failed/current_ip را به‌روز می‌کند.
+    """
+    clean = [str(x).strip() for x in (ips or []) if str(x).strip()]
+    if progress is not None:
+        progress.update({"total": len(clean), "done": 0, "ok": 0, "failed": 0,
+                         "current_ip": ""})
+    if not clean:
+        return []
+    workers = max(1, min(int(max_workers or 1), len(clean), 16))
+    results: dict[str, dict] = {}
+
+    def _one(ip: str) -> dict:
+        if cancel_event is not None and cancel_event.is_set():
+            return {"ip": ip, "ok": False, "error": "canceled",
+                    "reason": classify_push_error("canceled")}
+        res = push_config(ip, username, password, script, port=port, timeout=timeout)
+        if not res.get("ok"):
+            res["reason"] = classify_push_error(res.get("error"))
+        return res
+
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        futures = {pool.submit(_one, ip): ip for ip in clean}
+        for fut in as_completed(futures):
+            ip = futures[fut]
+            try:
+                res = fut.result()
+            except Exception as e:  # نباید اتفاق بیفتد؛ محافظت اضافه
+                res = {"ip": ip, "ok": False, "error": str(e)[:400],
+                       "reason": classify_push_error(str(e))}
+            results[ip] = res
+            if progress is not None:
+                progress["done"] = progress.get("done", 0) + 1
+                if res.get("ok"):
+                    progress["ok"] = progress.get("ok", 0) + 1
+                else:
+                    progress["failed"] = progress.get("failed", 0) + 1
+                progress["current_ip"] = ip
+    if progress is not None:
+        progress["current_ip"] = ""
+    return [results.get(ip)
+            or {"ip": ip, "ok": False, "error": "no result", "reason": "نتیجه‌ای ثبت نشد"}
+            for ip in clean]
+
+
 def _sentences_to_text(replies: list[list[str]]) -> str:
     """Convert API reply sentences into a readable multi-line text block."""
     lines = []

@@ -49,6 +49,7 @@ python scripts/test_json_export_route_report.py
 python scripts/test_route_topology_unit.py
 python scripts/test_route_topology_pdf.py
 python scripts/test_device_picker.py
+python scripts/test_push_config_progress.py
 
 # build فرانت‌اند — بعد از هر تغییر در src.jsx یا style.css الزامی است:
 cd frontend && npm install && npm run build
@@ -69,7 +70,7 @@ cd frontend && npm install && npm run build
 5. پیام کامیت: قالب `type(scope): خلاصه انگلیسی` (مثل `feat(devices): ...`، `fix(api): ...`).
 6. قبل از کامیت: تست‌ها سبز باشند؛ `git status` را برای فایل‌های ناخواسته چک کنید.
 
-## ۵) نقشه قابلیت‌ها (تا Task 15)
+## ۵) نقشه قابلیت‌ها (تا Task 17)
 
 - **اسکن شبکه:** `POST /scans/start` (قابل لغو با `/scans/{id}/cancel`)، ورودی IP/CIDR/بازه،
   پورت‌های 8291 و 8728 همیشه اضافه می‌شوند.
@@ -102,12 +103,26 @@ cd frontend && npm install && npm run build
   «فقط پینگ‌خورده»؛ نمایش حداکثر ۳۰۰ ردیف با شمارنده، سقف انتخاب ۲۰۰ دستگاه
   (سپس `max_devices=Math.min(200,max(80,len))` به start ارسال می‌شود)؛ بدون انتخاب =
   رفتار قبلی (کل میکروتیک‌های دیتابیس، حداکثر ۸۰). تغییر دیتابیس، انتخاب را پاک می‌کند.
+- **انتخاب همه فیلترشده‌ها:** دکمهٔ «انتخاب همه فیلترشده‌ها (N)» در نوار ابزار برگهٔ مدیریت دستگاه‌ها
+  (`selectAllFiltered` در src.jsx) — با همان فیلترهای جاری (`params` بدون offset و
+  `limit=100000`) همهٔ نتایج را می‌گیرد و در `selected` علامت می‌زند؛ یعنی انتخاب بین
+  صفحات (چک‌باکس هدر جدول فقط ردیف‌های صفحهٔ جاری را انتخاب می‌کند). کاربردها: کانفیگ
+  گروهی، خروجی‌ها، حذف گروهی.
+- **انتقال کانفیگ گروهی با نمودار پیشرفت زنده:** `POST /api/devices/push-config/start`
+  + `/progress` + `/cancel` (موازی با `push_config_many_parallel`، پیش‌فرض ۶ رشته تا ۱۶،
+  توقف مشارکتی با `CFG_PUSH_CANCEL`؛ مالک فلگ running فقط worker است). دو مسیر UI:
+  «انتقال کانفیگ» (کانفیگ کادر SNMP + prompt یوزر/رمز) و «کانفیگ گروهی» (پنل با متن
+  دستورات). نمودار (`cfgProg` در src.jsx + CSS `cfg-*`): نوار درصد سه‌بخشی سبز/قرمز/خاکستری،
+  شمارنده‌ها، IP جاری، شبکهٔ خانه‌های per-device و جدول «جزئیات نتایج» با علتِ فارسیِ هر خطا
+  (`classify_push_error` در routeros_api.py — timeout/refused/credentials/…). دکمهٔ
+  «تلاش مجدد فقط ناموفق‌ها» با `cfgLast` (آخرین ips/user/pass/script) دوباره اجرا می‌کند.
 - **گزارش مسیر تا روتر مرکزی (توپولوژی PDF):** `POST /api/reports/route-topology/start`
   + `/progress` + `/cancel` + `/result.pdf` (ماژول‌های `backend/route_topology.py` و
   `backend/route_pdf.py`) — با نام کاربری/رمز RouterOS API که کاربر وارد می‌کند به تمام
   دستگاه‌های میکروتیک دیتابیس انتخابی (یا انتخاب صریح `ips`) وصل می‌شود، اینترفیس‌ها /
   آدرس‌های IP / همسایه‌ها (MNDP) / روت‌ها را می‌خواند، گراف لینک‌ها را می‌سازد
-  (همسایگی MNDP + اشتراک ساب‌نت + گیت‌وی روت به IP مرکزی)، کوتاه‌ترین مسیر هر دستگاه تا
+  (همسایگی MNDP + اشتراک ساب‌نت + یال‌های روتینگ «طولانی‌ترین پیشوند/روت پیش‌فرض»)،
+  کوتاه‌ترین مسیر هر دستگاه تا
   «روتر مرکزی» (پیش‌فرض 172.19.1.6، ورودی کاربر) را با BFS حساب می‌کند و در هر گام
   مشخص می‌کند کدام اینترفیس دستگاه A به کدام اینترفیس دستگاه B وصل است؛ خروجی یک PDF
   انگلیسی‌زبان (مثل نمونه Detailed Router Path Topology) با یک صفحه به ازای هر دستگاه؛
@@ -116,6 +131,16 @@ cd frontend && npm install && npm run build
   **مالک فلگ `running` فقط worker گزارش است** — `collect_topology_info_many` نباید
   `running` را بنویسد (باگ Task 15: گزارش در فاز graph/pdf «تمام‌شده» دیده می‌شد و
   فرانت‌اند polling را زودتر قطع می‌کرد).
+- **یافتن مسیر با روت پیش‌فرض (Task 17):** `_route_next_hops()` — اول طولانی‌ترین
+  پیشوندِ منطبق با IP مرکزی (در همان طول، کم‌ترین distance + ECMP)، وگرنه روت پیش‌فرض
+  0.0.0.0/0 با کم‌ترین distance (hop بالای دستگاه). یال‌های روتینگ (بخش 3-ج در
+  `build_topology`) حتی وقتی روتر مرکزی خودش خوانده شده هم ساخته می‌شوند؛ گیت‌وی
+  می‌تواند به core (یال مستقیم)، به دستگاه خوانده‌شدهٔ دیگر (زنجیرهٔ بالادست) یا به
+  گرهٔ شبحِ `g:<ip>` با فلگ `upstream` (hop ناشناخته) برسد. اولویت شواهد:
+  mndp > subnet > route > default. دستگاه‌های unreachable یک «زنجیرهٔ بالادست
+  best-effort» (حداکثر ۶ گام، مقاوم به حلقه) در `path["upstream"]` می‌گیرند که PDF
+  آن را با باکس‌های کهربایی ترسیم می‌کند؛ آمار `summary["upstream_only"]` شمارش می‌شود.
+  روتر مرکزی خودش در بخش 3-ج پردازش نمی‌شود (بالادستِ آن در مسیر «تا مرکز» بی‌اثر است).
 - **سایر:** گزارش‌های هوشمند، Winbox tools، مدیریت VPN، ایمیل/اطلاع‌رسانی.
 
 ## ۶) نکات دام‌دار (Gotchas)
@@ -134,6 +159,11 @@ cd frontend && npm install && npm run build
   پس فقط نویسه‌های Latin-1 — متن فارسی/عربی قبل از رسم باید پاکسازی شود (`route_pdf._san`).
 - شمارش صفحات PDF در تست‌ها: `len(re.findall(rb"/Type\\s*/Page[^s]", content))` —
   شمارش سادهٔ `/Type /Page` گرهٔ `/Pages` را هم می‌شمارد.
+- پچ کردن توابع شبکه در تست‌ها باید روی **هر دو شیء ماژول** انجام شود: `main.py`
+  با `from backend import routeros_api` ایمپورت می‌کند ولی تست با `import routeros_api`
+  — این دو می‌توانند شیءهای متفاوتی باشند (الگوی `ROS_MODULES` در
+  `test_push_config_progress.py` و پچ دوگانهٔ collector در `test_device_picker.py`).
+  در غیر این صورت تست، اتصال واقعی به شبکه می‌زند.
 
 ## ۷) امنیت
 

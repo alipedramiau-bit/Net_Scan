@@ -86,8 +86,8 @@ topo2 = rt.build_topology(infos2, devices2, "172.19.1.6")
 pa = topo2["paths"]["d:10.0.0.1"]
 check("ghost created for R-B", "g:10.9.9.1" in topo2["nodes"], str(list(topo2["nodes"])))
 check("virtual core node", topo2["core_key"] == "core")
-check("A reachable via route-gateway edge to core (1 hop, route evidence)",
-      pa["reachable"] and len(pa["hops"]) == 1 and pa["hops"][0]["ev"] == "route"
+check("A reachable via default-route gateway edge to core (1 hop, default evidence)",
+      pa["reachable"] and len(pa["hops"]) == 1 and pa["hops"][0]["ev"] == "default"
       and pa["hops"][0]["to_key"] == "core",
       str([(h['from_key'], h['to_key'], h['ev']) for h in pa['hops']]))
 check("edge A-ghost mapped (mndp)",
@@ -105,8 +105,73 @@ infos3 = [
 topo3 = rt.build_topology(infos3, [{"ip": "10.7.7.1", "device_name": "R-C", "tags": "", "ping_ok": True,
                                     "open_ports": [8728], "device_type": ""}], "172.19.1.6")
 pc = topo3["paths"]["d:10.7.7.1"]
-check("route-gateway edge to virtual core", pc["reachable"] and len(pc["hops"]) == 1
-      and pc["hops"][0]["to_key"] == "core" and pc["hops"][0]["ev"] == "route", str(pc["hops"]))
+check("default-route gateway edge to virtual core (Task 17: default route evidence)",
+      pc["reachable"] and len(pc["hops"]) == 1
+      and pc["hops"][0]["to_key"] == "core" and pc["hops"][0]["ev"] == "default", str(pc["hops"]))
+
+# ---- Task 17: روش بهتر یافتن مسیر — روت پیش‌فرض و hop بالای دستگاه ----
+# (۱) طولانی‌ترین پیشوند بر روت پیش‌فرض مقدم است
+hh, kk = rt._route_next_hops(
+    [{"dst_address": "0.0.0.0/0", "gateway": "10.0.0.254", "distance": "1", "immediate_gw": ""},
+     {"dst_address": "172.19.1.0/24", "gateway": "10.0.0.9", "distance": "1", "immediate_gw": ""}],
+    "172.19.1.6")
+check("longest-prefix beats default route", hh == [("10.0.0.9", "")] and kk == "specific", str((hh, kk)))
+# (۲) ECMP — دو گیت‌وی هم‌distance هر دو برمی‌گردند
+hh2, kk2 = rt._route_next_hops([{"dst_address": "0.0.0.0/0", "gateway": "1.1.1.1,2.2.2.2", "distance": "1", "immediate_gw": ""}], "172.19.1.6")
+check("ECMP default gateways both returned", kk2 == "default" and [g for g, _ in hh2] == ["1.1.1.1", "2.2.2.2"], str((hh2, kk2)))
+# (۳) کم‌ترین distance بین دو روت پیش‌فرض انتخاب می‌شود
+hh3, kk3 = rt._route_next_hops(
+    [{"dst_address": "0.0.0.0/0", "gateway": "9.9.9.9", "distance": "2", "immediate_gw": ""},
+     {"dst_address": "0.0.0.0/0", "gateway": "8.8.8.8", "distance": "1", "immediate_gw": ""}],
+    "172.19.1.6")
+check("min-distance default route wins", kk3 == "default" and hh3 == [("8.8.8.8", "")], str((hh3, kk3)))
+# (۴) زنجیرهٔ بالادست: A → B (گیت‌وی پیش‌فرض = دستگاه خوانده‌شده) → core
+A_up = _info("10.1.1.2", "Edge-A",
+             [{"address": "10.1.1.2/24", "interface": "e1", "network": "10.1.1.0"}],
+             routes=[{"dst_address": "0.0.0.0/0", "gateway": "10.1.1.1", "distance": "1", "immediate_gw": ""}],
+             ifaces=IF("e1"))
+B_up = _info("10.1.1.1", "Mid-B",
+             [{"address": "10.1.1.1/24", "interface": "e1", "network": "10.1.1.0"},
+              {"address": "172.19.1.2/30", "interface": "e2", "network": "172.19.1.0"}],
+             routes=[{"dst_address": "0.0.0.0/0", "gateway": "172.19.1.6", "distance": "1", "immediate_gw": ""}],
+             ifaces=IF("e1") + IF("e2"))
+topo5 = rt.build_topology([A_up, B_up], [], "172.19.1.6")
+pa5 = topo5["paths"]["d:10.1.1.2"]
+check("chain via scanned default-gateway device reachable",
+      pa5["reachable"] and len(pa5["hops"]) == 2, str([(h['from_key'], h['to_key'], h['ev']) for h in pa5.get('hops', [])]))
+check("Mid-B default gw == central ip edge to core",
+      any(h["to_key"] == topo5["core_key"] and h["ev"] == "default" for h in pa5["hops"]),
+      str([(h['from_key'], h['to_key'], h['ev']) for h in pa5['hops']]))
+# (۵) دستگاه بدون مسیر کامل → زنجیرهٔ بالادست best-effort با گرهٔ شبح hop
+SA = _info("172.18.1.68", "RB-Salmaneh",
+           [{"address": "172.18.1.68/28", "interface": "BR-link-abdn-to-link-shdgn", "network": "172.18.1.64"}],
+           routes=[{"dst_address": "0.0.0.0/0", "gateway": "172.18.1.71", "distance": "1", "immediate_gw": ""},
+                   {"dst_address": "0.0.0.0/0", "gateway": "172.18.1.65", "distance": "1", "immediate_gw": ""}],
+           ifaces=IF("BR-link-abdn-to-link-shdgn"))
+topo6 = rt.build_topology([SA], [], "172.19.1.6")
+p6 = topo6["paths"]["d:172.18.1.68"]
+check("unreachable device gets best-effort upstream chain",
+      not p6["reachable"] and len(p6.get("upstream") or []) == 1, str(p6.get("upstream")))
+up0 = (p6.get("upstream") or [{}])[0]
+check("upstream hop ip = default gateway", up0.get("to_ip") == "172.18.1.71", str(up0))
+check("upstream evidence = default", up0.get("ev") == "default", str(up0.get("ev")))
+g6 = topo6["nodes"].get("g:172.18.1.71")
+check("upstream ghost hop node created", bool(g6) and g6.get("upstream") is True,
+      str({k: v for k, v in (g6 or {}).items() if k in ("key", "upstream")}))
+check("summary counts upstream_only", topo6["summary"]["upstream_only"] == 1, str(topo6["summary"]))
+# (۶) حلقهٔ روتینگ: زنجیرهٔ بالادست بی‌نهایت نمی‌شود
+LA = _info("10.2.2.2", "Loop-A",
+           [{"address": "10.2.2.2/24", "interface": "e1", "network": "10.2.2.0"}],
+           routes=[{"dst_address": "0.0.0.0/0", "gateway": "10.2.2.3", "distance": "1", "immediate_gw": ""}],
+           ifaces=IF("e1"))
+LB = _info("10.2.2.3", "Loop-B",
+           [{"address": "10.2.2.3/24", "interface": "e1", "network": "10.2.2.0"}],
+           routes=[{"dst_address": "0.0.0.0/0", "gateway": "10.2.2.2", "distance": "1", "immediate_gw": ""}],
+           ifaces=IF("e1"))
+topo7 = rt.build_topology([LA, LB], [], "172.19.1.6")
+u7a = topo7["paths"]["d:10.2.2.2"].get("upstream") or []
+u7b = topo7["paths"]["d:10.2.2.3"].get("upstream") or []
+check("routing loop terminates upstream chain", len(u7a) <= 6 and len(u7b) <= 6, str((len(u7a), len(u7b))))
 
 # ---- failed connection still gets a node ----
 topo4 = rt.build_topology([_info("10.5.5.5", "", [], ok_=False)], [], "172.19.1.6")

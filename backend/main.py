@@ -1841,6 +1841,98 @@ def push_config_to_devices(body: PushConfigRequest):
     }
 
 
+class PushConfigStartRequest(PushConfigRequest):
+    max_workers: int = Field(default=6, ge=1, le=16)
+
+
+CFG_PUSH_LOCK = Lock()
+CFG_PUSH_CANCEL = Event()
+CFG_PUSH_STATE: dict = {"running": False, "total": 0, "done": 0, "ok": 0, "failed": 0,
+                        "current_ip": "", "phase": "", "error": None, "canceled": False,
+                        "results": None}
+
+
+def _cfg_push_worker(ips: list[str], username: str, password: str, script: str,
+                     port: int, timeout: float, max_workers: int) -> None:
+    """انتقال کانفیگ در پس‌زمینه؛ مالک انحصاری فلگ running (درس Task 16)."""
+    st = CFG_PUSH_STATE
+    try:
+        st.update(phase="push", total=len(ips), done=0, ok=0, failed=0, current_ip="")
+        results = routeros_api.push_config_many_parallel(
+            ips, username=username, password=password, script=script,
+            port=port, timeout=timeout, cancel_event=CFG_PUSH_CANCEL,
+            progress=st, max_workers=max_workers,
+        )
+        if CFG_PUSH_CANCEL.is_set():
+            st.update(phase="canceled", canceled=True, results=results)
+            return
+        st.update(phase="done", results=results, error=None)
+    except Exception as e:  # هر خطایی → در progress دیده می‌شود
+        st.update(error=str(e)[:500], phase="error")
+    finally:
+        st["running"] = False
+        st["current_ip"] = ""
+
+
+@app.post("/api/devices/push-config/start")
+def push_config_start(body: PushConfigStartRequest):
+    """شروع انتقال کانفیگ گروهیِ موازی؛ پیشرفت زنده از /push-config/progress خوانده می‌شود."""
+    with CFG_PUSH_LOCK:
+        if CFG_PUSH_STATE.get("running"):
+            raise HTTPException(409, "یک انتقال کانفیگ در حال اجراست؛ لطفاً پایان یا توقف آن را صبر کنید")
+        script = (body.script or "").strip()
+        if not script:
+            raise HTTPException(400, "متن کانفیگ خالی است")
+        ips = [str(x).strip() for x in body.ips if str(x).strip()]
+        if not ips:
+            raise HTTPException(400, "هیچ IP معتبری ارسال نشده")
+        CFG_PUSH_CANCEL.clear()
+        CFG_PUSH_STATE.update({"running": True, "total": len(ips), "done": 0, "ok": 0,
+                               "failed": 0, "current_ip": "", "phase": "start", "error": None,
+                               "canceled": False, "results": None})
+        Thread(target=_cfg_push_worker,
+               args=(ips, body.username, body.password or "", script,
+                     body.port, body.timeout, body.max_workers),
+               daemon=True).start()
+    return {
+        "started": True,
+        "total": len(ips),
+        "message": f"انتقال کانفیگ به {len(ips)} دستگاه آغاز شد",
+    }
+
+
+@app.get("/api/devices/push-config/progress")
+def push_config_progress():
+    p = dict(CFG_PUSH_STATE or {})
+    total = int(p.get("total") or 0)
+    done = int(p.get("done") or 0)
+    pct = int(round(100 * done / total)) if total else 0
+    running = bool(p.get("running"))
+    return {
+        "total": total,
+        "done": done,
+        "percent": pct,
+        "ok": int(p.get("ok") or 0),
+        "failed": int(p.get("failed") or 0),
+        "remaining": max(0, total - done),
+        "current_ip": p.get("current_ip") or "",
+        "phase": p.get("phase") or "",
+        "running": running,
+        "canceled": bool(p.get("canceled")),
+        "error": p.get("error"),
+        "ready": (not running) and bool(p.get("results")),
+        "results": None if running else (p.get("results") or []),
+    }
+
+
+@app.post("/api/devices/push-config/cancel")
+def push_config_cancel():
+    if CFG_PUSH_STATE.get("running"):
+        CFG_PUSH_CANCEL.set()
+        return {"cancel_requested": True, "message": "درخواست توقف انتقال کانفیگ ارسال شد"}
+    return {"cancel_requested": False, "message": "انتقالی در حال اجرا نیست"}
+
+
 class DeviceMetaRequest(BaseModel):
     device_name: str | None = Field(default=None, max_length=128)
     tags: str | None = Field(default=None, max_length=4000)

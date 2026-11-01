@@ -232,6 +232,92 @@ def _split_gateway(gw: str) -> list[tuple[str, str]]:
     return out
 
 
+def _addr_iface_toward(addresses: list[dict], ip: str) -> tuple[str, str]:
+    """(ip_خودِ_دستگاه, اینترفیس) اولین آدرسی که شبکه‌اش شامل ip است.
+
+    برای یافتن اینترفیسِ سمتِ گیت‌وی به کار می‌رود؛ مثلاً اگر دستگاه
+    172.18.1.68/28 داشته باشد و گیت‌وی 172.18.1.71 باشد، برمی‌گرداند
+    ('172.18.1.68', نامِ اینترفیس).
+    """
+    try:
+        tip = ipaddress.ip_address(ip)
+    except ValueError:
+        return ("", "")
+    for a in addresses or []:
+        try:
+            ifo = ipaddress.ip_interface((a.get("address") or "").strip())
+        except ValueError:
+            continue
+        if tip in ifo.network:
+            return (str(ifo.ip), a.get("interface") or "")
+    return ("", "")
+
+
+def _route_next_hops(routes: list[dict], central_ip: str) -> tuple[list[tuple[str, str]], str]:
+    """بهترین next-hopهای یک گره به سمت روتر مرکزی (روش بهترِ یافتن مسیر).
+
+    ۱) طولانی‌ترین پیشوند مسیری که central_ip را پوشش می‌دهد (route specific) —
+       در همان طولِ پیشوند، کم‌ترین distance و سپس همهٔ گیت‌وی‌های ECMP؛
+    ۲) وگرنه «روت پیش‌فرض» (0.0.0.0/0) با کمترین distance — یعنی hop بالای
+       دستگاه (بالادست)؛ در حالت ECMP همهٔ گیت‌وی‌های هم‌distance برمی‌گردند.
+
+    خروجی: ([(gw_ip, gw_if), ...], "specific" | "default" | "")
+    """
+    tip_raw = (central_ip or "").strip()
+    if not tip_raw:
+        return ([], "")
+    try:
+        caddr = ipaddress.ip_address(tip_raw)
+    except ValueError:
+        return ([], "")
+
+    def _dist(rt: dict) -> int:
+        try:
+            return int(str(rt.get("distance") or "0").strip() or 0)
+        except (TypeError, ValueError):
+            return 0
+
+    cands: dict[int, dict] = {}   # prefixlen (>0) -> {"dist", "gws"}
+    defaults: list[tuple[int, list[tuple[str, str]]]] = []
+    for rt in routes or []:
+        dst = (rt.get("dst_address") or "").strip()
+        gws = _split_gateway(rt.get("gateway") or "") + _split_gateway(rt.get("immediate_gw") or "")
+        if not gws:
+            continue
+        try:
+            net = ipaddress.ip_network(dst or "0.0.0.0/0", strict=False)
+        except ValueError:
+            continue
+        if caddr not in net:
+            continue
+        if net.prefixlen == 0:
+            defaults.append((_dist(rt), gws))
+            continue
+        c = cands.get(net.prefixlen)
+        d = _dist(rt)
+        if c is None:
+            cands[net.prefixlen] = {"dist": d, "gws": list(gws)}
+        elif d < c["dist"]:
+            cands[net.prefixlen] = {"dist": d, "gws": list(gws)}
+        elif d == c["dist"]:
+            for x in gws:
+                if x not in c["gws"]:
+                    c["gws"].append(x)
+    if cands:
+        best_pl = max(cands)
+        return (cands[best_pl]["gws"], "specific")
+    if defaults:
+        min_d = min(d for d, _g in defaults)
+        merged: list[tuple[str, str]] = []
+        for d, g in defaults:
+            if d == min_d:
+                for x in g:
+                    if x not in merged:
+                        merged.append(x)
+        return (merged, "default")
+    return ([], "")
+
+
 # ---------------------------------------------------------------------------
 # 3) ساخت گراف و محاسبهٔ مسیر
 # ---------------------------------------------------------------------------
@@ -303,8 +389,8 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str) -> d
             a_key, b_key, a_if, b_if, a_ip, b_ip = b_key, a_key, b_if, a_if, b_ip, a_ip
         k = (a_key, b_key, a_if, b_if)
         if k in edge_seen:
-            # اولویت شواهد: mndp > subnet > route
-            rank = {"mndp": 0, "subnet": 1, "route": 2}
+            # اولویت شواهد: mndp > subnet > route > default
+            rank = {"mndp": 0, "subnet": 1, "route": 2, "default": 3}
             for e in edges:
                 if (e["a"], e["b"], e["a_if"], e["b_if"]) == k:
                     if rank.get(ev, 9) < rank.get(e["ev"], 9):
@@ -393,28 +479,52 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str) -> d
                 if done:
                     break
 
-    # 3-ج) گیت‌وی روت به سمت روتر مرکزی (وقتی خودِ مرکزی خوانده نشده)
-    if not nodes[core_key]["addresses"] and not nodes[core_key].get("info"):
-        for key in order:
-            node = nodes[key]
-            hit = False
-            for rt in node["routes"]:
-                for gw_ip, gw_if in _split_gateway(rt.get("gateway") or "") + _split_gateway(rt.get("immediate_gw") or ""):
-                    if gw_ip == central_ip:
-                        a_if = gw_if
-                        a_ip = ""
-                        if not a_if:
-                            a_ip, a_if = _iface_ip_in_network(node["addresses"], f"{gw_ip}/32")
-                        if not a_if:
-                            a_ip, a_if = _iface_ip_in_network(node["addresses"], rt.get("dst_address") or "")
-                        _add_edge(key, core_key, a_if, "", a_ip, gw_ip, "route")
-                        hit = True
-                        break
-                if hit:
+    # 3-ج) یال‌های روتینگ: بهترین next-hop هر دستگاه به سمت روتر مرکزی.
+    # روش بهتر (درخواست کاربر): از «روت پیش‌فرض» و hop بالای دستگاه استفاده می‌کنیم —
+    #   * طولانی‌ترین پیشوند منطبق با IP مرکزی، وگرنه روت پیش‌فرض با کمترین distance؛
+    #   * اگر گیت‌وی خودِ IP مرکزی بود → یال مستقیم به core؛
+    #   * اگر گیت‌وی یکی از دستگاه‌های خوانده‌شده بود → یال به همان دستگاه
+    #     (زنجیرهٔ بالادست از طریق روترهای میانی تشکیل می‌شود)؛
+    #   * وگرنه گرهٔ شبحِ «hop بالادست» ساخته می‌شود تا مسیر تا جایی که شواهد
+    #     اجازه می‌دهد نمایش داده شود.
+    for key in order:
+        if key == core_key:
+            continue  # بالادستِ خودِ روتر مرکزی در مسیر «تا مرکز» نقشی ندارد
+        node = nodes[key]
+        hops, kind = _route_next_hops(node["routes"], central_ip)
+        if not hops:
+            continue
+        ev = "route" if kind == "specific" else "default"
+        for gw_ip, gw_if in hops:
+            if not gw_ip:
+                continue
+            a_ip, a_if = _addr_iface_toward(node["addresses"], gw_ip)
+            if not a_if:
+                a_if = gw_if
+            if gw_ip == central_ip:
+                _add_edge(key, core_key, a_if, "", a_ip, gw_ip, ev)
+                continue
+            # گیت‌وی متعلق به کدام دستگاه خوانده‌شده است؟
+            peer_key = None
+            for k2 in order:
+                if k2 == key:
+                    continue
+                n2 = nodes[k2]
+                if n2["ip"] == gw_ip or any(_ip_of(a.get("address")) == gw_ip for a in n2["addresses"]):
+                    peer_key = k2
                     break
-            if not hit:
-                # همسایه‌ای که IP مرکزی است (MNDP) — در حلقهٔ MNDP بالا انجام شده
-                pass
+            if peer_key is not None:
+                peer = nodes[peer_key]
+                b_if = _iface_of(peer["addresses"], gw_ip)
+                _add_edge(key, peer_key, a_if, b_if, a_ip, gw_ip, ev)
+                continue
+            # hop بالادست ناشناخته → گرهٔ شبح
+            gkey = "g:" + gw_ip
+            if gkey not in nodes:
+                ghost = _make_node(gkey, gw_ip, gw_ip, None, None, ghost=True)
+                ghost["upstream"] = True
+                nodes[gkey] = ghost
+            _add_edge(key, gkey, a_if, gw_if, a_ip, gw_ip, ev)
 
     # --- BFS کوتاه‌ترین مسیر تا core -----------------------------------------
     adj: dict[str, list[int]] = {}
@@ -422,7 +532,7 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str) -> d
         adj.setdefault(e["a"], []).append(idx)
         adj.setdefault(e["b"], []).append(idx)
 
-    ev_rank = {"mndp": 0, "subnet": 1, "route": 2}
+    ev_rank = {"mndp": 0, "subnet": 1, "route": 2, "default": 3}
 
     def _hop_from_edge(e: dict, src: str) -> dict:
         if e["a"] == src:
@@ -475,6 +585,65 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str) -> d
         paths[key] = {"reachable": True, "hops": chain, "main_ip": main_ip,
                       "is_core": False}
 
+    # --- زنجیرهٔ بالادست (best-effort) برای دستگاه‌های بدون مسیر کامل ---------
+    # اگر BFS به core نرسید، از «روت پیش‌فرض / طولانی‌ترین پیشوند» hopهای
+    # بالادست را دنبال می‌کنیم تا جایی که شواهد اجازه می‌دهد (حداکثر ۶ گام)
+    # تا گزارش به‌جای «هیچ مسیری»، مسیرِ تا سرِ حدِ شواهد را نشان دهد.
+    def _upstream_chain(key: str, max_hops: int = 6) -> list[dict]:
+        chain: list[dict] = []
+        cur = key
+        seen = {key}
+        while len(chain) < max_hops:
+            node = nodes.get(cur)
+            if not node:
+                break
+            hops, kind = _route_next_hops(node.get("routes") or [], central_ip)
+            if not hops:
+                break
+            gw_ip, gw_if = hops[0]
+            nxt_key = None
+            for k2 in order:
+                if k2 == cur:
+                    continue
+                n2 = nodes[k2]
+                if n2["ip"] == gw_ip or any(_ip_of(a.get("address")) == gw_ip for a in (n2["addresses"] or [])):
+                    nxt_key = k2
+                    break
+            if nxt_key is None:
+                nxt_key = "g:" + gw_ip
+                if nxt_key not in nodes:
+                    g = _make_node(nxt_key, gw_ip, gw_ip, None, None, ghost=True)
+                    g["upstream"] = True
+                    nodes[nxt_key] = g
+            a_ip, a_if = _addr_iface_toward(node.get("addresses") or [], gw_ip)
+            if not a_if:
+                a_if = gw_if
+            chain.append({
+                "from_key": cur, "to_key": nxt_key,
+                "from_name": node["name"], "to_name": nodes[nxt_key]["name"],
+                "from_if": a_if, "to_if": ("" if nodes[nxt_key]["ghost"] else gw_if),
+                "from_ip": a_ip, "to_ip": gw_ip,
+                "ev": ("route" if kind == "specific" else "default"),
+            })
+            if nxt_key in seen:
+                break  # حلقهٔ روتینگ — ادامه نمی‌دهیم
+            seen.add(nxt_key)
+            cur = nxt_key
+            if nodes[nxt_key]["ghost"]:
+                break  # از این hop اطلاعات روتینگ نداریم — پایان شواهد
+        return chain
+
+    upstream_count = 0
+    for key in order:
+        p = paths.get(key)
+        if not p or p.get("reachable"):
+            continue
+        up = _upstream_chain(key)
+        if up:
+            p["upstream"] = up
+            p["upstream_partial"] = True
+            upstream_count += 1
+
     reachable = sum(1 for k in order if paths.get(k, {}).get("reachable"))
     links = sum(len(paths.get(k, {}).get("hops") or []) for k in order)
     return {
@@ -488,6 +657,7 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str) -> d
             "devices": len(order),
             "reachable": reachable,
             "unreachable": len(order) - reachable,
+            "upstream_only": upstream_count,
             "links": links,
             "central_ip": central_ip,
         },
