@@ -357,6 +357,23 @@ table td.col-wireless_info{
   margin:0 4px;
 }
 
+/* Device picker modal — search / filter / multi-select from a database list */
+.device-picker-modal{width:min(680px,94vw)}
+.device-picker-list{
+  border:1px solid #e2e8f0;border-radius:8px;
+  max-height:46vh;min-height:120px;overflow:auto;
+  background:#fff;
+}
+.device-picker-row{
+  display:flex;align-items:center;gap:10px;
+  padding:7px 12px;border-bottom:1px solid #f1f5f9;
+  cursor:pointer;font-size:.92em;
+}
+.device-picker-row:hover{background:#f8fafc}
+.device-picker-row input[type=checkbox]{width:16px;height:16px;cursor:pointer;flex:none}
+.picker-tag{font-size:.8em;background:#e0f2fe;color:#075985;border-radius:10px;padding:2px 8px;white-space:nowrap;max-width:160px;overflow:hidden;text-overflow:ellipsis}
+.picker-class{font-size:.78em;color:#64748b;white-space:nowrap}
+
 /* Modal close/save buttons — always visible label */
 .btn-modal-close{
   background:#334155 !important;

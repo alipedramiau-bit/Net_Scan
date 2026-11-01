@@ -1518,8 +1518,67 @@ function SmartReports(){
     </section>
   );
 }
+function DevicePickerModal({database,initialSelected,onConfirm,onClose}){
+  const[rows,setRows]=useState(null),[loadErr,setLoadErr]=useState("");
+  const[search,setSearch]=useState(""),[mikOnly,setMikOnly]=useState(true),[pingOnly,setPingOnly]=useState(false);
+  const[draft,setDraft]=useState(()=>new Set(initialSelected||[]));
+  useEffect(()=>{let alive=true;(async()=>{
+    try{const r=await fetch(API+"/devices?database="+encodeURIComponent(database||"")+"&limit=100000&sort=ip&order=asc");
+      const d=await readJson(r);
+      if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:("دریافت فهرست دستگاه‌ها ناموفق بود ("+r.status+")"));
+      if(alive)setRows(d.devices||[]);
+    }catch(e){if(alive)setLoadErr(e.message||"خطا در دریافت فهرست دستگاه‌ها")}
+  })();return()=>{alive=false}},[database]);
+  function isMik(d){return d.classification==="mikrotik_candidate"||(d.open_ports||[]).some(p=>p===8291||p===8728)}
+  const filtered=(rows||[]).filter(d=>{
+    if(mikOnly&&!isMik(d))return false;
+    if(pingOnly&&!d.ping_ok)return false;
+    const s=(search||"").trim().toLowerCase();
+    if(!s)return true;
+    return [d.ip,d.device_name,d.tags,d.device_type,d.classification].some(v=>(v==null?"":String(v)).toLowerCase().includes(s));
+  });
+  const shown=filtered.slice(0,300),MAX_SEL=200,selCount=draft.size,over=selCount>MAX_SEL;
+  function toggle(ip){setDraft(prev=>{const n=new Set(prev);if(n.has(ip))n.delete(ip);else n.add(ip);return n})}
+  function selectFiltered(){setDraft(prev=>{const n=new Set(prev);filtered.forEach(d=>n.add(d.ip));return n})}
+  function clearDraft(){setDraft(new Set())}
+  return <div className="modal-overlay" onClick={onClose}><div className="modal-box device-picker-modal" dir="rtl" onClick={e=>e.stopPropagation()}>
+    <h3>انتخاب دستگاه‌ها از لیست دیتابیس</h3>
+    <p style={{margin:0,color:"#64748b",fontSize:".9em",lineHeight:1.8}}>جستجو و فیلتر کنید، دستگاه‌های موردنظر را تیک بزنید و تایید کنید (حداکثر {MAX_SEL.toLocaleString("fa-IR")} دستگاه برای هر گزارش). اگر دستگاهی انتخاب نکنید، گزارش برای همه دستگاه‌های میکروتیکِ دیتابیس ساخته می‌شود.</p>
+    <div style={{display:"flex",gap:12,flexWrap:"wrap",alignItems:"center"}}>
+      <input dir="ltr" autoFocus placeholder="جستجو: IP / نام / تگ / نوع…" value={search} onChange={e=>setSearch(e.target.value)}
+        style={{flex:"1 1 220px",border:"1px solid #bbb",borderRadius:5,padding:".4em .6em"}}/>
+      <label style={{display:"flex",alignItems:"center",gap:5,fontSize:".9em",whiteSpace:"nowrap",cursor:"pointer"}}><input type="checkbox" checked={mikOnly} onChange={e=>setMikOnly(e.target.checked)}/>فقط دستگاه‌های میکروتیک</label>
+      <label style={{display:"flex",alignItems:"center",gap:5,fontSize:".9em",whiteSpace:"nowrap",cursor:"pointer"}}><input type="checkbox" checked={pingOnly} onChange={e=>setPingOnly(e.target.checked)}/>فقط پینگ‌خورده</label>
+    </div>
+    <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:8}}>
+      <span style={{fontSize:".9em",color:"#334155"}}>{rows===null?"در حال دریافت فهرست دستگاه‌ها…":(filtered.length.toLocaleString("fa-IR")+" دستگاه از "+rows.length.toLocaleString("fa-IR")+" دستگاه دیتابیس")}</span>
+      <span style={{fontWeight:700,color:over?"#b91c1c":"#176b43",background:over?"#fee2e2":"#e8f5ee",borderRadius:16,padding:"4px 12px",fontSize:".9em"}}>انتخاب‌شده: {selCount.toLocaleString("fa-IR")}</span>
+    </div>
+    {loadErr&&<div className="error" role="alert">{loadErr}</div>}
+    <div className="device-picker-list">
+      {shown.map(d=><label key={d.ip} className="device-picker-row">
+        <input type="checkbox" checked={draft.has(d.ip)} onChange={()=>toggle(d.ip)}/>
+        <span dir="ltr" style={{fontWeight:600,minWidth:118,fontSize:".92em"}}>{d.ip}</span>
+        <span style={{flex:1,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{d.device_name||"—"}</span>
+        {d.tags?<span className="picker-tag">{d.tags}</span>:null}
+        <span className="picker-class">{d.device_type||d.classification||""}</span>
+        <span style={{color:d.ping_ok?"#16a34a":"#dc2626",fontSize:".82em",whiteSpace:"nowrap",minWidth:72,textAlign:"left"}}>{d.ping_ok?"پینگ ✓":"بدون پینگ"}</span>
+      </label>)}
+      {rows!==null&&!filtered.length&&<div style={{padding:16,color:"#64748b"}}>موردی مطابق جستجو/فیلتر یافت نشد.</div>}
+      {filtered.length>shown.length&&<div style={{padding:"8px 14px",color:"#92400e",fontSize:".88em",background:"#fffbeb"}}>۳۰۰ مورد اول نمایش داده شده است؛ برای موارد بیشتر جستجو کنید («انتخاب همه موارد فیلترشده» کل {filtered.length.toLocaleString("fa-IR")} مورد را برمی‌گزیند).</div>}
+    </div>
+    {over&&<div style={{color:"#b91c1c",fontSize:".9em"}}>بیش از حد مجاز؛ حداکثر {MAX_SEL.toLocaleString("fa-IR")} دستگاه برای هر گزارش قابل انتخاب است.</div>}
+    <div className="modal-actions">
+      <button type="button" className="btn-modal-save" disabled={over||selCount===0} onClick={()=>onConfirm([...draft])}>تایید انتخاب ({selCount.toLocaleString("fa-IR")})</button>
+      <button type="button" onClick={selectFiltered}>انتخاب همه موارد فیلترشده</button>
+      <button type="button" onClick={clearDraft}>حذف انتخاب‌ها</button>
+      <button type="button" className="btn-modal-close" onClick={onClose}>انصراف</button>
+    </div>
+  </div></div>;
+}
 function RouteTopologyReport(){
   const[dbList,setDbList]=useState([{name:"default"}]),[dbSel,setDbSel]=useState("");
+  const[topoIps,setTopoIps]=useState([]),[pickerOpen,setPickerOpen]=useState(false);
   const[centralIp,setCentralIp]=useState("172.19.1.6");
   const[apiUser,setApiUser]=useState("admin"),[apiPass,setApiPass]=useState("");
   const[starting,setStarting]=useState(false),[busy,setBusy]=useState(false),[canceling,setCanceling]=useState(false);
@@ -1555,8 +1614,10 @@ function RouteTopologyReport(){
   async function startReport(){
     setStarting(true);setErr("");setMsg("");setProg(null);
     try{
+      const base={database:dbSel,central_router_ip:centralIp,username:apiUser,password:apiPass};
+      const payload=topoIps.length?{...base,ips:topoIps,max_devices:Math.min(200,Math.max(80,topoIps.length))}:base;
       const r=await fetch(API+"/api/reports/route-topology/start",{method:"POST",headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({database:dbSel,central_router_ip:centralIp,username:apiUser,password:apiPass})});
+        body:JSON.stringify(payload)});
       const d=await readJson(r);
       if(!r.ok)throw Error(d.detail||("شروع گزارش ناموفق بود ("+r.status+")"));
       setMsg("اتصال به "+d.devices+" دستگاه میکروتیک از طریق RouterOS API آغاز شد؛ بسته به تعداد دستگاه‌ها ممکن است چند دقیقه طول بکشد…");
@@ -1567,16 +1628,23 @@ function RouteTopologyReport(){
   async function cancelReport(){setCanceling(true);try{await fetch(API+"/api/reports/route-topology/cancel",{method:"POST"});setMsg("درخواست توقف ارسال شد؛ پس از پایان خواندن دستگاه جاری متوقف می‌شود…");}catch(e){}finally{setCanceling(false);}}
   return <section className="panel" dir="rtl" style={{marginTop:18}}>
     <h3>گزارش مسیر تا روتر مرکزی (توپولوژی PDF)</h3>
-    <p style={{color:"#64748b",marginTop:0}}>با نام کاربری و رمز عبور RouterOS API به تمام دستگاه‌های میکروتیکِ دیتابیس انتخاب‌شده وصل می‌شود، مسیر هر دستگاه تا روتر مرکزی (IP را شما وارد می‌کنید) را به‌همراه آدرس‌های IP، همسایه‌ها و اینترفیس‌های هر دستگاه استخراج می‌کند و برای هر دستگاه یک صفحه PDF می‌سازد (Detailed Router Path Topology). در نمودار مسیر مشخص است هر اینترفیسِ دستگاه به کدام اینترفیسِ دستگاه بعدی وصل است (MNDP / ساب‌نت مشترک / گیت‌وی روت).</p>
+    <p style={{color:"#64748b",marginTop:0}}>با نام کاربری و رمز عبور RouterOS API به دستگاه‌های میکروتیکِ دیتابیس انتخاب‌شده وصل می‌شود، مسیر هر دستگاه تا روتر مرکزی (IP را شما وارد می‌کنید) را به‌همراه آدرس‌های IP، همسایه‌ها و اینترفیس‌های هر دستگاه استخراج می‌کند و برای هر دستگاه یک صفحه PDF می‌سازد (Detailed Router Path Topology). در نمودار مسیر مشخص است هر اینترفیسِ دستگاه به کدام اینترفیسِ دستگاه بعدی وصل است (MNDP / ساب‌نت مشترک / گیت‌وی روت). به‌طور پیش‌فرض همه دستگاه‌های میکروتیکِ دیتابیس گزارش می‌شوند؛ با «انتخاب دستگاه‌ها از دیتابیس» می‌توانید جستجو و فیلتر کنید و فقط زیرمجموعه‌ای از دستگاه‌ها را برای گزارش برگزینید.</p>
     <div style={{display:"flex",gap:14,flexWrap:"wrap"}}>
       <label>دیتابیس
-        <select value={dbSel} onChange={e=>setDbSel(e.target.value)} title="دستگاه‌های میکروتیک از این دیتابیس انتخاب می‌شوند (حداکثر ۸۰ دستگاه)">
+        <select value={dbSel} onChange={e=>{setDbSel(e.target.value);setTopoIps([])}} title="دستگاه‌های میکروتیک از این دیتابیس انتخاب می‌شوند (حداکثر ۸۰ دستگاه — با انتخاب دستی تا ۲۰۰)">
           {dbList.map(d=><option key={d.name} value={d.name}>{d.name+(typeof d.devices==="number"?" ("+d.devices+" دستگاه)":"")+(d.active?" — فعال":"")}</option>)}
         </select>
       </label>
       <label>آی‌پی روتر مرکزی<input dir="ltr" type="text" value={centralIp} onChange={e=>setCentralIp(e.target.value)} placeholder="172.19.1.6"/></label>
       <label>نام کاربری API<input dir="ltr" type="text" value={apiUser} onChange={e=>setApiUser(e.target.value)} placeholder="admin"/></label>
       <label>رمز عبور API<input dir="ltr" type="password" value={apiPass} onChange={e=>setApiPass(e.target.value)} placeholder="••••••••"/></label>
+    </div>
+    <div style={{display:"flex",gap:8,flexWrap:"wrap",alignItems:"center",marginTop:12}}>
+      <button type="button" className="tool-btn" disabled={busy||starting} onClick={()=>setPickerOpen(true)} title="جستجو، فیلتر و انتخاب دستگاه‌ها از لیست دیتابیس انتخاب‌شده">انتخاب دستگاه‌ها از دیتابیس</button>
+      {topoIps.length
+        ?<span style={{background:"#e8f5ee",color:"#176b43",borderRadius:16,padding:"5px 12px",fontSize:13,display:"inline-flex",alignItems:"center",gap:6}}>انتخاب دستی: {topoIps.length.toLocaleString("fa-IR")} دستگاه
+          <button type="button" onClick={()=>setTopoIps([])} title="حذف انتخاب و بازگشت به همه دستگاه‌های میکروتیک دیتابیس" style={{border:"none",background:"transparent",color:"#b91c1c",cursor:"pointer",fontWeight:700,padding:0,fontSize:14,lineHeight:1}}>✕</button></span>
+        :<span style={{background:"#e0f2fe",color:"#075985",borderRadius:16,padding:"5px 12px",fontSize:13}}>همه دستگاه‌های میکروتیک دیتابیس (حداکثر ۸۰)</span>}
     </div>
     <div style={{display:"flex",gap:8,flexWrap:"wrap",marginTop:12}}>
       <button type="button" className="tool-btn" disabled={starting||busy} onClick={startReport}>{busy?"در حال ساخت گزارش…":"ایجاد گزارش مسیر (PDF)"}</button>
@@ -1590,6 +1658,9 @@ function RouteTopologyReport(){
     </div>}
     {!busy&&!starting&&msg&&<div className="msg" style={{marginTop:10}}>{msg}</div>}
     {err&&<div className="error" role="alert" style={{marginTop:10}}>{err}</div>}
+    {pickerOpen&&<DevicePickerModal database={dbSel} initialSelected={topoIps}
+      onConfirm={ips=>{setTopoIps(ips);setPickerOpen(false);setMsg(ips.length.toLocaleString("fa-IR")+" دستگاه برای گزارش انتخاب شد؛ روی «ایجاد گزارش مسیر (PDF)» کلیک کنید.")}}
+      onClose={()=>setPickerOpen(false)}/>}
   </section>;
 }
 function AntennaIssuesReport(){

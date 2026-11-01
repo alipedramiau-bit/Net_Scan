@@ -48,6 +48,7 @@ python scripts/test_api_probe_progress.py
 python scripts/test_json_export_route_report.py
 python scripts/test_route_topology_unit.py
 python scripts/test_route_topology_pdf.py
+python scripts/test_device_picker.py
 
 # build فرانت‌اند — بعد از هر تغییر در src.jsx یا style.css الزامی است:
 cd frontend && npm install && npm run build
@@ -93,6 +94,14 @@ cd frontend && npm install && npm run build
   معادلِ `-d`)، موازی با ThreadPool؛ مبدأ/مقصد از کاربر (پیش‌فرض هر دو 172.19.1.6)؛
   اگر مبدأ≠مقصد مسیر مبدأ→مقصد هم ردیابی و به ابتدای گزارش می‌آید؛ خروجی CSV با
   BOM و ۷ ستون فارسی (IP مبدأ، IP مقصد، نام دستگاه، شماره مرحله، IP مرحله، تاخیر، وضعیت).
+- **انتخاب دستگاه‌ها از دیتابیس (Device Picker):** مودال جستجو/فیلتر/انتخاب چندگانه در
+  بخش «گزارش مسیر تا روتر مرکزی» تب گزارش هوشمند (`DevicePickerModal` در src.jsx +
+  CSS `device-picker-*` در style.css). فهرست دستگاه‌ها از `GET /devices?database=<name>`
+  (پارامتر جدید؛ نام اعتبارسنجی و ۴۰۴ برای نام ناشناخته) می‌آید؛ فیلترهای کلاینت‌ساید:
+  جستجوی آزاد (IP/نام/تگ/نوع/دسته)، «فقط میکروتیک» (همان قاعدهٔ `_is_mikrotik_device`)،
+  «فقط پینگ‌خورده»؛ نمایش حداکثر ۳۰۰ ردیف با شمارنده، سقف انتخاب ۲۰۰ دستگاه
+  (سپس `max_devices=Math.min(200,max(80,len))` به start ارسال می‌شود)؛ بدون انتخاب =
+  رفتار قبلی (کل میکروتیک‌های دیتابیس، حداکثر ۸۰). تغییر دیتابیس، انتخاب را پاک می‌کند.
 - **گزارش مسیر تا روتر مرکزی (توپولوژی PDF):** `POST /api/reports/route-topology/start`
   + `/progress` + `/cancel` + `/result.pdf` (ماژول‌های `backend/route_topology.py` و
   `backend/route_pdf.py`) — با نام کاربری/رمز RouterOS API که کاربر وارد می‌کند به تمام
@@ -104,6 +113,9 @@ cd frontend && npm install && npm run build
   انگلیسی‌زبان (مثل نمونه Detailed Router Path Topology) با یک صفحه به ازای هر دستگاه؛
   دستگاه‌های قطع هم صفحهٔ «CONNECTION FAILED» با اطلاعات دیتابیس دارند. الگوی اجرا
   مثل probe: Thread پس‌زمینه + progress زنده + توقف مشارکتی؛ هم‌زمان فقط یک گزارش.
+  **مالک فلگ `running` فقط worker گزارش است** — `collect_topology_info_many` نباید
+  `running` را بنویسد (باگ Task 15: گزارش در فاز graph/pdf «تمام‌شده» دیده می‌شد و
+  فرانت‌اند polling را زودتر قطع می‌کرد).
 - **سایر:** گزارش‌های هوشمند، Winbox tools، مدیریت VPN، ایمیل/اطلاع‌رسانی.
 
 ## ۶) نکات دام‌دار (Gotchas)

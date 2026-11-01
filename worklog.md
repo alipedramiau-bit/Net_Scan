@@ -267,3 +267,22 @@ Work Log:
 
 Stage Summary:
 - The Smart Reports tab can now build a per-device PDF topology report: real path from every MikroTik device to the user-entered core router IP with exact interface-to-interface links, IPs, neighbors and interfaces of every device — sample output verified visually (3 pages: edge router, core router, connection-failed page)
+
+---
+Task ID: 16
+Agent: main (Z.ai)
+Task: «انتخاب دستگاه‌ها از دیتابیس» — جستجو/فیلتر/انتخاب چندگانه برای گزارش مسیر
+
+Work Log:
+- backend/main.py: GET /devices پارامتر اختیاری `database` گرفت (اعتبارسنجی با _resolve_report_database → 404 برای نام ناشناخته، db_path به db.query_devices) تا فهرست دستگاه‌های هر دیتابیس کاتالوگ — نه فقط دیتابیس فعال — قابل دریافت باشد
+- backend/route_topology.py FIX (باگ Task 15): collect_topology_info_many دیگر فلگ running پیشرفت را نمی‌نویسد (قبلاً پس از پایان خواندن running=False می‌شد در حالی که فازهای graph/pdf هنوز در جریان بود؛ نتیجه: فرانت‌اند polling را زودتر قطع و PDF را نمی‌گرفت) — مالک running فقط worker گزارش است
+- frontend/src.jsx: کامپوننت جدید DevicePickerModal (مودال RTL با کلاس‌های modal-* موجود): دریافت فهرست از /devices?database=…&limit=100000&sort=ip؛ جستجوی آزاد کلاینت‌ساید (IP/نام/تگ/نوع/دسته)، فیلتر «فقط دستگاه‌های میکروتیک» (همان قاعدهٔ isMikrotik: classification یا پورت 8291/8728) و «فقط پینگ‌خورده»؛ لیست با چک‌باکس (نمایش ۳۰۰ ردیف اول + هشدار شمارشی)، «انتخاب همه موارد فیلترشده»، «حذف انتخاب‌ها»، شمارندهٔ زنده، سقف ۲۰۰ دستگاه با خطای قرمز و غیرفعال‌شدن تایید
+- frontend/src.jsx: بخش «گزارش مسیر تا روتر مرکزی» دکمهٔ «انتخاب دستگاه‌ها از دیتابیس» + چیپ وضعیت گرفت («انتخاب دستی: N دستگاه ✕» یا «همه دستگاه‌های میکروتیک دیتابیس (حداکثر ۸۰)»)؛ startReport با انتخاب دستی ips + max_devices=min(200,max(80,N)) می‌فرستد؛ تغییر دیتابیس انتخاب را پاک می‌کند
+- frontend/style.css: استایل‌های device-picker-modal/list/row/tag/class
+- frontend/dist بازسازی شد (index-C7AVjBVp.js)
+- scripts/test_device_picker.py (۱۸ بررسی): پارامتر database در /devices (دیتابیس‌های A/B موقت، پیش‌فرض فعال، 404)، فیلترها با database (classification/q/ping_ok)، گزارش مسیر با انتخاب صریح (حذف غیرمیکروتیک، devices=2، X-Topology-Devices=2، ۲ صفحه PDF)، سقف max_devices، 400 برای انتخاب فقط-غیرمیکروتیک — ALL PASS؛ رگرسیون: test_route_topology_pdf/unit، test_export_mikrotik_csv، test_json_export_route_report، test_api_probe_progress، test_search_and_db، pytest tests/ (20) — همه PASS
+- AGENTS.md (فهرست تست‌ها، feature map، گاتچا مالکیت running) + README.md (پارامتر database در API، بند «انتخاب دستگاه‌ها از دیتابیس» در بخش گزارش مسیر)
+
+Stage Summary:
+- کاربر می‌تواند در گزارش هوشمند، از لیست دستگاه‌های دیتابیس انتخاب‌شده جستجو/فیلتر کند و فقط زیرمجموعه‌ای از دستگاه‌های میکروتیک را برای «گزارش مسیر تا روتر مرکزی» برگزیند (بدون انتخاب = رفتار قبلی)
+- باگ رقابتی پیشرفت گزارش مسیر (قطع‌شدن زودهنگام polling در فاز graph/pdf) رفع شد

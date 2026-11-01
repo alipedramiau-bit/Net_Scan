@@ -360,7 +360,15 @@ def get_devices(
     order: str = Query(default="asc", pattern="^(asc|desc)$"),
     limit: int = Query(default=500, ge=1, le=200000),
     offset: int = Query(default=0, ge=0),
+    database: str | None = Query(
+        default=None, max_length=64,
+        description="دیتابیس مقصد (پیش‌فرض: دیتابیس فعال) — برای انتخاب دستگاه از هر دیتابیس کاتالوگ",
+    ),
 ):
+    db_path = None
+    if database and database.strip():
+        _resolve_report_database(database.strip())  # 404 برای نام ناشناخته
+        db_path = str(db.db_path_for(database.strip()))
     return db.query_devices(
         classification=classification,
         has_port=has_port,
@@ -373,6 +381,7 @@ def get_devices(
         sort=sort,
         order=order,
         device_type=device_type,
+        db_path=db_path,
     )
 
 @app.get("/devices/export.csv")
