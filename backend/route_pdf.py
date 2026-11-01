@@ -48,6 +48,20 @@ PATH_TAG_SIZE = 6.0       # برچسب شاهد درون‌سطر (قبلاً 5.
 PATH_WRAP_LBL_SIZE = 7.2  # برچسب لینک در اتصال شکست سطر (قبلاً 5.8)
 PATH_WRAP_TAG_SIZE = 6.4  # برچسب شاهد در اتصال شکست سطر (قبلاً 5.2)
 
+# Task 26: نام دستگاه باید «درشت و خوانا» باشد — هم در نوار بالای صفحه و هم در
+# جعبه‌های نمودار مسیر (درخواست کاربر: «فونت نام دستگاه در بالای گزارش مسیریابی
+# را بزرگتر کن بهتر دیده شود»). قبلاً نام در جعبه‌ها 6.6pt و در نوار بالا 7.5pt
+# بود که در چاپ ناخوانا بود؛ حالا نام‌های بلند در جعبه دورَقمی جا می‌شوند
+# (_fit_lines) و برای جبران ارتفاع، فاصلهٔ سطرهای جدول‌ها کمی جمع‌تر شده است.
+PATH_NAME_SIZE = 8.5      # نام دستگاه در جعبه‌های زنجیرهٔ اصلی (قبلاً 6.6)
+PATH_UP_NAME_SIZE = 8.0   # نام دستگاه در جعبه‌های زنجیرهٔ upstream (قبلاً 6.6)
+PATH_BOX_H = 36           # ارتفاع جعبهٔ اصلی (قبلاً 30 — جا برای نام دورَقمی)
+PATH_UP_BOX_H = 32        # ارتفاع جعبهٔ upstream (قبلاً 26)
+PATH_IP_SIZE = 6.3        # IP زیر نام در جعبهٔ اصلی (قبلاً 6.0)
+PATH_UP_IP_SIZE = 6.0     # IP زیر نام در جعبهٔ upstream (قبلاً 5.8)
+PATH_ROW_STRIDE = 30      # فاصلهٔ عمودی سطرهای نمودار (قبلاً 34 — جبران ارتفاع جعبه)
+HEADER_NAME_SIZE = 11.0   # نام دستگاه در نوار بالای صفحه (قبلاً 7.5)
+
 
 def _san(s) -> str:
     """Keep latin-1 printable characters (Helvetica core font)."""
@@ -62,6 +76,68 @@ def _fit(c, text: str, font: str, size: float, max_w: float) -> str:
     while text and c.stringWidth(text + "...", font, size) > max_w:
         text = text[:-1]
     return text + "..."
+
+
+def _fit_lines(c, text: str, font: str, size: float, max_w: float,
+               max_lines: int = 2) -> list[str]:
+    """متن را در حداکثر max_lines سطر جا می‌دهد (Task 26).
+
+    نام دستگاه با فونت درشت‌تر معمولاً در یک سطرِ عرض جعبه جا نمی‌شود؛ به جای
+    بریدن آن با «...» (ناخوانا)، تا دو سطر شکسته می‌شود و فقط اگر باز هم جا
+    نشد سطر آخر با «...» کوتاه می‌شود. هر سطر برگشتی تضمیناً عرضش <= max_w است.
+    نام‌های میکروتیک معمولاً «بدون فاصله» و با خط تیره/نقطه‌اند (مثل
+    RB-Anbar-daruel-HapLite)؛ پس شکستن فقط در فاصله کافی نیست — در مرز
+    خط تیره/نقطه/زیرخط/دو نقطه/اسلش هم شکسته می‌شود.
+    """
+    text = _san(text)
+    if not text:
+        return [""]
+    if c.stringWidth(text, font, size) <= max_w:
+        return [text]
+    toks: list[str] = []
+    cur = ""
+    for ch in text:
+        cur += ch
+        if ch in " \t-._:/":
+            toks.append(cur)
+            cur = ""
+    if cur:
+        toks.append(cur)
+    lines: list[str] = []
+    cur = ""
+    i = 0
+    truncated = False
+    while i < len(toks):
+        tok = toks[i]
+        cand = cur + tok
+        if cur and c.stringWidth(cand.rstrip(), font, size) > max_w:
+            lines.append(cur.rstrip())
+            if len(lines) == max_lines:
+                truncated = True
+                break
+            cur = ""
+            continue
+        cur = cand
+        i += 1
+    if not truncated and cur.strip():
+        lines.append(cur.rstrip())
+    if not lines:
+        lines = [text]
+    out: list[str] = []
+    for ln in lines:
+        if c.stringWidth(ln, font, size) <= max_w:
+            out.append(ln)
+            continue
+        t = ln
+        while t and c.stringWidth(t + "...", font, size) > max_w:
+            t = t[:-1]
+        out.append(t + "...")
+    if truncated and out and not out[-1].endswith("..."):
+        t = out[-1]
+        while t and c.stringWidth(t + "...", font, size) > max_w:
+            t = t[:-1]
+        out[-1] = t + "..."
+    return out
 
 
 def _fmt_ip_list(ports) -> str:
@@ -89,7 +165,7 @@ def _section(c, y: float, title: str, count: str | None = None) -> float:
 
 def _kv_grid(c, y: float, rows: list[tuple[str, str]]) -> float:
     col_w = (PAGE_W - 2 * M) / 2
-    line_h = 13
+    line_h = 12.5  # Task 26: 13→12.5 — جبران ارتفاع بیشتر جعبه‌های نمودار
     for i, (k, v) in enumerate(rows):
         cx = M if i % 2 == 0 else M + col_w
         if i % 2 == 0:
@@ -111,14 +187,34 @@ def _page_header(c, idx: int, total: int, name: str, ip: str, central_ip: str,
     c.rect(0, top - band_h, PAGE_W, band_h, fill=1, stroke=0)
     c.setFillColor((1, 1, 1))
     c.setFont("Helvetica-Bold", 13.5)
-    c.drawString(M, top - 22, "Detailed Router Path Topology")
+    c.drawString(M, top - 21, "Detailed Router Path Topology")
     c.setFont("Helvetica-Bold", 8)
     c.drawRightString(PAGE_W - M, top - 21, f"Router {idx} of {total}")
+    # Task 26: نام دستگاه در بالای گزارش درشت و خوانا — قبلاً کل خط
+    # «Target: name (ip)» با 7.5pt رسم می‌شد؛ حالا برچسب «Target:» کوچک می‌ماند
+    # ولی خودِ نام Helvetica-Bold 11 می‌شود و IP با 8 در ادامه‌اش می‌آید.
     c.setFont("Helvetica", 7.5)
     c.setFillColor((0.82, 0.87, 0.93))
-    c.drawString(M, top - 36, _fit(c, f"Target: {_san(name)}  ({ip})", "Helvetica", 7.5, 300))
-    c.drawRightString(PAGE_W - M, top - 36, f"Core Router: {central_ip}")
-    c.drawString(M, top - 47, _san(generated)[:110])
+    c.drawString(M, top - 37, "Target: ")
+    lbl_w = c.stringWidth("Target: ", "Helvetica", 7.5)
+    core_txt = f"Core Router: {central_ip}"
+    core_w = c.stringWidth(core_txt, "Helvetica", 7.5)
+    ip_txt = f"({ip})" if ip else ""
+    ip_w = (c.stringWidth(ip_txt, "Helvetica", 8) + 5) if ip_txt else 0
+    name_x = M + lbl_w + 2
+    nm = _fit(c, _san(name) or "-", "Helvetica-Bold", HEADER_NAME_SIZE,
+              max(PAGE_W - M - core_w - 10 - name_x - ip_w, 60))
+    c.setFillColor((1, 1, 1))
+    c.setFont("Helvetica-Bold", HEADER_NAME_SIZE)
+    c.drawString(name_x, top - 37, nm)
+    if ip_txt:
+        c.setFont("Helvetica", 8)
+        c.setFillColor((0.82, 0.87, 0.93))
+        c.drawString(name_x + c.stringWidth(nm, "Helvetica-Bold", HEADER_NAME_SIZE) + 5,
+                     top - 37, ip_txt)
+    c.drawRightString(PAGE_W - M, top - 37, core_txt)
+    c.setFont("Helvetica", 7)
+    c.drawString(M, top - 48, _san(generated)[:110])
 
 
 def _footer(c, idx: int, total: int, database: str) -> None:
@@ -150,7 +246,7 @@ def _addr_table(c, y: float, addresses: list[dict]) -> float:
         for off, v, w in zip((0, col[0], col[0] + col[1]), vals, col):
             c.setFillColor(INK)
             c.drawString(M + 4 + off, y, _fit(c, v, "Helvetica", 7, w - 8))
-        y -= 11.5
+        y -= 11  # Task 26: 11.5→11 — جبران ارتفاع جعبه‌های نمودار
     if len(rows) > len(shown):
         c.setFillColor(GRAY)
         c.setFont("Helvetica-Oblique", 6.5)
@@ -167,7 +263,7 @@ def _iface_grid(c, y: float, interfaces: list[dict]) -> float:
     c.setFont("Helvetica", 6.8)
     for idx, it in enumerate(shown):
         cx = M + (idx // per_col) * col_w
-        ry = y - 11 * (idx % per_col) - 11
+        ry = y - 10.6 * (idx % per_col) - 10.6  # Task 26: 11→10.6
         run = (it.get("running") or "").lower() == "true" and (it.get("disabled") or "").lower() != "true"
         state = "up" if run else ("off" if (it.get("disabled") or "").lower() == "true" else "down")
         c.setFillColor(GREEN if run else GRAY)
@@ -177,7 +273,7 @@ def _iface_grid(c, y: float, interfaces: list[dict]) -> float:
         c.drawString(cx + 6, ry, _fit(c, f"{_san(it.get('name'))} ({_san(it.get('type')) or '-'}) {state}",
                                       "Helvetica", 6.8, col_w - 10))
     # tallest column = min(n, per_col) rows (column-major layout)
-    y -= 11 * min(len(shown), per_col) + 2
+    y -= 10.6 * min(len(shown), per_col) + 2  # Task 26: 11→10.6 — جبران ارتفاع جعبه‌ها
     if len(rows) > len(shown):
         c.setFillColor(GRAY)
         c.setFont("Helvetica-Oblique", 6.5)
@@ -285,7 +381,7 @@ def _path_diagram(c, y: float, path: dict, nodes: dict, core_key: str, central_i
             per_row = PATH_PER_ROW
             bw = PATH_BOX_W
             gap = PATH_ROW_GAP
-            bh = 26
+            bh = PATH_UP_BOX_H  # Task 26: 26→32 — جا برای نام درشت دورَقمی
             shown_up = up[: 2 * per_row]
             node_seq = [up[0]["from_key"]] + [h["to_key"] for h in shown_up]
             y_start = y - 2
@@ -294,7 +390,7 @@ def _path_diagram(c, y: float, path: dict, nodes: dict, core_key: str, central_i
                 row, col = path_box_slot(bi)
                 nd = nodes.get(nkey) or {}
                 x = M + col * (bw + gap)
-                by = y_start - row * (bh + 30) - bh
+                by = y_start - row * (bh + PATH_ROW_STRIDE) - bh
                 if bi > 0:
                     h = shown_up[bi - 1]
                     from_if = _san(h.get("from_if")) or "?"
@@ -317,17 +413,23 @@ def _path_diagram(c, y: float, path: dict, nodes: dict, core_key: str, central_i
                 c.setFillColor((0.996, 0.929, 0.780) if ghost else (0.973, 0.980, 0.988))
                 c.roundRect(x, by, bw, bh, 4, fill=1, stroke=1)
                 c.setFillColor(INK)
-                c.setFont("Helvetica-Bold", 6.6)
+                # Task 26: نام دستگاه درشت (8pt) و در صورت بلند بودن دورَقمی
                 nm = (_san(nd.get("name")) or nkey)
                 if ghost:
                     nm = nm + " (?)"
-                c.drawCentredString(x + bw / 2, by + bh - 11, _fit(c, nm, "Helvetica-Bold", 6.6, bw - 8))
+                nm_lines = _fit_lines(c, nm, "Helvetica-Bold", PATH_UP_NAME_SIZE, bw - 8, 2)
+                c.setFont("Helvetica-Bold", PATH_UP_NAME_SIZE)
+                if len(nm_lines) == 1:
+                    c.drawCentredString(x + bw / 2, by + bh - 14, nm_lines[0])
+                else:
+                    c.drawCentredString(x + bw / 2, by + bh - 12, nm_lines[0])
+                    c.drawCentredString(x + bw / 2, by + bh - 21, nm_lines[1])
                 c.setFillColor(GRAY)
-                c.setFont("Helvetica", 5.8)
-                c.drawCentredString(x + bw / 2, by + 6, _fit(c, _san(nd.get("ip")) or "", "Helvetica", 5.8, bw - 8))
+                c.setFont("Helvetica", PATH_UP_IP_SIZE)
+                c.drawCentredString(x + bw / 2, by + 4, _fit(c, _san(nd.get("ip")) or "", "Helvetica", PATH_UP_IP_SIZE, bw - 8))
                 prev_box = (x, by, bw, bh)
             last_row = path_box_slot(len(node_seq) - 1)[0]
-            y = y_start - (last_row + 1) * (bh + 30) + 8
+            y = y_start - (last_row + 1) * (bh + PATH_ROW_STRIDE) + 8
             if len(up) > len(shown_up):
                 c.setFillColor(GRAY)
                 c.setFont("Helvetica-Oblique", 6.5)
@@ -346,7 +448,7 @@ def _path_diagram(c, y: float, path: dict, nodes: dict, core_key: str, central_i
     per_row = PATH_PER_ROW
     bw = PATH_BOX_W
     gap = PATH_ROW_GAP
-    bh = 30
+    bh = PATH_BOX_H  # Task 26: 30→36 — جا برای نام درشت دورَقمی
     shown = hops[: 2 * per_row]
     node_seq = [ (hops[0]["from_key"] if hops else None) ]
     for h in shown:
@@ -358,7 +460,7 @@ def _path_diagram(c, y: float, path: dict, nodes: dict, core_key: str, central_i
         nd = nodes.get(nkey) or {}
         is_core = (nkey == core_key)
         x = M + col * (bw + gap)
-        by = y_start - row * (bh + 34) - bh
+        by = y_start - row * (bh + PATH_ROW_STRIDE) - bh
         # connector from previous box
         if bi > 0:
             h = shown[bi - 1]
@@ -385,15 +487,22 @@ def _path_diagram(c, y: float, path: dict, nodes: dict, core_key: str, central_i
             c.setFillColor((0.973, 0.980, 0.988))
         c.roundRect(x, by, bw, bh, 4, fill=1, stroke=1)
         c.setFillColor((1, 1, 1) if is_core else INK)
-        c.setFont("Helvetica-Bold", 6.6)
-        c.drawCentredString(x + bw / 2, by + bh - 12, _fit(c, _san(nd.get("name")) or nkey, "Helvetica-Bold", 6.6, bw - 8))
-        c.setFont("Helvetica", 6)
+        # Task 26: نام دستگاه درشت (8.5pt) و در صورت بلند بودن دورَقمی داخل جعبه
+        nm = _san(nd.get("name")) or nkey
+        nm_lines = _fit_lines(c, nm, "Helvetica-Bold", PATH_NAME_SIZE, bw - 8, 2)
+        c.setFont("Helvetica-Bold", PATH_NAME_SIZE)
+        if len(nm_lines) == 1:
+            c.drawCentredString(x + bw / 2, by + bh - 16, nm_lines[0])
+        else:
+            c.drawCentredString(x + bw / 2, by + bh - 13, nm_lines[0])
+            c.drawCentredString(x + bw / 2, by + bh - 22, nm_lines[1])
+        c.setFont("Helvetica", PATH_IP_SIZE)
         ip_txt = _san(nd.get("ip")) or _san(nd.get("core_ip")) or ""
         c.setFillColor((0.92, 0.97, 0.94) if is_core else GRAY)
-        c.drawCentredString(x + bw / 2, by + 7, _fit(c, ip_txt, "Helvetica", 6, bw - 8))
+        c.drawCentredString(x + bw / 2, by + 6, _fit(c, ip_txt, "Helvetica", PATH_IP_SIZE, bw - 8))
         prev_box = (x, by, bw, bh)
     last_row = path_box_slot(len(node_seq) - 1)[0]
-    y = y_start - (last_row + 1) * (bh + 34) + 10
+    y = y_start - (last_row + 1) * (bh + PATH_ROW_STRIDE) + 10
     if len(hops) > len(shown):
         c.setFillColor(GRAY)
         c.setFont("Helvetica-Oblique", 6.5)
@@ -428,7 +537,7 @@ def _hops_table(c, y: float, path: dict, nodes: dict) -> float:
         c.drawString(M + 250, y, _fit(c, right, "Helvetica", 6.8, 216))
         c.setFillColor(GREEN)
         c.drawString(M + 470, y, _fit(c, ev + "  VERIFIED", "Helvetica", 6.8, 95))
-        y -= 12
+        y -= 11.2  # Task 26: 12→11.2 — جبران ارتفاع جعبه‌های نمودار
     total = len(path.get("hops") or [])
     if total > len(hops):
         c.setFillColor(GRAY)
@@ -444,14 +553,14 @@ def _evidence_lines(c, y: float, lines: list[str], reachable: bool, central_ip: 
     for ln in shown:
         c.setFillColor(INK)
         c.drawString(M + 4, y, _fit(c, _san(ln), "Helvetica", 6.8, PAGE_W - 2 * M - 8))
-        y -= 11
+        y -= 10  # Task 26: 11→10 — جبران ارتفاع جعبه‌های نمودار
     if not shown:
         c.setFillColor(GRAY)
         txt = "No direct routing/adjacency evidence collected for this device."
         if not reachable:
             txt = f"No direct adjacency evidence to core router {central_ip}."
         c.drawString(M + 4, y, txt)
-        y -= 11
+        y -= 10
     return y
 
 

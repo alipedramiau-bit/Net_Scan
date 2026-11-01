@@ -141,7 +141,7 @@ check("no box outside page frame (all pages)", not outside,
       f"{len(outside)} outside, worst x+w={max((b[2] + b[4] for b in all_boxes), default=0):.1f} <= {W - M:.1f}")
 
 # ---------- 2) صفحهٔ reachable: ۶ جعبه در ۲ سطر + اتصال Z شکل ----------
-pb = [b for b in page_boxes(0) if abs(b[5] - 30) < 0.1]
+pb = [b for b in page_boxes(0) if abs(b[5] - rpdf.PATH_BOX_H) < 0.1]
 check("reachable page: 6 path boxes", len(pb) == 6, str(len(pb)))
 rows_y = sorted({round(b[3], 1) for b in pb}, reverse=True)
 check("reachable page: boxes on 2 rows (wrap happened)", len(rows_y) == 2, str(rows_y))
@@ -160,13 +160,13 @@ check("core router box inside frame", core_box[2] >= M - 0.5 and core_box[2] + c
 # اتصال Z شکل: خط افقی راست‌به‌چپ بین دو سطر (یگانه امضای _row_wrap_connector)
 wrap_lines = [l for l in page_lines(0) if l[3] == l[5] and l[2] > l[4] and (l[2] - l[4]) > 300]
 check("reachable page: Z-shaped row-wrap connector present", len(wrap_lines) >= 1, str(wrap_lines[:1]))
-gutter_top, gutter_bottom = rows_y[1] + 30, rows_y[0]
+gutter_top, gutter_bottom = rows_y[1] + rpdf.PATH_BOX_H, rows_y[0]
 check("wrap connector lies in the gutter between rows",
       all(gutter_bottom > l[3] > gutter_top for l in wrap_lines),
       f"gutter {gutter_top:.1f}..{gutter_bottom:.1f}, y={wrap_lines[0][3]:.1f}" if wrap_lines else "")
 
 # ---------- 3) صفحهٔ unreachable: زنجیرهٔ upstream هم wrap می‌شود ----------
-ub = [b for b in page_boxes(1) if abs(b[5] - 26) < 0.1]
+ub = [b for b in page_boxes(1) if abs(b[5] - rpdf.PATH_UP_BOX_H) < 0.1]
 check("unreachable page: 6 upstream boxes", len(ub) == 6, str(len(ub)))
 urows_y = sorted({round(b[3], 1) for b in ub}, reverse=True)
 check("unreachable page: 2 rows", len(urows_y) == 2, str(urows_y))
@@ -198,7 +198,7 @@ try:
     rc9 = _Cap.instances[-1]
 finally:
     rpdf.pdfcanvas.Canvas = _original_canvas
-boxes9 = [op for op in rc9.ops if op[1] == "box" and abs(op[5] - 30) < 0.1]
+boxes9 = [op for op in rc9.ops if op[1] == "box" and abs(op[5] - rpdf.PATH_BOX_H) < 0.1]
 outside9 = [b for b in boxes9 if b[2] < M - 0.5 or b[2] + b[4] > W - M + 0.5]
 check("9-hop chain: all shown boxes inside frame", not outside9, f"{len(boxes9)} boxes")
 check("9-hop chain: still capped at 2 rows (one page per device)", len({round(b[3], 1) for b in boxes9}) == 2)
