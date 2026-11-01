@@ -341,3 +341,22 @@ Work Log:
 
 Stage Summary:
 - پس از هر کانفیگ گروهی، کاربر با یک کلیک فایل CSV فقط دستگاه‌های ناموفق را با نام و تگ و علت فارسی خطا می‌گیرد و می‌تواند برای پیگیری/گزارش‌دهی از آن استفاده کند
+
+---
+
+Task ID: 20
+Agent: main (Z.ai)
+Task: رفع «موفقِ» کاذب در کانفیگ گروهی — تأیید پس از اعمال (باگ گزارش‌شدهٔ کاربر: دستگاه اعلام موفق می‌شود ولی کانفیگ اعمال نشده، api/winbox فعال و یوزر درست)
+
+Work Log:
+- ریشه‌یابی در backend/routeros_api.py: مسیرهای انتهایی run_script کور بودند — «/execute» و «/system/script/add + run» به‌محضِ «شروعِ» اسکریپت !done برمی‌گردانند و خطاهای داخل اسکریپت (user already exists، خطای نگارشی، [find] و ...) هرگز به فراخواننده نمی‌رسیدند → موفقِ کاذب؛ همچنین «set [find ...]» به‌اشتباه به sentence با ?query ترجمه می‌شد که در API فقط روی print مجاز است
+- backend/routeros_api.py — اجرای قابل‌اتکا: مسیر /execute حذف شد؛ اسکریپت‌های کنسولی داخل «:do { ... } on-error={ :set NetScanPushXXXX "failed" }» پیچیده می‌شوند و ابتدای اسکریپت وضعیت "running" و پایانِ موفق "ok" در یک متغیر global یکتا (NetScanPush+هشت‌کاراکتر تصادفی) نوشته می‌شود؛ وضعیت با poll روی /system/script/environment/print خوانده می‌شود (هر ۰٫۴ ثانیه، سقف PUSH_STATUS_TIMEOUT=30s)؛ failed → خطای فارسی «اسکریپت روی دستگاه خطا داد (on-error)»؛ بدون وضعیت → «وضعیت اجرای اسکریپت در زمان مجاز خوانده نشد»؛ پاک‌سازی متغیر (با .id از print) و حذف اسکریپت موقت در finally
+- backend/routeros_api.py — پارسر: _parse_terminal_line بازنویسی شد → خروجی (sentence, path_def) با معنای «خط ادامهٔ» کنسول (/snmp community و set بعدی یک دستورند)؛ «[find ...]» روی set/remove/enable/disable دیگر ترجمه نمی‌شود و به مسیر کنسول می‌رود (فقط روی print با ?query مجاز)؛ unquote مشترک (_unquote) برای رمزهای داخل کوتیشن مثل password="Olom@2026$"
+- backend/routeros_api.py — تأیید پس از اعمال: _extract_verify_intents از متن خام اسکریپت تغییراتِ وعده‌داده را درمی‌آورد (user add/set با name+password، system identity set، snmp set enabled، ip service enable/disable با numbers/اسم ساده) و verify_push همان وضعیت را دوباره می‌خواند: کاربر = اتصال مجدد و login با همان نام/رمز (قوی‌ترین مدرک)، identity = /system/identity/print، snmp = /snmp/print، سرویس = /ip/service/print؛ عدمِ تطبیق → (False, جزئیات فارسی)
+- push_config: پس از اجرای موفق verify می‌کند؛ verified=False → نتیجه «ناموفق» با reason=«کانفیگ اجرا شد اما تأیید اعمال نشد: ...» و error="verify: ..." (در progress/CSV/retry خودکار شمرده می‌شود)؛ ok=True با verified=True/None؛ except عمومی حالا reason دسته‌بندی‌شده هم دارد؛ _one دیگر reason موجود را بازنویسی نمی‌کند؛ classify_push_error: الگوی «already have such user» → «کاربر از قبل روی دستگاه وجود دارد — برای تغییر رمز از set استفاده کنید»
+- frontend/src.jsx + style.css: ستون جدید «تأیید اعمال» در جدول «جزئیات نتایج» — نشان «تأیید شد» (سبز) / «اعمال نشد» (قرمز) / «—» (بدون قصدِ قابل‌تأیید) با کلاس cfg-verify؛ frontend/dist بازسازی شد (index-DcuW4mST.js)
+- scripts/test_push_verification.py (جدید، ۳۷ بررسی): لایهٔ فیک talk/connect/close با لاگین plaintext+challenge و md5 واقعی؛ سناریوی دقیق کاربر (دستگاه done می‌گوید ولی کاربر نمی‌سازد → نهایتاً «ناموفق» با علت فارسی)، کاربر واقعاً ساخته‌شده، identity/snmp اعمال‌شده و نشده، اسکریپت کنسول (wrapper روی :do/on-error در source ثبت‌شده، وضعیت ok/failed/هرگز)، سقف timeout کوتاه‌شده، اجرای موازی از API (۱ موفق + دروغ‌گو + refused → failed=2) و اتصال به CSV ناموفق‌های Task 19 — ALL PASS
+- رگرسیون: test_push_config_progress، test_push_config_failed_csv، test_route_topology_unit، pytest tests/ (20) — همه PASS
+
+Stage Summary:
+- «موفق» در کانفیگ گروهی حالا یعنی «اجرا شد و نتیجه‌اش روی دستگاه تأیید شد»؛ دستگاه‌های دروغ‌گو (done بدون اعمال) با علت فارسی در نمودار پیشرفت، جدول نتایج، ستون «تأیید اعمال» و گزارش CSV ناموفق‌ها دیده می‌شوند و دکمهٔ «تلاش مجدد فقط ناموفق‌ها» آن‌ها را هم پوشش می‌دهد

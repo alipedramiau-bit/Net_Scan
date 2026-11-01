@@ -9,6 +9,7 @@ import re
 import socket
 import threading
 import time
+import uuid
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Iterable
 
@@ -267,75 +268,182 @@ def _trap_message(sentence: list[str]) -> str:
     return msg or " | ".join(sentence)
 
 
-def _parse_terminal_line(line: str) -> list[str] | None:
-    """Convert a simple terminal command into an API sentence.
+_TERMINAL_VERBS = ("add", "set", "remove", "enable", "disable", "print", "run")
+_ATTR_RE = re.compile(
+    r"""([A-Za-z0-9\-\.]+)=("(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|[^\s]+)"""
+)
+
+
+def _unquote(val: str) -> str:
+    if (val.startswith('"') and val.endswith('"') and len(val) >= 2) or (
+        val.startswith("'") and val.endswith("'") and len(val) >= 2
+    ):
+        val = val[1:-1]
+    return val.replace('\\"', '"').replace("\\'", "'")
+
+
+def _parse_terminal_line(line: str, cur_path: str | None = None):
+    """Convert one console line into an API sentence.
+
+    Returns ``(sentence | None, path_def | None)``:
+
+    - sentence is an API sentence when the line can be sent natively;
+    - path_def is the new "current path" when the line defines one
+      (``/snmp community`` → ``/snmp/community``) — console lets the next
+      verb-only line continue that path;
+    - ``(None, None)`` means the line is NOT representable natively and must
+      run through the console-script fallback (``:put``, ``:delay``,
+      ``set [find ...]``, ``if``/``for`` blocks, API-style sentences, …).
 
     Examples:
       /user add name=olom1 password="x" group=full
-        → ['/user/add', '=name=olom1', '=password=x', '=group=full']
-      /snmp set enabled=yes trap-version=2
-        → ['/snmp/set', '=enabled=yes', '=trap-version=2']
-      /ip service enable api
-        → ['/ip/service/enable', '=numbers=api']  (best-effort)
+        → (['/user/add', '=name=olom1', '=password=x', '=group=full'], '/user')
+      /snmp community
+        → (None, '/snmp/community')
+      set enabled=yes          (with cur_path='/snmp')
+        → (['/snmp/set', '=enabled=yes'], None)
+      /snmp community remove [ find name="public" ]
+        → (None, None)   # [find] on mutating verbs → console fallback
+
+    Why [find] on set/remove is refused: the RouterOS API only accepts
+    ``?query`` words on print/getall — sending them on set/remove traps or is
+    ignored. Such lines are console syntax and run correctly through the
+    wrapped console-script path (which now reports its own errors).
     """
     line = line.strip()
     if not line or line.startswith("#") or line.startswith(";"):
-        return None
-    # Already API-style
-    if line.startswith("/") and ("=" in line.split()[0] if line.split() else False):
-        return None
+        return None, None
+    # Already API-style sentence (e.g. "/user/add =name=x") → leave untouched
+    first_tok = line.split()[0] if line.split() else ""
+    if first_tok.startswith("/") and "=" in first_tok:
+        return None, None
 
-    # Match: /path/parts command attr=val ...
     m = re.match(
-        r"^(/(?:[A-Za-z0-9\-]+(?:\s+[A-Za-z0-9\-]+)*))\s+(add|set|remove|enable|disable|print|run)\b(.*)$",
+        r"^(/(?:[A-Za-z0-9\-]+(?:\s+[A-Za-z0-9\-]+)*)?)\s+"
+        r"(add|set|remove|enable|disable|print|run)\b\s*(.*)$",
         line,
         re.I,
     )
-    if not m:
-        return None
+    path_def = None
+    if m:
+        path_raw, cmd, rest = m.group(1), m.group(2).lower(), m.group(3).strip()
+        parts = path_raw.replace("/", " ").split()
+        path_def = "/" + "/".join(parts) if parts else cur_path
+    else:
+        # path-only line like "/snmp community" → defines cur_path, no verb
+        if line.startswith("/"):
+            if re.fullmatch(r"/[A-Za-z0-9\- ]+", line):
+                parts = line.replace("/", " ").split()
+                return None, ("/" + "/".join(parts) if parts else cur_path)
+            return None, None
+        # continuation: verb-only line uses the previous path
+        m2 = re.match(r"^(add|set|remove|enable|disable|print|run)\b\s*(.*)$", line, re.I)
+        if not m2 or not cur_path:
+            return None, None
+        path_raw, cmd, rest = cur_path, m2.group(1).lower(), m2.group(2).strip()
+        parts = path_raw.strip("/").split("/")
 
-    path_raw, cmd, rest = m.group(1), m.group(2).lower(), m.group(3).strip()
-    # "/ip service" or "/user" or "/snmp community" → /ip/service , /user , /snmp/community
-    parts = path_raw.replace("/", " ").split()
-    path = "/" + "/".join(parts)
-    api_cmd = f"{path}/{cmd}"
+    api_cmd = "/" + "/".join(parts) + "/" + cmd
 
     attrs: list[str] = []
-    # find query: [ find ... ] → ?key=val (remove from rest before attr parse)
     find_m = re.search(r"\[\s*find\s+([^\]]+)\]", rest, re.I)
     rest_for_attrs = rest
     if find_m:
+        if cmd != "print":
+            # mutating verb with [find] → console-only syntax
+            return None, path_def
         query = find_m.group(1).strip()
-        rest_for_attrs = (rest[:find_m.start()] + " " + rest[find_m.end():]).strip()
-        for part in re.findall(
-            r"""([A-Za-z0-9\-\.]+)=("(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|[^\s]+)""",
-            query,
-        ):
-            k, v = part
-            if (v.startswith('"') and v.endswith('"')) or (v.startswith("'") and v.endswith("'")):
-                v = v[1:-1]
-            attrs.append(f"?{k}={v}")
+        rest_for_attrs = (rest[: find_m.start()] + " " + rest[find_m.end():]).strip()
+        for k, v in _ATTR_RE.findall(query):
+            attrs.append(f"?{k}={_unquote(v)}")
 
-    # Tokenize attr=value with optional quotes
-    for am in re.finditer(
-        r"""([A-Za-z0-9\-\.]+)=("(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|[^\s]+)""",
-        rest_for_attrs,
-    ):
-        key = am.group(1)
-        val = am.group(2)
-        if (val.startswith('"') and val.endswith('"')) or (val.startswith("'") and val.endswith("'")):
-            val = val[1:-1]
-        val = val.replace('\\"', '"').replace("\\'", "'")
-        attrs.append(f"={key}={val}")
+    for key, val in _ATTR_RE.findall(rest_for_attrs):
+        attrs.append(f"={key}={_unquote(val)}")
 
-    # enable/disable with bare name: /ip service enable api
+    # enable/disable/remove/run with bare name: /ip service enable api
     if cmd in ("enable", "disable", "remove", "run") and not attrs:
         leftover = re.sub(r"\[\s*find[^\]]*\]", "", rest, flags=re.I).strip()
         if leftover and "=" not in leftover:
             num = leftover.strip().strip('"').strip("'")
             attrs.append(f"=numbers={num}")
 
-    return [api_cmd, *attrs]
+    return [api_cmd, *attrs], path_def
+
+
+def _extract_verify_intents(script: str) -> dict:
+    """What state changes does this script promise? (for post-push verification)
+
+    read from the RAW script text (works for both the native-API path and the
+    console fallback) with the same quote-stripping used for the push.
+    """
+    users: list[tuple[str, str]] = []
+    identity = ""
+    snmp_enabled: bool | None = None
+    services: list[tuple[str, bool]] = []
+
+    def handle(path: str | None, verb: str, rest: str) -> None:
+        nonlocal identity, snmp_enabled
+        verb = verb.lower()
+        if path == "/user" and verb in ("add", "set"):
+            nm = next((v for k, v in _ATTR_RE.findall(rest) if k.lower() == "name"), "")
+            pw = next((v for k, v in _ATTR_RE.findall(rest) if k.lower() == "password"), "")
+            if nm and pw:
+                pair = (_unquote(nm), _unquote(pw))
+                if pair not in users:
+                    users.append(pair)
+        elif path == "/system/identity" and verb == "set":
+            nm = next((v for k, v in _ATTR_RE.findall(rest) if k.lower() == "name"), "")
+            if nm:
+                identity = _unquote(nm)
+        elif path == "/snmp" and verb == "set":
+            en = next((v for k, v in _ATTR_RE.findall(rest) if k.lower() == "enabled"), "")
+            if en:
+                snmp_enabled = _unquote(en).lower() == "yes"
+        elif path == "/ip/service" and verb in ("enable", "disable"):
+            want = verb == "enable"
+            nm = next(
+                (v for k, v in _ATTR_RE.findall(rest) if k.lower() in ("numbers", "name")), ""
+            )
+            if not nm:
+                leftover = re.sub(r"\[\s*find[^\]]*\]", "", rest, flags=re.I).strip()
+                if leftover and "=" not in leftover:
+                    nm = leftover.strip().strip('"').strip("'")
+            if nm:
+                services.append((_unquote(nm), want))
+
+    cur_path: str | None = None
+    for raw in (script or "").replace("\r\n", "\n").split("\n"):
+        ln = raw.strip()
+        if not ln or ln.startswith("#") or ln.startswith(";"):
+            continue
+        m = re.match(
+            r"^(/(?:[A-Za-z0-9\-]+(?:\s+[A-Za-z0-9\-]+)*)?)\s+"
+            r"(add|set|remove|enable|disable|print|run)\b\s*(.*)$",
+            ln,
+            re.I,
+        )
+        if m:
+            path_raw, verb, rest = m.group(1), m.group(2), m.group(3)
+            if path_raw:
+                parts = path_raw.replace("/", " ").split()
+                cur_path = "/" + "/".join(parts) if parts else cur_path
+            handle(cur_path, verb, rest)
+            continue
+        if ln.startswith("/"):
+            # path-only line like "/snmp community" → next verb continues it
+            if re.fullmatch(r"/[A-Za-z0-9\- ]+", ln):
+                parts = ln.replace("/", " ").split()
+                cur_path = "/" + "/".join(parts) if parts else cur_path
+            continue
+        m2 = re.match(r"^(add|set|remove|enable|disable|print|run)\b\s*(.*)$", ln, re.I)
+        if m2 and cur_path:
+            handle(cur_path, m2.group(1), m2.group(2))
+    return {
+        "users": users,
+        "identity": identity,
+        "snmp_enabled": snmp_enabled,
+        "services": services,
+    }
 
 
 class RouterOSClient:
@@ -489,15 +597,20 @@ class RouterOSClient:
         lines = [ln.strip() for ln in script.replace("\r\n", "\n").split("\n")]
         lines = [ln for ln in lines if ln and not ln.startswith("#")]
 
-        # 1) Try converting each terminal line to native API sentences
+        # 1) Try converting terminal lines to native API sentences.
+        # cur_path پیاده‌سازی معنای «خط ادامهٔ» کنسول است: /snmp community
+        # و خط بعدیِ set ... یک دستور واحد روی همان مسیر هستند.
         api_sentences: list[list[str]] = []
         unparsed: list[str] = []
+        cur_path: str | None = None
         for ln in lines:
-            parsed = _parse_terminal_line(ln)
+            parsed, path_def = _parse_terminal_line(ln, cur_path)
             if parsed:
                 api_sentences.append(parsed)
-            else:
+            elif path_def is None:
                 unparsed.append(ln)
+            if path_def:
+                cur_path = path_def
 
         if api_sentences and not unparsed:
             all_replies: list[list[str]] = []
@@ -510,61 +623,180 @@ class RouterOSClient:
                 raise RouterOSError("؛ ".join(errors))
             return all_replies
 
-        # 2) /execute (works on many ROS versions for multi-line scripts)
-        try:
-            replies = self.talk(["/execute", f"=script={script}"])
-            self._assert_ok(replies, "اجرای اسکریپت")
-            return replies
-        except RouterOSError as e:
-            errors.append(f"/execute: {e}")
+        # 2) Console-script fallback with self-reported status.
+        # /system/script/run و /execute به‌محضِ «شروعِ» اسکریپت !done برمی‌گردانند
+        # و خطاهای داخل اسکریپت (user exists، خطای نگارشی، [find] و …) هرگز به
+        # فراخواننده نمی‌رسند → منبع «موفقِ» کاذب بود. اسکریپت داخل :do/on-error
+        # پیچیده می‌شود و وضعیت از /system/script/environment خوانده می‌شود.
+        self._run_console_script_checked(script)
+        return []
 
-        # 3) Temporary system script add → run → remove
-        name = f"push-{int(time.time()) % 100000}"
+    # حداقل فاصلهٔ وضعیت‌خوانی و سقف انتظار برای پایان اسکریپت کنسول
+    PUSH_STATUS_TIMEOUT = 30.0
+
+    def _run_console_script_checked(self, script: str) -> None:
+        """اجرای اسکریپت کنسول با ثبت وضعیت موفقیت/خطا روی خودِ دستگاه.
+
+        Raises RouterOSError when the script reports an error or does not
+        finish within PUSH_STATUS_TIMEOUT seconds.
+        """
+        var = "NetScanPush" + uuid.uuid4().hex[:8]
+        name = "netscan-" + var[len("NetScanPush"):].lower()
+        wrapped = (
+            f":global {var}\n"
+            f':set {var} "running"\n'
+            ":do {\n"
+            f"{script}\n"
+            f':set {var} "ok"\n'
+            "} on-error={\n"
+            f':set {var} "failed"\n'
+            "}\n"
+        )
+        # پاک‌سازی بقایای اجرای قبلی (بدون سخت‌گیری)
         try:
-            # ignore remove errors if not exists
-            try:
-                self.talk(["/system/script/remove", f"=numbers={name}"])
-            except Exception:
-                pass
-            replies = self.talk([
+            self.talk(["/system/script/remove", f"=numbers={name}"])
+        except Exception:
+            pass
+        try:
+            self._remove_env_var(var)
+        except Exception:
+            pass
+        self._assert_ok(
+            self.talk([
                 "/system/script/add",
                 f"=name={name}",
-                f"=source={script}",
+                f"=source={wrapped}",
                 "=dont-require-permissions=yes",
-            ])
-            self._assert_ok(replies, "ثبت اسکریپت")
-            replies = self.talk(["/system/script/run", f"=number={name}"])
-            self._assert_ok(replies, "اجرای اسکریپت")
+            ]),
+            "ثبت اسکریپت",
+        )
+        try:
+            self._assert_ok(
+                self.talk(["/system/script/run", f"=number={name}"]), "اجرای اسکریپت"
+            )
+            status = self._poll_env_status(var, timeout_s=self.PUSH_STATUS_TIMEOUT)
+        finally:
+            try:
+                self._remove_env_var(var)
+            except Exception:
+                pass
             try:
                 self.talk(["/system/script/remove", f"=numbers={name}"])
             except Exception:
                 pass
-            return replies
-        except RouterOSError as e:
-            errors.append(f"/system/script: {e}")
+        if status == "ok":
+            return
+        if status == "failed":
+            raise RouterOSError(
+                "اسکریپت روی دستگاه خطا داد (on-error) — کانفیگ کامل اعمال نشد"
+            )
+        raise RouterOSError(
+            "وضعیت اجرای اسکریپت در زمان مجاز خوانده نشد — اسکریپت تمام نشد یا خطای نگارشی دارد"
+        )
+
+    def _poll_env_status(self, var: str, timeout_s: float = 30.0) -> str:
+        """Poll /system/script/environment until `var` reports ok/failed."""
+        deadline = time.time() + max(0.5, float(timeout_s))
+        while time.time() < deadline:
             try:
-                self.talk(["/system/script/remove", f"=numbers={name}"])
+                replies = self.talk(["/system/script/environment/print"])
+            except RouterOSError:
+                return ""
+            for s in replies:
+                if s and s[0] == "!re":
+                    wname = next((w[6:] for w in s if w.startswith("=name=")), "")
+                    if wname == var:
+                        val = next((w[7:] for w in s if w.startswith("=value=")), "")
+                        if val == "ok":
+                            return "ok"
+                        if val.startswith("failed"):
+                            return "failed"
+            time.sleep(0.4)
+        return ""
+
+    def _remove_env_var(self, var: str) -> None:
+        """Remove a global script variable (cleanup after push)."""
+        replies = self.talk(["/system/script/environment/print"])
+        for s in replies:
+            if s and s[0] == "!re":
+                wname = next((w[6:] for w in s if w.startswith("=name=")), "")
+                if wname == var:
+                    rid = next((w[5:] for w in s if w.startswith("=.id=")), "")
+                    if rid:
+                        self.talk(["/system/script/environment/remove", f"=.id={rid}"])
+                    return
+
+    def _read_first_value(self, sentence: list[str], key: str) -> str:
+        """First `=key=` value of the first !re reply (read-back helper)."""
+        for s in self.talk(sentence):
+            if s and s[0] == "!re":
+                return next((w[len(key) + 2:] for w in s if w.startswith(f"={key}=")), "")
+        return ""
+
+    # ------------------------------------------------------------------
+    # Post-push verification: «موفق» فقط وقتی معنا دارد که تغییر واقعاً
+    # روی دستگاه دیده شود (Task 20 — گزارش موفقِ کاذبِ کاربر).
+    # ------------------------------------------------------------------
+    def verify_push(self, script: str) -> tuple[bool | None, str]:
+        """Read back the state the script was supposed to change.
+
+        Returns (verified, detail):
+        - (True, detail)  → همهٔ بررسی‌ها موفق
+        - (False, detail) → حداقل یک تغییر اعمال نشده (شواهد قوی)
+        - (None, "")      → چیزی برای تأیید در اسکریپت نبود
+        """
+        intents = _extract_verify_intents(script)
+        if not (intents["users"] or intents["identity"]
+                or intents["snmp_enabled"] is not None or intents["services"]):
+            return None, ""
+        fails: list[str] = []
+        # ۱) کاربرها: ورود دوباره با همان نام/رمز — قوی‌ترین مدرک اعمال شدن
+        for uname, upass in intents["users"]:
+            try:
+                with RouterOSClient(self.host, port=self.port, timeout=self.timeout) as c2:
+                    c2.login(uname, upass)
             except Exception:
-                pass
-
-        # 4) Mixed: run parsed lines, then remaining via execute
-        if api_sentences:
-            for sent in api_sentences:
-                try:
-                    self.run_api_sentence(sent)
-                except RouterOSError as e:
-                    errors.append(f"{sent[0]}: {e}")
-            if unparsed:
-                remaining = "\n".join(unparsed)
-                try:
-                    replies = self.talk(["/execute", f"=script={remaining}"])
-                    self._assert_ok(replies, "اجرای باقی‌مانده")
-                except RouterOSError as e:
-                    errors.append(str(e))
-            if not errors:
-                return []
-
-        raise RouterOSError("؛ ".join(errors) if errors else "اجرای اسکریپت ناموفق")
+                fails.append(
+                    f"ورود با کاربر «{uname}» پس از اعمال ناموفق بود — کاربر ساخته/به‌روز نشده"
+                )
+        # ۲) identity
+        if intents["identity"]:
+            cur = self._read_first_value(["/system/identity/print"], "name")
+            if cur and cur != intents["identity"]:
+                fails.append(
+                    f"identity دستگاه «{cur}» است؛ «{intents['identity']}» نشده"
+                )
+        # ۳) SNMP
+        if intents["snmp_enabled"] is not None:
+            try:
+                cur = self._read_first_value(["/snmp/print"], "enabled")
+                if cur and (cur == "yes") != intents["snmp_enabled"]:
+                    want = "فعال" if intents["snmp_enabled"] else "غیرفعال"
+                    fails.append(f"SNMP دستگاه هنوز {want} نشده (enabled={cur})")
+            except Exception:
+                pass  # خواندن نباید خودش باعث خطا شود؛ فقط عدمِ تطبیق
+        # ۴) سرویس‌های IP
+        for svc, want_enabled in intents["services"]:
+            try:
+                rows = self.talk(["/ip/service/print"])
+            except Exception:
+                continue
+            found = False
+            for s in rows:
+                if s and s[0] == "!re":
+                    nm = next((w[6:] for w in s if w.startswith("=name=")), "")
+                    if nm == svc:
+                        found = True
+                        dis = next((w[10:] for w in s if w.startswith("=disabled=")), "")
+                        if (dis != "yes") != want_enabled:
+                            want = "فعال" if want_enabled else "غیرفعال"
+                            fails.append(f"سرویس {svc} هنوز {want} نشده (disabled={dis})")
+                        break
+            if not found:
+                fails.append(f"سرویس {svc} در دستگاه پیدا نشد")
+        if fails:
+            return False, "؛ ".join(fails)
+        return True, "تغییرات روی دستگاه تأیید شد"
 
 
 def push_config(
@@ -575,13 +807,35 @@ def push_config(
     port: int = 8728,
     timeout: float = 15.0,
 ) -> dict:
+    """اتصال، اجرای اسکریپت و سپس تأییدِ پس از اعمال (Task 20).
+
+    «موفق» دیگر فقط یعنی دستورها بدون trap اجرا شدند؛ اگر تغییرِ وعده‌داده‌شده
+    (کاربر/identity/snmp/سرویس) روی دستگاه دیده نشود، نتیجه «ناموفق» با علتِ
+    فارسی برمی‌گردد — رفعِ گزارشِ موفقِ کاذبِ کانفیگ گروهی.
+    """
     try:
         with RouterOSClient(host, port=port, timeout=timeout) as api:
             api.login(username, password)
             api.run_script(script)
-        return {"ip": host, "ok": True, "error": None}
+            verified, vdetail = api.verify_push(script)
+        if verified is False:
+            return {
+                "ip": host,
+                "ok": False,
+                "error": "verify: " + (vdetail or "اعمال نشد"),
+                "reason": "کانفیگ اجرا شد اما تأیید اعمال نشد: " + (vdetail or ""),
+                "verified": False,
+            }
+        return {
+            "ip": host,
+            "ok": True,
+            "error": None,
+            "verified": True if verified else None,
+            "verify": vdetail or "",
+        }
     except Exception as e:
-        return {"ip": host, "ok": False, "error": str(e)[:400]}
+        return {"ip": host, "ok": False, "error": str(e)[:400],
+                "reason": classify_push_error(str(e))}
 
 
 def push_config_many(
@@ -631,6 +885,10 @@ def classify_push_error(error: str | None) -> str:
             or "ورود api ناموفق" in raw or "challenge دریافت نشد" in raw):
         return ("ورود ناموفق — نام کاربری/رمز اشتباه است یا policy کاربر اجازهٔ api "
                 "ندارد (گروه دسترسی محدود)")
+    if "already have such user" in s or "user already exists" in s:
+        return "کاربر از قبل روی دستگاه وجود دارد — برای تغییر رمز از set استفاده کنید"
+    if "verify:" in s or "تأیید اعمال نشد" in raw:
+        return raw[:200]
     if "trap" in s or "syntax" in s or "failure" in s:
         return "دستگاه دستور را رد کرد: " + raw[:180]
     return raw[:200]
@@ -666,7 +924,8 @@ def push_config_many_parallel(
             return {"ip": ip, "ok": False, "error": "canceled",
                     "reason": classify_push_error("canceled")}
         res = push_config(ip, username, password, script, port=port, timeout=timeout)
-        if not res.get("ok"):
+        if not res.get("ok") and not res.get("reason"):
+            # علتِ تأییدِ ناموفق در خودِ push_config ست شده؛ فقط بقیه دسته‌بندی می‌شوند
             res["reason"] = classify_push_error(res.get("error"))
         return res
 

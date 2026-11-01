@@ -1349,5 +1349,8 @@ header.app-brand p{
 .cfg-results th{position:sticky;top:0;background:#eef4f9;color:#0f3b5c;text-align:right;padding:6px 9px;border-bottom:1px solid #dbe7f0}
 .cfg-results td{padding:5px 9px;border-bottom:1px solid #eef2f7;color:#334155}
 .cfg-results tr.fail td{background:#fff5f5;color:#7f1d1d}
+.cfg-verify{font-size:.92em;font-weight:700;border-radius:999px;padding:2px 9px;white-space:nowrap}
+.cfg-verify.ok{background:#dcfce7;color:#15803d}
+.cfg-verify.no{background:#fee2e2;color:#b91c1c}
 .cfg-results tr.fail td:nth-child(2){color:#b91c1c;font-weight:700}
 .cfg-results tr.ok td:nth-child(2){color:#15803d;font-weight:700}

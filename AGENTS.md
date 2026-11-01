@@ -52,6 +52,7 @@ python scripts/test_route_topology_pdf.py
 python scripts/test_device_picker.py
 python scripts/test_push_config_progress.py
 python scripts/test_push_config_failed_csv.py
+python scripts/test_push_verification.py
 python scripts/test_cisco_config.py
 
 # build فرانت‌اند — بعد از هر تغییر در src.jsx یا style.css الزامی است:
@@ -127,6 +128,17 @@ cd frontend && npm install && npm run build
   از دیتابیس فعال، ستون علت فارسی، جزئیات خطای خام و ستون «زمان پایان اجرا»
   (خوانده‌شده از `CFG_PUSH_STATE["finished_at"]` که worker در `finally` پر می‌کند)؛
   CSV با BOM؛ بدون مورد ناموفق یا بدون اجرا → 404 با پیام فارسی.
+  **تأیید پس از اعمال (Task 20 — رفع موفقِ کاذب):** «موفق» فقط با تأییدِ نتیجه است.
+  اسکریپت‌های کنسولی داخل `:do {...} on-error={:set NetScanPushXXXX "failed"}` پیچیده و
+  وضعیت از `/system/script/environment` خوانده می‌شود (خطای داخل اسکریپت دیگر نامرئی نیست؛
+  `/system/script/run` به‌محض شروع job برمی‌گردد — همان منبع قبلیِ موفقِ کاذب؛ سقف انتظار:
+  `RouterOSClient.PUSH_STATUS_TIMEOUT=30s`). سپس `verify_push` تغییر وعده‌داده‌شده را
+  دوباره می‌خواند: کاربر (login دوباره با نام/رمز)، identity، snmp enabled، سرویس IP؛
+  عدمِ تطبیق → نتیجهٔ «ناموفق» با علت «کانفیگ اجرا شد اما تأیید اعمال نشد: …» و فیلد
+  `verified=False` (ستون «تأیید اعمال» در جدول نتایج با نشان سبز/قرمز). `_parse_terminal_line`
+  خروجی `(sentence, path_def)` دارد (خطوط ادامه‌دار مثل `/snmp community` + `set …`) و
+  «[find …]» روی فعل‌های تغییردهنده را به مسیر کنسول می‌فرستد (در API فقط روی print مجاز است).
+  تست: `scripts/test_push_verification.py` (فیکِ talk/connect/close + چالش MD5).
 - **گزارش مسیر تا روتر مرکزی (توپولوژی PDF):** `POST /api/reports/route-topology/start`
   + `/progress` + `/cancel` + `/result.pdf` (ماژول‌های `backend/route_topology.py` و
   `backend/route_pdf.py`) — با نام کاربری/رمز RouterOS API که کاربر وارد می‌کند به تمام

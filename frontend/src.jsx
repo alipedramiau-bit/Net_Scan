@@ -837,10 +837,11 @@ function DeviceReports({mode="devices"}={}){
         {cellN>0&&<div className={"cfg-cells"+(cellN>=400?" dense":"")}>{cells}</div>}
         {res.length>0&&!running&&<div className="cfg-results">
           <table>
-            <thead><tr><th>دستگاه</th><th>وضعیت</th><th>علت / توضیح</th></tr></thead>
+            <thead><tr><th>دستگاه</th><th>وضعیت</th><th>تأیید اعمال</th><th>علت / توضیح</th></tr></thead>
             <tbody>{res.map((r,i)=><tr key={i} className={r.ok?"ok":"fail"}>
               <td dir="ltr">{r.ip}</td>
               <td>{r.ok?"موفق":"ناموفق"}</td>
+              <td>{r.verified===true?<span className="cfg-verify ok">تأیید شد</span>:(r.verified===false?<span className="cfg-verify no">اعمال نشد</span>:"—")}</td>
               <td>{r.ok?"—":(r.reason||r.error||"ناموفق")}</td>
             </tr>)}</tbody>
           </table>
