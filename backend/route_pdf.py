@@ -34,8 +34,19 @@ BOX = (0.200, 0.255, 0.341)
 # کمتر محاسبه می‌شد و جعبه‌های انتهای زنجیره از صفحه بیرون می‌زدند)
 PATH_PER_ROW = 3                    # تعداد hop در هر سطر
 PATH_ROW_BOXES = PATH_PER_ROW + 1   # تعداد جعبه در هر سطر (دستگاه + hopها)
-PATH_BOX_W = 104                    # عرض جعبه‌ها
+PATH_BOX_W = 94                     # عرض جعبه‌ها (Task 25: کمی جمع‌تر تا فاصلهٔ
+                                    # بین جعبه‌ها عریض‌تر شود و برچسب اینترفیس‌ها
+                                    # بدون بریدگی و خوانا جا شوند)
 PATH_ROW_GAP = (PAGE_W - 2 * M - PATH_ROW_BOXES * PATH_BOX_W) / (PATH_ROW_BOXES - 1)
+
+# Task 25: برچسب‌های لینک نمودار مسیر باید «قابل خواندن» باشند — به جای یک خط
+# ریز 5.8pt به شکل «ether10 <-> ether24» (که در گپ ۳۹٫۸pt همیشه بریده می‌شد)،
+# اینترفیسِ دستگاهِ چپ بالای خط اتصال و اینترفیسِ دستگاهِ راست زیر آن با فونت
+# درشت‌تر رسم می‌شود و برچسب شاهد (MNDP/CISCO-ROUTE/...) هم بزرگ‌تر است.
+PATH_IF_SIZE = 7.0        # نام اینترفیسِ دو سر لینک (قبلاً 5.8 در یک خط)
+PATH_TAG_SIZE = 6.0       # برچسب شاهد درون‌سطر (قبلاً 5.2)
+PATH_WRAP_LBL_SIZE = 7.2  # برچسب لینک در اتصال شکست سطر (قبلاً 5.8)
+PATH_WRAP_TAG_SIZE = 6.4  # برچسب شاهد در اتصال شکست سطر (قبلاً 5.2)
 
 
 def _san(s) -> str:
@@ -192,7 +203,7 @@ def _row_wrap_connector(c, prev_box, cur_box, label: str = "", tag: str = "",
     ادامهٔ مسیر را با اتصال Z شکل رسم می‌کند: از پایین جعبهٔ آخر سطر قبل پایین
     می‌آید، در فاصلهٔ بین دو سطر به چپ می‌رود و از بالای جعبهٔ اول سطر بعد وارد
     آن می‌شود — تا زنجیره در سطر بعد هم پیوسته دیده شود و روتر مرکزی داخل
-    کادر قابل رویت باشد.
+    کادر قابل رویت باشد. (Task 25: فونت برچسب‌ها درشت‌تر شد تا خوانا بماند.)
     """
     px, pby, pw, _ph = prev_box
     cx, cby, cw, ch = cur_box
@@ -206,13 +217,41 @@ def _row_wrap_connector(c, prev_box, cur_box, label: str = "", tag: str = "",
     mid_x = (x1 + x2) / 2.0
     if label:
         c.setFillColor(INK)
-        c.setFont("Helvetica-Bold", 5.8)
-        c.drawCentredString(mid_x, mid_y + 2.5,
-                            _fit(c, label, "Helvetica-Bold", 5.8, PAGE_W - 2 * M - 16))
+        c.setFont("Helvetica-Bold", PATH_WRAP_LBL_SIZE)
+        c.drawCentredString(mid_x, mid_y + 3,
+                            _fit(c, label, "Helvetica-Bold", PATH_WRAP_LBL_SIZE,
+                                 PAGE_W - 2 * M - 16))
     if tag:
         c.setFillColor(tag_color)
-        c.setFont("Helvetica-Oblique", 5.2)
-        c.drawCentredString(mid_x, mid_y - 8, tag)
+        c.setFont("Helvetica-Oblique", PATH_WRAP_TAG_SIZE)
+        c.drawCentredString(mid_x, mid_y - 9, tag)
+
+
+def _inrow_link_labels(c, mid_x: float, mid: float, from_if: str, to_if: str,
+                       ev_tag: str, tag_color=GRAY) -> None:
+    """برچسب خوانای لینکِ درون‌سطر در نمودار مسیر (Task 25).
+
+    درخواست کاربر: «اینترفیس‌های دستگاه‌های سمت راست مشخص نیست؛ اندازهٔ برچسب‌ها
+    را طوری تغییر بده که قابل خواندن باشند». قبلاً هر دو اینترفیس در «یک خط»
+    ریز 5.8pt رسم می‌شد و چون عرض گپ فقط ۳۹٫۸pt بود همیشه بریده می‌شد
+    ("ether10 <-> ether24" عرضش ۵۳٫۲pt است). حالا:
+      * اینترفیسِ دستگاهِ چپ  بالای خط اتصال (Helvetica-Bold 7.0)
+      * اینترفیسِ دستگاهِ راست زیر خط اتصال (Helvetica-Bold 7.0)
+      * برچسب شاهد (MNDP/CISCO-ROUTE/...) زیر آن (Helvetica-Oblique 6.0)
+    و با جمع‌ترشدن جعبه‌ها (۱۰۴→۹۴) عرض گپ به ~۵۳pt رسیده تا بدون بریدگی جا شود.
+    """
+    c.setFillColor(INK)
+    c.setFont("Helvetica-Bold", PATH_IF_SIZE)
+    c.drawCentredString(mid_x, mid + 5,
+                        _fit(c, from_if, "Helvetica-Bold", PATH_IF_SIZE, PATH_ROW_GAP - 6))
+    c.drawCentredString(mid_x, mid - 8.5,
+                        _fit(c, to_if, "Helvetica-Bold", PATH_IF_SIZE, PATH_ROW_GAP - 6))
+    if ev_tag:
+        c.setFillColor(tag_color)
+        c.setFont("Helvetica-Oblique", PATH_TAG_SIZE)
+        c.drawCentredString(mid_x, mid - 16.5,
+                            _fit(c, ev_tag, "Helvetica-Oblique", PATH_TAG_SIZE,
+                                 PATH_ROW_GAP - 2))
 
 
 def _path_diagram(c, y: float, path: dict, nodes: dict, core_key: str, central_ip: str) -> float:
@@ -258,21 +297,20 @@ def _path_diagram(c, y: float, path: dict, nodes: dict, core_key: str, central_i
                 by = y_start - row * (bh + 30) - bh
                 if bi > 0:
                     h = shown_up[bi - 1]
-                    lbl = f"{_san(h.get('from_if')) or '?'} -> {_san(h.get('to_if')) or _san(h.get('to_ip')) or '?'}"
+                    from_if = _san(h.get("from_if")) or "?"
+                    to_if = _san(h.get("to_if")) or _san(h.get("to_ip")) or "?"
                     ev_tag = "DEFAULT-ROUTE" if h.get("ev") == "default" else "ROUTE"
                     if col > 0:
                         c.setStrokeColor(BOX)
                         c.setLineWidth(1)
                         c.line(x - gap, by + bh / 2, x, by + bh / 2)
-                        c.setFillColor(INK)
-                        c.setFont("Helvetica-Bold", 5.8)
-                        c.drawCentredString(x - gap / 2, by + bh / 2 + 4, _fit(c, lbl, "Helvetica-Bold", 5.8, gap - 4))
-                        c.setFillColor(AMBER)
-                        c.setFont("Helvetica-Oblique", 5.2)
-                        c.drawCentredString(x - gap / 2, by + bh / 2 - 9, ev_tag)
+                        # Task 25: برچسب خوانا — اینترفیس چپ/راست دو سطر + شاهد
+                        _inrow_link_labels(c, x - gap / 2, by + bh / 2, from_if, to_if,
+                                           ev_tag, tag_color=AMBER)
                     elif prev_box:
                         # Task 24: شکست سطر — ادامهٔ زنجیرهٔ upstream در سطر بعد
-                        _row_wrap_connector(c, prev_box, (x, by, bw, bh), lbl, ev_tag, tag_color=AMBER)
+                        _row_wrap_connector(c, prev_box, (x, by, bw, bh),
+                                            f"{from_if} <-> {to_if}", ev_tag, tag_color=AMBER)
                 ghost = bool(nd.get("ghost"))
                 c.setStrokeColor(BOX)
                 c.setLineWidth(0.9)
@@ -324,22 +362,21 @@ def _path_diagram(c, y: float, path: dict, nodes: dict, core_key: str, central_i
         # connector from previous box
         if bi > 0:
             h = shown[bi - 1]
-            lbl = f"{_san(h.get('from_if')) or '?'} <-> {_san(h.get('to_if')) or '?'}"
+            from_if = _san(h.get("from_if")) or "?"
+            to_if = _san(h.get("to_if")) or "?"
             ev_tag = {"mndp": "MNDP", "subnet": "SUBNET", "route": "ROUTE",
                       "default": "DEFAULT-ROUTE", "cisco": "CISCO-ROUTE"}.get(h.get("ev"), "")
             if col > 0:
                 c.setStrokeColor(BOX)
                 c.setLineWidth(1)
                 c.line(x - gap, by + bh / 2, x, by + bh / 2)
-                c.setFillColor(INK)
-                c.setFont("Helvetica-Bold", 5.8)
-                c.drawCentredString(x - gap / 2, by + bh / 2 + 4, _fit(c, lbl, "Helvetica-Bold", 5.8, gap - 4))
-                c.setFillColor(GRAY)
-                c.setFont("Helvetica-Oblique", 5.2)
-                c.drawCentredString(x - gap / 2, by + bh / 2 - 9, ev_tag)
+                # Task 25: برچسب خوانا — اینترفیسِ دستگاه چپ بالای خط،
+                # اینترفیسِ دستگاه راست زیر خط و برچسب شاهد زیر آن
+                _inrow_link_labels(c, x - gap / 2, by + bh / 2, from_if, to_if, ev_tag)
             elif prev_box:
                 # Task 24: شکست سطر — ادامهٔ زنجیره در سطر بعد تا روتر مرکزی
-                _row_wrap_connector(c, prev_box, (x, by, bw, bh), lbl, ev_tag)
+                _row_wrap_connector(c, prev_box, (x, by, bw, bh),
+                                    f"{from_if} <-> {to_if}", ev_tag)
         c.setStrokeColor(BOX)
         c.setLineWidth(0.9)
         if is_core:

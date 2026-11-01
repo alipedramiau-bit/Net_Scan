@@ -13,6 +13,13 @@
 و hop بالاسریِ هر دستگاه با «default روت» آن کشف و تا رسیدن به روتر مرکزی
 دنبال می‌شود؛ روت‌های خاص/ساب‌نت/MNDP فقط مکمل و جایگزین‌اند.
 
+Task 25: اینونتوری قبل از پردازش «در دیتابیس» ذخیره می‌شود (جدول
+device_interface_ips — IP همهٔ اینترفیس‌ها + ای‌دی دستگاه + identity) و سپس
+لیست فیلترشدهٔ دستگاه‌ها از روی همین دیتابیس پردازش می‌شود: مالکیت گیت‌وی‌ها
+برای دستگاه‌هایی که در اجرای جاری خوانده نشده‌اند از اینونتوری دیتابیس در
+می‌آید و hopهای بالادستِ ناشناخته (گره‌های شبح) با identity ثبت‌شده در
+دیتابیس نام‌گذاری می‌شوند.
+
 خروجی، ورودی ماژول route_pdf.py برای ساخت گزارش PDF یک‌صفحه‌ای به ازای هر
 دستگاه است (مشابه نمونهٔ "Detailed Router Path Topology").
 """
@@ -747,8 +754,45 @@ def _core_iface_toward(core_addrs: list[dict], ip: str) -> tuple[str, str]:
     return _addr_iface_toward(core_addrs, ip)
 
 
+def inventory_rows_from_infos(infos: list[dict], devices: list[dict]) -> list[dict]:
+    """ردیف‌های اینونتوری IP اینترفیس‌ها + ای‌دی دستگاه (Task 25).
+
+    از خروجی collect_topology_info_many برای ذخیره در جدول device_interface_ips:
+    برای «هر» آدرس IP روی «هر» اینترفیس یک ردیف با device_ip (IP اتصال)،
+    device_id (ای‌دی ردیف دیتابیس)، identity، interface، address (با ماسک)،
+    ip (بدون ماسک) و network.
+
+    دستگاهی که در اجرای جاری از API خوانده نشده (ok=False) یا آدرسی برایش
+    خوانده نشده، «ردیفی نمی‌گیرد» تا اینونتوری قبلی‌اش در دیتابیس دست‌نخورده
+    بماند (replace_interface_inventory فقط device_ipهای دارای ردیف تازه را
+    جایگزین می‌کند) — همان داده‌ای که در دیتابیس مانده، بعداً در پردازش
+    گزارش مسیر استفاده می‌شود.
+    """
+    dev_by_ip = {str(d.get("ip") or "").strip(): d for d in (devices or []) if d.get("ip")}
+    rows: list[dict] = []
+    for info in infos or []:
+        ip = (info.get("ip") or "").strip()
+        if not ip or info.get("ok") is not True:
+            continue
+        addresses = [a for a in (info.get("addresses") or []) if _ip_of(a.get("address"))]
+        if not addresses:
+            continue
+        dev = dev_by_ip.get(ip) or {}
+        identity = (info.get("identity") or dev.get("device_name") or ip).strip()
+        did = dev.get("id")
+        for a in addresses:
+            raw = (a.get("address") or "").strip()
+            rows.append({
+                "device_ip": ip, "device_id": did, "identity": identity,
+                "interface": (a.get("interface") or "").strip(),
+                "address": raw, "ip": _ip_of(raw),
+                "network": (a.get("network") or "").strip(),
+            })
+    return rows
+
+
 def build_topology(infos: list[dict], devices: list[dict], central_ip: str,
-                   cisco: dict | None = None) -> dict:
+                   cisco: dict | None = None, inventory: list[dict] | None = None) -> dict:
     """گراف لینک‌ها + کوتاه‌ترین مسیر هر دستگاه تا روتر مرکزی.
 
     infos  — خروجی collect_topology_info_many (به ترتیب دستگاه‌ها)
@@ -757,6 +801,10 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str,
              وقتی روتر مرکزی سیسکو است و از RouterOS API خوانده نمی‌شود، گرهٔ core
              از روی این کانفیغ غنی‌سازی می‌شود (آدرس‌ها/اینترفیس‌ها) و روت‌های
              استاتیک سیسکو به‌عنوان شواهد یال core→دستگاه استفاده می‌شوند.
+    inventory — اینونتوری IP اینترفیس‌ها از دیتابیس (load_interface_inventory —
+             Task 25): مالکیت IP دستگاه‌هایی که در اجرای جاری خوانده نشده‌اند
+             (خطای API/بدون آدرس) از همین دیتابیس درمی‌آید و گره‌های شبح با
+             identity ثبت‌شده در دیتابیس نام‌گذاری می‌شوند.
     """
     central_ip = (central_ip or "").strip() or DEFAULT_CENTRAL_IP
     dev_by_ip = {str(d.get("ip") or "").strip(): d for d in (devices or []) if d.get("ip")}
@@ -821,11 +869,15 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str,
     cisco_used = bool(nodes[core_key].get("cisco"))
     core_addrs_live = nodes[core_key]["addresses"]
 
-    # --- فاز صفر (Task 23): جمع‌آوری پیش از مسیریابی --------------------------
+    # --- فاز صفر (Task 23 + Task 25): جمع‌آوری پیش از مسیریابی ----------------
     # «اطلاعات کل IP اینترفیس‌ها به‌همراه ای‌دی دستگاه‌ها» یک‌جا جمع می‌شود:
     # نقشهٔ مالکیت هر IP (IP اتصال + همهٔ آدرس‌های اینترفیسی + آدرس‌های سیسکوی
     # مرکز) → کلید گره‌اش. دنبال‌کردن default روت‌ها با همین نقشه، hop بالاسری
     # را سریع و یکدست پیدا می‌کند و به شناسهٔ دستگاه (dev_id/identity) می‌رسد.
+    # Task 25: اینونتوری «در دیتابیس» هم ذخیره شده است (جدول device_interface_ips
+    # در worker گزارش) و به این تابع پاس داده می‌شود — دستگاه‌هایی که در اجرای
+    # جاری از API خوانده نشده‌اند (خطا/بدون آدرس)، مالکیت IPهای اینترفیس‌های‌شان
+    # را از دیتابیس می‌گیرند تا گیت‌وی‌ها به‌جای گرهٔ شبح، به دستگاه واقعی وصل شوند.
     ip_owner: dict[str, str] = {}
     for key in order:
         n0 = nodes[key]
@@ -841,6 +893,46 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str,
             ipn = _ip_of(a.get("address"))
             if ipn:
                 ip_owner.setdefault(ipn, core_key)
+    # Task 25 — مالکیت از دیتابیس: فقط برای گره‌هایی که آدرس زنده‌ای ندارند
+    # (خوانده‌نشدن/خواندنِ بی‌آدرس)؛ خوانده‌شده‌ها همان آدرس زنده را نگه می‌دارند.
+    inv_by_dev: dict[str, list[dict]] = {}
+    for r in inventory or []:
+        dip = str((r or {}).get("device_ip") or "").strip()
+        if dip:
+            inv_by_dev.setdefault(dip, []).append(r)
+    for key in order:
+        n0 = nodes[key]
+        if n0.get("addresses"):
+            continue  # آدرس زنده دارد — دیتابیس لازم نیست
+        own_ip = (n0.get("ip") or "").strip()
+        for r in inv_by_dev.get(own_ip) or []:
+            ipn = str(r.get("ip") or "").strip()
+            if ipn:
+                ip_owner.setdefault(ipn, key)
+    # نام‌گذاری گره‌های شبح از اینونتوری دیتابیس: IP گیت‌ویِ بالادست اگر قبلاً
+    # به‌عنوان اینترفیسِ دستگاهی ثبت شده باشد، با identity همان دستگاه نمایش
+    # داده می‌شود (نه فقط IP) — «ای‌دی دستگاه» هم نگه داشته می‌شود.
+    inv_identity_by_ip: dict[str, dict] = {}
+    for r in inventory or []:
+        ipn = str((r or {}).get("ip") or "").strip()
+        nm = str((r or {}).get("identity") or "").strip()
+        if ipn and nm and ipn not in inv_identity_by_ip:
+            inv_identity_by_ip[ipn] = {"name": nm, "dev_id": (r or {}).get("device_id")}
+
+    def _ghost_node(gw_ip: str) -> dict:
+        gkey = "g:" + gw_ip
+        if gkey in nodes:
+            return nodes[gkey]
+        meta = inv_identity_by_ip.get(gw_ip) or {}
+        gname = meta.get("name") or gw_ip
+        ghost = _make_node(gkey, gname, gw_ip, None, None, ghost=True)
+        ghost["upstream"] = True
+        if meta.get("name"):
+            ghost["from_inventory"] = True
+        if meta.get("dev_id") is not None:
+            ghost["inventory_dev_id"] = meta.get("dev_id")
+        nodes[gkey] = ghost
+        return ghost
 
     # --- یال‌ها -------------------------------------------------------------
     edges: list[dict] = []
@@ -985,13 +1077,9 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str,
                 if c_if:
                     _add_edge(key, core_key, a_if, c_if, a_ip, c_ip or gw_ip, ev)
                     continue
-            # hop بالادست ناشناخته → گرهٔ شبح
-            gkey = "g:" + gw_ip
-            if gkey not in nodes:
-                ghost = _make_node(gkey, gw_ip, gw_ip, None, None, ghost=True)
-                ghost["upstream"] = True
-                nodes[gkey] = ghost
-            _add_edge(key, gkey, a_if, gw_if, a_ip, gw_ip, ev)
+            # hop بالادست ناشناخته → گرهٔ شبح (نام از اینونتوری دیتابیس — Task 25)
+            ghost = _ghost_node(gw_ip)
+            _add_edge(key, ghost["key"], a_if, gw_if, a_ip, gw_ip, ev)
 
     # 3-د) روت‌های استاتیک کانفیگ سیسکو — یال‌های core→دستگاه (اولین روتر بعد از
     # مرکز). گیت‌ویِ هر روتِ استاتیک سیسکو، روتر میکروتیکی است که آن ساب‌نت را
@@ -1176,9 +1264,7 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str,
             gw_ip, gw_if = cand["gw"], cand["gw_if"]
             kind = cand["kind"]
             if nxt_key.startswith("g:") and nxt_key not in nodes:
-                g = _make_node(nxt_key, gw_ip, gw_ip, None, None, ghost=True)
-                g["upstream"] = True
-                nodes[nxt_key] = g
+                _ghost_node(gw_ip)  # نام‌گذاری شبح از اینونتوری دیتابیس (Task 25)
             a_ip, a_if = _addr_iface_toward(node.get("addresses") or [], gw_ip)
             if not a_if:
                 a_if = _arp_iface_toward(node.get("arp") or [], gw_ip) or gw_if

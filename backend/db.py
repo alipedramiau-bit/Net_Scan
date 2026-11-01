@@ -163,6 +163,21 @@ CREATE TABLE IF NOT EXISTS settings (
     value TEXT NOT NULL,
     updated_at TEXT NOT NULL
 );
+
+-- اینونتوری IP اینترفیس‌ها (Task 25): قبل از مسیریابی، IP «همهٔ» اینترفیس‌های
+-- هر دستگاه به‌همراه ای‌دی دستگاه (ردیف devices) و identity آن در دیتابیس
+-- ذخیره می‌شود تا گزارش مسیر، لیست فیلترشده را از روی دیتابیس پردازش کند.
+CREATE TABLE IF NOT EXISTS device_interface_ips (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_ip TEXT NOT NULL,
+    device_id INTEGER,
+    identity TEXT NOT NULL DEFAULT '',
+    interface TEXT NOT NULL DEFAULT '',
+    address TEXT NOT NULL DEFAULT '',
+    ip TEXT NOT NULL DEFAULT '',
+    network TEXT NOT NULL DEFAULT '',
+    updated_at TEXT NOT NULL
+);
 """
 
 _INDEX_DDL = (
@@ -172,6 +187,8 @@ _INDEX_DDL = (
     "CREATE INDEX IF NOT EXISTS idx_devices_seen_count ON devices(seen_count)",
     "CREATE INDEX IF NOT EXISTS idx_devices_ping_ok ON devices(ping_ok)",
     "CREATE INDEX IF NOT EXISTS idx_devices_name ON devices(device_name)",
+    "CREATE INDEX IF NOT EXISTS idx_dii_device_ip ON device_interface_ips(device_ip)",
+    "CREATE INDEX IF NOT EXISTS idx_dii_ip ON device_interface_ips(ip)",
 )
 
 _MIGRATE_COLUMNS = [
@@ -439,7 +456,7 @@ def query_devices(classification=None, has_port=None, q=None, limit=500, offset=
     order_clause = _sort_clause(sort, order)
     with _connect(db_path) as conn:
         rows = conn.execute(
-            f"SELECT * FROM devices{where}{order_clause} LIMIT ? OFFSET ?", (*params, limit, offset)
+            f"SELECT rowid AS id, * FROM devices{where}{order_clause} LIMIT ? OFFSET ?", (*params, limit, offset)
         ).fetchall()
         total = conn.execute(f"SELECT COUNT(*) AS c FROM devices{where}", params).fetchone()["c"]
         new_count = conn.execute(
@@ -447,7 +464,8 @@ def query_devices(classification=None, has_port=None, q=None, limit=500, offset=
             (_now()[:10],),
         ).fetchone()["c"]
     devices = [
-        {"ip": r["ip"], "ping_ok": bool(r["ping_ok"]), "open_ports": json.loads(r["open_ports"]),
+        {"id": r["id"],  # شناسهٔ ردیف دیتابیس (rowid) — برای اینونتوری/پیوند Task 25
+         "ip": r["ip"], "ping_ok": bool(r["ping_ok"]), "open_ports": json.loads(r["open_ports"]),
          "port_states": json.loads(r["port_states"]), "classification": r["classification"],
          "first_seen": r["first_seen"], "last_seen": r["last_seen"], "seen_count": r["seen_count"],
          "device_name": r["device_name"] if "device_name" in r.keys() else "",
@@ -632,9 +650,10 @@ def fetch_devices_by_ips(ips, db_path=None):
         for i in range(0, len(ips), 400):
             chunk = ips[i : i + 400]
             q = ",".join("?" * len(chunk))
-            rows = conn.execute(f"SELECT * FROM devices WHERE ip IN ({q})", chunk).fetchall()
+            rows = conn.execute(f"SELECT rowid AS id, * FROM devices WHERE ip IN ({q})", chunk).fetchall()
             for r in rows:
                 found[r["ip"]] = {
+                    "id": r["id"],  # شناسهٔ ردیف دیتابیس (rowid) — Task 25
                     "ip": r["ip"],
                     "ping_ok": bool(r["ping_ok"]),
                     "open_ports": json.loads(r["open_ports"]),
@@ -1143,7 +1162,72 @@ def delete_devices(ips: list, db_path=None) -> dict:
                 chunk,
             )
             deleted += cur.rowcount
+            # اینونتوری IP اینترفیس‌های دستگاه حذف‌شده هم باید پاک شود (Task 25)
+            conn.execute(
+                f"DELETE FROM device_interface_ips WHERE device_ip IN ({','.join('?'*len(chunk))})",
+                chunk,
+            )
     return {"deleted": deleted}
+
+
+def replace_interface_inventory(rows: list, db_path=None) -> dict:
+    """ذخیرهٔ اینونتوری IP اینترفیس‌ها در دیتابیس (Task 25).
+
+    برای هر device_ip، ردیف‌های قبلی پاک و ردیف‌های تازه درج می‌شود (یک تراکنش).
+    هر ردیف: device_ip، device_id (ای‌دی ردیف devices)، identity، interface،
+    address (با ماسک)، ip (بدون ماسک) و network.
+    دستگاه‌هایی که ردیفی برایشان نمی‌آید دست‌نخورده می‌مانند (دادهٔ خواندِ قبلی).
+    """
+    clean: dict[str, list[tuple]] = {}
+    for r in rows or []:
+        dip = str((r or {}).get("device_ip") or "").strip()
+        if not dip:
+            continue
+        did = (r or {}).get("device_id")
+        try:
+            did = int(did) if did is not None else None
+        except (TypeError, ValueError):
+            did = None
+        clean.setdefault(dip, []).append((
+            dip, did,
+            str((r or {}).get("identity") or "")[:128],
+            str((r or {}).get("interface") or "")[:64],
+            str((r or {}).get("address") or "")[:64],
+            str((r or {}).get("ip") or "")[:64],
+            str((r or {}).get("network") or "")[:64],
+        ))
+    if not clean:
+        return {"devices": 0, "rows": 0}
+    ts = _now()
+    with _connect(db_path) as conn:
+        conn.execute("PRAGMA synchronous=NORMAL")
+        ips = list(clean)
+        for i in range(0, len(ips), 400):
+            chunk = ips[i:i + 400]
+            conn.execute(
+                f"DELETE FROM device_interface_ips WHERE device_ip IN ({','.join('?'*len(chunk))})",
+                chunk,
+            )
+        n = 0
+        for dip, tuples in clean.items():
+            conn.executemany(
+                "INSERT INTO device_interface_ips "
+                "(device_ip, device_id, identity, interface, address, ip, network, updated_at) "
+                "VALUES (?,?,?,?,?,?,?,?)",
+                [t + (ts,) for t in tuples],
+            )
+            n += len(tuples)
+    return {"devices": len(clean), "rows": n}
+
+
+def load_interface_inventory(db_path=None) -> list[dict]:
+    """خواندن کل اینونتوری IP اینترفیس‌ها (Task 25) — ورودی پردازش گزارش مسیر."""
+    with _connect(db_path) as conn:
+        rows = conn.execute(
+            "SELECT id, device_ip, device_id, identity, interface, address, ip, network, updated_at "
+            "FROM device_interface_ips ORDER BY device_ip, id"
+        ).fetchall()
+    return [dict(r) for r in rows]
 
 
 def transfer_hosts_to_db(hosts: list, target_db: str) -> dict:

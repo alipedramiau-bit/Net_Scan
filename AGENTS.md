@@ -79,7 +79,7 @@ cd frontend && npm install && npm run build
 5. پیام کامیت: قالب `type(scope): خلاصه انگلیسی` (مثل `feat(devices): ...`، `fix(api): ...`).
 6. قبل از کامیت: تست‌ها سبز باشند؛ `git status` را برای فایل‌های ناخواسته چک کنید.
 
-## ۵) نقشه قابلیت‌ها (تا Task 24)
+## ۵) نقشه قابلیت‌ها (تا Task 25)
 
 - **اسکن شبکه:** `POST /scans/start` (قابل لغو با `/scans/{id}/cancel`)، ورودی IP/CIDR/بازه،
   پورت‌های 8291 و 8728 همیشه اضافه می‌شوند.
@@ -237,6 +237,24 @@ cd frontend && npm install && npm run build
   زنجیره با اتصال Z شکلِ `_row_wrap_connector` (از پایین جعبهٔ آخر سطر، در فاصلهٔ
   بین دو سطر به چپ با برچسب لینک/شاهد، و از بالای جعبهٔ اول سطر بعد) به سطر بعد
   می‌رود — هم در شاخهٔ reachable و هم در زنجیرهٔ upstream دستگاه‌های نارس.
+- **اینونتوری IP اینترفیس‌ها در دیتابیس + برچسب خوانا (Task 25):** (الف) جدول
+  `device_interface_ips` در هر دیتابیس (`db.py`: `replace_interface_inventory`
+  — جایگزینی در سطح هر device_ip؛ `load_interface_inventory`) — worker گزارش
+  مسیر بعد از خواندن دستگاه‌ها (فاز جدید `inventory`) ردیف‌های `inventory_rows_from_infos`
+  (IP همهٔ اینترفیس‌ها + `device_id` = rowid ردیف devices که حالا در
+  `query_devices`/`fetch_devices_by_ips` هم برگردانده می‌شود + identity) را ذخیره
+  و سپس «همان دیتابیس» را به `build_topology(inventory=...)` می‌دهد: دستگاه‌های
+  خوانده‌نشده (خطای API/بی‌آدرس — که ردیف تازه نمی‌گیرند و دادهٔ قبلی‌شان می‌ماند)
+  مالکیت IPهای اینترفیس‌های‌شان را از دیتابیس می‌گیرند (یال به دستگاه واقعی به‌جای
+  شبح) و گره‌های شبح با identity ثبت‌شده نام‌گذاری می‌شوند (`from_inventory`/
+  `inventory_dev_id`)؛ `delete_devices` ردیف‌های اینونتوری را هم پاک می‌کند.
+  (ب) برچسب‌های لینک نمودار مسیر خوانا شدند: به‌جای یک خط 5.8pt («ether10 <->
+  ether24» که در گپ ۳۹٫۸pt بریده می‌شد)، `_inrow_link_labels` اینترفیسِ چپ را
+  بالای خط اتصال و اینترفیسِ راست را زیر آن با فونت ۷pt (`PATH_IF_SIZE`) و
+  برچسب شاهد را با ۶pt (`PATH_TAG_SIZE`) رسم می‌کند؛ `PATH_BOX_W` ۱۰۴→۹۴ تا گپ
+  ~۵۳pt شود و طولانی‌ترین برچسب‌ها (تا `DEFAULT-ROUTE` و `ether10-slave`) کامل
+  جا شوند؛ اتصال شکست سطر هم با فونت‌های `PATH_WRAP_LBL_SIZE`/`PATH_WRAP_TAG_SIZE`
+  درشت‌تر شده. بررسی عددی عرض رشته‌ها با `reportlab.pdfbase.pdfmetrics.stringWidth`.
 - **سایر:** گزارش‌های هوشمند، Winbox tools، مدیریت VPN، ایمیل/اطلاع‌رسانی.
 
 ## ۶) نکات دام‌دار (Gotchas)

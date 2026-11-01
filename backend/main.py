@@ -1709,6 +1709,26 @@ def _route_topology_worker(body: RouteTopologyRequest, targets: list[dict], db_n
         if TOPOLOGY_CANCEL.is_set():
             st.update(phase="canceled", running=False, canceled=True)
             return
+        # --- Task 25: اینونتوری IP اینترفیس‌ها + ای‌دی دستگاه‌ها در دیتابیس ------
+        # قبل از پردازش مسیر، IP «همهٔ» اینترفیس‌های هر دستگاه به‌همراه ای‌دی
+        # دستگاه (ردیف devices) و identity آن در جدول device_interface_ips
+        # دیتابیس فعال ذخیره می‌شود؛ بعد لیست فیلترشدهٔ دستگاه‌ها از روی
+        # همین دیتابیس پردازش می‌شود (مالکیت گیت‌وی‌ها/نام‌گذاری hopهای بالادست
+        # حتی برای دستگاه‌هایی که در اجرای جاری خوانده نشده‌اند).
+        st.update(phase="inventory")
+        inventory: list[dict] = []
+        try:
+            inv_rows = route_topology.inventory_rows_from_infos(infos, targets)
+            inv_db_path = str(db.db_path_for(db_name)) if db_name else None
+            inv_saved = db.replace_interface_inventory(inv_rows, db_path=inv_db_path)
+            # پردازش از روی دیتابیس: همان چیزی که ذخیره شد (به‌علاوهٔ خواندِ‌های
+            # قبلی دستگاه‌های خارج از انتخاب این اجرا) خوانده و استفاده می‌شود
+            inventory = db.load_interface_inventory(db_path=inv_db_path)
+            st.update(inventory_devices=inv_saved.get("devices", 0),
+                      inventory_addresses=inv_saved.get("rows", 0))
+        except Exception as _ie:  # ذخیرهٔ اینونتوری نباید گزارش را ببندد
+            st.update(inventory_error=str(_ie)[:200])
+            inventory = []
         st.update(phase="graph")
         # کانفیگ روتر مرکزی سیسکو (اگر کاربر بارگذاری کرده باشد) برای یافتن مسیر
         cisco_parsed = None
@@ -1719,7 +1739,8 @@ def _route_topology_worker(body: RouteTopologyRequest, targets: list[dict], db_n
         except Exception as _ce:  # کانفیگ خراب نباید گزارش را کاملاً ببندد
             st.update(cisco_error=str(_ce)[:200])
             cisco_parsed = None
-        topo = route_topology.build_topology(infos, targets, body.central_router_ip, cisco=cisco_parsed)
+        topo = route_topology.build_topology(infos, targets, body.central_router_ip, cisco=cisco_parsed,
+                                             inventory=inventory)
         st.update(phase="pdf")
         pdf = route_pdf.build_route_topology_pdf(
             topo, targets,
@@ -1743,6 +1764,8 @@ def _route_topology_worker(body: RouteTopologyRequest, targets: list[dict], db_n
             "links": summary.get("links", 0),
             "database": db_name or db.get_active_db_name(),
             "central_router_ip": body.central_router_ip,
+            "inventory_devices": int(st.get("inventory_devices") or 0),
+            "inventory_addresses": int(st.get("inventory_addresses") or 0),
             "cisco": (cisco_meta.get("hostname") or "") if cisco_meta.get("used") else "",
             "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
         }
@@ -1780,6 +1803,8 @@ def route_topology_start(body: RouteTopologyRequest):
         TOPOLOGY_STATE.update({"running": True, "total": len(targets), "done": 0, "ok": 0,
                                "failed": 0, "current_ip": "", "phase": "start", "error": None,
                                "canceled": False, "pdf": None, "stats": {},
+                               "inventory_devices": 0, "inventory_addresses": 0,
+                               "inventory_error": None,
                                "unreachable_rows": None, "unreachable_error": None})
         Thread(target=_route_topology_worker, args=(body, targets, db_name), daemon=True).start()
     return {
@@ -1809,6 +1834,8 @@ def route_topology_progress():
         "running": bool(p.get("running")),
         "canceled": bool(p.get("canceled")),
         "error": p.get("error"),
+        "inventory_devices": int(p.get("inventory_devices") or 0),
+        "inventory_addresses": int(p.get("inventory_addresses") or 0),
         "unreachable": int((p.get("stats") or {}).get("unreachable") or 0),
         "ready": bool(p.get("pdf")) and not p.get("running"),
     }

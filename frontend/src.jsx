@@ -1735,14 +1735,14 @@ function RouteTopologyReport(){
     }catch(e){setErr(e.message||"خطا در حذف کانفیگ");}
     finally{setCiscoBusy(false);}
   }
-  function phaseLabel(p){return {start:"آماده‌سازی",collect:"خواندن دستگاه‌ها از طریق RouterOS API",graph:"ساخت گراف مسیر و همسایگی‌ها",pdf:"ساخت فایل PDF",done:"تکمیل شد",canceled:"متوقف شد",error:"خطا"}[p]||p;}
+  function phaseLabel(p){return {start:"آماده‌سازی",collect:"خواندن دستگاه‌ها از طریق RouterOS API",inventory:"ذخیرهٔ IP همهٔ اینترفیس‌ها + ای‌دی دستگاه‌ها در دیتابیس",graph:"پردازش لیست فیلترشده از دیتابیس و ساخت گراف مسیر",pdf:"ساخت فایل PDF",done:"تکمیل شد",canceled:"متوقف شد",error:"خطا"}[p]||p;}
   async function fetchResult(latest){
     try{
       const r=await fetch(API+"/api/reports/route-topology/result.pdf");
       if(!r.ok){const d=await readJson(r).catch(()=>({}));throw Error(d.detail||("دریافت PDF ناموفق بود ("+r.status+")"));}
       const blob=await r.blob();const url=URL.createObjectURL(blob);const a=document.createElement("a");
       a.href=url;a.download="route_topology_"+new Date().toISOString().slice(0,10)+".pdf";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
-      setMsg("گزارش PDF مسیر ساخته و دانلود شد"+(latest?(" — دستگاه‌های مسیریاب: "+latest.ok+" / ناموفق: "+latest.failed+(latest.unreachable>0?(" — بدون مسیر به مرکز: "+latest.unreachable+" (دکمهٔ «گزارش CSV دلایل نرسیدن به مرکز»)"):(" — همهٔ دستگاه‌ها مسیر داشتند"))+" (جزئیات و تعداد لینک‌ها داخل فایل PDF)"):":"));
+      setMsg("گزارش PDF مسیر ساخته و دانلود شد"+(latest?(" — دستگاه‌های مسیریاب: "+latest.ok+" / ناموفق: "+latest.failed+((latest.inventory_addresses||0)>0?(" — اینونتوری ذخیره‌شده در دیتابیس: "+Number(latest.inventory_addresses).toLocaleString("fa-IR")+" آدرس از "+Number(latest.inventory_devices).toLocaleString("fa-IR")+" دستگاه"):"")+(latest.unreachable>0?(" — بدون مسیر به مرکز: "+latest.unreachable+" (دکمهٔ «گزارش CSV دلایل نرسیدن به مرکز»)"):(" — همهٔ دستگاه‌ها مسیر داشتند"))+" (جزئیات و تعداد لینک‌ها داخل فایل PDF)"):":"));
     }catch(e){setErr(e.message||"خطا در دریافت PDF");}
   }
   async function downloadUnreachableCsv(){
