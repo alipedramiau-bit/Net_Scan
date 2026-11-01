@@ -1568,6 +1568,22 @@ function SmartReports(){
   }
   const cellStyle={padding:"10px 12px",borderBottom:"1px solid #e5e7eb",textAlign:"right",whiteSpace:"nowrap"};
   const headerStyle={...cellStyle,background:"#f1f5f9",fontWeight:700,color:"#1f2937"};
+  // Task 28: ستون‌های «نام دستگاه» و «آی‌پی دستگاه» به لبهٔ چپ جدول منتقل شدند — در جدول RTL
+  // انتهای آرایه چپ‌ترین ستون است. پهنای هر فیلد با w مشخص شده و layout جدول fixed است تا
+  // ستون‌ها دقیقاً با همین پهنا رندر شوند؛ متن‌های بلند (نام/تگ/رویداد) داخل سلول می‌شکنند
+  const FLAP_COLS=[
+    {key:"row",label:"ردیف",w:56,center:true,get:(it,i)=>it.row||i+1},
+    {key:"tag",label:"تگ دستگاه",w:100,wrap:true,get:it=>it.device_tag||it.tags||"—"},
+    {key:"iface",label:"اینترفیس",w:120,wrap:true,get:it=>it.iface||it.interface||"—"},
+    {key:"nname",label:"نام دستگاه همسایه",w:150,wrap:true,get:it=>it.neighbor_name||"—"},
+    {key:"nip",label:"IP دستگاه همسایه",w:130,get:it=>it.neighbor_ip||"—"},
+    {key:"count",label:"تعداد تکرار لاگ",w:80,center:true,get:it=>it.flap_count??1},
+    {key:"dt",label:"تاریخ و زمان (میلادی)",w:170,get:it=>it.datetime||it.last_flap_time||it.last_flap||"—"},
+    {key:"dtj",label:"تاریخ و زمان (شمسی)",w:175,get:it=>it.datetime_jalali||it.last_flap_time_jalali||it.last_flap_jalali||"—"},
+    {key:"event",label:"نوع رویداد",w:110,wrap:true,get:it=>it.last_event||it.last_status||it.event||"—"},
+    {key:"ip",label:"آی‌پی دستگاه",w:130,get:it=>it.ip||"—"},
+    {key:"name",label:"نام دستگاه",w:175,wrap:true,get:it=>it.device_name||"—"}
+  ];
   return (
     <section className="panel" dir="rtl">
       <h3>گزارش هوشمند — نوسان (flap) اینترفیس‌ها</h3>
@@ -1611,20 +1627,10 @@ function SmartReports(){
           {flapResults.length>0&&<span style={{color:"#64748b",fontSize:13}}>برای دریافت فایل، روی «دانلود فایل CSV» کلیک کنید.</span>}
         </div>
         {flapResults.length>0?<div style={{overflowX:"auto",border:"1px solid #e5e7eb",borderRadius:8}}>
-          <table dir="rtl" style={{width:"100%",borderCollapse:"collapse",minWidth:980}}>
-            <thead><tr>{["ردیف","نام دستگاه","آی‌پی دستگاه","تگ دستگاه","اینترفیس","نام دستگاه همسایه","IP دستگاه همسایه","تعداد تکرار لاگ","تاریخ و زمان (میلادی)","تاریخ و زمان (شمسی)","نوع رویداد"].map(h=><th key={h} style={headerStyle}>{h}</th>)}</tr></thead>
+          <table dir="rtl" style={{width:"100%",borderCollapse:"collapse",minWidth:1400,tableLayout:"fixed"}}>
+            <thead><tr>{FLAP_COLS.map(c=><th key={c.key} style={{...headerStyle,boxSizing:"border-box",width:c.w,minWidth:c.w,whiteSpace:"normal",textAlign:"center"}}>{c.label}</th>)}</tr></thead>
             <tbody>{flapResults.map((item,index)=><tr key={item.row||index}>
-              <td style={cellStyle}>{item.row||index+1}</td>
-              <td style={cellStyle}>{item.device_name||"—"}</td>
-              <td style={cellStyle}>{item.ip||"—"}</td>
-              <td style={cellStyle}>{item.device_tag||item.tags||"—"}</td>
-              <td style={cellStyle}>{item.iface||item.interface||"—"}</td>
-              <td style={cellStyle}>{item.neighbor_name||"—"}</td>
-              <td style={cellStyle}>{item.neighbor_ip||"—"}</td>
-              <td style={cellStyle}>{item.flap_count??1}</td>
-              <td style={cellStyle}>{item.datetime||item.last_flap_time||item.last_flap||"—"}</td>
-              <td style={cellStyle}>{item.datetime_jalali||item.last_flap_time_jalali||item.last_flap_jalali||"—"}</td>
-              <td style={cellStyle}>{item.last_event||item.last_status||item.event||"—"}</td>
+              {FLAP_COLS.map(c=><td key={c.key} style={{...cellStyle,boxSizing:"border-box",width:c.w,minWidth:c.w,whiteSpace:c.wrap?"normal":"nowrap",overflowWrap:c.wrap?"break-word":undefined,textAlign:c.center?"center":"right"}}>{c.get(item,index)}</td>)}
             </tr>)}</tbody>
           </table>
         </div>:<div style={{padding:14,color:"#64748b",lineHeight:1.7}}>

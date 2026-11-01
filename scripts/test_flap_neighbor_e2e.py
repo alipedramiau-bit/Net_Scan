@@ -151,15 +151,20 @@ try:
     check("CSV has UTF-8 BOM", r.content.startswith(b"\xef\xbb\xbf"))
     rows = list(csv.reader(io.StringIO(r.content.decode("utf-8-sig"))))
     header = rows[0]
-    check("CSV header has «نام دستگاه همسایه» at index 5", len(header) > 5 and header[5] == "نام دستگاه همسایه", str(header))
-    check("CSV header has «IP دستگاه همسایه» at index 6", len(header) > 6 and header[6] == "IP دستگاه همسایه", str(header))
+    check("CSV header has «نام دستگاه همسایه» at index 3", len(header) > 3 and header[3] == "نام دستگاه همسایه", str(header))
+    check("CSV header has «IP دستگاه همسایه» at index 4", len(header) > 4 and header[4] == "IP دستگاه همسایه", str(header))
+    # Task 28: نام/آی‌پی دستگاه به انتهای ستون‌ها (لبهٔ چپ گزارش RTL) منتقل شدند
+    check("CSV header last column = «نام دستگاه» (left edge)", len(header) == 11 and header[10] == "نام دستگاه", str(header))
+    check("CSV header index 9 = «آی‌پی دستگاه»", header[9] == "آی‌پی دستگاه", str(header))
     data_rows = [row for row in rows[1:] if row]
     check("CSV has 3 data rows", len(data_rows) == 3, str(len(data_rows)))
-    csv_by_iface = {row[4]: row for row in data_rows}
-    check("CSV ether2 neighbor name", csv_by_iface["ether2"][5] == "SW-Core-MK", str(csv_by_iface.get("ether2")))
-    check("CSV ether2 neighbor ip", csv_by_iface["ether2"][6] == "10.40.10.2", "")
-    check("CSV ether4 neighbor name", csv_by_iface["ether4"][5] == "Repeater-C", str(csv_by_iface.get("ether4")))
-    check("CSV ether4 neighbor ip", csv_by_iface["ether4"][6] == "10.60.0.7", "")
+    csv_by_iface = {row[2]: row for row in data_rows}
+    check("CSV ether2 neighbor name", csv_by_iface["ether2"][3] == "SW-Core-MK", str(csv_by_iface.get("ether2")))
+    check("CSV ether2 neighbor ip", csv_by_iface["ether2"][4] == "10.40.10.2", "")
+    check("CSV ether4 neighbor name", csv_by_iface["ether4"][3] == "Repeater-C", str(csv_by_iface.get("ether4")))
+    check("CSV ether4 neighbor ip", csv_by_iface["ether4"][4] == "10.60.0.7", "")
+    check("CSV ether2 device ip at left edge (index 9)", csv_by_iface["ether2"][9] == "10.40.10.1", str(csv_by_iface.get("ether2")))
+    check("CSV ether2 device name at left edge (index 10)", csv_by_iface["ether2"][10] == "Shadegan-Jafal1", "")
     check("CSV row width = header width", all(len(row) == len(header) for row in data_rows))
 
     # ---------- 3) XLSX export ----------
@@ -169,12 +174,14 @@ try:
     wb = load_workbook(io.BytesIO(r.content))
     ws = wb.active
     header = [c.value for c in ws[1]]
-    check("XLSX header has neighbor name column", header[5] == "نام دستگاه همسایه", str(header[5]))
-    check("XLSX header has neighbor ip column", header[6] == "IP دستگاه همسایه", str(header[6]))
+    check("XLSX header has neighbor name column at index 3", header[3] == "نام دستگاه همسایه", str(header[3]))
+    check("XLSX header has neighbor ip column at index 4", header[4] == "IP دستگاه همسایه", str(header[4]))
+    check("XLSX header last column = «نام دستگاه» (left edge in RTL sheet)", len(header) == 11 and header[10] == "نام دستگاه", str(header))
     ws_rows = [[c.value for c in row] for row in ws.iter_rows(min_row=2)]
-    xl_by_iface = {row[4]: row for row in ws_rows}
-    check("XLSX ether2 neighbor name", xl_by_iface["ether2"][5] == "SW-Core-MK", str(xl_by_iface.get("ether2")))
-    check("XLSX ether4 neighbor ip", xl_by_iface["ether4"][6] == "10.60.0.7", "")
+    xl_by_iface = {row[2]: row for row in ws_rows}
+    check("XLSX ether2 neighbor name", xl_by_iface["ether2"][3] == "SW-Core-MK", str(xl_by_iface.get("ether2")))
+    check("XLSX ether4 neighbor ip", xl_by_iface["ether4"][4] == "10.60.0.7", "")
+    check("XLSX ether2 device name at left edge (index 10)", xl_by_iface["ether2"][10] == "Shadegan-Jafal1", "")
 
 finally:
     # ---------- cleanup: restore previous state ----------

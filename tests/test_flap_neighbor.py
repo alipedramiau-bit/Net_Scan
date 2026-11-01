@@ -172,13 +172,23 @@ class ExportColumnsTests(unittest.TestCase):
         self.assertTrue(text.startswith("\ufeff"))
         rows = list(csv.reader(io.StringIO(text.lstrip("\ufeff"))))
         header = rows[0]
-        self.assertEqual(header[4], "اینترفیس")
-        self.assertEqual(header[5], "نام دستگاه همسایه")
-        self.assertEqual(header[6], "IP دستگاه همسایه")
+        # Task 28: ستون‌های نام/آی‌پی دستگاه به انتهای ستون‌ها منتقل شدند — در جدول RTL
+        # انتهای ستون‌ها لبهٔ چپ گزارش است؛ همسایه‌ها بعد از اینترفیس می‌مانند
+        self.assertEqual(header[0], "ردیف")
+        self.assertEqual(header[1], "تگ دستگاه")
+        self.assertEqual(header[2], "اینترفیس")
+        self.assertEqual(header[3], "نام دستگاه همسایه")
+        self.assertEqual(header[4], "IP دستگاه همسایه")
+        self.assertEqual(header[9], "آی‌پی دستگاه")
+        self.assertEqual(header[10], "نام دستگاه")
         self.assertEqual(len(header), 11)
         data = rows[1]
-        self.assertEqual(data[5], "SW-Core-MK")
-        self.assertEqual(data[6], "10.10.10.2")
+        self.assertEqual(data[1], "MPLS")
+        self.assertEqual(data[2], "ether2")
+        self.assertEqual(data[3], "SW-Core-MK")
+        self.assertEqual(data[4], "10.10.10.2")
+        self.assertEqual(data[9], "10.10.10.1")
+        self.assertEqual(data[10], "Shadegan-Jafal1")
         self.assertEqual(len(data), len(header))
 
     def test_xlsx_contains_neighbor_columns(self):
@@ -187,11 +197,16 @@ class ExportColumnsTests(unittest.TestCase):
         buf.seek(0)
         ws = load_workbook(buf).active
         header = [c.value for c in ws[1]]
-        self.assertEqual(header[5], "نام دستگاه همسایه")
-        self.assertEqual(header[6], "IP دستگاه همسایه")
+        self.assertEqual(header[3], "نام دستگاه همسایه")
+        self.assertEqual(header[4], "IP دستگاه همسایه")
+        # Task 28: در شیت RTL اکسل هم ستون نام/آی‌پی دستگاه چپ‌ترین ستون‌ها هستند
+        self.assertEqual(header[9], "آی‌پی دستگاه")
+        self.assertEqual(header[10], "نام دستگاه")
         row2 = [c.value for c in ws[2]]
-        self.assertEqual(row2[5], "SW-Core-MK")
-        self.assertEqual(row2[6], "10.10.10.2")
+        self.assertEqual(row2[3], "SW-Core-MK")
+        self.assertEqual(row2[4], "10.10.10.2")
+        self.assertEqual(row2[9], "10.10.10.1")
+        self.assertEqual(row2[10], "Shadegan-Jafal1")
 
 
 if __name__ == "__main__":
