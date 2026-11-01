@@ -1611,14 +1611,16 @@ function SmartReports(){
           {flapResults.length>0&&<span style={{color:"#64748b",fontSize:13}}>برای دریافت فایل، روی «دانلود فایل CSV» کلیک کنید.</span>}
         </div>
         {flapResults.length>0?<div style={{overflowX:"auto",border:"1px solid #e5e7eb",borderRadius:8}}>
-          <table dir="rtl" style={{width:"100%",borderCollapse:"collapse",minWidth:800}}>
-            <thead><tr>{["ردیف","نام دستگاه","آی‌پی دستگاه","تگ دستگاه","اینترفیس","تعداد تکرار لاگ","تاریخ و زمان (میلادی)","تاریخ و زمان (شمسی)","نوع رویداد"].map(h=><th key={h} style={headerStyle}>{h}</th>)}</tr></thead>
+          <table dir="rtl" style={{width:"100%",borderCollapse:"collapse",minWidth:980}}>
+            <thead><tr>{["ردیف","نام دستگاه","آی‌پی دستگاه","تگ دستگاه","اینترفیس","نام دستگاه همسایه","IP دستگاه همسایه","تعداد تکرار لاگ","تاریخ و زمان (میلادی)","تاریخ و زمان (شمسی)","نوع رویداد"].map(h=><th key={h} style={headerStyle}>{h}</th>)}</tr></thead>
             <tbody>{flapResults.map((item,index)=><tr key={item.row||index}>
               <td style={cellStyle}>{item.row||index+1}</td>
               <td style={cellStyle}>{item.device_name||"—"}</td>
               <td style={cellStyle}>{item.ip||"—"}</td>
               <td style={cellStyle}>{item.device_tag||item.tags||"—"}</td>
               <td style={cellStyle}>{item.iface||item.interface||"—"}</td>
+              <td style={cellStyle}>{item.neighbor_name||"—"}</td>
+              <td style={cellStyle}>{item.neighbor_ip||"—"}</td>
               <td style={cellStyle}>{item.flap_count??1}</td>
               <td style={cellStyle}>{item.datetime||item.last_flap_time||item.last_flap||"—"}</td>
               <td style={cellStyle}>{item.datetime_jalali||item.last_flap_time_jalali||item.last_flap_jalali||"—"}</td>

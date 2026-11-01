@@ -1153,7 +1153,13 @@ def report_interface_flaps(days: int = 30, threshold_minutes: int = 5, database:
         devices = []
         error_msg = f"خواندن دستگاه‌ها از دیتابیس «{db_name}» ناموفق بود: {exc}"
     rows = devices.get("devices") if isinstance(devices, dict) else devices
-    report = smart_reports.interface_flap_report(rows or [], days_back=days, threshold_minutes=threshold_minutes)
+    # اینونتوری IP اینترفیس‌ها (Task 25) برای شناسایی دستگاه همسایهٔ هر اینترفیس
+    try:
+        inventory_rows = db.load_interface_inventory(db_path=str(db.db_path_for(db_name)))
+    except Exception:
+        inventory_rows = []
+    report = smart_reports.interface_flap_report(rows or [], days_back=days, threshold_minutes=threshold_minutes,
+                                                 inventory_rows=inventory_rows)
     report["database"] = db_name
     if error_msg:
         report["error"] = error_msg
@@ -1177,7 +1183,12 @@ def report_interface_flaps_csv(days: int = 30, threshold_minutes: int = 5, datab
     except Exception as exc:
         raise HTTPException(500, f"خواندن دستگاه‌ها از دیتابیس «{db_name}» ناموفق بود: {exc}")
     rows = fetched.get("devices", []) if isinstance(fetched, dict) else fetched
-    rep = smart_reports.interface_flap_report(rows or [], days_back=days, threshold_minutes=threshold_minutes)
+    try:
+        inventory_rows = db.load_interface_inventory(db_path=str(db.db_path_for(db_name)))
+    except Exception:
+        inventory_rows = []
+    rep = smart_reports.interface_flap_report(rows or [], days_back=days, threshold_minutes=threshold_minutes,
+                                              inventory_rows=inventory_rows)
     rep["database"] = db_name
     csv_content = smart_reports.interface_flaps_csv(rep)
     return Response(content=csv_content, media_type="text/csv; charset=utf-8",
@@ -1192,11 +1203,17 @@ def report_interface_flaps_xlsx(days: int = 30, threshold_minutes: int = 5, data
     except Exception as exc:
         raise HTTPException(500, f"خواندن دستگاه‌ها از دیتابیس «{db_name}» ناموفق بود: {exc}")
     rows = devices.get("devices") if isinstance(devices, dict) else devices
-    rep = smart_reports.interface_flap_report(rows or [], days_back=days, threshold_minutes=threshold_minutes)
+    try:
+        inventory_rows = db.load_interface_inventory(db_path=str(db.db_path_for(db_name)))
+    except Exception:
+        inventory_rows = []
+    rep = smart_reports.interface_flap_report(rows or [], days_back=days, threshold_minutes=threshold_minutes,
+                                              inventory_rows=inventory_rows)
     rep["database"] = db_name
     data = smart_reports.interface_flaps_xlsx(rep)
+    # BytesIO خام قابل encode نیست — محتوای bytes شیت باید پاس داده شود
     return Response(
-        data,
+        data.getvalue(),
         media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         headers={"Content-Disposition": 'attachment; filename="interface_flaps.xlsx"'},
     )

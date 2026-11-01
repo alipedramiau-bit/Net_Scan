@@ -1,6 +1,7 @@
 """Interface link flap detection and Excel report helpers."""
 from __future__ import annotations
 from datetime import datetime, timedelta
+import ipaddress
 import re
 from io import BytesIO, StringIO
 import csv
@@ -171,12 +172,221 @@ def parse_device_log(device, now=None, days_back=5, threshold_minutes=5):
                           "flap_count":len(flaps)})
     return found
 
-def interface_flap_report(devices, days_back=5, threshold_minutes=5, now=None):
+# ---------------- Smart report: neighbor device on the flapping interface ----------------
+# Both stored shapes of /ip neighbor (and /ip address) are whitespace-separated
+# "key=value" tokens:
+#   compact:  "  1  identity=Core-SW  address=10.0.0.2  interface=ether2"
+#   sentence: "  interface=ether2  mac-address=AA:BB..  address=10.0.0.2  identity=Core-SW"
+# The value ends at the next "<key>=" token, so unknown keys that follow (like
+# board-name/uptime) cannot be swallowed into the previous value.
+_KV_RE = re.compile(r"(?P<key>[A-Za-z][\w.-]*)=(?P<val>.*?)(?=\s+[A-Za-z][\w.-]*=|$)")
+
+def _ip4(value):
+    """Return a clean IPv4 string (mask stripped) or empty string."""
+    raw = str(value or "").split("/")[0].strip()
+    try:
+        return str(ipaddress.IPv4Address(raw))
+    except ValueError:
+        return ""
+
+def _kv_of_line(line):
+    """Extract known key=value pairs from one stored RouterOS print line."""
+    if "=" not in line:
+        return {}
+    return {m.group("key").lower(): m.group("val").strip() for m in _KV_RE.finditer(line)}
+
+def parse_neighbor_entries(text):
+    """Parse a stored /ip neighbor text block into entries.
+
+    Accepts both persisted shapes (compact collect_device_info lines and the
+    API sentence dump of collect_ip_info). Entries without a local interface
+    are useless for this report and skipped.
+    """
+    entries = []
+    for line in (text or "").splitlines():
+        kv = _kv_of_line(line)
+        iface = (kv.get("interface") or kv.get("interface-name") or "").strip()
+        if not iface:
+            continue
+        entries.append({
+            "interface": iface,
+            "identity": (kv.get("identity") or "").strip(),
+            "address": (kv.get("address") or "").strip(),
+            "mac": (kv.get("mac-address") or "").strip(),
+        })
+    return entries
+
+def parse_self_addresses(text):
+    """Parse a stored /ip address text block into {iface_lower: [(ipv4, prefix_bits)]}."""
+    out = {}
+    for line in (text or "").splitlines():
+        kv = _kv_of_line(line)
+        iface = (kv.get("interface") or kv.get("interface-name") or "").strip().lower()
+        raw = (kv.get("address") or "").strip()
+        if not iface or not raw:
+            continue
+        if "/" in raw:
+            ip_raw, bits_raw = raw.split("/", 1)
+            try:
+                bits = max(0, min(32, int(bits_raw.strip())))
+            except ValueError:
+                continue
+        else:
+            ip_raw, bits = raw, 32
+        ip = _ip4(ip_raw)
+        if not ip:
+            continue
+        bucket = out.setdefault(iface, [])
+        if (ip, bits) not in bucket:
+            bucket.append((ip, bits))
+    return out
+
+def build_neighbor_context(devices, inventory_rows=None):
+    """Build the lookup structures used to resolve interface neighbors.
+
+    Sources, in priority order:
+    1. the device's own /ip neighbor rows (LLDP/MNDP) — precise per-interface;
+    2. subnet overlap over the interface-IP inventory (device_interface_ips
+       table, Task 25) and each device's stored /ip address text.
+    """
+    devices = [d for d in (devices or []) if isinstance(d, dict)]
+    info_by_ip = {}
+    for d in devices:
+        ip = _ip4(d.get("ip"))
+        if ip and ip not in info_by_ip:
+            info_by_ip[ip] = {"name": (d.get("device_name") or "").strip(), "ip": ip}
+
+    known_by_ip = {ip: {"name": info["name"], "ip": ip} for ip, info in info_by_ip.items()}
+    known_by_identity = {}
+    for ip, info in info_by_ip.items():
+        ident = info["name"].strip().lower()
+        if ident and ident not in known_by_identity:
+            known_by_identity[ident] = {"name": info["name"], "ip": ip}
+
+    self_addrs = {}
+    # Interface-IP inventory persisted in the database (Task 25).
+    for row in (inventory_rows or []):
+        if not isinstance(row, dict):
+            continue
+        ip = _ip4(row.get("ip") or row.get("address"))
+        owner = _ip4(row.get("device_ip"))
+        iface = str(row.get("interface") or "").strip().lower()
+        if not ip or not owner or not iface:
+            continue
+        raw = str(row.get("address") or "")
+        try:
+            bits = int(raw.split("/", 1)[1]) if "/" in raw else 32
+            bits = max(0, min(32, bits))
+        except (TypeError, ValueError):
+            bits = 32
+        bucket = self_addrs.setdefault(owner, {}).setdefault(iface, [])
+        if (ip, bits) not in bucket:
+            bucket.append((ip, bits))
+        if ip not in known_by_ip:
+            owner_info = info_by_ip.get(owner)
+            known_by_ip[ip] = {
+                "name": (owner_info["name"] if owner_info else str(row.get("identity") or "").strip()),
+                "ip": owner,
+            }
+        ident = str(row.get("identity") or "").strip().lower()
+        if ident and ident not in known_by_identity:
+            owner_info = info_by_ip.get(owner)
+            known_by_identity[ident] = {
+                "name": (owner_info["name"] if owner_info else str(row.get("identity")).strip()),
+                "ip": owner,
+            }
+    # Stored /ip address text as a fallback source of the device's own IPs.
+    for d in devices:
+        owner = _ip4(d.get("ip"))
+        if not owner:
+            continue
+        parsed = parse_self_addresses(d.get("ip_addresses"))
+        owner_info = info_by_ip.get(owner)
+        for iface, pairs in parsed.items():
+            bucket = self_addrs.setdefault(owner, {}).setdefault(iface, [])
+            for pair in pairs:
+                if pair not in bucket:
+                    bucket.append(pair)
+                if pair[0] not in known_by_ip:
+                    known_by_ip[pair[0]] = {"name": owner_info["name"] if owner_info else "", "ip": owner}
+
+    lldp = {}
+    for d in devices:
+        owner = _ip4(d.get("ip"))
+        if not owner:
+            continue
+        for entry in parse_neighbor_entries(d.get("ip_neighbors")):
+            iface = entry["interface"].strip().lower()
+            if not iface:
+                continue
+            lldp.setdefault(owner, {}).setdefault(iface, []).append(entry)
+
+    return {"known_by_ip": known_by_ip, "known_by_identity": known_by_identity,
+            "self_addrs": self_addrs, "lldp": lldp}
+
+def _resolve_neighbor(context, owner_ip, interface):
+    """Resolve the neighbor device connected to one interface of one device.
+
+    Returns (neighbor_name, neighbor_ip, via) — via is "lldp" when the
+    neighbor came from /ip neighbor rows and "subnet" when it was inferred
+    from inventory subnet overlap; empty strings mean unknown.
+    """
+    owner_ip = _ip4(owner_ip)
+    if not owner_ip:
+        return "", "", ""
+    iface = str(interface or "").strip().lower()
+    own_ips = {ip for pairs in context["self_addrs"].get(owner_ip, {}).values() for ip, _ in pairs}
+    own_ips.add(owner_ip)
+
+    # 1) LLDP/MNDP neighbors reported by this device for this interface.
+    resolved = []
+    for entry in context["lldp"].get(owner_ip, {}).get(iface, []):
+        addr = _ip4(entry.get("address"))
+        ident = (entry.get("identity") or "").strip()
+        hit = context["known_by_ip"].get(addr) if addr else None
+        if not hit and ident:
+            hit = context["known_by_identity"].get(ident.lower())
+        if hit and hit["ip"] == owner_ip:
+            continue  # the device seeing itself — not a neighbor
+        if hit:
+            resolved.append((hit["name"], hit["ip"]))
+        elif ident or addr:
+            resolved.append((ident, addr))
+    resolved = list(dict.fromkeys(resolved))
+    if resolved:
+        names = " ، ".join(n for n, _ in resolved if n)
+        ips = " ، ".join(i for _, i in resolved if i)
+        return names, ips, "lldp"
+
+    # 2) Fallback: another known device sharing the interface's IP subnet.
+    for ip, bits in context["self_addrs"].get(owner_ip, {}).get(iface, []):
+        try:
+            net = ipaddress.ip_network(f"{ip}/{bits}", strict=False)
+        except ValueError:
+            continue
+        candidates = []
+        for cand_ip, info in context["known_by_ip"].items():
+            if cand_ip in own_ips:
+                continue
+            try:
+                if ipaddress.IPv4Address(cand_ip) in net:
+                    candidates.append((info["name"], cand_ip))
+            except ValueError:
+                continue
+        if candidates:
+            candidates = sorted(set(candidates))
+            names = " ، ".join(n for n, _ in candidates if n)
+            ips = " ، ".join(i for _, i in candidates if i)
+            return names, ips, "subnet"
+    return "", "", ""
+
+def interface_flap_report(devices, days_back=5, threshold_minutes=5, now=None, inventory_rows=None):
     now = now or datetime.now()
     devices=list(devices or [])
     events=[]
     devices_with_logs=0
     newest_log=None
+    neighbor_context=build_neighbor_context(devices, inventory_rows)
     for device in devices:
         log_text=device.get("device_log") or ""
         if log_text.strip(): devices_with_logs+=1
@@ -191,7 +401,12 @@ def interface_flap_report(devices, days_back=5, threshold_minutes=5, now=None):
             if newest_log is None or when>newest_log: newest_log=when
         events.extend(parse_device_log(device, now=now, days_back=days_back, threshold_minutes=threshold_minutes))
     events.sort(key=lambda e:(e["datetime"],e["device_name"],e["interface"]),reverse=True)
-    for index,event in enumerate(events,1): event["row"] = index
+    for index,event in enumerate(events,1):
+        event["row"] = index
+        name, nip, via = _resolve_neighbor(neighbor_context, event.get("ip"), event.get("interface"))
+        event["neighbor_name"] = name
+        event["neighbor_ip"] = nip
+        event["neighbor_via"] = via
     report={"events":events,"device_count":len({e["ip"] for e in events}),"event_count":len(events),
             "days":int(days_back),"threshold_minutes":int(threshold_minutes),
             "devices_scanned":len(devices),"devices_with_logs":devices_with_logs}
@@ -214,11 +429,15 @@ def interface_flaps_csv(report):
     """
     output = StringIO(newline="")
     writer = csv.writer(output)
-    writer.writerow(["ردیف", "نام دستگاه", "آی‌پی دستگاه", "تگ دستگاه", "اینترفیس", "تعداد تکرار لاگ", "تاریخ و زمان (میلادی)", "تاریخ و زمان (شمسی)", "نوع رویداد"])
+    writer.writerow(["ردیف", "نام دستگاه", "آی‌پی دستگاه", "تگ دستگاه", "اینترفیس",
+                     "نام دستگاه همسایه", "IP دستگاه همسایه", "تعداد تکرار لاگ",
+                     "تاریخ و زمان (میلادی)", "تاریخ و زمان (شمسی)", "نوع رویداد"])
     for event in report.get("events", []):
         writer.writerow([event.get("row", ""), event.get("device_name", ""),
                          event.get("ip", ""), event.get("device_tag", event.get("tags", "")),
-                         event.get("interface", ""), event.get("flap_count", 1),
+                         event.get("interface", ""),
+                         event.get("neighbor_name", ""), event.get("neighbor_ip", ""),
+                         event.get("flap_count", 1),
                          event.get("datetime", ""), event.get("datetime_jalali", ""),
                          event.get("last_status", "")])
     return "\ufeff" + output.getvalue()
@@ -227,10 +446,10 @@ def interface_flaps_xlsx(report):
     from openpyxl import Workbook
     from openpyxl.styles import Font, PatternFill, Border, Side, Alignment
     wb=Workbook(); ws=wb.active; ws.title="قطع وصل اینترفیس"; ws.sheet_view.rightToLeft=True
-    headers=["ردیف","نام دستگاه","آی‌پی دستگاه","تگ دستگاه","اینترفیس","تعداد تکرار لاگ","تاریخ و زمان (میلادی)","تاریخ و زمان (شمسی)","نوع رویداد"]
+    headers=["ردیف","نام دستگاه","آی‌پی دستگاه","تگ دستگاه","اینترفیس","نام دستگاه همسایه","IP دستگاه همسایه","تعداد تکرار لاگ","تاریخ و زمان (میلادی)","تاریخ و زمان (شمسی)","نوع رویداد"]
     ws.append(headers)
     for event in report.get("events",[]):
-        ws.append([event["row"],event["device_name"],event["ip"],event.get("device_tag") or event.get("tags") or "",event["interface"],event.get("flap_count",1),event["datetime"],event["datetime_jalali"],event["last_status"]])
+        ws.append([event["row"],event["device_name"],event["ip"],event.get("device_tag") or event.get("tags") or "",event["interface"],event.get("neighbor_name",""),event.get("neighbor_ip",""),event.get("flap_count",1),event["datetime"],event["datetime_jalali"],event["last_status"]])
     fill=PatternFill("solid",fgColor="1F4E78"); white=Font(name="Arial",bold=True,color="FFFFFF",size=11)
     thin=Side(style="thin",color="D9E2F3")
     for cell in ws[1]:
