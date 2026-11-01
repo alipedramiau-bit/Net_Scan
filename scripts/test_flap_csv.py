@@ -1,7 +1,7 @@
 """Quick verification test for the updated interface_flaps_csv export."""
 import sys
 import csv
-sys.path.insert(0, "/home/z/my-project/backend")
+sys.path.insert(0, __import__("os").path.join(__import__("os").path.dirname(__import__("os").path.abspath(__file__)), "..", "backend"))
 import smart_reports
 
 # Sample device log with flap events (short flaps < 5 min apart + alternating)

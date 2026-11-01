@@ -1,6 +1,6 @@
 """End-to-end verification for search optimization + report database selection."""
 import os, sys, sqlite3, tempfile
-sys.path.insert(0, "/home/z/my-project/backend")
+sys.path.insert(0, __import__("os").path.join(__import__("os").path.dirname(__import__("os").path.abspath(__file__)), "..", "backend"))
 
 import db as dbm
 from fastapi.testclient import TestClient

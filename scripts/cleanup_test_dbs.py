@@ -1,6 +1,6 @@
 """Remove leftover test databases from catalog + disk (one-off cleanup)."""
 import sys, os, json
-sys.path.insert(0, "/home/z/my-project/backend")
+sys.path.insert(0, __import__("os").path.join(__import__("os").path.dirname(__import__("os").path.abspath(__file__)), "..", "backend"))
 os.chdir("/home/z/my-project")
 from pathlib import Path
 import db

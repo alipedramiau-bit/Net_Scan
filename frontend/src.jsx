@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from "react";import{createRoot}from"react-dom/client";import"./style.css";
+import React,{useEffect,useState,useRef} from "react";import{createRoot}from"react-dom/client";import"./style.css";
 const API=(()=>{
   const e=import.meta.env.VITE_API_BASE_URL;
   if(e!==undefined&&e!==null&&e!=="")return e;
@@ -1513,9 +1513,84 @@ function SmartReports(){
           {diag&&diag.withLogs>0&&!diag.stale&&<div style={{marginTop:8}}>در بازه انتخابی نوسان (flap) با آستانه فعلی ثبت نشده است. بازه را بزرگ‌تر کنید یا آستانه دقیقه را افزایش دهید.</div>}
         </div>}
       </div>}
+      <RouteTopologyReport />
       <AntennaIssuesReport />
     </section>
   );
+}
+function RouteTopologyReport(){
+  const[dbList,setDbList]=useState([{name:"default"}]),[dbSel,setDbSel]=useState("");
+  const[centralIp,setCentralIp]=useState("172.19.1.6");
+  const[apiUser,setApiUser]=useState("admin"),[apiPass,setApiPass]=useState("");
+  const[starting,setStarting]=useState(false),[busy,setBusy]=useState(false),[canceling,setCanceling]=useState(false);
+  const[prog,setProg]=useState(null),[msg,setMsg]=useState(""),[err,setErr]=useState("");
+  const pollRef=useRef(null);
+  useEffect(()=>{(async()=>{try{const r=await fetch(API+"/api/databases");const d=await readJson(r);
+    if(r.ok){const list=(d.databases&&d.databases.length)?d.databases:[{name:"default"}];setDbList(list);setDbSel(prev=>prev||(d.active||"default"));}}catch(e){/* keep fallback */}})()},[]);
+  useEffect(()=>()=>{if(pollRef.current)window.clearInterval(pollRef.current);},[]);
+  function phaseLabel(p){return {start:"آماده‌سازی",collect:"خواندن دستگاه‌ها از طریق RouterOS API",graph:"ساخت گراف مسیر و همسایگی‌ها",pdf:"ساخت فایل PDF",done:"تکمیل شد",canceled:"متوقف شد",error:"خطا"}[p]||p;}
+  async function fetchResult(latest){
+    try{
+      const r=await fetch(API+"/api/reports/route-topology/result.pdf");
+      if(!r.ok){const d=await readJson(r).catch(()=>({}));throw Error(d.detail||("دریافت PDF ناموفق بود ("+r.status+")"));}
+      const blob=await r.blob();const url=URL.createObjectURL(blob);const a=document.createElement("a");
+      a.href=url;a.download="route_topology_"+new Date().toISOString().slice(0,10)+".pdf";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+      setMsg("گزارش PDF مسیر ساخته و دانلود شد"+(latest?(" — دستگاه‌های مسیریاب: "+latest.ok+" / ناموفق: "+latest.failed+" (جزئیات و تعداد لینک‌ها داخل فایل PDF)"):":"));
+    }catch(e){setErr(e.message||"خطا در دریافت PDF");}
+  }
+  function startPolling(){
+    if(pollRef.current)window.clearInterval(pollRef.current);
+    pollRef.current=window.setInterval(async()=>{
+      try{
+        const r=await fetch(API+"/api/reports/route-topology/progress");const d=await readJson(r);setProg(d);
+        if(!d.running){
+          window.clearInterval(pollRef.current);pollRef.current=null;setBusy(false);
+          if(d.canceled)setMsg("گزارش مسیر متوقف شد.");
+          else if(d.error)setErr("خطا در ساخت گزارش: "+d.error);
+          else if(d.ready)fetchResult(d);
+        }
+      }catch(e){/* next tick retries */}
+    },1200);
+  }
+  async function startReport(){
+    setStarting(true);setErr("");setMsg("");setProg(null);
+    try{
+      const r=await fetch(API+"/api/reports/route-topology/start",{method:"POST",headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({database:dbSel,central_router_ip:centralIp,username:apiUser,password:apiPass})});
+      const d=await readJson(r);
+      if(!r.ok)throw Error(d.detail||("شروع گزارش ناموفق بود ("+r.status+")"));
+      setMsg("اتصال به "+d.devices+" دستگاه میکروتیک از طریق RouterOS API آغاز شد؛ بسته به تعداد دستگاه‌ها ممکن است چند دقیقه طول بکشد…");
+      setBusy(true);startPolling();
+    }catch(e){setErr(e.message||"خطا در شروع گزارش");}
+    finally{setStarting(false);}
+  }
+  async function cancelReport(){setCanceling(true);try{await fetch(API+"/api/reports/route-topology/cancel",{method:"POST"});setMsg("درخواست توقف ارسال شد؛ پس از پایان خواندن دستگاه جاری متوقف می‌شود…");}catch(e){}finally{setCanceling(false);}}
+  return <section className="panel" dir="rtl" style={{marginTop:18}}>
+    <h3>گزارش مسیر تا روتر مرکزی (توپولوژی PDF)</h3>
+    <p style={{color:"#64748b",marginTop:0}}>با نام کاربری و رمز عبور RouterOS API به تمام دستگاه‌های میکروتیکِ دیتابیس انتخاب‌شده وصل می‌شود، مسیر هر دستگاه تا روتر مرکزی (IP را شما وارد می‌کنید) را به‌همراه آدرس‌های IP، همسایه‌ها و اینترفیس‌های هر دستگاه استخراج می‌کند و برای هر دستگاه یک صفحه PDF می‌سازد (Detailed Router Path Topology). در نمودار مسیر مشخص است هر اینترفیسِ دستگاه به کدام اینترفیسِ دستگاه بعدی وصل است (MNDP / ساب‌نت مشترک / گیت‌وی روت).</p>
+    <div style={{display:"flex",gap:14,flexWrap:"wrap"}}>
+      <label>دیتابیس
+        <select value={dbSel} onChange={e=>setDbSel(e.target.value)} title="دستگاه‌های میکروتیک از این دیتابیس انتخاب می‌شوند (حداکثر ۸۰ دستگاه)">
+          {dbList.map(d=><option key={d.name} value={d.name}>{d.name+(typeof d.devices==="number"?" ("+d.devices+" دستگاه)":"")+(d.active?" — فعال":"")}</option>)}
+        </select>
+      </label>
+      <label>آی‌پی روتر مرکزی<input dir="ltr" type="text" value={centralIp} onChange={e=>setCentralIp(e.target.value)} placeholder="172.19.1.6"/></label>
+      <label>نام کاربری API<input dir="ltr" type="text" value={apiUser} onChange={e=>setApiUser(e.target.value)} placeholder="admin"/></label>
+      <label>رمز عبور API<input dir="ltr" type="password" value={apiPass} onChange={e=>setApiPass(e.target.value)} placeholder="••••••••"/></label>
+    </div>
+    <div style={{display:"flex",gap:8,flexWrap:"wrap",marginTop:12}}>
+      <button type="button" className="tool-btn" disabled={starting||busy} onClick={startReport}>{busy?"در حال ساخت گزارش…":"ایجاد گزارش مسیر (PDF)"}</button>
+      {busy&&<button type="button" className="tool-btn" disabled={canceling} onClick={cancelReport}>توقف</button>}
+    </div>
+    {prog&&(busy||starting)&&<div role="status" aria-live="polite" style={{marginTop:12}}>
+      <div>{phaseLabel(prog.phase)||"در حال اجرا…"} — {prog.done}/{prog.total} دستگاه (موفق: {prog.ok} — ناموفق: {prog.failed}){prog.current_ip?<span> — <span dir="ltr">{prog.current_ip}</span></span>:null}</div>
+      <div style={{height:8,background:"#e5e7eb",borderRadius:8,overflow:"hidden",marginTop:6}}>
+        <div style={{height:"100%",width:prog.percent+"%",background:"#168a55",transition:"width .35s ease"}}/>
+      </div>
+    </div>}
+    {!busy&&!starting&&msg&&<div className="msg" style={{marginTop:10}}>{msg}</div>}
+    {err&&<div className="error" role="alert" style={{marginTop:10}}>{err}</div>}
+  </section>;
 }
 function AntennaIssuesReport(){
   const [days,setDays]=useState(30),[items,setItems]=useState([]),[busy,setBusy]=useState(false),[downloading,setDownloading]=useState(false),[msg,setMsg]=useState(""),[err,setErr]=useState("");

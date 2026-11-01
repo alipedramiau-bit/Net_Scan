@@ -1,6 +1,6 @@
 """Diagnose smart-report flap detection against the real database."""
 import sys, os
-sys.path.insert(0, "/home/z/my-project/backend")
+sys.path.insert(0, __import__("os").path.join(__import__("os").path.dirname(__import__("os").path.abspath(__file__)), "..", "backend"))
 os.chdir("/home/z/my-project")
 
 import db

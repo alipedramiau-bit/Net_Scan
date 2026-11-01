@@ -21,6 +21,8 @@
 | `backend/main.py` | همه endpointها (FastAPI)، احراز هویت کوکی HMAC، مدیریت jobها |
 | `backend/db.py` | لایه دیتابیس: کاتالوگ، جدول devices، خروجی‌ها، backup، enrich از ip_info |
 | `backend/routeros_api.py` | خواندن مستقیم از RouterOS API (probe موازی، collect، push-config) |
+| `backend/route_topology.py` | توپولوژی مسیر: خواندن ساختاریافته API + گراف لینک‌ها + BFS تا روتر مرکزی |
+| `backend/route_pdf.py` | تولید PDF «Detailed Router Path Topology» (یک صفحه به ازای هر دستگاه) |
 | `backend/snmp_manager.py` | خواندن identity از طریق SNMP |
 | `frontend/src.jsx` | کل رابط کاربری در «یک فایل» (React + JSX، بدون فایل‌های کامپوننت جدا) |
 | `frontend/style.css` | استایل‌ها (RTL، تم تیره) |
@@ -44,6 +46,8 @@ python -m unittest discover -s tests
 python scripts/test_export_mikrotik_csv.py
 python scripts/test_api_probe_progress.py
 python scripts/test_json_export_route_report.py
+python scripts/test_route_topology_unit.py
+python scripts/test_route_topology_pdf.py
 
 # build فرانت‌اند — بعد از هر تغییر در src.jsx یا style.css الزامی است:
 cd frontend && npm install && npm run build
@@ -64,7 +68,7 @@ cd frontend && npm install && npm run build
 5. پیام کامیت: قالب `type(scope): خلاصه انگلیسی` (مثل `feat(devices): ...`، `fix(api): ...`).
 6. قبل از کامیت: تست‌ها سبز باشند؛ `git status` را برای فایل‌های ناخواسته چک کنید.
 
-## ۵) نقشه قابلیت‌ها (تا Task 14)
+## ۵) نقشه قابلیت‌ها (تا Task 15)
 
 - **اسکن شبکه:** `POST /scans/start` (قابل لغو با `/scans/{id}/cancel`)، ورودی IP/CIDR/بازه،
   پورت‌های 8291 و 8728 همیشه اضافه می‌شوند.
@@ -89,6 +93,17 @@ cd frontend && npm install && npm run build
   معادلِ `-d`)، موازی با ThreadPool؛ مبدأ/مقصد از کاربر (پیش‌فرض هر دو 172.19.1.6)؛
   اگر مبدأ≠مقصد مسیر مبدأ→مقصد هم ردیابی و به ابتدای گزارش می‌آید؛ خروجی CSV با
   BOM و ۷ ستون فارسی (IP مبدأ، IP مقصد، نام دستگاه، شماره مرحله، IP مرحله، تاخیر، وضعیت).
+- **گزارش مسیر تا روتر مرکزی (توپولوژی PDF):** `POST /api/reports/route-topology/start`
+  + `/progress` + `/cancel` + `/result.pdf` (ماژول‌های `backend/route_topology.py` و
+  `backend/route_pdf.py`) — با نام کاربری/رمز RouterOS API که کاربر وارد می‌کند به تمام
+  دستگاه‌های میکروتیک دیتابیس انتخابی (یا انتخاب صریح `ips`) وصل می‌شود، اینترفیس‌ها /
+  آدرس‌های IP / همسایه‌ها (MNDP) / روت‌ها را می‌خواند، گراف لینک‌ها را می‌سازد
+  (همسایگی MNDP + اشتراک ساب‌نت + گیت‌وی روت به IP مرکزی)، کوتاه‌ترین مسیر هر دستگاه تا
+  «روتر مرکزی» (پیش‌فرض 172.19.1.6، ورودی کاربر) را با BFS حساب می‌کند و در هر گام
+  مشخص می‌کند کدام اینترفیس دستگاه A به کدام اینترفیس دستگاه B وصل است؛ خروجی یک PDF
+  انگلیسی‌زبان (مثل نمونه Detailed Router Path Topology) با یک صفحه به ازای هر دستگاه؛
+  دستگاه‌های قطع هم صفحهٔ «CONNECTION FAILED» با اطلاعات دیتابیس دارند. الگوی اجرا
+  مثل probe: Thread پس‌زمینه + progress زنده + توقف مشارکتی؛ هم‌زمان فقط یک گزارش.
 - **سایر:** گزارش‌های هوشمند، Winbox tools، مدیریت VPN، ایمیل/اطلاع‌رسانی.
 
 ## ۶) نکات دام‌دار (Gotchas)
@@ -103,6 +118,10 @@ cd frontend && npm install && npm run build
   دیتابیس را بازنویسی نمی‌کند.
 - اعتبارنامه‌های RouterOS (user/pass) هرگز در کد/کامیت هاردکد نشوند؛ از ورودی کاربر یا
   تنظیمات بگیرید.
+- `reportlab` برای PDF لازم است (در requirements.txt)؛ متن PDF با فونت core Helvetica است
+  پس فقط نویسه‌های Latin-1 — متن فارسی/عربی قبل از رسم باید پاکسازی شود (`route_pdf._san`).
+- شمارش صفحات PDF در تست‌ها: `len(re.findall(rb"/Type\\s*/Page[^s]", content))` —
+  شمارش سادهٔ `/Type /Page` گرهٔ `/Pages` را هم می‌شمارد.
 
 ## ۷) امنیت
 

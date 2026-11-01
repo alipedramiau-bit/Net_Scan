@@ -14,7 +14,7 @@ for _p in (str(ROOT_DIR), str(BACKEND_DIR)):
         sys.path.insert(0, _p)
 
 from concurrent.futures import ThreadPoolExecutor
-from threading import Lock, Event
+from threading import Lock, Event, Thread
 from datetime import datetime, timezone
 from uuid import uuid4
 
@@ -82,6 +82,14 @@ try:
     from backend import routeros_api
 except ImportError:
     import routeros_api
+try:
+    from backend import route_topology
+except ImportError:
+    import route_topology
+try:
+    from backend import route_pdf
+except ImportError:
+    import route_pdf
 
 try:
     from backend import email_manager
@@ -180,6 +188,12 @@ JOBS={}; GUARD=Lock(); EXECUTOR=ThreadPoolExecutor(max_workers=4)
 PROBE_CANCEL=Event()  # cancel current SNMP probe
 API_PROBE_CANCEL=Event()
 API_PROBE_PROGRESS={"total":0,"done":0,"current_ip":"","running":False,"canceled":False}
+
+# --- گزارش مسیر تا روتر مرکزی (توپولوژی PDF) ---
+TOPOLOGY_CANCEL=Event()
+TOPOLOGY_LOCK=Lock()
+TOPOLOGY_STATE={"running":False,"total":0,"done":0,"ok":0,"failed":0,"current_ip":"",
+                "phase":"","error":None,"canceled":False,"pdf":None,"stats":{}}
 db.init_db_global()
 
 @app.on_event("startup")
@@ -1617,6 +1631,179 @@ def probe_devices_api_progress():
         "running": bool(p.get("running")),
         "canceled": bool(p.get("canceled")),
     }
+
+
+# ===================== گزارش مسیر تا روتر مرکزی (توپولوژی PDF) =====================
+class RouteTopologyRequest(BaseModel):
+    """ورودی «گزارش مسیر تا روتر مرکزی» در گزارش هوشمند."""
+    database: str = Field(default="", max_length=64)
+    ips: list[str] = Field(default_factory=list, max_length=1000)
+    central_router_ip: str = Field(default="172.19.1.6", max_length=45)
+    username: str = Field(min_length=1, max_length=128)
+    password: str = Field(default="", max_length=128)
+    port: int = Field(default=8728, ge=1, le=65535)
+    timeout: float = Field(default=12.0, ge=1.0, le=60.0)
+    max_workers: int = Field(default=6, ge=1, le=16)
+    max_devices: int = Field(default=80, ge=1, le=200)
+
+
+def _select_topology_targets(db_name: str, ips: list[str], max_devices: int) -> list[dict]:
+    """دستگاه‌های میکروتیک گزارش: انتخاب صریح یا کل میکروتیک‌های دیتابیس."""
+    db_path = str(db.db_path_for(db_name)) if db_name else None
+    if ips:
+        rows = db.fetch_devices_by_ips(ips, db_path=db_path)
+    else:
+        fetched = db.query_devices(limit=100000, db_path=db_path)
+        rows = fetched.get("devices", []) if isinstance(fetched, dict) else fetched
+    targets, seen = [], set()
+    for d in rows or []:
+        ip = (d.get("ip") or "").strip()
+        if not ip or ip in seen or not db._is_mikrotik_device(d):
+            continue
+        seen.add(ip)
+        targets.append(d)
+    return targets[: max(1, int(max_devices or 80))]
+
+
+def _route_topology_worker(body: RouteTopologyRequest, targets: list[dict], db_name: str) -> None:
+    st = TOPOLOGY_STATE
+    try:
+        st.update(phase="collect", total=len(targets), done=0, ok=0, failed=0, current_ip="")
+        infos = route_topology.collect_topology_info_many(
+            [t["ip"] for t in targets],
+            username=body.username,
+            password=body.password or "",
+            port=body.port,
+            timeout=body.timeout,
+            cancel_event=TOPOLOGY_CANCEL,
+            progress=st,
+            max_workers=body.max_workers,
+        )
+        if TOPOLOGY_CANCEL.is_set():
+            st.update(phase="canceled", running=False, canceled=True)
+            return
+        st.update(phase="graph")
+        topo = route_topology.build_topology(infos, targets, body.central_router_ip)
+        st.update(phase="pdf")
+        pdf = route_pdf.build_route_topology_pdf(
+            topo, targets,
+            central_ip=body.central_router_ip,
+            database=db_name or db.get_active_db_name(),
+        )
+        summary = topo.get("summary") or {}
+        stats = {
+            "devices": summary.get("devices", len(targets)),
+            "ok": summary.get("reachable", sum(1 for i in infos if i.get("ok"))),
+            "failed": sum(1 for i in infos if not i.get("ok")),
+            "reachable": summary.get("reachable", 0),
+            "unreachable": summary.get("unreachable", 0),
+            "links": summary.get("links", 0),
+            "database": db_name or db.get_active_db_name(),
+            "central_router_ip": body.central_router_ip,
+            "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
+        }
+        st.update(pdf=pdf, stats=stats, phase="done", error=None)
+    except Exception as e:  # هر خطایی → در progress دیده می‌شود
+        st.update(error=str(e)[:500], phase="error")
+    finally:
+        st["running"] = False
+        st["current_ip"] = ""
+
+
+@app.post("/api/reports/route-topology/start")
+def route_topology_start(body: RouteTopologyRequest):
+    """شروع ساخت گزارش مسیر: اتصال API به دستگاه‌های میکروتیک و PDF توپولوژی."""
+    with TOPOLOGY_LOCK:
+        if TOPOLOGY_STATE.get("running"):
+            raise HTTPException(409, "یک گزارش مسیر در حال اجراست؛ لطفاً تمام یا توقف آن را صبر کنید")
+        central = (body.central_router_ip or "").strip() or route_topology.DEFAULT_CENTRAL_IP
+        try:
+            import ipaddress as _ipa
+            _ipa.ip_address(central)
+        except ValueError:
+            raise HTTPException(422, f"آی‌پی روتر مرکزی نامعتبر است: {central}") from None
+        db_name = (body.database or "").strip()
+        if db_name:
+            _resolve_report_database(db_name)
+        targets = _select_topology_targets(db_name, body.ips, body.max_devices)
+        if not targets:
+            raise HTTPException(
+                400,
+                "در این گزارش هیچ دستگاه میکروتیکی یافت نشد "
+                "(نامزد میکروتیک یا پورت 8291/8728 باز)",
+            )
+        TOPOLOGY_CANCEL.clear()
+        TOPOLOGY_STATE.update({"running": True, "total": len(targets), "done": 0, "ok": 0,
+                               "failed": 0, "current_ip": "", "phase": "start", "error": None,
+                               "canceled": False, "pdf": None, "stats": {}})
+        Thread(target=_route_topology_worker, args=(body, targets, db_name), daemon=True).start()
+    return {
+        "started": True,
+        "devices": len(targets),
+        "central_router_ip": central,
+        "database": db_name or db.get_active_db_name(),
+        "message": f"اتصال به {len(targets)} دستگاه میکروتیک از طریق RouterOS API آغاز شد",
+    }
+
+
+@app.get("/api/reports/route-topology/progress")
+def route_topology_progress():
+    p = dict(TOPOLOGY_STATE or {})
+    total = int(p.get("total") or 0)
+    done = int(p.get("done") or 0)
+    pct = int(round(100 * done / total)) if total else 0
+    return {
+        "total": total,
+        "done": done,
+        "percent": pct,
+        "ok": int(p.get("ok") or 0),
+        "failed": int(p.get("failed") or 0),
+        "remaining": max(0, total - done),
+        "current_ip": p.get("current_ip") or "",
+        "phase": p.get("phase") or "",
+        "running": bool(p.get("running")),
+        "canceled": bool(p.get("canceled")),
+        "error": p.get("error"),
+        "ready": bool(p.get("pdf")) and not p.get("running"),
+    }
+
+
+@app.post("/api/reports/route-topology/cancel")
+def route_topology_cancel():
+    if TOPOLOGY_STATE.get("running"):
+        TOPOLOGY_CANCEL.set()
+        return {"cancel_requested": True, "message": "درخواست توقف گزارش مسیر ارسال شد"}
+    return {"cancel_requested": False, "message": "گزارش در حال اجرا نیست"}
+
+
+@app.get("/api/reports/route-topology/result.pdf")
+def route_topology_result():
+    st = TOPOLOGY_STATE
+    if st.get("running"):
+        raise HTTPException(409, "گزارش هنوز در حال ساخت است")
+    if st.get("canceled"):
+        raise HTTPException(409, "گزارش توسط کاربر متوقف شد")
+    if st.get("error"):
+        raise HTTPException(500, f"خطا در ساخت گزارش مسیر: {st['error']}")
+    pdf = st.get("pdf")
+    if not pdf:
+        raise HTTPException(404, "گزارشی آماده نیست؛ ابتدا گزارش مسیر را بسازید")
+    stats = st.get("stats") or {}
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+    return Response(
+        pdf,
+        media_type="application/pdf",
+        headers={
+            "Content-Disposition": f'attachment; filename="route_topology_{stamp}.pdf"',
+            "X-Topology-Devices": str(stats.get("devices") or 0),
+            "X-Topology-Reachable": str(stats.get("reachable") or 0),
+            "X-Topology-Unreachable": str(stats.get("unreachable") or 0),
+            "X-Topology-Failed": str(stats.get("failed") or 0),
+            "X-Topology-Links": str(stats.get("links") or 0),
+            "X-Topology-Database": str(stats.get("database") or ""),
+            "X-Topology-Central-Router": str(stats.get("central_router_ip") or ""),
+        },
+    )
 
 
 @app.post("/api/devices/push-config")
