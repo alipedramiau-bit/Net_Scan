@@ -79,7 +79,7 @@ cd frontend && npm install && npm run build
 5. پیام کامیت: قالب `type(scope): خلاصه انگلیسی` (مثل `feat(devices): ...`، `fix(api): ...`).
 6. قبل از کامیت: تست‌ها سبز باشند؛ `git status` را برای فایل‌های ناخواسته چک کنید.
 
-## ۵) نقشه قابلیت‌ها (تا Task 21)
+## ۵) نقشه قابلیت‌ها (تا Task 23)
 
 - **اسکن شبکه:** `POST /scans/start` (قابل لغو با `/scans/{id}/cancel`)، ورودی IP/CIDR/بازه،
   پورت‌های 8291 و 8728 همیشه اضافه می‌شوند.
@@ -218,6 +218,16 @@ cd frontend && npm install && npm run build
   هاردکد بازنویسی می‌کردند حالا از `Content-Disposition` می‌خوانند؛ fallbackهای
   `config_failed`/`mikrotik_selected`/`route_report`/`route_unreachable` هم با
   `csvStamp()` مهر می‌گیرند.
+- **کشف hop بالاسری با default روت (Task 23):** روش مسیریابی طبق درخواست کاربر —
+  قبل از مسیریابی، نقشهٔ مالکیت IP (فاز صفر در `build_topology`): IP اتصال + همهٔ
+  آدرس‌های اینترفیسی هر دستگاه (+ آدرس‌های سیسکوی مرکز) → کلید گره؛ گره‌ها `dev_id`
+  (شناسهٔ دیتابیس) دارند. کاندیدهای next-hop در `_route_all_next_hops` حالا
+  **default-اول**‌اند: اول default روت‌ها (0.0.0.0/0؛ distance کمتر ← ترتیب جدول) بعد
+  روت‌های خاص؛ helper جدید `_route_default_next_hops` فقط defaultها را می‌دهد. BFS
+  «آگاه از default روت» است: در هر گره یال سمت گیت‌وی default (`pref_edges`/
+  `ordered_adj`) قبل از بقیهٔ یال‌ها امتحان می‌شود تا مسیر گزارش‌شده سلسله‌مراتب
+  default را دنبال کند نه میان‌بر ساب‌نت/روت خاص. `_upstream_chain` هم از نقشهٔ
+  مالکیت IP استفاده می‌کند. `_route_next_hops` قدیمی (specific-اول) برای سازگاری باقی است.
 - **سایر:** گزارش‌های هوشمند، Winbox tools، مدیریت VPN، ایمیل/اطلاع‌رسانی.
 
 ## ۶) نکات دام‌دار (Gotchas)

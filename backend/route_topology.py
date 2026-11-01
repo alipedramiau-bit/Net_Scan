@@ -4,9 +4,14 @@
 رمز عبوری که کاربر وارد می‌کند از طریق RouterOS API (پورت 8728) وصل می‌شویم،
 اینترفیس‌ها / آدرس‌های IP / همسایه‌ها (MNDP) / مسیرهای روتینگ را می‌خوانیم،
 گراف لینک‌ها را می‌سازیم (همسایگی MNDP + اشتراک ساب‌نت + گیت‌وی روت)،
-کوتاه‌ترین مسیر هر دستگاه تا «روتر مرکزی» (IP آن را کاربر وارد می‌کند) را با
-BFS پیدا می‌کنیم و مشخص می‌کنیم در هر گام، کدام اینترفیسِ دستگاه A به کدام
-اینترفیسِ دستگاه B وصل است.
+کوتاه‌ترین مسیر هر دستگاه تا «روتر مرکزی» (IP آن را کاربر وارد می‌کند) را پیدا
+می‌کنیم و مشخص می‌کنیم در هر گام، کدام اینترفیسِ دستگاه A به کدام اینترفیسِ
+دستگاه B وصل است.
+
+روش مسیریابی (درخواست کاربر — Task 23): قبل از هر گامی، «اطلاعات کل IP
+اینترفیس‌ها به‌همراه ای‌دی دستگاه‌ها» یک‌جا جمع‌آوری می‌شود (نقشهٔ مالکیت IP)
+و hop بالاسریِ هر دستگاه با «default روت» آن کشف و تا رسیدن به روتر مرکزی
+دنبال می‌شود؛ روت‌های خاص/ساب‌نت/MNDP فقط مکمل و جایگزین‌اند.
 
 خروجی، ورودی ماژول route_pdf.py برای ساخت گزارش PDF یک‌صفحه‌ای به ازای هر
 دستگاه است (مشابه نمونهٔ "Detailed Router Path Topology").
@@ -339,11 +344,15 @@ def _route_distance(rt: dict) -> int:
 def _route_all_next_hops(routes: list[dict], central_ip: str) -> list[dict]:
     """همهٔ next-hopهای ممکن به سمت روتر مرکزی از «همهٔ» روت‌های پوشش‌دهنده.
 
-    برخلاف _route_next_hops (فقط بهترین روت)، برای درخواست کاربر مبنی بر اینکه
-    «هر روتر چند IP روی اینترفیس‌های مختلف دارد و تمام اینترفیس‌ها و IPهای آن
-    برای مسیریابی باید چک شوند»، گیت‌وی‌های همهٔ روت‌های پوشش‌دهندهٔ central_ip
-    (روت خاص هر اینترفیس، روت‌های جایگزین با distance بدتر و روت پیش‌فرض) را
-    به‌ترتیب برتری (پیشوند بلندتر ← distance کمتر ← ترتیب جدول) برمی‌گرداند.
+    برای درخواست کاربر مبنی بر اینکه «هر روتر چند IP روی اینترفیس‌های مختلف
+    دارد و تمام اینترفیس‌ها و IPهای آن برای مسیریابی باید چک شوند»، گیت‌وی‌های
+    همهٔ روت‌های پوشش‌دهندهٔ central_ip برمی‌گردند — اما به ترتیب برتریِ جدیدِ
+    Task 23 (کشف hop بالاسری با default روت):
+      ۱) «default روت‌ها» (0.0.0.0/0) — distance کمتر ← ترتیب جدول؛
+      ۲) بعد روت‌های خاص — پیشوند بلندتر ← distance کمتر ← ترتیب جدول.
+    طبق روش کاربر، hop بالای دستگاه (بالادست) با default روت تعیین می‌شود؛
+    روت‌های خاص فقط وقتی default وجود ندارد (یا در BFS برای یافتن جایگزین)
+    به‌کار می‌روند.
 
     خروجی: [{"gw","gw_if","kind","dst","prefixlen","distance"}] بدون تکرار؛
     گیت‌وی اینترفیسی (نام اینترفیس به‌جای IP) قابل دنبال‌کردن نیست و حذف می‌شود.
@@ -379,6 +388,12 @@ def _route_all_next_hops(routes: list[dict], central_ip: str) -> list[dict]:
                 "distance": _route_distance(rt), "pos": pos,
             })
     cands.sort(key=lambda c: (-c["prefixlen"], c["distance"], c["pos"]))
+    # Task 23 — اولویت default روت‌ها: hop بالاسری با default کشف می‌شود
+    defaults = [c for c in cands if c["kind"] == "default"]
+    specifics = [c for c in cands if c["kind"] != "default"]
+    defaults.sort(key=lambda c: (c["distance"], c["pos"]))
+    specifics.sort(key=lambda c: (-c["prefixlen"], c["distance"], c["pos"]))
+    cands = defaults + specifics
     out: list[dict] = []
     seen: set = set()
     for c in cands:
@@ -387,6 +402,44 @@ def _route_all_next_hops(routes: list[dict], central_ip: str) -> list[dict]:
             continue
         seen.add(k)
         out.append(c)
+    return out
+
+
+def _route_default_next_hops(routes: list[dict]) -> list[dict]:
+    """کاندیدهای hop بالاسری فقط از «default روت‌ها» (0.0.0.0/0) — Task 23.
+
+    روش درخواست کاربر: «با استفاده از default روت‌های دستگاه، hop بالاسری کشف
+    شود تا به روتر مرکزی برسد». خروجی به ترتیب برتری (distance کمتر ← ترتیب
+    جدول) و هم‌شکل خروجی _route_all_next_hops است؛ گیت‌وی اینترفیسی حذف می‌شود.
+    """
+    out: list[dict] = []
+    seen: set = set()
+    for pos, rt in enumerate(routes or []):
+        dst = (rt.get("dst_address") or "").strip()
+        try:
+            net = ipaddress.ip_network(dst or "0.0.0.0/0", strict=False)
+        except ValueError:
+            continue
+        if net.prefixlen != 0:
+            continue
+        for g, gif in _split_gateway(rt.get("gateway") or "") + _split_gateway(rt.get("immediate_gw") or ""):
+            g = (g or "").strip()
+            if not g:
+                continue
+            try:
+                ipaddress.ip_address(g)
+            except ValueError:
+                continue  # گیت‌وی اینترفیسی مثل "ether5" — قابل دنبال‌کردن نیست
+            k = (g, (gif or "").strip())
+            if k in seen:
+                continue
+            seen.add(k)
+            out.append({
+                "gw": g, "gw_if": k[1], "kind": "default",
+                "dst": "0.0.0.0/0", "prefixlen": 0,
+                "distance": _route_distance(rt), "pos": pos,
+            })
+    out.sort(key=lambda c: (c["distance"], c["pos"]))
     return out
 
 
@@ -646,6 +699,7 @@ def _make_node(key: str, name: str, ip: str, info: dict | None, device: dict | N
     return {
         "key": key, "name": name or ip, "ip": ip,
         "info": info, "device": device, "ghost": ghost, "is_core": False,
+        "dev_id": (device or {}).get("id") if isinstance(device, dict) else None,
         "addresses": info.get("addresses") or [],
         "interfaces": info.get("interfaces") or [],
         "neighbors": info.get("neighbors") or [],
@@ -767,6 +821,27 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str,
     cisco_used = bool(nodes[core_key].get("cisco"))
     core_addrs_live = nodes[core_key]["addresses"]
 
+    # --- فاز صفر (Task 23): جمع‌آوری پیش از مسیریابی --------------------------
+    # «اطلاعات کل IP اینترفیس‌ها به‌همراه ای‌دی دستگاه‌ها» یک‌جا جمع می‌شود:
+    # نقشهٔ مالکیت هر IP (IP اتصال + همهٔ آدرس‌های اینترفیسی + آدرس‌های سیسکوی
+    # مرکز) → کلید گره‌اش. دنبال‌کردن default روت‌ها با همین نقشه، hop بالاسری
+    # را سریع و یکدست پیدا می‌کند و به شناسهٔ دستگاه (dev_id/identity) می‌رسد.
+    ip_owner: dict[str, str] = {}
+    for key in order:
+        n0 = nodes[key]
+        own_ip = (n0.get("ip") or "").strip()
+        if own_ip:
+            ip_owner.setdefault(own_ip, key)
+        for a in n0.get("addresses") or []:
+            ipn = _ip_of(a.get("address"))
+            if ipn:
+                ip_owner.setdefault(ipn, key)
+    if cisco_used:
+        for a in nodes[core_key]["addresses"]:
+            ipn = _ip_of(a.get("address"))
+            if ipn:
+                ip_owner.setdefault(ipn, core_key)
+
     # --- یال‌ها -------------------------------------------------------------
     edges: list[dict] = []
     edge_seen: set = set()
@@ -873,14 +948,13 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str,
                     break
 
     # 3-ج) یال‌های روتینگ: همهٔ next-hopهای هر دستگاه به سمت روتر مرکزی.
-    # روش بهتر (درخواست کاربر) و Task 21: هر روتر چند IP روی اینترفیس‌های مختلف
-    # دارد؛ «تمام» اینترفیس‌ها و IPها برای مسیریابی چک می‌شوند — گیت‌وی‌های
-    # همهٔ روت‌های پوشش‌دهندهٔ central_ip (روت خاص هر اینترفیس، روت‌های جایگزین
-    # با distance بدتر و روت پیش‌فرض) همه یال می‌گیرند:
-    #   * طولانی‌ترین پیشوند منطبق با IP مرکزی اول، وگرنه/بعد روت پیش‌فرض؛
+    # Task 21 + Task 23: هر روتر چند IP روی اینترفیس‌های مختلف دارد؛ «تمام»
+    # اینترفیس‌ها و IPها برای مسیریابی چک می‌شوند — گیت‌وی‌های همهٔ روت‌های
+    # پوشش‌دهندهٔ central_ip همه یال می‌گیرند، اما به ترتیب برتریِ default-اول:
+    #   * اول گیت‌وی default روت‌ها (hop بالاسری واقعی — روش کاربر)، بعد روت خاص؛
     #   * اگر گیت‌وی خودِ IP مرکزی بود → یال مستقیم به core؛
-    #   * اگر گیت‌وی یکی از دستگاه‌های خوانده‌شده بود → یال به همان دستگاه
-    #     (زنجیرهٔ بالادست از طریق روترهای میانی تشکیل می‌شود)؛
+    #   * اگر گیت‌وی یکی از دستگاه‌های خوانده‌شده بود (نقشهٔ مالکیت IP فاز صفر)
+    #     → یال به همان دستگاه (زنجیرهٔ بالادست از طریق روترهای میانی)؛
     #   * وگرنه گرهٔ شبحِ «hop بالادست» ساخته می‌شود تا مسیر تا جایی که شواهد
     #     اجازه می‌دهد نمایش داده شود.
     for key in order:
@@ -896,15 +970,10 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str,
             if gw_ip == central_ip:
                 _add_edge(key, core_key, a_if, "", a_ip, gw_ip, ev)
                 continue
-            # گیت‌وی متعلق به کدام دستگاه خوانده‌شده است؟
-            peer_key = None
-            for k2 in order:
-                if k2 == key:
-                    continue
-                n2 = nodes[k2]
-                if n2["ip"] == gw_ip or any(_ip_of(a.get("address")) == gw_ip for a in n2["addresses"]):
-                    peer_key = k2
-                    break
+            # گیت‌وی متعلق به کدام دستگاه خوانده‌شده است؟ (نقشهٔ مالکیت IP — فاز صفر)
+            peer_key = ip_owner.get(gw_ip)
+            if peer_key == key:
+                peer_key = None  # روت به خودِ دستگاه — یال به خود نمی‌سازیم
             if peer_key is not None:
                 peer = nodes[peer_key]
                 b_if = _iface_of(peer["addresses"], gw_ip)
@@ -965,6 +1034,47 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str,
 
     ev_rank = {"mndp": 0, "cisco": 1, "subnet": 2, "route": 3, "default": 4}
 
+    # --- Task 23: BFS آگاه از default روت‌ها --------------------------------
+    # در هر گره، یالِ سمتِ گیت‌ویِ default روت (hop بالاسری واقعی) قبل از بقیهٔ
+    # یال‌ها امتحان می‌شود تا مسیر گزارش‌شده سلسله‌مراتب default روت‌ها را دنبال
+    # کند — نه میان‌برهای ساب‌نت/روت خاص. بقیهٔ یال‌ها برای تساوی/جایگزین‌اند.
+    pref_edges: dict[str, list[int]] = {}
+    for key in order:
+        if key == core_key:
+            continue
+        prefs: list[str] = []
+        for cand in _route_default_next_hops(nodes[key].get("routes") or []):
+            gw_ip = cand["gw"]
+            if gw_ip == central_ip:
+                nxt = core_key
+            else:
+                nxt = ip_owner.get(gw_ip)
+                if (nxt is None and cisco_used and core_addrs_live
+                        and _core_iface_toward(core_addrs_live, gw_ip)[1]):
+                    nxt = core_key  # گیت‌وی روی خودِ روتر مرکزی سیسکو است
+            if nxt and nxt != key and nxt not in prefs:
+                prefs.append(nxt)
+        if not prefs:
+            continue
+        mine = []
+        for i in adj.get(key, []):
+            e = edges[i]
+            other = e["b"] if e["a"] == key else e["a"]
+            if other in prefs:
+                mine.append(i)
+        if mine:
+            mine.sort(key=lambda i: prefs.index(edges[i]["b"] if edges[i]["a"] == key else edges[i]["a"]))
+            pref_edges[key] = mine
+    ordered_adj: dict[str, list[int]] = {}
+    for k2, idxs in adj.items():
+        ranked = sorted(idxs, key=lambda i: ev_rank.get(edges[i]["ev"], 9))
+        pref = pref_edges.get(k2) or []
+        if pref:
+            ps = set(pref)
+            ordered_adj[k2] = pref + [i for i in ranked if i not in ps]
+        else:
+            ordered_adj[k2] = ranked
+
     def _hop_from_edge(e: dict, src: str) -> dict:
         if e["a"] == src:
             return {"from": e["a"], "to": e["b"], "from_if": e["a_if"], "to_if": e["b_if"],
@@ -985,7 +1095,7 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str,
         found = False
         while queue and not found:
             cur = queue.pop(0)
-            for idx in sorted(adj.get(cur, []), key=lambda i: ev_rank.get(edges[i]["ev"], 9)):
+            for idx in ordered_adj.get(cur, []):
                 e = edges[idx]
                 nxt = e["b"] if e["a"] == cur else e["a"]
                 if nxt in visited:
@@ -1039,6 +1149,7 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str,
                        "name": node.get("name") or ""}
                 break
             # ترجیح: اولین گیت‌وی که به دستگاه شناخته‌شده یا خودِ core می‌رسد؛
+            # (Task 23: کاندیدها default-اول‌اند — نقشهٔ مالکیت IP فاز صفر)
             # وگرنه اولین گیت‌وی (گرهٔ شبح) به‌عنوان انتهای شواهد
             chosen = None
             for cand in cands:
@@ -1047,13 +1158,9 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str,
                 if gw_ip == central_ip:
                     nxt_key = core_key  # گیت‌وی خودِ روتر مرکزی است
                 else:
-                    for k2 in order:
-                        if k2 == cur:
-                            continue
-                        n2 = nodes[k2]
-                        if n2["ip"] == gw_ip or any(_ip_of(a.get("address")) == gw_ip for a in (n2["addresses"] or [])):
-                            nxt_key = k2
-                            break
+                    owner = ip_owner.get(gw_ip)
+                    if owner is not None and owner != cur:
+                        nxt_key = owner
                     if nxt_key is None and cisco_used and core_addrs_live and _core_iface_toward(core_addrs_live, gw_ip)[1]:
                         nxt_key = core_key  # گیت‌وی روی خودِ روتر مرکزی سیسکو است
                 if nxt_key is not None and not str(nxt_key).startswith("g:"):

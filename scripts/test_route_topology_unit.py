@@ -173,6 +173,36 @@ u7a = topo7["paths"]["d:10.2.2.2"].get("upstream") or []
 u7b = topo7["paths"]["d:10.2.2.3"].get("upstream") or []
 check("routing loop terminates upstream chain", len(u7a) <= 6 and len(u7b) <= 6, str((len(u7a), len(u7b))))
 
+# ---- Task 23: کشف hop بالاسری با default روت — نه میان‌بر ساب‌نت همسایه ----
+# D هم‌ساب‌نت S است (یال subnet) ولی default گیت‌وی‌اش U است؛ U به core می‌رسد.
+# مسیر گزارش‌شده باید D→U→core باشد (سلسله‌مراتب default)، نه D→S→core.
+D23 = _info("10.3.0.2", "D23",
+            [{"address": "10.3.0.2/24", "interface": "e1", "network": "10.3.0.0"}],
+            routes=[{"dst_address": "0.0.0.0/0", "gateway": "10.4.0.1", "distance": "1", "immediate_gw": ""}],
+            ifaces=IF("e1"))
+S23 = _info("10.3.0.3", "S23",
+            [{"address": "10.3.0.3/24", "interface": "e1", "network": "10.3.0.0"}],
+            routes=[{"dst_address": "0.0.0.0/0", "gateway": "172.19.1.6", "distance": "1", "immediate_gw": ""}],
+            ifaces=IF("e1"))
+U23 = _info("10.4.0.1", "U23",
+            [{"address": "10.4.0.1/24", "interface": "e1", "network": "10.4.0.0"}],
+            routes=[{"dst_address": "0.0.0.0/0", "gateway": "172.19.1.6", "distance": "1", "immediate_gw": ""}],
+            ifaces=IF("e1"))
+topo23 = rt.build_topology([D23, S23, U23],
+                           [{"ip": "10.3.0.2", "id": 101}, {"ip": "10.4.0.1", "id": 103}], "172.19.1.6")
+p23 = topo23["paths"]["d:10.3.0.2"]
+check("Task 23: path follows default-route hierarchy (D→U→core)",
+      p23["reachable"] and [h["to_key"] for h in p23["hops"]] == ["d:10.4.0.1", topo23["core_key"]],
+      str([(h['from_key'], h['to_key'], h['ev']) for h in p23.get('hops', [])]))
+check("Task 23: D-U hop is the default gateway edge",
+      p23["hops"] and p23["hops"][0]["to_ip"] == "10.4.0.1", str(p23["hops"][:1]))
+check("Task 23: inventory carries device id (dev_id)",
+      topo23["nodes"]["d:10.3.0.2"]["dev_id"] == 101
+      and topo23["nodes"]["d:10.4.0.1"]["dev_id"] == 103,
+      str({k: n.get("dev_id") for k, n in topo23["nodes"].items() if not n["ghost"]}))
+hh23 = rt._route_default_next_hops(D23["routes"])
+check("Task 23: D default next-hop = U only", [c["gw"] for c in hh23] == ["10.4.0.1"], str(hh23))
+
 # ---- failed connection still gets a node ----
 topo4 = rt.build_topology([_info("10.5.5.5", "", [], ok_=False)], [], "172.19.1.6")
 check("failed node unreachable", not topo4["paths"]["d:10.5.5.5"]["reachable"])

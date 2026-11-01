@@ -52,17 +52,36 @@ ROUTES = [
     {"dst_address": "172.19.1.0/24", "gateway": "ether5", "distance": "1", "immediate_gw": ""},
 ]
 all_hops = rt._route_all_next_hops(ROUTES, "172.19.1.6")
-check("all-next-hops: 3 deduped IP gateways", [c["gw"] for c in all_hops] == ["10.0.1.1", "10.0.0.1", "9.9.9.9"],
+check("all-next-hops: 3 deduped IP gateways (defaults first — Task 23)",
+      [c["gw"] for c in all_hops] == ["9.9.9.9", "10.0.1.1", "10.0.0.1"],
       str([c["gw"] for c in all_hops]))
 check("all-next-hops: iface-gateway route skipped", all(c["gw"] != "ether5" for c in all_hops))
-check("all-next-hops: longest prefix first", all_hops[0]["dst"] == "172.19.1.0/24"
-      and all_hops[0]["kind"] == "specific", str(all_hops[0]))
-check("all-next-hops: default route last with kind=default",
-      all_hops[-1]["gw"] == "9.9.9.9" and all_hops[-1]["kind"] == "default", str(all_hops[-1]))
-check("all-next-hops: backup specific route (worse prefix) included",
-      any(c["gw"] == "10.0.0.1" and c["dst"] == "172.19.0.0/16" for c in all_hops))
+check("all-next-hops: default route FIRST (upstream via default — Task 23)",
+      all_hops[0]["gw"] == "9.9.9.9" and all_hops[0]["kind"] == "default", str(all_hops[0]))
+check("all-next-hops: after defaults, longest prefix first among specifics",
+      all_hops[1]["gw"] == "10.0.1.1" and all_hops[1]["kind"] == "specific"
+      and all_hops[1]["dst"] == "172.19.1.0/24", str(all_hops[1]))
+check("all-next-hops: backup specific route (worse prefix) last",
+      all_hops[-1]["gw"] == "10.0.0.1" and all_hops[-1]["dst"] == "172.19.0.0/16", str(all_hops[-1]))
 check("all-next-hops: invalid central ip -> []", rt._route_all_next_hops(ROUTES, "not-an-ip") == [])
 check("all-next-hops: no routes -> []", rt._route_all_next_hops([], "172.19.1.6") == [])
+
+# --- Task 23: _route_default_next_hops — hop بالاسری فقط از default روت‌ها ---
+dh = rt._route_default_next_hops(ROUTES)
+check("default-next-hops: only default gateways", [c["gw"] for c in dh] == ["9.9.9.9"], str(dh))
+check("default-next-hops: kind=default dst=0.0.0.0/0",
+      bool(dh) and dh[0]["kind"] == "default" and dh[0]["dst"] == "0.0.0.0/0", str(dh))
+dh2 = rt._route_default_next_hops([
+    {"dst_address": "0.0.0.0/0", "gateway": "9.9.9.9", "distance": "2", "immediate_gw": ""},
+    {"dst_address": "0.0.0.0/0", "gateway": "8.8.8.8", "distance": "1", "immediate_gw": ""},
+    {"dst_address": "10.0.0.0/8", "gateway": "7.7.7.7", "distance": "1", "immediate_gw": ""},
+])
+check("default-next-hops: min-distance default first, specifics excluded",
+      [c["gw"] for c in dh2] == ["8.8.8.8", "9.9.9.9"], str([c["gw"] for c in dh2]))
+check("default-next-hops: no defaults -> []",
+      rt._route_default_next_hops([{"dst_address": "10.0.0.0/8", "gateway": "1.1.1.1"}]) == [])
+check("default-next-hops: iface-only gateway dropped",
+      rt._route_default_next_hops([{"dst_address": "0.0.0.0/0", "gateway": "ether5"}]) == [])
 
 # ===========================================================================
 # 2) interface_route_verdicts — بررسی تک‌تک اینترفیس‌ها و IPها
