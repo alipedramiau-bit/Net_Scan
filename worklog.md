@@ -573,3 +573,21 @@ Work Log:
 
 Stage Summary:
 - در گزارش هوشمند flap، نام و IP دستگاه همسایه حالا فقط از داده‌های همان اینترفیس flapدار می‌آید: اول LLDP/MNDP خود دستگاه برای همان اینترفیس (با پشتیبانی از مقادیر کامادار مثل wlan1,bridge1) و در fallback ساب‌نت هم کاندیدایی که LLDP آن را روی اینترفیس دیگری از همان دستگاه قفل کرده حذف می‌شود؛ ضمناً چیدمان هر سه خروجی (UI/CSV/xlsx) قرینه شد و ستون‌ها از راست به چپ به ترتیب نام دستگاه، ای پی دستگاه، اینترفیس، تعداد تکرار لاگ، نوع رویداد، تاریخ و زمان شمسی، نام دستگاه همسایه، IP دستگاه همسایه چیده می‌شوند
+
+---
+Task ID: 31
+Agent: main (Z.ai)
+Task: دکمهٔ Winbox کنار نام دستگاه در جدول گزارش flap
+
+Work Log:
+- کاربرد: درخواست کاربر — «در گزارش flap در جلوی نام دستگاه دکمهٔ winbox را بزار که دستگاه را با این پی بازکنم»
+- وضعیت پایه: Task 30 (همسایهٔ مختص اینترفیس + چیدمان راست‌به‌چپ) با کامیت bdd2bbc کامیت و push شده بود؛ این نوبت فقط دکمهٔ Winbox
+- frontend/src.jsx (SmartReports): تابع `openWinbox(ip)` اضافه شد — `POST /devices/{ip}/winbox` (همان مسیر جدول دستگاه‌ها) با پیام موفقیت «Winbox اجرا شد: IP» و در خطا نمایش detail فارسی بک‌اند (مثلاً تنظیم‌نبودن مسیر exe) + راهنمای «مسیر Winbox»/tools/winbox در همان پنل گزارش (msg/err محلی SmartReports، بدون وابستگی به App)
+- frontend/src.jsx (FLAP_COLS): سلول «نام دستگاه» حالا `div.name-cell` است — نام + دکمهٔ `▣ Winbox` با کلاس‌های موجود `btn-winbox btn-winbox-inline` (title: «باز کردن Winbox — IP»، stopPropagation)؛ دکمه فقط وقتی ردیف IP دارد رندر می‌شود؛ چون در جدول RTL اولین فرزند راست‌ترین است، نام سمت راست و دکمه بلافاصله جلوی آن قرار می‌گیرد
+- پهناها: ستون نام 175→215 و min-width جدول 1080→1120 تا نام + دکمه راحت جا شوند؛ CSS جدید لازم نشد (name-cell/name-actions/btn-winbox-inline از قبل موجود بودند) — frontend/dist بازسازی شد (index-D1H5_fNp.js؛ css بدون تغییر)
+- تست: scripts/test_flap_winbox_button.py — ۱۱ بررسی (باندل dist شامل کلاس دکمه/فراخوانی POST winbox/پیام‌های پنل flap + endpoint با TestClient: IP نامعتبر 400، بدون exe 404 با detail فارسی، exe ساختگی → Popen([exe, ip]) و 200 ok=true) — 11/0 PASS
+- رگرسیون: pytest tests/ (۶۶ PASS) + scripts/test_flap_neighbor_e2e.py (ALL PASS) + scripts/test_report_fix.py (18/0)
+- مستندات: README.md (بولت Task 31 در بخش گزارش flap) و AGENTS.md (بولت Task 31 + تیتر نقشه تا Task 31)
+
+Stage Summary:
+- جدول گزارش flap حالا کنار «نام دستگاه» دکمهٔ ▣ Winbox دارد که همان دستگاه را با IP همان ردیف باز می‌کند (همان زیرساخت Winbox چندمسیری برنامه؛ حل exe از مسیر پیش‌فرض/تنها مسیر تنظیم‌شده یا کشف خودکار)؛ نتیجه و خطا در خود پنل گزارش دیده می‌شود و ستون نام برای جا‌دادن دکمه پهن‌تر شد

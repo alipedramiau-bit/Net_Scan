@@ -1566,6 +1566,17 @@ function SmartReports(){
     }catch(e){setErr(e.message||"خطا در دانلود");setMsg("");}
     finally{setDownloadingCsv(false);}
   }
+  // Task 31: دکمهٔ Winbox کنار نام دستگاه در جدول flap — همان مسیر
+  // POST /devices/{ip}/winbox که جدول دستگاه‌ها استفاده می‌کند؛ نتیجه/خطا در همین پنل
+  async function openWinbox(ip){
+    setErr("");setMsg("");
+    try{
+      const r=await fetch(`${API}/devices/${encodeURIComponent(ip)}/winbox`,{method:"POST"});
+      const d=await r.json().catch(()=>({}));
+      if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:"اجرای Winbox ناموفق بود");
+      setMsg("Winbox اجرا شد: "+ip);
+    }catch(e){setErr("اجرای Winbox ناموفق بود: "+(e.message||"خطای ناشناخته")+" — مسیر winbox.exe را از بخش «مسیر Winbox» تنظیم کنید یا فایل را در پوشهٔ tools/winbox بگذارید.")}
+  }
   const cellStyle={padding:"10px 12px",borderBottom:"1px solid #e5e7eb",textAlign:"right",whiteSpace:"nowrap"};
   const headerStyle={...cellStyle,background:"#f1f5f9",fontWeight:700,color:"#1f2937"};
   // Task 30: چیدمان قرینه — همهٔ ستون‌ها از راست به چپ چیده می‌شوند (ترتیب آرایه در
@@ -1573,9 +1584,10 @@ function SmartReports(){
   // «اینترفیس» ، «تعداد تکرار لاگ» ، «نوع رویداد» ، «تاریخ و زمان (شمسی)» ،
   // «نام دستگاه همسایه» ، «IP دستگاه همسایه». همسایهٔ هر ردیف فقط مختص همان
   // اینترفیس flapدار است (Task 30 در بک‌اند: قفل‌شدگی LLDP به اینترفیس).
+  // Task 31: کنار «نام دستگاه» دکمهٔ Winbox هست که همان دستگاه را با IP همان ردیف باز می‌کند.
   // پهنای هر فیلد با w مشخص و layout جدول fixed است
   const FLAP_COLS=[
-    {key:"name",label:"نام دستگاه",w:175,wrap:true,get:it=>it.device_name||"—"},
+    {key:"name",label:"نام دستگاه",w:215,wrap:true,get:it=><div className="name-cell"><span>{it.device_name||"—"}</span>{it.ip?<span className="name-actions"><button type="button" className="btn-winbox btn-winbox-inline" title={"باز کردن Winbox — "+it.ip} onClick={e=>{e.stopPropagation();openWinbox(it.ip)}}>▣ Winbox</button></span>:null}</div>},
     {key:"ip",label:"آی‌پی دستگاه",w:130,get:it=>it.ip||"—"},
     {key:"iface",label:"اینترفیس",w:120,wrap:true,get:it=>it.iface||it.interface||"—"},
     {key:"count",label:"تعداد تکرار لاگ",w:80,center:true,get:it=>it.flap_count??1},
@@ -1627,7 +1639,7 @@ function SmartReports(){
           {flapResults.length>0&&<span style={{color:"#64748b",fontSize:13}}>برای دریافت فایل، روی «دانلود فایل CSV» کلیک کنید.</span>}
         </div>
         {flapResults.length>0?<div style={{overflowX:"auto",border:"1px solid #e5e7eb",borderRadius:8}}>
-          <table dir="rtl" style={{width:"100%",borderCollapse:"collapse",minWidth:1080,tableLayout:"fixed"}}>
+          <table dir="rtl" style={{width:"100%",borderCollapse:"collapse",minWidth:1120,tableLayout:"fixed"}}>
             <thead><tr>{FLAP_COLS.map(c=><th key={c.key} style={{...headerStyle,boxSizing:"border-box",width:c.w,minWidth:c.w,whiteSpace:"normal",textAlign:"center"}}>{c.label}</th>)}</tr></thead>
             <tbody>{flapResults.map((item,index)=><tr key={item.row||index}>
               {FLAP_COLS.map(c=><td key={c.key} style={{...cellStyle,boxSizing:"border-box",width:c.w,minWidth:c.w,whiteSpace:c.wrap?"normal":"nowrap",overflowWrap:c.wrap?"break-word":undefined,textAlign:c.center?"center":"right"}}>{c.get(item,index)}</td>)}

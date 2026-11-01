@@ -79,7 +79,7 @@ cd frontend && npm install && npm run build
 5. پیام کامیت: قالب `type(scope): خلاصه انگلیسی` (مثل `feat(devices): ...`، `fix(api): ...`).
 6. قبل از کامیت: تست‌ها سبز باشند؛ `git status` را برای فایل‌های ناخواسته چک کنید.
 
-## ۵) نقشه قابلیت‌ها (تا Task 30)
+## ۵) نقشه قابلیت‌ها (تا Task 31)
 
 - **اسکن شبکه:** `POST /scans/start` (قابل لغو با `/scans/{id}/cancel`)، ورودی IP/CIDR/بازه،
   پورت‌های 8291 و 8728 همیشه اضافه می‌شوند.
@@ -351,6 +351,17 @@ cd frontend && npm install && npm run build
   `scripts/test_flap_neighbor_e2e.py` (+سناریوی ether5 هم‌سابنت ether2 و ۳ بررسی خالی‌بودن
   همسایه‌اش در JSON/CSV/XLSX)؛ `test_report_fix.py`/`test_search_and_db.py`/`diag_http.py`
   با سرستون جدید به‌روز شدند.
+- **دکمهٔ Winbox کنار نام دستگاه در جدول flap (Task 31):** درخواست «در گزارش flap در جلوی
+  نام دستگاه دکمهٔ winbox را بزار که دستگاه را با این پی بازکنم». در `SmartReports`
+  تابع `openWinbox(ip)` اضافه شد که `POST /devices/{ip}/winbox` را صدا می‌زند (همان مسیر
+  جدول دستگاه‌ها؛ exe از «مسیر Winbox» یا `tools/winbox` حل می‌شود) و نتیجه/خطا در همان
+  پنل گزارش نشان داده می‌شود؛ سلول «نام دستگاه» حالا `div.name-cell` شامل نام + دکمهٔ
+  `btn-winbox btn-winbox-inline` است (فقط وقتی ردیف IP دارد؛ title دارای IP؛ بدون دکمه
+  برای ردیف‌های بی‌IP). پهنای ستون نام 175→215 و min-width جدول 1080→1120 شد؛ CSS جدید
+  لازم نشد (کلاس‌های موجود). باندل dist بازسازی شد (index-D1H5_fNp.js). تست:
+  `scripts/test_flap_winbox_button.py` (۱۱ بررسی: باندل شامل دکمه/مسیر/پیام‌ها + رفتار
+  endpoint با TestClient شامل 400 برای IP نامعتبر، 404 پیام‌دار بدون exe و اجرای ساختگی
+  با `mock.patch` روی `_resolve_winbox_exe`/`subprocess.Popen`).
 - **سایر:** گزارش‌های هوشمند، Winbox tools، مدیریت VPN، ایمیل/اطلاع‌رسانی.
 
 ## ۶) نکات دام‌دار (Gotchas)
