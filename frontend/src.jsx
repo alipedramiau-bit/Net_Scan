@@ -18,6 +18,13 @@ async function readJson(r){
     throw Error("پاسخ JSON نامعتبر (HTTP "+r.status+"): "+text.slice(0,120));
   }
 }
+// Task 22: مهر تاریخ/ساعت جاری سیستم برای نام فایل‌های CSV — وقتی سرور نام را در
+// Content-Disposition نفرستد، فرانت خودش نام را با تاریخ/ساعت می‌سازد تا فایل‌های
+// چندباره یکدیگر را بازنویسی نکنند (هم‌قالب با file_stamp بک‌اند: YYYYMMDD_HHMMSS)
+function csvStamp(){
+  const d=new Date(),p=n=>String(n).padStart(2,"0");
+  return ""+d.getFullYear()+p(d.getMonth()+1)+p(d.getDate())+"_"+p(d.getHours())+p(d.getMinutes())+p(d.getSeconds());
+}
 // --- Creative brand logo: radar sweep + network blips (Net_Scan / شبکه‌بان) ---
 function Logo({size=64}){
   return (
@@ -546,7 +553,7 @@ function DeviceReports({mode="devices"}={}){
       }
       const blob=await r.blob();
       const cd=r.headers.get("Content-Disposition")||"";
-      let filename="config_failed.csv";
+      let filename="config_failed_"+csvStamp()+".csv";
       const m=cd.match(/filename="?([^"]+)"?/i);
       if(m)filename=m[1];
       const url=URL.createObjectURL(blob);
@@ -633,7 +640,7 @@ function DeviceReports({mode="devices"}={}){
       }
       const blob=await r.blob();
       const cd=r.headers.get("Content-Disposition")||"";
-      let filename="mikrotik_selected.csv";
+      let filename="mikrotik_selected_"+csvStamp()+".csv";
       const m=cd.match(/filename="?([^"]+)"?/i);
       if(m)filename=m[1];
       const url=URL.createObjectURL(blob);
@@ -714,7 +721,7 @@ function DeviceReports({mode="devices"}={}){
       }
       const blob=await r.blob();
       const cd=r.headers.get("Content-Disposition")||"";
-      let filename="route_report.csv";
+      let filename="route_report_"+csvStamp()+".csv";
       const m=cd.match(/filename="?([^"]+)"?/i);
       if(m)filename=m[1];
       const url=URL.createObjectURL(blob);
@@ -1552,7 +1559,9 @@ function SmartReports(){
       const url=API+"/reports/interface-flaps/export.csv?days="+encodeURIComponent(days)+"&threshold_minutes="+encodeURIComponent(thresholdMinutes)+(dbSel?("&database="+encodeURIComponent(dbSel)):"");
       const response=await fetch(url);if(!response.ok)throw Error("دریافت گزارش ناموفق بود ("+response.status+")");
       const blob=await response.blob();const objectUrl=URL.createObjectURL(blob);const a=document.createElement("a");
-      a.href=objectUrl;a.download="interface_flaps_report.csv";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(objectUrl);
+      // Task 22: نام فایل از Content-Disposition سرور (دارای تاریخ/ساعت) خوانده می‌شود
+      const m=(response.headers.get("Content-Disposition")||"").match(/filename="?([^";]+)"?/);
+      a.href=objectUrl;a.download=m?m[1]:"interface_flaps_report_"+csvStamp()+".csv";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(objectUrl);
       setMsg("فایل CSV آماده و دانلود شد.");
     }catch(e){setErr(e.message||"خطا در دانلود");setMsg("");}
     finally{setDownloadingCsv(false);}
@@ -1743,7 +1752,7 @@ function RouteTopologyReport(){
       if(!r.ok){const d=await readJson(r).catch(()=>({}));throw Error(d.detail||("دریافت گزارش CSV ناموفق بود ("+r.status+")"));}
       const blob=await r.blob();const url=URL.createObjectURL(blob);const a=document.createElement("a");
       const m=(r.headers.get("Content-Disposition")||"").match(/filename="?([^";]+)"?/);
-      a.download=m?m[1]:"route_unreachable.csv";
+      a.download=m?m[1]:"route_unreachable_"+csvStamp()+".csv";
       a.href=url;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
       setMsg("گزارش CSV دلایل نرسیدن به روتر مرکزی دانلود شد؛ برای هر روتر، همهٔ اینترفیس‌ها و IPهای آن برای مسیریابی بررسی شده است.");
     }catch(e){setErr(e.message||"خطا در دریافت گزارش CSV");}
@@ -1840,7 +1849,8 @@ function AntennaIssuesReport(){
     catch(e){setErr(e.message||"خطا در دریافت گزارش");setMsg("");}finally{setBusy(false);}
   }
   async function download(){
-    setDownloading(true);setErr("");try{const r=await fetch(API+"/reports/wireless-antenna-issues/export.csv?days="+encodeURIComponent(days));if(!r.ok)throw Error("دانلود گزارش ناموفق بود ("+r.status+")");const blob=await r.blob(),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="wireless_antenna_issues.csv";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);}
+    setDownloading(true);setErr("");try{const r=await fetch(API+"/reports/wireless-antenna-issues/export.csv?days="+encodeURIComponent(days));if(!r.ok)throw Error("دانلود گزارش ناموفق بود ("+r.status+")");const blob=await r.blob(),url=URL.createObjectURL(blob),a=document.createElement("a");// Task 22: نام فایل از Content-Disposition سرور (دارای تاریخ/ساعت)
+const m=(r.headers.get("Content-Disposition")||"").match(/filename="?([^";]+)"?/);a.href=url;a.download=m?m[1]:"wireless_antenna_issues_"+csvStamp()+".csv";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);}
     catch(e){setErr(e.message||"خطا در دانلود");}finally{setDownloading(false);}
   }
   const cell={padding:"9px 10px",borderBottom:"1px solid #e5e7eb",textAlign:"right",verticalAlign:"top"};const head={...cell,background:"#f1f5f9",fontWeight:700,whiteSpace:"nowrap"};

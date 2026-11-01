@@ -63,6 +63,10 @@ cd frontend && npm install && npm run build
 - تست E2E الگوی ثابت دارد: `FastAPI TestClient` + دیتابیس موقت با
   `db.create_database()`/`delete_database()` + ورود با `POST /api/login`.
 - خروجی CSV همیشه با BOM (`\xef\xbb\xbf`) ساخته می‌شود تا در اکسل فارسی درست باز شود.
+- نام همهٔ فایل‌های CSV خروجی با مهر تاریخ/ساعت جاری سیستم پایان می‌یابد — `file_stamp()`
+  در `backend/main.py` با الگوی `{name}_YYYYMMDD_HHMMSS.csv` (Task 22)؛ فرانت نام را از
+  `Content-Disposition` می‌خواند و fallback آن هم `csvStamp()` با همان الگو است.
+  تست نام/تازگی مهر: `scripts/test_csv_filename_stamp.py` و `tests/test_csv_stamp.py`.
 
 ## ۴) قراردادهای کامیت و کار
 
@@ -203,6 +207,17 @@ cd frontend && npm install && npm run build
   filename=`route_unreachable_{زمان}.csv`، 404/409 فارسی) downloadable است؛ دکمهٔ
   «گزارش CSV دلایل نرسیدن به مرکز» در UI گزارش مسیر + شمارش `unreachable` در
   progress. `_route_next_hops` قدیمی برای سازگاری تست‌ها باقی است.
+- **مهر تاریخ/ساعت در نام همهٔ فایل‌های CSV (Task 22):** هر ۸ نقطهٔ تولید CSV
+  (`devices/export.csv`، `export-mikrotik.csv`، `route-report.csv`،
+  `scans/{id}/reports/{key}`، flaps، wireless، `unreachable-csv`، `failed-csv`)
+  نام فایل را با `file_stamp()` (ساعت لوکال سیستم، الگوی `YYYYMMDD_HHMMSS`) می‌سازند تا
+  دانلودهای چندباره یکدیگر را بازنویسی نکنند؛ چهار مسیرِ بدون مهر (`devices.csv`،
+  `{key}.csv`، `interface_flaps_report.csv`، `wireless_antenna_issues.csv`) مهردار شدند و
+  مهر CSVهای قبلاً مهردار از UTC به ساعت سیستم منتقل شد (خروجی‌های غیر CSV مثل
+  xlsx/json/pdf/zip/db تغییری نکردند). دانلودرهای فرانتِ flaps و wireless که نام را
+  هاردکد بازنویسی می‌کردند حالا از `Content-Disposition` می‌خوانند؛ fallbackهای
+  `config_failed`/`mikrotik_selected`/`route_report`/`route_unreachable` هم با
+  `csvStamp()` مهر می‌گیرند.
 - **سایر:** گزارش‌های هوشمند، Winbox tools، مدیریت VPN، ایمیل/اطلاع‌رسانی.
 
 ## ۶) نکات دام‌دار (Gotchas)

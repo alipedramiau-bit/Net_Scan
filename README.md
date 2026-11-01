@@ -145,6 +145,8 @@ GET /scans/{scan_id}/reports/winbox_open_api_closed
 
 گزارش‌ها CSV با UTF-8 BOM و ستون‌های IP، دسته‌بندی، پورت‌های باز همراه نام سرویس، شماره پورت‌های باز و وضعیت دو پورت اصلی هستند.
 
+نام همهٔ فایل‌های CSV خروجی به‌صورت خودکار در انتهای نام، **تاریخ و ساعت جاری سیستم** را دارند (الگوی `{name}_YYYYMMDD_HHMMSS.csv` مثل `devices_20260607_142530.csv`) تا دانلودهای چندباره یکدیگر را بازنویسی نکنند و زمان تولید از روی نام فایل مشخص باشد.
+
 ## دیتابیس SQLite دستگاه‌ها
 
 هر دستگاهی که در اسکن‌ها پیدا می‌شود (میزبان‌های پاسخ‌دهنده به ping با IP و پورت‌های بازشان) به‌طور خودکار در یک پایگاه‌داده SQLite ذخیره می‌شود:
@@ -159,7 +161,7 @@ GET /scans/{scan_id}/reports/winbox_open_api_closed
 
 - `GET /devices` — فهرست دستگاه‌ها با فیلتر و صفحه‌بندی. پارامترها: `classification` (یکی از `mikrotik_candidate`، `non_mikrotik`، `special`)، `has_port` (شماره پورت باز)، `q` (جستجوی زیررشتهٔ IP)، `limit`، `offset` و `database` (نام دیتابیس کاتالوگ؛ پیش‌فرض دیتابیس فعال — برای «انتخاب دستگاه‌ها از دیتابیس» در گزارش هوشمند). پاسخ شامل `total` و `devices` است.
 - `GET /devices/{ip}` — جزئیات یک دستگاه.
-- `GET /devices/export.csv` — خروجی CSV با UTF-8 BOM (ستون‌ها: ip، ping_ok، open_ports، port_8291، port_8728، classification، first_seen، last_seen، seen_count)؛ همان فیلترها پذیرفته می‌شود.
+- `GET /devices/export.csv` — خروجی CSV با UTF-8 BOM (ستون‌ها: ip، ping_ok، open_ports، port_8291، port_8728، classification، first_seen، last_seen، seen_count)؛ همان فیلترها پذیرفته می‌شود. نام فایل: `devices_{تاریخ_ساعت}.csv` (با `new_only=true` → `new_devices_{تاریخ_ساعت}.csv`).
 - `POST /devices/export-mikrotik.csv` — خروجی CSV کامل دستگاه‌های میکروتیک انتخاب‌شده (توضیح در بخش بعد).
 - `POST /devices/export-mikrotik.json` — همان خروجی با فرمت JSON (توضیح در بخش بعد).
 - `POST /api/snmp/probe` + `/api/snmp/probe/progress` + `/api/snmp/probe/cancel` — خواندن identity از طریق SNMP با پیشرفت زنده و توقف مشارکتی.

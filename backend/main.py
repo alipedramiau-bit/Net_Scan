@@ -46,6 +46,16 @@ from scanner_lib.constants import MAX_TARGETS
 from scanner_lib.parser import parse_targets
 from scanner_lib.reports import REPORT_KEYS, csv_bytes
 
+
+def file_stamp() -> str:
+    """مهر تاریخ و ساعت جاری سیستم برای نام فایل‌های خروجی CSV (Task 22).
+
+    همهٔ فایل‌های CSV پروژه باید در انتهای نام، تاریخ و ساعت لحظهٔ تولید را
+    داشته باشند تا فایل‌های دانلودشدهٔ چندباره یکدیگر را بازنویسی نکنند و
+    زمان تولید از روی نام فایل مشخص باشد (مثال: devices_20260607_142530.csv).
+    """
+    return datetime.now().strftime("%Y%m%d_%H%M%S")
+
 # Default target list (CIDRs/IPs) used when the client sends an empty targets field.
 # File lives at project root next to backend/ and frontend/.
 DEFAULT_TARGETS_FILE = ROOT_DIR / "ip_olom.txt"
@@ -411,7 +421,7 @@ def export_devices(
 ):
     result = db.query_devices(classification, has_port, q, limit, offset, ping_ok=ping_ok,
                               new_only=new_only, sort=sort, order=order, q_fields=q_fields)
-    filename = "new_devices.csv" if new_only else "devices.csv"
+    filename = ("new_devices_" if new_only else "devices_") + file_stamp() + ".csv"
     return Response(db.devices_to_csv(result["devices"]), media_type="text/csv; charset=utf-8",
                     headers={"Content-Disposition": f'attachment; filename="{filename}"'})
 
@@ -486,7 +496,7 @@ def export_mikrotik_selected_csv(body: ExportSelectedBody):
         data = db.mikrotik_selected_to_csv(ips)
     except ValueError as e:
         raise HTTPException(400, str(e)) from e
-    stamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+    stamp = file_stamp()
     filename = f"mikrotik_selected_{stamp}.csv"
     return Response(
         data,
@@ -599,7 +609,7 @@ def route_report_csv(body: RouteReportBody):
     entries = [{"ip": ip, "device_name": name, "trace": res["trace"]}
                for (ip, name), res in zip(targets, tr_results)]
     data = route_report.build_route_report_csv(entries, source_ip=src, dest_ip=dst, base_trace=base_trace)
-    stamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+    stamp = file_stamp()
     filename = f"route_report_{stamp}.csv"
     hops_total = sum(len((e["trace"] or {}).get("hops") or []) for e in entries)
     if base_trace:
@@ -1115,7 +1125,7 @@ def download(scan_id:str,key:str):
     if not job: raise HTTPException(404,"شناسه اسکن یافت نشد")
     if key not in REPORT_KEYS: raise HTTPException(404,"گزارش ناشناخته")
     if job.get("status") not in ("done","canceled"): raise HTTPException(409,"گزارش هنوز آماده نیست")
-    return Response(csv_bytes(job["report"],key),media_type="text/csv; charset=utf-8",headers={"Content-Disposition":f'attachment; filename="{key}.csv"'})
+    return Response(csv_bytes(job["report"],key),media_type="text/csv; charset=utf-8",headers={"Content-Disposition":f'attachment; filename="{key}_{file_stamp()}.csv"'})
 
 
 # ---------------- Smart reports: interface flaps ----------------
@@ -1171,7 +1181,7 @@ def report_interface_flaps_csv(days: int = 30, threshold_minutes: int = 5, datab
     rep["database"] = db_name
     csv_content = smart_reports.interface_flaps_csv(rep)
     return Response(content=csv_content, media_type="text/csv; charset=utf-8",
-                    headers={"Content-Disposition": 'attachment; filename="interface_flaps_report.csv"'})
+                    headers={"Content-Disposition": f'attachment; filename="interface_flaps_report_{file_stamp()}.csv"'})
 
 
 @app.get("/reports/interface-flaps/export.xlsx")
@@ -1221,7 +1231,7 @@ def report_wireless_antenna_issues_csv(days: int = 30, database: str = Query(def
     return Response(
         content=smart_reports.wireless_antenna_csv(report),
         media_type="text/csv; charset=utf-8",
-        headers={"Content-Disposition": 'attachment; filename="wireless_antenna_issues.csv"'},
+        headers={"Content-Disposition": f'attachment; filename="wireless_antenna_issues_{file_stamp()}.csv"'},
     )
 
 # ---------------- VPN connection manager ----------------
@@ -1862,7 +1872,7 @@ def route_topology_unreachable_csv():
             "دستگاه بدون مسیر به روتر مرکزی در آخرین گزارش ثبت نشده "
             "(یا هنوز گزارشی ساخته نشده است)",
         )
-    stamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+    stamp = file_stamp()
     generated = datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds")
     buf = io.StringIO()
     w = csv.writer(buf)
@@ -2121,7 +2131,7 @@ def push_config_failed_csv():
     except Exception:
         infos = {}  # غنی‌سازی اختیاری است؛ گزارش بدون نام دستگاه هم معتبر است
     finished = str(CFG_PUSH_STATE.get("finished_at") or "")
-    stamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+    stamp = file_stamp()
     buf = io.StringIO()
     w = csv.writer(buf)
     w.writerow(["ردیف", "IP دستگاه", "نام دستگاه (identity)", "نوع دستگاه", "تگ",

@@ -379,3 +379,23 @@ Work Log:
 
 Stage Summary:
 - گزارش مسیر حالا «تمام» اینترفیس‌ها و IPهای هر روتر را برای مسیریابی به مرکز چک می‌کند (همهٔ روت‌های پوشش‌دهنده، نه فقط بهترین) و برای هر روتری که نمی‌رسد، دلیل دقیق فارسی — از جدول روتینگ خالی و اینترفیس قطع تا گیت‌وی ناشناخته و حلقه — همراه با نتیجهٔ بررسی تک‌تک اینترفیس‌ها در یک فایل CSV قابل دریافت می‌دهد
+
+---
+
+Task ID: 22
+Agent: main (Z.ai)
+Task: مهر تاریخ و ساعت جاری سیستم در انتهای نام تمامی فایل‌های CSV پروژه
+
+Work Log:
+- کاربرد: کاربر خواست روی نام تمامی فایل‌های CSV پروژه، تاریخ و ساعت جاری سیستم در انتهای نام ثبت شود (دانلودهای چندباره یکدیگر را بازنویسی نکنند و زمان تولید از نام فایل مشخص باشد)
+- backend/main.py — helper مشترک `file_stamp()`: ساعت لوکال سیستم با الگوی `%Y%m%d_%H%M%S`؛ هر ۸ نقطهٔ تولید CSV به آن متصل شد:
+  - چهار مسیرِ فاقد مهر مهردار شدند: `GET /devices/export.csv` (→ `devices_{stamp}.csv` / `new_devices_{stamp}.csv`)، `GET /scans/{id}/reports/{key}` (→ `{key}_{stamp}.csv`)، `GET /reports/interface-flaps/export.csv` (→ `interface_flaps_report_{stamp}.csv`)، `GET /reports/wireless-antenna-issues/export.csv` (→ `wireless_antenna_issues_{stamp}.csv`)
+  - چهار CSVِ قبلاً مهردار (`export-mikrotik.csv`، `route-report.csv`، `unreachable-csv`، `failed-csv`) از `datetime.now(timezone.utc)` به `file_stamp()` (ساعت سیستم) منتقل شدند تا با خواست کاربر («ساعت جاری سیستم») یکی باشند
+  - خروجی‌های غیر CSV (xlsx، json، pdf، zip، db) عمداً بدون تغییر ماندند
+- frontend/src.jsx — helper ماژول‌Level `csvStamp()` (هم‌قالب با بک‌اند) + دو رفع باگ واقعی: دانلودرهای «گزارش هوشمند نوسان اینترفیس» و «قطع و وصل آنتن‌ها» نام سرور را نادیده می‌گرفتند و نام هاردکد (`interface_flaps_report.csv` / `wireless_antenna_issues.csv`) را بازنویسی می‌کردند — حالا از `Content-Disposition` می‌خوانند؛ fallbackهای `config_failed`/`mikrotik_selected`/`route_report`/`route_unreachable` هم مهرگرفتار شدند؛ frontend/dist بازسازی شد (index-C5oVXZPk.js)
+- scripts/test_csv_filename_stamp.py (جدید، ۲۲ بررسی): unit `file_stamp` (قالب + تازگی <۵ثانیه)؛ E2E همهٔ ۸ نقطه: نام با الگوی `_YYYYMMDD_HHMMSS.csv`، مهر تازه (<۵دقیقه از now سیستم — اثبات «جاری» بودن)، دو دانلود با فاصلهٔ ۱٫۱ثانیه → نام متفاوت، new_only، مسیر گزارش اسکن با job تزریقی + csv_bytes پچ‌شده، route-report با trace پچ‌شده، unreachable/failed با تزریق وضعیت؛ restore کامل وضعیت (JOBS/CFG_PUSH_STATE/TOPOLOGY_STATE/csv_bytes/trace/db) — ALL PASS
+- tests/test_csv_stamp.py (جدید، ۲ بررسی pytest): قالب و تازگی `file_stamp` + بررسی ساختاری که هر مسیر ختم‌به-csv در app از `file_stamp` استفاده می‌کند (≥۷ مسیر)
+- رگرسیون: test_flap_csv، test_export_mikrotik_csv، test_json_export_route_report، test_push_config_failed_csv، test_route_unreachable_csv، pytest tests/ (22) — همه PASS
+
+Stage Summary:
+- تمامی فایل‌های CSV پروژه — از خروجی دستگاه‌ها و میکروتیک و گزارش روت تا گزارش‌های اسکن، نوسان اینترفیس، آنتن وایرلس، دلایل نرسیدن به مرکز و ناموفق‌های کانفیگ گروهی — اکنون نامی به شکل `{name}_YYYYMMDD_HHMMSS.csv` با تاریخ و ساعت جاری سیستم دارند؛ دانلود مجدد دیگر فایل قبلی را بازنویسی نمی‌کند و زمان تولید هر گزارش از نام آن خوانده می‌شود
