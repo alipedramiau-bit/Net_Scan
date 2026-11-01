@@ -172,27 +172,28 @@ class ExportColumnsTests(unittest.TestCase):
         self.assertTrue(text.startswith("\ufeff"))
         rows = list(csv.reader(io.StringIO(text.lstrip("\ufeff"))))
         header = rows[0]
-        # Task 29: ترکیب دقیق ۸ ستونی به انتخاب کاربر — ترتیب بصری از چپِ گزارش RTL:
+        # Task 30: چیدمان قرینه — ستون‌ها از راست به چپ؛ در نمایش RTL ستون اول آرایه
+        # راست‌ترین ستون است، پس آرایه همان ترتیب خواندن راست‌به‌چپ کاربر است:
         # نام دستگاه، آی‌پی دستگاه، اینترفیس، تعداد تکرار لاگ، نوع رویداد،
         # تاریخ و زمان (شمسی)، نام دستگاه همسایه، IP دستگاه همسایه
-        # (ردیف/تگ دستگاه/تاریخ میلادی حذف شدند؛ آرایه CSV معکوس همین ترتیب است)
-        self.assertEqual(header[0], "IP دستگاه همسایه")
-        self.assertEqual(header[1], "نام دستگاه همسایه")
-        self.assertEqual(header[2], "تاریخ و زمان (شمسی)")
-        self.assertEqual(header[3], "نوع رویداد")
-        self.assertEqual(header[4], "تعداد تکرار لاگ")
-        self.assertEqual(header[5], "اینترفیس")
-        self.assertEqual(header[6], "آی‌پی دستگاه")
-        self.assertEqual(header[7], "نام دستگاه")
+        self.assertEqual(header[0], "نام دستگاه")
+        self.assertEqual(header[1], "آی‌پی دستگاه")
+        self.assertEqual(header[2], "اینترفیس")
+        self.assertEqual(header[3], "تعداد تکرار لاگ")
+        self.assertEqual(header[4], "نوع رویداد")
+        self.assertEqual(header[5], "تاریخ و زمان (شمسی)")
+        self.assertEqual(header[6], "نام دستگاه همسایه")
+        self.assertEqual(header[7], "IP دستگاه همسایه")
         self.assertEqual(len(header), 8)
         data = rows[1]
-        self.assertEqual(data[0], "10.10.10.2")
-        self.assertEqual(data[1], "SW-Core-MK")
-        self.assertEqual(data[3], "Up")  # نوع رویداد
-        self.assertEqual(int(data[4]), 4)  # تعداد تکرار لاگ
-        self.assertEqual(data[5], "ether2")
-        self.assertEqual(data[6], "10.10.10.1")
-        self.assertEqual(data[7], "Shadegan-Jafal1")
+        self.assertEqual(data[0], "Shadegan-Jafal1")
+        self.assertEqual(data[1], "10.10.10.1")
+        self.assertEqual(data[2], "ether2")
+        self.assertEqual(int(data[3]), 4)  # تعداد تکرار لاگ
+        self.assertEqual(data[4], "Up")  # نوع رویداد
+        self.assertRegex(data[5], r"^\d{4}/\d{2}/\d{2} \d{2}:\d{2}:\d{2}$")  # شمسی
+        self.assertEqual(data[6], "SW-Core-MK")
+        self.assertEqual(data[7], "10.10.10.2")
         self.assertEqual(len(data), len(header))
         # ستون‌های حذف‌شده نباید باشند
         self.assertNotIn("ردیف", header)
@@ -205,22 +206,80 @@ class ExportColumnsTests(unittest.TestCase):
         buf.seek(0)
         ws = load_workbook(buf).active
         header = [c.value for c in ws[1]]
-        # Task 29: در شیت RTL اکسل هم همان ۸ ستون با همان ترتیب آرایه CSV
-        self.assertEqual(header[0], "IP دستگاه همسایه")
-        self.assertEqual(header[1], "نام دستگاه همسایه")
-        self.assertEqual(header[2], "تاریخ و زمان (شمسی)")
-        self.assertEqual(header[3], "نوع رویداد")
-        self.assertEqual(header[4], "تعداد تکرار لاگ")
-        self.assertEqual(header[5], "اینترفیس")
-        self.assertEqual(header[6], "آی‌پی دستگاه")
-        self.assertEqual(header[7], "نام دستگاه")
+        # Task 30: در شیت RTL اکسل هم همان ۸ ستون با همان ترتیب راست‌به‌چپ CSV
+        self.assertEqual(header[0], "نام دستگاه")
+        self.assertEqual(header[1], "آی‌پی دستگاه")
+        self.assertEqual(header[2], "اینترفیس")
+        self.assertEqual(header[3], "تعداد تکرار لاگ")
+        self.assertEqual(header[4], "نوع رویداد")
+        self.assertEqual(header[5], "تاریخ و زمان (شمسی)")
+        self.assertEqual(header[6], "نام دستگاه همسایه")
+        self.assertEqual(header[7], "IP دستگاه همسایه")
         self.assertEqual(len(header), 8)
         row2 = [c.value for c in ws[2]]
-        self.assertEqual(row2[0], "10.10.10.2")
-        self.assertEqual(row2[1], "SW-Core-MK")
-        self.assertEqual(row2[5], "ether2")
-        self.assertEqual(row2[6], "10.10.10.1")
-        self.assertEqual(row2[7], "Shadegan-Jafal1")
+        self.assertEqual(row2[0], "Shadegan-Jafal1")
+        self.assertEqual(row2[1], "10.10.10.1")
+        self.assertEqual(row2[2], "ether2")
+        self.assertEqual(row2[6], "SW-Core-MK")
+        self.assertEqual(row2[7], "10.10.10.2")
+
+
+class InterfaceSpecificNeighborTests(unittest.TestCase):
+    """Task 30 — نام/IP دستگاه همسایه فقط مختص همین اینترفیس flapدار."""
+
+    def _devices(self, extra_iface_addr=""):
+        lldp = ("=== /ip neighbor ===\n"
+                "  1  identity=SW-Core-MK  address=10.10.10.2  interface=ether2")
+        ip_addresses = ("=== /ip address ===\n"
+                        "  1  address=10.10.10.1/24  interface=ether2  network=10.10.10.0\n"
+                        + extra_iface_addr)
+        return [
+            {"ip": "10.10.10.1", "device_name": "Shadegan-Jafal1", "device_log": _flap_log("ether5"),
+             "ip_neighbors": lldp, "ip_addresses": ip_addresses},
+            {"ip": "10.10.10.2", "device_name": "SW-Core-MK", "device_log": "",
+             "ip_neighbors": "", "ip_addresses": ""},
+        ]
+
+    def test_neighbor_pinned_to_other_interface_does_not_leak(self):
+        # ether5 هم‌سابنتِ ether2 است (10.10.10.5/25 ← شبکهٔ 10.10.10.0/25 که
+        # 10.10.10.2 هم داخلش است) ولی LLDP خودِ دستگاه، SW-Core-MK را فقط به
+        # ether2 قفل کرده — پس نباید همسایهٔ ether5 گزارش شود.
+        devices = self._devices("  2  address=10.10.10.5/25  interface=ether5  network=10.10.10.0")
+        report = sr.interface_flap_report(devices, days_back=5, now=NOW, inventory_rows=[])
+        event = report["events"][0]
+        self.assertEqual(event["interface"], "ether5")
+        self.assertEqual(event["neighbor_name"], "")
+        self.assertEqual(event["neighbor_ip"], "")
+        self.assertEqual(event["neighbor_via"], "")
+
+    def test_control_neighbor_on_its_own_interface_still_resolves(self):
+        # کنترل: همان LLDP برای خودِ ether2 همچنان همسایه می‌دهد (قفل‌شدگی
+        # نباید همسایهٔ واقعیِ همان اینترفیس را حذف کند).
+        devices = self._devices()
+        devices[0]["device_log"] = _flap_log("ether2")
+        report = sr.interface_flap_report(devices, days_back=5, now=NOW, inventory_rows=[])
+        event = report["events"][0]
+        self.assertEqual(event["neighbor_name"], "SW-Core-MK")
+        self.assertEqual(event["neighbor_ip"], "10.10.10.2")
+        self.assertEqual(event["neighbor_via"], "lldp")
+
+    def test_multi_interface_neighbor_value_is_pinned_to_each_part(self):
+        # مقدار interface در /ip neighbor می‌تواند «wlan1,bridge1» باشد —
+        # flap روی wlan1 باید همان همسایه را از مسیر LLDP ببیند.
+        devices = [
+            {"ip": "10.30.0.1", "device_name": "R-Edge", "device_log": _flap_log("wlan1"),
+             "ip_neighbors": "=== /ip neighbor ===\n"
+                             "  1  identity=R2SH  address=10.30.0.9  interface=wlan1,bridge1",
+             "ip_addresses": "=== /ip address ===\n"
+                             "  1  address=10.30.0.1/24  interface=wlan1  network=10.30.0.0"},
+            {"ip": "10.30.0.9", "device_name": "R2SH", "device_log": "",
+             "ip_neighbors": "", "ip_addresses": ""},
+        ]
+        report = sr.interface_flap_report(devices, days_back=5, now=NOW, inventory_rows=[])
+        event = report["events"][0]
+        self.assertEqual(event["neighbor_name"], "R2SH")
+        self.assertEqual(event["neighbor_ip"], "10.30.0.9")
+        self.assertEqual(event["neighbor_via"], "lldp")
 
 
 if __name__ == "__main__":

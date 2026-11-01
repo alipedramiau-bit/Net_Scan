@@ -1568,20 +1568,21 @@ function SmartReports(){
   }
   const cellStyle={padding:"10px 12px",borderBottom:"1px solid #e5e7eb",textAlign:"right",whiteSpace:"nowrap"};
   const headerStyle={...cellStyle,background:"#f1f5f9",fontWeight:700,color:"#1f2937"};
-  // Task 29: ترکیب دقیق ۸ ستونی به انتخاب کاربر — ترتیب بصری از چپِ جدول RTL:
-  // «نام دستگاه» ، «آی‌پی دستگاه» ، «اینترفیس» ، «تعداد تکرار لاگ» ، «نوع رویداد» ،
-  // «تاریخ و زمان (شمسی)» ، «نام دستگاه همسایه» ، «IP دستگاه همسایه»
-  // (ستون‌های «ردیف»، «تگ دستگاه» و «تاریخ و زمان (میلادی)» حذف شدند.) در جدول RTL
-  // انتهای آرایه چپ‌ترین ستون است؛ پهنای هر فیلد با w مشخص و layout جدول fixed است
+  // Task 30: چیدمان قرینه — همهٔ ستون‌ها از راست به چپ چیده می‌شوند (ترتیب آرایه در
+  // جدول RTL همان ترتیب خواندن راست‌به‌چپ است): «نام دستگاه» ، «آی‌پی دستگاه» ،
+  // «اینترفیس» ، «تعداد تکرار لاگ» ، «نوع رویداد» ، «تاریخ و زمان (شمسی)» ،
+  // «نام دستگاه همسایه» ، «IP دستگاه همسایه». همسایهٔ هر ردیف فقط مختص همان
+  // اینترفیس flapدار است (Task 30 در بک‌اند: قفل‌شدگی LLDP به اینترفیس).
+  // پهنای هر فیلد با w مشخص و layout جدول fixed است
   const FLAP_COLS=[
-    {key:"nip",label:"IP دستگاه همسایه",w:130,get:it=>it.neighbor_ip||"—"},
-    {key:"nname",label:"نام دستگاه همسایه",w:150,wrap:true,get:it=>it.neighbor_name||"—"},
-    {key:"dtj",label:"تاریخ و زمان (شمسی)",w:175,get:it=>it.datetime_jalali||it.last_flap_time_jalali||it.last_flap_jalali||"—"},
-    {key:"event",label:"نوع رویداد",w:110,wrap:true,get:it=>it.last_event||it.last_status||it.event||"—"},
-    {key:"count",label:"تعداد تکرار لاگ",w:80,center:true,get:it=>it.flap_count??1},
-    {key:"iface",label:"اینترفیس",w:120,wrap:true,get:it=>it.iface||it.interface||"—"},
+    {key:"name",label:"نام دستگاه",w:175,wrap:true,get:it=>it.device_name||"—"},
     {key:"ip",label:"آی‌پی دستگاه",w:130,get:it=>it.ip||"—"},
-    {key:"name",label:"نام دستگاه",w:175,wrap:true,get:it=>it.device_name||"—"}
+    {key:"iface",label:"اینترفیس",w:120,wrap:true,get:it=>it.iface||it.interface||"—"},
+    {key:"count",label:"تعداد تکرار لاگ",w:80,center:true,get:it=>it.flap_count??1},
+    {key:"event",label:"نوع رویداد",w:110,wrap:true,get:it=>it.last_event||it.last_status||it.event||"—"},
+    {key:"dtj",label:"تاریخ و زمان (شمسی)",w:175,get:it=>it.datetime_jalali||it.last_flap_time_jalali||it.last_flap_jalali||"—"},
+    {key:"nname",label:"نام دستگاه همسایه",w:150,wrap:true,get:it=>it.neighbor_name||"—"},
+    {key:"nip",label:"IP دستگاه همسایه",w:130,get:it=>it.neighbor_ip||"—"}
   ];
   return (
     <section className="panel" dir="rtl">

@@ -311,18 +311,32 @@ def build_neighbor_context(devices, inventory_rows=None):
                     known_by_ip[pair[0]] = {"name": owner_info["name"] if owner_info else "", "ip": owner}
 
     lldp = {}
+    # Task 30: نقشهٔ «قفل‌شدگی» همسایه‌ها به اینترفیس‌های خودِ هر دستگاه — اگر LLDP/MNDP
+    # یک همسایه را روی اینترفیسی مشخص دیده باشد، آن همسایه فقط همسایهٔ همان اینترفیس است
+    # و نباید در fallback ساب‌نتِ اینترفیس‌های دیگرِ همان دستگاه ظاهر شود.
+    # مقدار interface در /ip neighbor می‌تواند فهرستِ جدا-با-کاما باشد (مثل wlan1,bridge1)
+    # — ردیف به تک‌تک آن اینترفیس‌ها قفل می‌شود.
+    pinned = {}
     for d in devices:
         owner = _ip4(d.get("ip"))
         if not owner:
             continue
         for entry in parse_neighbor_entries(d.get("ip_neighbors")):
-            iface = entry["interface"].strip().lower()
-            if not iface:
+            ifaces = [p.strip().lower() for p in str(entry["interface"]).split(",") if p.strip()]
+            if not ifaces:
                 continue
-            lldp.setdefault(owner, {}).setdefault(iface, []).append(entry)
+            slot = pinned.setdefault(owner, {})
+            addr = _ip4(entry.get("address"))
+            ident = (entry.get("identity") or "").strip().lower()
+            for iface in ifaces:
+                lldp.setdefault(owner, {}).setdefault(iface, []).append(entry)
+                if addr:
+                    slot.setdefault(addr, set()).add(iface)
+                if ident:
+                    slot.setdefault(ident, set()).add(iface)
 
     return {"known_by_ip": known_by_ip, "known_by_identity": known_by_identity,
-            "self_addrs": self_addrs, "lldp": lldp}
+            "self_addrs": self_addrs, "lldp": lldp, "pinned": pinned}
 
 def _resolve_neighbor(context, owner_ip, interface):
     """Resolve the neighbor device connected to one interface of one device.
@@ -359,6 +373,10 @@ def _resolve_neighbor(context, owner_ip, interface):
         return names, ips, "lldp"
 
     # 2) Fallback: another known device sharing the interface's IP subnet.
+    # Task 30: همسایهٔ گزارش‌شده فقط باید مربوط به همین اینترفیسِ flapدار باشد —
+    # کاندیدایی که LLDP/MNDP خودِ همان دستگاه آن را روی اینترفیس دیگری دیده است
+    # (به‌جز خودِ این اینترفیس) حذف می‌شود و به این ردیف سرریز نمی‌کند.
+    pinned = context.get("pinned", {}).get(owner_ip, {})
     for ip, bits in context["self_addrs"].get(owner_ip, {}).get(iface, []):
         try:
             net = ipaddress.ip_network(f"{ip}/{bits}", strict=False)
@@ -369,10 +387,17 @@ def _resolve_neighbor(context, owner_ip, interface):
             if cand_ip in own_ips:
                 continue
             try:
-                if ipaddress.IPv4Address(cand_ip) in net:
-                    candidates.append((info["name"], cand_ip))
+                if ipaddress.IPv4Address(cand_ip) not in net:
+                    continue
             except ValueError:
                 continue
+            cand_name = str(info.get("name") or "").strip().lower()
+            pinned_ifaces = set(pinned.get(cand_ip, set()))
+            if cand_name:
+                pinned_ifaces |= pinned.get(cand_name, set())
+            if pinned_ifaces and iface not in pinned_ifaces:
+                continue  # این همسایه به اینترفیس دیگری از همین دستگاه قفل شده است
+            candidates.append((info["name"], cand_ip))
         if candidates:
             candidates = sorted(set(candidates))
             names = " ، ".join(n for n, _ in candidates if n)
@@ -429,33 +454,33 @@ def interface_flaps_csv(report):
     """
     output = StringIO(newline="")
     writer = csv.writer(output)
-    # Task 29: ترکیب دقیق ستون‌ها به انتخاب کاربر — فقط ۸ فیلد و به همین ترتیب:
-    #   «نام دستگاه» ، «آی‌پی دستگاه» ، «اینترفیس» ، «تعداد تکرار لاگ» ،
-    #   «نوع رویداد» ، «تاریخ و زمان (شمسی)» ، «نام دستگاه همسایه» ، «IP دستگاه همسایه»
-    # (ستون‌های «ردیف»، «تگ دستگاه» و «تاریخ و زمان (میلادی)» حذف شدند.)
-    # در نمایش راست‌به‌چپ (جدول UI، شیت RTL اکسل و CSV در اکسل فارسی) انتهای آرایه
-    # چپ‌ترین ستون است؛ پس آرایه معکوسِ ترتیب بصری بالا نوشته می‌شود.
-    writer.writerow(["IP دستگاه همسایه", "نام دستگاه همسایه",
-                     "تاریخ و زمان (شمسی)", "نوع رویداد", "تعداد تکرار لاگ",
-                     "اینترفیس", "آی‌پی دستگاه", "نام دستگاه"])
+    # Task 30: چیدمان قرینه — همهٔ ستون‌ها از راست به چپ چیده می‌شوند؛ در نمایش
+    # راست‌به‌چپ (جدول UI، شیت RTL اکسل و CSV در اکسل فارسی) ستون اولِ آرایه راست‌ترین
+    # ستون است، پس آرایه دقیقاً همان ترتیب خواسته‌شدهٔ کاربر است:
+    #   نام دستگاه ، آی‌پی دستگاه ، اینترفیس ، تعداد تکرار لاگ ، نوع رویداد ،
+    #   تاریخ و زمان (شمسی) ، نام دستگاه همسایه ، IP دستگاه همسایه
+    writer.writerow(["نام دستگاه", "آی‌پی دستگاه", "اینترفیس", "تعداد تکرار لاگ",
+                     "نوع رویداد", "تاریخ و زمان (شمسی)",
+                     "نام دستگاه همسایه", "IP دستگاه همسایه"])
     for event in report.get("events", []):
-        writer.writerow([event.get("neighbor_ip", ""), event.get("neighbor_name", ""),
-                         event.get("datetime_jalali", ""), event.get("last_status", ""),
-                         event.get("flap_count", 1), event.get("interface", ""),
-                         event.get("ip", ""), event.get("device_name", "")])
+        writer.writerow([event.get("device_name", ""), event.get("ip", ""),
+                         event.get("interface", ""), event.get("flap_count", 1),
+                         event.get("last_status", ""), event.get("datetime_jalali", ""),
+                         event.get("neighbor_name", ""), event.get("neighbor_ip", "")])
     return "\ufeff" + output.getvalue()
 
 def interface_flaps_xlsx(report):
     from openpyxl import Workbook
     from openpyxl.styles import Font, PatternFill, Border, Side, Alignment
     wb=Workbook(); ws=wb.active; ws.title="قطع وصل اینترفیس"; ws.sheet_view.rightToLeft=True
-    # Task 29: همان ترکیب ۸ ستونی CSV — در شیت rightToLeft انتهای آرایه چپ‌ترین
-    # ستون است، پس ترتیب بصری از چپ: نام دستگاه، آی‌پی دستگاه، اینترفیس،
-    # تعداد تکرار لاگ، نوع رویداد، تاریخ و زمان (شمسی)، نام/IP دستگاه همسایه
-    headers=["IP دستگاه همسایه","نام دستگاه همسایه","تاریخ و زمان (شمسی)","نوع رویداد","تعداد تکرار لاگ","اینترفیس","آی‌پی دستگاه","نام دستگاه"]
+    # Task 30: چیدمان قرینه — شیت rightToLeft است و ستون اولِ آرایه راست‌ترین ستون
+    # می‌شود؛ ترتیب آرایه = ترتیب راست‌به‌چپ خواسته‌شدهٔ کاربر (همان ترتیب CSV):
+    # نام دستگاه، آی‌پی دستگاه، اینترفیس، تعداد تکرار لاگ، نوع رویداد،
+    # تاریخ و زمان (شمسی)، نام دستگاه همسایه، IP دستگاه همسایه
+    headers=["نام دستگاه","آی‌پی دستگاه","اینترفیس","تعداد تکرار لاگ","نوع رویداد","تاریخ و زمان (شمسی)","نام دستگاه همسایه","IP دستگاه همسایه"]
     ws.append(headers)
     for event in report.get("events",[]):
-        ws.append([event.get("neighbor_ip",""),event.get("neighbor_name",""),event["datetime_jalali"],event["last_status"],event.get("flap_count",1),event["interface"],event["ip"],event["device_name"]])
+        ws.append([event.get("device_name",""),event.get("ip",""),event["interface"],event.get("flap_count",1),event["last_status"],event["datetime_jalali"],event.get("neighbor_name",""),event.get("neighbor_ip","")])
     fill=PatternFill("solid",fgColor="1F4E78"); white=Font(name="Arial",bold=True,color="FFFFFF",size=11)
     thin=Side(style="thin",color="D9E2F3")
     for cell in ws[1]:

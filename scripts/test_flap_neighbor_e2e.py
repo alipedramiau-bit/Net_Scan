@@ -1,12 +1,15 @@
-"""E2E — Task 27: دستگاه همسایهٔ متصل به اینترفیس flapشده در گزارش هوشمند.
+"""E2E — Task 27/30: دستگاه همسایهٔ متصل به اینترفیس flapشده در گزارش هوشمند.
 
 گردش کامل با TestClient روی اپ واقعی:
-- دیتابیس موقت با ۴ دستگاه: A (flap روی ether2/ether3/ether4)، B (همسایهٔ شناخته‌شدهٔ
+- دیتابیس موقت با ۴ دستگاه: A (flap روی ether2/ether3/ether4/ether5)، B (همسایهٔ شناخته‌شدهٔ
   LLDP روی ether2)، C (همسایهٔ هم‌سابنت بدون LLDP روی ether4) و D (بی‌ربط)؛
 - اینونتوری IP اینترفیس‌ها با dbm.replace_interface_inventory ذخیره می‌شود؛
 - GET /reports/interface-flaps              -> neighbor_name/neighbor_ip در JSON؛
-- GET /reports/interface-flaps/export.csv   -> دو ستون جدید در سرستون و ردیف‌ها؛
-- GET /reports/interface-flaps/export.xlsx  -> همان ستون‌ها در شیت اکسل.
+- GET /reports/interface-flaps/export.csv   -> ترکیب ۸ ستونی (Task 29) با چیدمان
+  راست‌به‌چپ (Task 30) در سرستون و ردیف‌ها؛
+- GET /reports/interface-flaps/export.xlsx  -> همان ستون‌ها در شیت اکسل؛
+- Task 30: ether5 هم‌سابنتِ ether2 است ولی LLDP فقط SW-Core-MK را به ether2 قفل
+  کرده — نباید به‌عنوان همسایهٔ ether5 گزارش شود (همسایه فقط مختص همان اینترفیس).
 هیچ دستگاه واقعی تماس گرفته نمی‌شود.
 Run: python3 scripts/test_flap_neighbor_e2e.py
 """
@@ -47,6 +50,9 @@ def _flap_log(iface, start, step_s=2, count=5):
 LOG_A_ETHER2 = _flap_log("ether2", _NOW - timedelta(hours=1))
 LOG_A_ETHER3 = _flap_log("ether3", _NOW - timedelta(hours=2))
 LOG_A_ETHER4 = _flap_log("ether4", _NOW - timedelta(hours=3))
+# Task 30: ether5 هم‌سابنتِ ether2 است (10.40.10.77/24) تا نشت همسایهٔ قفل‌شده به
+# اینترفیس دیگر در fallback ساب‌نت بررسی شود
+LOG_A_ETHER5 = _flap_log("ether5", _NOW - timedelta(hours=4))
 
 ok = True
 
@@ -69,13 +75,14 @@ path = dbm.db_path_for(TEST_DB)
 DEVICES = [
     # A: لاگ flap روی سه اینترفیس + LLDP کامل روی ether2 + آدرس ether4 فقط در متن ip_addresses
     ("10.40.10.1", "Shadegan-Jafal1", "MPLS",
-     LOG_A_ETHER2 + "\n" + LOG_A_ETHER3 + "\n" + LOG_A_ETHER4,
+     LOG_A_ETHER2 + "\n" + LOG_A_ETHER3 + "\n" + LOG_A_ETHER4 + "\n" + LOG_A_ETHER5,
      "=== /ip neighbor ===\n"
      "  1  identity=SW-Core-MK  address=10.40.10.2  interface=ether2\n"
      "  2  identity=Mystery-Box  address=172.16.5.9  interface=ether3",
      "=== /ip address ===\n"
      "  1  address=10.40.10.1/24  interface=ether2  network=10.40.10.0\n"
-     "  2  address=10.60.0.1/24  interface=ether4  network=10.60.0.0"),
+     "  2  address=10.60.0.1/24  interface=ether4  network=10.60.0.0\n"
+     "  3  address=10.40.10.77/24  interface=ether5  network=10.40.10.0"),
     # B: همسایهٔ شناخته‌شدهٔ LLDP — بدون flap
     ("10.40.10.2", "SW-Core-MK", "Core", "", "", ""),
     # C: همسایهٔ هم‌سابنت ether4 بدون هیچ LLDP
@@ -104,13 +111,15 @@ inv = [
      "interface": "ether2", "address": "10.40.10.1/24", "ip": "10.40.10.1", "network": "10.40.10.0"},
     {"device_ip": "10.40.10.1", "device_id": ids["10.40.10.1"], "identity": "Shadegan-Jafal1",
      "interface": "ether4", "address": "10.60.0.1/24", "ip": "10.60.0.1", "network": "10.60.0.0"},
+    {"device_ip": "10.40.10.1", "device_id": ids["10.40.10.1"], "identity": "Shadegan-Jafal1",
+     "interface": "ether5", "address": "10.40.10.77/24", "ip": "10.40.10.77", "network": "10.40.10.0"},
     {"device_ip": "10.40.10.2", "device_id": ids["10.40.10.2"], "identity": "SW-Core-MK",
      "interface": "ether1", "address": "10.40.10.2/24", "ip": "10.40.10.2", "network": "10.40.10.0"},
     {"device_ip": "10.60.0.7", "device_id": ids["10.60.0.7"], "identity": "Repeater-C",
      "interface": "wlan1", "address": "10.60.0.7/24", "ip": "10.60.0.7", "network": "10.60.0.0"},
 ]
 res = dbm.replace_interface_inventory(inv, db_path=path)
-check("inventory seeded", res.get("rows") == 4, str(res))
+check("inventory seeded", res.get("rows") == 5, str(res))
 
 client = TestClient(appm.app)
 r = client.post("/api/login", json={"username": "admin", "password": "NetAdmin"})
@@ -126,7 +135,7 @@ try:
     check("GET /reports/interface-flaps -> 200", r.status_code == 200, r.text[:200])
     data = r.json()
     events = data.get("events") or []
-    check("3 flap events found (one per interface of A)", len(events) == 3, str(len(events)))
+    check("4 flap events found (one per interface of A)", len(events) == 4, str(len(events)))
     by_iface = {e.get("interface"): e for e in events}
 
     e2 = by_iface.get("ether2", {})
@@ -146,35 +155,44 @@ try:
     check("ether4 neighbor ip = 10.60.0.7", e4.get("neighbor_ip") == "10.60.0.7", str(e4.get("neighbor_ip")))
     check("ether4 via = subnet", e4.get("neighbor_via") == "subnet", str(e4.get("neighbor_via")))
 
+    # Task 30: ether5 هم‌سابنتِ ether2 است ولی SW-Core-MK فقط به ether2 قفل شده —
+    # همسایهٔ گزارش‌شده باید فقط مختص همین اینترفیس flapدار باشد و از اینترفیس دیگر سرریز نکند
+    e5 = by_iface.get("ether5", {})
+    check("ether5 neighbor name = empty (pinned to ether2 — no leak)", e5.get("neighbor_name") == "",
+          str(e5.get("neighbor_name")))
+    check("ether5 neighbor ip = empty", e5.get("neighbor_ip") == "", str(e5.get("neighbor_ip")))
+    check("ether5 via = empty", e5.get("neighbor_via") == "", str(e5.get("neighbor_via")))
+
     # ---------- 2) CSV export ----------
     r = client.get("/reports/interface-flaps/export.csv", params={"days": 5, "database": TEST_DB})
     check("CSV export -> 200", r.status_code == 200, str(r.status_code))
     check("CSV has UTF-8 BOM", r.content.startswith(b"\xef\xbb\xbf"))
     rows = list(csv.reader(io.StringIO(r.content.decode("utf-8-sig"))))
     header = rows[0]
-    # Task 29: ترکیب دقیق ۸ ستونی — آرایه معکوسِ ترتیب بصری چپ→راست گزارش RTL است؛
-    # بصری از چپ: نام دستگاه، آی‌پی دستگاه، اینترفیس، تعداد تکرار لاگ، نوع رویداد،
-    # تاریخ و زمان (شمسی)، نام دستگاه همسایه، IP دستگاه همسایه
-    check("CSV header index 0 = «IP دستگاه همسایه»", len(header) == 8 and header[0] == "IP دستگاه همسایه", str(header))
-    check("CSV header index 1 = «نام دستگاه همسایه»", header[1] == "نام دستگاه همسایه", str(header))
-    check("CSV header index 2 = «تاریخ و زمان (شمسی)»", header[2] == "تاریخ و زمان (شمسی)", str(header))
-    check("CSV header index 3 = «نوع رویداد»", header[3] == "نوع رویداد", str(header))
-    check("CSV header index 4 = «تعداد تکرار لاگ»", header[4] == "تعداد تکرار لاگ", str(header))
-    check("CSV header index 5 = «اینترفیس»", header[5] == "اینترفیس", str(header))
-    check("CSV header index 6 = «آی‌پی دستگاه»", header[6] == "آی‌پی دستگاه", str(header))
-    check("CSV header index 7 = «نام دستگاه» (left edge)", header[7] == "نام دستگاه", str(header))
+    # Task 30: چیدمان قرینه — ستون‌ها از راست به چپ؛ ستون اول آرایه در نمایش RTL
+    # راست‌ترین ستون است و ترتیب آرایه همان ترتیب خواندن راست‌به‌چپ کاربر است
+    check("CSV header index 0 = «نام دستگاه» (right edge)", len(header) == 8 and header[0] == "نام دستگاه", str(header))
+    check("CSV header index 1 = «آی‌پی دستگاه»", header[1] == "آی‌پی دستگاه", str(header))
+    check("CSV header index 2 = «اینترفیس»", header[2] == "اینترفیس", str(header))
+    check("CSV header index 3 = «تعداد تکرار لاگ»", header[3] == "تعداد تکرار لاگ", str(header))
+    check("CSV header index 4 = «نوع رویداد»", header[4] == "نوع رویداد", str(header))
+    check("CSV header index 5 = «تاریخ و زمان (شمسی)»", header[5] == "تاریخ و زمان (شمسی)", str(header))
+    check("CSV header index 6 = «نام دستگاه همسایه»", header[6] == "نام دستگاه همسایه", str(header))
+    check("CSV header index 7 = «IP دستگاه همسایه» (left edge)", header[7] == "IP دستگاه همسایه", str(header))
     check("CSV has only the 8 requested columns", len(header) == 8, str(header))
     data_rows = [row for row in rows[1:] if row]
-    check("CSV has 3 data rows", len(data_rows) == 3, str(len(data_rows)))
-    csv_by_iface = {row[5]: row for row in data_rows}
-    check("CSV ether2 neighbor name", csv_by_iface["ether2"][1] == "SW-Core-MK", str(csv_by_iface.get("ether2")))
-    check("CSV ether2 neighbor ip", csv_by_iface["ether2"][0] == "10.40.10.2", "")
-    check("CSV ether4 neighbor name", csv_by_iface["ether4"][1] == "Repeater-C", str(csv_by_iface.get("ether4")))
-    check("CSV ether4 neighbor ip", csv_by_iface["ether4"][0] == "10.60.0.7", "")
-    check("CSV ether2 device ip (index 6)", csv_by_iface["ether2"][6] == "10.40.10.1", str(csv_by_iface.get("ether2")))
-    check("CSV ether2 device name (index 7)", csv_by_iface["ether2"][7] == "Shadegan-Jafal1", "")
+    check("CSV has 4 data rows", len(data_rows) == 4, str(len(data_rows)))
+    csv_by_iface = {row[2]: row for row in data_rows}
+    check("CSV ether2 neighbor name", csv_by_iface["ether2"][6] == "SW-Core-MK", str(csv_by_iface.get("ether2")))
+    check("CSV ether2 neighbor ip", csv_by_iface["ether2"][7] == "10.40.10.2", "")
+    check("CSV ether4 neighbor name", csv_by_iface["ether4"][6] == "Repeater-C", str(csv_by_iface.get("ether4")))
+    check("CSV ether4 neighbor ip", csv_by_iface["ether4"][7] == "10.60.0.7", "")
+    check("CSV ether5 neighbor empty (no cross-interface leak)",
+          csv_by_iface["ether5"][6] == "" and csv_by_iface["ether5"][7] == "", str(csv_by_iface.get("ether5")))
+    check("CSV ether2 device name (index 0)", csv_by_iface["ether2"][0] == "Shadegan-Jafal1", str(csv_by_iface.get("ether2")))
+    check("CSV ether2 device ip (index 1)", csv_by_iface["ether2"][1] == "10.40.10.1", "")
     check("CSV ether2 Jalali datetime matches ^\\d{4}/\\d{2}/\\d{2} \\d{2}:\\d{2}:\\d{2}$",
-          bool(re.fullmatch(r"\d{4}/\d{2}/\d{2} \d{2}:\d{2}:\d{2}", csv_by_iface["ether2"][2])), str(csv_by_iface["ether2"][2]))
+          bool(re.fullmatch(r"\d{4}/\d{2}/\d{2} \d{2}:\d{2}:\d{2}", csv_by_iface["ether2"][5])), str(csv_by_iface["ether2"][5]))
     check("CSV row width = header width", all(len(row) == len(header) for row in data_rows))
 
     # ---------- 3) XLSX export ----------
@@ -184,13 +202,15 @@ try:
     wb = load_workbook(io.BytesIO(r.content))
     ws = wb.active
     header = [c.value for c in ws[1]]
-    check("XLSX header = same 8 columns as CSV", header == ["IP دستگاه همسایه", "نام دستگاه همسایه",
-          "تاریخ و زمان (شمسی)", "نوع رویداد", "تعداد تکرار لاگ", "اینترفیس", "آی‌پی دستگاه", "نام دستگاه"], str(header))
+    check("XLSX header = same 8 columns as CSV (right-to-left)", header == ["نام دستگاه", "آی‌پی دستگاه",
+          "اینترفیس", "تعداد تکرار لاگ", "نوع رویداد", "تاریخ و زمان (شمسی)", "نام دستگاه همسایه", "IP دستگاه همسایه"], str(header))
     ws_rows = [[c.value for c in row] for row in ws.iter_rows(min_row=2)]
-    xl_by_iface = {row[5]: row for row in ws_rows}
-    check("XLSX ether2 neighbor name", xl_by_iface["ether2"][1] == "SW-Core-MK", str(xl_by_iface.get("ether2")))
-    check("XLSX ether4 neighbor ip", xl_by_iface["ether4"][0] == "10.60.0.7", "")
-    check("XLSX ether2 device name (index 7)", xl_by_iface["ether2"][7] == "Shadegan-Jafal1", "")
+    xl_by_iface = {row[2]: row for row in ws_rows}
+    check("XLSX ether2 neighbor name", xl_by_iface["ether2"][6] == "SW-Core-MK", str(xl_by_iface.get("ether2")))
+    check("XLSX ether4 neighbor ip", xl_by_iface["ether4"][7] == "10.60.0.7", "")
+    check("XLSX ether2 device name (index 0)", xl_by_iface["ether2"][0] == "Shadegan-Jafal1", "")
+    check("XLSX ether5 neighbor empty (no cross-interface leak)",
+          not xl_by_iface["ether5"][6] and not xl_by_iface["ether5"][7], str(xl_by_iface.get("ether5")))
 
 finally:
     # ---------- cleanup: restore previous state ----------
