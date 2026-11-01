@@ -128,14 +128,17 @@ def collect_topology_info_many(
     progress: dict | None = None,
     max_workers: int = 6,
 ) -> list[dict]:
-    """خواندن موازی دستگاه‌ها با حفظ ترتیب و گزارش پیشرفت زنده."""
+    """خواندن موازی دستگاه‌ها با حفظ ترتیب و گزارش پیشرفت زنده.
+
+    نکته: مالک فلگ running فراخواننده است (worker گزارش)؛ این تابع فقط
+    total/done/ok/failed/current_ip را به‌روز می‌کند تا گزارش قبل از فازهای
+    graph/pdf تمام‌شده به نظر نرسد.
+    """
     clean = [str(x).strip() for x in (ips or []) if str(x).strip()]
     if progress is not None:
         progress.update({"total": len(clean), "done": 0, "ok": 0, "failed": 0,
-                         "current_ip": "", "running": True, "canceled": False})
+                         "current_ip": ""})
     if not clean:
-        if progress is not None:
-            progress["running"] = False
         return []
     workers = max(1, min(int(max_workers or 1), len(clean), 16))
     results: dict[str, dict] = {}
@@ -167,7 +170,6 @@ def collect_topology_info_many(
                 progress["current_ip"] = ip
     if progress is not None:
         progress["current_ip"] = ""
-        progress["running"] = False
     if cancel_event is not None and cancel_event.is_set():
         if progress is not None:
             progress["canceled"] = True
