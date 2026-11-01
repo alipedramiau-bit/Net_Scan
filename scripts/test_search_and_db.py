@@ -90,7 +90,8 @@ check("unknown database -> 404", r.status_code == 404, str(r.status_code))
 
 # ---------- 7) CSV export from selected database ----------
 r = client.get("/reports/interface-flaps/export.csv", params={"database": TEST_DB, "days": 5})
-check("csv export ok from selected db", r.status_code == 200 and r.text.startswith("\ufeffردیف"))
+# Task 29: سرستون CSV فلاپ اکنون با «IP دستگاه همسایه» شروع می‌شود
+check("csv export ok from selected db", r.status_code == 200 and r.text.startswith("\ufeffIP دستگاه همسایه"))
 
 # ---------- Cleanup ----------
 dbm.set_active_database(prev_active)   # ensure test DB is not active before delete

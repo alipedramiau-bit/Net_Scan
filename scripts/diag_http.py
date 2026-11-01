@@ -58,6 +58,6 @@ print("DATABASES:", resp.status, [(x["name"], x["devices"], x["active"]) for x i
 resp = opener.open(BASE + "/reports/interface-flaps/export.csv?days=5&threshold_minutes=5&database=default", timeout=300)
 body = resp.read().decode("utf-8-sig")
 lines = body.strip().splitlines()
-print("CSV:", resp.status, "| lines:", len(lines), "| header ok:", lines[0].split(",")[0] == "ردیف")
+print("CSV:", resp.status, "| lines:", len(lines), "| header ok:", lines[0].split(",")[0] == "IP دستگاه همسایه")
 
 server.should_exit = True

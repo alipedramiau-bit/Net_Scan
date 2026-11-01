@@ -13,6 +13,7 @@ Run: python3 scripts/test_flap_neighbor_e2e.py
 import csv
 import io
 import os
+import re
 import sqlite3
 import sys
 from datetime import datetime, timedelta
@@ -151,20 +152,29 @@ try:
     check("CSV has UTF-8 BOM", r.content.startswith(b"\xef\xbb\xbf"))
     rows = list(csv.reader(io.StringIO(r.content.decode("utf-8-sig"))))
     header = rows[0]
-    check("CSV header has «نام دستگاه همسایه» at index 3", len(header) > 3 and header[3] == "نام دستگاه همسایه", str(header))
-    check("CSV header has «IP دستگاه همسایه» at index 4", len(header) > 4 and header[4] == "IP دستگاه همسایه", str(header))
-    # Task 28: نام/آی‌پی دستگاه به انتهای ستون‌ها (لبهٔ چپ گزارش RTL) منتقل شدند
-    check("CSV header last column = «نام دستگاه» (left edge)", len(header) == 11 and header[10] == "نام دستگاه", str(header))
-    check("CSV header index 9 = «آی‌پی دستگاه»", header[9] == "آی‌پی دستگاه", str(header))
+    # Task 29: ترکیب دقیق ۸ ستونی — آرایه معکوسِ ترتیب بصری چپ→راست گزارش RTL است؛
+    # بصری از چپ: نام دستگاه، آی‌پی دستگاه، اینترفیس، تعداد تکرار لاگ، نوع رویداد،
+    # تاریخ و زمان (شمسی)، نام دستگاه همسایه، IP دستگاه همسایه
+    check("CSV header index 0 = «IP دستگاه همسایه»", len(header) == 8 and header[0] == "IP دستگاه همسایه", str(header))
+    check("CSV header index 1 = «نام دستگاه همسایه»", header[1] == "نام دستگاه همسایه", str(header))
+    check("CSV header index 2 = «تاریخ و زمان (شمسی)»", header[2] == "تاریخ و زمان (شمسی)", str(header))
+    check("CSV header index 3 = «نوع رویداد»", header[3] == "نوع رویداد", str(header))
+    check("CSV header index 4 = «تعداد تکرار لاگ»", header[4] == "تعداد تکرار لاگ", str(header))
+    check("CSV header index 5 = «اینترفیس»", header[5] == "اینترفیس", str(header))
+    check("CSV header index 6 = «آی‌پی دستگاه»", header[6] == "آی‌پی دستگاه", str(header))
+    check("CSV header index 7 = «نام دستگاه» (left edge)", header[7] == "نام دستگاه", str(header))
+    check("CSV has only the 8 requested columns", len(header) == 8, str(header))
     data_rows = [row for row in rows[1:] if row]
     check("CSV has 3 data rows", len(data_rows) == 3, str(len(data_rows)))
-    csv_by_iface = {row[2]: row for row in data_rows}
-    check("CSV ether2 neighbor name", csv_by_iface["ether2"][3] == "SW-Core-MK", str(csv_by_iface.get("ether2")))
-    check("CSV ether2 neighbor ip", csv_by_iface["ether2"][4] == "10.40.10.2", "")
-    check("CSV ether4 neighbor name", csv_by_iface["ether4"][3] == "Repeater-C", str(csv_by_iface.get("ether4")))
-    check("CSV ether4 neighbor ip", csv_by_iface["ether4"][4] == "10.60.0.7", "")
-    check("CSV ether2 device ip at left edge (index 9)", csv_by_iface["ether2"][9] == "10.40.10.1", str(csv_by_iface.get("ether2")))
-    check("CSV ether2 device name at left edge (index 10)", csv_by_iface["ether2"][10] == "Shadegan-Jafal1", "")
+    csv_by_iface = {row[5]: row for row in data_rows}
+    check("CSV ether2 neighbor name", csv_by_iface["ether2"][1] == "SW-Core-MK", str(csv_by_iface.get("ether2")))
+    check("CSV ether2 neighbor ip", csv_by_iface["ether2"][0] == "10.40.10.2", "")
+    check("CSV ether4 neighbor name", csv_by_iface["ether4"][1] == "Repeater-C", str(csv_by_iface.get("ether4")))
+    check("CSV ether4 neighbor ip", csv_by_iface["ether4"][0] == "10.60.0.7", "")
+    check("CSV ether2 device ip (index 6)", csv_by_iface["ether2"][6] == "10.40.10.1", str(csv_by_iface.get("ether2")))
+    check("CSV ether2 device name (index 7)", csv_by_iface["ether2"][7] == "Shadegan-Jafal1", "")
+    check("CSV ether2 Jalali datetime matches ^\\d{4}/\\d{2}/\\d{2} \\d{2}:\\d{2}:\\d{2}$",
+          bool(re.fullmatch(r"\d{4}/\d{2}/\d{2} \d{2}:\d{2}:\d{2}", csv_by_iface["ether2"][2])), str(csv_by_iface["ether2"][2]))
     check("CSV row width = header width", all(len(row) == len(header) for row in data_rows))
 
     # ---------- 3) XLSX export ----------
@@ -174,14 +184,13 @@ try:
     wb = load_workbook(io.BytesIO(r.content))
     ws = wb.active
     header = [c.value for c in ws[1]]
-    check("XLSX header has neighbor name column at index 3", header[3] == "نام دستگاه همسایه", str(header[3]))
-    check("XLSX header has neighbor ip column at index 4", header[4] == "IP دستگاه همسایه", str(header[4]))
-    check("XLSX header last column = «نام دستگاه» (left edge in RTL sheet)", len(header) == 11 and header[10] == "نام دستگاه", str(header))
+    check("XLSX header = same 8 columns as CSV", header == ["IP دستگاه همسایه", "نام دستگاه همسایه",
+          "تاریخ و زمان (شمسی)", "نوع رویداد", "تعداد تکرار لاگ", "اینترفیس", "آی‌پی دستگاه", "نام دستگاه"], str(header))
     ws_rows = [[c.value for c in row] for row in ws.iter_rows(min_row=2)]
-    xl_by_iface = {row[2]: row for row in ws_rows}
-    check("XLSX ether2 neighbor name", xl_by_iface["ether2"][3] == "SW-Core-MK", str(xl_by_iface.get("ether2")))
-    check("XLSX ether4 neighbor ip", xl_by_iface["ether4"][4] == "10.60.0.7", "")
-    check("XLSX ether2 device name at left edge (index 10)", xl_by_iface["ether2"][10] == "Shadegan-Jafal1", "")
+    xl_by_iface = {row[5]: row for row in ws_rows}
+    check("XLSX ether2 neighbor name", xl_by_iface["ether2"][1] == "SW-Core-MK", str(xl_by_iface.get("ether2")))
+    check("XLSX ether4 neighbor ip", xl_by_iface["ether4"][0] == "10.60.0.7", "")
+    check("XLSX ether2 device name (index 7)", xl_by_iface["ether2"][7] == "Shadegan-Jafal1", "")
 
 finally:
     # ---------- cleanup: restore previous state ----------

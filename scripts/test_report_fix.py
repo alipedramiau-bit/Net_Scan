@@ -111,7 +111,8 @@ finally:
 # ---------- 4) CSV/XLSX still export with metadata present ----------
 rep3 = sr.interface_flap_report([fresh_dev], days_back=5, threshold_minutes=5, now=now)
 csv_text = sr.interface_flaps_csv(rep3)
-check("CSV export works with new metadata", csv_text.count("\n") >= 2 and "ردیف" in csv_text)
+# Task 29: ترکیب ۸ ستونی جدید — «ردیف» حذف شده؛ سرستون با «IP دستگاه همسایه» شروع می‌شود
+check("CSV export works with new metadata", csv_text.count("\n") >= 2 and csv_text.lstrip("\ufeff").startswith("IP دستگاه همسایه"))
 
 print(f"\n{PASS} passed, {FAIL} failed")
 sys.exit(1 if FAIL else 0)

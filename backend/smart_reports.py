@@ -429,21 +429,19 @@ def interface_flaps_csv(report):
     """
     output = StringIO(newline="")
     writer = csv.writer(output)
-    # Task 28: «نام دستگاه» و «آی‌پی دستگاه» به انتهای ستون‌ها منتقل شدند — در نمایش
-    # راست‌به‌چپ (جدول UI و شیت RTL اکسل) انتهای ستون‌ها سمتِ چپِ گزارش است و ترتیب CSV
-    # هم برای هماهنگی با UI/اکسل همین ترتیب است.
-    writer.writerow(["ردیف", "تگ دستگاه", "اینترفیس",
-                     "نام دستگاه همسایه", "IP دستگاه همسایه", "تعداد تکرار لاگ",
-                     "تاریخ و زمان (میلادی)", "تاریخ و زمان (شمسی)", "نوع رویداد",
-                     "آی‌پی دستگاه", "نام دستگاه"])
+    # Task 29: ترکیب دقیق ستون‌ها به انتخاب کاربر — فقط ۸ فیلد و به همین ترتیب:
+    #   «نام دستگاه» ، «آی‌پی دستگاه» ، «اینترفیس» ، «تعداد تکرار لاگ» ،
+    #   «نوع رویداد» ، «تاریخ و زمان (شمسی)» ، «نام دستگاه همسایه» ، «IP دستگاه همسایه»
+    # (ستون‌های «ردیف»، «تگ دستگاه» و «تاریخ و زمان (میلادی)» حذف شدند.)
+    # در نمایش راست‌به‌چپ (جدول UI، شیت RTL اکسل و CSV در اکسل فارسی) انتهای آرایه
+    # چپ‌ترین ستون است؛ پس آرایه معکوسِ ترتیب بصری بالا نوشته می‌شود.
+    writer.writerow(["IP دستگاه همسایه", "نام دستگاه همسایه",
+                     "تاریخ و زمان (شمسی)", "نوع رویداد", "تعداد تکرار لاگ",
+                     "اینترفیس", "آی‌پی دستگاه", "نام دستگاه"])
     for event in report.get("events", []):
-        writer.writerow([event.get("row", ""),
-                         event.get("device_tag", event.get("tags", "")),
-                         event.get("interface", ""),
-                         event.get("neighbor_name", ""), event.get("neighbor_ip", ""),
-                         event.get("flap_count", 1),
-                         event.get("datetime", ""), event.get("datetime_jalali", ""),
-                         event.get("last_status", ""),
+        writer.writerow([event.get("neighbor_ip", ""), event.get("neighbor_name", ""),
+                         event.get("datetime_jalali", ""), event.get("last_status", ""),
+                         event.get("flap_count", 1), event.get("interface", ""),
                          event.get("ip", ""), event.get("device_name", "")])
     return "\ufeff" + output.getvalue()
 
@@ -451,12 +449,13 @@ def interface_flaps_xlsx(report):
     from openpyxl import Workbook
     from openpyxl.styles import Font, PatternFill, Border, Side, Alignment
     wb=Workbook(); ws=wb.active; ws.title="قطع وصل اینترفیس"; ws.sheet_view.rightToLeft=True
-    # Task 28: ترتیب ستون‌ها با UI هماهنگ شد — «نام دستگاه» و «آی‌پی دستگاه» در انتها؛
-    # شیت rightToLeft است پس این دو ستون در اکسل هم چپ‌ترین ستون‌ها می‌شوند
-    headers=["ردیف","تگ دستگاه","اینترفیس","نام دستگاه همسایه","IP دستگاه همسایه","تعداد تکرار لاگ","تاریخ و زمان (میلادی)","تاریخ و زمان (شمسی)","نوع رویداد","آی‌پی دستگاه","نام دستگاه"]
+    # Task 29: همان ترکیب ۸ ستونی CSV — در شیت rightToLeft انتهای آرایه چپ‌ترین
+    # ستون است، پس ترتیب بصری از چپ: نام دستگاه، آی‌پی دستگاه، اینترفیس،
+    # تعداد تکرار لاگ، نوع رویداد، تاریخ و زمان (شمسی)، نام/IP دستگاه همسایه
+    headers=["IP دستگاه همسایه","نام دستگاه همسایه","تاریخ و زمان (شمسی)","نوع رویداد","تعداد تکرار لاگ","اینترفیس","آی‌پی دستگاه","نام دستگاه"]
     ws.append(headers)
     for event in report.get("events",[]):
-        ws.append([event["row"],event.get("device_tag") or event.get("tags") or "",event["interface"],event.get("neighbor_name",""),event.get("neighbor_ip",""),event.get("flap_count",1),event["datetime"],event["datetime_jalali"],event["last_status"],event["ip"],event["device_name"]])
+        ws.append([event.get("neighbor_ip",""),event.get("neighbor_name",""),event["datetime_jalali"],event["last_status"],event.get("flap_count",1),event["interface"],event["ip"],event["device_name"]])
     fill=PatternFill("solid",fgColor="1F4E78"); white=Font(name="Arial",bold=True,color="FFFFFF",size=11)
     thin=Side(style="thin",color="D9E2F3")
     for cell in ws[1]:
