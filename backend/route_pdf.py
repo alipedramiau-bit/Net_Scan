@@ -28,6 +28,15 @@ LINE = (0.784, 0.815, 0.862)
 THBG = (0.909, 0.929, 0.957)
 BOX = (0.200, 0.255, 0.341)
 
+# Task 24: هندسهٔ زنجیرهٔ نمودار Shortest Path — در هر سطر PATH_ROW_BOXES جعبه
+# دقیقاً داخل کادر صفحه جا می‌شود و ادامهٔ زنجیره با اتصال Z شکل به سطر بعد
+# می‌رود تا روتر مرکزی همیشه داخل کادر قابل رویت باشد (قبلاً gap برای یک جعبه
+# کمتر محاسبه می‌شد و جعبه‌های انتهای زنجیره از صفحه بیرون می‌زدند)
+PATH_PER_ROW = 3                    # تعداد hop در هر سطر
+PATH_ROW_BOXES = PATH_PER_ROW + 1   # تعداد جعبه در هر سطر (دستگاه + hopها)
+PATH_BOX_W = 104                    # عرض جعبه‌ها
+PATH_ROW_GAP = (PAGE_W - 2 * M - PATH_ROW_BOXES * PATH_BOX_W) / (PATH_ROW_BOXES - 1)
+
 
 def _san(s) -> str:
     """Keep latin-1 printable characters (Helvetica core font)."""
@@ -166,6 +175,46 @@ def _iface_grid(c, y: float, interfaces: list[dict]) -> float:
     return y
 
 
+def path_box_slot(i: int) -> tuple[int, int]:
+    """موقعیت (سطر، ستون) جعبهٔ i-ام زنجیرهٔ مسیر (Task 24).
+
+    بعد از هر PATH_ROW_BOXES جعبه، زنجیره به سطر بعد می‌رود تا همیشه داخل
+    کادر صفحه بماند و روتر مرکزی در انتهای زنجیره دیده شود.
+    """
+    return (i // PATH_ROW_BOXES, i % PATH_ROW_BOXES)
+
+
+def _row_wrap_connector(c, prev_box, cur_box, label: str = "", tag: str = "",
+                        tag_color=GRAY) -> None:
+    """اتصال انتهای یک سطر به ابتدای سطر بعد در نمودار مسیر (Task 24).
+
+    زنجیرهٔ مسیر وقتی از عرض کادر بلندتر شود به سطر بعد می‌رود؛ این helper
+    ادامهٔ مسیر را با اتصال Z شکل رسم می‌کند: از پایین جعبهٔ آخر سطر قبل پایین
+    می‌آید، در فاصلهٔ بین دو سطر به چپ می‌رود و از بالای جعبهٔ اول سطر بعد وارد
+    آن می‌شود — تا زنجیره در سطر بعد هم پیوسته دیده شود و روتر مرکزی داخل
+    کادر قابل رویت باشد.
+    """
+    px, pby, pw, _ph = prev_box
+    cx, cby, cw, ch = cur_box
+    x1, x2 = px + pw / 2.0, cx + cw / 2.0
+    mid_y = (pby + cby + ch) / 2.0
+    c.setStrokeColor(BOX)
+    c.setLineWidth(1)
+    c.line(x1, pby, x1, mid_y)
+    c.line(x1, mid_y, x2, mid_y)
+    c.line(x2, mid_y, x2, cby + ch)
+    mid_x = (x1 + x2) / 2.0
+    if label:
+        c.setFillColor(INK)
+        c.setFont("Helvetica-Bold", 5.8)
+        c.drawCentredString(mid_x, mid_y + 2.5,
+                            _fit(c, label, "Helvetica-Bold", 5.8, PAGE_W - 2 * M - 16))
+    if tag:
+        c.setFillColor(tag_color)
+        c.setFont("Helvetica-Oblique", 5.2)
+        c.drawCentredString(mid_x, mid_y - 8, tag)
+
+
 def _path_diagram(c, y: float, path: dict, nodes: dict, core_key: str, central_ip: str) -> float:
     if path.get("is_core"):
         c.setFillColor(GREEN_BG)
@@ -194,32 +243,36 @@ def _path_diagram(c, y: float, path: dict, nodes: dict, core_key: str, central_i
             c.setFont("Helvetica-Bold", 7)
             c.drawString(M + 10, y - 9, "Best-effort upstream path (via default route / longest prefix) - core not reached:")
             y -= 22
-            per_row = 3
-            bw = 104
-            gap = (PAGE_W - 2 * M - per_row * bw) / max(1, (per_row - 1))
+            per_row = PATH_PER_ROW
+            bw = PATH_BOX_W
+            gap = PATH_ROW_GAP
             bh = 26
             shown_up = up[: 2 * per_row]
             node_seq = [up[0]["from_key"]] + [h["to_key"] for h in shown_up]
             y_start = y - 2
-            row = 0
-            col = 0
+            prev_box = None
             for bi, nkey in enumerate(node_seq):
+                row, col = path_box_slot(bi)
                 nd = nodes.get(nkey) or {}
                 x = M + col * (bw + gap)
                 by = y_start - row * (bh + 30) - bh
                 if bi > 0:
                     h = shown_up[bi - 1]
+                    lbl = f"{_san(h.get('from_if')) or '?'} -> {_san(h.get('to_if')) or _san(h.get('to_ip')) or '?'}"
+                    ev_tag = "DEFAULT-ROUTE" if h.get("ev") == "default" else "ROUTE"
                     if col > 0:
                         c.setStrokeColor(BOX)
                         c.setLineWidth(1)
                         c.line(x - gap, by + bh / 2, x, by + bh / 2)
-                        lbl = f"{_san(h.get('from_if')) or '?'} -> {_san(h.get('to_if')) or _san(h.get('to_ip')) or '?'}"
                         c.setFillColor(INK)
                         c.setFont("Helvetica-Bold", 5.8)
                         c.drawCentredString(x - gap / 2, by + bh / 2 + 4, _fit(c, lbl, "Helvetica-Bold", 5.8, gap - 4))
                         c.setFillColor(AMBER)
                         c.setFont("Helvetica-Oblique", 5.2)
-                        c.drawCentredString(x - gap / 2, by + bh / 2 - 9, "DEFAULT-ROUTE" if h.get("ev") == "default" else "ROUTE")
+                        c.drawCentredString(x - gap / 2, by + bh / 2 - 9, ev_tag)
+                    elif prev_box:
+                        # Task 24: شکست سطر — ادامهٔ زنجیرهٔ upstream در سطر بعد
+                        _row_wrap_connector(c, prev_box, (x, by, bw, bh), lbl, ev_tag, tag_color=AMBER)
                 ghost = bool(nd.get("ghost"))
                 c.setStrokeColor(BOX)
                 c.setLineWidth(0.9)
@@ -234,11 +287,9 @@ def _path_diagram(c, y: float, path: dict, nodes: dict, core_key: str, central_i
                 c.setFillColor(GRAY)
                 c.setFont("Helvetica", 5.8)
                 c.drawCentredString(x + bw / 2, by + 6, _fit(c, _san(nd.get("ip")) or "", "Helvetica", 5.8, bw - 8))
-                col += 1
-                if col >= per_row + 1:
-                    col = 0
-                    row += 1
-            y = y_start - (row + 1) * (bh + 30) + 8
+                prev_box = (x, by, bw, bh)
+            last_row = path_box_slot(len(node_seq) - 1)[0]
+            y = y_start - (last_row + 1) * (bh + 30) + 8
             if len(up) > len(shown_up):
                 c.setFillColor(GRAY)
                 c.setFont("Helvetica-Oblique", 6.5)
@@ -251,18 +302,21 @@ def _path_diagram(c, y: float, path: dict, nodes: dict, core_key: str, central_i
             y -= 10
         return y
     # chain of node boxes: device -> hop1 -> ... -> core
-    per_row = 3  # 3 hops = 4 boxes
-    bw = 104
-    gap = (PAGE_W - 2 * M - per_row * bw) / max(1, (per_row - 1))
+    # Task 24: هر سطر PATH_ROW_BOXES جعبه دارد و gap برای همان تعداد جعبه محاسبه
+    # می‌شود تا سطر دقیقاً داخل کادر صفحه بماند؛ ادامهٔ زنجیره با اتصال Z شکل
+    # (_row_wrap_connector) به سطر بعد می‌رود و روتر مرکزی داخل کادر دیده می‌شود
+    per_row = PATH_PER_ROW
+    bw = PATH_BOX_W
+    gap = PATH_ROW_GAP
     bh = 30
     shown = hops[: 2 * per_row]
     node_seq = [ (hops[0]["from_key"] if hops else None) ]
     for h in shown:
         node_seq.append(h["to_key"])
     y_start = y - 4
-    row = 0
-    col = 0
+    prev_box = None
     for bi, nkey in enumerate(node_seq):
+        row, col = path_box_slot(bi)
         nd = nodes.get(nkey) or {}
         is_core = (nkey == core_key)
         x = M + col * (bw + gap)
@@ -270,18 +324,22 @@ def _path_diagram(c, y: float, path: dict, nodes: dict, core_key: str, central_i
         # connector from previous box
         if bi > 0:
             h = shown[bi - 1]
-            px = M + (col - 1) * (bw + gap) if col > 0 else None
+            lbl = f"{_san(h.get('from_if')) or '?'} <-> {_san(h.get('to_if')) or '?'}"
+            ev_tag = {"mndp": "MNDP", "subnet": "SUBNET", "route": "ROUTE",
+                      "default": "DEFAULT-ROUTE", "cisco": "CISCO-ROUTE"}.get(h.get("ev"), "")
             if col > 0:
                 c.setStrokeColor(BOX)
                 c.setLineWidth(1)
                 c.line(x - gap, by + bh / 2, x, by + bh / 2)
-                lbl = f"{_san(h.get('from_if')) or '?'} <-> {_san(h.get('to_if')) or '?'}"
                 c.setFillColor(INK)
                 c.setFont("Helvetica-Bold", 5.8)
                 c.drawCentredString(x - gap / 2, by + bh / 2 + 4, _fit(c, lbl, "Helvetica-Bold", 5.8, gap - 4))
                 c.setFillColor(GRAY)
                 c.setFont("Helvetica-Oblique", 5.2)
-                c.drawCentredString(x - gap / 2, by + bh / 2 - 9, {"mndp": "MNDP", "subnet": "SUBNET", "route": "ROUTE", "default": "DEFAULT-ROUTE", "cisco": "CISCO-ROUTE"}.get(h.get("ev"), ""))
+                c.drawCentredString(x - gap / 2, by + bh / 2 - 9, ev_tag)
+            elif prev_box:
+                # Task 24: شکست سطر — ادامهٔ زنجیره در سطر بعد تا روتر مرکزی
+                _row_wrap_connector(c, prev_box, (x, by, bw, bh), lbl, ev_tag)
         c.setStrokeColor(BOX)
         c.setLineWidth(0.9)
         if is_core:
@@ -296,11 +354,9 @@ def _path_diagram(c, y: float, path: dict, nodes: dict, core_key: str, central_i
         ip_txt = _san(nd.get("ip")) or _san(nd.get("core_ip")) or ""
         c.setFillColor((0.92, 0.97, 0.94) if is_core else GRAY)
         c.drawCentredString(x + bw / 2, by + 7, _fit(c, ip_txt, "Helvetica", 6, bw - 8))
-        col += 1
-        if col >= per_row + 1:
-            col = 0
-            row += 1
-    y = y_start - (row + 1) * (bh + 34) + 10
+        prev_box = (x, by, bw, bh)
+    last_row = path_box_slot(len(node_seq) - 1)[0]
+    y = y_start - (last_row + 1) * (bh + 34) + 10
     if len(hops) > len(shown):
         c.setFillColor(GRAY)
         c.setFont("Helvetica-Oblique", 6.5)
