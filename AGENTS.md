@@ -22,6 +22,7 @@
 | `backend/db.py` | لایه دیتابیس: کاتالوگ، جدول devices، خروجی‌ها، backup، enrich از ip_info |
 | `backend/routeros_api.py` | خواندن مستقیم از RouterOS API (probe موازی، collect، push-config) |
 | `backend/route_topology.py` | توپولوژی مسیر: خواندن ساختاریافته API + گراف لینک‌ها + BFS تا روتر مرکزی |
+| `backend/cisco_config.py` | پارس کانفیگ متنی روتر مرکزی سیسکو (اینترفیس‌ها/آدرس‌ها/روت استاتیک) برای گزارش مسیر |
 | `backend/route_pdf.py` | تولید PDF «Detailed Router Path Topology» (یک صفحه به ازای هر دستگاه) |
 | `backend/snmp_manager.py` | خواندن identity از طریق SNMP |
 | `frontend/src.jsx` | کل رابط کاربری در «یک فایل» (React + JSX، بدون فایل‌های کامپوننت جدا) |
@@ -50,6 +51,7 @@ python scripts/test_route_topology_unit.py
 python scripts/test_route_topology_pdf.py
 python scripts/test_device_picker.py
 python scripts/test_push_config_progress.py
+python scripts/test_cisco_config.py
 
 # build فرانت‌اند — بعد از هر تغییر در src.jsx یا style.css الزامی است:
 cd frontend && npm install && npm run build
@@ -70,7 +72,7 @@ cd frontend && npm install && npm run build
 5. پیام کامیت: قالب `type(scope): خلاصه انگلیسی` (مثل `feat(devices): ...`، `fix(api): ...`).
 6. قبل از کامیت: تست‌ها سبز باشند؛ `git status` را برای فایل‌های ناخواسته چک کنید.
 
-## ۵) نقشه قابلیت‌ها (تا Task 17)
+## ۵) نقشه قابلیت‌ها (تا Task 18)
 
 - **اسکن شبکه:** `POST /scans/start` (قابل لغو با `/scans/{id}/cancel`)، ورودی IP/CIDR/بازه،
   پورت‌های 8291 و 8728 همیشه اضافه می‌شوند.
@@ -136,11 +138,30 @@ cd frontend && npm install && npm run build
   0.0.0.0/0 با کم‌ترین distance (hop بالای دستگاه). یال‌های روتینگ (بخش 3-ج در
   `build_topology`) حتی وقتی روتر مرکزی خودش خوانده شده هم ساخته می‌شوند؛ گیت‌وی
   می‌تواند به core (یال مستقیم)، به دستگاه خوانده‌شدهٔ دیگر (زنجیرهٔ بالادست) یا به
-  گرهٔ شبحِ `g:<ip>` با فلگ `upstream` (hop ناشناخته) برسد. اولویت شواهد:
-  mndp > subnet > route > default. دستگاه‌های unreachable یک «زنجیرهٔ بالادست
+  گرهٔ شبحِ `g:<ip>` با فلگ `upstream` (hop ناشناخته) برسد. اولویت شواهد
+  (از Task 18): mndp > cisco > subnet > route > default. دستگاه‌های unreachable یک «زنجیرهٔ بالادست
   best-effort» (حداکثر ۶ گام، مقاوم به حلقه) در `path["upstream"]` می‌گیرند که PDF
   آن را با باکس‌های کهربایی ترسیم می‌کند؛ آمار `summary["upstream_only"]` شمارش می‌شود.
   روتر مرکزی خودش در بخش 3-ج پردازش نمی‌شود (بالادستِ آن در مسیر «تا مرکز» بی‌اثر است).
+- **بارگذاری کانفیگ روتر مرکزی سیسکو (Task 18):** چون روتر مرکزی شبکه سیسکو است و از
+  RouterOS API خوانده نمی‌شود، کاربر خروجی `show running-config` آن را به‌صورت فایل متنی
+  در تب گزارش هوشمند بارگذاری می‌کند: `POST /api/reports/route-topology/cisco-config`
+  (multipart با فیلد `file` یا JSON با فیلد `text`؛ حداکثر ۲MB؛ با `looks_like_cisco_config`
+  اعتبارسنجی و خطای ۴۰۰ فارسی) + `GET` (خلاصهٔ پارس‌شده) + `DELETE`. فایل در
+  `databases/cisco_central_config.txt` ذخیره می‌شود (دایمی، بین اجراها).
+  ماژول `backend/cisco_config.py` کانفیگ IOS را پارس می‌کند: اینترفیس‌ها (فیزیکی/
+  زیراینترفیس dot1Q/SVI/Loopback با description و shutdown)، آدرس‌های IP اصلی و
+  secondary، روت‌های استاتیک (vrf/گیت‌وی IP یا اینترفیس/distance/name) و ساب‌نت‌های
+  connected. در `build_topology(..., cisco=پارس‌شده)`: گرهٔ core (وقتی روتر مرکزی بین
+  دستگاه‌ها نباشد) با hostname/آدرس‌ها/اینترفیس‌های سیسکو غنی‌سازی می‌شود، یال‌های
+  روت استاتیک سیسکو (گیت‌ویِ هر روت → دستگاه دارای آن IP یا گرهٔ شبح) با شاهد `cisco`
+  ساخته می‌شوند و گیت‌وی دستگاه‌ها اگر روی خودِ سیسکو باشد به core وصل می‌شود.
+  اولویت شواهد جدید: mndp > cisco > subnet > route > default. در PDF: هدر
+  «Core Router: <hostname> (<ip>)»، برچسب CISCO-ROUTE، ستون «Cisco static route» و
+  خطوط شواهد `cisco <hostname>: route <prefix> via <nh>` (از `_cisco_evidence_lines`،
+  همهٔ آدرس‌های دستگاه بررسی می‌شوند). هدر `X-Topology-Cisco` در result.pdf نام
+  hostname را برمی‌گرداند. اینترفیسِ سمتِ دستگاه برای گیت‌وی‌های off-link از ARP خوانده
+  می‌شود (`_arp_iface_toward`).
 - **سایر:** گزارش‌های هوشمند، Winbox tools، مدیریت VPN، ایمیل/اطلاع‌رسانی.
 
 ## ۶) نکات دام‌دار (Gotchas)
@@ -164,6 +185,12 @@ cd frontend && npm install && npm run build
   — این دو می‌توانند شیءهای متفاوتی باشند (الگوی `ROS_MODULES` در
   `test_push_config_progress.py` و پچ دوگانهٔ collector در `test_device_picker.py`).
   در غیر این صورت تست، اتصال واقعی به شبکه می‌زند.
+- فایل کانفیگ سیسکو (`databases/cisco_central_config.txt`) وضعیت سراسری و دایمی است —
+  تست‌ها باید قبل و بعد از اجرا از آن backup بگیرند/پاک کنند (الگوی `restore_cfg` در
+  `test_cisco_config.py`) تا کانفیگ واقعی کاربر از بین نرود.
+- متن PDF را در تست‌ها مستقیم از بایت‌های خام جستجو نکنید (استریم‌ها ASCII85+Flate
+  فشرده‌اند) — با `pypdf.extract_text` یا `pdftotext -layout` متن را دربیاورید
+  (الگوی `pdf_text` در `test_cisco_config.py`).
 
 ## ۷) امنیت
 

@@ -281,7 +281,7 @@ def _path_diagram(c, y: float, path: dict, nodes: dict, core_key: str, central_i
                 c.drawCentredString(x - gap / 2, by + bh / 2 + 4, _fit(c, lbl, "Helvetica-Bold", 5.8, gap - 4))
                 c.setFillColor(GRAY)
                 c.setFont("Helvetica-Oblique", 5.2)
-                c.drawCentredString(x - gap / 2, by + bh / 2 - 9, {"mndp": "MNDP", "subnet": "SUBNET", "route": "ROUTE", "default": "DEFAULT-ROUTE"}.get(h.get("ev"), ""))
+                c.drawCentredString(x - gap / 2, by + bh / 2 - 9, {"mndp": "MNDP", "subnet": "SUBNET", "route": "ROUTE", "default": "DEFAULT-ROUTE", "cisco": "CISCO-ROUTE"}.get(h.get("ev"), ""))
         c.setStrokeColor(BOX)
         c.setLineWidth(0.9)
         if is_core:
@@ -328,7 +328,7 @@ def _hops_table(c, y: float, path: dict, nodes: dict) -> float:
         left = f"{fn} [{_san(h.get('from_if')) or '?'}  {_san(h.get('from_ip')) or '-'}]"
         right = f"{tn} [{_san(h.get('to_if')) or '?'}  {_san(h.get('to_ip')) or '-'}]"
         ev = {"mndp": "MNDP neighbor", "subnet": "Shared subnet", "route": "Route gateway",
-              "default": "Default-route gateway"}.get(h.get("ev"), "-")
+              "default": "Default-route gateway", "cisco": "Cisco static route"}.get(h.get("ev"), "-")
         c.setFillColor(INK)
         c.drawString(M + 4, y, str(i))
         c.drawString(M + 18, y, _fit(c, left, "Helvetica", 6.8, 226))
@@ -362,6 +362,49 @@ def _evidence_lines(c, y: float, lines: list[str], reachable: bool, central_ip: 
     return y
 
 
+def _cisco_evidence_lines(cisco_data: dict, addresses, core_name: str = "",
+                          main_ip: str = "", max_lines: int = 3) -> list[str]:
+    """خطوط شاهد از روت‌های استاتیک کانفیگ سیسکو برای این دستگاه.
+
+    نشان می‌دهد روتر مرکزی سیسکو چگونه به ساب‌نت این دستگاه مسیر دارد —
+    شاهد مکمل قوی از سمتِ مرکز (کانفیگ بارگذاری‌شدهٔ کاربر). همهٔ آدرس‌های
+    دستگاه بررسی می‌شوند (IP LAN + IP مدیریتی) و طولانی‌ترین پیشوند اول می‌آید.
+    """
+    if not cisco_data:
+        return []
+    try:
+        from backend.cisco_config import routes_toward
+    except ImportError:
+        from cisco_config import routes_toward
+    cands: list[str] = []
+    for a in addresses or []:
+        ip = ((a.get("address") or "").split("/")[0] or "").strip()
+        if ip and ip not in cands:
+            cands.append(ip)
+    mip = (main_ip or "").strip()
+    if mip and mip not in cands:
+        cands.append(mip)
+    seen: set = set()
+    out: list[str] = []
+    for ip in cands:
+        try:
+            hits = routes_toward(cisco_data, ip)
+        except Exception:
+            continue
+        for rt in hits:
+            key = (rt.get("prefix") or "", tuple(rt.get("next_hops") or []), rt.get("vrf") or "")
+            if key in seen:
+                continue
+            seen.add(key)
+            gws = ", ".join(rt.get("next_hops") or []) or (rt.get("interface") or "?")
+            out.append(f"cisco {core_name or 'core'}: route {rt.get('prefix') or '?'} via {gws}"
+                       + (f" (distance {rt['distance']})" if rt.get("distance") else "")
+                       + (f" [vrf {rt['vrf']}]" if rt.get("vrf") else ""))
+            if len(out) >= max_lines:
+                return out
+    return out
+
+
 def build_route_topology_pdf(topology: dict, devices: list[dict], central_ip: str = "",
                              database: str = "", generated: str = "") -> bytes:
     from datetime import datetime, timezone
@@ -372,6 +415,11 @@ def build_route_topology_pdf(topology: dict, devices: list[dict], central_ip: st
     paths: dict = topology["paths"]
     order: list[str] = topology["order"]
     core_key = topology["core_key"]
+    cisco_meta = topology.get("cisco") or {}
+    cisco_data = topology.get("cisco_data") or None
+    core_label = central_ip
+    if cisco_meta.get("hostname"):
+        core_label = f"{cisco_meta['hostname']} ({central_ip})"
     total = len(order)
     if not total:
         raise ValueError("no devices for PDF")
@@ -389,7 +437,7 @@ def build_route_topology_pdf(topology: dict, devices: list[dict], central_ip: st
         path = paths.get(key) or {}
         ok_api = bool(info.get("ok"))
         _page_header(c, idx, total, node.get("name") or key, node.get("ip") or "",
-                     central_ip, generated)
+                     core_label, generated)
         y = PAGE_H - 66
 
         # -- connection failure banner --------------------------------------
@@ -456,6 +504,11 @@ def build_route_topology_pdf(topology: dict, devices: list[dict], central_ip: st
         if not next_ip:
             next_ip = (path.get("upstream") or [{}])[0].get("to_ip", "")
         ev_lines = next_hop_evidence(info, next_ip) if ok_api else []
+        cev = _cisco_evidence_lines(cisco_data, node.get("addresses") or [],
+                                    (cisco_meta.get("hostname") or "core"),
+                                    main_ip=path.get("main_ip") or node.get("ip") or "")
+        if cev:
+            ev_lines = cev + ev_lines[: max(0, 6 - len(cev))]
         y = _section(c, y, "Routing & Adjacency Evidence", f"toward core {central_ip}")
         _evidence_lines(c, y, ev_lines, bool(path.get("reachable")), central_ip)
 

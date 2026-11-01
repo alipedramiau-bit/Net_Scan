@@ -1670,10 +1670,36 @@ function RouteTopologyReport(){
   const[apiUser,setApiUser]=useState("admin"),[apiPass,setApiPass]=useState("");
   const[starting,setStarting]=useState(false),[busy,setBusy]=useState(false),[canceling,setCanceling]=useState(false);
   const[prog,setProg]=useState(null),[msg,setMsg]=useState(""),[err,setErr]=useState("");
+  const[ciscoSt,setCiscoSt]=useState(null),[ciscoBusy,setCiscoBusy]=useState(false);
+  const ciscoFileRef=useRef(null);
   const pollRef=useRef(null);
   useEffect(()=>{(async()=>{try{const r=await fetch(API+"/api/databases");const d=await readJson(r);
     if(r.ok){const list=(d.databases&&d.databases.length)?d.databases:[{name:"default"}];setDbList(list);setDbSel(prev=>prev||(d.active||"default"));}}catch(e){/* keep fallback */}})()},[]);
+  useEffect(()=>{(async()=>{try{const r=await fetch(API+"/api/reports/route-topology/cisco-config");const d=await readJson(r);if(r.ok)setCiscoSt(d);}catch(e){}})()},[]);
   useEffect(()=>()=>{if(pollRef.current)window.clearInterval(pollRef.current);},[]);
+  async function uploadCiscoConfig(file){
+    if(!file)return;
+    setCiscoBusy(true);setErr("");setMsg("");
+    try{
+      const fd=new FormData();fd.append("file",file);
+      const r=await fetch(API+"/api/reports/route-topology/cisco-config",{method:"POST",body:fd});
+      const d=await readJson(r);
+      if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:("بارگذاری کانفیگ ناموفق بود ("+r.status+")"));
+      setCiscoSt({loaded:true,summary:d.summary,uploaded_at:new Date().toISOString()});
+      setMsg(d.message||"کانفیگ روتر مرکزی ذخیره شد؛ در ساخت گزارش مسیر استفاده می‌شود.");
+    }catch(e){setErr(e.message||"خطا در بارگذاری کانفیگ سیسکو");}
+    finally{setCiscoBusy(false);if(ciscoFileRef.current)ciscoFileRef.current.value="";}
+  }
+  async function deleteCiscoConfig(){
+    setCiscoBusy(true);setErr("");
+    try{
+      const r=await fetch(API+"/api/reports/route-topology/cisco-config",{method:"DELETE"});
+      if(!r.ok)throw Error("حذف کانفیگ ناموفق بود ("+r.status+")");
+      setCiscoSt({loaded:false,summary:null,uploaded_at:null});
+      setMsg("کانفیگ روتر مرکزی حذف شد؛ گزارش بدون شواهد سیسکو ساخته می‌شود.");
+    }catch(e){setErr(e.message||"خطا در حذف کانفیگ");}
+    finally{setCiscoBusy(false);}
+  }
   function phaseLabel(p){return {start:"آماده‌سازی",collect:"خواندن دستگاه‌ها از طریق RouterOS API",graph:"ساخت گراف مسیر و همسایگی‌ها",pdf:"ساخت فایل PDF",done:"تکمیل شد",canceled:"متوقف شد",error:"خطا"}[p]||p;}
   async function fetchResult(latest){
     try{
@@ -1715,7 +1741,22 @@ function RouteTopologyReport(){
   async function cancelReport(){setCanceling(true);try{await fetch(API+"/api/reports/route-topology/cancel",{method:"POST"});setMsg("درخواست توقف ارسال شد؛ پس از پایان خواندن دستگاه جاری متوقف می‌شود…");}catch(e){}finally{setCanceling(false);}}
   return <section className="panel" dir="rtl" style={{marginTop:18}}>
     <h3>گزارش مسیر تا روتر مرکزی (توپولوژی PDF)</h3>
-    <p style={{color:"#64748b",marginTop:0}}>با نام کاربری و رمز عبور RouterOS API به دستگاه‌های میکروتیکِ دیتابیس انتخاب‌شده وصل می‌شود، مسیر هر دستگاه تا روتر مرکزی (IP را شما وارد می‌کنید) را به‌همراه آدرس‌های IP، همسایه‌ها و اینترفیس‌های هر دستگاه استخراج می‌کند و برای هر دستگاه یک صفحه PDF می‌سازد (Detailed Router Path Topology). در نمودار مسیر مشخص است هر اینترفیسِ دستگاه به کدام اینترفیسِ دستگاه بعدی وصل است (MNDP / ساب‌نت مشترک / گیت‌وی روت). به‌طور پیش‌فرض همه دستگاه‌های میکروتیکِ دیتابیس گزارش می‌شوند؛ با «انتخاب دستگاه‌ها از دیتابیس» می‌توانید جستجو و فیلتر کنید و فقط زیرمجموعه‌ای از دستگاه‌ها را برای گزارش برگزینید.</p>
+    <p style={{color:"#64748b",marginTop:0}}>با نام کاربری و رمز عبور RouterOS API به دستگاه‌های میکروتیکِ دیتابیس انتخاب‌شده وصل می‌شود، مسیر هر دستگاه تا روتر مرکزی (IP را شما وارد می‌کنید) را به‌همراه آدرس‌های IP، همسایه‌ها و اینترفیس‌های هر دستگاه استخراج می‌کند و برای هر دستگاه یک صفحه PDF می‌سازد (Detailed Router Path Topology). در نمودار مسیر مشخص است هر اینترفیسِ دستگاه به کدام اینترفیسِ دستگاه بعدی وصل است (MNDP / ساب‌نت مشترک / گیت‌وی روت). اگر روتر مرکزی سیسکو است و از RouterOS API خوانده نمی‌شود، کانفیگ آن را بارگذاری کنید تا مسیر دقیق‌تر شود (اینترفیس‌ها، ساب‌نت‌های متصل و روت‌های استاتیک روتر مرکزی در یافتن مسیر و نمایش اینترفیسِ سمتِ مرکز استفاده می‌شوند). به‌طور پیش‌فرض همه دستگاه‌های میکروتیکِ دیتابیس گزارش می‌شوند؛ با «انتخاب دستگاه‌ها از دیتابیس» می‌توانید جستجو و فیلتر کنید و فقط زیرمجموعه‌ای از دستگاه‌ها را برای گزارش برگزینید.</p>
+    <div style={{display:"flex",gap:8,flexWrap:"wrap",alignItems:"center",marginBottom:12}}>
+      <input ref={ciscoFileRef} type="file" accept=".txt,.cfg,.conf,.log,text/plain" style={{display:"none"}}
+        onChange={e=>uploadCiscoConfig(e.target.files&&e.target.files[0])}/>
+      <button type="button" className="tool-btn" disabled={ciscoBusy} onClick={()=>ciscoFileRef.current&&ciscoFileRef.current.click()}
+        title="خروجی show running-config روتر مرکزی سیسکو را به‌صورت فایل متنی بارگذاری کنید">{ciscoBusy?"در حال بارگذاری…":"بارگذاری کانفیگ روتر مرکزی (Cisco)"}</button>
+      {ciscoSt&&ciscoSt.loaded&&ciscoSt.summary
+        ?<span style={{background:"#e8f5ee",color:"#176b43",borderRadius:16,padding:"5px 12px",fontSize:13,display:"inline-flex",alignItems:"center",gap:6,flexWrap:"wrap"}}
+            title={"بارگذاری: "+((ciscoSt.uploaded_at||"").replace("T"," ").slice(0,16))+" — اینترفیس‌ها: "+ciscoSt.summary.interfaces+"، آدرس‌ها: "+ciscoSt.summary.addresses+"، روت استاتیک: "+ciscoSt.summary.static_routes}>
+            ✓ کانفیگ روتر مرکزی: <b dir="ltr">{ciscoSt.summary.hostname||"بدون hostname"}</b>
+            &nbsp;({ciscoSt.summary.interfaces.toLocaleString("fa-IR")} اینترفیس، {ciscoSt.summary.addresses.toLocaleString("fa-IR")} آدرس، {ciscoSt.summary.static_routes.toLocaleString("fa-IR")} روت استاتیک)
+            <button type="button" onClick={deleteCiscoConfig} disabled={ciscoBusy} title="حذف کانفیگ و بازگشت به حالت بدون شواهد سیسکو"
+              style={{border:"none",background:"transparent",color:"#b91c1c",cursor:"pointer",fontWeight:700,padding:0,fontSize:14,lineHeight:1}}>✕</button>
+          </span>
+        :<span style={{background:"#fffbeb",color:"#92400e",borderRadius:16,padding:"5px 12px",fontSize:13}}>کانفیگ روتر مرکزی بارگذاری نشده (اختیاری — برای روتر مرکزی سیسکو توصیه می‌شود)</span>}
+    </div>
     <div style={{display:"flex",gap:14,flexWrap:"wrap"}}>
       <label>دیتابیس
         <select value={dbSel} onChange={e=>{setDbSel(e.target.value);setTopoIps([])}} title="دستگاه‌های میکروتیک از این دیتابیس انتخاب می‌شوند (حداکثر ۸۰ دستگاه — با انتخاب دستی تا ۲۰۰)">

@@ -232,6 +232,17 @@ def _split_gateway(gw: str) -> list[tuple[str, str]]:
     return out
 
 
+def _arp_iface_toward(arp: list[dict], ip: str) -> str:
+    """اینترفیسِ دستگاه برای رساندن به ip از جدول ARP (وقتی گیت‌وی on-link نیست)."""
+    ipn = (ip or "").strip()
+    if not ipn:
+        return ""
+    for a in arp or []:
+        if _ip_of(a.get("address")) == ipn:
+            return a.get("interface") or ""
+    return ""
+
+
 def _addr_iface_toward(addresses: list[dict], ip: str) -> tuple[str, str]:
     """(ip_خودِ_دستگاه, اینترفیس) اولین آدرسی که شبکه‌اش شامل ip است.
 
@@ -334,11 +345,56 @@ def _make_node(key: str, name: str, ip: str, info: dict | None, device: dict | N
     }
 
 
-def build_topology(infos: list[dict], devices: list[dict], central_ip: str) -> dict:
+def _cisco_addresses(cisco: dict) -> list[dict]:
+    """آدرس‌های کانفیگ سیسکو در شکلِ آدرس‌های RouterOS (برای گرهٔ core)."""
+    out: list[dict] = []
+    for it in (cisco or {}).get("interfaces") or []:
+        for a in it.get("addresses") or []:
+            if not a.get("ip"):
+                continue
+            out.append({
+                "address": f"{a['ip']}/{a.get('prefix') or '32'}",
+                "interface": it.get("name") or "",
+                "network": a.get("subnet") or "",
+                "secondary": bool(a.get("secondary")),
+            })
+    return out
+
+
+def _cisco_interfaces(cisco: dict) -> list[dict]:
+    """اینترفیس‌های کانفیگ سیسکو در شکلِ اینترفیس‌های RouterOS (برای گرهٔ core)."""
+    out: list[dict] = []
+    for it in (cisco or {}).get("interfaces") or []:
+        shutdown = bool(it.get("shutdown"))
+        out.append({
+            "name": it.get("name") or "",
+            "type": it.get("type") or "Cisco",
+            "running": "false" if shutdown else "true",
+            "disabled": "true" if shutdown else "false",
+            "mac_address": "",
+            "comment": it.get("description") or "",
+        })
+    return out
+
+
+def _core_iface_toward(core_addrs: list[dict], ip: str) -> tuple[str, str]:
+    """(ip_سیسکو، اینترفیس) برای گیت‌ویِ داده‌شده: اول تطبیق دقیق، بعد ساب‌نت."""
+    ifc = _iface_of(core_addrs, ip)
+    if ifc:
+        return (ip, ifc)
+    return _addr_iface_toward(core_addrs, ip)
+
+
+def build_topology(infos: list[dict], devices: list[dict], central_ip: str,
+                   cisco: dict | None = None) -> dict:
     """گراف لینک‌ها + کوتاه‌ترین مسیر هر دستگاه تا روتر مرکزی.
 
     infos  — خروجی collect_topology_info_many (به ترتیب دستگاه‌ها)
     devices— ردیف‌های دیتابیس (fetch_devices_by_ips / query_devices)
+    cisco  — کانفیگ پارس‌شدهٔ روتر مرکزی سیسکو (cisco_config.parse_cisco_config)؛
+             وقتی روتر مرکزی سیسکو است و از RouterOS API خوانده نمی‌شود، گرهٔ core
+             از روی این کانفیغ غنی‌سازی می‌شود (آدرس‌ها/اینترفیس‌ها) و روت‌های
+             استاتیک سیسکو به‌عنوان شواهد یال core→دستگاه استفاده می‌شوند.
     """
     central_ip = (central_ip or "").strip() or DEFAULT_CENTRAL_IP
     dev_by_ip = {str(d.get("ip") or "").strip(): d for d in (devices or []) if d.get("ip")}
@@ -365,17 +421,43 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str) -> d
                 break
         if core_key:
             break
+    cisco_info = None
+    if cisco and isinstance(cisco, dict) and (cisco.get("interfaces") or cisco.get("static_routes")):
+        cisco_info = cisco
     if core_key:
         nodes[core_key]["is_core"] = True
         nodes[core_key]["core_ip"] = central_ip
+        try:
+            from backend import cisco_config as cc
+        except ImportError:
+            import cisco_config as cc
+        central_in_cisco = cc.central_ip_known(cisco_info or {}, central_ip)
     else:
         core_key = "core"
+        try:
+            from backend import cisco_config as cc
+        except ImportError:
+            import cisco_config as cc
+        central_in_cisco = cc.central_ip_known(cisco_info or {}, central_ip)
+        if cisco_info:
+            core_name = (cisco_info.get("hostname") or "Core Router (Cisco)")
+            core_addrs = _cisco_addresses(cisco_info)
+            core_ifaces = _cisco_interfaces(cisco_info)
+        else:
+            core_name = "Core Router"
+            core_addrs = []
+            core_ifaces = []
         nodes[core_key] = {
-            "key": core_key, "name": "Core Router", "ip": central_ip,
+            "key": core_key, "name": core_name, "ip": central_ip,
             "info": {}, "device": None, "ghost": True, "is_core": True,
-            "core_ip": central_ip, "addresses": [], "interfaces": [],
+            "core_ip": central_ip, "addresses": core_addrs, "interfaces": core_ifaces,
             "neighbors": [], "routes": [],
         }
+        if cisco_info:
+            nodes[core_key]["platform"] = "Cisco IOS"
+            nodes[core_key]["cisco"] = True
+    cisco_used = bool(nodes[core_key].get("cisco"))
+    core_addrs_live = nodes[core_key]["addresses"]
 
     # --- یال‌ها -------------------------------------------------------------
     edges: list[dict] = []
@@ -389,8 +471,8 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str) -> d
             a_key, b_key, a_if, b_if, a_ip, b_ip = b_key, a_key, b_if, a_if, b_ip, a_ip
         k = (a_key, b_key, a_if, b_if)
         if k in edge_seen:
-            # اولویت شواهد: mndp > subnet > route > default
-            rank = {"mndp": 0, "subnet": 1, "route": 2, "default": 3}
+            # اولویت شواهد: mndp > cisco > subnet > route > default
+            rank = {"mndp": 0, "cisco": 1, "subnet": 2, "route": 3, "default": 4}
             for e in edges:
                 if (e["a"], e["b"], e["a_if"], e["b_if"]) == k:
                     if rank.get(ev, 9) < rank.get(e["ev"], 9):
@@ -463,7 +545,10 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str) -> d
                 _add_edge(key, peer_key, a_if, b_if, a_ip, nip, "mndp")
 
     # 3-ب) اشتراک ساب‌نت بین گره‌های دارای آدرس
+    # روتر مرکزیِ سیسکو (با آدرس‌های کانفیگ) هم در مقایسهٔ ساب‌نت شرکت می‌کند
     keyed = [k for k in order if nodes[k]["addresses"]]
+    if cisco_used and core_key not in keyed and nodes[core_key]["addresses"]:
+        keyed.append(core_key)
     for i in range(len(keyed)):
         for j in range(i + 1, len(keyed)):
             ka, kb = keyed[i], keyed[j]
@@ -500,7 +585,7 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str) -> d
                 continue
             a_ip, a_if = _addr_iface_toward(node["addresses"], gw_ip)
             if not a_if:
-                a_if = gw_if
+                a_if = _arp_iface_toward(node.get("arp") or [], gw_ip) or gw_if
             if gw_ip == central_ip:
                 _add_edge(key, core_key, a_if, "", a_ip, gw_ip, ev)
                 continue
@@ -518,6 +603,12 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str) -> d
                 b_if = _iface_of(peer["addresses"], gw_ip)
                 _add_edge(key, peer_key, a_if, b_if, a_ip, gw_ip, ev)
                 continue
+            # گیت‌وی روی خودِ روتر مرکزی سیسکو؟ (IP دقیق یا داخل ساب‌نت‌های کانفیگ)
+            if cisco_used and core_addrs_live:
+                c_ip, c_if = _core_iface_toward(core_addrs_live, gw_ip)
+                if c_if:
+                    _add_edge(key, core_key, a_if, c_if, a_ip, c_ip or gw_ip, ev)
+                    continue
             # hop بالادست ناشناخته → گرهٔ شبح
             gkey = "g:" + gw_ip
             if gkey not in nodes:
@@ -526,13 +617,46 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str) -> d
                 nodes[gkey] = ghost
             _add_edge(key, gkey, a_if, gw_if, a_ip, gw_ip, ev)
 
+    # 3-د) روت‌های استاتیک کانفیگ سیسکو — یال‌های core→دستگاه (اولین روتر بعد از
+    # مرکز). گیت‌ویِ هر روتِ استاتیک سیسکو، روتر میکروتیکی است که آن ساب‌نت را
+    # سرو می‌کند؛ این قوی‌ترین شواهد از سمت روتر مرکزی است.
+    if cisco_used:
+        for rt in (cisco_info.get("static_routes") or []):
+            prefix = rt.get("prefix") or ""
+            if not prefix or "/" not in prefix:
+                continue
+            for gw_ip in (rt.get("next_hops") or []):
+                if not gw_ip or gw_ip == central_ip:
+                    continue
+                c_ip, c_if = _core_iface_toward(core_addrs_live, gw_ip)
+                peer_key = None
+                peer_aip, peer_aif = "", ""
+                for k2 in order:
+                    n2 = nodes[k2]
+                    if n2["ip"] == gw_ip:
+                        peer_key, peer_aip, peer_aif = k2, gw_ip, _iface_of(n2["addresses"], gw_ip)
+                        break
+                    t_ip, t_if = _addr_iface_toward(n2["addresses"], gw_ip)
+                    if t_if:
+                        peer_key, peer_aip, peer_aif = k2, t_ip, t_if
+                        break
+                if peer_key is not None:
+                    _add_edge(core_key, peer_key, c_if, peer_aif, c_ip or gw_ip, peer_aip or gw_ip, "cisco")
+                    continue
+                gkey = "g:" + gw_ip
+                if gkey not in nodes:
+                    g = _make_node(gkey, gw_ip, gw_ip, None, None, ghost=True)
+                    g["upstream"] = True
+                    nodes[gkey] = g
+                _add_edge(core_key, gkey, c_if, "", c_ip or gw_ip, gw_ip, "cisco")
+
     # --- BFS کوتاه‌ترین مسیر تا core -----------------------------------------
     adj: dict[str, list[int]] = {}
     for idx, e in enumerate(edges):
         adj.setdefault(e["a"], []).append(idx)
         adj.setdefault(e["b"], []).append(idx)
 
-    ev_rank = {"mndp": 0, "subnet": 1, "route": 2, "default": 3}
+    ev_rank = {"mndp": 0, "cisco": 1, "subnet": 2, "route": 3, "default": 4}
 
     def _hop_from_edge(e: dict, src: str) -> dict:
         if e["a"] == src:
@@ -609,6 +733,8 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str) -> d
                 if n2["ip"] == gw_ip or any(_ip_of(a.get("address")) == gw_ip for a in (n2["addresses"] or [])):
                     nxt_key = k2
                     break
+            if nxt_key is None and cisco_used and core_addrs_live and _core_iface_toward(core_addrs_live, gw_ip)[1]:
+                nxt_key = core_key  # گیت‌وی روی خودِ روتر مرکزی سیسکو است
             if nxt_key is None:
                 nxt_key = "g:" + gw_ip
                 if nxt_key not in nodes:
@@ -617,14 +743,17 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str) -> d
                     nodes[nxt_key] = g
             a_ip, a_if = _addr_iface_toward(node.get("addresses") or [], gw_ip)
             if not a_if:
-                a_if = gw_if
+                a_if = _arp_iface_toward(node.get("arp") or [], gw_ip) or gw_if
+            to_node = nodes[nxt_key]
             chain.append({
                 "from_key": cur, "to_key": nxt_key,
-                "from_name": node["name"], "to_name": nodes[nxt_key]["name"],
-                "from_if": a_if, "to_if": ("" if nodes[nxt_key]["ghost"] else gw_if),
+                "from_name": node["name"], "to_name": to_node["name"],
+                "from_if": a_if, "to_if": ("" if to_node["ghost"] else gw_if),
                 "from_ip": a_ip, "to_ip": gw_ip,
                 "ev": ("route" if kind == "specific" else "default"),
             })
+            if nxt_key == core_key:
+                break  # زنجیرهٔ بالادست به روتر مرکزی رسید
             if nxt_key in seen:
                 break  # حلقهٔ روتینگ — ادامه نمی‌دهیم
             seen.add(nxt_key)
@@ -653,6 +782,15 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str) -> d
         "core_key": core_key,
         "central_ip": central_ip,
         "order": order,
+        "cisco": ({
+            "used": cisco_used,
+            "hostname": (cisco_info or {}).get("hostname") or "",
+            "static_routes": len((cisco_info or {}).get("static_routes") or []),
+            "addresses": len(nodes[core_key]["addresses"]),
+            "interfaces": len(nodes[core_key]["interfaces"]),
+            "central_ip_found": central_in_cisco,
+        } if (cisco_info or cisco) else None),
+        "cisco_data": (cisco_info if cisco_used else None),
         "summary": {
             "devices": len(order),
             "reachable": reachable,
@@ -660,6 +798,8 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str) -> d
             "upstream_only": upstream_count,
             "links": links,
             "central_ip": central_ip,
+            "cisco_loaded": cisco_used,
+            "cisco_hostname": (nodes[core_key].get("platform") == "Cisco IOS" and nodes[core_key]["name"]) or "",
         },
     }
 

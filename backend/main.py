@@ -90,6 +90,10 @@ try:
     from backend import route_pdf
 except ImportError:
     import route_pdf
+try:
+    from backend import cisco_config
+except ImportError:
+    import cisco_config
 
 try:
     from backend import email_manager
@@ -194,6 +198,8 @@ TOPOLOGY_CANCEL=Event()
 TOPOLOGY_LOCK=Lock()
 TOPOLOGY_STATE={"running":False,"total":0,"done":0,"ok":0,"failed":0,"current_ip":"",
                 "phase":"","error":None,"canceled":False,"pdf":None,"stats":{}}
+# کانفیگ روتر مرکزی سیسکو (آپلود کاربر) — کنار دیتابیس‌ها نگهداری می‌شود
+CISCO_CONFIG_PATH = ROOT_DIR / "databases" / "cisco_central_config.txt"
 db.init_db_global()
 
 @app.on_event("startup")
@@ -1692,7 +1698,16 @@ def _route_topology_worker(body: RouteTopologyRequest, targets: list[dict], db_n
             st.update(phase="canceled", running=False, canceled=True)
             return
         st.update(phase="graph")
-        topo = route_topology.build_topology(infos, targets, body.central_router_ip)
+        # کانفیگ روتر مرکزی سیسکو (اگر کاربر بارگذاری کرده باشد) برای یافتن مسیر
+        cisco_parsed = None
+        try:
+            if CISCO_CONFIG_PATH.is_file():
+                _cfg_text = CISCO_CONFIG_PATH.read_text(encoding="utf-8", errors="replace")
+                cisco_parsed = cisco_config.parse_cisco_config(_cfg_text)
+        except Exception as _ce:  # کانفیگ خراب نباید گزارش را کاملاً ببندد
+            st.update(cisco_error=str(_ce)[:200])
+            cisco_parsed = None
+        topo = route_topology.build_topology(infos, targets, body.central_router_ip, cisco=cisco_parsed)
         st.update(phase="pdf")
         pdf = route_pdf.build_route_topology_pdf(
             topo, targets,
@@ -1700,6 +1715,7 @@ def _route_topology_worker(body: RouteTopologyRequest, targets: list[dict], db_n
             database=db_name or db.get_active_db_name(),
         )
         summary = topo.get("summary") or {}
+        cisco_meta = topo.get("cisco") or {}
         stats = {
             "devices": summary.get("devices", len(targets)),
             "ok": summary.get("reachable", sum(1 for i in infos if i.get("ok"))),
@@ -1709,6 +1725,7 @@ def _route_topology_worker(body: RouteTopologyRequest, targets: list[dict], db_n
             "links": summary.get("links", 0),
             "database": db_name or db.get_active_db_name(),
             "central_router_ip": body.central_router_ip,
+            "cisco": (cisco_meta.get("hostname") or "") if cisco_meta.get("used") else "",
             "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
         }
         st.update(pdf=pdf, stats=stats, phase="done", error=None)
@@ -1811,8 +1828,93 @@ def route_topology_result():
             "X-Topology-Links": str(stats.get("links") or 0),
             "X-Topology-Database": str(stats.get("database") or ""),
             "X-Topology-Central-Router": str(stats.get("central_router_ip") or ""),
+            "X-Topology-Cisco": str(stats.get("cisco") or ""),
         },
     )
+
+
+# ---------- کانفیگ روتر مرکزی سیسکو (بارگذاری فایل متنی) ----------
+def _cisco_config_summary() -> dict:
+    """خلاصهٔ کانفیگ سیسکوی ذخیره‌شده (بدون خطا → loaded=False)."""
+    if not CISCO_CONFIG_PATH.is_file():
+        return {"loaded": False, "uploaded_at": None, "summary": None}
+    try:
+        text = CISCO_CONFIG_PATH.read_text(encoding="utf-8", errors="replace")
+        parsed = cisco_config.parse_cisco_config(text)
+        s = cisco_config.summary(parsed)
+        from datetime import datetime as _dt
+        up_at = _dt.fromtimestamp(CISCO_CONFIG_PATH.stat().st_mtime).isoformat(timespec="seconds")
+        return {"loaded": True, "uploaded_at": up_at,
+                "summary": s, "bytes": CISCO_CONFIG_PATH.stat().st_size}
+    except Exception as e:
+        return {"loaded": False, "uploaded_at": None, "summary": None,
+                "error": str(e)[:200]}
+
+
+@app.get("/api/reports/route-topology/cisco-config")
+def route_topology_cisco_get():
+    """وضعیت کانفیگ بارگذاری‌شدهٔ روتر مرکزی سیسکو."""
+    return _cisco_config_summary()
+
+
+@app.delete("/api/reports/route-topology/cisco-config")
+def route_topology_cisco_delete():
+    try:
+        CISCO_CONFIG_PATH.unlink(missing_ok=True)
+    except Exception as e:
+        raise HTTPException(500, f"حذف کانفیگ ناموفق بود: {e}") from e
+    return {"deleted": True, "message": "کانفیگ روتر مرکزی حذف شد"}
+
+
+@app.post("/api/reports/route-topology/cisco-config")
+async def route_topology_cisco_upload(request: Request):
+    """بارگذاری کانفیگ متنی روتر مرکزی سیسکو (show running-config).
+
+    هم multipart/form-data با فیلد file و هم JSON با فیلد text پذیرفته می‌شود.
+    """
+    ctype = (request.headers.get("content-type") or "").lower()
+    raw = b""
+    filename = ""
+    if "multipart/form-data" in ctype:
+        form = await request.form()
+        up = form.get("file")
+        if up is None or isinstance(up, str):
+            raise HTTPException(400, "فایلی برای بارگذاری ارسال نشده است (فیلد file)")
+        filename = getattr(up, "filename", "") or ""
+        raw = await up.read()
+    else:
+        try:
+            body = await request.json()
+        except Exception:
+            raise HTTPException(400, "بدنهٔ درخواست نامعتبر است") from None
+        raw = str((body or {}).get("text") or "").encode("utf-8")
+    if not raw.strip():
+        raise HTTPException(400, "متن کانفیگ خالی است")
+    if len(raw) > cisco_config.MAX_CONFIG_BYTES:
+        raise HTTPException(413, f"حجم فایل بیش از حد مجاز است (حداکثر {cisco_config.MAX_CONFIG_BYTES // (1024*1024)} مگابایت)")
+    text = raw.decode("utf-8", errors="replace")
+    if not cisco_config.looks_like_cisco_config(text):
+        raise HTTPException(
+            400,
+            "این متن شبیه کانفیگ Cisco IOS نیست؛ خروجی show running-config (یا startup-config) روتر را بارگذاری کنید",
+        )
+    parsed = cisco_config.parse_cisco_config(text)
+    if not (parsed.get("interfaces") or parsed.get("static_routes")):
+        raise HTTPException(400, "در این کانفیگ هیچ اینترفیس یا روت استاتیکی قابل خواندن نبود")
+    try:
+        CISCO_CONFIG_PATH.parent.mkdir(parents=True, exist_ok=True)
+        CISCO_CONFIG_PATH.write_text(text, encoding="utf-8")
+    except Exception as e:
+        raise HTTPException(500, f"ذخیرهٔ کانفیگ ناموفق بود: {e}") from e
+    s = cisco_config.summary(parsed)
+    return {
+        "saved": True,
+        "filename": filename,
+        "bytes": len(raw),
+        "summary": s,
+        "message": f"کانفیگ روتر مرکزی ذخیره شد: {s['hostname'] or 'بدون hostname'} — "
+                   f"{s['interfaces']} اینترفیس، {s['addresses']} آدرس IP، {s['static_routes']} روت استاتیک",
+    }
 
 
 @app.post("/api/devices/push-config")
