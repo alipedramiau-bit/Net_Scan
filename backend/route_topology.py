@@ -329,6 +329,314 @@ def _route_next_hops(routes: list[dict], central_ip: str) -> tuple[list[tuple[st
     return ([], "")
 
 
+def _route_distance(rt: dict) -> int:
+    try:
+        return int(str(rt.get("distance") or "0").strip() or 0)
+    except (TypeError, ValueError):
+        return 0
+
+
+def _route_all_next_hops(routes: list[dict], central_ip: str) -> list[dict]:
+    """همهٔ next-hopهای ممکن به سمت روتر مرکزی از «همهٔ» روت‌های پوشش‌دهنده.
+
+    برخلاف _route_next_hops (فقط بهترین روت)، برای درخواست کاربر مبنی بر اینکه
+    «هر روتر چند IP روی اینترفیس‌های مختلف دارد و تمام اینترفیس‌ها و IPهای آن
+    برای مسیریابی باید چک شوند»، گیت‌وی‌های همهٔ روت‌های پوشش‌دهندهٔ central_ip
+    (روت خاص هر اینترفیس، روت‌های جایگزین با distance بدتر و روت پیش‌فرض) را
+    به‌ترتیب برتری (پیشوند بلندتر ← distance کمتر ← ترتیب جدول) برمی‌گرداند.
+
+    خروجی: [{"gw","gw_if","kind","dst","prefixlen","distance"}] بدون تکرار؛
+    گیت‌وی اینترفیسی (نام اینترفیس به‌جای IP) قابل دنبال‌کردن نیست و حذف می‌شود.
+    """
+    tip_raw = (central_ip or "").strip()
+    if not tip_raw:
+        return []
+    try:
+        caddr = ipaddress.ip_address(tip_raw)
+    except ValueError:
+        return []
+    cands: list[dict] = []
+    for pos, rt in enumerate(routes or []):
+        dst = (rt.get("dst_address") or "").strip()
+        try:
+            net = ipaddress.ip_network(dst or "0.0.0.0/0", strict=False)
+        except ValueError:
+            continue
+        if caddr not in net:
+            continue
+        for g, gif in _split_gateway(rt.get("gateway") or "") + _split_gateway(rt.get("immediate_gw") or ""):
+            g = (g or "").strip()
+            if not g:
+                continue
+            try:
+                ipaddress.ip_address(g)
+            except ValueError:
+                continue  # گیت‌وی اینترفیسی مثل "ether5" — قابل دنبال‌کردن نیست
+            cands.append({
+                "gw": g, "gw_if": (gif or "").strip(),
+                "kind": "specific" if net.prefixlen else "default",
+                "dst": str(net), "prefixlen": net.prefixlen,
+                "distance": _route_distance(rt), "pos": pos,
+            })
+    cands.sort(key=lambda c: (-c["prefixlen"], c["distance"], c["pos"]))
+    out: list[dict] = []
+    seen: set = set()
+    for c in cands:
+        k = (c["gw"], c["gw_if"])
+        if k in seen:
+            continue
+        seen.add(k)
+        out.append(c)
+    return out
+
+
+# برچسب فارسی نتیجهٔ بررسی هر اینترفیس برای مسیر به روتر مرکزی (CSV Task 21)
+_VERDICT_FA = {
+    "direct": "مستقیم متصل — روتر مرکزی در ساب‌نتِ همین IP است",
+    "route": "روت به مرکز از طریق گیت‌وی {gw} (پوشش {dst})",
+    "default": "فقط روت پیش‌فرض از طریق گیت‌وی {gw}",
+    "none": "مسیری به روتر مرکزی از این اینترفیس نیست",
+}
+_STATE_SUFFIX_FA = {
+    "disabled": " — اینترفیس غیرفعال است (disabled)",
+    "down": " — اینترفیس اتصال فیزیکی ندارد (no link)",
+}
+
+
+def interface_route_verdicts(info: dict, central_ip: str) -> list[dict]:
+    """بررسی تک‌تک اینترفیس‌ها و آدرس‌های IP دستگاه برای رسیدن به روتر مرکزی.
+
+    برای «هر» آدرس IP روی هر اینترفیس مشخص می‌شود:
+      direct  — روتر مرکزی در ساب‌نتِ همین IP است (اتصال مستقیم L2)
+      route   — روتِ پوشش‌دهندهٔ مرکز که گیت‌وی‌اش در ساب‌نتِ همین IP است
+      default — فقط روت پیش‌فرض با گیت‌ویِ در ساب‌نتِ همین IP
+      none    — هیچ مسیری از این اینترفیس به سمت مرکز دیده نمی‌شود
+    به‌همراه وضعیت اینترفیس (disabled / no link) و دیده‌شدن گیت‌وی در ARP.
+    """
+    tip_raw = (central_ip or "").strip()
+    try:
+        caddr = ipaddress.ip_address(tip_raw)
+    except ValueError:
+        return []
+    addresses = info.get("addresses") or []
+    routes = info.get("routes") or []
+    ifaces = {(i.get("name") or "").strip(): i for i in (info.get("interfaces") or [])}
+    arp_ips = {_ip_of(a.get("address")) for a in (info.get("arp") or [])}
+    out: list[dict] = []
+    for a in addresses:
+        raw = (a.get("address") or "").strip()
+        try:
+            ifo = ipaddress.ip_interface(raw)
+        except ValueError:
+            continue
+        ifc = (a.get("interface") or "").strip()
+        verdict, gw, rdst = "none", "", ""
+        if caddr in ifo.network:
+            verdict, rdst = "direct", str(ifo.network)
+        else:
+            best_key = None
+            for rt in routes:
+                dst = (rt.get("dst_address") or "").strip()
+                try:
+                    net = ipaddress.ip_network(dst or "0.0.0.0/0", strict=False)
+                except ValueError:
+                    continue
+                if caddr not in net:
+                    continue
+                for g, _gif in _split_gateway(rt.get("gateway") or "") + _split_gateway(rt.get("immediate_gw") or ""):
+                    g = (g or "").strip()
+                    if not g:
+                        continue
+                    try:
+                        gip = ipaddress.ip_address(g)
+                    except ValueError:
+                        continue
+                    if gip in ifo.network:
+                        key = (net.prefixlen, -_route_distance(rt))
+                        if best_key is None or key > best_key:
+                            best_key = key
+                            verdict = "route" if net.prefixlen else "default"
+                            gw, rdst = g, str(net)
+        it = ifaces.get(ifc) or {}
+        dis = (it.get("disabled") or "").strip().lower() == "true"
+        run = (it.get("running") or "").strip().lower() == "true"
+        state = "disabled" if dis else ("down" if not run else "up")
+        label = _VERDICT_FA.get(verdict, verdict)
+        if verdict in ("route", "default"):
+            label = label.format(gw=gw, dst=rdst)
+        label += _STATE_SUFFIX_FA.get(state, "")
+        out.append({
+            "interface": ifc, "ip": str(ifo.ip), "address": raw, "network": str(ifo.network),
+            "verdict": verdict, "gateway": gw, "route_dst": rdst, "state": state,
+            "gw_in_arp": (gw in arp_ips) if gw else None, "label": label,
+        })
+    return out
+
+
+# ---------------------------------------------------------------------------
+# 2-ب) تحلیل دلیل نرسیدن هر دستگاه به روتر مرکزی (گزارش CSV — درخواست کاربر)
+# ---------------------------------------------------------------------------
+def unreachable_reason_rows(topo: dict) -> list[dict]:
+    """برای هر دستگاهی که در گراف به روتر مرکزی نمی‌رسد، «دلیل» را تحلیل می‌کند.
+
+    ورودی خروجی build_topology است؛ خروجی فهرست ردیف‌های CSV با فیلدهای فارسی:
+    IP، نام، وضعیت، تعداد اینترفیس/IP، فهرست اینترفیس‌ها و آدرس‌ها، نتیجهٔ
+    بررسی هر اینترفیس برای مسیر، دلیل اصلی و جزئیات.
+    """
+    nodes = topo.get("nodes") or {}
+    order = topo.get("order") or []
+    paths = topo.get("paths") or {}
+    central = (topo.get("central_ip") or "").strip()
+    core_node = nodes.get(topo.get("core_key") or "") or {}
+    cisco_meta = topo.get("cisco") or {}
+    core_unknown = bool(core_node.get("ghost")) and not cisco_meta.get("used")
+
+    rows: list[dict] = []
+    for key in order:
+        path = paths.get(key) or {}
+        if path.get("reachable"):
+            continue
+        node = nodes.get(key) or {}
+        info = node.get("info") or {}
+        dev = node.get("device") or {}
+        addresses = node.get("addresses") or []
+        routes = node.get("routes") or []
+        ifaces = node.get("interfaces") or []
+        details: list[str] = []
+        status = "نمی‌رسد به روتر مرکزی"
+        reason = ""
+
+        ip_txt = (node.get("ip") or "").strip()
+        name = (info.get("identity") or dev.get("device_name") or ip_txt or "—")
+        addrs_txt = "؛ ".join(
+            f"{(a.get('interface') or '?')}: {(a.get('address') or '?')}"
+            for a in addresses
+        )
+        n_if = len({(a.get("interface") or "?") for a in addresses}) if addresses else 0
+
+        if info and info.get("ok") is False:
+            # دستگاه اصلاً از API خوانده نشده — مسیر اصلاً قابل بررسی نبوده
+            err = str(info.get("error") or "").strip()
+            if err.lower() == "canceled":
+                status = "بررسی متوقف شد"
+                reason = "خواندن دستگاه پیش از بررسی مسیر متوقف شد (توقف گزارش توسط کاربر)"
+            else:
+                status = "خوانده نشد"
+                cause = ""
+                try:
+                    cause = ros.classify_push_error(err)
+                except Exception:
+                    cause = ""
+                reason = ("دستگاه اصلاً از RouterOS API خوانده نشد؛ بدون خواندن "
+                          "اینترفیس‌ها و جدول روتینگ، مسیر قابل بررسی نیست"
+                          + (f" — {cause}" if cause else ""))
+                details.append(f"خطای اتصال: {err[:180]}")
+        else:
+            verdicts = interface_route_verdicts(info, central)
+            viable = [v for v in verdicts if v["verdict"] in ("direct", "route", "default")]
+            good = [v for v in viable if v["state"] == "up"]
+            bad = [v for v in viable if v["state"] != "up"]
+            if core_unknown:
+                details.append(
+                    f"روتر مرکزی {central} بین دستگاه‌های خوانده‌شده یافت نشد و کانفیگ "
+                    "Cisco روتر مرکزی بارگذاری نشده است؛ مسیر تا مرکز قابل اتصال نیست"
+                )
+            if verdicts:
+                n_vif = len({v["interface"] or "?" for v in verdicts})
+                details.insert(
+                    0,
+                    f"تمام {len(verdicts)} آدرس IP روی {n_vif} اینترفیس دستگاه برای "
+                    "مسیر به روتر مرکزی بررسی شد",
+                )
+            if not addresses:
+                reason = "هیچ آدرس IP روی دستگاه خوانده نشد؛ مسیری برای رسیدن به مرکز قابل تشخیص نیست"
+            elif not routes:
+                reason = "جدول روتینگ دستگاه خالی است (/ip route) — هیچ مسیری به سمت مرکز وجود ندارد"
+            elif not viable:
+                hops_any = _route_all_next_hops(routes, central)
+                if hops_any:
+                    gws = "، ".join(dict.fromkeys(h["gw"] for h in hops_any))
+                    reason = (
+                        f"روت به سمت مرکز وجود دارد (گیت‌وی: {gws}) اما گیت‌وی در "
+                        "ساب‌نت هیچ‌کدام از اینترفیس‌های دستگاه نیست — یا گیت‌وی اشتباه "
+                        "است یا مسیر بازگشتی (recursive) بدون اینترفیس خروجی مشخص"
+                    )
+                else:
+                    reason = ("هیچ روت پیش‌فرض یا مسیر خاصی به سمت روتر مرکزی "
+                              f"({central}) در جدول روتینگ دستگاه نیست")
+            else:
+                # دستگاه مسیری به مرکز «دارد» — چرا در گراف نرسید؟
+                if bad and not good:
+                    names = "، ".join(
+                        f"{v['interface']} ({'غیرفعال' if v['state'] == 'disabled' else 'بدون اتصال فیزیکی'})"
+                        for v in bad
+                    )
+                    reason = f"اینترفیس خروجی مسیر غیرفعال یا قطع است: {names}"
+                else:
+                    end = path.get("upstream_end") or {}
+                    kind = (end.get("kind") or "").strip()
+                    if kind == "ghost":
+                        reason = (
+                            f"مسیر تا گیت‌وی {end.get('ip') or '?'} پیش می‌رود اما دستگاه "
+                            "بعدی در دستگاه‌های بررسی‌شده نیست — یا API آن در دسترس نیست "
+                            "یا خارج از محدودهٔ انتخاب گزارش است"
+                        )
+                    elif kind == "loop":
+                        reason = (
+                            f"زنجیرهٔ گیت‌وی‌ها در حلقه گیر می‌کند (دستگاه "
+                            f"{end.get('name') or '?'} — {end.get('ip') or '?'} دوباره تکرار می‌شود)"
+                        )
+                    elif kind == "max":
+                        reason = ("زنجیرهٔ بالادست بیش از ۶ گام ادامه دارد و در محدودهٔ "
+                                  "بررسی به روتر مرکزی ختم نمی‌شود")
+                    elif kind == "no-route" and end.get("to_key") != key:
+                        reason = (
+                            f"مسیر به دستگاه بعدی ({end.get('name') or '?'} — "
+                            f"{end.get('ip') or '?'}) می‌رسد اما آن دستگاه نیز هیچ روت "
+                            "به سمت روتر مرکزی ندارد"
+                        )
+                    elif kind == "no-route":
+                        reason = ("روت پوشش‌دهندهٔ مرکز در جدول روتینگ دیده شد اما "
+                                  "next-hop قابل تعیین نیست (گیت‌وی نامعتبر)")
+                    else:
+                        reason = ("مسیر تا روتر مرکزی از شواهد دستگاه‌ها قابل ساخت نیست "
+                                  "(حلقهٔ واسط گم‌شده یا شواهد ناکافی)")
+                if bad and good:
+                    for v in bad:
+                        details.append(
+                            f"اینترفیس {v['interface']} (خروجی مسیر به گیت‌وی {v['gateway']}) "
+                            + ("غیرفعال است" if v["state"] == "disabled" else "اتصال فیزیکی ندارد (no link)")
+                        )
+            # گیت‌ویِ مسیرِ سالم در ARP دیده نشده؟
+            first_good = good[0] if good else (viable[0] if viable else None)
+            if first_good and first_good.get("gateway") and first_good.get("gw_in_arp") is False:
+                details.append(
+                    f"گیت‌وی {first_good['gateway']} در جدول ARP دستگاه دیده نشد "
+                    "(هنوز پاسخ نداده یا فیلتر شده است)"
+                )
+
+        verdicts_txt = " | ".join(
+            f"{v['interface']} ({v['ip']}): {v['label']}"
+            for v in (interface_route_verdicts(info, central) if (info and info.get("ok") is not False) else [])
+        ) if (addresses and routes) else ""
+
+        rows.append({
+            "ip": ip_txt,
+            "name": name,
+            "device_name": dev.get("device_name") or "",
+            "device_type": dev.get("device_type") or "",
+            "tags": dev.get("tags") or "",
+            "status": status,
+            "ifaces_count": (f"{n_if} اینترفیس / {len(addresses)} آدرس IP"
+                             if addresses else "—"),
+            "addresses_txt": addrs_txt,
+            "verdicts_txt": verdicts_txt,
+            "reason": reason,
+            "details": " | ".join(d for d in details if d),
+        })
+    return rows
+
+
 # ---------------------------------------------------------------------------
 # 3) ساخت گراف و محاسبهٔ مسیر
 # ---------------------------------------------------------------------------
@@ -564,9 +872,12 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str,
                 if done:
                     break
 
-    # 3-ج) یال‌های روتینگ: بهترین next-hop هر دستگاه به سمت روتر مرکزی.
-    # روش بهتر (درخواست کاربر): از «روت پیش‌فرض» و hop بالای دستگاه استفاده می‌کنیم —
-    #   * طولانی‌ترین پیشوند منطبق با IP مرکزی، وگرنه روت پیش‌فرض با کمترین distance؛
+    # 3-ج) یال‌های روتینگ: همهٔ next-hopهای هر دستگاه به سمت روتر مرکزی.
+    # روش بهتر (درخواست کاربر) و Task 21: هر روتر چند IP روی اینترفیس‌های مختلف
+    # دارد؛ «تمام» اینترفیس‌ها و IPها برای مسیریابی چک می‌شوند — گیت‌وی‌های
+    # همهٔ روت‌های پوشش‌دهندهٔ central_ip (روت خاص هر اینترفیس، روت‌های جایگزین
+    # با distance بدتر و روت پیش‌فرض) همه یال می‌گیرند:
+    #   * طولانی‌ترین پیشوند منطبق با IP مرکزی اول، وگرنه/بعد روت پیش‌فرض؛
     #   * اگر گیت‌وی خودِ IP مرکزی بود → یال مستقیم به core؛
     #   * اگر گیت‌وی یکی از دستگاه‌های خوانده‌شده بود → یال به همان دستگاه
     #     (زنجیرهٔ بالادست از طریق روترهای میانی تشکیل می‌شود)؛
@@ -576,13 +887,9 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str,
         if key == core_key:
             continue  # بالادستِ خودِ روتر مرکزی در مسیر «تا مرکز» نقشی ندارد
         node = nodes[key]
-        hops, kind = _route_next_hops(node["routes"], central_ip)
-        if not hops:
-            continue
-        ev = "route" if kind == "specific" else "default"
-        for gw_ip, gw_if in hops:
-            if not gw_ip:
-                continue
+        for cand in _route_all_next_hops(node["routes"], central_ip):
+            gw_ip, gw_if = cand["gw"], cand["gw_if"]
+            ev = "route" if cand["kind"] == "specific" else "default"
             a_ip, a_if = _addr_iface_toward(node["addresses"], gw_ip)
             if not a_if:
                 a_if = _arp_iface_toward(node.get("arp") or [], gw_ip) or gw_if
@@ -710,37 +1017,61 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str,
                       "is_core": False}
 
     # --- زنجیرهٔ بالادست (best-effort) برای دستگاه‌های بدون مسیر کامل ---------
-    # اگر BFS به core نرسید، از «روت پیش‌فرض / طولانی‌ترین پیشوند» hopهای
-    # بالادست را دنبال می‌کنیم تا جایی که شواهد اجازه می‌دهد (حداکثر ۶ گام)
-    # تا گزارش به‌جای «هیچ مسیری»، مسیرِ تا سرِ حدِ شواهد را نشان دهد.
-    def _upstream_chain(key: str, max_hops: int = 6) -> list[dict]:
+    # اگر BFS به core نرسید، hopهای بالادست را از «همهٔ» روت‌های پوشش‌دهنده
+    # (روت خاص هر اینترفیس + روت‌های جایگزین + روت پیش‌فرض) دنبال می‌کنیم؛
+    # اولین گیت‌وی‌ای که به دستگاه شناخته‌شده یا خودِ core برسد انتخاب می‌شود تا
+    # همهٔ اینترفیس‌ها/IPها واقعاً برای مسیریابی چک شده باشند (Task 21).
+    # خروجی: (زنجیرهٔ hopها، اطلاعات پایان زنجیره برای تحلیل دلیل نرسیدن)
+    def _upstream_chain(key: str, max_hops: int = 6) -> tuple[list[dict], dict]:
         chain: list[dict] = []
         cur = key
         seen = {key}
+        end: dict = {"kind": "none", "to_key": key, "ip": nodes.get(key, {}).get("ip") or "",
+                     "name": nodes.get(key, {}).get("name") or ""}
         while len(chain) < max_hops:
             node = nodes.get(cur)
             if not node:
+                end = {"kind": "unknown-node", "to_key": cur, "ip": "", "name": ""}
                 break
-            hops, kind = _route_next_hops(node.get("routes") or [], central_ip)
-            if not hops:
+            cands = _route_all_next_hops(node.get("routes") or [], central_ip)
+            if not cands:
+                end = {"kind": "no-route", "to_key": cur, "ip": node.get("ip") or "",
+                       "name": node.get("name") or ""}
                 break
-            gw_ip, gw_if = hops[0]
-            nxt_key = None
-            for k2 in order:
-                if k2 == cur:
-                    continue
-                n2 = nodes[k2]
-                if n2["ip"] == gw_ip or any(_ip_of(a.get("address")) == gw_ip for a in (n2["addresses"] or [])):
-                    nxt_key = k2
+            # ترجیح: اولین گیت‌وی که به دستگاه شناخته‌شده یا خودِ core می‌رسد؛
+            # وگرنه اولین گیت‌وی (گرهٔ شبح) به‌عنوان انتهای شواهد
+            chosen = None
+            for cand in cands:
+                gw_ip = cand["gw"]
+                nxt_key = None
+                if gw_ip == central_ip:
+                    nxt_key = core_key  # گیت‌وی خودِ روتر مرکزی است
+                else:
+                    for k2 in order:
+                        if k2 == cur:
+                            continue
+                        n2 = nodes[k2]
+                        if n2["ip"] == gw_ip or any(_ip_of(a.get("address")) == gw_ip for a in (n2["addresses"] or [])):
+                            nxt_key = k2
+                            break
+                    if nxt_key is None and cisco_used and core_addrs_live and _core_iface_toward(core_addrs_live, gw_ip)[1]:
+                        nxt_key = core_key  # گیت‌وی روی خودِ روتر مرکزی سیسکو است
+                if nxt_key is not None and not str(nxt_key).startswith("g:"):
+                    chosen = (cand, nxt_key)
                     break
-            if nxt_key is None and cisco_used and core_addrs_live and _core_iface_toward(core_addrs_live, gw_ip)[1]:
-                nxt_key = core_key  # گیت‌وی روی خودِ روتر مرکزی سیسکو است
-            if nxt_key is None:
-                nxt_key = "g:" + gw_ip
-                if nxt_key not in nodes:
-                    g = _make_node(nxt_key, gw_ip, gw_ip, None, None, ghost=True)
-                    g["upstream"] = True
-                    nodes[nxt_key] = g
+                if chosen is None:
+                    chosen = (cand, "g:" + gw_ip)
+            if chosen is None:
+                end = {"kind": "no-route", "to_key": cur, "ip": node.get("ip") or "",
+                       "name": node.get("name") or ""}
+                break
+            cand, nxt_key = chosen
+            gw_ip, gw_if = cand["gw"], cand["gw_if"]
+            kind = cand["kind"]
+            if nxt_key.startswith("g:") and nxt_key not in nodes:
+                g = _make_node(nxt_key, gw_ip, gw_ip, None, None, ghost=True)
+                g["upstream"] = True
+                nodes[nxt_key] = g
             a_ip, a_if = _addr_iface_toward(node.get("addresses") or [], gw_ip)
             if not a_if:
                 a_if = _arp_iface_toward(node.get("arp") or [], gw_ip) or gw_if
@@ -753,21 +1084,31 @@ def build_topology(infos: list[dict], devices: list[dict], central_ip: str,
                 "ev": ("route" if kind == "specific" else "default"),
             })
             if nxt_key == core_key:
+                end = {"kind": "core", "to_key": core_key, "ip": central,
+                       "name": to_node["name"]}
                 break  # زنجیرهٔ بالادست به روتر مرکزی رسید
             if nxt_key in seen:
+                end = {"kind": "loop", "to_key": nxt_key, "ip": gw_ip,
+                       "name": to_node["name"]}
                 break  # حلقهٔ روتینگ — ادامه نمی‌دهیم
             seen.add(nxt_key)
             cur = nxt_key
             if nodes[nxt_key]["ghost"]:
+                end = {"kind": "ghost", "to_key": nxt_key, "ip": gw_ip,
+                       "name": to_node["name"]}
                 break  # از این hop اطلاعات روتینگ نداریم — پایان شواهد
-        return chain
+        if len(chain) >= max_hops and end.get("kind") == "none":
+            end = {"kind": "max", "to_key": chain[-1]["to_key"] if chain else key,
+                   "ip": chain[-1]["to_ip"] if chain else "", "name": ""}
+        return chain, end
 
     upstream_count = 0
     for key in order:
         p = paths.get(key)
         if not p or p.get("reachable"):
             continue
-        up = _upstream_chain(key)
+        up, up_end = _upstream_chain(key)
+        p["upstream_end"] = up_end
         if up:
             p["upstream"] = up
             p["upstream_partial"] = True

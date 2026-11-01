@@ -1718,6 +1718,12 @@ def _route_topology_worker(body: RouteTopologyRequest, targets: list[dict], db_n
         )
         summary = topo.get("summary") or {}
         cisco_meta = topo.get("cisco") or {}
+        # تحلیل «چرا به روتر مرکزی نمی‌رسد» برای هر دستگاه بدون مسیر (Task 21)
+        try:
+            unreachable_rows = route_topology.unreachable_reason_rows(topo)
+        except Exception as _ue:  # تحلیل دلیل نباید خود گزارش را خراب کند
+            st.update(unreachable_error=str(_ue)[:200])
+            unreachable_rows = []
         stats = {
             "devices": summary.get("devices", len(targets)),
             "ok": summary.get("reachable", sum(1 for i in infos if i.get("ok"))),
@@ -1730,7 +1736,7 @@ def _route_topology_worker(body: RouteTopologyRequest, targets: list[dict], db_n
             "cisco": (cisco_meta.get("hostname") or "") if cisco_meta.get("used") else "",
             "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
         }
-        st.update(pdf=pdf, stats=stats, phase="done", error=None)
+        st.update(pdf=pdf, stats=stats, unreachable_rows=unreachable_rows, phase="done", error=None)
     except Exception as e:  # هر خطایی → در progress دیده می‌شود
         st.update(error=str(e)[:500], phase="error")
     finally:
@@ -1763,7 +1769,8 @@ def route_topology_start(body: RouteTopologyRequest):
         TOPOLOGY_CANCEL.clear()
         TOPOLOGY_STATE.update({"running": True, "total": len(targets), "done": 0, "ok": 0,
                                "failed": 0, "current_ip": "", "phase": "start", "error": None,
-                               "canceled": False, "pdf": None, "stats": {}})
+                               "canceled": False, "pdf": None, "stats": {},
+                               "unreachable_rows": None, "unreachable_error": None})
         Thread(target=_route_topology_worker, args=(body, targets, db_name), daemon=True).start()
     return {
         "started": True,
@@ -1792,6 +1799,7 @@ def route_topology_progress():
         "running": bool(p.get("running")),
         "canceled": bool(p.get("canceled")),
         "error": p.get("error"),
+        "unreachable": int((p.get("stats") or {}).get("unreachable") or 0),
         "ready": bool(p.get("pdf")) and not p.get("running"),
     }
 
@@ -1832,6 +1840,57 @@ def route_topology_result():
             "X-Topology-Central-Router": str(stats.get("central_router_ip") or ""),
             "X-Topology-Cisco": str(stats.get("cisco") or ""),
         },
+    )
+
+
+@app.get("/api/reports/route-topology/unreachable-csv")
+def route_topology_unreachable_csv():
+    """گزارش CSV «دلیل نرسیدن» هر روتر به روتر مرکزی (Task 21).
+
+    برای هر دستگاه بدون مسیر در آخرین گزارش توپولوژی: همهٔ اینترفیس‌ها و
+    آدرس‌های IP دستگاه، نتیجهٔ بررسی هر اینترفیس برای مسیر به مرکز، دلیل اصلی
+    و جزئیات. CSV با BOM تا در اکسل فارسی درست باز شود؛ اگر همهٔ دستگاه‌ها
+    مسیر داشته باشند یا گزارشی ساخته نشده باشد → 404 با پیام فارسی.
+    """
+    st = TOPOLOGY_STATE
+    if st.get("running"):
+        raise HTTPException(409, "گزارش مسیر در حال ساخت است؛ پس از پایان دوباره تلاش کنید")
+    rows = [r for r in (st.get("unreachable_rows") or []) if isinstance(r, dict)]
+    if not rows:
+        raise HTTPException(
+            404,
+            "دستگاه بدون مسیر به روتر مرکزی در آخرین گزارش ثبت نشده "
+            "(یا هنوز گزارشی ساخته نشده است)",
+        )
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+    generated = datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds")
+    buf = io.StringIO()
+    w = csv.writer(buf)
+    w.writerow(["ردیف", "IP دستگاه", "نام دستگاه (identity)", "نوع دستگاه", "تگ",
+                "وضعیت", "تعداد اینترفیس / آدرس IP", "اینترفیس‌ها و آدرس‌های IP",
+                "نتیجهٔ بررسی هر اینترفیس برای مسیر به مرکز", "دلیل اصلی نرسیدن",
+                "جزئیات", "زمان تولید گزارش"])
+    for n, r in enumerate(rows, start=1):
+        w.writerow([
+            n,
+            r.get("ip") or "",
+            r.get("name") or "",
+            r.get("device_type") or "",
+            r.get("tags") or "",
+            r.get("status") or "نمی‌رسد به روتر مرکزی",
+            r.get("ifaces_count") or "",
+            r.get("addresses_txt") or "",
+            r.get("verdicts_txt") or "",
+            r.get("reason") or "",
+            r.get("details") or "",
+            generated,
+        ])
+    data = b"\xef\xbb\xbf" + buf.getvalue().encode("utf-8")
+    filename = f"route_unreachable_{stamp}.csv"
+    return Response(
+        data,
+        media_type="text/csv; charset=utf-8",
+        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
     )
 
 

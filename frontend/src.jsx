@@ -1694,6 +1694,7 @@ function RouteTopologyReport(){
   const[centralIp,setCentralIp]=useState("172.19.1.6");
   const[apiUser,setApiUser]=useState("admin"),[apiPass,setApiPass]=useState("");
   const[starting,setStarting]=useState(false),[busy,setBusy]=useState(false),[canceling,setCanceling]=useState(false);
+  const[csvBusy,setCsvBusy]=useState(false);
   const[prog,setProg]=useState(null),[msg,setMsg]=useState(""),[err,setErr]=useState("");
   const[ciscoSt,setCiscoSt]=useState(null),[ciscoBusy,setCiscoBusy]=useState(false);
   const ciscoFileRef=useRef(null);
@@ -1732,8 +1733,21 @@ function RouteTopologyReport(){
       if(!r.ok){const d=await readJson(r).catch(()=>({}));throw Error(d.detail||("دریافت PDF ناموفق بود ("+r.status+")"));}
       const blob=await r.blob();const url=URL.createObjectURL(blob);const a=document.createElement("a");
       a.href=url;a.download="route_topology_"+new Date().toISOString().slice(0,10)+".pdf";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
-      setMsg("گزارش PDF مسیر ساخته و دانلود شد"+(latest?(" — دستگاه‌های مسیریاب: "+latest.ok+" / ناموفق: "+latest.failed+" (جزئیات و تعداد لینک‌ها داخل فایل PDF)"):":"));
+      setMsg("گزارش PDF مسیر ساخته و دانلود شد"+(latest?(" — دستگاه‌های مسیریاب: "+latest.ok+" / ناموفق: "+latest.failed+(latest.unreachable>0?(" — بدون مسیر به مرکز: "+latest.unreachable+" (دکمهٔ «گزارش CSV دلایل نرسیدن به مرکز»)"):(" — همهٔ دستگاه‌ها مسیر داشتند"))+" (جزئیات و تعداد لینک‌ها داخل فایل PDF)"):":"));
     }catch(e){setErr(e.message||"خطا در دریافت PDF");}
+  }
+  async function downloadUnreachableCsv(){
+    setCsvBusy(true);setErr("");
+    try{
+      const r=await fetch(API+"/api/reports/route-topology/unreachable-csv");
+      if(!r.ok){const d=await readJson(r).catch(()=>({}));throw Error(d.detail||("دریافت گزارش CSV ناموفق بود ("+r.status+")"));}
+      const blob=await r.blob();const url=URL.createObjectURL(blob);const a=document.createElement("a");
+      const m=(r.headers.get("Content-Disposition")||"").match(/filename="?([^";]+)"?/);
+      a.download=m?m[1]:"route_unreachable.csv";
+      a.href=url;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+      setMsg("گزارش CSV دلایل نرسیدن به روتر مرکزی دانلود شد؛ برای هر روتر، همهٔ اینترفیس‌ها و IPهای آن برای مسیریابی بررسی شده است.");
+    }catch(e){setErr(e.message||"خطا در دریافت گزارش CSV");}
+    finally{setCsvBusy(false);}
   }
   function startPolling(){
     if(pollRef.current)window.clearInterval(pollRef.current);
@@ -1766,7 +1780,7 @@ function RouteTopologyReport(){
   async function cancelReport(){setCanceling(true);try{await fetch(API+"/api/reports/route-topology/cancel",{method:"POST"});setMsg("درخواست توقف ارسال شد؛ پس از پایان خواندن دستگاه جاری متوقف می‌شود…");}catch(e){}finally{setCanceling(false);}}
   return <section className="panel" dir="rtl" style={{marginTop:18}}>
     <h3>گزارش مسیر تا روتر مرکزی (توپولوژی PDF)</h3>
-    <p style={{color:"#64748b",marginTop:0}}>با نام کاربری و رمز عبور RouterOS API به دستگاه‌های میکروتیکِ دیتابیس انتخاب‌شده وصل می‌شود، مسیر هر دستگاه تا روتر مرکزی (IP را شما وارد می‌کنید) را به‌همراه آدرس‌های IP، همسایه‌ها و اینترفیس‌های هر دستگاه استخراج می‌کند و برای هر دستگاه یک صفحه PDF می‌سازد (Detailed Router Path Topology). در نمودار مسیر مشخص است هر اینترفیسِ دستگاه به کدام اینترفیسِ دستگاه بعدی وصل است (MNDP / ساب‌نت مشترک / گیت‌وی روت). اگر روتر مرکزی سیسکو است و از RouterOS API خوانده نمی‌شود، کانفیگ آن را بارگذاری کنید تا مسیر دقیق‌تر شود (اینترفیس‌ها، ساب‌نت‌های متصل و روت‌های استاتیک روتر مرکزی در یافتن مسیر و نمایش اینترفیسِ سمتِ مرکز استفاده می‌شوند). به‌طور پیش‌فرض همه دستگاه‌های میکروتیکِ دیتابیس گزارش می‌شوند؛ با «انتخاب دستگاه‌ها از دیتابیس» می‌توانید جستجو و فیلتر کنید و فقط زیرمجموعه‌ای از دستگاه‌ها را برای گزارش برگزینید.</p>
+    <p style={{color:"#64748b",marginTop:0}}>با نام کاربری و رمز عبور RouterOS API به دستگاه‌های میکروتیکِ دیتابیس انتخاب‌شده وصل می‌شود، مسیر هر دستگاه تا روتر مرکزی (IP را شما وارد می‌کنید) را به‌همراه آدرس‌های IP، همسایه‌ها و اینترفیس‌های هر دستگاه استخراج می‌کند و برای هر دستگاه یک صفحه PDF می‌سازد (Detailed Router Path Topology). در نمودار مسیر مشخص است هر اینترفیسِ دستگاه به کدام اینترفیسِ دستگاه بعدی وصل است (MNDP / ساب‌نت مشترک / گیت‌وی روت). هر روتر چند IP روی اینترفیس‌های مختلف دارد — در یافتن مسیر، همهٔ اینترفیس‌ها و آدرس‌های IP هر روتر بررسی می‌شوند (روت خاص هر اینترفیس، روت‌های جایگزین و روت پیش‌فرض). اگر روتری به روتر مرکزی نرسد، با «گزارش CSV دلایل نرسیدن به مرکز» دلیل دقیق و نتیجهٔ بررسی تک‌تک اینترفیس‌های آن را دریافت کنید. اگر روتر مرکزی سیسکو است و از RouterOS API خوانده نمی‌شود، کانفیگ آن را بارگذاری کنید تا مسیر دقیق‌تر شود (اینترفیس‌ها، ساب‌نت‌های متصل و روت‌های استاتیک روتر مرکزی در یافتن مسیر و نمایش اینترفیسِ سمتِ مرکز استفاده می‌شوند). به‌طور پیش‌فرض همه دستگاه‌های میکروتیکِ دیتابیس گزارش می‌شوند؛ با «انتخاب دستگاه‌ها از دیتابیس» می‌توانید جستجو و فیلتر کنید و فقط زیرمجموعه‌ای از دستگاه‌ها را برای گزارش برگزینید.</p>
     <div style={{display:"flex",gap:8,flexWrap:"wrap",alignItems:"center",marginBottom:12}}>
       <input ref={ciscoFileRef} type="file" accept=".txt,.cfg,.conf,.log,text/plain" style={{display:"none"}}
         onChange={e=>uploadCiscoConfig(e.target.files&&e.target.files[0])}/>
@@ -1802,6 +1816,8 @@ function RouteTopologyReport(){
     <div style={{display:"flex",gap:8,flexWrap:"wrap",marginTop:12}}>
       <button type="button" className="tool-btn" disabled={starting||busy} onClick={startReport}>{busy?"در حال ساخت گزارش…":"ایجاد گزارش مسیر (PDF)"}</button>
       {busy&&<button type="button" className="tool-btn" disabled={canceling} onClick={cancelReport}>توقف</button>}
+      {!busy&&!starting&&<button type="button" className="tool-btn topo-csv" disabled={csvBusy} onClick={downloadUnreachableCsv}
+        title="برای هر روتری که در آخرین گزارش به روتر مرکزی نرسیده، دلیل و نتیجهٔ بررسی تک‌تک اینترفیس‌ها و IPهای آن را در فایل CSV می‌دهد">{csvBusy?"در حال آماده‌سازی…":"گزارش CSV دلایل نرسیدن به مرکز"}</button>}
     </div>
     {prog&&(busy||starting)&&<div role="status" aria-live="polite" style={{marginTop:12}}>
       <div>{phaseLabel(prog.phase)||"در حال اجرا…"} — {prog.done}/{prog.total} دستگاه (موفق: {prog.ok} — ناموفق: {prog.failed}){prog.current_ip?<span> — <span dir="ltr">{prog.current_ip}</span></span>:null}</div>

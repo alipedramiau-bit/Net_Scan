@@ -54,6 +54,7 @@ python scripts/test_push_config_progress.py
 python scripts/test_push_config_failed_csv.py
 python scripts/test_push_verification.py
 python scripts/test_cisco_config.py
+python scripts/test_route_unreachable_csv.py
 
 # build فرانت‌اند — بعد از هر تغییر در src.jsx یا style.css الزامی است:
 cd frontend && npm install && npm run build
@@ -74,7 +75,7 @@ cd frontend && npm install && npm run build
 5. پیام کامیت: قالب `type(scope): خلاصه انگلیسی` (مثل `feat(devices): ...`، `fix(api): ...`).
 6. قبل از کامیت: تست‌ها سبز باشند؛ `git status` را برای فایل‌های ناخواسته چک کنید.
 
-## ۵) نقشه قابلیت‌ها (تا Task 18)
+## ۵) نقشه قابلیت‌ها (تا Task 21)
 
 - **اسکن شبکه:** `POST /scans/start` (قابل لغو با `/scans/{id}/cancel`)، ورودی IP/CIDR/بازه،
   پورت‌های 8291 و 8728 همیشه اضافه می‌شوند.
@@ -183,6 +184,25 @@ cd frontend && npm install && npm run build
   همهٔ آدرس‌های دستگاه بررسی می‌شوند). هدر `X-Topology-Cisco` در result.pdf نام
   hostname را برمی‌گرداند. اینترفیسِ سمتِ دستگاه برای گیت‌وی‌های off-link از ARP خوانده
   می‌شود (`_arp_iface_toward`).
+- **بررسی همهٔ اینترفیس‌ها/IPها + گزارش CSV دلایل نرسیدن (Task 21):** هر روتر چند IP روی
+  اینترفیس‌های مختلف دارد؛ در یافتن مسیر «تمام» روت‌های پوشش‌دهندهٔ IP مرکزی چک می‌شوند:
+  `_route_all_next_hops()` گیت‌وی‌های همهٔ روت‌های پوشش‌دهنده (روت خاص هر اینترفیس،
+  روت‌های جایگزین با distance بدتر، روت پیش‌فرض) را مرتب‌شده (پیشوند بلندتر ← distance
+  کمتر) و بدون تکرار برمی‌گرداند و بخش 3-ج و `_upstream_chain` همه را امتحان می‌کنند
+  (اولین گیت‌وی که به دستگاه شناخته‌شده یا core برسد انتخاب می‌شود؛ گیت‌وی اینترفیسی مثل
+  "ether5" قابل دنبال‌کردن نیست و حذف می‌شود). زنجیرهٔ بالادست در `path["upstream_end"]`
+  دلیلِ پایان را ثبت می‌کند (core/ghost/loop/max/no-route). تحلیل دلیل هر دستگاه
+  unreachable: `route_topology.unreachable_reason_rows(topo)` — وضعیت (نمی‌رسد/خوانده
+  نشد/متوقف شد)، بررسی تک‌تک IPها با `interface_route_verdicts()` (verdict
+  direct/route/default/none + وضعیت اینترفیس disabled/no-link + دیده‌شدن گیت‌وی در ARP)
+  و دلیل اصلی فارسی: جدول روتینگ خالی، بدون روت پوشش‌دهنده، گیت‌وی خارج از ساب‌نتِ همهٔ
+  اینترفیس‌ها، اینترفیس خروجی قطع/غیرفعال، پایان زنجیره در گیت‌وی ناشناخته، حلقهٔ
+  روتینگ، دستگاه بعدی بدون روت، خوانده‌نشدنِ دستگاه (classify_push_error). خروجی در
+  `TOPOLOGY_STATE["unreachable_rows"]` ذخیره و با `GET
+  /api/reports/route-topology/unreachable-csv` (۱۲ ستون فارسی، BOM،
+  filename=`route_unreachable_{زمان}.csv`، 404/409 فارسی) downloadable است؛ دکمهٔ
+  «گزارش CSV دلایل نرسیدن به مرکز» در UI گزارش مسیر + شمارش `unreachable` در
+  progress. `_route_next_hops` قدیمی برای سازگاری تست‌ها باقی است.
 - **سایر:** گزارش‌های هوشمند، Winbox tools، مدیریت VPN، ایمیل/اطلاع‌رسانی.
 
 ## ۶) نکات دام‌دار (Gotchas)
@@ -209,6 +229,9 @@ cd frontend && npm install && npm run build
 - فایل کانفیگ سیسکو (`databases/cisco_central_config.txt`) وضعیت سراسری و دایمی است —
   تست‌ها باید قبل و بعد از اجرا از آن backup بگیرند/پاک کنند (الگوی `restore_cfg` در
   `test_cisco_config.py`) تا کانفیگ واقعی کاربر از بین نرود.
+- `TOPOLOGY_STATE["unreachable_rows"]` وضعیت سراسری از آخرین گزارش است — reset_state
+  تست‌ها باید آن (و `unreachable_error`) را هم None کند وگرنه CSV تست قبلی در همان
+  پروسه نشت می‌کند (الگوی `reset_state` در `test_route_unreachable_csv.py`).
 - متن PDF را در تست‌ها مستقیم از بایت‌های خام جستجو نکنید (استریم‌ها ASCII85+Flate
   فشرده‌اند) — با `pypdf.extract_text` یا `pdftotext -layout` متن را دربیاورید
   (الگوی `pdf_text` در `test_cisco_config.py`).
