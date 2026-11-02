@@ -113,6 +113,11 @@ except ImportError:
     import email_manager
 
 try:
+    from backend import kartable
+except ImportError:
+    import kartable
+
+try:
     from backend import auth
 except ImportError:
     import auth
@@ -1053,6 +1058,106 @@ def open_winbox(ip: str, winbox_id: str | None = Query(default=None)):
     except OSError as e:
         raise HTTPException(500, f"اجرای Winbox ناموفق: {e}") from e
     return {"ok": True, "ip": ip, "exe": exe}
+
+
+# ---------------- کارتابل اداری (Kartable) — Task 32 ----------------
+# پشتوانهٔ برگهٔ کارتابل فرانت‌اند: ذخیره‌سازی نامه‌ها/یادداشت‌ها، اطلاعیه‌ها و
+# رویدادهای تقویم کاری در دیتابیس مستقل databases/kartable.db؛ در اولین استفاده
+# برای هر بخش یک رکورد نمونه ساخته می‌شود.
+
+class KartableItemIn(BaseModel):
+    folder: str = Field(min_length=1, max_length=80)
+    subject: str = Field(min_length=1, max_length=300)
+    subfolder: str = Field(default="", max_length=120)
+    sender: str = Field(default="", max_length=160)
+    letter_no: str = Field(default="", max_length=60)
+    letter_date: str = Field(default="", max_length=20)
+    confidentiality: str = Field(default="عادی", max_length=30)
+    status: str = Field(default="خوانده‌نشده", max_length=40)
+    body: str = Field(default="", max_length=20000)
+
+
+class KartableItemPatch(BaseModel):
+    folder: str | None = Field(default=None, max_length=80)
+    subject: str | None = Field(default=None, max_length=300)
+    subfolder: str | None = Field(default=None, max_length=120)
+    sender: str | None = Field(default=None, max_length=160)
+    letter_no: str | None = Field(default=None, max_length=60)
+    letter_date: str | None = Field(default=None, max_length=20)
+    confidentiality: str | None = Field(default=None, max_length=30)
+    status: str | None = Field(default=None, max_length=40)
+    body: str | None = Field(default=None, max_length=20000)
+
+
+class KartableAnnouncementIn(BaseModel):
+    title: str = Field(min_length=1, max_length=200)
+    body: str = Field(default="", max_length=5000)
+    attachment: str = Field(default="", max_length=200)
+
+
+class KartableEventIn(BaseModel):
+    event_date: str = Field(min_length=8, max_length=10)
+    title: str = Field(min_length=1, max_length=200)
+    note: str = Field(default="", max_length=500)
+
+
+@app.get("/api/kartable/summary")
+def kartable_summary():
+    return kartable.summary()
+
+
+@app.get("/api/kartable/items")
+def kartable_items(folder: str | None = Query(default=None), subfolder: str | None = Query(default=None)):
+    return {"items": kartable.list_items(folder, subfolder)}
+
+
+@app.post("/api/kartable/items", status_code=201)
+def kartable_create_item(body: KartableItemIn):
+    try:
+        return kartable.create_item(**body.model_dump())
+    except ValueError as e:
+        raise HTTPException(422, str(e)) from None
+
+
+@app.put("/api/kartable/items/{item_id}")
+def kartable_update_item(item_id: int, body: KartableItemPatch):
+    try:
+        item = kartable.update_item(item_id, body.model_dump())
+    except ValueError as e:
+        raise HTTPException(422, str(e)) from None
+    if not item:
+        raise HTTPException(404, "آیتم کارتابل یافت نشد")
+    return {"ok": True, "item": item}
+
+
+@app.delete("/api/kartable/items/{item_id}")
+def kartable_delete_item(item_id: int):
+    if not kartable.delete_item(item_id):
+        raise HTTPException(404, "آیتم کارتابل یافت نشد")
+    return {"ok": True}
+
+
+@app.get("/api/kartable/announcements")
+def kartable_announcements():
+    return {"announcements": kartable.list_announcements()}
+
+
+@app.post("/api/kartable/announcements", status_code=201)
+def kartable_create_announcement(body: KartableAnnouncementIn):
+    return kartable.create_announcement(body.title, body.body, body.attachment)
+
+
+@app.get("/api/kartable/events")
+def kartable_events():
+    return {"events": kartable.list_events()}
+
+
+@app.post("/api/kartable/events", status_code=201)
+def kartable_create_event(body: KartableEventIn):
+    try:
+        return kartable.create_event(body.event_date, body.title, body.note)
+    except ValueError as e:
+        raise HTTPException(422, str(e)) from None
 
 
 @app.get("/devices/{ip}")
@@ -2329,6 +2434,13 @@ try:
         @app.get("/")
         def _ui_index():
             return FileResponse(_UI_DIR / "index.html")
+        @app.get("/template.docx")
+        def _ui_template_docx():
+            """قالب Word نامه‌های کارتابل (از public فرانت‌اند به dist کپی می‌شود)."""
+            f = _UI_DIR / "template.docx"
+            if not f.is_file():
+                raise HTTPException(404, "قالب نامه یافت نشد")
+            return FileResponse(f, filename="template.docx")
         app.mount("/assets", StaticFiles(directory=str(_UI_DIR / "assets")), name="ui-assets")
         print(f"[ui] serving frontend from {_UI_DIR}")
     else:

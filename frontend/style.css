@@ -1358,3 +1358,88 @@ header.app-brand p{
 /* Task 21 — دکمهٔ گزارش CSV دلایل نرسیدن به روتر مرکزی */
 .topo-csv{background:#dcfce7;border-color:#86efac;color:#15803d}
 .topo-csv:hover:not(:disabled){background:#bbf7d0;border-color:#4ade80;color:#166534}
+
+/* --- کارتابل اداری (Kartable) — Task 32: منتقل‌شده از کارتابل پروژه دژبان با تم شبکه‌بان --- */
+.kb-wrap{display:flex;direction:rtl;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;min-height:540px}
+.kb-side{width:230px;flex:none;background:#ffffff;border-left:1px solid #e2e8f0;display:flex;flex-direction:column}
+.kb-side-head{padding:16px;font-weight:bold;border-bottom:1px solid #f1f5f9;color:#1e293b;display:flex;align-items:center;gap:8px}
+.kb-menu{padding:12px;display:flex;flex-direction:column;gap:4px;overflow-y:auto}
+.kb-menu-item{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-radius:6px;cursor:pointer;color:#334155;font-size:13px;user-select:none}
+.kb-menu-item:hover{background:#f8fafc}
+.kb-menu-item.active{background:#f1f5f9;font-weight:700}
+.kb-subs{padding:4px 24px 6px 0;display:flex;flex-direction:column;gap:4px}
+.kb-sub{padding:6px 10px;font-size:12px;color:#94a3b8;cursor:pointer;border-radius:4px;border-right:2px solid #3b82f6}
+.kb-sub:hover{color:#334155}
+.kb-sub.active{background:#334155;color:#60a5fa}
+.kb-badge{background:#ef4444;color:#fff;font-size:10px;padding:2px 6px;border-radius:10px;line-height:1.4}
+.kb-caret{font-size:10px;transition:transform .2s;display:inline-block}
+.kb-caret.open{transform:rotate(180deg)}
+.kb-main{flex:1;padding:20px;overflow-y:auto;display:flex;flex-direction:column;gap:20px;min-width:0}
+.kb-header{display:flex;justify-content:space-between;align-items:center;background:#fff;padding:12px 20px;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,.05);gap:10px;flex-wrap:wrap}
+.kb-header h2{margin:0;font-size:16px;color:#0f172a}
+.kb-subtitle{font-size:12px;color:#64748b}
+.kb-new{position:relative}
+.kb-new-btn{background:linear-gradient(135deg,#10b981,#059669);color:#fff;border:none;padding:8px 18px;border-radius:8px;font-weight:bold;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;box-shadow:0 2px 6px rgba(16,185,129,.3);font-family:inherit}
+.kb-newdrop{position:absolute;top:110%;left:0;width:190px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;box-shadow:0 10px 25px -5px rgba(0,0,0,.1);z-index:100;overflow:hidden}
+.kb-newdrop>div{padding:10px 14px;display:flex;align-items:center;gap:10px;cursor:pointer;font-size:13px;color:#1e293b;font-weight:500;background:#f8fafc}
+.kb-newdrop>div+div{border-top:1px solid #f1f5f9;color:#64748b}
+.kb-newdrop>div:hover{background:#e2e8f0}
+.kb-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:20px}
+.kb-stats{background:linear-gradient(135deg,#6366f1,#4f46e5);border-radius:12px;padding:20px;color:#fff;box-shadow:0 4px 15px rgba(79,70,229,.2)}
+.kb-stats-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.kb-stats-head b{font-size:15px}
+.kb-today{font-size:11px;background:rgba(255,255,255,.2);padding:2px 8px;border-radius:12px}
+.kb-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;text-align:center}
+.kb-tile{background:rgba(255,255,255,.15);padding:12px 8px;border-radius:8px}
+.kb-tile b{display:block;font-size:20px}
+.kb-tile span{font-size:11px;opacity:.9}
+.kb-ann{background:#fff;border-radius:12px;padding:20px;border:1px solid #e2e8f0;display:flex;flex-direction:column;justify-content:space-between}
+.kb-ann-title{display:flex;align-items:center;gap:8px;margin-bottom:10px;color:#d97706;font-weight:bold;font-size:14px}
+.kb-ann p{font-size:12px;color:#475569;line-height:1.8;margin:0}
+.kb-ann-foot{margin-top:12px;padding-top:10px;border-top:1px dashed #e2e8f0;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.kb-ann-foot span{font-size:11px;color:#94a3b8}
+.kb-ann-foot button{background:#f1f5f9;border:none;padding:4px 10px;border-radius:4px;font-size:11px;cursor:pointer;color:#2563eb;font-family:inherit;font-weight:normal}
+.kb-card{background:#fff;border-radius:12px;padding:20px;border:1px solid #e2e8f0}
+.kb-card-title{font-weight:bold;font-size:14px;margin-bottom:14px;color:#1e293b;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.kb-items-count{color:#64748b;font-size:12px;font-weight:normal}
+.kb-cal{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;text-align:center;font-size:12px}
+.kb-cal-day{padding:8px;background:#f8fafc;border-radius:6px;font-weight:600;color:#64748b}
+.kb-cal-cell{padding:16px 8px;border-radius:6px;border:1px solid #f1f5f9;background:#fff;color:#334155;min-height:58px}
+.kb-cal-cell.has-event{background:#eff6ff;border-color:#93c5fd;font-weight:bold;color:#1d4ed8}
+.kb-cal-event{font-size:10px;color:#2563eb;margin-top:4px;font-weight:normal}
+.kb-status-pill{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;background:#e0f2fe;color:#075985;white-space:nowrap}
+.kb-status-pill.unread{background:#fee2e2;color:#b91c1c}
+.kb-row-actions{display:flex;gap:4px;justify-content:flex-end}
+.kb-row-actions button{background:#f1f5f9;color:#2563eb;border:none;border-radius:4px;padding:3px 8px;font-size:11px;cursor:pointer;font-family:inherit;font-weight:normal}
+.kb-row-actions button.kb-del{color:#dc2626}
+.kb-empty{color:#94a3b8;font-size:13px;padding:14px 0;text-align:center;line-height:1.9}
+@media(max-width:860px){.kb-grid{grid-template-columns:1fr}.kb-wrap{flex-direction:column}.kb-side{width:100%;border-left:none;border-bottom:1px solid #e2e8f0}.kb-menu{flex-direction:row;flex-wrap:wrap}}
+
+/* --- مدال انتخاب قالب نامهٔ کارتابل (انتقال عیناً از دژبان) --- */
+.tpl-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);backdrop-filter:blur(2px);display:flex;align-items:center;justify-content:center;z-index:9999;direction:rtl}
+.tpl-modal-card{width:860px;max-width:95vw;background:#f1f3f5;border-radius:10px;box-shadow:0 12px 35px rgba(0,0,0,.3);overflow:hidden;display:flex;flex-direction:column;border:1px solid #d0d7de;animation:tplFadeIn .2s ease-out}
+@keyframes tplFadeIn{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+.tpl-modal-header{height:52px;background:#e9ecef;border-bottom:1px solid #dee2e6;display:flex;align-items:center;justify-content:space-between;padding:0 16px}
+.tpl-tools{display:flex;align-items:center;gap:12px}
+.tpl-close{background:transparent;border:none;font-size:18px;color:#495057;cursor:pointer;padding:4px 8px;border-radius:4px}
+.tpl-close:hover{background:#ced4da;color:#212529}
+.tpl-views{display:flex;gap:4px}
+.tpl-view-btn{background:#fff;border:1px solid #ced4da;border-radius:4px;padding:3px 8px;cursor:pointer;font-size:13px;color:#495057;font-weight:normal}
+.tpl-view-btn.active{background:#dee2e6;border-color:#adb5bd}
+.tpl-search{position:relative;width:420px;max-width:45vw}
+.tpl-search input{width:100%;padding:7px 32px 7px 12px;border-radius:6px;border:1px solid #ced4da;font-family:inherit;font-size:13px;outline:none;background:#fff}
+.tpl-search input:focus{border-color:#2b6cb0}
+.tpl-search-ico{position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:13px;color:#6c757d}
+.tpl-body{display:flex;min-height:400px}
+.tpl-side{width:130px;background:#e9ecef;border-left:1px solid #dee2e6;padding:12px 6px;display:flex;flex-direction:column;gap:8px}
+.tpl-side-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:10px 4px;border-radius:8px;cursor:pointer;font-size:12px;color:#495057;transition:all .2s}
+.tpl-side-item:hover,.tpl-side-item.active{background:#fff;color:#1a365d;box-shadow:0 2px 6px rgba(0,0,0,.06)}
+.tpl-w-badge{background:#185abd;color:#fff;font-weight:900;border-radius:4px;padding:2px 8px;font-size:12px}
+.tpl-content{flex:1;padding:24px;background:#f8f9fa;display:flex;flex-direction:column}
+.tpl-main-title{font-size:15px;font-weight:700;color:#212529;margin:0 0 24px}
+.tpl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:20px}
+.tpl-card{background:#fff;border:1px solid #e9ecef;border-radius:8px;padding:16px 10px;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;cursor:pointer;box-shadow:0 2px 5px rgba(0,0,0,.04);transition:transform .15s,box-shadow .15s}
+.tpl-card:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(0,0,0,.08);border-color:#cbd5e0}
+.tpl-fav{position:absolute;top:6px;right:8px;font-size:14px;color:#adb5bd}
+.tpl-word-icon{width:52px;height:52px;background:linear-gradient(135deg,#185abd 0%,#103f82 100%);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;font-weight:bold;font-family:Arial,sans-serif;box-shadow:0 4px 10px rgba(24,90,189,.3);margin:8px 0 12px}
+.tpl-card-title{font-size:12px;color:#495057;line-height:1.4;font-weight:500}

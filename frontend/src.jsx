@@ -1333,6 +1333,7 @@ return (
       <RbIcon name="email" size={18}/><span>سرور ایمیل</span>
     </button>
     <button type="button" className={"ribbon-tab"+(mainTab==="smart_reports"?" active":"")} onClick={()=>setMainTab("smart_reports")}><span style={{fontSize:18,marginLeft:6}}>📊</span><span>گزارش هوشمند</span></button>
+    <button type="button" className={"ribbon-tab"+(mainTab==="kartable"?" active":"")} onClick={()=>setMainTab("kartable")}><span style={{fontSize:18,marginLeft:6}}>🗂️</span><span>کارتابل</span></button>
   </nav>
 </div>
 {mainTab==="network"&&(
@@ -1359,6 +1360,12 @@ return (
 {mainTab==="smart_reports"&&(
   <div className="tab-panel" dir="rtl">
     <SmartReports/>
+  </div>
+)}
+
+{mainTab==="kartable"&&(
+  <div className="tab-panel" dir="rtl">
+    <Kartable/>
   </div>
 )}
 
@@ -1656,6 +1663,212 @@ function SmartReports(){
       </div>}
       <RouteTopologyReport />
       <AntennaIssuesReport />
+    </section>
+  );
+}
+// ---------- کارتابل اداری (Task 32) — برگهٔ کارتابل پروژه دژبان (frontend12.zip) با تم شبکه‌بان ----------
+function kbG2J(gy,gm,gd){const gdm=[31,28,31,30,31,30,31,31,30,31,30,31],jdm=[31,31,31,31,31,31,30,30,30,30,30,29];let g2=gy-1600,dn=365*g2+Math.floor((g2+3)/4)-Math.floor((g2+99)/100)+Math.floor((g2+399)/400);for(let m=1;m<gm;m++)dn+=gdm[m-1];if(gm>2&&((gy%4===0&&gy%100!==0)||gy%400===0))dn++;dn+=gd-1;let j=dn-79,jnp=Math.floor(j/12053);j%=12053;let jy=979+33*jnp+4*Math.floor(j/1461);j%=1461;if(j>=366){jy+=Math.floor((j-1)/365);j=(j-1)%365}let jm=1;while(jm<=12&&j>=jdm[jm-1]){j-=jdm[jm-1];jm++}return[jy,jm,j+1]}
+function kbFa(v){return String(v).replace(/\d/g,d=>"۰۱۲۳۴۵۶۷۸۹"[d])}
+const KB_SUBS9=["جهت اقدام","جهت استحضار","جهت پیگیری","جهت بایگانی","جهت مذاکره","جهت اطلاع","جهت امضا","ارجاع به دبیرخانه جهت...","جهت عودت"];
+const KB_MENU=[
+  {icon:"📥",label:"صندوق ورودی",badge:"unread",children:["جهت اقدام","جهت استحضار","جهت پیگیری"]},
+  {icon:"⚡",label:"نامه‌های اقدامی",children:KB_SUBS9},
+  {icon:"📋",label:"رونوشت‌ها",children:["جهت اطلاع","جهت استحضار"]},
+  {icon:"📝",label:"پیش‌نویس‌ها",badge:"drafts",children:["پیش‌نویس‌های من","پیش‌نویس‌های ارجاعی"]},
+  {icon:"📤",label:"ارسال شده ها",children:KB_SUBS9},
+  {icon:"🔍",label:"پیگیری و ارجاعات",children:["فعال","بایگانی‌شده"]},
+  {icon:"🗄️",label:"بایگانی شخصی",children:["پوشه محرمانه","پوشه عمومی"]}
+];
+const KB_TEMPLATES=[{id:1,title:"A4 - داخلی",code:"A4-IN"},{id:2,title:"A4 - صادره",code:"A4-OUT"},{id:3,title:"A5 - صادره",code:"A5-OUT"},{id:4,title:"درخواست گواهی اشتغال به کار",code:"CERT-REQ"}];
+function Kartable(){
+  const[activeItem,setActiveItem]=useState("صندوق ورودی"),[openAcc,setOpenAcc]=useState(null);
+  const[showNew,setShowNew]=useState(false),[showTpl,setShowTpl]=useState(false),[selectedTpl,setSelectedTpl]=useState(null),[tplSearch,setTplSearch]=useState("");
+  const[summary,setSummary]=useState(null),[items,setItems]=useState(null),[announcements,setAnnouncements]=useState([]),[events,setEvents]=useState([]);
+  const[msg,setMsg]=useState(""),[err,setErr]=useState(""),[busy,setBusy]=useState(false);
+  const SEP=" / ",isSubActive=activeItem.includes(SEP);
+  const curFolder=isSubActive?activeItem.slice(0,activeItem.indexOf(SEP)):activeItem;
+  const curSub=isSubActive?activeItem.slice(activeItem.indexOf(SEP)+SEP.length):"";
+  const loadAll=async()=>{try{
+    const[s,a,e]=await Promise.all([fetch(API+"/api/kartable/summary"),fetch(API+"/api/kartable/announcements"),fetch(API+"/api/kartable/events")]);
+    if(s.ok)setSummary(await s.json());
+    if(a.ok)setAnnouncements((await a.json()).announcements||[]);
+    if(e.ok)setEvents((await e.json()).events||[]);
+  }catch(e){setErr("خطا در دریافت داده‌های کارتابل: "+e.message)}};
+  const loadItems=async()=>{try{
+    const q=new URLSearchParams({folder:curFolder});if(curSub)q.set("subfolder",curSub);
+    const r=await fetch(`${API}/api/kartable/items?`+q.toString());const d=await r.json();setItems(r.ok?(d.items||[]):[]);
+  }catch(e){setItems([])}};
+  useEffect(()=>{loadAll()},[]);
+  useEffect(()=>{loadItems()},[curFolder,curSub]);
+  async function markRead(it){setBusy(true);setErr("");try{const r=await fetch(`${API}/api/kartable/items/${it.id}`,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify({status:"خوانده‌شده"})});const d=await r.json();if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:"خطا");setMsg("آیتم «"+it.subject+"» خوانده‌شده شد.");await Promise.all([loadItems(),loadAll()])}catch(e){setErr(e.message)}setBusy(false)}
+  async function removeItem(it){if(!window.confirm("حذف «"+it.subject+"»؟"))return;setBusy(true);setErr("");try{const r=await fetch(`${API}/api/kartable/items/${it.id}`,{method:"DELETE"});if(!r.ok)throw Error("خطا در حذف");setMsg("آیتم حذف شد.");await Promise.all([loadItems(),loadAll()])}catch(e){setErr(e.message)}setBusy(false)}
+  async function createNote(){const s=window.prompt("موضوع یادداشت:");if(!s||!s.trim())return;setBusy(true);setErr("");try{const r=await fetch(API+"/api/kartable/items",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({folder:"پیش‌نویس‌ها",subfolder:"پیش‌نویس‌های من",subject:s.trim(),status:"پیش‌نویس"})});const d=await r.json();if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:"خطا در ذخیره");setMsg("یادداشت در «پیش‌نویس‌ها» ذخیره شد.");await Promise.all([loadItems(),loadAll()])}catch(e){setErr(e.message)}setBusy(false)}
+  async function saveLetterDraft(){if(!selectedTpl)return;setBusy(true);setErr("");try{const r=await fetch(API+"/api/kartable/items",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({folder:"پیش‌نویس‌ها",subfolder:"پیش‌نویس‌های من",subject:"نامه — "+selectedTpl.title+" ("+selectedTpl.code+")",status:"پیش‌نویس"})});const d=await r.json();if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:"خطا در ذخیره");setMsg("نامه در «پیش‌نویس‌ها» ثبت شد.");setSelectedTpl(null)}catch(e){setErr(e.message)}setBusy(false)}
+  // تقویم هفتهٔ جاری: شنبه تا جمعه + رویدادهای ذخیره‌شدهٔ هر روز
+  const week=(()=>{const t=new Date(),diff=(t.getDay()+1)%7,sat=new Date(t);sat.setDate(t.getDate()-diff);return[...Array(7)].map((_,i)=>{const d=new Date(sat);d.setDate(sat.getDate()+i);const[jy,jm,jd]=kbG2J(d.getFullYear(),d.getMonth()+1,d.getDate());return{jd,key:jy+"/"+String(jm).padStart(2,"0")+"/"+String(jd).padStart(2,"0")}})})();
+  const evMap={};(events||[]).forEach(e=>{(evMap[e.event_date]=evMap[e.event_date]||[]).push(e.title)});
+  const ann=(announcements||[])[0];
+  const tplList=KB_TEMPLATES.filter(t=>t.title.includes(tplSearch.trim()));
+  const openWord=()=>{window.location.href="ms-word:ofe|u|"+window.location.origin+"/template.docx"};
+  const stats=[["خوانده نشده",summary?summary.unread:null],["محرمانه",summary?summary.confidential:null],["کل وارده",summary?summary.total_inbox:null],["پیش‌نویس",summary?summary.drafts:null]];
+  if(selectedTpl){
+    const[jy,jm,jd]=kbG2J(new Date().getFullYear(),new Date().getMonth()+1,new Date().getDate());
+    const jToday=kbFa(jy)+"/"+kbFa(String(jm).padStart(2,"0"))+"/"+kbFa(String(jd).padStart(2,"0"));
+    return (
+      <section className="panel" dir="rtl">
+        <h3>کارتابل اداری — ویرایش نامه</h3>
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",gap:10,flexWrap:"wrap",background:"#fff",padding:"12px 20px",borderRadius:6,border:"1px solid #e2e8f0",maxWidth:850,margin:"0 auto 20px"}}>
+          <button type="button" onClick={()=>setSelectedTpl(null)} style={{padding:"8px 18px",background:"#64748b",color:"#fff",border:"none",borderRadius:6,cursor:"pointer",fontWeight:600,fontSize:13,fontFamily:"inherit"}}>← بازگشت به کارتابل</button>
+          <div style={{display:"flex",alignItems:"center",gap:10,flexWrap:"wrap"}}>
+            <button type="button" disabled={busy} onClick={saveLetterDraft} style={{padding:"8px 16px",background:"#087e8b",color:"#fff",border:"none",borderRadius:6,cursor:"pointer",fontWeight:600,fontSize:13,fontFamily:"inherit"}}>💾 ثبت در پیش‌نویس‌ها</button>
+            <div style={{fontSize:14,color:"#1e293b",fontWeight:600}}>قالب انتخابی: <span style={{color:"#2563eb"}}>{selectedTpl.title}</span></div>
+          </div>
+        </div>
+        <div style={{background:"#eff6ff",border:"1px solid #bfdbfe",color:"#1e40af",padding:"12px 20px",borderRadius:8,fontSize:13,maxWidth:850,margin:"0 auto 20px",lineHeight:1.9}}>
+          ℹ️ جهت ویرایش بدنه نامه روی دکمه زیر کلیک کنید. پس از ویرایش در نرم‌افزار Word، فایل را ذخیره کرده و ببندید.
+        </div>
+        <div style={{textAlign:"center",marginBottom:24}}>
+          <button type="button" onClick={openWord} style={{background:"linear-gradient(135deg,#0284c7,#2563eb)",color:"#fff",border:"none",padding:"12px 36px",fontSize:15,fontWeight:"bold",borderRadius:8,cursor:"pointer",boxShadow:"0 4px 12px rgba(2,132,199,.3)",display:"inline-flex",alignItems:"center",gap:8,fontFamily:"inherit"}}>
+            <span>📝</span> ویرایش نامه (Word)
+          </button>
+        </div>
+        <div style={{maxWidth:850,margin:"0 auto",background:"#fff",padding:"60px 70px",boxShadow:"0 4px 20px rgba(0,0,0,.08)",borderRadius:4,minHeight:950,position:"relative",border:"1px solid #e2e8f0",overflow:"hidden"}}>
+          <div style={{position:"absolute",top:0,right:0,width:110,height:110,background:"linear-gradient(135deg,#701a75 0%,#9d174d 100%)",clipPath:"polygon(0 0, 100% 0, 100% 100%)",zIndex:1}}></div>
+          <div style={{textAlign:"center",marginBottom:30}}><h4 style={{margin:0,fontSize:17,fontWeight:"bold"}}>بسمه تعالی</h4></div>
+          <div style={{display:"flex",justifyContent:"flex-end",fontSize:12,marginBottom:36,color:"#475569"}}>
+            <div style={{lineHeight:2}}>
+              <div>شماره: [تولید خودکار]</div>
+              <div>تاریخ: {jToday}</div>
+              <div>پیوست: ندارد</div>
+            </div>
+          </div>
+          <div style={{marginBottom:24,fontSize:14,fontWeight:"bold",color:"#0f172a"}}>{selectedTpl.title}</div>
+          <div style={{position:"relative",zIndex:2,fontSize:14,lineHeight:2.1,color:"#1e293b"}}>
+            با سلام و احترام،<br/>
+            متن نامه پس از ویرایش در Microsoft Word در این قسمت قرار می‌گیرد. با کلیک روی «ویرایش نامه (Word)» قالب استاندارد در Word باز می‌شود و پس از ذخیره، نامه برای ثبت در دبیرخانه آماده است.
+          </div>
+        </div>
+        {msg&&<div className="msg" style={{maxWidth:850,margin:"16px auto 0"}}>{msg}</div>}
+        {err&&<div className="error" role="alert" style={{maxWidth:850,margin:"16px auto 0"}}>{err}</div>}
+      </section>
+    );
+  }
+  return (
+    <section className="panel" dir="rtl">
+      <h3>کارتابل اداری</h3>
+      {msg&&<div className="msg">{msg}</div>}
+      {err&&<div className="error" role="alert">{err}</div>}
+      <div className="kb-wrap">
+        <aside className="kb-side">
+          <div className="kb-side-head"><span>🔹</span> منوی کارتابل</div>
+          <div className="kb-menu">
+            {KB_MENU.map((item,idx)=>{
+              const isOpen=openAcc===idx,isActiveParent=activeItem===item.label;
+              return <div key={idx}>
+                <div className={"kb-menu-item"+((isOpen||isActiveParent)?" active":"")} onClick={()=>{setOpenAcc(isOpen?null:idx);setActiveItem(item.label)}}>
+                  <div style={{display:"flex",alignItems:"center",gap:8}}><span>{item.icon}</span><span>{item.label}</span></div>
+                  <div style={{display:"flex",alignItems:"center",gap:6}}>
+                    {item.badge&&summary&&summary[item.badge]>0&&<span className="kb-badge">{kbFa(summary[item.badge])}</span>}
+                    <span className={"kb-caret"+(isOpen?" open":"")}>▼</span>
+                  </div>
+                </div>
+                {isOpen&&item.children&&<div className="kb-subs">
+                  {item.children.map(sub=>{
+                    const full=item.label+SEP+sub,isSubActive=activeItem===full;
+                    return <div key={sub} className={"kb-sub"+(isSubActive?" active":"")} onClick={()=>setActiveItem(full)}>📁 {sub}</div>
+                  })}
+                </div>}
+              </div>;
+            })}
+          </div>
+        </aside>
+        <div className="kb-main">
+          <div className="kb-header">
+            <div style={{display:"flex",alignItems:"center",gap:10,flexWrap:"wrap"}}>
+              <h2>میز کار اداری و مکاتبات</h2>
+              <span className="kb-subtitle">سامانه اتوماسیون یکپارچه</span>
+            </div>
+            <div className="kb-new">
+              <button type="button" className="kb-new-btn" onClick={()=>setShowNew(s=>!s)}><span>+</span><span>New (جدید)</span><span style={{fontSize:10}}>▼</span></button>
+              {showNew&&<div className="kb-newdrop">
+                <div onClick={()=>{setShowNew(false);setShowTpl(true)}}><span style={{fontSize:16}}>✉️</span><span>ایجاد نامه</span></div>
+                <div onClick={()=>{setShowNew(false);createNote()}}><span style={{fontSize:16}}>📝</span><span>ایجاد یادداشت</span></div>
+              </div>}
+            </div>
+          </div>
+          <div className="kb-grid">
+            <div className="kb-stats">
+              <div className="kb-stats-head"><b>📊 گزارش مکاتبات اداری</b><span className="kb-today">امروز</span></div>
+              <div className="kb-tiles">
+                {stats.map(([label,val])=><div className="kb-tile" key={label}><b>{val===null?"…":kbFa(val)}</b><span>{label}</span></div>)}
+              </div>
+            </div>
+            <div className="kb-ann">
+              <div>
+                <div className="kb-ann-title"><span>📢</span> {ann?ann.title:"اطلاعیه مهم اداری"}</div>
+                <p>{ann?ann.body:"اطلاعیه‌ای ثبت نشده است."}</p>
+              </div>
+              <div className="kb-ann-foot">
+                <span>پیوست راهنما: {ann&&ann.attachment?ann.attachment:"—"}</span>
+                <button type="button" onClick={()=>setMsg(ann&&ann.attachment?("پیوست راهنمای این اطلاعیه: "+ann.attachment):"پیوستی برای این اطلاعیه ثبت نشده است.")}>مشاهده پیوست 📎</button>
+              </div>
+            </div>
+          </div>
+          <div className="kb-card">
+            <div className="kb-card-title"><span>📅</span> رویدادها و تقویم کاری</div>
+            <div className="kb-cal">
+              {["شنبه","یکشنبه","دوشنبه","سه‌شنبه","چهارشنبه","پنج‌شنبه","جمعه"].map(day=><div className="kb-cal-day" key={day}>{day}</div>)}
+              {week.map(w=>{const evs=evMap[w.key]||[];return <div key={w.key} className={"kb-cal-cell"+(evs.length?" has-event":"")}>{kbFa(w.jd)}{evs.slice(0,2).map(t=><div className="kb-cal-event" key={t}>{t}</div>)}</div>})}
+            </div>
+          </div>
+          <div className="kb-card">
+            <div className="kb-card-title">آیتم‌های «{activeItem}»<span className="kb-items-count">{items?kbFa(items.length)+" مورد":"…"}</span></div>
+            {items===null?<div className="kb-empty">در حال بارگذاری…</div>:
+             items.length===0?<div className="kb-empty">رکوردی در این بخش ثبت نشده است — با دکمهٔ «New (جدید)» می‌توانید نامه یا یادداشت ذخیره کنید.</div>:
+             <div className="tablewrap"><table style={{minWidth:640}}>
+               <thead><tr><th>موضوع</th><th>فرستنده</th><th>شماره نامه</th><th>تاریخ</th><th>محرمانگی</th><th>وضعیت</th><th>عملیات</th></tr></thead>
+               <tbody>{items.map(it=><tr key={it.id}>
+                 <td>{it.subject}</td><td>{it.sender||"—"}</td><td>{it.letter_no||"—"}</td><td>{it.letter_date?kbFa(it.letter_date):"—"}</td>
+                 <td>{it.confidentiality==="محرمانه"?<span className="kb-status-pill unread">محرمانه</span>:<span className="kb-status-pill">عادی</span>}</td>
+                 <td><span className={"kb-status-pill"+(it.status==="خوانده‌نشده"?" unread":"")}>{it.status}</span></td>
+                 <td><div className="kb-row-actions">
+                   {it.status==="خوانده‌نشده"&&<button type="button" disabled={busy} onClick={()=>markRead(it)}>خوانده شد</button>}
+                   <button type="button" className="kb-del" disabled={busy} onClick={()=>removeItem(it)}>حذف</button>
+                 </div></td>
+               </tr>)}</tbody>
+             </table></div>}
+          </div>
+        </div>
+      </div>
+      {showTpl&&<div className="tpl-modal-overlay" onClick={()=>setShowTpl(false)}>
+        <div className="tpl-modal-card" onClick={e=>e.stopPropagation()}>
+          <div className="tpl-modal-header">
+            <div className="tpl-tools">
+              <button type="button" className="tpl-close" onClick={()=>setShowTpl(false)}>✕</button>
+              <div className="tpl-views"><button type="button" className="tpl-view-btn" title="نمایش ستونی">☷</button><button type="button" className="tpl-view-btn active" title="نمایش شبکه‌ای">⊞</button><button type="button" className="tpl-view-btn" title="تغییر چینش">⇄</button></div>
+            </div>
+            <div className="tpl-search"><input type="text" placeholder="جستجو در قالب های نامه، فرم، سند، گفتگوی سازمانی و..." value={tplSearch} onChange={e=>setTplSearch(e.target.value)}/><span className="tpl-search-ico">🔍</span></div>
+          </div>
+          <div className="tpl-body">
+            <div className="tpl-side">
+              <div className="tpl-side-item"><span>⊞</span><span>پیش فرض</span></div>
+              <div className="tpl-side-item"><span>👥</span><span>عمومی</span></div>
+              <div className="tpl-side-item active"><span className="tpl-w-badge">W</span><span>قالب ورد</span></div>
+            </div>
+            <div className="tpl-content">
+              <h3 className="tpl-main-title">قالب مورد نظرتان را انتخاب کنید</h3>
+              <div className="tpl-grid">
+                {tplList.map(item=><div key={item.id} className="tpl-card" onClick={()=>{setSelectedTpl(item);setShowTpl(false)}}>
+                  <div className="tpl-fav">☆</div>
+                  <div className="tpl-word-icon"><span>W</span></div>
+                  <div className="tpl-card-title">{item.title}</div>
+                </div>)}
+                {tplList.length===0&&<div className="kb-empty">قالبی با این عنوان یافت نشد.</div>}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>}
     </section>
   );
 }
