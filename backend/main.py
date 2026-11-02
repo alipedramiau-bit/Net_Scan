@@ -1796,22 +1796,52 @@ class RouteTopologyRequest(BaseModel):
     max_devices: int = Field(default=80, ge=1, le=200)
 
 
-def _select_topology_targets(db_name: str, ips: list[str], max_devices: int) -> list[dict]:
-    """دستگاه‌های میکروتیک گزارش: انتخاب صریح یا کل میکروتیک‌های دیتابیس."""
+def _select_topology_targets(db_name: str, ips: list[str], max_devices: int) -> tuple[list[dict], int]:
+    """دستگاه‌های میکروتیک گزارش: انتخاب صریح یا کل میکروتیک‌های دیتابیس.
+
+    حذف گزارش تکراری هر دستگاه (درخواست کاربر): هر دستگاه فقط یک‌بار در
+    گزارش مسیر می‌آید — ردیفی که یکی از این کلیدها را تکراری باشد از گزارش
+    حذف می‌شود و فقط نخستین ردیفِ هر دستگاه گزارش می‌شود:
+      * IP اتصال (رفتار قبلی)؛
+      * ای‌دی ردیف دیتابیس (device_id)؛
+      * نام دستگاه (device_name — بدون تفاوت حروف بزرگ/کوچک)؛ برای ردیفِ
+        بی‌نام، identity ثبت‌شده در اینونتوری اینترفیس‌ها (Task 25) هم به‌عنوان
+        نام استفاده می‌شود.
+    تعداد ردیف‌های تکراریِ حذف‌شده برگردانده می‌شود تا در پیام شروع گزارش
+    به کاربر نمایش داده شود.
+    """
     db_path = str(db.db_path_for(db_name)) if db_name else None
     if ips:
         rows = db.fetch_devices_by_ips(ips, db_path=db_path)
     else:
         fetched = db.query_devices(limit=100000, db_path=db_path)
         rows = fetched.get("devices", []) if isinstance(fetched, dict) else fetched
-    targets, seen = [], set()
+    # identity ثبت‌شدهٔ اینونتوری (جدول device_interface_ips) برای ردیف‌های بی‌نام
+    inv_identity: dict[str, str] = {}
+    try:
+        for r in db.load_interface_inventory(db_path=db_path) or []:
+            dip = str((r or {}).get("device_ip") or "").strip()
+            nm = str((r or {}).get("identity") or "").strip()
+            if dip and nm and dip not in inv_identity:
+                inv_identity[dip] = nm
+    except Exception:  # اینونتوری فقط مکملِ نام است؛ نباید انتخاب را ببندد
+        inv_identity = {}
+    targets, seen, skipped = [], set(), 0
     for d in rows or []:
         ip = (d.get("ip") or "").strip()
-        if not ip or ip in seen or not db._is_mikrotik_device(d):
+        if not ip or not db._is_mikrotik_device(d):
             continue
-        seen.add(ip)
+        name = (d.get("device_name") or "").strip() or inv_identity.get(ip, "")
+        keys = [("ip", ip), ("id", str(d.get("id") or "").strip())]
+        if name:
+            keys.append(("name", name.casefold()))
+        if any(k in seen for _t, k in keys):
+            skipped += 1
+            continue
+        for _t, k in keys:
+            seen.add(k)
         targets.append(d)
-    return targets[: max(1, int(max_devices or 80))]
+    return targets[: max(1, int(max_devices or 80))], skipped
 
 
 def _route_topology_worker(body: RouteTopologyRequest, targets: list[dict], db_name: str) -> None:
@@ -1879,6 +1909,7 @@ def _route_topology_worker(body: RouteTopologyRequest, targets: list[dict], db_n
             unreachable_rows = []
         stats = {
             "devices": summary.get("devices", len(targets)),
+            "duplicates_skipped": int(st.get("duplicates_skipped") or 0),
             "ok": summary.get("reachable", sum(1 for i in infos if i.get("ok"))),
             "failed": sum(1 for i in infos if not i.get("ok")),
             "reachable": summary.get("reachable", 0),
@@ -1914,7 +1945,7 @@ def route_topology_start(body: RouteTopologyRequest):
         db_name = (body.database or "").strip()
         if db_name:
             _resolve_report_database(db_name)
-        targets = _select_topology_targets(db_name, body.ips, body.max_devices)
+        targets, dup_skipped = _select_topology_targets(db_name, body.ips, body.max_devices)
         if not targets:
             raise HTTPException(
                 400,
@@ -1925,16 +1956,20 @@ def route_topology_start(body: RouteTopologyRequest):
         TOPOLOGY_STATE.update({"running": True, "total": len(targets), "done": 0, "ok": 0,
                                "failed": 0, "current_ip": "", "phase": "start", "error": None,
                                "canceled": False, "pdf": None, "stats": {},
+                               "duplicates_skipped": int(dup_skipped or 0),
                                "inventory_devices": 0, "inventory_addresses": 0,
                                "inventory_error": None,
                                "unreachable_rows": None, "unreachable_error": None})
         Thread(target=_route_topology_worker, args=(body, targets, db_name), daemon=True).start()
+    note = (f" ({dup_skipped} ردیف تکراری با نام/ای‌دی یکسان از گزارش حذف شد — هر دستگاه فقط یک‌بار گزارش می‌شود)"
+            if dup_skipped else "")
     return {
         "started": True,
         "devices": len(targets),
+        "duplicates_skipped": int(dup_skipped or 0),
         "central_router_ip": central,
         "database": db_name or db.get_active_db_name(),
-        "message": f"اتصال به {len(targets)} دستگاه میکروتیک از طریق RouterOS API آغاز شد",
+        "message": f"اتصال به {len(targets)} دستگاه میکروتیک از طریق RouterOS API آغاز شد{note}",
     }
 
 
@@ -1956,6 +1991,7 @@ def route_topology_progress():
         "running": bool(p.get("running")),
         "canceled": bool(p.get("canceled")),
         "error": p.get("error"),
+        "duplicates_skipped": int(p.get("duplicates_skipped") or 0),
         "inventory_devices": int(p.get("inventory_devices") or 0),
         "inventory_addresses": int(p.get("inventory_addresses") or 0),
         "unreachable": int((p.get("stats") or {}).get("unreachable") or 0),
@@ -1991,6 +2027,7 @@ def route_topology_result():
         headers={
             "Content-Disposition": f'attachment; filename="route_topology_{stamp}.pdf"',
             "X-Topology-Devices": str(stats.get("devices") or 0),
+            "X-Topology-Duplicates-Skipped": str(stats.get("duplicates_skipped") or 0),
             "X-Topology-Reachable": str(stats.get("reachable") or 0),
             "X-Topology-Unreachable": str(stats.get("unreachable") or 0),
             "X-Topology-Failed": str(stats.get("failed") or 0),
