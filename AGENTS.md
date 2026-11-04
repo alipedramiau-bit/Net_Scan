@@ -81,7 +81,7 @@ cd frontend && npm install && npm run build
 5. پیام کامیت: قالب `type(scope): خلاصه انگلیسی` (مثل `feat(devices): ...`، `fix(api): ...`).
 6. قبل از کامیت: تست‌ها سبز باشند؛ `git status` را برای فایل‌های ناخواسته چک کنید.
 
-## ۵) نقشه قابلیت‌ها (تا Task 34)
+## ۵) نقشه قابلیت‌ها (تا Task 35)
 
 - **اسکن شبکه:** `POST /scans/start` (قابل لغو با `/scans/{id}/cancel`)، ورودی IP/CIDR/بازه،
   پورت‌های 8291 و 8728 همیشه اضافه می‌شوند.
@@ -415,12 +415,25 @@ cd frontend && npm install && npm run build
   `backup/` در `.gitignore` است (دادهٔ کاربر). تست: `tests/test_backup_rsc.py` (۱۴ تست: نام فایل،
   پارس export، ذخیره/پیشرفت/لغو، endpointها با client لاگین‌شده) + `scripts/test_backup_button.py`
   (۱۷ بررسی باندل/CSS/endpoint/پوشه)؛ dist بازسازی شد (index-kzqRIENY.js / index-LLasaM87.css).
+- **سرعت رابط کاربری (Task 35):** ریشهٔ کندیِ تایپ در جعبه‌های متنی این بود که هر کلید، کامپوننت
+  غول‌پیکر `DeviceReports` را کامل رندر می‌کرد — از جمله کل جدول دستگاه‌ها (تا ۱۸ ستون × هر چند ردیف)
+  — و MainApp هنگام اسکن هر ۱.۲ ثانیه با setJob همین را تکرار می‌کرد. اصلاحات:
+  جدول دستگاه‌ها داخل `useMemo` (وابستگی‌ها: rows/selected/visibleCols/editNameIp/sortBy/sortOrder) ساخته
+  می‌شود و تایپ در ورودی‌ها دیگر جدول را رندر نمی‌کند؛ توابع داخل جدول از `liveRef.current` صدا زده
+  می‌شوند (بدون stale closure)؛ ویرایشِ درجایِ نام uncontrolled شد (ref + defaultValue، حذف state
+  `editNameVal`)؛ شش کارت سنگین (`DeviceReports`/`EmailServerCard`/`SmartReports`/`Kartable`/
+  `VpnManagerCard`/`BackendCard`) با `React.memo` بسته شدند تا استعلام اسکن/پیشرفت آن‌ها را رندر نکند؛
+  `onRoutes` با `useCallback` پایدار شد؛ جستجوی `DevicePickerModal` با `useDeferredValue` است.
+  تست: `scripts/test_ui_speed_react_memo.py` (۲۵ بررسی سورس/باندل/بک‌اند).
 - **سایر:** گزارش‌های هوشمند، Winbox tools، مدیریت VPN، ایمیل/اطلاع‌رسانی.
 
 ## ۶) نکات دام‌دار (Gotchas)
 
 - `frontend/src.jsx` فایل بزرگِ تک‌فایلی است — برای ویرایش، بخش مربوطه را با grep پیدا کنید،
   کل فایل را بازنویسی نکنید.
+- JSX جدول دستگاه‌ها داخل `useMemo` است (Task 35): اگر ستون/سلول/رفتار جدیدی به جدول اضافه کردید،
+  وابستگی‌های `tableEl` را به‌روز کنید و توابع داخل آن را از `liveRef.current.*` صدا بزنید؛ stateِ
+  جدیدی که در جدول خوانده می‌شود باید به وابستگی‌ها اضافه شود وگرنه رندر قدیمی می‌ماند.
 - شماره ستون‌های خروجی CSV ممکن است تغییر کند؛ تست‌ها با `csv.reader` پارس کنید نه
   `splitlines` (فیلدهای چندخطی مثل لاگ می‌شکنند).
 - `delete_database` فقط فایل `.db` را حذف می‌کند؛ فایل‌های `databases/ip_info/*.txt` مشترک

@@ -655,3 +655,21 @@ Work Log:
 Stage Summary:
 - جعبهٔ جستجوی برگهٔ دستگاه‌ها حالا دقیقاً بالای ناحیهٔ اسکرول جدول و مرکز صفحه است (جای کادر سبز اسکرین‌شات) و بزرگ‌تر شده؛ امکانات قبلی (محدودهٔ فیلد، چندواژه، debounce، پاک‌کردن) حفظ شد
 - پوشهٔ backup/ کنار برنامه + دکمهٔ «پشتیبان‌گیری rsc» در نوار API: با کاربر/رمز RouterOS از طریق API به دستگاه‌های انتخابی وصل می‌شود، /export را می‌خواند و کانفیگ هر دستگاه را با نام «نام‌دستگاه_آی‌پی.rsc» (بی‌نام: ای‌دی دیتابیس) در پوشهٔ backup ذخیره می‌کند؛ پیشرفت زنده، توقف مشارکتی و فهرست فایل‌ها از طریق endpointها قابل استفاده است
+
+---
+Task ID: 35
+Agent: main (Z.ai)
+Task: تقویت سرعت رابط کاربری — رفع کندی تایپ در جعبه‌های متنی
+
+Work Log:
+- کاربرد: درخواست کاربر — «سرعت رابط کاربری را تقویت کن؛ رابط کاربری برای ورود اطلاعات به بکس متنی خیلی کند است»
+- ریشه‌یابی: DeviceReports کامپوننتی تک‌تکه با ~۸۵۰ خط است که همهٔ stateهایش (جستجو، فرم افزودن دستگاه، وینباکس، SNMP، کانفیگ گروهی، روت، دیتابیس و…) در یکجا تعریف شده؛ هر کلید در هر ورودی متنی کل کامپوننت را دوباره رندر می‌کرد — از جمله rows.map کل جدول دستگاه‌ها (تا ۱۸ ستون در هر ردیف، صفحهٔ «همه» تا ۱۰۰٫۰۰۰ ردیف) و هیچ useMemo/React.memo/useCallback در فایل نبود. دو تقویت‌کنندهٔ کندی: (۱) MainApp هنگام اسکن فعال هر ۱.۲ ثانیه setJob می‌زند و فرزندانش (از جمله DeviceReports) را رندر می‌کرد؛ (۲) هنگام SNMP/API/پشتیبان rsc، استعلام پیشرفت هر ۴۰۰-۵۰۰ms همین کار را می‌کرد. ویرایشِ درجایِ نام هم valueاش state بود → هر کلیدش کل جدول را رندر می‌کرد.
+- frontend/src.jsx — جدول دستگاه‌ها داخل useMemo (نام tableEl، وابستگی‌ها: rows/selected/visibleCols/editNameIp/sortBy/sortOrder) ساخته می‌شود؛ تایپ در هر ورودی دیگر جدول را نمی‌سازد. توابع جدول (openWinbox/saveName/toggleSelect/toggleSelectAll/handleSort) از liveRef.current (useRef) صدا زده می‌شوند تا JSXِ memo شده بدون stale closure همیشه تازه‌ترین نسخه را صدا بزند (setTextModal/setEditNameIp ستتر پایدارند). ویرایش درجایِ نام uncontrolled شد: ref={editNameInputRef} + defaultValue={d.device_name}، saveName مقدار را از ref می‌خواند، state editNameVal حذف شد → تایپ در ویرایشگر نام صفر رندر. کلیلک روی نام فقط setEditNameIp می‌زند.
+- frontend/src.jsx — شش کارت سنگین با React.memo بسته شدند: DeviceReportsM/EmailServerCardM/SmartReportsM/KartableM/VpnManagerCardM/BackendCardM و در MainApp استفاده شدند (props ثابت → bail-out)؛ onRoutes با useCallback پایدار شد (بدون آن memo بی‌اثر بود). جستجوی DevicePickerModal (تا ۱۰۰٫۰۰۰ ردیف فیلتر + ۳۰۰ ردیف نمایش) با useDeferredValue فیلتر می‌شود.
+- frontend/dist بازسازی شد: index-BKrWn6Sc.js (۳۸۱KB؛ +۴KB نسبت به قبل) — CSS بدون تغییر
+- تست: scripts/test_ui_speed_react_memo.py — ۲۵ بررسی: نشانگرهای سورس (useMemo جدول با وابستگی‌های کامل، liveRef، uncontrolled بودن ویرایش نام، حذف editNameVal، شش React.memo، DeviceReportsM در تب‌ها، useCallback، useDeferredValue) + باندل (index.html → باندل موجود، رشته‌های شاخص فارسی، defaultValue) + سلامت بک‌اند (auth/check 401 بدون نشست، سرو UI، لاگین، databases) — 25 PASS
+- رگرسیون: pytest tests/ کل (۱۰۳ PASS) + scripts/test_backup_button.py (ALL OK) + test_flap_winbox_button.py (11/0) + test_csv_filename_stamp.py (ALL PASS)
+- مستندات: README.md (بولت «سرعت رابط کاربری (Task 35)») و AGENTS.md (تیتر نقشه تا Task 35 + بولت Task 35 + گاتچا «JSX جدول داخل useMemo است؛ وابستگی‌ها و liveRef را به‌روز کنید»)
+
+Stage Summary:
+- تایپ در همهٔ جعبه‌های متنی برگه‌های برنامه سبک شد: کلیدهای تایپ دیگر جدول دستگاه‌ها (تا هزاران سلول) را رندر نمی‌کنند — جدول فقط با تغییر واقعی داده/ستون/انتخاب/مرتب‌سازی دوباره ساخته می‌شود؛ استعلام‌های دوره‌ای (وضعیت اسکن ۱.۲s، پیشرفت خواندن/پشتیبان ۴۰۰-۵۰۰ms) هم فقط خودِ نمودار را به‌روز می‌کنند نه کل برگه را. رفتار و ظاهر قبلی دست‌نخورده ماند (همان debounce ۳۵۰ms جستجو، همان امکانات جدول) — فقط سرعت.

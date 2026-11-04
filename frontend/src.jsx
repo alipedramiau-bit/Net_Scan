@@ -1,4 +1,4 @@
-import React,{useEffect,useState,useRef} from "react";import{createRoot}from"react-dom/client";import"./style.css";
+import React,{useEffect,useState,useRef,useMemo,useCallback,useDeferredValue} from "react";import{createRoot}from"react-dom/client";import"./style.css";
 const API=(()=>{
   const e=import.meta.env.VITE_API_BASE_URL;
   if(e!==undefined&&e!==null&&e!=="")return e;
@@ -273,7 +273,10 @@ function DeviceReports({mode="devices"}={}){
   const[sortBy,setSortBy]=useState("ip"),[sortOrder,setSortOrder]=useState("asc"),[newOnly,setNewOnly]=useState(false),[showAddModal,setShowAddModal]=useState(false),[newIp,setNewIp]=useState(""),[newPorts,setNewPorts]=useState("");
   const[winboxItems,setWinboxItems]=useState([]),[winboxPath,setWinboxPath]=useState(""),[winboxName,setWinboxName]=useState(""),[showWinboxCfg,setShowWinboxCfg]=useState(false),[busyAction,setBusyAction]=useState(false),[toolsDir,setToolsDir]=useState("");
   const[visibleCols,setVisibleCols]=useState(defaultVisible),[showColCfg,setShowColCfg]=useState(false);
-  const[selected,setSelected]=useState({}),[editTagIp,setEditTagIp]=useState(null),[editTagVal,setEditTagVal]=useState(""),[editNameIp,setEditNameIp]=useState(null),[editNameVal,setEditNameVal]=useState("");// selected: { [ip]: true } only — never store false
+  const[selected,setSelected]=useState({}),[editTagIp,setEditTagIp]=useState(null),[editTagVal,setEditTagVal]=useState(""),[editNameIp,setEditNameIp]=useState(null);// selected: { [ip]: true } only — never store false
+  // Task 35 (سرعت UI): مقدار input ویرایشِ درجایِ نام با ref خوانده می‌شود (uncontrolled) تا هر کلید، کل جدول را رندر نکند؛
+  // liveRef آخرین نسخهٔ توابعِ جدول را نگه می‌دارد تا JSXِ memo شده همیشه توابع تازه صدا بزند (بدون stale closure).
+  const editNameInputRef=useRef(null);const liveRef=useRef({});
   const[snmpProfiles,setSnmpProfiles]=useState([]),[snmpId,setSnmpId]=useState(""),[snmpRaw,setSnmpRaw]=useState(""),[snmpName,setSnmpName]=useState(""),[showSnmp,setShowSnmp]=useState(false),[snmpBusy,setSnmpBusy]=useState(false);const[dbList,setDbList]=useState([]),[activeDb,setActiveDb]=useState("default"),[newDbName,setNewDbName]=useState(""),[showDbPanel,setShowDbPanel]=useState(false);const[showGroupCfg,setShowGroupCfg]=useState(false),[groupScript,setGroupScript]=useState(""),[groupUser,setGroupUser]=useState("admin"),[groupPass,setGroupPass]=useState("");const[apiUser,setApiUser]=useState("admin"),[apiPass,setApiPass]=useState(""),[apiBusy,setApiBusy]=useState(false);const[csvReading,setCsvReading]=useState(false);const[cfgProg,setCfgProg]=useState(null),[cfgBusy,setCfgBusy]=useState(false),[cfgResults,setCfgResults]=useState(null),[cfgMode,setCfgMode]=useState("group"),[cfgLast,setCfgLast]=useState(null);const[showRouteModal,setShowRouteModal]=useState(false),[routeSrc,setRouteSrc]=useState("172.19.1.6"),[routeDst,setRouteDst]=useState("172.19.1.6"),[routeHops,setRouteHops]=useState(15),[routeBusy,setRouteBusy]=useState(false),[routeIps,setRouteIps]=useState([]);const apiAbortRef={current:null};
   const params=new URLSearchParams();if(classification)params.set("classification",classification);if(deviceTypeFilter)params.set("device_type",deviceTypeFilter);if(port)params.set("has_port",port);if(q)params.set("q",q);if(qField)params.set("q_fields",qField);params.set("sort",sortBy);params.set("order",sortOrder);params.set("new_only",newOnly?"true":"false");params.set("limit",String(pageSize));params.set("offset",String(offset));
   const searchAbortRef={current:null};
@@ -455,7 +458,7 @@ function DeviceReports({mode="devices"}={}){
     setBusyAction(false);e.target.value="";
   }
   async function saveTag(ip){try{const r=await fetch(`${API}/devices/${encodeURIComponent(ip)}`,{method:"PATCH",headers:{"Content-Type":"application/json"},body:JSON.stringify({tags:editTagVal})});const d=await r.json();if(!r.ok)throw Error(d.detail||"خطا");setEditTagIp(null);reloadRows();setMsg("تگ ذخیره شد")}catch(e){setError(e.message)}}
-  async function saveName(ip){try{const r=await fetch(`${API}/devices/${encodeURIComponent(ip)}`,{method:"PATCH",headers:{"Content-Type":"application/json"},body:JSON.stringify({device_name:editNameVal})});const d=await r.json();if(!r.ok)throw Error(d.detail||"خطا");setEditNameIp(null);reloadRows();setMsg("نام ذخیره شد")}catch(e){setError(e.message)}}
+  async function saveName(ip){const val=editNameInputRef.current?editNameInputRef.current.value:"";try{const r=await fetch(`${API}/devices/${encodeURIComponent(ip)}`,{method:"PATCH",headers:{"Content-Type":"application/json"},body:JSON.stringify({device_name:val})});const d=await r.json();if(!r.ok)throw Error(d.detail||"خطا");setEditNameIp(null);reloadRows();setMsg("نام ذخیره شد")}catch(e){setError(e.message)}}
   async function saveSnmpProfile(){setSnmpBusy(true);setError("");try{const body={id:snmpId||undefined,name:snmpName||undefined,raw:snmpRaw,is_default:true};const r=await fetch(API+"/api/snmp/profiles",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});const d=await r.json();if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:"ذخیره SNMP ناموفق");await refreshSnmp();setMsg("پروفایل SNMP ذخیره شد: "+(d.name||d.community))}catch(e){setError(e.message)}setSnmpBusy(false)}
   async function setDefaultSnmp(id){try{const r=await fetch(`${API}/api/snmp/profiles/${encodeURIComponent(id)}/default`,{method:"PUT"});if(!r.ok)throw Error("خطا");await refreshSnmp()}catch(e){setError(e.message)}}
   async function deleteSnmp(id){if(!confirm("حذف پروفایل SNMP؟"))return;try{const r=await fetch(`${API}/api/snmp/profiles/${encodeURIComponent(id)}`,{method:"DELETE"});if(!r.ok)throw Error("خطا");await refreshSnmp()}catch(e){setError(e.message)}}
@@ -774,6 +777,46 @@ function DeviceReports({mode="devices"}={}){
   const pp=backupBusy?backupProg:probeProg,ppOk=(typeof pp.ok==="number")?pp.ok:null,ppFail=(typeof pp.failed==="number")?pp.failed:null,ppTot=pp.total||0;
   const ppOkPct=ppTot?Math.round(100*(ppOk||0)/ppTot):0;
   const ppFailPct=ppTot?Math.max(0,Math.min(100-ppOkPct,Math.round(100*(ppFail||0)/ppTot))):0;
+  // Task 35 (سرعت UI): آخرین نسخهٔ توابع جدول در هر رندر ذخیره می‌شود تا JSXِ memo شده همیشه توابع تازه صدا بزند (بدون stale closure)
+  liveRef.current={openWinbox,saveName,toggleSelect,toggleSelectAll,handleSort};
+  // جدول دستگاه‌ها فقط وقتی از نو ساخته می‌شود که داده/ستون‌ها/انتخاب/مرتب‌سازی/ویرایشِ نام عوض شود؛
+  // تایپ در هر ورودی متنی دیگر (جستجو، فرم‌ها، مدال‌ها) کل جدول را رندر نمی‌کند — ریشهٔ کندی تایپ همین بود.
+  const tableEl=useMemo(()=>(<table><thead><tr>
+      {colOn("select")&&<th><input type="checkbox" checked={rows.length>0&&rows.every(d=>selected[d.ip])} onChange={()=>liveRef.current.toggleSelectAll()} title="انتخاب همه"/></th>}
+      {ALL_COLS.filter(c=>c.id!=="select"&&colOn(c.id)).map(c=><th key={c.id} className={(sortMap[c.id]?"sortable-th ":"")+"col-"+c.id} onClick={()=>sortMap[c.id]&&liveRef.current.handleSort(sortMap[c.id])}>{sortMap[c.id]&&<span className="sort-icon">{sortIcon(sortMap[c.id])}</span>}{c.label}</th>)}
+    </tr></thead><tbody>{rows.map(d=><tr key={d.ip} className={selected[d.ip]?"row-selected":undefined}>
+      {colOn("select")&&<td><input type="checkbox" checked={!!selected[d.ip]} onChange={()=>liveRef.current.toggleSelect(d.ip)}/></td>}
+      {colOn("ip")&&<td className="col-ip" dir="ltr">{d.ip}</td>}
+      {colOn("device_name")&&<td className="col-device_name"><div className="name-cell">
+        {editNameIp===d.ip
+          ? <span className="inline-edit"><input ref={editNameInputRef} defaultValue={d.device_name||""} dir="ltr"/><button type="button" onClick={()=>liveRef.current.saveName(d.ip)}>✓</button><button type="button" onClick={()=>setEditNameIp(null)}>✕</button></span>
+          : <span className="editable name-preview" onClick={()=>setEditNameIp(d.ip)} title="MikroTik /system identity — کلیک برای ویرایش">{d.device_name||"—"}</span>}
+        <span className="name-actions">
+          {isMikrotik(d)&&<button type="button" className="btn-winbox btn-winbox-inline" title={"باز کردن Winbox — "+d.ip} onClick={e=>{e.stopPropagation();liveRef.current.openWinbox(d.ip)}}>▣ Winbox</button>}
+          <button type="button" className={"btn-detail"+(d.interfaces?"":" is-empty")} title="اینترفیس‌ها" onClick={e=>{e.stopPropagation();setTextModal({title:"اینترفیس‌ها — "+d.ip,text:d.interfaces||"(خالی)"})}}>اینترفیس‌ها</button>
+          <button type="button" className={"btn-detail"+(d.ip_addresses?"":" is-empty")} title="آدرس‌های IP" onClick={e=>{e.stopPropagation();setTextModal({title:"آدرس‌های IP — "+d.ip,text:d.ip_addresses||"(خالی)"})}}>آدرس IP</button>
+          <button type="button" className={"btn-detail"+(d.ip_neighbors?"":" is-empty")} title="همسایه‌ها" onClick={e=>{e.stopPropagation();setTextModal({title:"همسایه‌ها — "+d.ip,text:d.ip_neighbors||"(خالی)"})}}>همسایه‌ها</button>
+          <button type="button" className={"btn-detail"+(d.wireless_info?"":" is-empty")} title="وایرلس" onClick={e=>{e.stopPropagation();setTextModal({title:"وایرلس — "+d.ip,text:d.wireless_info||"(خالی)"})}}>وایرلس</button>
+          <button type="button" className={"btn-detail btn-mac"+(d.mac_info?"":" is-empty")} title="MAC آدرس اینترفیس‌ها" onClick={e=>{e.stopPropagation();setTextModal({title:"MAC — "+d.ip,text:d.mac_info||"(خالی — با API بخوانید)"})}}>MAC</button>
+          <button type="button" className={"btn-detail btn-log-inline"+(d.device_log?"":" is-empty")} title="لاگ" onClick={e=>{e.stopPropagation();setTextModal({title:"لاگ — "+d.ip,text:d.device_log||"(خالی — با API بخوانید)"})}}>Log</button>
+        </span>
+      </div></td>}
+      {colOn("device_type")&&<td className="col-device_type">{({AP:"AP",ST:"ST",Router:"Router"}[d.device_type]||d.device_type||"—")}</td>}
+      {colOn("tags")&&<td className="col-tags"><div className="tag-cell"><span className="tag-preview" title={d.tags||""}>{(d.tags||"").trim()?(d.tags.length>24?d.tags.slice(0,24)+"…":d.tags):"—"}</span><button type="button" className="btn-view-text" title="مشاهده / ویرایش تگ" onClick={()=>setTextModal({title:"تگ — "+d.ip,text:d.tags||"",editable:true,field:"tags",ip:d.ip})}>تگ</button></div></td>}
+      {colOn("ping")&&<td className="col-ping">{d.ping_ok?"پاسخ‌گو":"—"}</td>}
+      {colOn("ports")&&<td className="col-ports" dir="ltr">{d.open_ports.length?d.open_ports.join(", "):"—"}</td>}
+      {colOn("classification")&&<td className="col-classification">{{mikrotik_candidate:"دستگاه MikroTik",non_mikrotik:"غیر MikroTik",special:"ویژه"}[d.classification]||d.classification}</td>}
+      {colOn("interfaces")&&<td className="col-interfaces">{(d.interfaces)?<button type="button" className="btn-view-text" onClick={()=>setTextModal({title:"اینترفیس‌ها — "+d.ip,text:d.interfaces})}>اینترفیس‌ها</button>:"—"}</td>}
+      {colOn("ip_addresses")&&<td className="col-ip_addresses">{(d.ip_addresses)?<button type="button" className="btn-view-text" onClick={()=>setTextModal({title:"آدرس‌های IP — "+d.ip,text:d.ip_addresses})}>آدرس‌های IP</button>:"—"}</td>}
+      {colOn("ip_neighbors")&&<td className="col-ip_neighbors">{(d.ip_neighbors)?<button type="button" className="btn-view-text" onClick={()=>setTextModal({title:"همسایه‌ها — "+d.ip,text:d.ip_neighbors})}>همسایه‌ها</button>:"—"}</td>}
+      {colOn("wireless_info")&&<td className="col-wireless_info">{(d.wireless_info)?<button type="button" className="btn-view-text" onClick={()=>setTextModal({title:"وایرلس — "+d.ip,text:d.wireless_info})}>وایرلس</button>:"—"}</td>}
+      {colOn("device_log")&&<td className="col-device_log">{(d.device_log)?<button type="button" className="btn-view-text" onClick={()=>setTextModal({title:"لاگ — "+d.ip,text:d.device_log})}>Log</button>:"—"}</td>}
+      {colOn("mac_info")&&<td className="col-mac_info">{(d.mac_info)?<button type="button" className="btn-view-text" onClick={()=>setTextModal({title:"MAC — "+d.ip,text:d.mac_info})}>MAC</button>:"—"}</td>}
+      {colOn("first_seen")&&<td dir="ltr" className="date-cell col-first_seen">{formatDate(d.first_seen)}</td>}
+      {colOn("last_seen")&&<td dir="ltr" className="date-cell col-last_seen">{formatDate(d.last_seen)}</td>}
+      {colOn("seen_count")&&<td className="col-seen_count">{d.seen_count}</td>}
+      {colOn("winbox")&&<td className="winbox-cell col-winbox">{isMikrotik(d)?<button type="button" className="btn-winbox" onClick={()=>liveRef.current.openWinbox(d.ip)}>▣ Winbox</button>:"—"}</td>}
+    </tr>)}</tbody></table>),[rows,selected,visibleCols,editNameIp,sortBy,sortOrder]);
   return <section className={"panel device-reports"+(isSystem?" system-admin":"")} dir="rtl">
     <div className="report-heading">
       <h2>{isSystem ? "راهبری سیستم" : "مدیریت دستگاه‌های شبکه"}</h2>
@@ -1068,42 +1111,7 @@ function DeviceReports({mode="devices"}={}){
     <div className="table-scroll-top" onScroll={e=>{const b=e.currentTarget.nextElementSibling;if(b)b.scrollLeft=e.currentTarget.scrollLeft}}>
       <div className="table-scroll-top-inner"/>
     </div>
-    <div className="tablewrap" onScroll={e=>{const t=e.currentTarget.previousElementSibling;if(t)t.scrollLeft=e.currentTarget.scrollLeft}}><table><thead><tr>
-      {colOn("select")&&<th><input type="checkbox" checked={rows.length>0&&rows.every(d=>selected[d.ip])} onChange={toggleSelectAll} title="انتخاب همه"/></th>}
-      {ALL_COLS.filter(c=>c.id!=="select"&&colOn(c.id)).map(c=><th key={c.id} className={(sortMap[c.id]?"sortable-th ":"")+"col-"+c.id} onClick={()=>sortMap[c.id]&&handleSort(sortMap[c.id])}>{sortMap[c.id]&&<span className="sort-icon">{sortIcon(sortMap[c.id])}</span>}{c.label}</th>)}
-    </tr></thead><tbody>{rows.map(d=><tr key={d.ip} className={selected[d.ip]?"row-selected":undefined}>
-      {colOn("select")&&<td><input type="checkbox" checked={!!selected[d.ip]} onChange={()=>toggleSelect(d.ip)}/></td>}
-      {colOn("ip")&&<td className="col-ip" dir="ltr">{d.ip}</td>}
-      {colOn("device_name")&&<td className="col-device_name"><div className="name-cell">
-        {editNameIp===d.ip
-          ? <span className="inline-edit"><input value={editNameVal} onChange={e=>setEditNameVal(e.target.value)} dir="ltr"/><button type="button" onClick={()=>saveName(d.ip)}>✓</button><button type="button" onClick={()=>setEditNameIp(null)}>✕</button></span>
-          : <span className="editable name-preview" onClick={()=>{setEditNameIp(d.ip);setEditNameVal(d.device_name||"")}} title="MikroTik /system identity — کلیک برای ویرایش">{d.device_name||"—"}</span>}
-        <span className="name-actions">
-          {isMikrotik(d)&&<button type="button" className="btn-winbox btn-winbox-inline" title={"باز کردن Winbox — "+d.ip} onClick={e=>{e.stopPropagation();openWinbox(d.ip)}}>▣ Winbox</button>}
-          <button type="button" className={"btn-detail"+(d.interfaces?"":" is-empty")} title="اینترفیس‌ها" onClick={e=>{e.stopPropagation();setTextModal({title:"اینترفیس‌ها — "+d.ip,text:d.interfaces||"(خالی)"})}}>اینترفیس‌ها</button>
-          <button type="button" className={"btn-detail"+(d.ip_addresses?"":" is-empty")} title="آدرس‌های IP" onClick={e=>{e.stopPropagation();setTextModal({title:"آدرس‌های IP — "+d.ip,text:d.ip_addresses||"(خالی)"})}}>آدرس IP</button>
-          <button type="button" className={"btn-detail"+(d.ip_neighbors?"":" is-empty")} title="همسایه‌ها" onClick={e=>{e.stopPropagation();setTextModal({title:"همسایه‌ها — "+d.ip,text:d.ip_neighbors||"(خالی)"})}}>همسایه‌ها</button>
-          <button type="button" className={"btn-detail"+(d.wireless_info?"":" is-empty")} title="وایرلس" onClick={e=>{e.stopPropagation();setTextModal({title:"وایرلس — "+d.ip,text:d.wireless_info||"(خالی)"})}}>وایرلس</button>
-          <button type="button" className={"btn-detail btn-mac"+(d.mac_info?"":" is-empty")} title="MAC آدرس اینترفیس‌ها" onClick={e=>{e.stopPropagation();setTextModal({title:"MAC — "+d.ip,text:d.mac_info||"(خالی — با API بخوانید)"})}}>MAC</button>
-          <button type="button" className={"btn-detail btn-log-inline"+(d.device_log?"":" is-empty")} title="لاگ" onClick={e=>{e.stopPropagation();setTextModal({title:"لاگ — "+d.ip,text:d.device_log||"(خالی — با API بخوانید)"})}}>Log</button>
-        </span>
-      </div></td>}
-      {colOn("device_type")&&<td className="col-device_type">{({AP:"AP",ST:"ST",Router:"Router"}[d.device_type]||d.device_type||"—")}</td>}
-      {colOn("tags")&&<td className="col-tags"><div className="tag-cell"><span className="tag-preview" title={d.tags||""}>{(d.tags||"").trim()?(d.tags.length>24?d.tags.slice(0,24)+"…":d.tags):"—"}</span><button type="button" className="btn-view-text" title="مشاهده / ویرایش تگ" onClick={()=>setTextModal({title:"تگ — "+d.ip,text:d.tags||"",editable:true,field:"tags",ip:d.ip})}>تگ</button></div></td>}
-      {colOn("ping")&&<td className="col-ping">{d.ping_ok?"پاسخ‌گو":"—"}</td>}
-      {colOn("ports")&&<td className="col-ports" dir="ltr">{d.open_ports.length?d.open_ports.join(", "):"—"}</td>}
-      {colOn("classification")&&<td className="col-classification">{{mikrotik_candidate:"دستگاه MikroTik",non_mikrotik:"غیر MikroTik",special:"ویژه"}[d.classification]||d.classification}</td>}
-      {colOn("interfaces")&&<td className="col-interfaces">{(d.interfaces)?<button type="button" className="btn-view-text" onClick={()=>setTextModal({title:"اینترفیس‌ها — "+d.ip,text:d.interfaces})}>اینترفیس‌ها</button>:"—"}</td>}
-      {colOn("ip_addresses")&&<td className="col-ip_addresses">{(d.ip_addresses)?<button type="button" className="btn-view-text" onClick={()=>setTextModal({title:"آدرس‌های IP — "+d.ip,text:d.ip_addresses})}>آدرس‌های IP</button>:"—"}</td>}
-      {colOn("ip_neighbors")&&<td className="col-ip_neighbors">{(d.ip_neighbors)?<button type="button" className="btn-view-text" onClick={()=>setTextModal({title:"همسایه‌ها — "+d.ip,text:d.ip_neighbors})}>همسایه‌ها</button>:"—"}</td>}
-      {colOn("wireless_info")&&<td className="col-wireless_info">{(d.wireless_info)?<button type="button" className="btn-view-text" onClick={()=>setTextModal({title:"وایرلس — "+d.ip,text:d.wireless_info})}>وایرلس</button>:"—"}</td>}
-      {colOn("device_log")&&<td className="col-device_log">{(d.device_log)?<button type="button" className="btn-view-text" onClick={()=>setTextModal({title:"لاگ — "+d.ip,text:d.device_log})}>Log</button>:"—"}</td>}
-      {colOn("mac_info")&&<td className="col-mac_info">{(d.mac_info)?<button type="button" className="btn-view-text" onClick={()=>setTextModal({title:"MAC — "+d.ip,text:d.mac_info})}>MAC</button>:"—"}</td>}
-      {colOn("first_seen")&&<td dir="ltr" className="date-cell col-first_seen">{formatDate(d.first_seen)}</td>}
-      {colOn("last_seen")&&<td dir="ltr" className="date-cell col-last_seen">{formatDate(d.last_seen)}</td>}
-      {colOn("seen_count")&&<td className="col-seen_count">{d.seen_count}</td>}
-      {colOn("winbox")&&<td className="winbox-cell col-winbox">{isMikrotik(d)?<button type="button" className="btn-winbox" onClick={()=>openWinbox(d.ip)}>▣ Winbox</button>:"—"}</td>}
-    </tr>)}</tbody></table>{!rows.length&&!error&&<p>دستگاهی نیست.</p>}</div>
+    <div className="tablewrap" onScroll={e=>{const t=e.currentTarget.previousElementSibling;if(t)t.scrollLeft=e.currentTarget.scrollLeft}}>{tableEl}{!rows.length&&!error&&<p>دستگاهی نیست.</p>}</div>
     {paginationBar}
   
     </>
@@ -1302,6 +1310,10 @@ function EmailServerCard(){
   );
 }
 
+// Task 35 (سرعت UI): نسخه‌های memo شدهٔ کارت‌های سنگین — تغییر state در MainApp (مثلاً استعلام وضعیت اسکن هر ۱.۲ ثانیه)
+// دیگر این کامپوننت‌ها را دوباره رندر نمی‌کند؛ چون props آن‌ها (mode/مقدارهای ثابت) بین رندرها یکسان است.
+const DeviceReportsM=React.memo(DeviceReports),EmailServerCardM=React.memo(EmailServerCard),SmartReportsM=React.memo(SmartReports),KartableM=React.memo(Kartable),VpnManagerCardM=React.memo(VpnManagerCard),BackendCardM=React.memo(BackendCard);
+
 function App(){
 const[authState,setAuthState]=useState("checking");const[authUser,setAuthUser]=useState("");
 useEffect(()=>{let active=true;fetch(API+"/api/auth/check").then(async r=>{if(!active)return;if(r.ok){try{const d=await r.json();setAuthUser(d.username||"")}catch(e){}setAuthState("in")}else setAuthState("out")}).catch(()=>{active&&setAuthState("out")});return()=>{active=false}},[]);
@@ -1319,6 +1331,7 @@ return <MainApp authUser={authUser} onLogout={doLogout}/>;
 
 function MainApp({authUser,onLogout}){
 const[mainTab,setMainTab]=useState("network");const[targets,setTargets]=useState("");const[ports,setPorts]=useState("22,80,443,8291,8728");const[workers,setWorkers]=useState(32),[ping,setPing]=useState(1000),[timeout,setTimeoutValue]=useState(1);const[job,setJob]=useState(null),[busy,setBusy]=useState(false),[error,setError]=useState("");const[resClass,setResClass]=useState(""),[resQ,setResQ]=useState(""),[resPageSize,setResPageSize]=useState(50),[resPage,setResPage]=useState(1);const[xferDb,setXferDb]=useState("default"),[dbOptions,setDbOptions]=useState([{name:"default"}]),[xferBusy,setXferBusy]=useState(false);
+const onRoutesCb=useCallback(list=>setTargets(t=>(t?t+"\n":"")+list.join("\n")),[]);// Task 35: مرجع پایدار برای memo شدن VpnManagerCard
 useEffect(()=>{fetch(API+"/api/databases").then(r=>readJson(r)).then(d=>{if(d&&d.databases){setDbOptions(d.databases);setXferDb(d.active||"default")}}).catch(()=>{})},[job?.status]);
 async function transferScan(){if(!job?.scan_id)return;setXferBusy(true);setError("");try{const r=await fetch(`${API}/scans/${job.scan_id}/transfer`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({database:xferDb})});const d=await readJson(r);setError("");alert("به دیتابیس «"+d.database+"» منتقل شد: "+d.upserted+" دستگاه")}catch(e){setError(e.message)}setXferBusy(false)}
 async function start(){setError("");setBusy(true);try{const res=await fetch(API+"/scans",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({targets,ports:ports.split(",").map(x=>Number(x.trim())),workers:Number(workers),ping_timeout_ms:Number(ping),port_timeout:Number(timeout)})});const data=await readJson(res);setJob({...data,progress:{completed:0,total:data.total_targets,ping_responders:0},records:[],summary:{}})}catch(e){setError(e.message);setBusy(false)}}
@@ -1374,34 +1387,34 @@ return (
 </div>
 {mainTab==="network"&&(
   <div className="tab-panel" dir="rtl">
-    <VpnManagerCard onNotify={setError} onRoutes={list=>setTargets(t=>(t?t+"\n":"")+list.join("\n"))}/>
+    <VpnManagerCardM onNotify={setError} onRoutes={onRoutesCb}/>
   </div>
 )}
 {mainTab==="devices"&&(
   <div className="tab-panel" dir="rtl">
-    <DeviceReports mode="devices"/>
+    <DeviceReportsM mode="devices"/>
   </div>
 )}
 {mainTab==="system"&&(
   <div className="tab-panel" dir="rtl">
-    <BackendCard onNotify={setError}/>
-    <DeviceReports mode="system"/>
+    <BackendCardM onNotify={setError}/>
+    <DeviceReportsM mode="system"/>
   </div>
 )}
 {mainTab==="email"&&(
   <div className="tab-panel" dir="rtl">
-    <EmailServerCard/>
+    <EmailServerCardM/>
   </div>
 )}
 {mainTab==="smart_reports"&&(
   <div className="tab-panel" dir="rtl">
-    <SmartReports/>
+    <SmartReportsM/>
   </div>
 )}
 
 {mainTab==="kartable"&&(
   <div className="tab-panel" dir="rtl">
-    <Kartable/>
+    <KartableM/>
   </div>
 )}
 
@@ -1911,6 +1924,7 @@ function Kartable(){
 function DevicePickerModal({database,initialSelected,onConfirm,onClose}){
   const[rows,setRows]=useState(null),[loadErr,setLoadErr]=useState("");
   const[search,setSearch]=useState(""),[mikOnly,setMikOnly]=useState(true),[pingOnly,setPingOnly]=useState(false);
+  const deferredSearch=useDeferredValue(search);// Task 35: فیلتر/رندر لیست با مقدار به‌تأخیرافتاده — تایپ در جعبهٔ جستجو لگ نمی‌زند
   const[draft,setDraft]=useState(()=>new Set(initialSelected||[]));
   useEffect(()=>{let alive=true;(async()=>{
     try{const r=await fetch(API+"/devices?database="+encodeURIComponent(database||"")+"&limit=100000&sort=ip&order=asc");
@@ -1923,7 +1937,7 @@ function DevicePickerModal({database,initialSelected,onConfirm,onClose}){
   const filtered=(rows||[]).filter(d=>{
     if(mikOnly&&!isMik(d))return false;
     if(pingOnly&&!d.ping_ok)return false;
-    const s=(search||"").trim().toLowerCase();
+    const s=(deferredSearch||"").trim().toLowerCase();
     if(!s)return true;
     return [d.ip,d.device_name,d.tags,d.device_type,d.classification].some(v=>(v==null?"":String(v)).toLowerCase().includes(s));
   });
