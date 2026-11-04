@@ -563,6 +563,11 @@ def wireless_antenna_report(devices, days_back=5, now=None):
             if key in seen:
                 continue
             seen.add(key)
+            # Task 43: نام دستگاهِ مالکِ MAC (تطبیق‌شده از فیلدهای اینونتوری) به
+            # انتهای متن رویداد اضافه می‌شود تا در ستون «رویداد» هم معلوم باشد.
+            owner = (str(resolved.get("matched_device_name") or "").strip()
+                     or str(resolved.get("matched_device_ip") or "").strip())
+            event_text = f"{message} — دستگاه متعلق به MAC: {owner}" if owner else message
             events.append({
                 "datetime": when.isoformat(sep=" "),
                 "datetime_jalali": jalali_datetime_string(when),
@@ -571,7 +576,7 @@ def wireless_antenna_report(devices, days_back=5, now=None):
                 "station_mac": station_mac,
                 "matched_device_ip": resolved.get("matched_device_ip", ""),
                 "matched_device_name": resolved.get("matched_device_name", ""),
-                "event": message,
+                "event": event_text,
                 "raw_line": line.strip(),
             })
     events.sort(key=lambda item: (item["datetime"], item["antenna_ip"], item["station_mac"]), reverse=True)
