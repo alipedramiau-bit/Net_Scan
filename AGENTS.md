@@ -22,6 +22,7 @@
 | `backend/db.py` | لایه دیتابیس: کاتالوگ، جدول devices، خروجی‌ها، backup، enrich از ip_info |
 | `backend/kartable.py` | کارتابل اداری: دیتابیس مستقل `databases/kartable.db` (آیتم‌ها/اطلاعیه‌ها/رویدادها) + بذر نمونه هر بخش |
 | `backend/routeros_api.py` | خواندن مستقیم از RouterOS API (probe موازی، collect، push-config) |
+| `backend/backup_rsc.py` | پشتیبان‌گیری کانفیگ rsc با RouterOS API (/export) در پوشهٔ backup/ + پیشرفت/لغو |
 | `backend/route_topology.py` | توپولوژی مسیر: خواندن ساختاریافته API + گراف لینک‌ها + BFS تا روتر مرکزی |
 | `backend/cisco_config.py` | پارس کانفیگ متنی روتر مرکزی سیسکو (اینترفیس‌ها/آدرس‌ها/روت استاتیک) برای گزارش مسیر |
 | `backend/route_pdf.py` | تولید PDF «Detailed Router Path Topology» (یک صفحه به ازای هر دستگاه) |
@@ -80,7 +81,7 @@ cd frontend && npm install && npm run build
 5. پیام کامیت: قالب `type(scope): خلاصه انگلیسی` (مثل `feat(devices): ...`، `fix(api): ...`).
 6. قبل از کامیت: تست‌ها سبز باشند؛ `git status` را برای فایل‌های ناخواسته چک کنید.
 
-## ۵) نقشه قابلیت‌ها (تا Task 33)
+## ۵) نقشه قابلیت‌ها (تا Task 34)
 
 - **اسکن شبکه:** `POST /scans/start` (قابل لغو با `/scans/{id}/cancel`)، ورودی IP/CIDR/بازه،
   پورت‌های 8291 و 8728 همیشه اضافه می‌شوند.
@@ -395,6 +396,25 @@ cd frontend && npm install && npm run build
   تست: `tests/test_route_dedupe.py` (۱۲ تست با db جایگزین‌شده) + `scripts/test_route_dedupe_e2e.py`
   (۱۴ بررسی روی اپ واقعی با دیتابیس موقت: دو ردیف هم‌نام → ۲ صفحه PDF، هدر و پیام، fallback
   اینونتوری، حالت بدون تکراری).
+- **جعبهٔ جستجوی مرکزچین بزرگ + پشتیبان‌گیری rsc (Task 34):** درخواست «جعبه جستجو جاش مناسب نیست؛
+  بالای اسکرول در مرکز صفحه جای کادر سبز بزارش و بزرگترش کن» + «فولدر backup در مسیر برنامه بساز که
+  با دکمهٔ backup از طریق api و ورود یوزر/پسورد بک‌آپ دستگاههای میکروتیک با پسوند rsc بگیرد با نام
+  ای دی دستگاهها و ای پی دستگاه». فرانت‌اند: جستجو از ردیف فیلترها حذف و به‌صورت `div.main-search-bar`
+  مرکزچین بین «لغو انتخاب» و نوار اسکرول بالای جدول نشست (همان جای کادر سبز اسکرین‌شات)؛ input بزرگ‌تر
+  (font-size 15.5، padding 12px، flex-basis 640px، حاشیهٔ آبی و focus ring) + آیکن 🔍 + منوی محدودهٔ
+  جستجو (همان ۱۲ گزینه) + ✕ پاک‌کردن؛ debounce 350ms و Enter قبلی حفظ شد. دکمهٔ «پشتیبان‌گیری rsc (N)»
+  (کهربایی `btn-backup-rsc`) + «توقف پشتیبان» در نوار API کنار «خواندن با API» — از همان
+  کاربر/رمز API نوار استفاده می‌کند و روی دستگاه‌های انتخابی (`selectedMikrotikWithApi`) اجرا می‌شود؛
+  نمودار پیشرفت زندهٔ موجود برای پشتیبان‌گیری هم به‌کار رفت (`pp = backupBusy?backupProg:probeProg`).
+  بک‌اند: ماژول `backend/backup_rsc.py` — پوشهٔ `backup/` در ریشهٔ برنامه (ساخته‌شدن در ایمپورت)،
+  اتصال با `RouterOSClient` پروژه (8728)، `/export` (پارس `=ret=` تک‌تکه یا چند `!re`)، ذخیرهٔ utf-8 با نام
+  «نام‌دستگاه_آی‌پی.rsc» (بی‌نام: `device-<id>`؛ پاک‌سازی کاراکترهای غیرمجاز؛ یکتا بر اساس IP)؛
+  `backup_devices` موازی با پیشرفت/لغو مشارکتی؛ endpointها: `POST /api/devices/backup-rsc`
+  (ips + username/password + port/timeout/max_workers؛ خروجی: نتیجهٔ هر دستگاه + folder)،
+  `GET /api/devices/backup-rsc/progress`، `POST .../cancel`، `GET .../files` (فهرست rscها)؛
+  `backup/` در `.gitignore` است (دادهٔ کاربر). تست: `tests/test_backup_rsc.py` (۱۴ تست: نام فایل،
+  پارس export، ذخیره/پیشرفت/لغو، endpointها با client لاگین‌شده) + `scripts/test_backup_button.py`
+  (۱۷ بررسی باندل/CSS/endpoint/پوشه)؛ dist بازسازی شد (index-kzqRIENY.js / index-LLasaM87.css).
 - **سایر:** گزارش‌های هوشمند، Winbox tools، مدیریت VPN، ایمیل/اطلاع‌رسانی.
 
 ## ۶) نکات دام‌دار (Gotchas)

@@ -269,6 +269,7 @@ function DeviceReports({mode="devices"}={}){
   const ALL_COLS=[{id:"select",label:"انتخاب",always:true},{id:"ip",label:"IP",always:true},{id:"device_name",label:"نام دستگاه (identity)",always:true},{id:"device_type",label:"نوع دستگاه"},{id:"tags",label:"تگ"},{id:"ping",label:"پینگ"},{id:"ports",label:"پورت‌های باز"},{id:"classification",label:"دسته‌بندی"},{id:"interfaces",label:"اینترفیس‌ها"},{id:"ip_addresses",label:"آدرس‌های IP"},{id:"ip_neighbors",label:"همسایه‌ها"},{id:"wireless_info",label:"وایرلس"},{id:"device_log",label:"لاگ"},{id:"mac_info",label:"MAC"},{id:"first_seen",label:"اولین مشاهده"},{id:"last_seen",label:"آخرین مشاهده"},{id:"seen_count",label:"تعداد مشاهده"},{id:"winbox",label:"Winbox (ستون جدا)"}];
   const defaultVisible=()=>{try{const s=JSON.parse(localStorage.getItem("device_cols")||"null");if(Array.isArray(s)&&s.length)return s}catch(e){}const hide=["interfaces","ip_addresses","ip_neighbors","wireless_info","device_log","mac_info","winbox"];return ALL_COLS.map(c=>c.id).filter(id=>!hide.includes(id))};
   const[rows,setRows]=useState([]),[total,setTotal]=useState(0),[classification,setClassification]=useState("mikrotik_candidate"),[deviceTypeFilter,setDeviceTypeFilter]=useState(""),[port,setPort]=useState(""),[q,setQ]=useState(""),[qInput,setQInput]=useState(""),[qField,setQField]=useState(""),[offset,setOffset]=useState(0),[pageSize,setPageSize]=useState(50),[error,setError]=useState(""),[msg,setMsg]=useState("");const[textModal,setTextModal]=useState(null);const[probeProg,setProbeProg]=useState({total:0,done:0,percent:0,current_ip:"",running:false});
+  const[backupBusy,setBackupBusy]=useState(false),[backupProg,setBackupProg]=useState({total:0,done:0,percent:0,current_ip:"",running:false});const backupAbortRef={current:null};
   const[sortBy,setSortBy]=useState("ip"),[sortOrder,setSortOrder]=useState("asc"),[newOnly,setNewOnly]=useState(false),[showAddModal,setShowAddModal]=useState(false),[newIp,setNewIp]=useState(""),[newPorts,setNewPorts]=useState("");
   const[winboxItems,setWinboxItems]=useState([]),[winboxPath,setWinboxPath]=useState(""),[winboxName,setWinboxName]=useState(""),[showWinboxCfg,setShowWinboxCfg]=useState(false),[busyAction,setBusyAction]=useState(false),[toolsDir,setToolsDir]=useState("");
   const[visibleCols,setVisibleCols]=useState(defaultVisible),[showColCfg,setShowColCfg]=useState(false);
@@ -462,6 +463,34 @@ function DeviceReports({mode="devices"}={}){
   async function probeSnmp(ips){if(!ips.length){setError("دستگاهی انتخاب نشده");return}if(probeAbortRef.current){try{probeAbortRef.current.abort()}catch(e){}}const ac=new AbortController();probeAbortRef.current=ac;setSnmpBusy(true);setError("");setProbeProg({total:ips.length,done:0,percent:0,current_ip:"",running:true});setMsg("در حال خواندن اطلاعات دستگاه‌ها از SNMP…");const progTimer=setInterval(async()=>{try{const pr=await fetch(API+"/api/snmp/probe/progress");const pd=await pr.json();setProbeProg(pd)}catch(e){}},500);try{const r=await fetch(API+"/api/snmp/probe",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({ips,profile_id:snmpId||undefined,save_names:true,api_username:groupUser||undefined,api_password:groupPass||undefined,api_port:8728}),signal:ac.signal});const d=await r.json();if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:"SNMP ناموفق");const ok=(d.results||[]).filter(x=>x.ok).length;const canceled=d.canceled?` (متوقف شد پس از ${d.probed||ok} دستگاه)`:"";setMsg(`اطلاعات ${ok} از ${ips.length} دستگاه خوانده شد${canceled} و در دیتابیس «${d.database||activeDb}» + پوشه ip_info ذخیره شد (${d.saved||0})`);reloadRows()}catch(e){if(e.name==="AbortError"){setMsg("خواندن اطلاعات متوقف شد.");reloadRows()}else setError(e.message)}finally{clearInterval(progTimer);probeAbortRef.current=null;setSnmpBusy(false);setProbeProg(p=>({...p,running:false}))}}
   async function stopProbe(){try{await fetch(API+"/api/snmp/probe/cancel",{method:"POST"});if(probeAbortRef.current)probeAbortRef.current.abort()}catch(e){}setMsg("درخواست توقف ارسال شد…")}
   async function stopApiProbe(){try{await fetch(API+"/api/devices/probe-api/cancel",{method:"POST"});if(apiAbortRef.current)apiAbortRef.current.abort()}catch(e){}setMsg("درخواست توقف API ارسال شد…")}
+  async function backupRsc(ips){
+    if(!ips.length){setError("دستگاهی انتخاب نشده — ابتدا دستگاه‌های میکروتیک را تیک بزنید");return}
+    if(!(apiUser||"").trim()){setError("نام کاربری API لازم است");return}
+    if(backupAbortRef.current){try{backupAbortRef.current.abort()}catch(e){}}
+    const ac=new AbortController();backupAbortRef.current=ac;
+    setBackupBusy(true);setError("");
+    setBackupProg({total:ips.length,done:0,percent:0,current_ip:"",running:true});
+    setMsg("در حال گرفتن پشتیبان rsc از "+ips.length+" دستگاه (RouterOS API /export)… فایل‌ها در پوشهٔ backup/ کنار برنامه ذخیره می‌شوند.");
+    const progTimer=setInterval(async()=>{try{const pr=await fetch(API+"/api/devices/backup-rsc/progress");const pd=await pr.json();setBackupProg(pd)}catch(e){}},500);
+    try{
+      const r=await fetch(API+"/api/devices/backup-rsc",{method:"POST",headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({ips,username:apiUser.trim(),password:apiPass||"",port:8728}),signal:ac.signal});
+      const d=await r.json();
+      if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:"پشتیبان‌گیری ناموفق");
+      const results=d.results||[],okN=d.ok||0,fails=results.filter(x=>!x.ok);
+      const files=results.filter(x=>x.ok).map(x=>x.file);
+      const canceled=d.canceled?" (متوقف شد)":"";
+      setMsg(`پشتیبان‌گیری rsc${canceled}: ${okN.toLocaleString("fa-IR")} از ${results.length.toLocaleString("fa-IR")} موفق — ذخیره در پوشهٔ backup/ — نمونه: ${files.slice(0,3).join(" ، ")||(files.length?"":"—")}${files.length>3?` و ${ (files.length-3).toLocaleString("fa-IR")} فایل دیگر`:""}`);
+      if(fails.length)setError(fails.length.toLocaleString("fa-IR")+" دستگاه ناموفق بود: "+fails.slice(0,3).map(x=>x.ip+" — "+(x.error||"خطا")).join(" | ")+(fails.length>3?" …":""));
+    }catch(e){
+      if(e.name==="AbortError")setMsg("پشتیبان‌گیری متوقف شد؛ دستگاه‌های گرفته‌شده در پوشهٔ backup/ باقی می‌مانند.");
+      else setError(e.message||"پشتیبان‌گیری ناموفق");
+    }finally{
+      clearInterval(progTimer);backupAbortRef.current=null;setBackupBusy(false);
+      setBackupProg(p=>({...p,running:false}));
+    }
+  }
+  async function stopBackupRsc(){try{await fetch(API+"/api/devices/backup-rsc/cancel",{method:"POST"});if(backupAbortRef.current)backupAbortRef.current.abort()}catch(e){}setMsg("درخواست توقف پشتیبان‌گیری ارسال شد؛ پس از پایان دستگاه جاری متوقف می‌شود…")}
   async function probeApi(ips){
     if(!ips.length){setError("دستگاهی انتخاب نشده");return}
     if(!(apiUser||"").trim()){setError("نام کاربری API لازم است");return}
@@ -742,7 +771,7 @@ function DeviceReports({mode="devices"}={}){
   const sortMap={ip:"ip",device_name:"device_name",device_type:"device_type",tags:"tags",ping:"ping",ports:"ports",classification:"classification",first_seen:"first_seen",last_seen:"last_seen",seen_count:"seen_count"};
   const isSystem = mode === "system";
   // live breakdown for the probe progress chart (API probe reports ok/failed; SNMP may not)
-  const pp=probeProg,ppOk=(typeof pp.ok==="number")?pp.ok:null,ppFail=(typeof pp.failed==="number")?pp.failed:null,ppTot=pp.total||0;
+  const pp=backupBusy?backupProg:probeProg,ppOk=(typeof pp.ok==="number")?pp.ok:null,ppFail=(typeof pp.failed==="number")?pp.failed:null,ppTot=pp.total||0;
   const ppOkPct=ppTot?Math.round(100*(ppOk||0)/ppTot):0;
   const ppFailPct=ppTot?Math.max(0,Math.min(100-ppOkPct,Math.round(100*(ppFail||0)/ppTot))):0;
   return <section className={"panel device-reports"+(isSystem?" system-admin":"")} dir="rtl">
@@ -911,6 +940,15 @@ function DeviceReports({mode="devices"}={}){
         توقف API
       </button>
       <span className="probe-bar-sep"/>
+      <button type="button" className="btn-action btn-backup-rsc" disabled={backupBusy||apiBusy||snmpBusy||!selectedIps.length||!(apiUser||"").trim()}
+        onClick={()=>backupRsc(selectedMikrotikWithApi())}
+        title="پشتیبان‌گیری کانفیگ دستگاه‌های انتخابی از طریق RouterOS API (/export) و ذخیره با پسوند .rsc در پوشهٔ backup/ کنار برنامه — نام فایل: نام‌دستگاه_آی‌پی.rsc (دستگاه بی‌نام از ای‌دی دیتابیس)">
+        {backupBusy?"در حال پشتیبان‌گیری…":`پشتیبان‌گیری rsc (${selectedIps.length})`}
+      </button>
+      <button type="button" className="btn-action btn-stop-probe" disabled={!backupBusy} onClick={stopBackupRsc}>
+        توقف پشتیبان
+      </button>
+      <span className="probe-bar-sep"/>
       <button type="button" className="btn-action btn-probe btn-probe-main" disabled={snmpBusy||apiBusy||!selectedIps.length} onClick={()=>probeSnmp(selectedIps)}>
         {snmpBusy?"در حال خواندن SNMP…":`خواندن SNMP (${selectedIps.length})`}
       </button>
@@ -920,13 +958,13 @@ function DeviceReports({mode="devices"}={}){
       <span className="muted" style={{fontSize:".85em",width:"100%"}}>
         <b>خواندن با API</b> برای تشخیص دقیق نوع دستگاه (مثلاً station bridge → ST) ضروری است — یوزر و رمز RouterOS را وارد کنید.
       </span>
-      {(snmpBusy||apiBusy||csvReading)&&<div className="probe-progress" style={{width:"100%",marginTop:8}}>
+      {(snmpBusy||apiBusy||csvReading||backupBusy)&&<div className="probe-progress" style={{width:"100%",marginTop:8}}>
         <div className="probe-progress-head">
-          <b>{apiBusy?"نمودار پیشرفت خواندن با RouterOS API":(csvReading?"نمودار پیشرفت خواندن اطلاعات برای خروجی CSV":"نمودار پیشرفت خواندن SNMP")}</b>
-          {probeProg.current_ip?<span className="muted">هدف فعلی: <bdi dir="ltr">{probeProg.current_ip}</bdi></span>:null}
+          <b>{backupBusy?"نمودار پیشرفت پشتیبان‌گیری rsc (پوشهٔ backup/)":apiBusy?"نمودار پیشرفت خواندن با RouterOS API":(csvReading?"نمودار پیشرفت خواندن اطلاعات برای خروجی CSV":"نمودار پیشرفت خواندن SNMP")}</b>
+          {pp.current_ip?<span className="muted">هدف فعلی: <bdi dir="ltr">{pp.current_ip}</bdi></span>:null}
         </div>
-        <div className="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow={probeProg.percent||0}>
-          {((apiBusy||csvReading)&&ppOk!=null)
+        <div className="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow={pp.percent||0}>
+          {((apiBusy||csvReading||backupBusy)&&ppOk!=null)
             ? <><div className="progress-seg ok" style={{width:ppOkPct+"%"}}/><div className="progress-seg fail" style={{width:ppFailPct+"%"}}/></>
             : <div className="progress-fill" style={{width:(probeProg.percent||0)+"%"}}/>}
         </div>
@@ -995,31 +1033,6 @@ function DeviceReports({mode="devices"}={}){
         <option value="80">80 HTTP</option>
         <option value="443">443 HTTPS</option>
       </select></label>
-      <label className="filter-search">جست‌وجو در فیلدها
-        <span style={{display:"flex",gap:6,alignItems:"stretch",width:"100%"}}>
-          <select value={qField} onChange={e=>{setQField(e.target.value);setOffset(0)}}
-            style={{width:"auto",minWidth:"9.5em",flex:"0 0 auto",padding:"8px",border:"1px solid #cbd5e1",borderRadius:7,background:"white",font:"inherit"}}
-            title="محدوده جستجو — با انتخاب یک فیلد خاص، جستجو سریع‌تر انجام می‌شود">
-            <option value="">همه فیلدها</option>
-            <option value="ip">فقط IP</option>
-            <option value="device_name">نام دستگاه</option>
-            <option value="tags">تگ</option>
-            <option value="device_type">نوع دستگاه</option>
-            <option value="classification">دسته‌بندی</option>
-            <option value="interfaces">اینترفیس‌ها</option>
-            <option value="ip_addresses">آدرس‌های IP</option>
-            <option value="ip_neighbors">همسایه‌ها</option>
-            <option value="wireless_info">وایرلس</option>
-            <option value="mac_info">MAC</option>
-            <option value="device_log">لاگ دستگاه</option>
-          </select>
-          <input dir="ltr" value={qInput} onChange={e=>setQInput(e.target.value)}
-            onKeyDown={e=>{if(e.key==="Enter"){clearTimeout(searchTimerRef.current);setQ(qInput);setOffset(0)}}}
-            placeholder="واژه‌ها را با فاصله جدا کنید…"
-            title="جستجوی هم‌زمان چند واژه (ترکیب AND)؛ انتخاب فیلد از منوی کناری، جستجو را سریع‌تر می‌کند"/>
-        </span>
-      </label>
-      {(q||qInput)&&<button type="button" className="btn-clear-search" title="پاک کردن جستجو" onClick={()=>{setQInput("");setQ("");setOffset(0)}}>✕</button>}
     </div>
     {paginationBar}
     {error&&<p className="error">{error}</p>}{msg&&<p className="backend-msg ok">{msg}</p>}
@@ -1028,6 +1041,29 @@ function DeviceReports({mode="devices"}={}){
         لغو انتخاب{selectedIps.length?` (${selectedIps.length})`:""}
       </button>
       <span className="muted" style={{fontSize:".85em"}}>{selectedIps.length?`${selectedIps.length} دستگاه انتخاب شده`:"هیچ دستگاهی انتخاب نشده"}</span>
+    </div>
+    <div className="main-search-bar">
+      <span className="main-search-ico" aria-hidden="true">🔍</span>
+      <input dir="ltr" className="main-search-input" value={qInput} onChange={e=>setQInput(e.target.value)}
+        onKeyDown={e=>{if(e.key==="Enter"){clearTimeout(searchTimerRef.current);setQ(qInput);setOffset(0)}}}
+        placeholder="جستجو در IP، نام دستگاه، تگ، اینترفیس‌ها، همسایه‌ها، وایرلس، MAC و لاگ… (واژه‌ها را با فاصله جدا کنید)"
+        title="جستجوی هم‌زمان چند واژه (ترکیب AND) — اینتر برای اعمال فوری؛ به‌صورت خودکار ۳۵۰ms پس از تایپ اعمال می‌شود"/>
+      <select value={qField} onChange={e=>{setQField(e.target.value);setOffset(0)}} className="main-search-field"
+        title="محدوده جستجو — با انتخاب یک فیلد خاص، جستجو سریع‌تر انجام می‌شود">
+        <option value="">همه فیلدها</option>
+        <option value="ip">فقط IP</option>
+        <option value="device_name">نام دستگاه</option>
+        <option value="tags">تگ</option>
+        <option value="device_type">نوع دستگاه</option>
+        <option value="classification">دسته‌بندی</option>
+        <option value="interfaces">اینترفیس‌ها</option>
+        <option value="ip_addresses">آدرس‌های IP</option>
+        <option value="ip_neighbors">همسایه‌ها</option>
+        <option value="wireless_info">وایرلس</option>
+        <option value="mac_info">MAC</option>
+        <option value="device_log">لاگ دستگاه</option>
+      </select>
+      {(q||qInput)&&<button type="button" className="btn-clear-search" title="پاک کردن جستجو" onClick={()=>{setQInput("");setQ("");setOffset(0)}}>✕</button>}
     </div>
     <div className="table-scroll-top" onScroll={e=>{const b=e.currentTarget.nextElementSibling;if(b)b.scrollLeft=e.currentTarget.scrollLeft}}>
       <div className="table-scroll-top-inner"/>

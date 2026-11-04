@@ -631,3 +631,27 @@ Work Log:
 
 Stage Summary:
 - دکمهٔ «ایجاد گزارش مسیر (PDF)» دیگر برای یک دستگاه چند گزارش تولید نمی‌کند: هر دستگاه (با هر کدام از IPهایش) فقط یک صفحهٔ PDF می‌گیرد؛ یکتایی با نام دستگاه و ای‌دی ردیف دیتابیس (به‌علاوهٔ IP قبلی) سنجیده می‌شود و برای ردیف‌های بی‌نام از identity اینونتوری استفاده می‌شود؛ شمار ردیف‌های تکراریِ حذف‌شده در پیام شروع، پیشرفت و هدر PDF گزارش می‌شود
+
+---
+Task ID: 34
+Agent: main (Z.ai)
+Task: جعبهٔ جستجوی بزرگ مرکزچین بالای جدول + پوشهٔ backup و دکمهٔ پشتیبان‌گیری rsc
+
+Work Log:
+- کاربرد: درخواست کاربر — «جعبه جستجو یا search box جاش مناسب نیست بزارش بالای اسکرول در مرکز صفحه جای کادر سبز اندازه اش بزرگتر شود» + «یک فولدر به نام backup در مسیر برنامه ایجاد کن که با یک دکمه backup بتواند از طریق api و ورود یوزر پسورد بک آپ دستگاههای میکروتیک با پسوند rsc بگیرد با نام ای دی دستگاهها و ای پی دستگاه در فولدر backup ذخیره کند» (پیوست: اسکرین‌شات با کادر سبز بالای جدول)
+- نکتهٔ اجرا: بخشی از این تسک (backup_rsc.py + endpointهای main.py) در اجرای قبلیِ نیمه‌قطع‌شده ساخته شده بود؛ این نوبت تکمیل، تست، اتصال UI و مستندات انجام شد
+- frontend/src.jsx (جستجو): بلوک `filter-search` از ردیف فیلترها حذف شد؛ به‌جای آن `div.main-search-bar` بین نوار «لغو انتخاب» و `table-scroll-top` (دقیقاً بالای اسکرول جدول، همان جای کادر سبز اسکرین‌شات) با چیدمان مرکزچین نشست: آیکن 🔍 + input بزرگ (placeholder جدید: «جستجو در IP، نام دستگاه، تگ، اینترفیس‌ها، همسایه‌ها، وایرلس، MAC و لاگ…») + منوی «محدوده جستجو» با همان ۱۲ گزینه + ✕ پاک‌کردن؛ stateهای q/qInput/qField و debounce 350ms/Enter بدون تغییر — فقط جا و اندازه عوض شد
+- frontend/style.css: کلاس‌های `.main-search-bar` (flex center، gap 8، wrap)، `.main-search-input` (font-size 15.5px، padding 12px 16px، flex-basis 640px، border آبی 1.5px + focus ring)، `.main-search-field` و `.btn-backup-rsc` (کهربایی b45309) اضافه شد
+- frontend/src.jsx (پشتیبان‌گیری): stateهای backupBusy/backupProg + توابع `backupRsc(ips)` (POST /api/devices/backup-rsc با کاربر/رمز API نوار، پایش پیشرفت هر 500ms، پیام موفق/ناموفق + نمونهٔ فایل‌ها، خطای هر دستگاه ناموفق در setError) و `stopBackupRsc` (cancel + abort)؛ دکمهٔ کهربایی «پشتیبان‌گیری rsc (N)» + «توقف پشتیبان» در نوار API کنار «خواندن با API» — دستگاه‌های هدف: انتخاب‌های دارای پورت API (`selectedMikrotikWithApi`)؛ نمودار پیشرفت مشترک نوار با `pp = backupBusy?backupProg:probeProg` برای پشتیبان‌گیری هم فعال شد (عنوان اختصاصی)
+- backend/backup_rsc.py (از اجرای قبلی، تکمیل/بازبینی این نوبت): پوشهٔ BACKUP_DIR = <ریشهٔ برنامه>/backup با mkdir در ایمپورت؛ `backup_filename` = «نام‌دستگاه_آی‌پی.rsc» (بی‌نام: device-<id>؛ پاک‌سازی کاراکترهای غیرمجاز)؛ `export_config_via_api` با RouterOSClient پروژه (پورت 8728، timeout حداقل 60s برای /export) و پارس پاسخ (تک !done با =ret= یا چند !re تکه‌ای؛ !trap/!fatal با پیام فارسی)؛ `backup_devices` موازی (ThreadPool، یکتاسازی IP، پیشرفت total/done/ok/failed/current_ip/percent، لغو مشارکتی)؛ `list_backup_files` (فهرست rscها، جدیدترین اول)
+- backend/main.py (از اجرای قبلی، بازبینی این نوبت): endpointهای `POST /api/devices/backup-rsc` (ips + username/password + port/timeout/max_workers → نتیجهٔ هر دستگاه + folder)، `GET /api/devices/backup-rsc/progress`، `POST /api/devices/backup-rsc/cancel`، `GET /api/devices/backup-rsc/files` + ایمپورت دوگانهٔ backup_rsc
+- .gitignore: `backup/` اضافه شد (پشتیبان‌ها دادهٔ کاربرند و نباید کامیت شوند)؛ خود پوشه با ایمپورت ماژول در هر اجرا ساخته می‌شود
+- frontend/dist بازسازی شد: index-kzqRIENY.js + index-LLasaM87.css (CSS جدید برای جستجو/دکمه)
+- تست: tests/test_backup_rsc.py — ۱۴ تست (نام فایل با نام/IP/ای‌دی و پاک‌سازی کاراکتر، پارس export تک‌تکه/چندتکه/خالی/trap، ذخیره و پیشرفت، ردیف خطا، لغو وسط کار، endpointها با TestClient لاگین‌شده شامل 422 بدون ips/username و 404 دستگاه ناشناخته و فهرست فایل‌ها) — دام: باید `backend.routeros_api` جایگزین می‌شد نه ماژول هم‌نامِ top-level (ایمپورت دوگانه)
+- scripts/test_backup_button.py — ۱۷ بررسی: باندل شامل main-search-bar/input/placeholder جدید، حذف filter-search قدیمی، دکمه/endpointها/عنوان نمودار پشتیبان، CSS مرکزچین و فونت بزرگ‌تر و btn-backup-rsc، endpoint files با TestClient (200) و وجود پوشهٔ backup/ کنار برنامه — ALL OK
+- رگرسیون: pytest tests/ کل (۱۰۳ PASS) + scripts/test_route_dedupe_e2e.py (ALL OK) + test_flap_winbox_button.py (11/0) + test_csv_filename_stamp.py (ALL PASS)
+- مستندات: README.md (بولت «جعبهٔ جستجوی بزرگ و مرکزچین» + بخش جدید «پشتیبان‌گیری کانفیگ دستگاه‌ها با پسوند rsc») و AGENTS.md (ردیف backup_rsc.py در نقشهٔ ماژول‌ها + بولت Task 34 + تیتر نقشه تا Task 34)
+
+Stage Summary:
+- جعبهٔ جستجوی برگهٔ دستگاه‌ها حالا دقیقاً بالای ناحیهٔ اسکرول جدول و مرکز صفحه است (جای کادر سبز اسکرین‌شات) و بزرگ‌تر شده؛ امکانات قبلی (محدودهٔ فیلد، چندواژه، debounce، پاک‌کردن) حفظ شد
+- پوشهٔ backup/ کنار برنامه + دکمهٔ «پشتیبان‌گیری rsc» در نوار API: با کاربر/رمز RouterOS از طریق API به دستگاه‌های انتخابی وصل می‌شود، /export را می‌خواند و کانفیگ هر دستگاه را با نام «نام‌دستگاه_آی‌پی.rsc» (بی‌نام: ای‌دی دیتابیس) در پوشهٔ backup ذخیره می‌کند؛ پیشرفت زنده، توقف مشارکتی و فهرست فایل‌ها از طریق endpointها قابل استفاده است

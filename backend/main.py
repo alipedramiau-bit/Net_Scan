@@ -40,6 +40,10 @@ try:
     from backend import route_report
 except ImportError:
     import route_report
+try:
+    from backend import backup_rsc
+except ImportError:
+    import backup_rsc
 
 from scanner_lib import ScanConfig, ScanReport, scan_targets  # package-level API
 from scanner_lib.constants import MAX_TARGETS
@@ -1779,6 +1783,101 @@ def probe_devices_api_progress():
         "current_ip": p.get("current_ip") or "",
         "running": bool(p.get("running")),
         "canceled": bool(p.get("canceled")),
+    }
+
+
+# ===================== پشتیبان‌گیری کانفیگ (rsc) از طریق RouterOS API =====================
+class BackupRscRequest(BaseModel):
+    """ورودی «پشتیبان‌گیری rsc»: دستگاه‌ها + یوزر/پسورد RouterOS API."""
+    ips: list[str] = Field(min_length=1, max_length=1000)
+    username: str = Field(min_length=1, max_length=128)
+    password: str = Field(default="", max_length=128)
+    port: int = Field(default=8728, ge=1, le=65535)
+    timeout: float = Field(default=20.0, ge=5.0, le=120.0)
+    max_workers: int = Field(default=6, ge=1, le=16)
+
+
+BACKUP_RSC_CANCEL = Event()
+
+
+@app.post("/api/devices/backup-rsc")
+def backup_rsc_devices(body: BackupRscRequest):
+    """پشتیبان‌گیری کانفیگ دستگاه‌ها با پسوند rsc در پوشهٔ backup/.
+
+    - اتصال با RouterOS API (پورت 8728) و یوزر/پسورد واردشده؛ کانفیگ هر
+      دستگاه با دستور /export خوانده و در «<نام دستگاه>_<IP>.rsc»
+      (utf-8) در پوشهٔ backup/ کنار برنامه ذخیره می‌شود؛ دستگاه بی‌نام از
+      ای‌دی ردیف دیتابیس نام می‌گیرد (device-<id>).
+    - هر دستگاه فقط یک‌بار (بر اساس IP) پشتیبان می‌گیرد؛ پیشرفت زنده از
+      GET /api/devices/backup-rsc/progress خوانده می‌شود و با
+      POST /api/devices/backup-rsc/cancel لغو مشارکتی ممکن است.
+    """
+    ips: list[str] = []
+    for x in body.ips or []:
+        s = str(x).strip()
+        if s and s not in ips:
+            ips.append(s)
+    if not ips:
+        raise HTTPException(400, "هیچ دستگاهی برای پشتیبان‌گیری انتخاب نشده است")
+    devices = db.fetch_devices_by_ips(ips)
+    if not devices:
+        raise HTTPException(404, "دستگاه انتخاب‌شده در دیتابیس فعال یافت نشد")
+    results = backup_rsc.backup_devices(
+        devices,
+        username=body.username,
+        password=body.password or "",
+        port=body.port,
+        timeout=body.timeout,
+        max_workers=body.max_workers,
+        cancel=BACKUP_RSC_CANCEL,
+    )
+    ok = sum(1 for r in results if r.get("ok"))
+    return {
+        "total": len(results),
+        "ok": ok,
+        "failed": len(results) - ok,
+        "canceled": BACKUP_RSC_CANCEL.is_set(),
+        "folder": str(backup_rsc.BACKUP_DIR),
+        "database": db.get_active_db_name(),
+        "results": results,
+    }
+
+
+@app.get("/api/devices/backup-rsc/progress")
+def backup_rsc_progress():
+    p = dict(backup_rsc.BACKUP_PROGRESS or {})
+    total = int(p.get("total") or 0)
+    done = int(p.get("done") or 0)
+    pct = int(round(100 * done / total)) if total else 0
+    return {
+        "total": total,
+        "done": done,
+        "percent": pct,
+        "ok": int(p.get("ok") or 0),
+        "failed": int(p.get("failed") or 0),
+        "remaining": max(0, total - done),
+        "current_ip": p.get("current_ip") or "",
+        "running": bool(p.get("running")),
+        "canceled": bool(p.get("canceled")),
+    }
+
+
+@app.post("/api/devices/backup-rsc/cancel")
+def backup_rsc_cancel():
+    if backup_rsc.BACKUP_PROGRESS.get("running"):
+        BACKUP_RSC_CANCEL.set()
+        return {"cancel_requested": True, "message": "درخواست توقف پشتیبان‌گیری ارسال شد"}
+    return {"cancel_requested": False, "message": "پشتیبان‌گیری در حال اجرا نیست"}
+
+
+@app.get("/api/devices/backup-rsc/files")
+def backup_rsc_files():
+    """فهرست فایل‌های rsc ذخیره‌شده در پوشهٔ backup/ (جدیدترین اول)."""
+    files = backup_rsc.list_backup_files()
+    return {
+        "folder": str(backup_rsc.BACKUP_DIR),
+        "count": len(files),
+        "files": files,
     }
 
 
