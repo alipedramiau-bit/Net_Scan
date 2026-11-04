@@ -1,10 +1,13 @@
 """SMTP configuration and outbound mail for شبکه‌بان.
 
 Two transport modes:
-  - relay  : classic SMTP through a provider (Gmail, host mail, VPS, …)
-  - direct : resolve recipient MX and deliver directly (no third-party SMTP)
+  - direct : resolve recipient MX and deliver directly — fully standalone,
+             no Gmail/Yahoo account, only internet + outbound TCP 25/587
+  - relay  : classic SMTP through a provider (host mail, VPS, Gmail, Yahoo, …)
 
-Direct mode needs outbound TCP 25 (sometimes 587) allowed by the ISP/firewall.
+Direct mode DNS strategy: local system resolvers first (resolv.conf), then
+public NS, then `nslookup` subprocess, then A-record fallback (RFC 5321 §5.1).
+UDP answers with TC flag are retried over TCP.
 """
 from __future__ import annotations
 
@@ -14,6 +17,7 @@ import smtplib
 import socket
 import ssl
 import struct
+import time
 from email.message import EmailMessage
 from email.utils import formatdate, make_msgid
 from pathlib import Path
@@ -35,7 +39,7 @@ DEFAULTS: dict[str, Any] = {
     "from_name": "شبکه‌بان",
     "to_email": "",
     "timeout": 30,
-    "helo_host": "shabakeban.local",
+    "helo_host": "",  # خالی = تشخیص خودکار (address literal [IP])
 }
 
 
@@ -106,6 +110,13 @@ def save_config(body: dict) -> dict:
             current[key] = str(val or "").strip()
     if not current.get("from_email") and current.get("username"):
         current["from_email"] = current["username"]
+    if current.get("from_email") and not _looks_like_email(current["from_email"]):
+        raise ValueError(
+            "فرستنده (From) باید ایمیل معتبر باشد — مثال: alerts@your-domain.ir؛ "
+            "متن آزاد مثل «ali pedram» قابل قبول نیست"
+        )
+    if current.get("to_email") and not _looks_like_email(current["to_email"]):
+        raise ValueError("گیرندهٔ پیش‌فرض باید ایمیل معتبر باشد")
     _CONFIG.write_text(json.dumps(current, ensure_ascii=False, indent=2), encoding="utf-8")
     return get_config(mask_password=True)
 
@@ -120,70 +131,51 @@ def _looks_like_email(s: str) -> bool:
 
 
 # ---------------------------------------------------------------------------
-# Minimal DNS MX lookup (stdlib only, UDP/53)
+# Minimal DNS MX lookup (stdlib only — UDP/53 + TCP/53 fallback)
 # ---------------------------------------------------------------------------
-def _dns_query_mx(domain: str, nameserver: str = "8.8.8.8", timeout: float = 5.0) -> list[tuple[int, str]]:
-    """Return list of (preference, host) for MX records. Empty if none."""
-    domain = domain.strip(".").lower()
-    if not domain:
-        return []
-    labels = domain.split(".")
-    qname = b"".join(bytes([len(l)]) + l.encode("ascii", "ignore") for l in labels) + b"\x00"
-    tid = random.randint(0, 65535)
-    header = struct.pack("!HHHHHH", tid, 0x0100, 1, 0, 0, 0)
-    question = qname + struct.pack("!HH", 15, 1)  # MX IN
-    packet = header + question
-
-    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    sock.settimeout(timeout)
-    try:
-        sock.sendto(packet, (nameserver, 53))
-        data, _ = sock.recvfrom(4096)
-    finally:
-        sock.close()
-
-    if len(data) < 12:
-        return []
-    rtid, flags, _qd, an, _, _ = struct.unpack("!HHHHHH", data[:12])
-    if rtid != tid or (flags & 0x000F) != 0 or an == 0:
-        return []
-
-    def decode_name(buf: bytes, offset: int) -> tuple[str, int]:
-        parts: list[str] = []
-        jumped = False
-        end = offset
-        for _ in range(64):
-            if offset >= len(buf):
-                break
-            length = buf[offset]
-            if length == 0:
-                if not jumped:
-                    end = offset + 1
-                break
-            if (length & 0xC0) == 0xC0:
-                if offset + 1 >= len(buf):
-                    break
-                pointer = ((length & 0x3F) << 8) | buf[offset + 1]
-                if not jumped:
-                    end = offset + 2
-                offset = pointer
-                jumped = True
-                continue
-            offset += 1
-            parts.append(buf[offset : offset + length].decode("ascii", "ignore"))
-            offset += length
+def _decode_dns_name(buf: bytes, offset: int) -> tuple[str, int]:
+    parts: list[str] = []
+    jumped = False
+    end = offset
+    for _ in range(64):
+        if offset >= len(buf):
+            break
+        length = buf[offset]
+        if length == 0:
             if not jumped:
-                end = offset
-        return ".".join(parts), end
+                end = offset + 1
+            break
+        if (length & 0xC0) == 0xC0:
+            if offset + 1 >= len(buf):
+                break
+            pointer = ((length & 0x3F) << 8) | buf[offset + 1]
+            if not jumped:
+                end = offset + 2
+            offset = pointer
+            jumped = True
+            continue
+        offset += 1
+        parts.append(buf[offset : offset + length].decode("ascii", "ignore"))
+        offset += length
+        if not jumped:
+            end = offset
+    return ".".join(parts), end
 
-    # skip question
+
+def _parse_dns_mx_response(data: bytes, tid: int) -> tuple[list[tuple[int, str]], bool]:
+    """Parse a DNS response; returns (mx_records, truncated_flag)."""
+    if len(data) < 12:
+        return [], False
+    rtid, flags, _qd, an, _, _ = struct.unpack("!HHHHHH", data[:12])
+    tc = bool(flags & 0x0200)  # truncated
+    if rtid != tid or (flags & 0x000F) != 0 or an == 0:
+        return [], tc
     pos = 12
-    _, pos = decode_name(data, pos)
+    _, pos = _decode_dns_name(data, pos)
     pos += 4  # qtype + qclass
-
     results: list[tuple[int, str]] = []
     for _ in range(an):
-        _, pos = decode_name(data, pos)
+        _, pos = _decode_dns_name(data, pos)
         if pos + 10 > len(data):
             break
         rtype, _rclass, _ttl, rdlen = struct.unpack("!HHIH", data[pos : pos + 10])
@@ -192,26 +184,216 @@ def _dns_query_mx(domain: str, nameserver: str = "8.8.8.8", timeout: float = 5.0
             break
         if rtype == 15 and rdlen >= 3:
             pref = struct.unpack("!H", data[pos : pos + 2])[0]
-            # MX exchange name is inside message; decode at absolute offset
-            name, _ = decode_name(data, pos + 2)
+            name, _ = _decode_dns_name(data, pos + 2)
             if name:
                 results.append((pref, name.rstrip(".")))
         pos += rdlen
     results.sort(key=lambda x: x[0])
-    return results
+    return results, tc
 
 
-def resolve_mx(domain: str, timeout: float = 5.0) -> list[str]:
-    """Resolve MX hosts for domain; fall back to domain itself as A last resort."""
-    for ns in ("8.8.8.8", "1.1.1.1", "9.9.9.9"):
+def _dns_packet(domain: str) -> tuple[bytes, int]:
+    labels = domain.strip(".").split(".")
+    qname = b"".join(bytes([len(l)]) + l.encode("ascii", "ignore") for l in labels) + b"\x00"
+    tid = random.randint(0, 65535)
+    header = struct.pack("!HHHHHH", tid, 0x0100, 1, 0, 0, 0)
+    return header + qname + struct.pack("!HH", 15, 1), tid  # MX IN
+
+
+def _dns_query_mx_udp(domain: str, nameserver: str, timeout: float) -> tuple[list[tuple[int, str]], bool]:
+    packet, tid = _dns_packet(domain)
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    sock.settimeout(timeout)
+    try:
+        sock.sendto(packet, (nameserver, 53))
+        data, _ = sock.recvfrom(4096)
+    finally:
+        sock.close()
+    return _parse_dns_mx_response(data, tid)
+
+
+def _dns_query_mx_tcp(domain: str, nameserver: str, timeout: float) -> list[tuple[int, str]]:
+    packet, tid = _dns_packet(domain)
+    with socket.create_connection((nameserver, 53), timeout=timeout) as s:
+        s.settimeout(timeout)
+        s.sendall(struct.pack("!H", len(packet)) + packet)
+        hdr = b""
+        while len(hdr) < 2:
+            chunk = s.recv(2 - len(hdr))
+            if not chunk:
+                return []
+            hdr += chunk
+        (ln,) = struct.unpack("!H", hdr)
+        data = b""
+        while len(data) < ln:
+            chunk = s.recv(min(4096, ln - len(data)))
+            if not chunk:
+                break
+            data += chunk
+    recs, _tc = _parse_dns_mx_response(data, tid)
+    return recs
+
+
+def _dns_query_mx(domain: str, nameserver: str, timeout: float = 5.0) -> list[tuple[int, str]]:
+    """UDP first; on truncation or network error retry over TCP."""
+    try:
+        recs, tc = _dns_query_mx_udp(domain, nameserver, timeout)
+        if recs or not tc:
+            return recs
+    except OSError:
+        pass
+    try:
+        return _dns_query_mx_tcp(domain, nameserver, timeout)
+    except OSError:
+        return []
+
+
+def _system_nameservers() -> list[str]:
+    """Local resolver IPs from /etc/resolv.conf (Linux/macOS); empty elsewhere."""
+    ns: list[str] = []
+    try:
+        text = Path("/etc/resolv.conf").read_text(encoding="utf-8", errors="replace")
+        for line in text.splitlines():
+            line = line.strip()
+            if line.startswith("nameserver"):
+                parts = line.split()
+                if len(parts) >= 2:
+                    ns.append(parts[1])
+    except OSError:
+        pass
+    return ns[:4]
+
+
+def _nslookup_mx(domain: str) -> list[tuple[int, str]]:
+    """Last-resort MX lookup via the `nslookup` tool (always present on Windows)."""
+    import re
+    import shutil
+    import subprocess
+
+    if shutil.which("nslookup") is None:
+        return []
+    try:
+        out = subprocess.run(
+            ["nslookup", "-type=mx", domain],
+            capture_output=True, timeout=10, text=True,
+        ).stdout or ""
+    except Exception:
+        return []
+    found: list[tuple[int, str]] = []
+    for m in re.finditer(r"mail\s*exchanger\s*=\s*(\d+)\s*([A-Za-z0-9._\-]+)", out):
+        found.append((int(m.group(1)), m.group(2).rstrip(".")))
+    found.sort(key=lambda x: x[0])
+    return found
+
+
+def resolve_mx_full(domain: str, timeout: float = 5.0) -> list[tuple[int, str]]:
+    """Resolve (preference, host) MX pairs; A-record fallback per RFC 5321 §5.1."""
+    domain = domain.strip().strip(".").lower()
+    if not domain or "." not in domain:
+        return []
+    ns_list: list[str] = []
+    for ns in _system_nameservers() + ["8.8.8.8", "1.1.1.1", "9.9.9.9"]:
+        if ns not in ns_list:
+            ns_list.append(ns)
+    for ns in ns_list:
         try:
             mx = _dns_query_mx(domain, nameserver=ns, timeout=timeout)
             if mx:
-                return [h for _, h in mx]
+                return mx
         except OSError:
             continue
-    # last resort: try the domain as host
-    return [domain]
+    mx = _nslookup_mx(domain)
+    if mx:
+        return mx
+    try:
+        infos = socket.getaddrinfo(domain, 25, socket.AF_INET, socket.SOCK_STREAM)
+        if infos:
+            return [(0, domain)]
+    except socket.gaierror:
+        pass
+    return []
+
+
+def resolve_mx(domain: str, timeout: float = 5.0) -> list[str]:
+    """Resolve MX hostnames for a domain (empty list if none found)."""
+    return [h for _, h in resolve_mx_full(domain, timeout=timeout)]
+
+
+def _auto_helo() -> str:
+    """Best HELO identity: RFC 5321 address literal [local-ip], else fqdn."""
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        try:
+            s.connect(("8.8.8.8", 53))
+            ip = s.getsockname()[0]
+        finally:
+            s.close()
+        if ip and not ip.startswith("127."):
+            return f"[{ip}]"
+    except OSError:
+        pass
+    try:
+        fqdn = socket.getfqdn()
+        if fqdn and fqdn != "localhost" and "." in fqdn:
+            return fqdn
+    except Exception:
+        pass
+    return "localhost"
+
+
+def _effective_helo(helo: str) -> str:
+    h = (helo or "").strip()
+    if not h or ".local" in h.lower():
+        return _auto_helo()
+    return h
+
+
+def diagnose_direct(to_email: str, timeout: float = 8.0) -> dict:
+    """Check whether standalone (direct MX) delivery is possible on this network."""
+    if not _looks_like_email(to_email):
+        raise ValueError("گیرنده باید یک ایمیل معتبر باشد")
+    domain = to_email.split("@", 1)[1].lower()
+    mx = resolve_mx_full(domain, timeout=timeout)
+    checks: list[dict] = []
+    port25_open = False
+    for host in [h for _, h in mx][:3]:
+        for port in (25, 587):
+            status, detail = "blocked", ""
+            try:
+                with socket.create_connection((host, port), timeout=timeout):
+                    status = "open"
+            except ConnectionRefusedError:
+                status, detail = "refused", "اتصال رد شد"
+            except OSError as e:
+                status, detail = "blocked", type(e).__name__
+            checks.append({"host": host, "port": port, "status": status, "detail": detail})
+            if port == 25 and status == "open":
+                port25_open = True
+    if not mx:
+        verdict = (
+            f"برای دامنهٔ {domain} رکورد MX پیدا نشد — دامنه ممکن است غلط باشد "
+            "یا DNS این شبکه محدود است. آدرس گیرنده یا DNS را چک کنید."
+        )
+    elif port25_open:
+        verdict = (
+            "پورت خروجی ۲۵ باز است — این شبکه می‌تواند بدون جیمیل/یاهو و کاملاً مستقل ایمیل بفرستد. "
+            "حالا در تنظیمات، حالت «مستقیم به MX گیرنده» را ذخیره کنید و «ارسال ایمیل آزمایشی» را بزنید."
+        )
+    else:
+        verdict = (
+            "پورت خروجی ۲۵ روی این شبکه باز نیست (ISP/فایروال آن را مسدود کرده). "
+            "ارسال مستقل از اینجا ممکن نیست: یا نرم‌افزار را روی سرور/VPS با پورت ۲۵ باز اجرا کنید "
+            "یا از حالت «رله SMTP» استفاده کنید."
+        )
+    return {
+        "ok": True,
+        "domain": domain,
+        "mx": [{"pref": p, "host": h} for p, h in mx],
+        "checks": checks,
+        "port25_open": port25_open,
+        "verdict": verdict,
+        "helo_suggestion": _auto_helo(),
+    }
 
 
 def _build_message(
@@ -274,32 +456,46 @@ def send_direct(
     from_name: str,
     dest: str,
     timeout: float = 30,
-    helo_host: str = "shabakeban.local",
+    helo_host: str = "",
     attachments: list[tuple[str, bytes, str]] | None = None,
 ) -> dict:
     """Deliver directly to recipient domain MX — no Gmail/relay account needed."""
     if not _looks_like_email(dest):
         raise ValueError("آدرس گیرنده معتبر نیست")
     if not _looks_like_email(from_email):
-        raise ValueError("فرستنده باید یک ایمیل باشد (مثال: alert@yourdomain.com)")
+        raise ValueError(
+            "فرستنده (From) باید یک ایمیل معتبر باشد، مثال: alerts@your-domain.ir "
+            "(لازم نیست حساب واقعی باشد، فقط شکل ایمیل داشته باشد)"
+        )
 
     domain = dest.split("@", 1)[1].lower()
     mx_hosts = resolve_mx(domain, timeout=min(timeout, 8))
     if not mx_hosts:
-        raise ValueError(f"رکورد MX برای دامنه {domain} پیدا نشد")
+        raise ValueError(
+            f"برای دامنهٔ {domain} رکورد MX یا A پیدا نشد — آدرس گیرنده غلط است "
+            "یا DNS این شبکه اجازهٔ پرس‌وجو نمی‌دهد (اینترنت را چک کنید)"
+        )
 
+    helo = _effective_helo(helo_host)
     msg = _build_message(subject, body, from_email, from_name, dest, attachments)
-    # Try common outbound paths per MX host
+    # Port 25 (MX standard) first, then 587; bounded so UI never hangs minutes
     attempts: list[tuple[str, int, str]] = []
-    for h in mx_hosts[:5]:
+    for h in mx_hosts[:4]:
         attempts.append((h, 25, "plain"))
         attempts.append((h, 587, "starttls"))
 
+    deadline = time.monotonic() + max(timeout * 2, 60)
+    per_try = max(10.0, min(timeout, 20.0))
     errors: list[str] = []
-    saw_not_authorized = False
+    tried = 0
+    server_rejected = False
     for host, port, mode in attempts:
+        if time.monotonic() > deadline:
+            errors.append("مهلت کل ارسال تمام شد (تلاش‌های بعدی حذف شدند)")
+            break
+        tried += 1
         try:
-            _smtp_send_once(host, port, "", "", msg, timeout, mode, helo=helo_host)
+            _smtp_send_once(host, port, "", "", msg, per_try, mode, helo=helo)
             return {
                 "ok": True,
                 "mode": "direct",
@@ -308,38 +504,40 @@ def send_direct(
                 "mx": host,
                 "port": port,
                 "transport": mode,
+                "helo": helo,
                 "subject": subject,
             }
         except smtplib.SMTPRecipientsRefused as e:
-            errors.append(f"{host}:{port} گیرنده رد شد")
-            if "NotAuthorized" in str(e) or "not authorized" in str(e).lower():
-                saw_not_authorized = True
+            server_rejected = True
+            codes = ",".join(str(v[0]) for v in (e.recipients or {}).values()) if hasattr(e, "recipients") else ""
+            errors.append(f"{host}:{port} گیرنده رد شد {codes}")
         except smtplib.SMTPSenderRefused as e:
-            errors.append(f"{host}:{port} فرستنده رد شد")
-            if "NotAuthorized" in str(e) or "not authorized" in str(e).lower():
-                saw_not_authorized = True
+            server_rejected = True
+            errors.append(f"{host}:{port} فرستنده رد شد ({getattr(e, 'smtp_code', '')})")
         except smtplib.SMTPDataError as e:
             err_s = str(e)
-            if "NotAuthorized" in err_s or "not authorized" in err_s.lower() or "5.7.1" in err_s:
-                saw_not_authorized = True
-                errors.append(f"{host}:{port} IP شما برای ارسال مستقیم مجاز نیست (550)")
-            else:
-                errors.append(f"{host}:{port} داده رد شد")
+            server_rejected = True
+            errors.append(f"{host}:{port} سرور نامه را نپذیرفت ({err_s.split(':')[0]})")
+        except smtplib.SMTPHeloError:
+            errors.append(f"{host}:{port} HELO رد شد")
         except (smtplib.SMTPException, OSError, TimeoutError, ConnectionError) as e:
             errors.append(f"{host}:{port} {type(e).__name__}")
             continue
 
-    if saw_not_authorized:
+    if server_rejected:
         hint = (
-            "Gmail/Yahoo و بیشتر سرویس‌های بزرگ، ارسال مستقیم از IP خانگی را مسدود می‌کنند. "
-            "حالت Direct برای تحویل به Gmail از اینترنت خانگی کار نمی‌کند. "
-            "راه حل: حالت «رله» را انتخاب کنید و SMTP هاست ایرانی، VPS، یا Yahoo/Gmail با App Password بگذارید."
+            "سرور گیرنده نامه را نپذیرفت — Gmail/Yahoo و اکثر سرویس‌های بزرگ ارسال مستقیم از "
+            "IP خانگی/آلوده را رد می‌کنند (بدون SPF/DKIM). از یک سرور/VPS با IP تمیز ارسال کنید، "
+            "یا از حالت «رله SMTP» استفاده کنید. نامه ممکن است در Spam هم باشد."
+        )
+    elif tried and not server_rejected:
+        hint = (
+            "اتصال به هیچ سرور MX ممکن نشد — معمولاً پورت خروجی ۲۵ توسط ISP/فایروال مسدود است "
+            "یا اینترنت قطع است. با دکمهٔ «بررسی امکان ارسال مستقیم» وضعیت پورت ۲۵ را ببینید؛ "
+            "در صورت مسدود بودن، نرم‌افزار را روی سرور/VPS اجرا کنید یا از حالت «رله SMTP» استفاده کنید."
         )
     else:
-        hint = (
-            "ارسال مستقیم نیاز به پورت خروجی ۲۵ دارد یا سرور گیرنده پاسخ نداد. "
-            "از حالت «رله SMTP» روی هاست ایرانی یا VPS استفاده کنید."
-        )
+        hint = "جزئیات بیشتر در لاگ سرور."
     raise ValueError("ارسال مستقیم ناموفق. " + " | ".join(errors[:6]) + " — " + hint)
 
 
@@ -433,12 +631,17 @@ def send_mail(
     attachments: list[tuple[str, bytes, str]] | None = None,
 ) -> dict:
     cfg = _plain_config()
+    if not cfg.get("enabled"):
+        raise ValueError(
+            "ارسال ایمیل غیرفعال است — در کارت «سرور ایمیل» گزینهٔ «فعال‌سازی ارسال ایمیل» را "
+            "تیک بزنید و «ذخیره تنظیمات» را بزنید"
+        )
     mode = str(cfg.get("mode") or "direct").lower()
     dest = (to_email or cfg.get("to_email") or "").strip()
     from_email = (cfg.get("from_email") or cfg.get("username") or "").strip()
     from_name = (cfg.get("from_name") or "شبکه‌بان").strip()
     timeout = float(cfg.get("timeout") or 30)
-    helo = (cfg.get("helo_host") or "shabakeban.local").strip()
+    helo = (cfg.get("helo_host") or "").strip()
 
     if mode == "direct":
         if not _looks_like_email(from_email):

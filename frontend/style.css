@@ -1323,6 +1323,32 @@ header.app-brand p{
 .email-presets{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0 14px}
 .email-presets .tool-btn{font-size:.85em;padding:6px 12px}
 
+/* راهنمای استفادهٔ ارسال مستقل ایمیل */
+.email-guide{
+  margin-top:14px;border:1px solid #dbe7f3;border-radius:10px;
+  background:#f6fafd;padding:10px 16px;
+}
+.email-guide summary{cursor:pointer;font-weight:600;color:#0f4c81;padding:4px 0;user-select:none}
+.email-guide ol,.email-guide ul{margin:8px 22px 8px 0;padding:0}
+.email-guide li{margin:7px 0;font-size:.92em;line-height:1.8}
+.email-guide h4{margin:12px 0 4px;color:#0f4c81;font-size:.98em}
+.email-guide p{margin:6px 0;font-size:.92em;line-height:1.8}
+.email-guide code{
+  background:#eef3f8;border:1px solid #dde7f0;border-radius:4px;
+  padding:1px 6px;direction:ltr;display:inline-block;font-size:.9em;
+}
+
+/* نتیجهٔ «بررسی امکان ارسال مستقیم» */
+.email-diag{
+  border-radius:10px;padding:10px 16px;margin:10px 0;
+  font-size:.92em;line-height:1.8;
+}
+.email-diag ul{margin:8px 0;direction:ltr;text-align:left;list-style:none;padding:0 4px}
+.email-diag li{font-size:.9em}
+.email-diag.ok{background:#f0fdf4;border:1px solid #86efac;color:#166534}
+.email-diag.bad{background:#fef2f2;border:1px solid #fca5a5;color:#991b1b}
+.email-diag .muted{color:inherit;opacity:.85}
+
 /* ---------- Login page (admin auth) ---------- */
 .login-shell{
   min-height:100vh;

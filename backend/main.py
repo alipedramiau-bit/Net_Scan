@@ -1499,6 +1499,10 @@ class SmtpTestRequest(BaseModel):
     message: str | None = Field(default=None, max_length=5000)
 
 
+class SmtpDiagnoseRequest(BaseModel):
+    to_email: str = Field(max_length=256)
+
+
 @app.get("/api/smtp/config")
 def smtp_config_get():
     return email_manager.get_config(mask_password=True)
@@ -1517,13 +1521,24 @@ def smtp_config_save(body: SmtpConfigRequest):
 
 @app.post("/api/smtp/test")
 def smtp_test(body: SmtpTestRequest):
-    """Send a test email via configured SMTP (default Gmail)."""
+    """Send a test email via configured transport (direct MX or relay)."""
     try:
         return email_manager.send_test(to_email=body.to_email or None, message=body.message or None)
     except ValueError as e:
         raise HTTPException(400, str(e)) from e
     except Exception as e:
         raise HTTPException(502, f"ارسال ناموفق: {e}") from e
+
+
+@app.post("/api/smtp/diagnose")
+def smtp_diagnose(body: SmtpDiagnoseRequest):
+    """Check whether standalone (direct MX, no Gmail/Yahoo) delivery is possible."""
+    try:
+        return email_manager.diagnose_direct((body.to_email or "").strip())
+    except ValueError as e:
+        raise HTTPException(400, str(e)) from e
+    except Exception as e:
+        raise HTTPException(502, f"خطای بررسی: {e}") from e
 
 
 

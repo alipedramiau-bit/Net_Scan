@@ -770,3 +770,25 @@ Work Log:
 
 Stage Summary:
 - دو دکمهٔ فرعی مدال انتخاب دستگاه حالا با رنگ آبی روشن/متن سرمه‌ای و فونت bold کاملاً مرئی‌اند؛ علت اصلی (متن سفید روی زمینهٔ سفید برای دکمه‌های بی‌کلاس در modal-actions) نیز از ریشه بسته شد
+
+---
+Task ID: 40
+Agent: main (Z.ai)
+Task: ایمیل‌سرور مستقل (بدون جیمیل/یاهو) — رفع اشکالات، تشخیص امکان ارسال، راهنمای استفاده
+
+Work Log:
+- کاربرد: «ایمیل سرور را بررسی کن اشکالات را بگیر و کاری کن که نیاز به ست کردن جیمیل یا یاهو نداشته باشم مستقل بتواند با اینترنت ایمیل بفرسته زیرش راهنمای استفاده را بنویس»
+- اشکالات یافت‌شده: (۱) from_email ذخیره‌شده «ali pedram» ایمیل معتبر نیست و هیچ اعتبارسنجی‌ای در save_config نبود؛ (۲) DNS فقط به 8.8.8.8/1.1.1.1/9.9.9.9 رد می‌شد — DNS خود شبکه چک نمی‌شد و پاسخ‌های TC (truncate) بدون fallback TCP می‌مردند؛ (۳) HELO پیش‌فرض «shabakeban.local» از سوی بعضی سرورها رد می‌شد؛ (۴) ماتریس تلاش send_direct تا ۱۰×timeout بدون سقف زمانی — هنگِ چنددقیقه‌ای UI؛ (۵) فلگ enabled هیچ اثری نداشت؛ (۶) smtp_config.json حاوی رمز واقعی در گیت کامیت شده بود؛ (۷) فرانت موقع لود use_tls/use_ssl ذخیره‌شده را بازنویسی می‌کرد
+- backend/email_manager.py: DNS جدید (_system_nameservers از resolv.conf + DNS عمومی + nslookup fallback + A-record fallback طبق RFC 5321 §5.1؛ پارسر مشترک _parse_dns_mx_response با TC flag؛ _dns_query_mx_udp/_dns_query_mx_tcp)؛ HELO خودکار _auto_helo (address literal استاندارد [IP] هنگام خالی بودن یا .local)؛ send_direct با سقف زمانی (deadline = max(timeout×2,60) و per_try ≤ ۲۰s)، MX تا ۴ هاست (۲۵ اول سپس ۵۸۷)، طبقه‌بندی شفاف خطاها (سرور رد کرد / پورت مسدود)؛ diagnose_direct جدید (MX + تست اتصال پورت ۲۵/۵۸۷ + verdict فارسی + پیشنهاد HELO)؛ save_config اعتبارسنجی From/To با پیام فارسی؛ send_mail به فلگ enabled احترام می‌گذارد
+- backend/main.py: مدل SmtpDiagnoseRequest + اندپوینت POST /api/smtp/diagnose
+- frontend/src.jsx: دکمهٔ «مستقل — بدون جیمیل/یاهو» (اول و primary؛ mode=direct + enabled=true)؛ بخش «بررسی امکان ارسال مستقیم» با جعبهٔ نتیجه (.email-diag ok/bad با لیست MX و وضعیت پورت‌ها به فارسی)؛ راهنمای گام‌به‌گام فارسی (details.email-guide) زیر کارت: ۵ گام، نحوهٔ کار، عیب‌یابی (پورت ۲۵ مسدود/اسپم/5.7.1 جیمیل/MX ندارم/رله جایگزین)، توضیح فیلدها؛ hint زیر فیلد From؛ placeholder HELO «خالی = تشخیص خودکار»؛ رفع باگ لود (حذف بازنویسی use_tls/use_ssl)؛ پیام موفقیت تست حالا MX:port هم نشان می‌دهد
+- frontend/style.css: استایل .email-guide (summary/ol/ul/h4/code با پشتیبانی RTL و codeهای LTR) و .email-diag (+ok/bad)
+- امنیت: smtp_config.json با git rm --cached از ایندکس حذف و به .gitignore اضافه شد (فایل محلی باقی است) — رمز Gmail در تاریخچهٔ گیت موجود است؛ کاربر باید آن رمز/App Password را revoke کند
+- frontend/dist بازسازی شد: index-QYySPxIB.js (۳۹۶KB) + index-DRME1Wtk.css
+- تست: scripts/test_email_standalone.py (جدید، ۴۰ بررسی — ALL OK، با ایزوله‌سازی کامل هر دو نمونهٔ ماژول email_manager و بازیابی فایل کانفیگ): پارسر DNS سنتتیک (pointer فشرده‌سازی + TC + tid mismatch)، nameserverهای سیستم، HELO خودکار، اعتبارسنجی save_config، فلگ enabled، خطاهای شفاف send_direct، diagnose موک‌شده (open/blocked/no-MX)، اندپوینت‌ها با TestClient (PUT From نامعتبر→400، diagnose بد→400/درست→200 با MX موک)، سورس فرانت و CSS؛ رگرسیون: test_auth.py، test_backup_button.py، test_backup_view_button.py همگی ALL OK
+- تست شبکهٔ واقعی: resolve_mx('gmail.com') هر ۵ MX را برگرداند؛ diagnose روی sandbox: پورت ۲۵ «مسدود» (طبیعی در کلود) — منطق verdict تأیید شد
+- بررسی بصری (uvicorn + مرورگر واقعی): تب «سرور ایمیل» — دکمهٔ مستقل/بخش بررسی/راهنما همه رندر درست؛ کلیک «بررسی امکان ارسال مستقیم» → جعبهٔ قرمز با MX جیمیل و وضعیت «مسدود/بی‌پاسخ» + verdict راهنما؛ کلیک «مستقل — بدون جیمیل/یاهو» → پیام راهنما + select روی «مستقیم به MX گیرنده» (اسکرین‌شات‌ها)
+
+Stage Summary:
+- حالت Direct حالا واقعاً مستقل است: بدون هیچ حساب جیمیل/یاهو، فقط با اینترنت (MX دامنهٔ گیرنده از DNS خود شبکه + fallbackها، HELO استاندارد خودکار، سقف زمانی مشخص) و اگر شبکه پورت ۲۵ را بسته باشد، دکمهٔ «بررسی امکان ارسال مستقیم» همان لحظه به فارسی اعلام می‌کند و راهنمای زیر کارت مسیر جایگزین (VPS/رله/SPF) را توضیح می‌دهد
+- From «ali pedram» دیگر قابل ذخیره نیست و پیام خطا دقیقاً می‌گوید چه بنویسید؛ فلگ فعال‌سازی هم اثر واقعی دارد

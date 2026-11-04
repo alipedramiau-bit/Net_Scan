@@ -1208,25 +1208,32 @@ function DeviceReports({mode="devices"}={}){
 
 
 function EmailServerCard(){
-  const[cfg,setCfg]=useState({mode:"direct",host:"smtp.gmail.com",port:587,use_tls:true,use_ssl:false,username:"",password:"",from_email:"",from_name:"شبکه‌بان",to_email:"",enabled:false,timeout:30,helo_host:"shabakeban.local",password_set:false});
+  const[cfg,setCfg]=useState({mode:"direct",host:"smtp.gmail.com",port:587,use_tls:true,use_ssl:false,username:"",password:"",from_email:"",from_name:"شبکه‌بان",to_email:"",enabled:false,timeout:30,helo_host:"",password_set:false});
   const[busy,setBusy]=useState(false);
   const[msg,setMsg]=useState("");
   const[err,setErr]=useState("");
   const[testMsg,setTestMsg]=useState("");
   const[testTo,setTestTo]=useState("");
+  const[diag,setDiag]=useState(null);
 
   useEffect(()=>{
     fetch(API+"/api/smtp/config").then(r=>r.json()).then(d=>{
-      if(d&&d.host){
+      if(d&&d.host!==undefined){
         const from=d.from_email&&String(d.from_email).includes("@")?d.from_email:(d.username||"");
-        const port=Number(d.port)||587;
-        setCfg(c=>({...c,...d,from_email:from,password:d.password_set?"********":"",use_tls:port!==465,use_ssl:port===465}));
+        setCfg(c=>({...c,...d,from_email:from,password:d.password_set?"********":""}));
         if(d.to_email)setTestTo(d.to_email);
       }
     }).catch(()=>{});
   },[]);
 
   function setField(k,v){setCfg(c=>({...c,[k]:v}))}
+
+  function applyStandalone(){
+    setCfg(c=>({...c,mode:"direct",enabled:true}));
+    setDiag(null);
+    setMsg("حالت مستقل فعال شد: ارسال مستقیم به سرور MX گیرنده — فقط «فرستنده (From)» را یک ایمیل دلخواه بگذارید (لازم نیست حساب واقعی باشد) و «ذخیره تنظیمات» را بزنید. نیازی به جیمیل/یاهو نیست.");
+    setErr("");
+  }
 
   function applyPreset(name){
     if(name==="yahoo"){
@@ -1315,7 +1322,22 @@ function EmailServerCard(){
       let d={};
       try{d=txt?JSON.parse(txt):{}}catch(_){throw Error(txt&&txt.slice(0,200)||"پاسخ نامعتبر")}
       if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:txt.slice(0,200)||"ارسال تست ناموفق");
-      setMsg("ایمیل آزمایشی ارسال شد → "+(d.to||testTo||cfg.to_email));
+      setMsg("ایمیل آزمایشی ارسال شد → "+(d.to||testTo||cfg.to_email)+(d.mode==="direct"?" (مستقیم به MX: "+d.mx+":"+d.port+")":""));
+    }catch(e){setErr(e.message)}
+    setBusy(false);
+  }
+
+  async function diagnose(){
+    const target=(testTo||cfg.to_email||"").trim();
+    if(!target){setErr("برای بررسی، گیرندهٔ تست یا گیرندهٔ پیش‌فرض را وارد کنید");return}
+    setBusy(true);setErr("");setMsg("");setDiag(null);
+    try{
+      const r=await fetch(API+"/api/smtp/diagnose",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({to_email:target})});
+      const txt=await r.text();
+      let d={};
+      try{d=txt?JSON.parse(txt):{}}catch(_){throw Error(txt&&txt.slice(0,200)||"پاسخ نامعتبر")}
+      if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:txt.slice(0,200)||"بررسی ناموفق");
+      setDiag(d);
     }catch(e){setErr(e.message)}
     setBusy(false);
   }
@@ -1324,11 +1346,12 @@ function EmailServerCard(){
     <section className="panel email-panel" dir="rtl">
       <h2>سرور ایمیل (SMTP)</h2>
       <p className="muted">دو حالت ارسال:
-        <b>مستقیم (Direct)</b> — بدون Gmail؛ به سرور MX گیرنده وصل می‌شود (نیاز به پورت خروجی ۲۵).
-        <b>رله (Relay)</b> — از SMTP هاست/VPS/جیمیل.
-        در ایران معمولاً Direct روی اینترنت خانگی محدود است؛ رله روی هاست ایرانی پایدارتر است.</p>
+        <b> مستقیم (Direct)</b> — کاملاً مستقل؛ بدون جیمیل/یاهو، خودش به سرور MX گیرنده وصل می‌شود (فقط اینترنت + پورت خروجی ۲۵).
+        <b> رله (Relay)</b> — از SMTP هاست/VPS/جیمیل استفاده می‌کند.
+        با دکمهٔ «بررسی امکان ارسال مستقیم» ببینید روی شبکهٔ فعلی حالت مستقل کار می‌کند یا نه.</p>
       <div className="email-presets">
-        <span className="muted">پیش‌فرض سریع:</span>
+        <span className="muted">حالت سریع:</span>
+        <button type="button" className="tool-btn primary" onClick={applyStandalone}>مستقل — بدون جیمیل/یاهو</button>
         <button type="button" className="tool-btn" onClick={()=>applyPreset("gmail")}>Gmail (587)</button>
         <button type="button" className="tool-btn" onClick={()=>applyPreset("yahoo")}>Yahoo (587)</button>
         <button type="button" className="tool-btn" onClick={()=>applyPreset("yahoo465")}>Yahoo SSL (465)</button>
@@ -1345,7 +1368,8 @@ function EmailServerCard(){
           </select>
         </label>
         <label>فرستنده ایمیل (From)
-          <input dir="ltr" value={cfg.from_email||""} onChange={e=>setField("from_email",e.target.value)} placeholder="alert@yourdomain.com"/>
+          <input dir="ltr" value={cfg.from_email||""} onChange={e=>setField("from_email",e.target.value)} placeholder="alerts@your-domain.ir"/>
+          <span className="muted" style={{fontSize:".82em"}}>در حالت مستقل، لازم نیست حساب واقعی باشد — فقط شکل ایمیل داشته باشد</span>
         </label>
         <label>نام فرستنده
           <input value={cfg.from_name||""} onChange={e=>setField("from_name",e.target.value)} placeholder="شبکه‌بان"/>
@@ -1354,7 +1378,7 @@ function EmailServerCard(){
           <input dir="ltr" value={cfg.to_email||""} onChange={e=>setField("to_email",e.target.value)} placeholder="user@gmail.com"/>
         </label>
         <label>نام HELO/EHLO
-          <input dir="ltr" value={cfg.helo_host||""} onChange={e=>setField("helo_host",e.target.value)} placeholder="shabakeban.local"/>
+          <input dir="ltr" value={cfg.helo_host||""} onChange={e=>setField("helo_host",e.target.value)} placeholder="خالی = تشخیص خودکار (IP سرور)"/>
         </label>
         {(cfg.mode==="relay")&&<>
         <label>میزبان SMTP
@@ -1380,6 +1404,22 @@ function EmailServerCard(){
         <button type="button" className="tool-btn primary" disabled={busy} onClick={save}><RbIcon name="email" size={16}/><span>ذخیره تنظیمات</span></button>
       </div>
       <hr className="email-sep"/>
+      <h3>بررسی امکان ارسال مستقیم</h3>
+      <p className="muted">برای دامنهٔ گیرنده، رکورد MX گرفته می‌شود و وضعیت باز بودن پورت خروجی ۲۵ روی همین شبکه آزمایش می‌شود — بدون ارسال نامه.</p>
+      <div className="email-actions">
+        <button type="button" className="tool-btn" disabled={busy} onClick={diagnose}><RbIcon name="email" size={16}/><span>بررسی امکان ارسال مستقیم</span></button>
+      </div>
+      {diag&&(
+        <div className={"email-diag"+(diag.port25_open?" ok":" bad")}>
+          <b>{diag.port25_open?"پورت خروجی ۲۵ باز است — ارسال مستقل روی این شبکه ممکن است":"پورت خروجی ۲۵ روی این شبکه باز نیست — ارسال مستقل از اینجا ممکن نیست"}</b>
+          <ul dir="ltr">
+            {(diag.mx||[]).slice(0,3).map(m=><li key={"mx"+m.host}>MX ({m.pref}) {m.host}</li>)}
+            {(diag.checks||[]).map((c,i)=><li key={"ck"+i}>{c.host}:{c.port} — {c.status==="open"?"باز":(c.status==="refused"?"رد شد":"مسدود/بی‌پاسخ")}</li>)}
+          </ul>
+          <p>{diag.verdict}</p>
+        </div>
+      )}
+      <hr className="email-sep"/>
       <h3>تست ارسال</h3>
       <p className="muted">یک پیام آزمایشی با حالت انتخاب‌شده (مستقیم یا رله) ارسال می‌شود.</p>
       <div className="email-grid">
@@ -1393,6 +1433,34 @@ function EmailServerCard(){
       <div className="email-actions">
         <button type="button" className="tool-btn" disabled={busy} onClick={testSend}><RbIcon name="email" size={16}/><span>ارسال ایمیل آزمایشی</span></button>
       </div>
+      <hr className="email-sep"/>
+      <details className="email-guide" open>
+        <summary>راهنمای استفاده — ارسال مستقل بدون جیمیل/یاهو</summary>
+        <ol>
+          <li>دکمهٔ <b>«مستقل — بدون جیمیل/یاهو»</b> را بزنید (حالت ارسال روی «مستقیم به MX گیرنده» و فعال‌سازی خودکار تنظیم می‌شود).</li>
+          <li>در فیلد <b>فرستنده (From)</b> هر ایمیل دلخواه بنویسید؛ لازم نیست حساب واقعی باشد، فقط شکل ایمیل داشته باشد — مثال: <code>alerts@your-domain.ir</code> یا <code>net-alert@mycompany.local</code>.</li>
+          <li><b>گیرندهٔ پیش‌فرض (To)</b> را با ایمیل مقصد پر کنید و <b>«ذخیره تنظیمات»</b> را بزنید.</li>
+          <li>دکمهٔ <b>«بررسی امکان ارسال مستقیم»</b> را بزنید؛ اگر نتیجه «پورت خروجی ۲۵ باز است» بود، این شبکه می‌تواند مستقل ایمیل بفرستد.</li>
+          <li>در بخش «تست ارسال» دکمهٔ <b>«ارسال ایمیل آزمایشی»</b> را بزنید و صندوق گیرنده (و پوشهٔ Spam) را چک کنید.</li>
+        </ol>
+        <h4>این حالت چگونه کار می‌کند؟</h4>
+        <p>نرم‌افزار مستقیماً از DNS رکورد MX دامنهٔ گیرنده را می‌پرسد (اول DNS خود شبکه، بعد 8.8.8.8/1.1.1.1)، سپس خودش به سرور ایمیلِ همان دامنه (پورت ۲۵) وصل می‌شود و نامه را تحویل می‌دهد. هیچ حساب Gmail/Yahoo یا SMTP واسط لازم نیست — فقط اینترنت و باز بودن پورت خروجی ۲۵.</p>
+        <h4>اگر کار نکرد</h4>
+        <ul>
+          <li><b>پورت ۲۵ مسدود:</b> خیلی از اینترنت‌های خانگی/شرکتی و سرورهای ابری پورت ۲۵ را می‌بندند. اگر «بررسی امکان ارسال مستقیم» همه را «مسدود» نشان داد: یا شبکه/اینترنت را عوض کنید (مثلاً مودم/تلفن همراه)، یا نرم‌افزار را روی سرور/VPS با پورت ۲۵ باز اجرا کنید، یا از حالت «رله SMTP» استفاده کنید.</li>
+          <li><b>نامه به اسپم می‌رود:</b> بدون SPF/DKIM طبیعی است. برای تحویل بهتر، From را روی دامنهٔ خودتان بگذارید و در DNS همان دامنه رکورد SPF برای IP سرور ارسال‌کننده تنظیم کنید.</li>
+          <li><b>گیرندهٔ Gmail رد کرد (خطای 5.7.1):</b> جیمیل ارسال مستقیم از IPهای خانگی را نمی‌پذیرد؛ این محدودیتِ گیرنده است نه نرم‌افزار — روی سرور با IP تمیز کار می‌کند.</li>
+          <li><b>«MX پیدا نشد»:</b> DNS شبکه اجازهٔ پرس‌وجو نمی‌دهد یا آدرس گیرنده غلط است؛ اینترنت را چک کنید.</li>
+          <li>اگر هیچ‌کدام ممکن نشد، حالت <b>رله</b> (میل‌فا / هاست خودتان / VPS) همیشه در دسترس است — در این حالت فقط یک SMTP معتبر لازم است، نه لزوماً جیمیل/یاهو.</li>
+        </ul>
+        <h4>فیلدها</h4>
+        <ul>
+          <li><b>فرستنده (From):</b> آدرس نمایشی فرستنده در نامه.</li>
+          <li><b>نام HELO/EHLO:</b> هنگام خالی بودن، خودکار IP سرور به‌صورت استاندارد <code>[IP]</code> استفاده می‌شود (قبلاً مقدار <code>shabakeban.local</code> باعث رد شدن از بعضی سرورها می‌شد).</li>
+          <li><b>Timeout:</b> سقف هر تلاش اتصال؛ مجموع تلاش‌ها هم محدود است تا رابط کاربری هنگ نکند.</li>
+          <li><b>فعال‌سازی ارسال ایمیل:</b> اگر تیک نخورده باشد، ارسال (حتی آزمایشی) با پیام واضح رد می‌شود.</li>
+        </ul>
+      </details>
     </section>
   );
 }
