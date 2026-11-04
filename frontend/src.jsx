@@ -322,6 +322,8 @@ function DeviceReports({mode="devices"}={}){
   const defaultVisible=()=>{try{const s=JSON.parse(localStorage.getItem("device_cols")||"null");if(Array.isArray(s)&&s.length)return s}catch(e){}const hide=["interfaces","ip_addresses","ip_neighbors","wireless_info","device_log","mac_info","winbox"];return ALL_COLS.map(c=>c.id).filter(id=>!hide.includes(id))};
   const[rows,setRows]=useState([]),[total,setTotal]=useState(0),[classification,setClassification]=useState("mikrotik_candidate"),[deviceTypeFilter,setDeviceTypeFilter]=useState(""),[port,setPort]=useState(""),[q,setQ]=useState(""),[qInput,setQInput]=useState(""),[qField,setQField]=useState(""),[offset,setOffset]=useState(0),[pageSize,setPageSize]=useState(50),[error,setError]=useState(""),[msg,setMsg]=useState("");const[textModal,setTextModal]=useState(null);const[probeProg,setProbeProg]=useState({total:0,done:0,percent:0,current_ip:"",running:false});
   const[backupBusy,setBackupBusy]=useState(false),[backupProg,setBackupProg]=useState({total:0,done:0,percent:0,current_ip:"",running:false});const backupAbortRef={current:null};
+  // نقشهٔ ip → فایل rsc موجود در mik_backup/ (مبنای فعال/غیرفعال بودن دکمهٔ «نمایش کانفیگ» کنار نام هر دستگاه)
+  const[backupMap,setBackupMap]=useState({});
   const[sortBy,setSortBy]=useState("ip"),[sortOrder,setSortOrder]=useState("asc"),[newOnly,setNewOnly]=useState(false),[showAddModal,setShowAddModal]=useState(false),[newIp,setNewIp]=useState(""),[newPorts,setNewPorts]=useState("");
   const[winboxItems,setWinboxItems]=useState([]),[winboxPath,setWinboxPath]=useState(""),[winboxName,setWinboxName]=useState(""),[showWinboxCfg,setShowWinboxCfg]=useState(false),[busyAction,setBusyAction]=useState(false),[toolsDir,setToolsDir]=useState("");
   const[visibleCols,setVisibleCols]=useState(defaultVisible),[showColCfg,setShowColCfg]=useState(false);
@@ -349,6 +351,25 @@ function DeviceReports({mode="devices"}={}){
   async function refreshSnmp(){try{const r=await fetch(API+"/api/snmp/profiles");const d=await r.json();if(r.ok){const list=d.profiles||[];setSnmpProfiles(list);const def=list.find(x=>x.is_default)||list[0];if(def){setSnmpId(def.id);setSnmpRaw(def.raw||"");setSnmpName(def.name||def.community||"")}}}catch(e){}}
   async function refreshDb(){try{const r=await fetch(API+"/api/databases");const d=await readJson(r);if(r.ok){setDbList(d.databases||[]);setActiveDb(d.active||"default")}else{setError(typeof d.detail==="string"?d.detail:"خطا در لیست دیتابیس")}}catch(e){setError(e.message||String(e))}}
   useEffect(()=>{refreshWinbox();refreshSnmp();refreshDb()},[]);
+  // کدام دستگاه‌های صفحهٔ جاری فایل rsc در mik_backup/ دارند؟ (پاسخ: {ip:{exists,file,size,modified}})
+  function refreshBackupMap(list){
+    const ips=[...new Set((list||[]).map(x=>x.ip).filter(Boolean))];
+    if(!ips.length){setBackupMap({});return}
+    fetch(API+"/api/devices/backup-rsc/check?ips="+encodeURIComponent(ips.join(","))).then(r=>r.json()).then(d=>{if(d&&d.devices)setBackupMap(d.devices||{})}).catch(()=>{});
+  }
+  useEffect(()=>{refreshBackupMap(rows)},[rows]);
+  async function showDeviceConfig(ip){
+    const info=backupMap[ip];
+    if(!info||!info.exists){setError("کانفیگ rsc برای این دستگاه در پوشهٔ mik_backup/ ذخیره نشده است — ابتدا پشتیبان‌گیری rsc بگیرید");return}
+    setError("");setMsg("در حال خواندن کانفیگ rsc از پوشهٔ mik_backup/…");
+    try{
+      const r=await fetch(API+"/api/devices/backup-rsc/view?file="+encodeURIComponent(info.file));
+      const d=await r.json();
+      if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:"خواندن کانفیگ ناموفق");
+      setTextModal({title:"کانفیگ rsc — "+ip,text:d.content||"(فایل خالی)",downloadFile:d.file||info.file,meta:d.modified?("فایل: "+d.file+" — ذخیره: "+d.modified+" — حجم: "+(d.size||0).toLocaleString("fa-IR")+" بایت"):d.file});
+      setMsg("کانفیگ rsc نمایش داده شد: "+(d.file||info.file));
+    }catch(e){setError(e.message||"خواندن کانفیگ ناموفق")}
+  }
   useEffect(()=>{try{localStorage.setItem("device_cols",JSON.stringify(visibleCols))}catch(e){}},[visibleCols]);
   function handleSort(col){if(sortBy===col)setSortOrder(o=>o==="asc"?"desc":"asc");else{setSortBy(col);setSortOrder("asc")}}
   function sortIcon(col){return sortBy===col?(sortOrder==="asc"?"▲":"▼"):"⇅"}
@@ -543,6 +564,7 @@ function DeviceReports({mode="devices"}={}){
     }finally{
       clearInterval(progTimer);backupAbortRef.current=null;setBackupBusy(false);
       setBackupProg(p=>({...p,running:false}));
+      refreshBackupMap(rows); // دکمهٔ «نمایش کانفیگ» دستگاه‌های تازه بک‌آپ‌گرفته فعال شود
     }
   }
   async function stopBackupRsc(){try{await fetch(API+"/api/devices/backup-rsc/cancel",{method:"POST"});if(backupAbortRef.current)backupAbortRef.current.abort()}catch(e){}setMsg("درخواست توقف پشتیبان‌گیری ارسال شد؛ پس از پایان دستگاه جاری متوقف می‌شود…")}
@@ -830,7 +852,7 @@ function DeviceReports({mode="devices"}={}){
   const ppOkPct=ppTot?Math.round(100*(ppOk||0)/ppTot):0;
   const ppFailPct=ppTot?Math.max(0,Math.min(100-ppOkPct,Math.round(100*(ppFail||0)/ppTot))):0;
   // Task 35 (سرعت UI): آخرین نسخهٔ توابع جدول در هر رندر ذخیره می‌شود تا JSXِ memo شده همیشه توابع تازه صدا بزند (بدون stale closure)
-  liveRef.current={openWinbox,saveName,toggleSelect,toggleSelectAll,handleSort};
+  liveRef.current={openWinbox,saveName,toggleSelect,toggleSelectAll,handleSort,showDeviceConfig};
   // جدول دستگاه‌ها فقط وقتی از نو ساخته می‌شود که داده/ستون‌ها/انتخاب/مرتب‌سازی/ویرایشِ نام عوض شود؛
   // تایپ در هر ورودی متنی دیگر (جستجو، فرم‌ها، مدال‌ها) کل جدول را رندر نمی‌کند — ریشهٔ کندی تایپ همین بود.
   const tableEl=useMemo(()=>(<table><thead><tr>
@@ -845,6 +867,10 @@ function DeviceReports({mode="devices"}={}){
           : <span className="editable name-preview" onClick={()=>setEditNameIp(d.ip)} title="MikroTik /system identity — کلیک برای ویرایش">{d.device_name||"—"}</span>}
         <span className="name-actions">
           {isMikrotik(d)&&<button type="button" className="btn-winbox btn-winbox-inline" title={"باز کردن Winbox — "+d.ip} onClick={e=>{e.stopPropagation();liveRef.current.openWinbox(d.ip)}}>▣ Winbox</button>}
+          <button type="button" className={"btn-detail btn-cfg-rsc"+(!(backupMap[d.ip]&&backupMap[d.ip].exists)?" is-empty":"")}
+            disabled={!(backupMap[d.ip]&&backupMap[d.ip].exists)}
+            title={(backupMap[d.ip]&&backupMap[d.ip].exists)?("نمایش کانفیگ rsc — "+backupMap[d.ip].file):"کانفیگ rsc در mik_backup/ موجود نیست — ابتدا پشتیبان‌گیری rsc بگیرید"}
+            onClick={e=>{e.stopPropagation();liveRef.current.showDeviceConfig(d.ip)}}>نمایش کانفیگ</button>
           <button type="button" className={"btn-detail"+(d.interfaces?"":" is-empty")} title="اینترفیس‌ها" onClick={e=>{e.stopPropagation();setTextModal({title:"اینترفیس‌ها — "+d.ip,text:d.interfaces||"(خالی)"})}}>اینترفیس‌ها</button>
           <button type="button" className={"btn-detail"+(d.ip_addresses?"":" is-empty")} title="آدرس‌های IP" onClick={e=>{e.stopPropagation();setTextModal({title:"آدرس‌های IP — "+d.ip,text:d.ip_addresses||"(خالی)"})}}>آدرس IP</button>
           <button type="button" className={"btn-detail"+(d.ip_neighbors?"":" is-empty")} title="همسایه‌ها" onClick={e=>{e.stopPropagation();setTextModal({title:"همسایه‌ها — "+d.ip,text:d.ip_neighbors||"(خالی)"})}}>همسایه‌ها</button>
@@ -868,7 +894,7 @@ function DeviceReports({mode="devices"}={}){
       {colOn("last_seen")&&<td dir="ltr" className="date-cell col-last_seen">{formatDate(d.last_seen)}</td>}
       {colOn("seen_count")&&<td className="col-seen_count">{d.seen_count}</td>}
       {colOn("winbox")&&<td className="winbox-cell col-winbox">{isMikrotik(d)?<button type="button" className="btn-winbox" onClick={()=>liveRef.current.openWinbox(d.ip)}>▣ Winbox</button>:"—"}</td>}
-    </tr>)}</tbody></table>),[rows,selected,visibleCols,editNameIp,sortBy,sortOrder]);
+    </tr>)}</tbody></table>),[rows,selected,visibleCols,editNameIp,sortBy,sortOrder,backupMap]);
   return <section className={"panel device-reports"+(isSystem?" system-admin":"")} dir="rtl">
     <div className="report-heading">
       <h2>{isSystem ? "راهبری سیستم" : "مدیریت دستگاه‌های شبکه"}</h2>
@@ -1074,6 +1100,7 @@ function DeviceReports({mode="devices"}={}){
     </div>
     {textModal&&<div className="modal-overlay" onClick={()=>setTextModal(null)}><div className="modal-box text-view-modal" dir="rtl" onClick={e=>e.stopPropagation()}>
       <h3 style={{marginTop:0}}>{textModal.title}</h3>
+      {textModal.meta&&<p className="muted" style={{fontSize:".85em",margin:"0 0 6px"}}>{textModal.meta}</p>}
       {textModal.editable
         ? <textarea className="text-view-textarea" dir="ltr" rows={12} value={textModal.text} onChange={e=>setTextModal(m=>({...m,text:e.target.value}))}/>
         : <pre className="text-view-pre" dir="ltr">{textModal.text}</pre>}
@@ -1088,6 +1115,14 @@ function DeviceReports({mode="devices"}={}){
             setTextModal(null);
           }catch(e){setError(e.message)}
         }}>ذخیره</button>}
+        {textModal.downloadFile&&<button type="button" className="btn-modal-save" onClick={()=>{
+          const blob=new Blob([textModal.text||""],{type:"text/plain;charset=utf-8"});
+          const a=document.createElement("a");
+          a.href=URL.createObjectURL(blob);a.download=textModal.downloadFile;
+          document.body.appendChild(a);a.click();a.remove();
+          URL.revokeObjectURL(a.href);
+          setMsg("فایل ذخیره شد: "+textModal.downloadFile);
+        }}>دانلود .rsc</button>}
         <button type="button" className="btn-modal-close" onClick={()=>setTextModal(null)}>بستن</button>
       </div>
     </div></div>}

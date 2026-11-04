@@ -734,3 +734,22 @@ Work Log:
 
 Stage Summary:
 - مخزن حالا یک پیاده‌سازی منسجم دارد (نه دو موازی): معماری errorlog ریموت + عیب‌یابی سه‌علتهٔ ورود، سطح‌بندی warn/info، جستجوی سرورساید، خروجی CSV و پوشش لاگ برای هر چهار عملیات (پشتیبان‌گیری/خواندن API/انتقال کانفیگ/SNMP)
+
+---
+Task ID: 38
+Agent: main (Z.ai)
+Task: دکمهٔ «نمایش کانفیگ» کنار نام هر دستگاه — نمایش فایل rsc ذخیره‌شده در mik_backup/
+
+Work Log:
+- کاربرد: «در کنار نام هر دستگاه یک دکمه نمایش کانفیگ ایجاد کن که کانفیگ با پسوند rsc دستگاه را در فولدر mik_backup نمایش دهد اگر کانفیگ وجود نداشته باشد این دکمه غیرفعال باشد»
+- backend/backup_rsc.py: دو تابع جدید — `find_backup_for_device(device_name, ip, dev_id)` (اول نام دقیق backup_filename، سپس fallback الگوی «*_<IP>.rsc» برای فایل‌های با نام قدیمی، جدیدترین بر اساس mtime؛ خروجی file/size/modified یا None) و `read_backup_file(filename)` (خواندن امن متن rsc: فقط نام سادهٔ فایل + اصرار خروج resolve داخل BACKUP_DIR (ضد path traversal) + پسوند .rsc اجباری + سقف ۲MB + errors=replace)
+- backend/main.py: دو endpoint زیر AuthMiddleware — GET /api/devices/backup-rsc/check?ips=… (نقشهٔ ip → {exists,file,size,modified} با خواندن نام دستگاه از دیتابیس فعال — مبنای فعال/غیرفعال بودن دکمه) و GET /api/devices/backup-rsc/view?file=… (متن کانفیگ؛ 404 فایل ناموجود، 400 نام نامعتبر/مسیرگیری)
+- frontend/src.jsx: state `backupMap` + `refreshBackupMap(list)` (fetch check برای دستگاه‌های صفحهٔ جاری؛ useEffect روی rows + فراخوانی در finallyِ backupRsc تا دکمهٔ دستگاه‌های تازه بک‌آپ‌گرفته فوراً فعال شود) + `showDeviceConfig(ip)` (fetch view → setTextModal)؛ دکمهٔ «نمایش کانفیگ» (btn-detail btn-cfg-rsc، سبز) در name-actions کنار نام هر دستگاه — بدون توجه به میکروتیک بودن، ولی disabled وقتی فایل نیست (title راهنما: «کانفیگ rsc در mik_backup/ موجود نیست — ابتدا پشتیبان‌گیری rsc بگیرید»)؛ backupMap به depsِ useMemo جدول اضافه شد (بدون آن دکمه هرگز فعال نمی‌شد)؛ مدال متن: نمایش متادیتا (نام فایل/تاریخ ذخیره/حجم فارسی) + دکمهٔ جدید «دانلود .rsc» (Blob) وقتی textModal.downloadFile هست — مدال‌های قبلی دست‌نخورده
+- frontend/style.css: کلاس‌های .btn-detail.btn-cfg-rsc (سبز: #dcfce7/#166534/#86efac) + :disabled (cursor:not-allowed، opacity .4)
+- frontend/dist بازسازی شد: index-C5S6BqMn.js (۳۸۸KB) + index-BF1IIM_C.css
+- تست: scripts/test_backup_view_button.py (جدید، ۲۳ بررسی — ALL OK): سورس فرانت/CSS + find_backup_for_device (نام دقیق/fallback نام قدیمی/None) + هر چهار endpoint با TestClient (check exists=true/false، view محتوا+متا، 404، مسیرگیری ../ → 400، پسوند غیر rsc → 400) + پاک‌سازی؛ رگرسیون: scripts/test_backup_button.py (ALL OK) + tests/test_backup_rsc.py (exit 0)
+- بررسی بصری با مرورگر واقعی (uvicorn + dist): ۵۰ ردیف صفحه → ۵۰ دکمه (۴۹ disabled، ۱ enabled برای فایل تست)؛ کلیک دکمهٔ فعال → مدال با عنوان «کانفیگ rsc — <IP>»، متادیتا و متن کانفیگ + دکمهٔ «دانلود .rsc» تأیید شد (اسکرین‌شات هر دو حالت)
+
+Stage Summary:
+- کنار نام هر دستگاه دکمهٔ «نمایش کانفیگ» هست: اگر فایل rsc آن دستگاه در mik_backup/ باشد کلیک‌پذیر است و متن کانفیگ را (با نام فایل، تاریخ ذخیره و حجم) در مدال نشان می‌دهد و امکان دانلود .rsc هم دارد؛ اگر فایل نباشد دکمه غیرفعال با tooltip راهنماست
+- یافتن فایل فقط به نام دقیق وابسته نیست: اگر نام دستگاه بعد از بک‌آپ عوض شده باشد فایل با الگوی «*_<IP>.rsc» پیدا می‌شود (جدیدترین فایل ملاک است)

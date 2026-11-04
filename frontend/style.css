@@ -1271,6 +1271,12 @@ header.app-brand p{
 }
 .btn-log-inline:hover,.btn-detail.btn-log-inline:hover{background:#fde68a !important}
 .btn-log-inline.is-empty{opacity:.45}
+/* دکمهٔ «نمایش کانفیگ» کنار نام دستگاه — فایل rsc ذخیره‌شده در mik_backup/ */
+.btn-detail.btn-cfg-rsc{background:#dcfce7;color:#166534;border-color:#86efac}
+.btn-detail.btn-cfg-rsc:hover{background:#bbf7d0}
+.btn-detail.btn-cfg-rsc.is-empty{opacity:.4}
+.btn-detail.btn-cfg-rsc:disabled{cursor:not-allowed;opacity:.4}
+.btn-detail.btn-cfg-rsc:disabled:hover{background:#dcfce7}
 .col-device_name{min-width:280px}
 
 .email-panel h2{margin-top:0}

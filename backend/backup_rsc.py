@@ -418,6 +418,66 @@ def list_backup_files() -> list[dict]:
     return items
 
 
+def find_backup_for_device(device_name: str, ip: str, dev_id=None) -> dict | None:
+    """فایل rsc مربوط به یک دستگاه را در mik_backup/ پیدا می‌کند (None = بک‌آپ ندارد).
+
+    - اول نام دقیق «<نام>_<IP>.rsc» (همان backup_filename) چک می‌شود؛
+    - اگر نبود، هر فایل «*_<IP>.rsc» ملاک است — نام دستگاه ممکن است بعد از
+      بک‌آپ‌گرفتن عوض شده باشد و فایل با نام قدیمی مانده باشد؛
+    - اگر چند فایل برای یک IP بود، جدیدترین (بر اساس mtime) برگردانده می‌شود.
+    """
+    try:
+        candidates: list[Path] = []
+        exact = BACKUP_DIR / backup_filename(device_name, ip, dev_id)
+        if exact.is_file():
+            candidates.append(exact)
+        ip_safe = safe_stem(ip, fallback="no-ip")
+        if ip_safe:
+            try:
+                candidates.extend(p for p in BACKUP_DIR.glob(f"*_{ip_safe}.rsc") if p.is_file())
+            except OSError:
+                pass
+        if not candidates:
+            return None
+        uniq = {p.name: p for p in candidates}
+        p = max(uniq.values(), key=lambda x: x.stat().st_mtime)
+        st = p.stat()
+        return {"file": p.name, "size": st.st_size,
+                "modified": datetime.fromtimestamp(st.st_mtime).strftime("%Y-%m-%d %H:%M")}
+    except OSError:
+        return None
+
+
+def read_backup_file(filename: str, max_bytes: int = 2_000_000) -> dict:
+    """متن یک فایل rsc از mik_backup/ را می‌خواند (امن در برابر مسیرگیری).
+
+    - فقط «نام سادهٔ» فایل پذیرفته می‌شود — هر مسیر/پیشوند دایرکتوری حذف و
+      خروج باید داخل خود mik_backup/ بماند (جلوگیری از path traversal)؛
+    - فایل‌های بزرگ‌تر از max_bytes رد می‌شوند (فایل export میکروتیک معمولاً
+      چند کیلوبایت است؛ سقف فقط محافظت است).
+    """
+    name = str(filename or "").strip()
+    if not name:
+        raise ValueError("نام فایل خالی است")
+    name = Path(name).name
+    if not name.lower().endswith(".rsc"):
+        raise ValueError("فقط فایل با پسوند .rsc مجاز است")
+    p = (BACKUP_DIR / name).resolve()
+    try:
+        p.relative_to(BACKUP_DIR.resolve())
+    except ValueError:
+        raise ValueError("مسیر فایل نامعتبر است") from None
+    if not p.is_file():
+        raise FileNotFoundError(name)
+    st = p.stat()
+    if st.st_size > max_bytes:
+        raise ValueError(f"حجم فایل بیش از حد مجاز است ({st.st_size} بایت)")
+    text = p.read_text(encoding="utf-8", errors="replace")
+    return {"file": p.name, "size": st.st_size,
+            "modified": datetime.fromtimestamp(st.st_mtime).strftime("%Y-%m-%d %H:%M"),
+            "content": text}
+
+
 def ensure_backup_folder() -> str:
     os.makedirs(BACKUP_DIR, exist_ok=True)
     return str(BACKUP_DIR)

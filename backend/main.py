@@ -1930,6 +1930,50 @@ def backup_rsc_files():
     }
 
 
+@app.get("/api/devices/backup-rsc/check")
+def backup_rsc_check(ips: str = Query(default="", max_length=40000)):
+    """برای هر IP بگوید فایل rsc آن در mik_backup/ موجود است یا نه.
+
+    مبنای تصمیم UI برای فعال/غیرفعال بودن دکمهٔ «نمایش کانفیگ» کنار نام
+    هر دستگاه است: exists=true یعنی فایل هست و دکمه کلیک‌پذیر می‌شود.
+    نام دستگاه از دیتابیس فعال خوانده می‌شود (همان مبنای نام‌گذاری فایل
+    هنگام پشتیبان‌گیری)؛ اگر فایل با نام قدیمی مانده باشد، با الگوی
+    «*_<IP>.rsc» هم پیدا می‌شود.
+    """
+    ip_list: list[str] = []
+    for x in (ips or "").replace(",", " ").split():
+        s = x.strip()
+        if s and s not in ip_list:
+            ip_list.append(s)
+    devices = {d["ip"]: d for d in db.fetch_devices_by_ips(ip_list)}
+    out: dict[str, dict] = {}
+    for ip in ip_list:
+        d = devices.get(ip)
+        info = backup_rsc.find_backup_for_device(
+            (d.get("device_name") or "") if d else "", ip,
+            d.get("id") if d else None) or {}
+        out[ip] = {"exists": bool(info.get("file")), **info}
+    return {"folder": str(backup_rsc.BACKUP_DIR), "devices": out}
+
+
+@app.get("/api/devices/backup-rsc/view")
+def backup_rsc_view(file: str = Query(default="", max_length=255)):
+    """متن کانفیگ یک فایل rsc از mik_backup/ را برمی‌گرداند (برای دکمهٔ «نمایش کانفیگ»).
+
+    نام فایل باید ساده و داخل mik_backup/ باشد (محافظت path traversal)؛
+    فایل ناموجود → 404، نام نامعتبر → 400.
+    """
+    try:
+        data = backup_rsc.read_backup_file(file)
+    except FileNotFoundError:
+        raise HTTPException(404, "فایل کانفیگ در پوشهٔ mik_backup/ پیدا نشد")
+    except ValueError as e:
+        raise HTTPException(400, str(e))
+    except OSError as e:
+        raise HTTPException(500, f"خواندن فایل ناموفق بود: {e}")
+    return data
+
+
 # ===================== ثبت لاگ خطا (برگهٔ راهبری سیستم — Task 37) =====================
 class ErrorLogToggleBody(BaseModel):
     """ورودی کلید فعال/خاموش ثبت لاگ خطا."""
