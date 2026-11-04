@@ -83,7 +83,7 @@
 .modal-box label{display:flex;flex-direction:column;gap:.25em;font-size:.9em}
 .modal-box input{border:1px solid #bbb;border-radius:5px;padding:.35em .5em}
 .modal-actions{display:flex;gap:.5em;justify-content:flex-start;margin-top:.4em}
-.modal-actions button{cursor:pointer;border:1px solid #888;border-radius:6px;padding:.35em 1em;background:#fff}
+.modal-actions button{cursor:pointer;border:1px solid #888;border-radius:6px;padding:.35em 1em;background:#fff;color:#1f2937}
 .modal-actions button[type=submit]{background:#16a34a;color:#fff;border-color:#16a34a}
 
 /* Winbox / backup / restore */
@@ -399,6 +399,22 @@ table td.col-wireless_info{
   min-width:5rem;
 }
 .btn-modal-save:hover{background:#15803d !important}
+/* دکمه‌های فرعی مدال (مثل «انتخاب همه موارد فیلترشده» و «حذف انتخاب‌ها») —
+   بدون این کلاس، قانون سراسری button (متن سفید) روی background:#fff مدال
+   متن را نامرئی می‌کرد (Task 39) */
+.btn-modal-secondary{
+  background:#e0f2fe !important;
+  color:#075985 !important;
+  border:1px solid #7dd3fc !important;
+  border-radius:8px !important;
+  padding:10px 20px !important;
+  font:inherit !important;
+  font-weight:700 !important;
+  cursor:pointer;
+  min-width:5rem;
+}
+.btn-modal-secondary:hover{background:#bae6fd !important}
+.btn-modal-secondary:disabled{opacity:.55;cursor:wait}
 .modal-actions{
   display:flex;
   gap:10px;

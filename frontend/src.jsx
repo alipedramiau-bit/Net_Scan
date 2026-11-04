@@ -2062,8 +2062,8 @@ function DevicePickerModal({database,initialSelected,onConfirm,onClose}){
     {over&&<div style={{color:"#b91c1c",fontSize:".9em"}}>بیش از حد مجاز؛ حداکثر {MAX_SEL.toLocaleString("fa-IR")} دستگاه برای هر گزارش قابل انتخاب است.</div>}
     <div className="modal-actions">
       <button type="button" className="btn-modal-save" disabled={over||selCount===0} onClick={()=>onConfirm([...draft])}>تایید انتخاب ({selCount.toLocaleString("fa-IR")})</button>
-      <button type="button" onClick={selectFiltered}>انتخاب همه موارد فیلترشده</button>
-      <button type="button" onClick={clearDraft}>حذف انتخاب‌ها</button>
+      <button type="button" className="btn-modal-secondary" onClick={selectFiltered}>انتخاب همه موارد فیلترشده</button>
+      <button type="button" className="btn-modal-secondary" onClick={clearDraft}>حذف انتخاب‌ها</button>
       <button type="button" className="btn-modal-close" onClick={onClose}>انصراف</button>
     </div>
   </div></div>;
