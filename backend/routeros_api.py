@@ -567,25 +567,38 @@ class RouterOSClient:
         traps = [s for s in replies if s and s[0] == "!trap"]
         if not traps and any(s and s[0] == "!done" for s in replies):
             return
+        first_err = _trap_message(traps[0]) if traps else None
 
-        # Older challenge-response login
-        replies = self.talk(["/login"])
-        chal = None
-        for s in replies:
-            for w in s:
-                if w.startswith("=ret="):
-                    chal = w[5:]
-        if not chal:
-            # first login may have already reported error
-            if traps:
-                raise RouterOSError(_trap_message(traps[0]) or "ورود API ناموفق")
-            raise RouterOSError("ورود API ناموفق (challenge دریافت نشد)")
-        md = hashlib.md5()
-        md.update(b"\x00")
-        md.update(password.encode("utf-8", errors="surrogateescape"))
-        md.update(bytes.fromhex(chal))
-        replies = self.talk(["/login", f"=name={username}", f"=response=00{md.hexdigest()}"])
-        self._assert_ok(replies, "ورود API")
+        # Older challenge-response login (ROS < 6.43) — Task 37: روی اتصالِ تازه.
+        # بعد از یک ورود ناموفق، روتر ممکن است نشست را بسته باشد؛ تلاشِ دوم روی
+        # همان سوکت همیشه «اتصال قطع شد» می‌دهد و روش قدیم هرگز فرصت پیدا نمی‌کند
+        # (نمونهٔ گزارش‌شده: login درست اما خطای (6) روی ROS قدیمی).
+        second_err = None
+        try:
+            self.close()
+            self.connect()
+            replies = self.talk(["/login"])
+            chal = None
+            for s in replies:
+                for w in s:
+                    if w.startswith("=ret="):
+                        chal = w[5:]
+            if chal:
+                md = hashlib.md5()
+                md.update(b"\x00")
+                md.update(password.encode("utf-8", errors="surrogateescape"))
+                md.update(bytes.fromhex(chal))
+                replies = self.talk(["/login", f"=name={username}", f"=response=00{md.hexdigest()}"])
+                self._assert_ok(replies, "ورود API")
+                return
+        except Exception as e:  # اتصال تازه هم نشد — خطای اصلی پایین‌تر گزارش می‌شود
+            second_err = str(e) or e.__class__.__name__
+
+        if first_err:
+            if second_err:
+                raise RouterOSError(f"{first_err} (روش چالش-پاسخ روی اتصال تازه هم ناموفق: {second_err})")
+            raise RouterOSError(first_err)
+        raise RouterOSError("ورود API ناموفق (challenge دریافت نشد)")
 
     def run_api_sentence(self, sentence: list[str]) -> list[list[str]]:
         replies = self.talk(sentence)

@@ -1,21 +1,28 @@
-"""پشتیبان‌گیری کانفیگ میکروتیک به‌صورت rsc (Task 34؛ Task 36: پوشهٔ mik_backup + عیب‌یابی واضح).
+"""پشتیبان‌گیری کانفیگ میکروتیک به‌صورت rsc (Task 34؛ 36: پوشهٔ mik_backup + عیب‌یابی؛
+37: روش فایل برای دستگاه‌هایی که /export را خالی برمی‌گردانند + ثبت لاگ خطا).
 
 درخواست کاربر: «یک فولدر به نام backup در مسیر برنامه ایجاد کن که با یک دکمهٔ
 backup بتواند از طریق API و ورود یوزر/پسورد بک‌آپ دستگاه‌های میکروتیک با پسوند
 rsc بگیرد؛ با نام/ای‌دی دستگاه‌ها و ای‌پی دستگاه در فولدر backup ذخیره کند»
-+ «فولدر backup را به نام mik_backup تغییر نام بده» (Task 36).
++ «فولدر backup را به نام mik_backup تغییر نام بده» (Task 36)
++ «نتونست بک اپ بگیره؛ یک گزینه ثبت لاگ خطا در برگهٔ مدیریت سیستم ایجاد کن؛
+خطا را برطرف کن؛ یوزر پسورد ورود مشکلی نداره» (Task 37).
 
 - پوشهٔ mik_backup در ریشهٔ برنامه (کنار backend/ و frontend/) ساخته می‌شود؛
   اگر پوشهٔ قدیمی backup/ موجود باشد، هنگام ایمپورت خودکار به mik_backup/
   منتقل می‌شود تا فایل‌های قبلی از بین نروند؛
 - اتصال با همان کلاینت RouterOS API پروژه (routeros_api.RouterOSClient —
   پورت 8728، احراز هویت v6.43+ و چالش-پاسخ قدیم) برقرار می‌شود؛
-- خروجی با دستور «/export» خوانده می‌شود (متن کانفیگ rsc) و در فایل
-  «<نام‌دستگاه>_<IP>.rsc» (utf-8) ذخیره می‌شود؛ دستگاه بی‌نام از ای‌دی ردیف
-  دیتابیس نام می‌گیرد (device-<id>)؛
+- خروجی /export به دو روش خوانده می‌شود (Task 37): روش مستقیم (ROS 7: تکه‌های
+  =ret=) و اگر خالی/خطا بود روش فایل — «/export =file=…» روی دستگاه (مجوز
+  write لازم دارد) + پول اندازهٔ فایل + خواندن =contents= (سقف ~۴KB RouterOS)
+  + حذف فایل موقت؛
 - عیب‌یابی (Task 36): خطای هر دستگاه با علت فارسیِ مشخص برمی‌گردد — سرویس api
   غیرفعال/فیلتر (پورت 8728 جدا از Winbox 8291 است)، ورود ناموفق (رمز یا
   policy «api»)، طول‌کشیدن export (روتر پرکانفیگ CPU می‌زند) و قطع‌شدن اتصال؛
+- لاگ خطا (Task 37): هر دستگاه ناموفق + خلاصهٔ پایان کار در
+  mik_log/errorlog.jsonl ثبت می‌شود (ماژول errorlog؛ کلید فعال/خاموش در
+  برگهٔ راهبری سیستم) تا علت شکست بعداً هم قابل مرور باشد؛
 - پیشرفت (total/done/ok/failed/current_ip/percent) در BACKUP_PROGRESS نگه
   داشته می‌شود تا UI حین اجرا نمودار پیشرفت را بکشد؛ لغو مشارکتی با Event.
 """
@@ -25,6 +32,8 @@ import os
 import re
 import socket
 import threading
+import time
+import uuid
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 from pathlib import Path
@@ -33,6 +42,10 @@ try:
     from backend import routeros_api as _ros
 except ImportError:  # اجرای مستقیم بدون پکیج
     import routeros_api as _ros
+try:
+    from backend import errorlog as _errorlog
+except ImportError:
+    import errorlog as _errorlog
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 # Task 36: نام پوشه از backup به mik_backup تغییر کرد (فولدر پشتیبان‌گیری کامل دیتابیس
@@ -88,6 +101,14 @@ EXPORT_MIN_TIMEOUT = 90.0
 # فیلتر می‌کند باید سریع با پیام واضح fail شود تا صف پیشرفت گیر نکند (Task 36)
 CONNECT_TIMEOUT_CAP = 12.0
 
+# Task 37 — روش فایل: RouterOS 6 خروجی مستقیم /export را از API برنمی‌گرداند
+# (تأیید فروم میکروتیک «Export configuration via API» و «How to read file
+# content using API?»): باید export=file گرفت و محتوا را خواند؛ خواندن محتوا
+# سقف ~۴ کیلوبایت دارد. پول اندازهٔ فایل: حداکثر ۱۲ بار، هر ثانیه تا ثبات.
+_FILE_SIZE_CAP_HINT = 4096
+_FILE_POLL_TRIES = 12
+_FILE_POLL_INTERVAL = 1.0
+
 
 def _friendly_error(e: Exception, stage: str) -> str:
     """علت فارسیِ مشخص برای هر خطا بر اساس مرحلهٔ شکست (Task 36).
@@ -142,14 +163,85 @@ def backup_filename(device_name: str, ip: str, dev_id=None) -> str:
     return f"{name}_{ip_safe}.rsc"
 
 
+def _export_via_file(cli, read_timeout: float) -> str:
+    """روش دوم خواندن کانفیگ (Task 37): «/export =file=…» + خواندن محتوای فایل.
+
+    RouterOS 6 خروجی مستقیم /export را از API برنمی‌گرداند (فقط !done) — کار
+    مستندشده: export در فایل روی دستگاه (مجوز write لازم دارد)، پول تا ثبات
+    اندازه، خواندن =contents= (سقف ~۴KB) و حذف فایل موقت. نام فایل بدون پسوند
+    فرستاده می‌شود؛ RouterOS خودش «.rsc» اضافه می‌کند (پسوندِ اضافه‌نشدن هم
+    پوشش داده می‌شود).
+    """
+    tmp = "mikbk-" + uuid.uuid4().hex[:8]
+    fname = tmp + ".rsc"
+    replies = cli.talk(["/export", f"=file={tmp}"], timeout=read_timeout)
+    traps = [s for s in replies if s and s[0] == "!trap"]
+    fatals = [s for s in replies if s and s[0] == "!fatal"]
+    if fatals or traps:
+        raw = _ros._trap_message((fatals or traps)[0]) or "export به فایل ناموفق"
+        raise _ros.RouterOSError(
+            "دستور /export =file= اجرا نشد (" + raw + ") — این دستور مجوز write لازم "
+            "دارد؛ گروه کاربر باید policy «read,write,api» داشته باشد")
+    fid = ""
+    found_name = ""
+    size = -1
+    stable = 0
+    for attempt in range(_FILE_POLL_TRIES):
+        if attempt:
+            time.sleep(_FILE_POLL_INTERVAL)
+        for qname in (fname, tmp):
+            replies = cli.talk(["/file/print", f"?name={qname}",
+                                "=.proplist=.id,name,size"], timeout=read_timeout)
+            rows = [s for s in replies if s and s[0] == "!re"]
+            if rows:
+                found_name = qname
+                fid = next((w[5:] for w in rows[0] if isinstance(w, str) and w.startswith("=.id=")), fid)
+                try:
+                    sz = int(next((w[6:] for w in rows[0] if isinstance(w, str) and w.startswith("=size=")), "-1"))
+                except ValueError:
+                    sz = -1
+                if sz >= 0 and sz == size:
+                    stable += 1
+                else:
+                    size = sz
+                    stable = 0
+                break
+        if found_name and stable >= 2:
+            break
+    target = found_name or fname
+    replies = cli.talk(["/file/print", f"?name={target}",
+                        "=.proplist=contents"], timeout=read_timeout)
+    rows = [s for s in replies if s and s[0] == "!re"]
+    text = ""
+    for w in (rows[0] if rows else []):
+        if isinstance(w, str) and w.startswith("=contents="):
+            text += w[10:]
+    if fid:  # پاک‌سازی فایل موقت روی دستگاه — خطایش پشتیبان را ناموفق نمی‌کند
+        try:
+            cli.talk(["/file/remove", f"=.id={fid}"], timeout=min(read_timeout, 15.0))
+        except Exception:
+            pass
+    if not text.strip():
+        hint = ""
+        if size > _FILE_SIZE_CAP_HINT:
+            hint = (f" — فایل روی دستگاه {size} بایت است؛ سقف خواندن محتوا از طریق API حدود "
+                    "۴ کیلوبایت است (RouterOS محتویات فایل بزرگ‌تر را برنمی‌گرداند — "
+                    "برای این دستگاه از Winbox/FTP یا ارتقای به ROS 7 استفاده کنید)")
+        elif size < 0:
+            hint = " — فایل export روی دستگاه ساخته نشد (نام کاربر مجوز write ندارد یا دیسک پر است)"
+        raise _ros.RouterOSError("محتوای فایل export خوانده نشد" + hint)
+    return text
+
+
 def export_config_via_api(host: str, username: str, password: str,
                           port: int = 8728, timeout: float = 20.0) -> str:
     """اتصال RouterOS API و خواندن متن کانفیگ (/export) به‌صورت rsc.
 
-    پاسخ API ممکن است یک «!done» با «=ret=» کامل باشد یا چند «!re» تکه‌تکه
-    به‌همراه «!done» — هر دو حالت پشتیبانی می‌شوند (تکه‌ها به‌ترتیب چسبانده
-    می‌شوند). خطاها با علت فارسیِ مرحلهٔ شکست (connect/login/read) بالا
-    می‌روند (Task 36).
+    روش اول: پاسخ مستقیم /export — ممکن است یک «!done» با «=ret=» کامل باشد یا
+    چند «!re» تکه‌تکه به‌همراه «!done» (ROS 7). روش دوم (Task 37): اگر روش اول
+    خالی یا خطا داد — الگوی رایج ROS 6 — کانفیگ با «/export =file=…» روی دستگاه
+    نوشته و محتوایش خوانده می‌شود (_export_via_file). خطاها با علت فارسیِ
+    مرحلهٔ شکست (connect/login/read) بالا می‌روند (Task 36).
     """
     host = str(host or "").strip()
     if not host:
@@ -166,23 +258,43 @@ def export_config_via_api(host: str, username: str, password: str,
         stage = "read"
         replies = cli.talk(["/export"], timeout=read_timeout)
     except Exception as e:  # socket/RouterOSError — علت فارسی بر اساس مرحله
-        raise _ros.RouterOSError(_friendly_error(e, stage)) from None
-    finally:
         cli.close()
+        raise _ros.RouterOSError(_friendly_error(e, stage)) from None
     traps = [s for s in replies if s and s[0] == "!trap"]
     fatals = [s for s in replies if s and s[0] == "!fatal"]
+    text = ""
+    direct_err = ""
     if fatals:
-        raise _ros.RouterOSError(_ros._trap_message(fatals[0]) or "خواندن کانفیگ ناموفق")
-    if traps:
-        raise _ros.RouterOSError(_ros._trap_message(traps[0]) or "خواندن کانفیگ ناموفق")
-    parts: list[str] = []
-    for s in replies:
-        for w in s:
-            if isinstance(w, str) and w.startswith("=ret="):
-                parts.append(w[5:])
-    text = "".join(parts)
+        direct_err = _ros._trap_message(fatals[0]) or "خواندن کانفیگ ناموفق"
+    elif traps:
+        direct_err = _ros._trap_message(traps[0]) or "خواندن کانفیگ ناموفق"
+    else:
+        parts: list[str] = []
+        for s in replies:
+            for w in s:
+                if isinstance(w, str) and w.startswith("=ret="):
+                    parts.append(w[5:])
+        text = "".join(parts)
+    if text.strip():
+        cli.close()
+        return text
+
+    # Task 37 — ROS 6.x: /export مستقیم فقط !done می‌دهد → روش فایل
+    try:
+        text = _export_via_file(cli, read_timeout)
+    except Exception as e2:
+        cli.close()
+        msg = "خروجی /export خالی بود (این نسخهٔ RouterOS خروجی export را مستقیم از API برنمی‌گرداند)"
+        if direct_err:
+            msg += f" — پاسخ مستقیم: {direct_err}"
+        msg += f" — روش فایل هم ناموفق بود: {e2}"
+        raise _ros.RouterOSError(msg) from None
+    cli.close()
     if not text.strip():
-        raise _ros.RouterOSError("خروجی /export خالی بود (دسترسی کافی نیست یا نسخهٔ RouterOS از export پشتیبانی نمی‌کند)")
+        msg = "خروجی /export خالی بود (روش مستقیم و روش فایل هر دو بی‌نتیجه بود)"
+        if direct_err:
+            msg += f" — پاسخ مستقیم: {direct_err}"
+        raise _ros.RouterOSError(msg)
     return text
 
 
@@ -232,6 +344,11 @@ def backup_devices(devices: list[dict], username: str, password: str,
             row.update(file=fname, ok=True)
         except Exception as e:  # RouterOSError / socket / OSError
             row["error"] = str(e)[:300]
+            # Task 37: ثبت در لاگ خطا (برگهٔ راهبری سیستم) — خطا نباید پشتیبان‌گیری را متوقف کند
+            try:
+                _errorlog.log_error(source="backup-rsc", ip=ip, message=row["error"])
+            except Exception:
+                pass
         results[i] = row
         prog["done"] += 1
         if row["ok"]:
@@ -256,6 +373,14 @@ def backup_devices(devices: list[dict], username: str, password: str,
     prog["running"] = False
     prog["canceled"] = cancel.is_set()
     prog["percent"] = 100 if prog["done"] >= prog["total"] and prog["total"] else prog["percent"]
+    if prog["failed"]:  # Task 37: خلاصهٔ پایان کار فقط وقتی شکست داشته‌ایم
+        try:
+            _errorlog.log_error(
+                source="backup-rsc", ip="",
+                message=(f"پشتیبان‌گیری rsc پایان یافت: {prog['ok']} موفق، "
+                         f"{prog['failed']} ناموفق از {prog['total']} دستگاه"))
+        except Exception:
+            pass
     out = [r for r in results if r is not None]
     return out
 

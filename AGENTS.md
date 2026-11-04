@@ -22,7 +22,8 @@
 | `backend/db.py` | لایه دیتابیس: کاتالوگ، جدول devices، خروجی‌ها، backup، enrich از ip_info |
 | `backend/kartable.py` | کارتابل اداری: دیتابیس مستقل `databases/kartable.db` (آیتم‌ها/اطلاعیه‌ها/رویدادها) + بذر نمونه هر بخش |
 | `backend/routeros_api.py` | خواندن مستقیم از RouterOS API (probe موازی، collect، push-config) |
-| `backend/backup_rsc.py` | پشتیبان‌گیری کانفیگ rsc با RouterOS API (/export) در پوشهٔ mik_backup/ + پیشرفت/لغو/عیب‌یابی فارسی خطا |
+| `backend/backup_rsc.py` | پشتیبان‌گیری کانفیگ rsc با RouterOS API در پوشهٔ mik_backup/ — export دو روشی (مستقیم + روش فایل برای ROS 6) + پیشرفت/لغو/عیب‌یابی فارسی خطا + ثبت خطاها در errorlog |
+| `backend/errorlog.py` | لاگ خطا (Task 37): JSONL در mik_log/errorlog.jsonl + کلید فعال/خاموش ماندگار در mik_log/config.json + چرخش فایل |
 | `backend/route_topology.py` | توپولوژی مسیر: خواندن ساختاریافته API + گراف لینک‌ها + BFS تا روتر مرکزی |
 | `backend/cisco_config.py` | پارس کانفیگ متنی روتر مرکزی سیسکو (اینترفیس‌ها/آدرس‌ها/روت استاتیک) برای گزارش مسیر |
 | `backend/route_pdf.py` | تولید PDF «Detailed Router Path Topology» (یک صفحه به ازای هر دستگاه) |
@@ -81,7 +82,7 @@ cd frontend && npm install && npm run build
 5. پیام کامیت: قالب `type(scope): خلاصه انگلیسی` (مثل `feat(devices): ...`، `fix(api): ...`).
 6. قبل از کامیت: تست‌ها سبز باشند؛ `git status` را برای فایل‌های ناخواسته چک کنید.
 
-## ۵) نقشه قابلیت‌ها (تا Task 36)
+## ۵) نقشه قابلیت‌ها (تا Task 37)
 
 - **اسکن شبکه:** `POST /scans/start` (قابل لغو با `/scans/{id}/cancel`)، ورودی IP/CIDR/بازه،
   پورت‌های 8291 و 8728 همیشه اضافه می‌شوند.
@@ -439,6 +440,11 @@ cd frontend && npm install && npm run build
   3) متن‌های UI به «پوشهٔ mik_backup/» تغییر کرد و dist بازسازی شد (index-CtmlfBlx.js).
   تست: `tests/test_backup_rsc.py` — ۲۳ تست (۹ تست جدید: طبقه‌بندی خطاها، connect_timeout جد، مهاجرت پوشه
   rename/merge) + `scripts/test_backup_button.py` (بررسی نام پوشه/مهاجرت/پیام‌های عیب‌یابی).
+- **گزینهٔ ثبت لاگ خطا + رفع خطای پشتیبان با یوزر/رمز درست (Task 37):** درخواست «نتونست بک اپ بگیره؛ یک گزینه ثبت لاگ خطا در برگهٔ مدیریت سیستم ایجاد کن؛ خطا را برطرف کن؛ یوزر پسورد ورود مشکلی نداره». تغییرات:
+  1) ماژول جدید `backend/errorlog.py`: خطاهای عملیات‌ها با زمان/منبع/IP/علت در `mik_log/errorlog.jsonl` (هر خط JSON؛ چرخش خودکار در ۲MB با نگه‌داشتن ۵۰۰ رویداد آخر)؛ کلید فعال/خاموش ماندگار در `mik_log/config.json` (پیش‌فرض فعال). endpointها: `GET /api/errorlog` (لیست + شمارنده + فیلتر منبع)، `POST /api/errorlog/toggle`، `POST /api/errorlog/clear`. `backup_rsc` خطای هر دستگاه ناموفق + خلاصهٔ پایان کار را با source=«backup-rsc» ثبت می‌کند؛ `probe-api` هم خطاهای دستگاه‌ها را ثبت می‌کند. کارت **«لاگ خطاها»** (کامپوننت `ErrorLogCard` با React.memo) در برگهٔ راهبری سیستم، بالای کارت وضعیت سرور: کلید ثبت، نمایش/به‌روزرسانی/پاک‌کردن، فیلتر متنی و جدول زمان/منبع/دستگاه/علت؛
+  2) رفع «export خالی» روی RouterOS 6: مستندات/فروم میکروتیک — خروجی مستقیم `/export` از API در ROS 6 داده نمی‌شود (فقط `!done`) و خواندن محتوای فایل هم سقف ~۴KB دارد. `_export_via_file()` روش دوم: `/export =file=…` (مجوز write لازم دارد؛ trap آن با راهنمای policy «read,write,api»)، پول `/file/print` با `.proplist=.id,name,size` تا ثبات دو بار پشت‌سرهم (۱۲ تلاش، ثانیه‌ای)، خواندن `=.proplist=contents`، حذف فایل موقت با `/file/remove` (بی‌ضرر اگر نشد)؛ پیام نهایی «خروجی /export خالی بود…» علت روش فایل + پاسخ مستقیم را هم نگه می‌دارد؛
+  3) رفع «ورود API ناموفق (6)» با رمز درست: `(6)` پیام واقعی RouterOS است و روی ROS قدیمی (<6.43) روشِ ورودِ جدید را رد می‌کند. `RouterOSClient.login()` حالا پس از ردشدن ورود مستقیم، **روش چالش-پاسخ را روی اتصال تازه** امتحان می‌کند (`close()+connect()` — پس از یک ورود ناموفق روتر ممکن است نشست را بسته باشد) و در شکست هر دو، پیام خام روتر + نتیجهٔ روش دوم را می‌دهد.
+  تست: `tests/test_backup_rsc.py` → ۳۳ تست (+۱۰: روش فایل موفق/فایل‌بزرگ ۴KB/trap/pاکسازی فایل موقت، ورود با اتصال تازه/پیام ترکیبی، ثبت خطا در errorlog/خاموش‌بودن، endpointهای لاگ) + `scripts/test_errorlog_ui.py` (۳۰ بررسی سورس/باندل/CSS/endpoint/بک‌اند).
 - **سایر:** گزارش‌های هوشمند، Winbox tools، مدیریت VPN، ایمیل/اطلاع‌رسانی.
 
 ## ۶) نکات دام‌دار (Gotchas)
@@ -465,6 +471,11 @@ cd frontend && npm install && npm run build
   — این دو می‌توانند شیءهای متفاوتی باشند (الگوی `ROS_MODULES` در
   `test_push_config_progress.py` و پچ دوگانهٔ collector در `test_device_picker.py`).
   در غیر این صورت تست، اتصال واقعی به شبکه می‌زند.
+- «خروجی مستقیم `/export`» روی RouterOS 6 از API خالی می‌آید — مسیر موفق از `_export_via_file` (روش فایل) می‌گذرد؛
+  در تست‌ها `_FILE_POLL_INTERVAL` را صفر کنید وگرنه پول اندازه، ثانیه‌ای ۱۲ بار می‌خوابد. خواندن محتوا در ROS 6 سقف
+  ~۴KB دارد — کانفیگ بزرگ‌تر از آن قابل خواندن از API نیست و پیام خطا اندازهٔ فایل را نشان می‌دهد.
+- ماژول `errorlog` مسیرها را از متغیر ماژول (`LOG_FILE`/`CONFIG_FILE`) می‌خواند — در تست‌ها هر دو را با
+  `monkeypatch.setattr` به tmp_path بفرستید تا `mik_log/` واقعی پروژه آلوده نشود.
 - فایل کانفیگ سیسکو (`databases/cisco_central_config.txt`) وضعیت سراسری و دایمی است —
   تست‌ها باید قبل و بعد از اجرا از آن backup بگیرند/پاک کنند (الگوی `restore_cfg` در
   `test_cisco_config.py`) تا کانفیگ واقعی کاربر از بین نرود.

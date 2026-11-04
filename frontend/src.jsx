@@ -209,6 +209,39 @@ npm run dev`}</pre>}
 
 
 const VPN_PROTOCOLS=["wireguard","openvpn","pptp","l2tp","sstp"];
+
+
+function ErrorLogCard({onNotify}){
+  const[enabled,setEnabled]=useState(true);
+  const[entries,setEntries]=useState([]);
+  const[count,setCount]=useState(0);
+  const[busy,setBusy]=useState(false);
+  const[q,setQ]=useState("");
+  const[open,setOpen]=useState(false);
+  async function refresh(){setBusy(true);try{const r=await fetch(API+"/api/errorlog?limit=200");const d=await r.json();if(r.ok){setEnabled(!!d.enabled);setEntries(Array.isArray(d.entries)?d.entries:[]);setCount(d.count||0)}}catch(e){}setBusy(false)}
+  useEffect(()=>{refresh()},[]);
+  async function toggle(){const v=!enabled;setEnabled(v);try{await fetch(API+"/api/errorlog/toggle",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({enabled:v})});onNotify&&onNotify(v?"ثبت لاگ خطا فعال شد":"ثبت لاگ خطا خاموش شد")}catch(e){setEnabled(!v)}}
+  async function clearAll(){if(!confirm("همهٔ رویدادهای لاگ خطا پاک شوند؟"))return;try{await fetch(API+"/api/errorlog/clear",{method:"POST"})}catch(e){}refresh()}
+  const list=useMemo(()=>{const s=(q||"").trim().toLowerCase();if(!s)return entries;return (entries||[]).filter(e=>(((e.ip||"")+" "+(e.source||"")+" "+(e.message||"")).toLowerCase().includes(s)))},[entries,q]);
+  return <section className="panel errorlog-card">
+    <div className="report-heading"><h2>لاگ خطاها (ثبت خطاها)</h2></div>
+    <p style={{fontSize:".88em",opacity:.85,margin:"4px 0 8px"}}>هر خطای عملیات (پشتیبان‌گیری rsc، خواندن API و…) با زمان، منبع و علت در پوشهٔ <bdi dir="ltr">mik_log/</bdi> ثبت می‌شود تا علت شکست بعداً هم قابل مرور باشد — حتی اگر یوزر/رمز درست باشد، پیام دقیق هر دستگاه ناموفق اینجاست.</p>
+    <div className="errorlog-controls">
+      <label className="errorlog-toggle"><input type="checkbox" checked={enabled} onChange={toggle}/><span>ثبت لاگ خطا فعال باشد</span></label>
+      <button type="button" className="tool-btn" onClick={()=>setOpen(o=>!o)}>{open?"بستن فهرست":"نمایش لاگ"}</button>
+      <button type="button" className="tool-btn" onClick={refresh} disabled={busy}>{busy?"…":"به‌روزرسانی"}</button>
+      <button type="button" className="tool-btn danger" onClick={clearAll} disabled={busy||!count}>پاک کردن</button>
+      <span className="errorlog-count">{(count||0).toLocaleString("fa-IR")} رویداد</span>
+    </div>
+    {open&&<div>
+      <input className="errorlog-filter" value={q} onChange={e=>setQ(e.target.value)} placeholder="فیلتر: IP، منبع یا علت…"/>
+      {list.length===0?<p className="errorlog-empty">رویدادی ثبت نشده است — خطایی نبوده یا ثبت خاموش است.</p>:
+      <div className="tablewrap"><table className="errorlog-table"><thead><tr><th>زمان</th><th>منبع</th><th>دستگاه</th><th>علت خطا</th></tr></thead><tbody>
+        {list.map((e,i)=><tr key={i}><td dir="ltr" className="errorlog-time">{e.time}</td><td>{e.source||"—"}</td><td dir="ltr">{e.ip||"—"}</td><td className="errorlog-msg">{e.message}{e.raw&&e.raw!==e.message?<span className="errorlog-raw"> — {e.raw}</span>:null}</td></tr>)}
+      </tbody></table></div>}
+    </div>}
+  </section>;
+}
 function VpnManagerCard({onNotify,onRoutes}){
   const[st,setSt]=useState(null),[profiles,setProfiles]=useState([]),[profileId,setProfileId]=useState("olom"),[protocol,setProtocol]=useState("pptp"),[host,setHost]=useState("185.110.29.205"),[port,setPort]=useState(""),[user,setUser]=useState(""),[pass,setPass]=useState(""),[routes,setRoutes]=useState(""),[configContent,setConfigContent]=useState(""),[profileName,setProfileName]=useState("Olom"),[busy,setBusy]=useState(false),[error,setError]=useState(""),[saveAsNew,setSaveAsNew]=useState(false);
   async function refreshProfiles(){try{const r=await fetch(API+"/api/vpn/profiles");const d=await r.json();if(r.ok)setProfiles(Array.isArray(d)?d:(d.profiles||[]))}catch(e){}}
@@ -1312,7 +1345,7 @@ function EmailServerCard(){
 
 // Task 35 (سرعت UI): نسخه‌های memo شدهٔ کارت‌های سنگین — تغییر state در MainApp (مثلاً استعلام وضعیت اسکن هر ۱.۲ ثانیه)
 // دیگر این کامپوننت‌ها را دوباره رندر نمی‌کند؛ چون props آن‌ها (mode/مقدارهای ثابت) بین رندرها یکسان است.
-const DeviceReportsM=React.memo(DeviceReports),EmailServerCardM=React.memo(EmailServerCard),SmartReportsM=React.memo(SmartReports),KartableM=React.memo(Kartable),VpnManagerCardM=React.memo(VpnManagerCard),BackendCardM=React.memo(BackendCard);
+const DeviceReportsM=React.memo(DeviceReports),EmailServerCardM=React.memo(EmailServerCard),SmartReportsM=React.memo(SmartReports),KartableM=React.memo(Kartable),VpnManagerCardM=React.memo(VpnManagerCard),BackendCardM=React.memo(BackendCard),ErrorLogCardM=React.memo(ErrorLogCard);
 
 function App(){
 const[authState,setAuthState]=useState("checking");const[authUser,setAuthUser]=useState("");
@@ -1398,6 +1431,7 @@ return (
 {mainTab==="system"&&(
   <div className="tab-panel" dir="rtl">
     <BackendCardM onNotify={setError}/>
+    <ErrorLogCardM onNotify={setError}/>
     <DeviceReportsM mode="system"/>
   </div>
 )}

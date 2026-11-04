@@ -44,6 +44,10 @@ try:
     from backend import backup_rsc
 except ImportError:
     import backup_rsc
+try:
+    from backend import errorlog
+except ImportError:
+    import errorlog
 
 from scanner_lib import ScanConfig, ScanReport, scan_targets  # package-level API
 from scanner_lib.constants import MAX_TARGETS
@@ -1745,6 +1749,14 @@ def probe_devices_api(body: ApiProbeRequest):
         max_workers=body.max_workers,
     )
     canceled = API_PROBE_CANCEL.is_set()
+    # Task 37: ثبت دستگاه‌های ناموفق در لاگ خطا (برگهٔ راهبری سیستم)
+    try:
+        for _r in results:
+            if not _r.get("ok"):
+                errorlog.log_error(source="probe-api", ip=str(_r.get("ip") or ""),
+                                   message=str(_r.get("error") or "خواندن API ناموفق"))
+    except Exception:
+        pass
     active_db = db.get_active_db_name()
     saved, txt_dir = _persist_api_probe_results(results)
     ok = sum(1 for r in results if r.get("ok"))
@@ -1880,6 +1892,44 @@ def backup_rsc_files():
         "count": len(files),
         "files": files,
     }
+
+
+# ===================== ثبت لاگ خطا (برگهٔ راهبری سیستم — Task 37) =====================
+class ErrorLogToggleBody(BaseModel):
+    """ورودی کلید فعال/خاموش ثبت لاگ خطا."""
+    enabled: bool
+
+
+@app.get("/api/errorlog")
+def errorlog_list(limit: int = Query(default=200, ge=1, le=2000),
+                  source: str = Query(default="", max_length=40)):
+    """رویدادهای ثبت‌شدهٔ لاگ خطا (جدیدترین اول) + وضعیت کلید ثبت.
+
+    خطاهای پشتیبان‌گیری rsc و خواندن API با زمان/منبع/IP/علت در
+    mik_log/errorlog.jsonl نوشته می‌شوند تا برخلاف جعبهٔ خطای موقت UI، علت شکست
+    بعداً هم قابل مرور باشد؛ کلید فعال/خاموش در mik_log/config.json ماندگار است.
+    """
+    return {
+        "enabled": errorlog.is_enabled(),
+        "count": errorlog.count(),
+        "folder": str(errorlog.LOG_DIR),
+        "entries": errorlog.read_errors(limit=limit, source=source.strip()),
+    }
+
+
+@app.post("/api/errorlog/toggle")
+def errorlog_toggle(body: ErrorLogToggleBody):
+    """فعال/خاموش‌کردن «گزینهٔ ثبت لاگ خطا» (ماندگار در mik_log/config.json)."""
+    v = errorlog.set_enabled(bool(body.enabled))
+    return {"enabled": v,
+            "message": "ثبت لاگ خطا فعال شد" if v else "ثبت لاگ خطا خاموش شد"}
+
+
+@app.post("/api/errorlog/clear")
+def errorlog_clear():
+    """پاک‌کردن همهٔ رویدادهای لاگ خطا (تنظیمات دست نمی‌خورد)."""
+    errorlog.clear()
+    return {"cleared": True, "message": "همهٔ رویدادهای لاگ خطا پاک شد"}
 
 
 # ===================== گزارش مسیر تا روتر مرکزی (توپولوژی PDF) =====================

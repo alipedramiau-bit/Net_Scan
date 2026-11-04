@@ -1,21 +1,25 @@
-"""Task 34/36 — پشتیبان‌گیری کانفیگ میکروتیک با پسوند rsc در پوشهٔ mik_backup/.
+"""Task 34/36/37 — پشتیبان‌گیری کانفیگ میکروتیک با پسوند rsc در پوشهٔ mik_backup/.
 
 درخواست کاربر: «یک فولدر به نام backup در مسیر برنامه ایجاد کن که با یک دکمهٔ
 backup بتواند از طریق API و ورود یوزر/پسورد بک‌آپ دستگاه‌های میکروتیک با پسوند
 rsc بگیرد؛ با نام/ای‌دی دستگاه‌ها و ای‌پی دستگاه در فولدر backup ذخیره کند»
-+ «فولدر backup را به نام mik_backup تغییر نام بده» (Task 36).
++ «فولدر backup را به نام mik_backup تغییر نام بده» (Task 36)
++ «نتونست بک اپ بگیره؛ یک گزینه ثبت لاگ خطا در برگهٔ مدیریت سیستم ایجاد کن؛
+خطا را برطرف کن؛ یوزر پسورد ورود مشکلی نداره» (Task 37).
 
 پوشش:
 1) نام فایل: «<نام دستگاه>_<IP>.rsc» — دستگاه بی‌نام از ای‌دی ردیف دیتابیس
    (device-<id>)؛ کاراکترهای غیرمجاز پاک می‌شوند؛
 2) export_config_via_api — پارس پاسخ /export (هم !done تکی با =ret= و هم
    چند !re تکه‌تکه) + !trap/!fatal با پیام فارسی + عیب‌یابی مرحله‌ای خطا
-   (connect/login/read — Task 36)؛
+   (connect/login/read — Task 36) + روش فایل (Task 37): خروجی خالی مستقیم →
+   /export =file= + پول اندازه + خواندن contents + حذف فایل موقت؛
 3) backup_devices — هر دستگاه فقط یک‌بار (IP یکتا)، ذخیره در پوشهٔ mik_backup،
-   پیشرفت/لغو؛
+   پیشرفت/لغو + ثبت خطاها در لاگ (errorlog — Task 37)؛
 4) انتقال خودکار پوشهٔ قدیمی backup/ به mik_backup/ (Task 36)؛
-5) endpointها با TestClient: اعتبارسنجی ورودی، اجرای موفق/ناموفق،
-   progress/files.
+5) ورود: روش مستقیم v6.43+ و در شکست، تلاش چالش-پاسخ روی اتصال تازه (Task 37)؛
+6) endpointها با TestClient: اعتبارسنجی ورودی، اجرای موفق/ناموفق،
+   progress/files + endpointهای لاگ خطا (Task 37).
 
 اتصال واقعی RouterOS با جایگزینی (monkeypatch) کلاینت تست می‌شود — هیچ
 دستگاه واقعی‌ای لمس نمی‌شود و پوشهٔ mik_backup واقعی پروژه دست‌نخورده می‌ماند.
@@ -74,12 +78,20 @@ def test_filename_sanitizes_unsafe_chars():
 
 # ------------------------- پارس /export ------------------------------------
 class _FakeClient:
-    """جایگزین RouterOSClient: پاسخ از پیش تعیین‌شده یا خطای اتصال."""
+    """جایگزین RouterOSClient — پاسخ‌های از پیش تعیین‌شده یا خطای اتصال.
+
+    replies می‌تواند اسکریپت مرحله‌به‌مرحله باشد: هر talk یک مرحله مصرف می‌کند و
+    آخرین مرحله تکرار می‌شود — تا جریان چندمرحله‌ای روش فایل (Task 37:
+    /export → /export =file= → پول /file/print → contents → remove) هم
+    شبیه‌سازی شود. تک‌عنصری مثل قبل برای همهٔ talkها همان پاسخ را می‌دهد.
+    """
     last_kwargs = {}
 
     def __init__(self, host, port=8728, timeout=20.0, replies=None, fail=None):
         self.host, self.port, self.timeout = host, port, timeout
-        self.replies, self.fail = replies, fail
+        self.replies = list(replies) if replies else []
+        self.fail = fail
+        self.calls: list[list[str]] = []
         self.closed = False
         type(self).last_kwargs = {"host": host, "port": port, "timeout": timeout}
 
@@ -91,8 +103,15 @@ class _FakeClient:
         self.creds = (username, password)  # فقط ثبت — اعتبارگیری در تست جریان API انجام می‌شود
 
     def talk(self, words, timeout=None):
-        assert words == ["/export"], words
-        return self.replies or []
+        self.calls.append(list(words))
+        if not self.replies:
+            return []
+        first = self.replies[0]
+        if not (isinstance(first, list) and first and isinstance(first[0], list)):
+            # سبک قدیم: خودِ self.replies یک پاسخ است (فهرست جمله‌ها)
+            return self.replies
+        # اسکریپت Task 37: هر عضو یک پاسخ کامل است؛ آخرین عضو تکرار می‌شود
+        return self.replies.pop(0) if len(self.replies) > 1 else self.replies[0]
 
     def close(self):
         self.closed = True
@@ -121,10 +140,12 @@ def test_export_concatenates_chunked_replies(monkeypatch):
 
 
 def test_export_empty_output_is_error(monkeypatch):
-    _patch_client(monkeypatch, replies=[["!done"]])
+    _patch_client(monkeypatch, replies=[[["!done"]], [["!done"]],
+                                        [["!done"]], [["!done"]]])
+    monkeypatch.setattr(backup_rsc, "_FILE_POLL_INTERVAL", 0)
     with pytest.raises(Exception) as ei:
         backup_rsc.export_config_via_api("10.0.0.2", "u", "p")
-    assert "خروجی /export خالی" in str(ei.value)
+    assert "خروجی /export خالی" in str(ei.value)  # روش فایل هم بی‌نتیجه → باز هم خطای واضح
 
 
 def test_export_trap_message(monkeypatch):
@@ -132,6 +153,83 @@ def test_export_trap_message(monkeypatch):
     with pytest.raises(Exception) as ei:
         backup_rsc.export_config_via_api("10.0.0.2", "u", "p")
     assert "no such command" in str(ei.value)
+
+
+# ------------------- Task 37: روش فایل (ROS 6 خروجی مستقیم نمی‌دهد) ----------
+def _size_rep(n=1234, fid="*1"):
+    return [["!re", f"=.id={fid}", "=name=mikbk-x.rsc", f"=size={n}"], ["!done"]]
+
+
+def test_export_empty_falls_back_to_file_method(monkeypatch):
+    cont = [["!re", "=contents=# RouterOS 6 config\n"], ["!done"]]
+    _patch_client(monkeypatch, replies=[
+        [["!done"]],            # /export مستقیم → فقط !done (ROS 6)
+        [["!done"]],            # /export =file= → ok
+        _size_rep(), _size_rep(), _size_rep(),   # پول اندازه تا ثبات
+        cont,                   # خواندن contents
+    ])
+    monkeypatch.setattr(backup_rsc, "_FILE_POLL_INTERVAL", 0)
+    text = backup_rsc.export_config_via_api("10.0.0.2", "u", "p")
+    assert text == "# RouterOS 6 config\n"
+
+
+def test_export_file_method_removes_temp_file(monkeypatch):
+    cont = [["!re", "=contents=# c\n"], ["!done"]]
+    replies = [
+        [["!done"]], [["!done"]], _size_rep(fid="*7"), _size_rep(fid="*7"),
+        _size_rep(fid="*7"), cont,
+    ]
+    monkeypatch.setattr(backup_rsc, "_FILE_POLL_INTERVAL", 0)
+
+    holder = {"calls": []}
+
+    class _Cap(_FakeClient):
+        def talk(self, words, timeout=None):
+            holder["calls"].append(list(words))
+            return super().talk(words, timeout=timeout)
+
+    monkeypatch.setattr(local_ros, "RouterOSClient",
+                        lambda host, port=8728, timeout=20.0, **kw: _Cap(host, port, timeout, replies))
+    backup_rsc.export_config_via_api("10.0.0.2", "u", "p")
+    calls = holder["calls"]
+    assert calls[0] == ["/export"]
+    assert calls[1][0] == "/export" and any(w.startswith("=file=") for w in calls[1])
+    assert any(c[0] == "/file/print" and any(w.startswith("?name=") for w in c) for c in calls)
+    assert calls[-1][0] == "/file/remove" and "=.id=*7" in calls[-1]  # پاک‌سازی فایل موقت
+
+
+def test_export_file_too_big_reports_4kb_cap(monkeypatch):
+    _patch_client(monkeypatch, replies=[
+        [["!done"]], [["!done"]],
+        _size_rep(n=9000), _size_rep(n=9000), _size_rep(n=9000),
+        [["!done"]],           # contents خالی برمی‌گردد (سقف ۴KB RouterOS)
+    ])
+    monkeypatch.setattr(backup_rsc, "_FILE_POLL_INTERVAL", 0)
+    with pytest.raises(Exception) as ei:
+        backup_rsc.export_config_via_api("10.0.0.2", "u", "p")
+    m = str(ei.value)
+    assert "خروجی /export خالی" in m and "۴ کیلوبایت" in m and "9000" in m
+
+
+def test_export_direct_trap_still_tries_file_method(monkeypatch):
+    trap = [["!trap", "=message=bad command name export"]]
+    cont = [["!re", "=contents=# cfg6"], ["!done"]]
+    _patch_client(monkeypatch, replies=[
+        trap, [["!done"]], _size_rep(), _size_rep(), _size_rep(), cont,
+    ])
+    monkeypatch.setattr(backup_rsc, "_FILE_POLL_INTERVAL", 0)
+    text = backup_rsc.export_config_via_api("10.0.0.2", "u", "p")
+    assert text == "# cfg6"
+
+
+def test_export_file_cmd_trap_mentions_write_policy(monkeypatch):
+    trap = [["!trap", "=message=failure: permission denied"]]
+    _patch_client(monkeypatch, replies=[[["!done"]], trap])
+    monkeypatch.setattr(backup_rsc, "_FILE_POLL_INTERVAL", 0)
+    with pytest.raises(Exception) as ei:
+        backup_rsc.export_config_via_api("10.0.0.2", "u", "p")
+    m = str(ei.value)
+    assert "read,write,api" in m and "permission denied" in m
 
 
 # ------------------------- backup_devices ----------------------------------
@@ -329,3 +427,97 @@ def test_default_backup_dir_is_mik_backup():
     """نام جدید پوشه در ریشهٔ برنامه (Task 36) — و اگر backup/ قدیمی بود، منتقل شده."""
     assert backup_rsc.BACKUP_DIR.name == "mik_backup"
     assert backup_rsc.BACKUP_DIR.is_dir()
+
+
+# ------------------ Task 37: ورود با اتصال تازه + لاگ خطا -------------------
+def test_login_fallback_uses_fresh_connection(monkeypatch):
+    """ورود مستقیم (6) داد → چالش-پاسخ باید روی اتصال تازه امتحان شود (ROS قدیمی)."""
+    cli = local_ros.RouterOSClient("10.0.0.2")
+    seq = {"n": 0}
+    reconnects = {"n": 0}
+
+    def fake_talk(words, timeout=None):
+        seq["n"] += 1
+        if seq["n"] == 1:  # ورود مستقیم v6.43+ → رد (6) — حتی با رمز درست
+            return [["!trap", "=message=invalid user name or password (6)"]]
+        if seq["n"] == 2:  # bare /login روی اتصال تازه → چالش
+            return [["!done", "=ret=" + "aa00" * 7]]
+        return [["!done"]]  # پاسخ چالش → ok
+
+    monkeypatch.setattr(cli, "talk", fake_talk)
+    monkeypatch.setattr(cli, "connect", lambda: reconnects.__setitem__("n", reconnects["n"] + 1))
+    monkeypatch.setattr(cli, "close", lambda: None)
+    cli.login("garmaf", "secret")  # باید با روش قدیم روی اتصال تازه موفق شود
+    assert reconnects["n"] == 1  # تلاش دوم روی اتصالِ تازه — نه همان سوکت مرده
+
+
+def test_login_failure_reports_router_message(monkeypatch):
+    """هر دو روش رد شد → پیام خام روتر (نمونه: (6)) + نتیجهٔ روش دوم حفظ شود."""
+    cli = local_ros.RouterOSClient("10.0.0.2")
+    calls = {"n": 0}
+
+    def fake_talk(words, timeout=None):
+        calls["n"] += 1
+        if calls["n"] == 1:
+            return [["!trap", "=message=invalid user name or password (6)"]]
+        return [["!done"]]  # ROS جدید: bare /login بدون =ret=
+
+    monkeypatch.setattr(cli, "talk", fake_talk)
+    monkeypatch.setattr(cli, "connect", lambda: None)
+    monkeypatch.setattr(cli, "close", lambda: None)
+    with pytest.raises(Exception) as ei:
+        cli.login("garmaf", "wrong")
+    assert "invalid user name or password (6)" in str(ei.value)
+
+
+def test_backup_failure_logged_to_errorlog(monkeypatch, backup_dir, tmp_path):
+    """خطای هر دستگاه + خلاصهٔ پایان کار در mik_log/errorlog.jsonl ثبت می‌شود (Task 37)."""
+    import json as _json
+    log_file = tmp_path / "errorlog.jsonl"
+    cfg_file = tmp_path / "config.json"
+    monkeypatch.setattr(backup_rsc._errorlog, "LOG_FILE", log_file)
+    monkeypatch.setattr(backup_rsc._errorlog, "CONFIG_FILE", cfg_file)
+    _patch_client(monkeypatch, fail="connection refused")
+    rows = backup_rsc.backup_devices([_dev("10.9.9.9", "X-MK", 5)], "u", "p")
+    assert not rows[0]["ok"]
+    entries = [_json.loads(l) for l in log_file.read_text("utf-8").splitlines() if l.strip()]
+    per_dev = [e for e in entries if e["ip"] == "10.9.9.9"]
+    summary = [e for e in entries if "پایان یافت" in e["message"]]
+    assert per_dev and per_dev[0]["source"] == "backup-rsc" and "connection refused" in per_dev[0]["message"]
+    assert summary and summary[0]["source"] == "backup-rsc"
+
+
+def test_errorlog_disabled_skips_logging(monkeypatch, backup_dir, tmp_path):
+    import json as _json
+    log_file = tmp_path / "errorlog.jsonl"
+    cfg_file = tmp_path / "config.json"
+    cfg_file.write_text(_json.dumps({"enabled": False}), "utf-8")
+    monkeypatch.setattr(backup_rsc._errorlog, "LOG_FILE", log_file)
+    monkeypatch.setattr(backup_rsc._errorlog, "CONFIG_FILE", cfg_file)
+    _patch_client(monkeypatch, fail="connection refused")
+    backup_rsc.backup_devices([_dev("10.9.9.9", "X-MK", 5)], "u", "p")
+    assert not log_file.exists()  # ثبت خاموش → لاگ نوشته نمی‌شود
+
+
+# ------------------ Task 37: endpointهای لاگ خطا ----------------------------
+def test_errorlog_endpoints_roundtrip(client, monkeypatch, tmp_path):
+    import backend.errorlog as _elog
+    monkeypatch.setattr(_elog, "LOG_FILE", tmp_path / "errorlog.jsonl")
+    monkeypatch.setattr(_elog, "CONFIG_FILE", tmp_path / "config.json")
+    r = client.get("/api/errorlog")
+    assert r.status_code == 200, r.text
+    d = r.json()
+    assert d["enabled"] is True and d["entries"] == [] and d["count"] == 0
+    r = client.post("/api/errorlog/toggle", json={"enabled": False})
+    assert r.status_code == 200 and r.json()["enabled"] is False
+    assert client.get("/api/errorlog").json()["enabled"] is False
+    # ثبت غیرفعال → خطا لاگ نمی‌شود؛ فعال‌سازی → ثبت و خواندن
+    _elog.log_error(source="backup-rsc", ip="10.0.0.2", message="خطای آزمایشی")
+    assert client.get("/api/errorlog").json()["entries"] == []
+    client.post("/api/errorlog/toggle", json={"enabled": True})
+    _elog.log_error(source="backup-rsc", ip="10.0.0.2", message="خطای آزمایشی")
+    d = client.get("/api/errorlog").json()
+    assert d["count"] == 1 and d["entries"][0]["message"] == "خطای آزمایشی"
+    r = client.post("/api/errorlog/clear")
+    assert r.status_code == 200
+    assert client.get("/api/errorlog").json()["count"] == 0
