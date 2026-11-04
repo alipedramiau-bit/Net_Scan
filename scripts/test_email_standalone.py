@@ -1,18 +1,19 @@
-"""Task 39 — ایمیل‌سرور مستقل (بدون جیمیل/یاهو): رفع اشکالات + diagnose + راهنما.
+"""Task 40 — ایمیل‌سرور مستقل: رگرسیون رفع اشکالات + تست‌های Task 39.
 
-بررسی‌ها:
-1) پارسر DNS MX: پاسخ سنتتیک (با pointer فشرده‌سازی + TC flag)؛
-2) _system_nameservers / _auto_helo / _effective_helo؛
-3) save_config: اعتبارسنجی From/To (مثل «ali pedram» → ValueError)؛
-4) send_mail: احترام به فلگ enabled؛ send_direct: ورودی نامعتبر؛
-5) diagnose_direct با resolve و socket موک‌شده (open/blocked)؛
-6) اندپوینت‌ها با TestClient: GET/PUT config (400 برای From نامعتبر)،
-   /api/smtp/diagnose (400 ایمیل بد، 200 با شکل درست)؛
-7) سورس فرانت: دکمهٔ «مستقل»، «بررسی امکان ارسال مستقیم»، راهنمای email-guide؛
-8) CSS: .email-guide و .email-diag؛
-9) بازیابی کامل smtp_config.json اصلی در پایان.
+بررسی‌ها (Task 39):
+1) پارسر DNS MX؛ 2) system NS/HELO؛ 3) اعتبارسنجی From/To؛
+4) enabled/ورودی نامعتبر؛ 5) diagnose موک‌شده؛ 6) اندپوینت‌ها؛
+7) سورس فرانت؛ 8) CSS؛ 9) بازیابی smtp_config.json.
+
+افزوده‌های Task 40 (رفع اشکالات):
+A) diagnose_direct موازی (Wall-time < مجموع تلاش‌ها) — فیکس هنگ ~۴۸ ثانیه‌ای؛
+B) رأی جدید «فقط ۵۸۷ باز»؛
+C) پاک‌کردن رمز با password:"" (قبلاً نادیده گرفته می‌شد)؛
+D) نوشتن اتمی کانفیگ (بدون فایل .tmp باقی‌مانده)؛
+E) سقف تایم‌اوت هر پرس‌وجوی DNS (≤۳ ثانیه)؛
+F) جزئیات SMTPDataError (کد+متن سرور در پیام خطا).
 """
-import os, sys, tempfile
+import os, smtplib, sys, tempfile, time
 from pathlib import Path
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
@@ -98,6 +99,16 @@ d = em.save_config({"mode": "direct", "enabled": True, "from_email": "alerts@my-
                     "to_email": "user@example.com", "helo_host": ""})
 check("save: valid direct config saved", d.get("mode") == "direct" and d.get("enabled") is True, str(d)[:120])
 check("save: password masked/absent", d.get("password") == "" or d.get("password") == "********")
+
+# Task 40-C: رمز قابل ذخیره و قابل پاک‌کردن
+_d = em.save_config({"password": "topsecret"})
+check("save: password set -> password_set", _d.get("password_set") is True)
+_d = em.save_config({"password": ""})
+check("save: empty password clears (Task40-C)", _d.get("password_set") is False, str(_d.get("password_set")))
+# Task 40-D: نوشتن اتمی — فایل .tmp باقی نمی‌ماند
+check("save: atomic write, no .tmp left (Task40-D)",
+      not em._CONFIG.with_suffix(".json.tmp").exists())
+
 try:
     em.save_config({"to_email": "not an email"})
     check("save: invalid To rejected", False)
@@ -131,32 +142,44 @@ try:
 except ValueError as e:
     check("send_direct: no-MX -> clear error", "MX" in str(e), str(e)[:80])
 
-# ---------- 5) diagnose_direct موک‌شده ----------
-class _FakeSock:
-    def __enter__(self): return self
-    def __exit__(self, *a): return False
-
-def _mk_diag(open_ports):
-    def fake_conn(host_port_pair, timeout=None):
-        host, port = host_port_pair
+# ---------- 5) diagnose_direct موک‌شده (Task 40: موازنه با _check_tcp_port) ----------
+def _mk_check(open_ports, sleep=0.0):
+    def fake(host, port, timeout=None):
+        if sleep:
+            time.sleep(sleep)
         if (host, port) in open_ports:
-            return _FakeSock()
-        raise OSError("blocked")
-    return fake_conn
+            return {"host": host, "port": port, "status": "open", "detail": ""}
+        return {"host": host, "port": port, "status": "blocked", "detail": "Timeout"}
+    return fake
 
+_orig_check = em._check_tcp_port
 em.resolve_mx_full = lambda domain, timeout=8.0: [(10, "mx1.test.ir"), (20, "mx2.test.ir")]
 
-em.socket.create_connection = _mk_diag({("mx1.test.ir", 25)})
+em._check_tcp_port = _mk_check({("mx1.test.ir", 25)})
 d = em.diagnose_direct("user@dest.ir", timeout=3)
 check("diag: port25 open detected", d["port25_open"] is True and d["ok"] is True, str(d["checks"]))
 check("diag: verdict mentions مستقل", "مستقل" in d["verdict"])
 check("diag: helo suggestion present", bool(d["helo_suggestion"]), d["helo_suggestion"])
 
-em.socket.create_connection = _mk_diag(set())
+# Task 40-B: فقط ۵۸۷ باز → رأی جدید
+em._check_tcp_port = _mk_check({("mx1.test.ir", 587), ("mx2.test.ir", 587)})
+d587 = em.diagnose_direct("user@dest.ir", timeout=3)
+check("diag: 587-only verdict (Task40-B)",
+      d587["port25_open"] is False and "۵۸۷" in d587["verdict"], d587["verdict"][:60])
+
+em._check_tcp_port = _mk_check(set())
 d2 = em.diagnose_direct("user@dest.ir", timeout=3)
 check("diag: all blocked -> port25_open false", d2["port25_open"] is False)
 check("diag: blocked verdict mentions VPS/رله", "VPS" in d2["verdict"] and "رله" in d2["verdict"])
 
+# Task 40-A: چک‌های موازی — هر تلاش ۱ ثانیه، ۴ هدف؛ وال‌تایم باید ≪ حالت سریالی (۴ ثانیه)
+em._check_tcp_port = _mk_check(set(), sleep=1.0)
+_t0 = time.monotonic()
+em.diagnose_direct("user@dest.ir", timeout=3)
+_wall = time.monotonic() - _t0
+check("diag: parallel probes fast (Task40-A)", _wall < 3.0, f"wall={_wall:.1f}s")
+
+em._check_tcp_port = _orig_check
 em.resolve_mx_full = lambda domain, timeout=8.0: []
 d3 = em.diagnose_direct("user@unknown.ir", timeout=3)
 check("diag: no MX -> verdict explains", not d3["mx"] and "MX" in d3["verdict"])
@@ -166,8 +189,38 @@ try:
 except ValueError:
     check("diag: invalid email rejected", True)
 
+# Task 40-E: سقف تایم‌اوت هر پرس‌وجوی DNS ≤۳ ثانیه
+em.resolve_mx_full = _orig_resolve  # نسخهٔ واقعی برای این تست لازم است
+_orig_q = em._dns_query_mx
+_seen_to = []
+def _fake_q(domain, nameserver, timeout=5.0):
+    _seen_to.append(timeout)
+    return []
+em._dns_query_mx = _fake_q
+_orig_nslookup = em._nslookup_mx
+em._nslookup_mx = lambda d: []
+em.resolve_mx_full("x.invalid", timeout=10)
+check("dns: per-query timeout capped (Task40-E)",
+      bool(_seen_to) and max(_seen_to) <= 3.0, str(_seen_to))
+em._dns_query_mx = _orig_q
+em._nslookup_mx = _orig_nslookup
 em.resolve_mx_full = _orig_resolve
-em.socket.create_connection = _orig_create_conn
+
+# Task 40-F: جزئیات SMTPDataError در پیام نهایی
+def _fake_send_data_err(*a, **k):
+    raise smtplib.SMTPDataError(550, b"5.7.1 spam rejected")
+
+_orig_send_once = em._smtp_send_once
+em._smtp_send_once = _fake_send_data_err
+em.resolve_mx_full = lambda domain, timeout=5.0: [(10, "mx1.test.ir")]
+try:
+    em.send_direct("s", "b", from_email="a@b.ir", from_name="x", dest="u@dest.ir", timeout=10)
+    check("send_direct: SMTPDataError detail (Task40-F)", False)
+except ValueError as e:
+    check("send_direct: SMTPDataError detail (Task40-F)",
+          "550" in str(e) and "5.7.1" in str(e), str(e)[:110])
+em._smtp_send_once = _orig_send_once
+em.resolve_mx_full = _orig_resolve
 
 # ---------- 6) اندپوینت‌ها ----------
 from fastapi.testclient import TestClient
@@ -196,7 +249,7 @@ check("ep: diagnose bad email -> 400", r.status_code == 400, r.text[:120])
 
 em.resolve_mx_full = lambda domain, timeout=8.0: [(10, "mx1.test.ir")]
 mem.resolve_mx_full = em.resolve_mx_full
-mem.socket.create_connection = _mk_diag(set())
+mem._check_tcp_port = _mk_check(set())
 r = client.post("/api/smtp/diagnose", json={"to_email": "user@dest.ir"})
 check("ep: diagnose valid -> 200", r.status_code == 200, r.text[:150])
 dj = r.json()
@@ -205,7 +258,7 @@ check("ep: diagnose domain parsed", dj.get("domain") == "dest.ir")
 check("ep: mocked mx used", (dj.get("mx") or [{}])[0].get("host") == "mx1.test.ir", str(dj.get("mx")))
 em.resolve_mx_full = _orig_resolve
 mem.resolve_mx_full = _orig_resolve
-em.socket.create_connection = _orig_create_conn
+mem._check_tcp_port = _orig_check
 
 # ---------- 7) سورس فرانت ----------
 src = open(os.path.join(ROOT, "frontend", "src.jsx"), encoding="utf-8").read()

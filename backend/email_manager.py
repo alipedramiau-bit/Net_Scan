@@ -12,12 +12,14 @@ UDP answers with TC flag are retried over TCP.
 from __future__ import annotations
 
 import json
+import os
 import random
 import smtplib
 import socket
 import ssl
 import struct
 import time
+from concurrent.futures import ThreadPoolExecutor
 from email.message import EmailMessage
 from email.utils import formatdate, make_msgid
 from pathlib import Path
@@ -53,6 +55,13 @@ def _load_raw() -> dict:
     return {}
 
 
+def _write_config(cfg: dict) -> None:
+    """Atomic write (tmp + os.replace) — a crash can't corrupt smtp_config.json."""
+    tmp = _CONFIG.with_suffix(".json.tmp")
+    tmp.write_text(json.dumps(cfg, ensure_ascii=False, indent=2), encoding="utf-8")
+    os.replace(tmp, _CONFIG)
+
+
 def get_config(mask_password: bool = True) -> dict:
     cfg = {**DEFAULTS, **_load_raw()}
     try:
@@ -85,9 +94,9 @@ def save_config(body: dict) -> dict:
             continue
         val = body[key]
         if key == "password":
-            if val is None or str(val).strip() in ("", "********"):
-                continue
-            current["password"] = str(val)
+            if val is None or str(val) == "********":
+                continue  # ماسک‌شده → رمز فعلی حفظ می‌شود
+            current["password"] = str(val).strip()  # رشتهٔ خالی = پاک کردن رمز
             continue
         if key == "port":
             try:
@@ -117,7 +126,7 @@ def save_config(body: dict) -> dict:
         )
     if current.get("to_email") and not _looks_like_email(current["to_email"]):
         raise ValueError("گیرندهٔ پیش‌فرض باید ایمیل معتبر باشد")
-    _CONFIG.write_text(json.dumps(current, ensure_ascii=False, indent=2), encoding="utf-8")
+    _write_config(current)
     return get_config(mask_password=True)
 
 
@@ -295,9 +304,10 @@ def resolve_mx_full(domain: str, timeout: float = 5.0) -> list[tuple[int, str]]:
     for ns in _system_nameservers() + ["8.8.8.8", "1.1.1.1", "9.9.9.9"]:
         if ns not in ns_list:
             ns_list.append(ns)
+    qto = max(1.0, min(timeout, 3.0))  # هر پرس‌وجو حداکثر ۳ ثانیه تا مجموع زنجیرهٔ DNS هنگ نکند
     for ns in ns_list:
         try:
-            mx = _dns_query_mx(domain, nameserver=ns, timeout=timeout)
+            mx = _dns_query_mx(domain, nameserver=ns, timeout=qto)
             if mx:
                 return mx
         except OSError:
@@ -348,27 +358,45 @@ def _effective_helo(helo: str) -> str:
     return h
 
 
+def _check_tcp_port(host: str, port: int, timeout: float) -> dict:
+    """One IPv4 TCP connect probe — thread-safe, بدون معطلی IPv6."""
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.settimeout(timeout)
+        try:
+            s.connect((host, port))
+            return {"host": host, "port": port, "status": "open", "detail": ""}
+        finally:
+            s.close()
+    except ConnectionRefusedError:
+        return {"host": host, "port": port, "status": "refused", "detail": "اتصال رد شد"}
+    except socket.timeout:
+        return {"host": host, "port": port, "status": "blocked", "detail": "Timeout"}
+    except OSError as e:
+        return {"host": host, "port": port, "status": "blocked", "detail": type(e).__name__}
+
+
 def diagnose_direct(to_email: str, timeout: float = 8.0) -> dict:
-    """Check whether standalone (direct MX) delivery is possible on this network."""
+    """Check whether standalone (direct MX) delivery is possible on this network.
+
+    بررسی پورت‌ها موازی اجرا می‌شود (حداکثر ~۶ ثانیه) تا UI هنگ نکند.
+    """
     if not _looks_like_email(to_email):
         raise ValueError("گیرنده باید یک ایمیل معتبر باشد")
     domain = to_email.split("@", 1)[1].lower()
     mx = resolve_mx_full(domain, timeout=timeout)
-    checks: list[dict] = []
-    port25_open = False
+    probe_to = max(2.0, min(timeout, 6.0))
+    targets: list[tuple[str, int]] = []
     for host in [h for _, h in mx][:3]:
-        for port in (25, 587):
-            status, detail = "blocked", ""
-            try:
-                with socket.create_connection((host, port), timeout=timeout):
-                    status = "open"
-            except ConnectionRefusedError:
-                status, detail = "refused", "اتصال رد شد"
-            except OSError as e:
-                status, detail = "blocked", type(e).__name__
-            checks.append({"host": host, "port": port, "status": status, "detail": detail})
-            if port == 25 and status == "open":
-                port25_open = True
+        targets.append((host, 25))
+        targets.append((host, 587))
+    if targets:
+        with ThreadPoolExecutor(max_workers=min(6, len(targets))) as ex:
+            checks = list(ex.map(lambda t: _check_tcp_port(t[0], t[1], probe_to), targets))
+    else:
+        checks = []
+    port25_open = any(c["port"] == 25 and c["status"] == "open" for c in checks)
+    port587_open = any(c["port"] == 587 and c["status"] == "open" for c in checks)
     if not mx:
         verdict = (
             f"برای دامنهٔ {domain} رکورد MX پیدا نشد — دامنه ممکن است غلط باشد "
@@ -378,6 +406,12 @@ def diagnose_direct(to_email: str, timeout: float = 8.0) -> dict:
         verdict = (
             "پورت خروجی ۲۵ باز است — این شبکه می‌تواند بدون جیمیل/یاهو و کاملاً مستقل ایمیل بفرستد. "
             "حالا در تنظیمات، حالت «مستقیم به MX گیرنده» را ذخیره کنید و «ارسال ایمیل آزمایشی» را بزنید."
+        )
+    elif port587_open:
+        verdict = (
+            "پورت ۲۵ بسته است ولی ۵۸۷ روی بعضی سرورهای MX باز است؛ اکثر سرورهای ایمیل نامهٔ "
+            "بدون احراز هویت را فقط از پورت ۲۵ می‌پذیرند، پس شانس موفقیت کم است — "
+            "بهتر است شبکه‌ای با پورت خروجی ۲۵ باز (مثل اینترنت دیگر یا VPS) یا حالت «رله SMTP» استفاده شود."
         )
     else:
         verdict = (
@@ -515,9 +549,12 @@ def send_direct(
             server_rejected = True
             errors.append(f"{host}:{port} فرستنده رد شد ({getattr(e, 'smtp_code', '')})")
         except smtplib.SMTPDataError as e:
-            err_s = str(e)
+            code = getattr(e, "smtp_code", "")
+            err = getattr(e, "smtp_error", "")
+            if isinstance(err, bytes):
+                err = err.decode("ascii", "replace")
             server_rejected = True
-            errors.append(f"{host}:{port} سرور نامه را نپذیرفت ({err_s.split(':')[0]})")
+            errors.append(f"{host}:{port} سرور نامه را نپذیرفت ({code} {err})".strip())
         except smtplib.SMTPHeloError:
             errors.append(f"{host}:{port} HELO رد شد")
         except (smtplib.SMTPException, OSError, TimeoutError, ConnectionError) as e:
