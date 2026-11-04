@@ -1,12 +1,13 @@
-"""Task 34 — بررسی باندل dist برای جعبهٔ جستجوی جدید و دکمهٔ پشتیبان‌گیری rsc.
+"""Task 34/36 — بررسی باندل dist برای جعبهٔ جستجوی جدید و دکمهٔ پشتیبان‌گیری rsc.
 
 بررسی‌ها:
 1) باندل JS شامل: کلاس main-search-bar / main-search-input، دکمهٔ
-   btn-backup-rsc، endpointهای backup-rsc، پیام‌های فارسی پشتیبان‌گیری؛
+   btn-backup-rsc، endpointهای backup-rsc، پیام‌های فارسی پشتیبان‌گیری
+   با نام جدید پوشهٔ mik_backup (Task 36)؛
 2) CSS شامل .main-search-bar (مرکزچین) و .btn-backup-rsc؛
 3) فیلتر قبلی (filter-search) دیگر در باندل رندر نمی‌شود (کلاس حذف شده)؛
-4) endpoint فایل‌ها با TestClient پاسخ می‌دهد (200) و پوشهٔ backup/ کنار
-   برنامه وجود دارد.
+4) endpoint فایل‌ها با TestClient پاسخ می‌دهد (200) و پوشهٔ mik_backup/ کنار
+   برنامه وجود دارد (و پوشهٔ قدیمی backup/ منتقل شده است).
 """
 import os, re, sys
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "backend"))
@@ -44,7 +45,7 @@ check("bundle: backup progress chart title", "نمودار پیشرفت پشتی
 check("bundle: stop backup button", "توقف پشتیبان" in js)
 check("css: .btn-backup-rsc styled", ".btn-backup-rsc{" in css)
 
-# ---------- 3) endpoint واقعی + پوشهٔ backup ----------
+# ---------- 3) endpoint واقعی + پوشهٔ mik_backup ----------
 from fastapi.testclient import TestClient
 import main as appm
 client = TestClient(appm.app)
@@ -56,9 +57,18 @@ check("endpoint: files list -> 200", r.status_code == 200, r.text[:120])
 check("endpoint: files payload shape", isinstance(r.json().get("files"), list) and "folder" in r.json())
 
 from backup_rsc import BACKUP_DIR
-check("folder: backup/ exists next to app", os.path.isdir(BACKUP_DIR), str(BACKUP_DIR))
-check("folder: backup/ is absolute app root", os.path.basename(os.path.dirname(BACKUP_DIR)) not in ("", "/")
+check("folder: mik_backup/ exists next to app (Task 36 rename)", os.path.isdir(BACKUP_DIR) and os.path.basename(BACKUP_DIR) == "mik_backup", str(BACKUP_DIR))
+check("folder: mik_backup/ is absolute app root", os.path.basename(os.path.dirname(BACKUP_DIR)) not in ("", "/")
       and os.path.exists(os.path.join(os.path.dirname(BACKUP_DIR), "backend")))
+_old = os.path.join(os.path.dirname(BACKUP_DIR), "backup")
+check("folder: old backup/ migrated away (renamed or emptied)", not os.path.isdir(_old) or not any(f.endswith(".rsc") for f in os.listdir(_old)), _old)
+
+# ---------- 4) عیب‌یابی فارسی خطاها (Task 36) در سورس/باندل — endpoint پیشرفت ----------
+import backup_rsc as _br
+_m = _br._friendly_error(ConnectionRefusedError("connection refused"), "connect")
+check("friendly error: connect refused mentions /ip service enable api", "enable api" in _m and "8728" in _m)
+_m = _br._friendly_error(TimeoutError("timed out"), "read")
+check("friendly error: slow export explains timeout", "طول کشید" in _m)
 
 print("\nALL OK" if ok else "\nFAILURES PRESENT")
 sys.exit(0 if ok else 1)

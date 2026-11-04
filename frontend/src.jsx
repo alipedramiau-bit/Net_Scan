@@ -473,7 +473,7 @@ function DeviceReports({mode="devices"}={}){
     const ac=new AbortController();backupAbortRef.current=ac;
     setBackupBusy(true);setError("");
     setBackupProg({total:ips.length,done:0,percent:0,current_ip:"",running:true});
-    setMsg("در حال گرفتن پشتیبان rsc از "+ips.length+" دستگاه (RouterOS API /export)… فایل‌ها در پوشهٔ backup/ کنار برنامه ذخیره می‌شوند.");
+    setMsg("در حال گرفتن پشتیبان rsc از "+ips.length+" دستگاه (RouterOS API /export)… فایل‌ها در پوشهٔ mik_backup/ کنار برنامه ذخیره می‌شوند.");
     const progTimer=setInterval(async()=>{try{const pr=await fetch(API+"/api/devices/backup-rsc/progress");const pd=await pr.json();setBackupProg(pd)}catch(e){}},500);
     try{
       const r=await fetch(API+"/api/devices/backup-rsc",{method:"POST",headers:{"Content-Type":"application/json"},
@@ -483,10 +483,10 @@ function DeviceReports({mode="devices"}={}){
       const results=d.results||[],okN=d.ok||0,fails=results.filter(x=>!x.ok);
       const files=results.filter(x=>x.ok).map(x=>x.file);
       const canceled=d.canceled?" (متوقف شد)":"";
-      setMsg(`پشتیبان‌گیری rsc${canceled}: ${okN.toLocaleString("fa-IR")} از ${results.length.toLocaleString("fa-IR")} موفق — ذخیره در پوشهٔ backup/ — نمونه: ${files.slice(0,3).join(" ، ")||(files.length?"":"—")}${files.length>3?` و ${ (files.length-3).toLocaleString("fa-IR")} فایل دیگر`:""}`);
+      setMsg(`پشتیبان‌گیری rsc${canceled}: ${okN.toLocaleString("fa-IR")} از ${results.length.toLocaleString("fa-IR")} موفق — ذخیره در پوشهٔ mik_backup/ — نمونه: ${files.slice(0,3).join(" ، ")||(files.length?"":"—")}${files.length>3?` و ${ (files.length-3).toLocaleString("fa-IR")} فایل دیگر`:""}`);
       if(fails.length)setError(fails.length.toLocaleString("fa-IR")+" دستگاه ناموفق بود: "+fails.slice(0,3).map(x=>x.ip+" — "+(x.error||"خطا")).join(" | ")+(fails.length>3?" …":""));
     }catch(e){
-      if(e.name==="AbortError")setMsg("پشتیبان‌گیری متوقف شد؛ دستگاه‌های گرفته‌شده در پوشهٔ backup/ باقی می‌مانند.");
+      if(e.name==="AbortError")setMsg("پشتیبان‌گیری متوقف شد؛ دستگاه‌های گرفته‌شده در پوشهٔ mik_backup/ باقی می‌مانند.");
       else setError(e.message||"پشتیبان‌گیری ناموفق");
     }finally{
       clearInterval(progTimer);backupAbortRef.current=null;setBackupBusy(false);
@@ -985,7 +985,7 @@ function DeviceReports({mode="devices"}={}){
       <span className="probe-bar-sep"/>
       <button type="button" className="btn-action btn-backup-rsc" disabled={backupBusy||apiBusy||snmpBusy||!selectedIps.length||!(apiUser||"").trim()}
         onClick={()=>backupRsc(selectedMikrotikWithApi())}
-        title="پشتیبان‌گیری کانفیگ دستگاه‌های انتخابی از طریق RouterOS API (/export) و ذخیره با پسوند .rsc در پوشهٔ backup/ کنار برنامه — نام فایل: نام‌دستگاه_آی‌پی.rsc (دستگاه بی‌نام از ای‌دی دیتابیس)">
+        title="پشتیبان‌گیری کانفیگ دستگاه‌های انتخابی از طریق RouterOS API (/export) و ذخیره با پسوند .rsc در پوشهٔ mik_backup/ کنار برنامه — نام فایل: نام‌دستگاه_آی‌پی.rsc (دستگاه بی‌نام از ای‌دی دیتابیس)">
         {backupBusy?"در حال پشتیبان‌گیری…":`پشتیبان‌گیری rsc (${selectedIps.length})`}
       </button>
       <button type="button" className="btn-action btn-stop-probe" disabled={!backupBusy} onClick={stopBackupRsc}>
@@ -1003,7 +1003,7 @@ function DeviceReports({mode="devices"}={}){
       </span>
       {(snmpBusy||apiBusy||csvReading||backupBusy)&&<div className="probe-progress" style={{width:"100%",marginTop:8}}>
         <div className="probe-progress-head">
-          <b>{backupBusy?"نمودار پیشرفت پشتیبان‌گیری rsc (پوشهٔ backup/)":apiBusy?"نمودار پیشرفت خواندن با RouterOS API":(csvReading?"نمودار پیشرفت خواندن اطلاعات برای خروجی CSV":"نمودار پیشرفت خواندن SNMP")}</b>
+          <b>{backupBusy?"نمودار پیشرفت پشتیبان‌گیری rsc (پوشهٔ mik_backup/)":apiBusy?"نمودار پیشرفت خواندن با RouterOS API":(csvReading?"نمودار پیشرفت خواندن اطلاعات برای خروجی CSV":"نمودار پیشرفت خواندن SNMP")}</b>
           {pp.current_ip?<span className="muted">هدف فعلی: <bdi dir="ltr">{pp.current_ip}</bdi></span>:null}
         </div>
         <div className="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow={pp.percent||0}>

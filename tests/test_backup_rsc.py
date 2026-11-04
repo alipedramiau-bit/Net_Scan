@@ -1,21 +1,24 @@
-"""Task 34 — پشتیبان‌گیری کانفیگ میکروتیک با پسوند rsc در پوشهٔ backup/.
+"""Task 34/36 — پشتیبان‌گیری کانفیگ میکروتیک با پسوند rsc در پوشهٔ mik_backup/.
 
 درخواست کاربر: «یک فولدر به نام backup در مسیر برنامه ایجاد کن که با یک دکمهٔ
 backup بتواند از طریق API و ورود یوزر/پسورد بک‌آپ دستگاه‌های میکروتیک با پسوند
-rsc بگیرد؛ با نام/ای‌دی دستگاه‌ها و ای‌پی دستگاه در فولدر backup ذخیره کند».
+rsc بگیرد؛ با نام/ای‌دی دستگاه‌ها و ای‌پی دستگاه در فولدر backup ذخیره کند»
++ «فولدر backup را به نام mik_backup تغییر نام بده» (Task 36).
 
 پوشش:
 1) نام فایل: «<نام دستگاه>_<IP>.rsc» — دستگاه بی‌نام از ای‌دی ردیف دیتابیس
    (device-<id>)؛ کاراکترهای غیرمجاز پاک می‌شوند؛
 2) export_config_via_api — پارس پاسخ /export (هم !done تکی با =ret= و هم
-   چند !re تکه‌تکه) + !trap/!fatal با پیام فارسی؛
-3) backup_devices — هر دستگاه فقط یک‌بار (IP یکتا)، ذخیره در پوشهٔ backup،
+   چند !re تکه‌تکه) + !trap/!fatal با پیام فارسی + عیب‌یابی مرحله‌ای خطا
+   (connect/login/read — Task 36)؛
+3) backup_devices — هر دستگاه فقط یک‌بار (IP یکتا)، ذخیره در پوشهٔ mik_backup،
    پیشرفت/لغو؛
-4) endpointها با TestClient: اعتبارسنجی ورودی، اجرای موفق/ناموفق،
+4) انتقال خودکار پوشهٔ قدیمی backup/ به mik_backup/ (Task 36)؛
+5) endpointها با TestClient: اعتبارسنجی ورودی، اجرای موفق/ناموفق،
    progress/files.
 
 اتصال واقعی RouterOS با جایگزینی (monkeypatch) کلاینت تست می‌شود — هیچ
-دستگاه واقعی‌ای لمس نمی‌شود و پوشهٔ backup واقعی پروژه دست‌نخورده می‌ماند.
+دستگاه واقعی‌ای لمس نمی‌شود و پوشهٔ mik_backup واقعی پروژه دست‌نخورده می‌ماند.
 """
 import sys
 from pathlib import Path
@@ -32,8 +35,8 @@ from backend.main import app
 
 @pytest.fixture()
 def backup_dir(monkeypatch, tmp_path):
-    """پوشهٔ backup موقت + ریست وضعیت پیشرفت برای هر تست."""
-    d = tmp_path / "backup"
+    """پوشهٔ mik_backup موقت + ریست وضعیت پیشرفت برای هر تست."""
+    d = tmp_path / "mik_backup"
     d.mkdir()
     monkeypatch.setattr(backup_rsc, "BACKUP_DIR", d)
     backup_rsc.BACKUP_PROGRESS.update({"total": 0, "done": 0, "ok": 0, "failed": 0,
@@ -98,7 +101,7 @@ class _FakeClient:
 def _patch_client(monkeypatch, replies=None, fail=None):
     monkeypatch.setattr(backup_rsc, "_ros", local_ros)
     monkeypatch.setattr(local_ros, "RouterOSClient",
-                        lambda host, port=8728, timeout=20.0: _FakeClient(host, port, timeout, replies, fail))
+                        lambda host, port=8728, timeout=20.0, **kw: _FakeClient(host, port, timeout, replies, fail))
 
 
 def test_export_parses_single_done_ret(monkeypatch):
@@ -188,7 +191,7 @@ def test_api_backup_requires_credentials_and_ips(client):
 def test_api_backup_flow(client, monkeypatch, backup_dir):
     monkeypatch.setattr(backup_rsc, "_ros", local_ros)
     monkeypatch.setattr(local_ros, "RouterOSClient",
-                        lambda host, port=8728, timeout=20.0: _FakeClient(host, port, timeout, [["!done", "=ret=# cfg\n"]]))
+                        lambda host, port=8728, timeout=20.0, **kw: _FakeClient(host, port, timeout, [["!done", "=ret=# cfg\n"]]))
     import backend.db as dbm
     monkeypatch.setattr(dbm, "fetch_devices_by_ips",
                         lambda ips, db_path=None: [_dev("10.0.0.2", "CORE-SW", 1), _dev("10.0.0.3", "EDGE", 2)])
@@ -222,3 +225,107 @@ def test_api_backup_files_list(client, backup_dir):
     assert d["count"] == 2 and d["folder"] == str(backup_dir)
     names = {f["file"] for f in d["files"]}
     assert names == {"A_10.0.0.2.rsc", "B_10.0.0.3.rsc"}  # فقط rsc
+
+
+# ------------------------- Task 36: عیب‌یابی + تغییر نام پوشه ---------------
+def test_friendly_error_connect_refused():
+    msg = backup_rsc._friendly_error(ConnectionRefusedError("connection refused"), "connect")
+    assert "سرویس API" in msg and "8728" in msg and "connection refused" in msg
+    assert "enable api" in msg  # راهنمای رفع
+
+
+def test_friendly_error_connect_timeout_firewall():
+    msg = backup_rsc._friendly_error(TimeoutError("timed out"), "connect")
+    assert "فایروال" in msg and "Winbox" in msg and "timed out" in msg
+
+
+def test_friendly_error_read_timeout_slow_export():
+    msg = backup_rsc._friendly_error(TimeoutError("timed out"), "read")
+    assert "export بیش از حد طول کشید" in msg and "timed out" in msg
+
+
+def test_friendly_error_login_hint():
+    msg = backup_rsc._friendly_error(backup_rsc._ros.RouterOSError("cannot log in"), "login")
+    assert "ورود API ناموفق" in msg and "policy" in msg
+
+
+def test_export_failure_classifies_stage(monkeypatch):
+    """خطای اتصال باید با علت فارسیِ مرحلهٔ connect بالا بیاید (نه پیام خام)."""
+    class _TimeoutClient:
+        def __init__(self, host, port=8728, timeout=20.0, **kw):
+            self.closed = False
+
+        def connect(self):
+            raise TimeoutError("timed out")
+
+        def close(self):
+            self.closed = True
+
+    monkeypatch.setattr(backup_rsc, "_ros", local_ros)
+    monkeypatch.setattr(local_ros, "RouterOSClient", _TimeoutClient)
+    with pytest.raises(Exception) as ei:
+        backup_rsc.export_config_via_api("10.0.0.2", "u", "p")
+    assert "سرویس api فعال نیست یا فایروال" in str(ei.value)
+
+
+def test_export_uses_fast_connect_timeout(monkeypatch):
+    """اتصال اولیه نباید به اندازهٔ timeout خواندن (≥۹۰s) منتظر بماند — سقف ۱۲ ثانیه."""
+    seen = {}
+
+    class _ProbeClient:
+        def __init__(self, host, port=8728, timeout=20.0, connect_timeout=None):
+            seen["read"], seen["connect"] = timeout, connect_timeout
+
+        def connect(self):
+            pass
+
+        def login(self, u, p):
+            pass
+
+        def talk(self, words, timeout=None):
+            return [["!done", "=ret=# ok\n"]]
+
+        def close(self):
+            pass
+
+    monkeypatch.setattr(backup_rsc, "_ros", local_ros)
+    monkeypatch.setattr(local_ros, "RouterOSClient", _ProbeClient)
+    backup_rsc.export_config_via_api("10.0.0.2", "u", "p", timeout=5)
+    assert seen["read"] >= backup_rsc.EXPORT_MIN_TIMEOUT
+    assert seen["connect"] == backup_rsc.CONNECT_TIMEOUT_CAP
+    assert seen["connect"] < seen["read"]
+
+
+def test_migrate_old_backup_folder_rename(monkeypatch, tmp_path):
+    """backup/ قدیمی → mik_backup/ (تغییر نام یک‌جا وقتی مقصد نیست)."""
+    old_root = tmp_path / "app"
+    (old_root / "backup").mkdir(parents=True)
+    (old_root / "backup" / "A_10.0.0.2.rsc").write_text("# a\n", encoding="utf-8")
+    new_dir = old_root / "mik_backup"
+    monkeypatch.setattr(backup_rsc, "ROOT_DIR", old_root)
+    monkeypatch.setattr(backup_rsc, "BACKUP_DIR", new_dir)
+    backup_rsc._migrate_old_backup_folder()
+    assert not (old_root / "backup").exists()  # پوشهٔ قدیمی جابه‌جا شد
+    assert (new_dir / "A_10.0.0.2.rsc").read_text(encoding="utf-8") == "# a\n"
+
+
+def test_migrate_old_backup_folder_merge(monkeypatch, tmp_path):
+    """اگر هر دو پوشه باشند: فقط rscهای تکراری‌نشدنی منتقل می‌شوند، مقصد دست‌نخورده."""
+    old_root = tmp_path / "app"
+    (old_root / "backup").mkdir(parents=True)
+    (old_root / "backup" / "OLD_1.1.1.1.rsc").write_text("# old\n", encoding="utf-8")
+    new_dir = old_root / "mik_backup"
+    new_dir.mkdir()
+    (new_dir / "NEW_2.2.2.2.rsc").write_text("# new\n", encoding="utf-8")
+    monkeypatch.setattr(backup_rsc, "ROOT_DIR", old_root)
+    monkeypatch.setattr(backup_rsc, "BACKUP_DIR", new_dir)
+    backup_rsc._migrate_old_backup_folder()
+    assert (new_dir / "OLD_1.1.1.1.rsc").exists()
+    assert (new_dir / "NEW_2.2.2.2.rsc").read_text(encoding="utf-8") == "# new\n"
+    assert (old_root / "backup").exists()  # پوشهٔ قدیمی پاک نمی‌شود
+
+
+def test_default_backup_dir_is_mik_backup():
+    """نام جدید پوشه در ریشهٔ برنامه (Task 36) — و اگر backup/ قدیمی بود، منتقل شده."""
+    assert backup_rsc.BACKUP_DIR.name == "mik_backup"
+    assert backup_rsc.BACKUP_DIR.is_dir()

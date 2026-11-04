@@ -22,7 +22,7 @@
 | `backend/db.py` | لایه دیتابیس: کاتالوگ، جدول devices، خروجی‌ها، backup، enrich از ip_info |
 | `backend/kartable.py` | کارتابل اداری: دیتابیس مستقل `databases/kartable.db` (آیتم‌ها/اطلاعیه‌ها/رویدادها) + بذر نمونه هر بخش |
 | `backend/routeros_api.py` | خواندن مستقیم از RouterOS API (probe موازی، collect، push-config) |
-| `backend/backup_rsc.py` | پشتیبان‌گیری کانفیگ rsc با RouterOS API (/export) در پوشهٔ backup/ + پیشرفت/لغو |
+| `backend/backup_rsc.py` | پشتیبان‌گیری کانفیگ rsc با RouterOS API (/export) در پوشهٔ mik_backup/ + پیشرفت/لغو/عیب‌یابی فارسی خطا |
 | `backend/route_topology.py` | توپولوژی مسیر: خواندن ساختاریافته API + گراف لینک‌ها + BFS تا روتر مرکزی |
 | `backend/cisco_config.py` | پارس کانفیگ متنی روتر مرکزی سیسکو (اینترفیس‌ها/آدرس‌ها/روت استاتیک) برای گزارش مسیر |
 | `backend/route_pdf.py` | تولید PDF «Detailed Router Path Topology» (یک صفحه به ازای هر دستگاه) |
@@ -81,7 +81,7 @@ cd frontend && npm install && npm run build
 5. پیام کامیت: قالب `type(scope): خلاصه انگلیسی` (مثل `feat(devices): ...`، `fix(api): ...`).
 6. قبل از کامیت: تست‌ها سبز باشند؛ `git status` را برای فایل‌های ناخواسته چک کنید.
 
-## ۵) نقشه قابلیت‌ها (تا Task 35)
+## ۵) نقشه قابلیت‌ها (تا Task 36)
 
 - **اسکن شبکه:** `POST /scans/start` (قابل لغو با `/scans/{id}/cancel`)، ورودی IP/CIDR/بازه،
   پورت‌های 8291 و 8728 همیشه اضافه می‌شوند.
@@ -425,6 +425,20 @@ cd frontend && npm install && npm run build
   `VpnManagerCard`/`BackendCard`) با `React.memo` بسته شدند تا استعلام اسکن/پیشرفت آن‌ها را رندر نکند؛
   `onRoutes` با `useCallback` پایدار شد؛ جستجوی `DevicePickerModal` با `useDeferredValue` است.
   تست: `scripts/test_ui_speed_react_memo.py` (۲۵ بررسی سورس/باندل/بک‌اند).
+- **تغییر نام پوشهٔ پشتیبان rsc + عیب‌یابی شکست بک‌آپ (Task 36):** درخواست «فولدر backup را به نام mik_backup
+  تغییر نام بده» + «با اینکه یوزر/پسورد درست است نتونست بک اپ rsc بگیرد؛ بررسی کن». تغییرات:
+  1) `BACKUP_DIR` در `backup_rsc.py` به `mik_backup/` تغییر کرد؛ تابع `_migrate_old_backup_folder` هنگام ایمپورت
+     پوشهٔ قدیمی `backup/` را به `mik_backup/` منتقل می‌کند (rename یک‌جا؛ اگر هر دو باشند فقط rscهای تکراری‌نشدنی) —
+     دادهٔ کاربر از بین نمی‌رود؛ `.gitignore` هم به‌روز شد؛
+  2) عیب‌یابی شکست: «خواندن با API» با همان کلاینت کار می‌کند ولی `/export` عملیاتِ سنگین روی خودِ روتر است — در
+     RouterOS v7 با کانفیگ بزرگ CPU ۱۰۰٪ می‌زند و دقیقه‌ها طول می‌کشد (تأیید فروم میکروتیک)، و سرویس api (8728)
+     جدا از Winbox (8291) است — رمز درست به‌تنهایی کافی نیست. اصلاحات: `_friendly_error(e, stage)` علت فارسیِ
+     مرحلهٔ شکست (connect/login/read) با راهنمای رفع می‌دهد (`/ip service enable api`، policy «api»، افزایش timeout،
+     تلاش دوباره)؛ `RouterOSClient` پارامتر `connect_timeout` گرفت (سقف ۱۲ ثانیه در بک‌آپ) تا دستگاه بی‌API صف را
+     نندازد؛ کفِ timeout خواندن export ۹۰ ثانیه و سقف مجاز درخواست ۶۰۰ ثانیه شد (BackupRscRequest default 45)؛
+  3) متن‌های UI به «پوشهٔ mik_backup/» تغییر کرد و dist بازسازی شد (index-CtmlfBlx.js).
+  تست: `tests/test_backup_rsc.py` — ۲۳ تست (۹ تست جدید: طبقه‌بندی خطاها، connect_timeout جد، مهاجرت پوشه
+  rename/merge) + `scripts/test_backup_button.py` (بررسی نام پوشه/مهاجرت/پیام‌های عیب‌یابی).
 - **سایر:** گزارش‌های هوشمند، Winbox tools، مدیریت VPN، ایمیل/اطلاع‌رسانی.
 
 ## ۶) نکات دام‌دار (Gotchas)

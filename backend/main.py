@@ -1793,7 +1793,8 @@ class BackupRscRequest(BaseModel):
     username: str = Field(min_length=1, max_length=128)
     password: str = Field(default="", max_length=128)
     port: int = Field(default=8728, ge=1, le=65535)
-    timeout: float = Field(default=20.0, ge=5.0, le=120.0)
+    # Task 36: خواندن /export روی روتر پرکانفیگ کند است — تا ۶۰۰ ثانیه قابل درخواست است
+    timeout: float = Field(default=45.0, ge=5.0, le=600.0)
     max_workers: int = Field(default=6, ge=1, le=16)
 
 
@@ -1802,11 +1803,11 @@ BACKUP_RSC_CANCEL = Event()
 
 @app.post("/api/devices/backup-rsc")
 def backup_rsc_devices(body: BackupRscRequest):
-    """پشتیبان‌گیری کانفیگ دستگاه‌ها با پسوند rsc در پوشهٔ backup/.
+    """پشتیبان‌گیری کانفیگ دستگاه‌ها با پسوند rsc در پوشهٔ mik_backup/.
 
     - اتصال با RouterOS API (پورت 8728) و یوزر/پسورد واردشده؛ کانفیگ هر
       دستگاه با دستور /export خوانده و در «<نام دستگاه>_<IP>.rsc»
-      (utf-8) در پوشهٔ backup/ کنار برنامه ذخیره می‌شود؛ دستگاه بی‌نام از
+      (utf-8) در پوشهٔ mik_backup/ کنار برنامه ذخیره می‌شود؛ دستگاه بی‌نام از
       ای‌دی ردیف دیتابیس نام می‌گیرد (device-<id>).
     - هر دستگاه فقط یک‌بار (بر اساس IP) پشتیبان می‌گیرد؛ پیشرفت زنده از
       GET /api/devices/backup-rsc/progress خوانده می‌شود و با
@@ -1872,7 +1873,7 @@ def backup_rsc_cancel():
 
 @app.get("/api/devices/backup-rsc/files")
 def backup_rsc_files():
-    """فهرست فایل‌های rsc ذخیره‌شده در پوشهٔ backup/ (جدیدترین اول)."""
+    """فهرست فایل‌های rsc ذخیره‌شده در پوشهٔ mik_backup/ (جدیدترین اول)."""
     files = backup_rsc.list_backup_files()
     return {
         "folder": str(backup_rsc.BACKUP_DIR),

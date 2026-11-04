@@ -447,14 +447,18 @@ def _extract_verify_intents(script: str) -> dict:
 
 
 class RouterOSClient:
-    def __init__(self, host: str, port: int = 8728, timeout: float = 15.0):
+    def __init__(self, host: str, port: int = 8728, timeout: float = 15.0,
+                 connect_timeout: float | None = None):
         self.host = host
         self.port = int(port)
         self.timeout = float(timeout)
+        # Task 36: timeout جدا برای اتصال اولیه — دستگاهی که سرویس api ندارد نباید
+        # به اندازهٔ timeoutِ خواندن (۹۰ ثانیه) صف را بندد؛ پیش‌فرض همان timeout است
+        self.connect_timeout = float(connect_timeout) if connect_timeout else self.timeout
         self.sock: socket.socket | None = None
 
     def connect(self) -> None:
-        self.sock = socket.create_connection((self.host, self.port), timeout=self.timeout)
+        self.sock = socket.create_connection((self.host, self.port), timeout=self.connect_timeout)
         self.sock.settimeout(self.timeout)
 
     def close(self) -> None:
