@@ -1208,13 +1208,15 @@ function DeviceReports({mode="devices"}={}){
 
 
 function EmailServerCard(){
-  const[cfg,setCfg]=useState({mode:"direct",host:"smtp.gmail.com",port:587,use_tls:true,use_ssl:false,username:"",password:"",from_email:"",from_name:"شبکه‌بان",to_email:"",enabled:false,timeout:30,helo_host:"",password_set:false});
+  const[cfg,setCfg]=useState({mode:"direct",host:"smtp.gmail.com",port:587,use_tls:true,use_ssl:false,username:"",password:"",from_email:"",from_name:"شبکه‌بان",to_email:"",enabled:false,timeout:30,helo_host:"",password_set:false,dkim_enabled:false,dkim_selector:"shabakeban",dkim_domain:"",dkim_private_key:"",dkim_key_set:false});
   const[busy,setBusy]=useState(false);
   const[msg,setMsg]=useState("");
   const[err,setErr]=useState("");
   const[testMsg,setTestMsg]=useState("");
   const[testTo,setTestTo]=useState("");
   const[diag,setDiag]=useState(null);
+  const[dkim,setDkim]=useState(null);
+  const[auth,setAuth]=useState(null);
 
   useEffect(()=>{
     fetch(API+"/api/smtp/config").then(r=>r.json()).then(d=>{
@@ -1231,7 +1233,7 @@ function EmailServerCard(){
   function applyStandalone(){
     setCfg(c=>({...c,mode:"direct",enabled:true}));
     setDiag(null);
-    setMsg("حالت مستقل فعال شد: ارسال مستقیم به سرور MX گیرنده — فقط «فرستنده (From)» را یک ایمیل دلخواه بگذارید (لازم نیست حساب واقعی باشد) و «ذخیره تنظیمات» را بزنید. نیازی به جیمیل/یاهو نیست.");
+    setMsg("حالت مستقل فعال شد: ارسال مستقیم به سرور MX گیرنده — «فرستنده (From)» را روی دامنهٔ خودتان بگذارید (برای تحویل به Gmail/Outlook الزامی است) و «ذخیره تنظیمات» را بزنید. نیازی به جیمیل/یاهو نیست؛ برای تحویل مطمئن بخش «احراز هویت دامنه» را هم انجام دهید.");
     setErr("");
   }
 
@@ -1290,39 +1292,69 @@ function EmailServerCard(){
     }
   }
 
+  async function saveConfig(){
+    const body={...cfg};
+    if(body.password==="********")delete body.password;
+    if(body.dkim_private_key==="********")delete body.dkim_private_key;
+    delete body.dkim_key_set;
+    const r=await fetch(API+"/api/smtp/config",{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
+    const txt=await r.text();
+    let d={};
+    try{d=txt?JSON.parse(txt):{}}catch(_){throw Error(txt&&txt.slice(0,200)||"پاسخ نامعتبر از سرور")}
+    if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:(Array.isArray(d.detail)?d.detail.map(x=>x.msg||JSON.stringify(x)).join("; "):txt.slice(0,200)||"ذخیره ناموفق"));
+    setCfg(c=>({...c,...d,password:d.password_set?"********":"",dkim_private_key:d.dkim_key_set?"********":""}));
+    return d;
+  }
+
   async function save(){
     setBusy(true);setErr("");setMsg("");
-    try{
-      const body={...cfg};
-      if(body.password==="********")delete body.password;
-      const r=await fetch(API+"/api/smtp/config",{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
-      const txt=await r.text();
-      let d={};
-      try{d=txt?JSON.parse(txt):{}}catch(_){throw Error(txt&&txt.slice(0,200)||"پاسخ نامعتبر از سرور")}
-      if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:(Array.isArray(d.detail)?d.detail.map(x=>x.msg||JSON.stringify(x)).join("; "):txt.slice(0,200)||"ذخیره ناموفق"));
-      setCfg(c=>({...c,...d,password:d.password_set?"********":""}));
-      setMsg("تنظیمات SMTP ذخیره شد");
-    }catch(e){setErr(e.message)}
+    try{await saveConfig();setMsg("تنظیمات SMTP ذخیره شد")}
+    catch(e){setErr(e.message)}
     setBusy(false);
   }
 
   async function testSend(){
     setBusy(true);setErr("");setMsg("");
     try{
-      // save first so test uses latest fields
-      const body={...cfg};
-      if(body.password==="********")delete body.password;
-      const sr=await fetch(API+"/api/smtp/config",{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
-      const stxt=await sr.text();
-      let sd={};
-      try{sd=stxt?JSON.parse(stxt):{}}catch(_){throw Error(stxt&&stxt.slice(0,200)||"پاسخ نامعتبر")}
-      if(!sr.ok)throw Error(typeof sd.detail==="string"?sd.detail:"ذخیره قبل از تست ناموفق");
+      await saveConfig();
       const r=await fetch(API+"/api/smtp/test",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({to_email:testTo||cfg.to_email||undefined,message:testMsg||undefined})});
       const txt=await r.text();
       let d={};
       try{d=txt?JSON.parse(txt):{}}catch(_){throw Error(txt&&txt.slice(0,200)||"پاسخ نامعتبر")}
       if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:txt.slice(0,200)||"ارسال تست ناموفق");
-      setMsg("ایمیل آزمایشی ارسال شد → "+(d.to||testTo||cfg.to_email)+(d.mode==="direct"?" (مستقیم به MX: "+d.mx+":"+d.port+")":""));
+      setMsg("ایمیل آزمایشی ارسال شد → "+(d.to||testTo||cfg.to_email)+(d.mode==="direct"?" (مستقیم به MX: "+d.mx+":"+d.port+")":"")+(d.dkim&&d.dkim.signed?" — با امضای DKIM":""));
+    }catch(e){setErr(e.message)}
+    setBusy(false);
+  }
+
+  async function genDkim(){
+    setBusy(true);setErr("");setMsg("");setDkim(null);
+    try{
+      await saveConfig();
+      const r=await fetch(API+"/api/smtp/dkim/generate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({selector:(cfg.dkim_selector||"").trim()||undefined})});
+      const txt=await r.text();
+      let d={};
+      try{d=txt?JSON.parse(txt):{}}catch(_){throw Error(txt&&txt.slice(0,200)||"پاسخ نامعتبر")}
+      if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:txt.slice(0,200)||"تولید کلید ناموفق");
+      setDkim(d);
+      setCfg(c=>({...c,dkim_enabled:true,dkim_selector:d.selector,dkim_domain:d.domain,dkim_private_key:"********",dkim_key_set:true}));
+      await fetch(API+"/api/smtp/config",{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify({dkim_enabled:true,dkim_selector:d.selector})});
+      setMsg("کلید DKIM ساخته شد و امضا فعال شد — فقط رکورد TXT زیر را در پنل DNS دامنه ثبت کنید، بعد «بررسی احراز هویت دامنه» را بزنید.");
+    }catch(e){setErr(e.message)}
+    setBusy(false);
+  }
+
+  async function authCheck(){
+    setBusy(true);setErr("");setMsg("");setAuth(null);
+    const from=(cfg.from_email||"").trim();
+    if(!from.includes("@")||!from.includes(".")){setErr("ابتدا «فرستنده (From)» را با ایمیل روی دامنهٔ خودتان پر کنید و ذخیره کنید");setBusy(false);return}
+    try{
+      const r=await fetch(API+"/api/smtp/auth-check",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({from_email:from,selector:(cfg.dkim_selector||"").trim()||undefined})});
+      const txt=await r.text();
+      let d={};
+      try{d=txt?JSON.parse(txt):{}}catch(_){throw Error(txt&&txt.slice(0,200)||"پاسخ نامعتبر")}
+      if(!r.ok)throw Error(typeof d.detail==="string"?d.detail:txt.slice(0,200)||"بررسی ناموفق");
+      setAuth(d);
     }catch(e){setErr(e.message)}
     setBusy(false);
   }
@@ -1369,7 +1401,7 @@ function EmailServerCard(){
         </label>
         <label>فرستنده ایمیل (From)
           <input dir="ltr" value={cfg.from_email||""} onChange={e=>setField("from_email",e.target.value)} placeholder="alerts@your-domain.ir"/>
-          <span className="muted" style={{fontSize:".82em"}}>در حالت مستقل، لازم نیست حساب واقعی باشد — فقط شکل ایمیل داشته باشد</span>
+          <span className="muted" style={{fontSize:".82em"}}>برای گیرنده‌های عادی هر شکل ایمیل کافی است؛ برای تحویل به Gmail/Outlook باید دامنهٔ خودتان باشد (نه gmail.com — دامنهٔ دیگران قابل احراز نیست)</span>
         </label>
         <label>نام فرستنده
           <input value={cfg.from_name||""} onChange={e=>setField("from_name",e.target.value)} placeholder="شبکه‌بان"/>
@@ -1420,6 +1452,49 @@ function EmailServerCard(){
         </div>
       )}
       <hr className="email-sep"/>
+      <h3>احراز هویت دامنه (SPF / DKIM / DMARC)</h3>
+      <p className="muted">گیرنده‌های بزرگ (Gmail/Outlook/Yahoo) نامهٔ بدون SPF/DKIM را با خطای 5.7.26 رد می‌کنند. برای ارسال مستقل قابل‌اعتماد: فرستنده (From) باید روی دامنهٔ خودتان باشد و سه رکورد DNS ثبت شود — کلید DKIM در همین نرم‌افزار ساخته می‌شود و نیازی به جیمیل/یاهو نیست.</p>
+      <div className="email-grid">
+        <label className="chk"><input type="checkbox" checked={!!cfg.dkim_enabled} onChange={e=>setField("dkim_enabled",e.target.checked)}/> امضای DKIM روی نامه‌ها</label>
+        <label>Selector کلید DKIM
+          <input dir="ltr" value={cfg.dkim_selector||""} onChange={e=>setField("dkim_selector",e.target.value)} placeholder="shabakeban"/>
+          <span className="muted" style={{fontSize:".82em"}}>{cfg.dkim_key_set?"کلید خصوصی ذخیره شده است":"کلیدی ذخیره نشده — دکمهٔ «تولید کلید DKIM» را بزنید"}</span>
+        </label>
+      </div>
+      <div className="email-actions">
+        <button type="button" className="tool-btn" disabled={busy} onClick={genDkim}><RbIcon name="email" size={16}/><span>تولید کلید DKIM</span></button>
+        <button type="button" className="tool-btn" disabled={busy} onClick={authCheck}><RbIcon name="email" size={16}/><span>بررسی احراز هویت دامنه</span></button>
+      </div>
+      {dkim&&(
+        <div className="email-diag ok">
+          <b>کلید DKIM ساخته شد — این رکورد را در پنل DNS دامنه ثبت کنید</b>
+          <p>نام رکورد (Host): <code dir="ltr">{dkim.dkim_host}</code> — نوع: TXT — مقدار:</p>
+          <pre className="dns-record" dir="ltr">{dkim.txt_record}</pre>
+          <p className="muted">تا وقتی این رکورد در DNS منتشر نشده، امضا اعتبار ندارد؛ بعد از ثبت، دکمهٔ «بررسی احراز هویت دامنه» تأییدش می‌کند. کلید قبلی با تولید کلید جدید جایگزین می‌شود.</p>
+        </div>
+      )}
+      {auth&&(
+        <div className={"email-diag"+((auth.warnings||[]).length?" bad":" ok")}>
+          <b>نتیجهٔ بررسی احراز هویت دامنهٔ {auth.domain}</b>
+          {(auth.warnings||[]).map((w,i)=><p key={"aw"+i} style={{color:"#b91c1c"}}>⚠ {w}</p>)}
+          <ul>
+            <li>IP خروجی: <code dir="ltr">{auth.egress_ip||"ناشناخته"}</code>{auth.ptr&&auth.ptr.record?<span> — rDNS: <code dir="ltr">{auth.ptr.record}</code></span>:<span> — rDNS پیدا نشد</span>}</li>
+            <li>SPF: {auth.spf.status==="pass"?"✓ IP مجاز است":(auth.spf.status==="none"?"✗ رکورد نیست":"⚠ وضعیت: "+auth.spf.status+(auth.spf.matched?" (مکانیزم: "+auth.spf.matched+")":""))}</li>
+            <li>DKIM: {auth.dkim.match==="match"?"✓ رکورد DNS با کلید نرم‌افزار یکی است":(auth.dkim.match==="mismatch"?"✗ رکورد با کلید نرم‌افزار نمی‌خواند":(auth.dkim.found?"⚠ رکورد هست (کلید محلی برای مقایسه نیست)":(auth.dkim.key_saved?"✗ کلید ساخته شده ولی در DNS نیست":"✗ کلید هنوز ساخته نشده")))} <code dir="ltr">{auth.dkim.host}</code></li>
+            <li>DMARC: {auth.dmarc.found?"✓ هست":"✗ نیست"}</li>
+          </ul>
+          <ol>{(auth.steps||[]).map((s,i)=><li key={"as"+i}>{s}</li>)}</ol>
+          <p><b>رکوردهایی که باید در پنل DNS دامنه ثبت کنید:</b></p>
+          {Object.entries(auth.records||{}).map(([k,r])=>(
+            <div key={"rec"+k}>
+              <p className="muted" style={{margin:"6px 0 2px"}}>{k.toUpperCase()} — Host: <code dir="ltr">{r.host}</code> — نوع: {r.type} — مقدار:</p>
+              <pre className="dns-record" dir="ltr">{r.value}</pre>
+            </div>
+          ))}
+          <p>{auth.verdict}</p>
+        </div>
+      )}
+      <hr className="email-sep"/>
       <h3>تست ارسال</h3>
       <p className="muted">یک پیام آزمایشی با حالت انتخاب‌شده (مستقیم یا رله) ارسال می‌شود.</p>
       <div className="email-grid">
@@ -1438,18 +1513,28 @@ function EmailServerCard(){
         <summary>راهنمای استفاده — ارسال مستقل بدون جیمیل/یاهو</summary>
         <ol>
           <li>دکمهٔ <b>«مستقل — بدون جیمیل/یاهو»</b> را بزنید (حالت ارسال روی «مستقیم به MX گیرنده» و فعال‌سازی خودکار تنظیم می‌شود).</li>
-          <li>در فیلد <b>فرستنده (From)</b> هر ایمیل دلخواه بنویسید؛ لازم نیست حساب واقعی باشد، فقط شکل ایمیل داشته باشد — مثال: <code>alerts@your-domain.ir</code> یا <code>net-alert@mycompany.local</code>.</li>
+          <li>در فیلد <b>فرستنده (From)</b> یک ایمیل روی دامنهٔ خودتان بنویسید — مثال: <code>alerts@your-domain.ir</code>. برای گیرنده‌های ساده هر شکل ایمیل کافی است، ولی برای تحویل به Gmail/Outlook حتماً باید دامنهٔ خودتان باشد (نه gmail.com — چون فقط مالک دامنه می‌تواند SPF/DKIM آن را تعریف کند).</li>
           <li><b>گیرندهٔ پیش‌فرض (To)</b> را با ایمیل مقصد پر کنید و <b>«ذخیره تنظیمات»</b> را بزنید.</li>
           <li>دکمهٔ <b>«بررسی امکان ارسال مستقیم»</b> را بزنید؛ اگر نتیجه «پورت خروجی ۲۵ باز است» بود، این شبکه می‌تواند مستقل ایمیل بفرستد.</li>
+          <li>اگر مقصد Gmail/Outlook/Yahoo است، بخش <b>«احراز هویت دامنه»</b> را هم کامل کنید: دکمهٔ <b>«تولید کلید DKIM»</b> را بزنید و سه رکورد DNS پیشنهادی را در پنل دامنه ثبت کنید؛ بعد با دکمهٔ <b>«بررسی احراز هویت دامنه»</b> تأییدشان کنید.</li>
           <li>در بخش «تست ارسال» دکمهٔ <b>«ارسال ایمیل آزمایشی»</b> را بزنید و صندوق گیرنده (و پوشهٔ Spam) را چک کنید.</li>
         </ol>
         <h4>این حالت چگونه کار می‌کند؟</h4>
         <p>نرم‌افزار مستقیماً از DNS رکورد MX دامنهٔ گیرنده را می‌پرسد (اول DNS خود شبکه، بعد 8.8.8.8/1.1.1.1)، سپس خودش به سرور ایمیلِ همان دامنه (پورت ۲۵) وصل می‌شود و نامه را تحویل می‌دهد. هیچ حساب Gmail/Yahoo یا SMTP واسط لازم نیست — فقط اینترنت و باز بودن پورت خروجی ۲۵.</p>
+        <h4>چرا Gmail نامه را با خطای 5.7.26 رد می‌کند؟</h4>
+        <p>از سال ۲۰۲۴ جیمیل همهٔ نامه‌های ورودی را فقط وقتی می‌پذیرد که فرستنده با <b>SPF یا DKIM</b> احراز شود؛ وگرنه با پیام <code>550 5.7.26 Your email has been blocked because the sender is unauthenticated</code> رد می‌شود. این خطا یعنی پورت و مسیر ارسال درست است، فقط دامنهٔ فرستنده معتبرنشده است. راه‌حل بدون جیمیل/یاهو: یک دامنهٔ ارزان بخرید (یا اگر دارید) و سه رکورد TXT در پنل DNS همان دامنه ثبت کنید:</p>
+        <ol>
+          <li><b>DKIM</b> — دکمهٔ «تولید کلید DKIM» را بزنید؛ نرم‌افزار کلید RSA می‌سازد، نامه‌ها را امضا می‌کند و رکورد TXT آماده می‌دهد: Host: <code>shabakeban._domainkey.your-domain.ir</code> (selector خودتان جای shabakeban). چون امضا مستقل از IP است، حتی با تغییر IP اینترنت هم معتبر می‌ماند.</li>
+          <li><b>SPF</b> — Host: <code>@</code> و مقدار <code>v=spf1 ip4:IP_خروجی ~all</code> (IP خروجی را دکمهٔ «بررسی احراز هویت دامنه» نشان می‌دهد).</li>
+          <li><b>DMARC</b> — Host: <code>_dmarc</code> و مقدار <code>v=DMARC1; p=none</code> (اجباری نیست ولی تحویل بهتر می‌شود).</li>
+        </ol>
+        <p>بعد از ثبت، دکمهٔ «بررسی احراز هویت دامنه» هر سه را کنترل می‌کند (انتشار DNS چند دقیقه تا چند ساعت طول می‌کشد). rDNS (PTR) هم اگر توسط ISP روی دامنه‌تان تنظیم شود امتیاز اعتماد بهتری می‌دهد.</p>
         <h4>اگر کار نکرد</h4>
         <ul>
           <li><b>پورت ۲۵ مسدود:</b> خیلی از اینترنت‌های خانگی/شرکتی و سرورهای ابری پورت ۲۵ را می‌بندند. اگر «بررسی امکان ارسال مستقیم» همه را «مسدود» نشان داد: یا شبکه/اینترنت را عوض کنید (مثلاً مودم/تلفن همراه)، یا نرم‌افزار را روی سرور/VPS با پورت ۲۵ باز اجرا کنید، یا از حالت «رله SMTP» استفاده کنید.</li>
-          <li><b>نامه به اسپم می‌رود:</b> بدون SPF/DKIM طبیعی است. برای تحویل بهتر، From را روی دامنهٔ خودتان بگذارید و در DNS همان دامنه رکورد SPF برای IP سرور ارسال‌کننده تنظیم کنید.</li>
-          <li><b>گیرندهٔ Gmail رد کرد (خطای 5.7.1):</b> جیمیل ارسال مستقیم از IPهای خانگی را نمی‌پذیرد؛ این محدودیتِ گیرنده است نه نرم‌افزار — روی سرور با IP تمیز کار می‌کند.</li>
+          <li><b>نامه به اسپم می‌رود:</b> بدون SPF/DKIM طبیعی است. بخش «احراز هویت دامنه» را کامل کنید (کلید DKIM + سه رکورد DNS) — امضای DKIM از پوشهٔ اسپم هم عبور می‌کند.</li>
+          <li><b>گیرندهٔ Gmail رد کرد با 5.7.26 (sender unauthenticated):</b> فرستنده احراز نشده — بخش «چرا Gmail نامه را رد می‌کند؟» بالا را ببینید: From روی دامنهٔ خودتان + کلید DKIM + SPF/DMARC.</li>
+          <li><b>گیرندهٔ Gmail رد کرد (خطای 5.7.1):</b> جیمیل ارسال مستقیم از IPهای با اعتبار پایین را نمی‌پذیرد؛ با احراز هویت کامل (DKIM/SPF) معمولاً حل می‌شود، وگرنه روی سرور با IP تمیز کار می‌کند.</li>
           <li><b>«MX پیدا نشد»:</b> DNS شبکه اجازهٔ پرس‌وجو نمی‌دهد یا آدرس گیرنده غلط است؛ اینترنت را چک کنید.</li>
           <li>اگر هیچ‌کدام ممکن نشد، حالت <b>رله</b> (میل‌فا / هاست خودتان / VPS) همیشه در دسترس است — در این حالت فقط یک SMTP معتبر لازم است، نه لزوماً جیمیل/یاهو.</li>
         </ul>
@@ -1457,6 +1542,10 @@ function EmailServerCard(){
         <ul>
           <li><b>فرستنده (From):</b> آدرس نمایشی فرستنده در نامه.</li>
           <li><b>نام HELO/EHLO:</b> هنگام خالی بودن، خودکار IP سرور به‌صورت استاندارد <code>[IP]</code> استفاده می‌شود (قبلاً مقدار <code>shabakeban.local</code> باعث رد شدن از بعضی سرورها می‌شد).</li>
+          <li><b>امضای DKIM:</b> اگر فعال باشد، هر نامهٔ خروجی (مستقیم یا رله) با کلید دامنهٔ شما امضا می‌شود؛ اگر فعال باشد ولی کلید ذخیره نشده باشد، ارسال با پیام واضح رد می‌شود.</li>
+          <li><b>Selector کلید DKIM:</b> نام دلخواه رکورد DNS (فقط حروف/رقم/خط‌تیره) — پیش‌فرض <code>shabakeban</code>؛ اگر آن را عوض کنید باید رکورد جدید را در DNS ثبت کنید.</li>
+          <li><b>تولید کلید DKIM:</b> کلید RSA-۲۰۴۸ می‌سازد و فقط رکورد عمومی را نشان می‌دهد؛ کلید خصوصی محرمانه در فایل کانفیگ روی سیستم خودتان می‌ماند و هرگز ارسال/نمایش نمی‌شود.</li>
+          <li><b>بررسی احراز هویت دامنه:</b> IP خروجی، rDNS، SPF، DKIM و DMARC را زنده چک می‌کند و دقیقاً همان رکوردهایی را می‌دهد که باید در پنل DNS بچسبانید.</li>
           <li><b>Timeout:</b> سقف هر تلاش اتصال؛ مجموع تلاش‌ها هم محدود است تا رابط کاربری هنگ نکند.</li>
           <li><b>فعال‌سازی ارسال ایمیل:</b> اگر تیک نخورده باشد، ارسال (حتی آزمایشی) با پیام واضح رد می‌شود.</li>
         </ul>

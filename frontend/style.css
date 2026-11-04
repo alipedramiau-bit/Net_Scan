@@ -1348,6 +1348,16 @@ header.app-brand p{
 .email-diag.ok{background:#f0fdf4;border:1px solid #86efac;color:#166534}
 .email-diag.bad{background:#fef2f2;border:1px solid #fca5a5;color:#991b1b}
 .email-diag .muted{color:inherit;opacity:.85}
+.email-diag ol{margin:8px 22px 8px 0;padding:0}
+.email-diag ol li{margin:5px 0;direction:rtl;text-align:right}
+
+/* رکوردهای DNS (SPF/DKIM/DMARC) که کاربر باید در پنل دامنه ثبت کند */
+.dns-record{
+  background:#0f172a;color:#d9e8ff;border:1px solid #1e3a5f;border-radius:8px;
+  padding:10px 12px;margin:6px 0;max-width:100%;
+  font:12px/1.7 ui-monospace,SFMono-Regular,Consolas,Menlo,monospace;
+  white-space:pre-wrap;word-break:break-all;text-align:left;direction:ltr;
+}
 
 /* ---------- Login page (admin auth) ---------- */
 .login-shell{

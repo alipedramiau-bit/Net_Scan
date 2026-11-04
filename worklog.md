@@ -816,3 +816,29 @@ Work Log:
 
 Stage Summary:
 - حالت مستقل (Direct) حالا سریع و قابل‌اعتماد است: تشخیص از ۴۸ ثانیه به ۶ ثانیه، کانفیگ کاربر ترمیم شد و عملاً از همین حالت (بدون جیمیل/یاهو) استفاده می‌کند؛ اگر ISP پورت ۲۵ را بسته باشد (مثل شبکهٔ sandbox) رأی تشخیص به‌فارسی مسیر جایگزین (VPS/رله) را می‌گوید — روی شبکه‌ای با پورت ۲۵ باز ارسال مستقل کار می‌کند
+
+---
+Task ID: 42
+Agent: main (Z.ai)
+Task: عبور از ردِ جیمیل (550 5.7.26) در ارسال مستقل — امضای DKIM بدون وابستگی + SPF/DMARC/rDNS + راهنمای احراز هویت دامنه
+
+Work Log:
+- خروجی واقعی کاربر: ارسال مستقیم به gmail-smtp-in.l.google.com:25 با «550 5.7.26 Your email has been blocked because the sender is unauthenticated — Gmail requires SPF or DKIM» رد شد + TimeoutError روی تلاش‌های ۵۸۷
+- ریشهٔ مشکل از کانفیگ کاربر: from_email=ali.pedram1403@gmail.com — دامنهٔ فرستنده gmail.com است که DNSاش در اختیار کاربر نیست و هرگز نمی‌تواند برایش SPF/DKIM تعریف کند؛ همچنین تلاش روی پورت ۵۸۷ روی سرورهای MX بی‌معناست (تحویل MX فقط پورت ۲۵، RFC 5321) و فقط Timeout می‌سازد
+- پیاده‌سازی در backend/email_manager.py:
+  (۱) کلاینت DNS عمومی (TXT/PTR/A) با همان معماری UDP→TCP و زنجیرهٔ NS + سقف ≤۳ ثانیه (_dns_query_any / resolve_txt / resolve_ptr / resolve_a)؛
+  (۲) DKIM کامل بدون هیچ وابستگی جدید (RFC 6376، relaxed/relaxed، rsa-sha256): ASN.1/DER encode/parse، کلیدساز RSA با Miller-Rabin (secrets)، PKCS#1 v1.5 امضا، PEM PKCS#8/PKCS#1 پارس، SPKI برای تگ p=؛
+  (۳) تزریق هدر DKIM-Signature به‌صورت verbatim (_RawHeader با fold(*, policy)) — کشف مهم: policy پیش‌فرض پایتون مقدار بلند b= را با encoded-word برش می‌زد و verifierها را می‌شکست؛ هدر حالا تک‌خطی و دست‌نخورده روی سیم می‌رود؛
+  (۴) امضا روی بایت‌های دقیق سیم (as_bytes با linesep \r\n — هماهنگ با SMTP.send_message)؛
+  (۵) فیلدهای کانفیگ جدید: dkim_enabled/dkim_selector/dkim_domain/dkim_private_key (ماسک «********» = حفظ، «» = پاک‌کردن، dkim_key_set)؛
+  (۶) send_direct: فقط پورت ۲۵ (تا ۴ MX) + امضای DKIM + تشخیص خطای «فرستندهٔ احرازنشده» (_is_unauth_error) با پیام سه‌قدمی فارسی؛ send_relay هم امضا می‌کند؛ send_test وضعیت DKIM را در متن تست می‌گوید؛
+  (۷) ارزیاب SPF (ip4/ip6/a/mx/include/redirect/all + سقف عمق) و auth_diagnostics: IP عمومی خروجی (HTTPS echo)، rDNS، وضعیت SPF/DKIM/DMARC به‌همراه رکوردهای دقیق قابل‌انتشار و رأی فارسی + هشدار صریح برای دامنه‌های سرویس‌دهنده (gmail.com و…)؛ dkim_generate کلید می‌سازد و رکورد TXT می‌دهد
+- اندپوینت‌های backend/main.py: POST /api/smtp/dkim/generate و POST /api/smtp/auth-check (+ فیلدهای dkim در SmtpConfigRequest)
+- فرانت (EmailServerCard): بخش «احراز هویت دامنه (SPF/DKIM/DMARC)» با تیک امضا، فیلد selector، دکمه‌های «تولید کلید DKIM» (امضا خودکار فعال و ذخیره می‌شود + جعبهٔ رکورد TXT) و «بررسی احراز هویت دامنه» (IP/rDNS/SPF/DKIM/DMARC + گام‌ها + رکوردهای آماده در جعبهٔ .dns-record)؛ یادداشت From اصلاح شد؛ راهنمای زیر کارت بازنویسی/گسترش یافت (بخش «چرا Gmail نامه را با خطای 5.7.26 رد می‌کند؟» + سه رکورد + عیب‌یابی 5.7.26/5.7.1 + فیلدهای جدید)؛ CSS: .dns-record و ol داخل .email-diag
+- تست: scripts/test_email_dkim.py جدید (۵۸ بررسی: کلیدساز/پارس + کنترل متقابل cryptography + تأیید امضا با dkimpy روی بایت‌های واقعی سیم (درست/دستکاری/کلید غلط/multipart) + پارسر TXT/PTR/A + SPF + config + پورت-۲۵-فقط + پیام 5.7.26 + auth_diagnostics + اندپوینت‌ها + سورس/CSS) → ALL OK؛ هر ۲۹ اسکریپت تست پروژه پاس (تنها ویرایش: همگام‌سازی الگوی deps/liveRef در test_ui_speed_react_memo.py با فیچر Task 38 که از قبل FAIL بود)
+- تست زندهٔ HTTP (uvicorn + curl): GET config فیلدهای dkim را می‌دهد؛ POST /api/smtp/auth-check با from واقعی کاربر → egress IP از HTTPS، SPF گوگل با زنجیرهٔ redirect ارزیابی شد (softfail)، هشدار «دامنهٔ gmail.com متعلق به شما نیست» و رأی «قدم اول: فرستنده روی دامنهٔ خودتان»؛ diagnose با ۵ MX جیمیل
+- بررسی بصری (مرورگر): بخش جدید با دو دکمه رندر شد؛ کلیک «بررسی احراز هویت دامنه» → جعبهٔ قرمز با وضعیت‌ها، گام‌های ۱-۵ و دو جعبهٔ رکورد DNS آماده (اسکرین‌شات)
+- فرانت بازسازی شد (index-BRa0g_nH.js / index-P5mQh93P.css)؛ کانفیگ واقعی کاربر دست‌نخورده ماند (تولید کلید فقط در تست ایزوله)؛ پاک‌سازی: uvicorn/مرورگر بسته، databases/catalog.json و db آزمونی بازیابی/حذف شدند
+
+Stage Summary:
+- مسیر رد شدن جیمیل بسته شد: از این پس نرم‌افزار خودش کلید DKIM می‌سازد و نامه‌ها را امضا می‌کند (بدون هیچ نصب اضافه) و کاربر با دامنهٔ خودش + سه رکورد DNS (SPF/DKIM/DMARC) از فیلتر 5.7.26 عبور می‌کند؛ دکمهٔ «بررسی احراز هویت دامنه» دقیقاً می‌گوید چه چیزی کجا ثبت شود و کی تأیید می‌شود؛ ارسال مستقیم هم سریع‌تر شد (حذف تایم‌اوت‌های بی‌فایدهٔ ۵۸۷)

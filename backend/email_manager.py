@@ -11,9 +11,15 @@ UDP answers with TC flag are retried over TCP.
 """
 from __future__ import annotations
 
+import base64
+import hashlib
+import ipaddress
 import json
+import math
 import os
 import random
+import re
+import secrets
 import smtplib
 import socket
 import ssl
@@ -42,6 +48,11 @@ DEFAULTS: dict[str, Any] = {
     "to_email": "",
     "timeout": 30,
     "helo_host": "",  # خالی = تشخیص خودکار (address literal [IP])
+    # احراز هویت دامنه (پاسخ خطای 5.7.26 جیمیل): امضای DKIM با کلید دامنهٔ خودتان
+    "dkim_enabled": False,
+    "dkim_selector": "shabakeban",
+    "dkim_domain": "",     # خالی = دامنهٔ فرستنده (From)
+    "dkim_private_key": "",  # PKCS#8 PEM — هرگز به سمت کلاینت برنمی‌گردد
 }
 
 
@@ -77,13 +88,21 @@ def get_config(mask_password: bool = True) -> dict:
     cfg["use_ssl"] = bool(cfg.get("use_ssl", False))
     mode = str(cfg.get("mode") or "direct").lower().strip()
     cfg["mode"] = mode if mode in ("direct", "relay") else "direct"
-    for k in ("host", "username", "password", "from_email", "from_name", "to_email", "helo_host"):
+    for k in ("host", "username", "password", "from_email", "from_name", "to_email", "helo_host",
+              "dkim_selector", "dkim_domain"):
         cfg[k] = str(cfg.get(k) or "")
+    cfg["dkim_enabled"] = bool(cfg.get("dkim_enabled"))
     if mask_password and cfg.get("password"):
         cfg["password"] = "********"
         cfg["password_set"] = True
     else:
         cfg["password_set"] = bool(_load_raw().get("password"))
+    if mask_password and cfg.get("dkim_private_key"):
+        cfg["dkim_private_key"] = "********"
+        cfg["dkim_key_set"] = True
+    else:
+        cfg["dkim_private_key"] = ""
+        cfg["dkim_key_set"] = bool(_load_raw().get("dkim_private_key"))
     return cfg
 
 
@@ -98,6 +117,11 @@ def save_config(body: dict) -> dict:
                 continue  # ماسک‌شده → رمز فعلی حفظ می‌شود
             current["password"] = str(val).strip()  # رشتهٔ خالی = پاک کردن رمز
             continue
+        if key == "dkim_private_key":
+            if val is None or str(val) == "********":
+                continue  # ماسک‌شده → کلید فعلی حفظ می‌شود
+            current["dkim_private_key"] = str(val).strip()  # خالی = پاک کردن کلید
+            continue
         if key == "port":
             try:
                 current[key] = int(val)
@@ -108,7 +132,7 @@ def save_config(body: dict) -> dict:
                 current[key] = float(val)
             except (TypeError, ValueError):
                 raise ValueError("timeout نامعتبر است") from None
-        elif key in ("enabled", "use_tls", "use_ssl"):
+        elif key in ("enabled", "use_tls", "use_ssl", "dkim_enabled"):
             current[key] = bool(val)
         elif key == "mode":
             m = str(val or "direct").lower().strip()
@@ -329,6 +353,701 @@ def resolve_mx(domain: str, timeout: float = 5.0) -> list[str]:
     return [h for _, h in resolve_mx_full(domain, timeout=timeout)]
 
 
+# ---------------------------------------------------------------------------
+# Generic DNS queries: TXT (SPF/DKIM/DMARC), PTR (rDNS), A — stdlib only
+# ---------------------------------------------------------------------------
+def _dns_packet_q(domain: str, qtype: int) -> tuple[bytes, int]:
+    labels = domain.strip(".").split(".")
+    qname = b"".join(bytes([len(l)]) + l.encode("ascii", "ignore") for l in labels) + b"\x00"
+    tid = random.randint(0, 65535)
+    header = struct.pack("!HHHHHH", tid, 0x0100, 1, 0, 0, 0)
+    return header + qname + struct.pack("!HH", qtype, 1), tid
+
+
+def _parse_dns_records(data: bytes, tid: int) -> list[tuple[int, str]]:
+    """Parse answers of any supported rtype; returns [(rtype, rdata_text), …]."""
+    if len(data) < 12:
+        return []
+    rtid, flags, _qd, an, _ns, _ar = struct.unpack("!HHHHHH", data[:12])
+    if rtid != tid or (flags & 0x000F) != 0 or an == 0:
+        return []
+    pos = 12
+    _, pos = _decode_dns_name(data, pos)
+    pos += 4  # qtype + qclass
+    out: list[tuple[int, str]] = []
+    for _ in range(an):
+        _, pos = _decode_dns_name(data, pos)
+        if pos + 10 > len(data):
+            break
+        rtype, _rclass, _ttl, rdlen = struct.unpack("!HHIH", data[pos:pos + 10])
+        pos += 10
+        rd = data[pos:pos + rdlen]
+        try:
+            if rtype == 16:  # TXT: رشته‌های طول-پیشوندی که باید به هم بچسبند
+                i, chunks = 0, []
+                while i < len(rd):
+                    ln = rd[i]
+                    chunks.append(rd[i + 1:i + 1 + ln])
+                    i += 1 + ln
+                out.append((16, b"".join(chunks).decode("ascii", "ignore")))
+            elif rtype == 12:  # PTR (قابل فشرده‌سازی)
+                name, _ = _decode_dns_name(data, pos)
+                out.append((12, name.rstrip(".")))
+            elif rtype == 1 and len(rd) == 4:  # A
+                out.append((1, ".".join(str(b) for b in rd)))
+        except Exception:
+            pass
+        pos += rdlen
+    return out
+
+
+def _dns_query_udp_q(domain: str, qtype: int, nameserver: str, timeout: float) -> list[tuple[int, str]]:
+    packet, tid = _dns_packet_q(domain, qtype)
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    sock.settimeout(timeout)
+    try:
+        sock.sendto(packet, (nameserver, 53))
+        data, _ = sock.recvfrom(8192)
+    finally:
+        sock.close()
+    return _parse_dns_records(data, tid)
+
+
+def _dns_query_tcp_q(domain: str, qtype: int, nameserver: str, timeout: float) -> list[tuple[int, str]]:
+    packet, tid = _dns_packet_q(domain, qtype)
+    with socket.create_connection((nameserver, 53), timeout=timeout) as s:
+        s.settimeout(timeout)
+        s.sendall(struct.pack("!H", len(packet)) + packet)
+        hdr = b""
+        while len(hdr) < 2:
+            chunk = s.recv(2 - len(hdr))
+            if not chunk:
+                return []
+            hdr += chunk
+        (ln,) = struct.unpack("!H", hdr)
+        data = b""
+        while len(data) < ln:
+            chunk = s.recv(min(8192, ln - len(data)))
+            if not chunk:
+                break
+            data += chunk
+    return _parse_dns_records(data, tid)
+
+
+def _dns_query_any(domain: str, qtype: int, timeout: float = 3.0) -> list[tuple[int, str]]:
+    """NS chain (system + public) with UDP→TCP fallback per nameserver."""
+    domain = domain.strip().strip(".").lower()
+    if not domain or "." not in domain:
+        return []
+    qto = max(1.0, min(timeout, 3.0))  # سقف هر پرس‌وجو تا زنجیره هنگ نکند
+    ns_list: list[str] = []
+    for ns in _system_nameservers() + ["8.8.8.8", "1.1.1.1", "9.9.9.9"]:
+        if ns not in ns_list:
+            ns_list.append(ns)
+    for ns in ns_list:
+        try:
+            recs = _dns_query_udp_q(domain, qtype, ns, qto)
+            if recs:
+                return recs
+        except OSError:
+            pass
+        try:
+            recs = _dns_query_tcp_q(domain, qtype, ns, qto)
+            if recs:
+                return recs
+        except OSError:
+            continue
+    return []
+
+
+def resolve_txt(name: str, timeout: float = 3.0) -> list[str]:
+    """TXT records of a DNS name (SPF / DKIM / DMARC)."""
+    return [v for t, v in _dns_query_any(name, 16, timeout) if t == 16 and v]
+
+
+def resolve_ptr(ip: str, timeout: float = 3.0) -> list[str]:
+    """Reverse-DNS (PTR) names for an IPv4 address."""
+    name = ".".join(reversed(ip.split("."))) + ".in-addr.arpa"
+    return [v for t, v in _dns_query_any(name, 12, timeout) if t == 12 and v]
+
+
+def resolve_a(name: str, timeout: float = 3.0) -> list[str]:
+    """IPv4 addresses of a DNS name."""
+    return [v for t, v in _dns_query_any(name, 1, timeout) if t == 1 and v]
+
+
+def _looks_like_ipv4(s: str) -> bool:
+    parts = (s or "").split(".")
+    return len(parts) == 4 and all(p.isdigit() and 0 <= int(p) <= 255 for p in parts)
+
+
+def _public_ip(timeout: float = 5.0) -> tuple[str | None, str]:
+    """Public egress IPv4 via HTTPS echo services; returns (ip, provider) or (None, '')."""
+    import urllib.request
+    for url in ("https://api.ipify.org", "https://ifconfig.me/ip", "https://checkip.amazonaws.com"):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "shabakeban-mailcheck/1.0"})
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                ip = resp.read(64).decode("ascii", "ignore").strip()
+            if _looks_like_ipv4(ip):
+                return ip, url
+        except Exception:
+            continue
+    return None, ""
+
+
+# ---------------------------------------------------------------------------
+# DKIM (RFC 6376) — fully stdlib: ASN.1/DER + RSA keygen + RSA-SHA256 signing
+# هیچ وابستگی جدیدی لازم نیست؛ با هر verifier سازگار است (تست با dkimpy انجام شده)
+# ---------------------------------------------------------------------------
+_RSA_OID_BYTES = bytes.fromhex("06092a864886f70d010101")  # 1.2.840.113549.1.1.1
+_SHA256_DIGESTINFO = bytes.fromhex("3031300d060960864801650304020105000420")
+
+
+def _der_len(n: int) -> bytes:
+    if n < 0x80:
+        return bytes([n])
+    b = n.to_bytes((n.bit_length() + 7) // 8, "big")
+    return bytes([0x80 | len(b)]) + b
+
+
+def _der_tlv(tag: int, payload: bytes) -> bytes:
+    return bytes([tag]) + _der_len(len(payload)) + payload
+
+
+def _der_int(v: int) -> bytes:
+    if v == 0:
+        return _der_tlv(0x02, b"\x00")
+    b = v.to_bytes((v.bit_length() + 7) // 8, "big")
+    if b[0] & 0x80:
+        b = b"\x00" + b
+    return _der_tlv(0x02, b)
+
+
+def _der_seq(*parts: bytes) -> bytes:
+    return _der_tlv(0x30, b"".join(parts))
+
+
+def _der_bitstring(data: bytes) -> bytes:
+    return _der_tlv(0x03, b"\x00" + data)
+
+
+def _der_read_tlv(data: bytes, pos: int) -> tuple[int, bytes, int]:
+    tag = data[pos]
+    pos += 1
+    ln = data[pos]
+    pos += 1
+    if ln & 0x80:
+        nbytes = ln & 0x7F
+        ln = int.from_bytes(data[pos:pos + nbytes], "big")
+        pos += nbytes
+    return tag, data[pos:pos + ln], pos + ln
+
+
+def _modinv(a: int, m: int) -> int:
+    r0, r1, s0, s1 = a % m, m, 1, 0
+    while r1:
+        q = r0 // r1
+        r0, r1 = r1, r0 - q * r1
+        s0, s1 = s1, s0 - q * s1
+    if r0 != 1:
+        raise ValueError("وارون پودولار پیدا نشد")
+    return s0 % m
+
+
+def _is_probable_prime(n: int, rounds: int = 40) -> bool:
+    for p in (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37):
+        if n % p == 0:
+            return n == p
+    d, r = n - 1, 0
+    while d % 2 == 0:
+        d //= 2
+        r += 1
+    for _ in range(rounds):
+        a = 2 + secrets.randbelow(n - 3)
+        x = pow(a, d, n)
+        if x in (1, n - 1):
+            continue
+        for _ in range(r - 1):
+            x = (x * x) % n
+            if x == n - 1:
+                break
+        else:
+            return False
+    return True
+
+
+def _gen_prime(bits: int) -> int:
+    while True:
+        c = secrets.randbits(bits) | (1 << (bits - 1)) | (1 << (bits - 2)) | 1
+        if _is_probable_prime(c):
+            return c
+
+
+def _generate_rsa_keypair(bits: int = 2048) -> dict:
+    """RSA keypair via Miller-Rabin — چند ثانیه طول می‌کشد (فقط هنگام تولید کلید)."""
+    e = 65537
+    half = bits // 2
+    for _ in range(1000):
+        p, q = _gen_prime(half), _gen_prime(half)
+        if p == q:
+            continue
+        n = p * q
+        if n.bit_length() != bits:
+            continue
+        phi = (p - 1) * (q - 1)
+        if math.gcd(e, phi) != 1:
+            continue
+        d = _modinv(e, phi)
+        return {
+            "n": n, "e": e, "d": d, "p": p, "q": q,
+            "dp": d % (p - 1), "dq": d % (q - 1),
+            "qinv": _modinv(q, p),
+        }
+    raise RuntimeError("تولید کلید RSA ناموفق بود")
+
+
+def _pem_encode(label: str, der: bytes) -> str:
+    b64 = base64.b64encode(der).decode("ascii")
+    lines = "\n".join(b64[i:i + 64] for i in range(0, len(b64), 64))
+    return f"-----BEGIN {label}-----\n{lines}\n-----END {label}-----\n"
+
+
+def _pem_decode(pem: str) -> bytes:
+    body = [l.strip() for l in (pem or "").strip().splitlines()
+            if l.strip() and not l.strip().startswith("-----")]
+    return base64.b64decode("".join(body).replace(" ", ""))
+
+
+def _parse_pkcs1(der: bytes) -> dict:
+    tag, body, _ = _der_read_tlv(der, 0)
+    if tag != 0x30:
+        raise ValueError("ساختار PKCS#1 نامعتبر است")
+    t, _ver, pos = _der_read_tlv(body, 0)
+    if t != 0x02:
+        raise ValueError("ساختار PKCS#1 نامعتبر است")
+    vals: list[int] = []
+    for _ in range(8):
+        t, v, pos = _der_read_tlv(body, pos)
+        if t != 0x02:
+            raise ValueError("ساختار PKCS#1 نامعتبر است")
+        vals.append(int.from_bytes(v, "big"))
+    return {"n": vals[0], "e": vals[1], "d": vals[2]}
+
+
+def _parse_rsa_private_pem(pem: str) -> dict:
+    """PKCS#8 («PRIVATE KEY») یا PKCS#1 («RSA PRIVATE KEY») → {n, e, d}."""
+    der = _pem_decode(pem)
+    tag, body, _ = _der_read_tlv(der, 0)
+    if tag != 0x30:
+        raise ValueError("کلید خصوصی قابل خواندن نیست")
+    t_ver, _v, pos = _der_read_tlv(body, 0)
+    if t_ver != 0x02:
+        raise ValueError("کلید خصوصی قابل خواندن نیست")
+    t_next, _, _ = _der_read_tlv(body, pos)  # peek: PKCS#8 → AlgorithmIdentifier(SEQUENCE)
+    if t_next == 0x30:
+        _t, _alg, pos2 = _der_read_tlv(body, pos)
+        t3, inner, _ = _der_read_tlv(body, pos2)
+        if t3 != 0x04:
+            raise ValueError("ساختار PKCS#8 نامعتبر است")
+        return _parse_pkcs1(inner)
+    return _parse_pkcs1(der)
+
+
+def _spki_der(n: int, e: int) -> bytes:
+    """SubjectPublicKeyInfo DER — همان مقداری که در تگ p= رکورد DKIM می‌رود."""
+    algid = _der_tlv(0x30, _RSA_OID_BYTES + _der_tlv(0x05, b""))
+    return _der_seq(algid, _der_bitstring(_der_seq(_der_int(n), _der_int(e))))
+
+
+def _pkcs8_der(k: dict) -> bytes:
+    pkcs1 = _der_seq(
+        _der_int(0), _der_int(k["n"]), _der_int(k["e"]), _der_int(k["d"]),
+        _der_int(k["p"]), _der_int(k["q"]), _der_int(k["dp"]), _der_int(k["dq"]),
+        _der_int(k["qinv"]),
+    )
+    algid = _der_tlv(0x30, _RSA_OID_BYTES + _der_tlv(0x05, b""))
+    return _der_seq(_der_int(0), algid, _der_tlv(0x04, pkcs1))
+
+
+def _rsa_sign_pkcs1v15_sha256(k: dict, data: bytes) -> bytes:
+    digest = hashlib.sha256(data).digest()
+    klen = (k["n"].bit_length() + 7) // 8
+    t = _SHA256_DIGESTINFO + digest
+    if klen < len(t) + 11:
+        raise ValueError("کلید برای امضا کوچک است")
+    em = b"\x00\x01" + b"\xff" * (klen - len(t) - 3) + b"\x00" + t
+    s = pow(int.from_bytes(em, "big"), k["d"], k["n"])
+    return s.to_bytes(klen, "big")
+
+
+_DKIM_HEADERS = ("from", "to", "subject", "date", "message-id",
+                 "mime-version", "content-type", "content-transfer-encoding",
+                 "reply-to", "return-path", "list-unsubscribe")
+
+
+def _canon_body_relaxed(body: bytes) -> bytes:
+    lines = [re.sub(rb"[ \t]+", b" ", ln).rstrip(b" \t") for ln in body.split(b"\r\n")]
+    while lines and lines[-1] == b"":
+        lines.pop()
+    if not lines:
+        return b""
+    return b"\r\n".join(lines) + b"\r\n"
+
+
+def _canon_header_relaxed(name_b: bytes, value_b: bytes) -> bytes:
+    v = re.sub(rb"[\r\n\t ]+", b" ", value_b).strip(b" \t")
+    return name_b.strip(b" \t").lower() + b":" + v
+
+
+def _dkim_sign_message(msg: EmailMessage, domain: str, selector: str, key: dict) -> str:
+    """DKIM-Signature value (relaxed/relaxed, rsa-sha256) over the exact wire bytes.
+
+    سیمِ بایت‌ها باید دقیقاً همان باشد که smtplib می‌فرستد؛ SMTP.send_message با
+    linesep='\r\n' فلت می‌کند (منبع smtplib) — همین‌جا هم همان policy استفاده می‌شود.
+    """
+    wire = msg.as_bytes(policy=msg.policy.clone(linesep="\r\n"))
+    sep = wire.find(b"\r\n\r\n")
+    header_block, body = (wire, b"") if sep == -1 else (wire[:sep], wire[sep + 4:])
+    headers: list[tuple[bytes, bytes]] = []
+    for line in header_block.split(b"\r\n"):
+        if line[:1] in (b" ", b"\t") and headers:
+            n, v = headers[-1]
+            headers[-1] = (n, v + b"\r\n" + line)  # حفظ فولدینگ برای کنونیکال‌سازی دقیق
+        elif b":" in line:
+            n, v = line.split(b":", 1)
+            headers.append((n, v))
+    allow = set(_DKIM_HEADERS)
+    selected: list[tuple[bytes, bytes]] = []
+    sel_names: list[str] = []
+    for n, v in headers:  # به ترتیبِ ظاهر شدن در پیام (الزام RFC برای هر verifier)
+        name = n.strip(b" \t").lower().decode("ascii", "ignore")
+        if name in allow:
+            selected.append((n, v))
+            sel_names.append(name)
+    if "from" not in sel_names:
+        raise ValueError("هدر From برای امضای DKIM پیدا نشد")
+    bh = base64.b64encode(hashlib.sha256(_canon_body_relaxed(body)).digest()).decode("ascii")
+    sig_core = (
+        f"v=1; a=rsa-sha256; c=relaxed/relaxed; d={domain}; s={selector}; "
+        f"t={int(time.time())}; h={':'.join(sel_names)}; bh={bh}; b="
+    )
+    sig_canon = _canon_header_relaxed(b"DKIM-Signature", sig_core.encode("ascii"))
+    data = b"".join(_canon_header_relaxed(n, v) + b"\r\n" for n, v in selected) + sig_canon
+    sig = base64.b64encode(_rsa_sign_pkcs1v15_sha256(key, data)).decode("ascii")
+    return sig_core + sig
+
+
+class _RawHeader(str):
+    """هدر خام: هنگام فلت کردن verbatim نوشته می‌شود — policy پایتون نباید
+    مقدار بلند b= را با encoded-word برش بزند (باعث خرابی verifier می‌شد).
+    ویژگی name باعث می‌شود EmailPolicy._fold مستقیماً fold() همین شیء را صدا بزند
+    (پروتکل BaseHeader: fold(*, policy) که نام هدر را خودش در خروجی می‌نویسد)."""
+
+    name = "raw"  # noqa: A003 — سیگنالِ policy برای استفاده از fold خودِ شیء
+
+    def __new__(cls, value: str, hdr_name: str = "DKIM-Signature"):
+        obj = str.__new__(cls, value)
+        obj.header_name = hdr_name
+        return obj
+
+    def fold(self, *, policy):  # noqa: N802 — API Generator/BaseHeader
+        return f"{self.header_name}: {str(self)}\r\n" if self else f"{self.header_name}:\r\n"
+
+
+def _inject_dkim_header(msg: EmailMessage, sig: str) -> None:
+    """DKIM-Signature را در بالای بلوک هدرها به‌صورت خام می‌گذارد (بدون بازنویسی policy)."""
+    try:
+        msg._headers.insert(0, ("DKIM-Signature", _RawHeader(sig)))  # type: ignore[attr-defined]
+        return
+    except Exception:
+        pass
+    msg["DKIM-Signature"] = sig  # fallback استاندارد
+
+
+def _maybe_dkim_sign(msg: EmailMessage, from_email: str) -> dict:
+    """اگر dkim_enabled و کلید موجود باشد پیام را امضا می‌کند؛ تنظیم ناقص را صریح خطا می‌دهد."""
+    cfg = _plain_config()
+    if not cfg.get("dkim_enabled"):
+        return {"signed": False, "reason": "امضای DKIM غیرفعال است"}
+    key_pem = str(cfg.get("dkim_private_key") or "").strip()
+    if not key_pem:
+        raise ValueError(
+            "امضای DKIM فعال است ولی کلید خصوصی ذخیره نشده — در کارت «سرور ایمیل» دکمهٔ "
+            "«تولید کلید DKIM» را بزنید و «ذخیره تنظیمات» کنید (یا تیک امضای DKIM را بردارید)"
+        )
+    from_dom = from_email.split("@")[-1].lower().strip()
+    domain = str(cfg.get("dkim_domain") or "").strip().lower() or from_dom
+    if domain != from_dom:
+        raise ValueError(
+            f"دامنهٔ DKIM ({domain}) با دامنهٔ فرستنده ({from_dom}) هم‌خوان نیست — تگ d= باید "
+            "همان دامنهٔ From باشد؛ دکمهٔ «تولید کلید DKIM» را دوباره بزنید"
+        )
+    selector = str(cfg.get("dkim_selector") or "").strip().lower() or "shabakeban"
+    try:
+        key = _parse_rsa_private_pem(key_pem)
+    except Exception as e:
+        raise ValueError(f"کلید خصوصی DKIM قابل خواندن نیست: {e}") from e
+    try:
+        sig = _dkim_sign_message(msg, domain, selector, key)
+    except Exception as e:
+        raise ValueError(f"امضای DKIM ناموفق بود: {e}") from e
+    _inject_dkim_header(msg, sig)
+    return {"signed": True, "domain": domain, "selector": selector}
+
+
+def dkim_generate(selector: str | None = None, bits: int = 2048) -> dict:
+    """کلید RSA بساز، در smtp_config.json نگه‌دار و رکورد TXT قابل انتشار برگردان."""
+    sel = str(selector or "").strip().lower() or "shabakeban"
+    if not re.fullmatch(r"[a-z0-9]([a-z0-9_-]{0,61}[a-z0-9])?", sel):
+        raise ValueError("selector فقط حروف/رقم/خط تیره و تا ۶۳ نویسه باشد — مثال: shabakeban")
+    if bits not in (1024, 2048, 3072):
+        bits = 2048
+    cfg = _plain_config()
+    from_email = str(cfg.get("from_email") or "").strip()
+    domain = str(cfg.get("dkim_domain") or "").strip().lower()
+    if (not domain or "." not in domain or "@" in domain) and "@" in from_email:
+        domain = from_email.split("@")[-1].lower()
+    if not domain or "." not in domain or "@" in domain:
+        raise ValueError(
+            "دامنهٔ فرستنده مشخص نیست — ابتدا «فرستنده (From)» را روی دامنهٔ خودتان "
+            "(مثلاً alerts@your-domain.ir) بگذارید، «ذخیره تنظیمات» را بزنید و بعد کلید بسازید"
+        )
+    key = _generate_rsa_keypair(bits)
+    cfg["dkim_private_key"] = _pem_encode("PRIVATE KEY", _pkcs8_der(key))
+    cfg["dkim_selector"] = sel
+    cfg["dkim_domain"] = domain
+    _write_config(cfg)
+    pub_b64 = base64.b64encode(_spki_der(key["n"], key["e"])).decode("ascii")
+    return {
+        "ok": True,
+        "selector": sel,
+        "domain": domain,
+        "dkim_host": f"{sel}._domainkey.{domain}",
+        "txt_record": f"v=DKIM1; k=rsa; p={pub_b64}",
+        "bits": bits,
+        "dkim_key_set": True,
+    }
+
+
+# ---------------------------------------------------------------------------
+# SPF evaluation + DNS authentication diagnostics (SPF / DKIM / DMARC / rDNS)
+# ---------------------------------------------------------------------------
+def _ip_in_net(ip: str, net: str) -> bool:
+    try:
+        return ipaddress.ip_address(ip) in ipaddress.ip_network(net, strict=False)
+    except ValueError:
+        return False
+
+
+def _spf_evaluate(domain: str, ip: str, timeout: float = 3.0, depth: int = 10) -> dict:
+    """SPF check — status: pass / fail / softfail / neutral / none / temperror."""
+    try:
+        txts = resolve_txt(domain, timeout)
+    except Exception:
+        txts = []
+    spf = next((t.strip() for t in txts if t.strip().lower().startswith("v=spf1")), None)
+    if spf is None:
+        return {"status": "none", "record": None, "matched": ""}
+    if depth <= 0:
+        return {"status": "temperror", "record": spf, "matched": "include/redirect خیلی عمیق"}
+    res = {"status": "neutral", "record": spf, "matched": "all"}
+    for term in spf.split()[1:]:
+        q, t = "+", term
+        if term[:1] in "+-~?":
+            q, t = term[:1], term[1:]
+        low = t.lower()
+        hit = False
+        try:
+            if low.startswith("ip4:"):
+                hit = _ip_in_net(ip, t[4:])
+            elif low.startswith("ip6:"):
+                hit = False  # ارسال‌کنندهٔ این نرم‌افزار IPv4 است
+            elif low == "a":
+                hit = ip in resolve_a(domain, timeout)
+            elif low.startswith("a:"):
+                hit = ip in resolve_a(t[2:], timeout)
+            elif low == "mx" or low.startswith("mx:"):
+                host = domain if low == "mx" else t[3:]
+                hit = any(ip in resolve_a(h, timeout) for h in resolve_mx(host, timeout))
+            elif low.startswith("include:"):
+                hit = _spf_evaluate(t[8:], ip, timeout, depth - 1)["status"] == "pass"
+            elif low.startswith("redirect="):
+                sub = _spf_evaluate(t[9:], ip, timeout, depth - 1)
+                return {"status": sub["status"], "record": f"{spf} → {sub['record']}", "matched": sub["matched"]}
+            elif low.startswith("exists:"):
+                hit = bool(resolve_a(t[7:], timeout))
+        except Exception:
+            hit = False
+        if hit or low == "all":
+            res["status"] = {"+": "pass", "-": "fail", "~": "softfail", "?": "neutral"}[q]
+            res["matched"] = term
+            break
+    return res
+
+
+_KNOWN_PROVIDER_DOMAINS = {
+    "gmail.com", "googlemail.com", "yahoo.com", "yahoo.co.jp", "outlook.com",
+    "hotmail.com", "live.com", "msn.com", "icloud.com", "me.com", "aol.com",
+    "mailfa.com", "yandex.ru", "yandex.com", "mail.ru", "proton.me", "protonmail.com",
+}
+
+
+def auth_diagnostics(from_email: str = "", selector: str | None = None, timeout: float = 4.0) -> dict:
+    """وضعیت SPF/DKIM/DMARC/rDNS برای دامنهٔ فرستنده + رکوردهای دقیقی که باید ثبت شود."""
+    cfg = _plain_config()
+    from_email = (from_email or str(cfg.get("from_email") or "")).strip()
+    if not _looks_like_email(from_email):
+        raise ValueError(
+            "ابتدا «فرستنده (From)» را با یک ایمیل معتبر روی دامنهٔ خودتان ذخیره کنید — مثلاً alerts@your-domain.ir"
+        )
+    domain = from_email.split("@")[-1].lower()
+    sel = (str(selector or "").strip().lower()
+           or str(cfg.get("dkim_selector") or "").strip().lower()
+           or "shabakeban")
+    ip, ip_src = _public_ip(timeout=timeout)
+
+    def _ptr():
+        if not ip:
+            return None
+        try:
+            recs = resolve_ptr(ip, timeout)
+            return recs[0] if recs else None
+        except Exception:
+            return None
+
+    def _spf():
+        if not ip:
+            return {"status": "none", "record": None, "matched": ""}
+        try:
+            return _spf_evaluate(domain, ip, timeout)
+        except Exception as e:
+            return {"status": "temperror", "record": None, "matched": str(e)}
+
+    def _dkim():
+        host = f"{sel}._domainkey.{domain}"
+        try:
+            recs = [r for r in resolve_txt(host, timeout) if "p=" in r]
+        except Exception:
+            recs = []
+        rec = recs[0] if recs else None
+        match = None
+        priv = str(cfg.get("dkim_private_key") or "").strip()
+        if priv:
+            try:
+                k = _parse_rsa_private_pem(priv)
+                mine = base64.b64encode(_spki_der(k["n"], k["e"])).decode("ascii")
+                pub_in_rec = ""
+                if rec:
+                    for part in rec.replace(" ", "").split(";"):
+                        if part.lower().startswith("p="):
+                            pub_in_rec = part[2:]
+                if pub_in_rec:
+                    match = "match" if pub_in_rec == mine else "mismatch"
+            except Exception:
+                match = None
+        return {"host": host, "found": rec is not None, "record": rec,
+                "match": match, "selector": sel, "key_saved": bool(priv)}
+
+    def _dmarc():
+        host = f"_dmarc.{domain}"
+        try:
+            recs = [r for r in resolve_txt(host, timeout) if r.strip().lower().startswith("v=dmarc1")]
+        except Exception:
+            recs = []
+        return {"host": host, "found": bool(recs), "record": recs[0] if recs else None}
+
+    with ThreadPoolExecutor(max_workers=4) as ex:
+        futs = {k: ex.submit(f) for k, f in (("ptr", _ptr), ("spf", _spf), ("dkim", _dkim), ("dmarc", _dmarc))}
+        ptr = futs["ptr"].result()
+        spf = futs["spf"].result()
+        dkim = futs["dkim"].result()
+        dmarc = futs["dmarc"].result()
+
+    records: dict[str, dict] = {
+        "spf": {"host": f"@ ({domain})", "type": "TXT",
+                "value": f"v=spf1 ip4:{ip} ~all" if ip else "v=spf1 ~all"},
+        "dmarc": {"host": f"_dmarc.{domain}", "type": "TXT",
+                  "value": f"v=DMARC1; p=none; rua=mailto:postmaster@{domain}"},
+    }
+    priv = str(cfg.get("dkim_private_key") or "").strip()
+    if priv:
+        try:
+            k = _parse_rsa_private_pem(priv)
+            records["dkim"] = {"host": f"{sel}._domainkey.{domain}", "type": "TXT",
+                               "value": "v=DKIM1; k=rsa; p=" + base64.b64encode(_spki_der(k["n"], k["e"])).decode("ascii")}
+        except Exception:
+            pass
+
+    steps: list[str] = []
+    warnings: list[str] = []
+    is_provider = domain in _KNOWN_PROVIDER_DOMAINS
+    if is_provider:
+        warnings.append(
+            f"دامنهٔ فرستنده ({domain}) به سرویس‌دهنده تعلق دارد نه به شما — برای آن هیچ‌وقت نمی‌توانید SPF/DKIM تعریف "
+            "کنید و گیرنده‌های بزرگ (Gmail و…) نامه را با خطای 5.7.26 رد می‌کنند. فرستنده (From) را روی دامنهٔ خودتان "
+            "تنظیم کنید (خرید یک دامنهٔ ارزان کافی است) و بعد کلید DKIM بسازید."
+        )
+    if not ip:
+        warnings.append("IP عمومی خروجی تشخیص داده نشد (اینترنت/فیلتر) — SPF را بعداً با IP واقعی به‌روز کنید.")
+    else:
+        steps.append(f"IP خروجی این سرور: {ip} — این IP باید در رکورد SPF دامنه مجاز شود.")
+    if ptr:
+        steps.append(f"rDNS (PTR) فعلی IP: {ptr} — اگر نام دامنهٔ شما نیست، با ISP/ارائه‌دهنده تنظیم کنید (اختیاری ولی مؤثر).")
+    else:
+        steps.append("rDNS (PTR) برای IP خروجی پیدا نشد — با ISP/ارائه‌دهنده تنظیم کنید (اختیاری ولی مؤثر).")
+    if spf["status"] == "pass":
+        steps.append("SPF: رکورد هست و IP خروجی مجاز است ✓")
+    elif spf["status"] in ("fail", "softfail", "neutral"):
+        steps.append(f"SPF: رکورد هست ولی IP خروجی مجاز نیست (مکانیزم: {spf.get('matched')}) — رکورد زیر را جایگزین کنید.")
+    elif spf["status"] == "none":
+        steps.append("SPF: هیچ رکورد SPF روی دامنه نیست — رکورد زیر را ثبت کنید.")
+    else:
+        steps.append("SPF: رکورد خوانده نشد (خطای DNS) — دوباره تلاش کنید.")
+    if dkim.get("match") == "match":
+        steps.append(f"DKIM: رکورد DNS با کلید همین نرم‌افزار یکی است ✓ (selector: {sel})")
+    elif dkim.get("match") == "mismatch":
+        steps.append(f"DKIM: رکورد هست ولی با کلید نرم‌افزار نمی‌خواند — رکورد زیر را جایگزین کنید (selector: {sel}).")
+    elif dkim.get("found"):
+        steps.append(f"DKIM: رکورد هست؛ کلید محلی برای مقایسه ذخیره نشده — اگر همین کلید است که ثبت کرده‌اید درست است (selector: {sel}).")
+    elif dkim.get("key_saved"):
+        steps.append(f"DKIM: کلید در نرم‌افزار ساخته شده ولی در DNS ثبت نشده — رکورد زیر را در پنل دامنه ثبت کنید (selector: {sel}).")
+    else:
+        steps.append("DKIM: کلید هنوز ساخته نشده — دکمهٔ «تولید کلید DKIM» را بزنید و رکورد زیر را ثبت کنید.")
+    if dmarc.get("found"):
+        steps.append("DMARC: رکورد هست ✓")
+    else:
+        steps.append("DMARC: رکورد ثبت نشده — رکورد زیر را ثبت کنید (اجباری نیست ولی تحویل بهتر می‌شود).")
+
+    ok_all = (dkim.get("match") == "match" and dmarc.get("found") and not is_provider
+              and (spf["status"] == "pass" or spf["status"] == "softfail" or not ip))
+    if ok_all:
+        verdict = ("احراز هویت دامنه کامل است (SPF/DKIM/DMARC) — «ارسال ایمیل آزمایشی» را بزنید؛ "
+                   "اگر گیرندهٔ بزرگی باز هم رد کرد، معمولاً اعتبار IP/بلاک‌لیست است نه تنظیمات.")
+    elif is_provider:
+        verdict = "قدم اول: فرستنده باید روی دامنهٔ خودتان باشد — با @gmail.com/@yahoo.com احراز هویت ممکن نیست."
+    else:
+        verdict = ("رکوردهای DNS زیر را در پنل دامنه ثبت کنید (انتشار DNS چند دقیقه تا چند ساعت طول می‌کشد) "
+                   "و بعد دوباره «بررسی احراز هویت دامنه» را بزنید.")
+
+    return {
+        "ok": True,
+        "from": from_email,
+        "domain": domain,
+        "egress_ip": ip,
+        "egress_source": ip_src,
+        "ptr": {"ip": ip, "record": ptr},
+        "spf": spf,
+        "dkim": dkim,
+        "dmarc": dmarc,
+        "records": records,
+        "steps": steps,
+        "warnings": warnings,
+        "verdict": verdict,
+        "selector": sel,
+    }
+
+
 def _auto_helo() -> str:
     """Best HELO identity: RFC 5321 address literal [local-ip], else fqdn."""
     try:
@@ -405,7 +1124,9 @@ def diagnose_direct(to_email: str, timeout: float = 8.0) -> dict:
     elif port25_open:
         verdict = (
             "پورت خروجی ۲۵ باز است — این شبکه می‌تواند بدون جیمیل/یاهو و کاملاً مستقل ایمیل بفرستد. "
-            "حالا در تنظیمات، حالت «مستقیم به MX گیرنده» را ذخیره کنید و «ارسال ایمیل آزمایشی» را بزنید."
+            "حالا در تنظیمات، حالت «مستقیم به MX گیرنده» را ذخیره کنید و «ارسال ایمیل آزمایشی» را بزنید. "
+            "توجه: برای تحویل به Gmail/Outlook علاوه بر این، دامنهٔ فرستنده باید SPF/DKIM داشته باشد — "
+            "بخش «احراز هویت دامنه» را ببینید."
         )
     elif port587_open:
         verdict = (
@@ -512,11 +1233,9 @@ def send_direct(
 
     helo = _effective_helo(helo_host)
     msg = _build_message(subject, body, from_email, from_name, dest, attachments)
-    # Port 25 (MX standard) first, then 587; bounded so UI never hangs minutes
-    attempts: list[tuple[str, int, str]] = []
-    for h in mx_hosts[:4]:
-        attempts.append((h, 25, "plain"))
-        attempts.append((h, 587, "starttls"))
+    dkim_info = _maybe_dkim_sign(msg, from_email)
+    # تحویل MX فقط روی پورت ۲۵ تعریف شده (RFC 5321) — تلاش روی ۵۸۷ فقط Timeout بی‌فایده می‌سازد
+    attempts: list[tuple[str, int, str]] = [(h, 25, "plain") for h in mx_hosts[:4]]
 
     deadline = time.monotonic() + max(timeout * 2, 60)
     per_try = max(10.0, min(timeout, 20.0))
@@ -539,6 +1258,7 @@ def send_direct(
                 "port": port,
                 "transport": mode,
                 "helo": helo,
+                "dkim": dkim_info,
                 "subject": subject,
             }
         except smtplib.SMTPRecipientsRefused as e:
@@ -562,11 +1282,20 @@ def send_direct(
             continue
 
     if server_rejected:
-        hint = (
-            "سرور گیرنده نامه را نپذیرفت — Gmail/Yahoo و اکثر سرویس‌های بزرگ ارسال مستقیم از "
-            "IP خانگی/آلوده را رد می‌کنند (بدون SPF/DKIM). از یک سرور/VPS با IP تمیز ارسال کنید، "
-            "یا از حالت «رله SMTP» استفاده کنید. نامه ممکن است در Spam هم باشد."
-        )
+        if any(_is_unauth_error(x) for x in errors):
+            hint = (
+                "سرور گیرنده فرستنده را «احرازنشده» رد کرد (معروف‌ترین نمونه: خطای 5.7.26 جیمیل). راه‌حل در سه قدم: "
+                "۱) فرستنده (From) روی دامنهٔ خودتان باشد — نه @gmail.com/@yahoo.com، چون دامنهٔ دیگران قابل احراز نیست؛ "
+                "۲) دکمهٔ «تولید کلید DKIM» را بزنید و رکورد TXT داده‌شده را در پنل DNS دامنه ثبت کنید؛ "
+                "۳) رکوردهای SPF و DMARC پیشنهادی را هم ثبت کنید — دکمهٔ «بررسی احراز هویت دامنه» هر سه را چک می‌کند. "
+                "نامه ممکن است در Spam هم باشد."
+            )
+        else:
+            hint = (
+                "سرور گیرنده نامه را نپذیرفت — Gmail/Yahoo و اکثر سرویس‌های بزرگ ارسال مستقیم از "
+                "IP خانگی/آلوده را رد می‌کنند (بدون SPF/DKIM). از یک سرور/VPS با IP تمیز ارسال کنید، "
+                "یا از حالت «رله SMTP» استفاده کنید. نامه ممکن است در Spam هم باشد."
+            )
     elif tried and not server_rejected:
         hint = (
             "اتصال به هیچ سرور MX ممکن نشد — معمولاً پورت خروجی ۲۵ توسط ISP/فایروال مسدود است "
@@ -576,6 +1305,15 @@ def send_direct(
     else:
         hint = "جزئیات بیشتر در لاگ سرور."
     raise ValueError("ارسال مستقیم ناموفق. " + " | ".join(errors[:6]) + " — " + hint)
+
+
+def _is_unauth_error(text: str) -> bool:
+    """رف فرستندهٔ احرازنشده (5.7.26 جیمیل و مشابه‌ها) از خطاهای عمومی تفکیک می‌شود."""
+    t = (text or "").lower()
+    keys = ("unauthenticated", "5.7.26", "spf", "dkim", "dmarc",
+            "authentication required", "policy reasons", "access denied",
+            "blocked using", "bad reputation")
+    return any(k in t for k in keys)
 
 
 def send_relay(
@@ -611,6 +1349,7 @@ def send_relay(
             raise ValueError("فرستنده باید ایمیل معتبر باشد")
 
     msg = _build_message(subject, body, from_email, from_name, dest, attachments)
+    dkim_info = _maybe_dkim_sign(msg, from_email)
 
     if port == 465:
         attempts = [(465, "ssl")]
@@ -657,6 +1396,7 @@ def send_relay(
         "host": host,
         "port": used_port,
         "transport": used_mode,
+        "dkim": dkim_info,
         "subject": subject,
     }
 
@@ -709,9 +1449,11 @@ def send_test(to_email: str | None = None, message: str | None = None) -> dict:
     stamp = now.strftime("%Y-%m-%d %H:%M:%S %Z")
     cfg = get_config(mask_password=True)
     mode = cfg.get("mode") or "direct"
+    dkim_on = bool(cfg.get("dkim_enabled"))
     body = message or (
         "این یک پیام آزمایشی از نرم‌افزار شبکه‌بان است.\n"
         f"حالت ارسال: {mode}\n"
+        f"امضای DKIM: {'فعال' if dkim_on else 'غیرفعال'}\n"
         f"زمان ارسال (تهران): {stamp}\n"
         "اگر این ایمیل را دریافت کردید، مسیر ارسال درست کار می‌کند."
     )

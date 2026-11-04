@@ -39,10 +39,10 @@ def test_src_markers():
     check("import شامل useMemo/useCallback/useDeferredValue است",
           "useMemo,useCallback,useDeferredValue" in src.replace(" ", ""))
     check("جدول دستگاه‌ها داخل useMemo است", "const tableEl=useMemo(" in src)
-    check("وابستگی‌های memo جدول کامل است",
-          "[rows,selected,visibleCols,editNameIp,sortBy,sortOrder]" in src)
-    check("liveRef توابع جدول را هر رندر به‌روز می‌کند",
-          "liveRef.current={openWinbox,saveName,toggleSelect,toggleSelectAll,handleSort}" in src)
+    check("وابستگی‌های memo جدول کامل است (با backupMap فیچر کانفیگ)",
+          "[rows,selected,visibleCols,editNameIp,sortBy,sortOrder,backupMap]" in src)
+    check("liveRef توابع جدول را هر رندر به‌روز می‌کند (با showDeviceConfig)",
+          "liveRef.current={openWinbox,saveName,toggleSelect,toggleSelectAll,handleSort,showDeviceConfig}" in src)
     check("توابع جدول از liveRef صدا زده می‌شوند",
           src.count("liveRef.current.") >= 4)
     check("ویرایش درجایِ نام uncontrolled است (ref + defaultValue)",

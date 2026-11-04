@@ -1492,6 +1492,10 @@ class SmtpConfigRequest(BaseModel):
     from_name: str | None = Field(default=None, max_length=128)
     to_email: str | None = Field(default=None, max_length=256)
     timeout: float | None = Field(default=None, ge=5, le=120)
+    dkim_enabled: bool | None = None
+    dkim_selector: str | None = Field(default=None, max_length=63)
+    dkim_domain: str | None = Field(default=None, max_length=255)
+    dkim_private_key: str | None = Field(default=None, max_length=8000)
 
 
 class SmtpTestRequest(BaseModel):
@@ -1501,6 +1505,16 @@ class SmtpTestRequest(BaseModel):
 
 class SmtpDiagnoseRequest(BaseModel):
     to_email: str = Field(max_length=256)
+
+
+class SmtpDkimGenerateRequest(BaseModel):
+    selector: str | None = Field(default=None, max_length=63)
+    bits: int | None = None
+
+
+class SmtpAuthCheckRequest(BaseModel):
+    from_email: str | None = Field(default=None, max_length=256)
+    selector: str | None = Field(default=None, max_length=63)
 
 
 @app.get("/api/smtp/config")
@@ -1537,8 +1551,34 @@ def smtp_diagnose(body: SmtpDiagnoseRequest):
         return email_manager.diagnose_direct((body.to_email or "").strip())
     except ValueError as e:
         raise HTTPException(400, str(e)) from e
+
+
+@app.post("/api/smtp/dkim/generate")
+def smtp_dkim_generate(body: SmtpDkimGenerateRequest):
+    """RSA keypair برای امضای DKIM بساز، ذخیره کن و رکورد TXT قابل انتشار برگردان."""
+    try:
+        return email_manager.dkim_generate(
+            selector=(body.selector or "").strip() or None,
+            bits=body.bits or 2048,
+        )
+    except ValueError as e:
+        raise HTTPException(400, str(e)) from e
     except Exception as e:
-        raise HTTPException(502, f"خطای بررسی: {e}") from e
+        raise HTTPException(500, f"خطا در تولید کلید DKIM: {e}") from e
+
+
+@app.post("/api/smtp/auth-check")
+def smtp_auth_check(body: SmtpAuthCheckRequest):
+    """وضعیت SPF/DKIM/DMARC/rDNS دامنهٔ فرستنده + رکوردهای پیشنهادی."""
+    try:
+        return email_manager.auth_diagnostics(
+            from_email=(body.from_email or "").strip(),
+            selector=(body.selector or "").strip() or None,
+        )
+    except ValueError as e:
+        raise HTTPException(400, str(e)) from e
+    except Exception as e:
+        raise HTTPException(500, f"خطا در بررسی احراز هویت: {e}") from e
 
 
 
