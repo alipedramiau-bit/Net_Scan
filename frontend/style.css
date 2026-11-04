@@ -1487,3 +1487,19 @@ header.app-brand p{
 .tpl-fav{position:absolute;top:6px;right:8px;font-size:14px;color:#adb5bd}
 .tpl-word-icon{width:52px;height:52px;background:linear-gradient(135deg,#185abd 0%,#103f82 100%);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;font-weight:bold;font-family:Arial,sans-serif;box-shadow:0 4px 10px rgba(24,90,189,.3);margin:8px 0 12px}
 .tpl-card-title{font-size:12px;color:#495057;line-height:1.4;font-weight:500}
+/* --- Task 37 (ادامه): بج سطح رویداد در لاگ خطاها --- */
+.errorlog-badge{display:inline-block;padding:2px 10px;border-radius:999px;font-size:.76rem;font-weight:700;white-space:nowrap}
+.errorlog-badge-error{background:#fee2e2;color:#b91c1c}
+.errorlog-badge-warn{background:#fef3c7;color:#92400e}
+.errorlog-badge-info{background:#dbeafe;color:#1d4ed8}
+/* --- لاگ خطاها (Task 37) — از CSS بیلدشدهٔ کامیت 34aa550 به سورس منتقل شد تا با rebuild از بین نرود --- */
+.errorlog-card{border-inline-start:4px solid #b45309}
+.errorlog-controls{flex-wrap:wrap;align-items:center;gap:8px;margin:8px 0 4px;display:flex}
+.errorlog-toggle{color:#1e293b;cursor:pointer;-webkit-user-select:none;user-select:none;align-items:center;gap:6px;font-size:.92em;font-weight:600;display:inline-flex}
+.errorlog-count{color:#64748b;white-space:nowrap;background:#f1f5f9;border-radius:6px;padding:2px 8px;font-size:.82em}
+.errorlog-filter{border:1px solid #cbd5e1;border-radius:8px;outline:none;width:100%;max-width:420px;margin:6px 0;padding:7px 10px;font-family:inherit;font-size:.92em}
+.errorlog-empty{color:#475569;margin:0;padding:10px 4px;font-size:.9em}
+.errorlog-table{border-collapse:collapse;width:100%;font-size:.86em}
+.errorlog-time{white-space:nowrap;color:#64748b;font-size:.92em}
+.errorlog-msg{color:#991b1b}
+.errorlog-raw{color:#94a3b8;font-size:.9em}

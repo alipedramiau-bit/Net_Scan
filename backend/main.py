@@ -49,6 +49,8 @@ try:
 except ImportError:
     import errorlog
 
+_LOG_PER_RUN_CAP = 500  # سقف ثبت خطای per-device در هر اجرا (جلوگیری از غرق‌شدن لاگ)
+
 from scanner_lib import ScanConfig, ScanReport, scan_targets  # package-level API
 from scanner_lib.constants import MAX_TARGETS
 from scanner_lib.parser import parse_targets
@@ -1602,6 +1604,27 @@ def snmp_probe(body: SnmpProbeRequest):
                 fpath.write_text(chr(10).join(parts), encoding="utf-8")
             except Exception:
                 pass
+    # Task 37 (ادامه): خطاهای خواندن SNMP + خلاصهٔ اجرا در لاگ خطا (با سقف per-run)
+    try:
+        n = 0
+        for r in results or []:
+            if n >= _LOG_PER_RUN_CAP:
+                break
+            if not (r or {}).get("ok"):
+                errorlog.log_error(source="snmp-probe", ip=str(r.get("ip") or ""),
+                                   message=str(r.get("error") or "خواندن SNMP ناموفق"))
+                n += 1
+        if results:
+            ok_n = sum(1 for r in results if r.get("ok"))
+            fail_n = len(results) - ok_n
+            summary = (f"خواندن SNMP: {ok_n} موفق، {fail_n} ناموفق از {len(results)} دستگاه"
+                       + (" — متوقف شد" if canceled else ""))
+            if fail_n:
+                errorlog.log_warn(source="snmp-probe", message=summary)
+            else:
+                errorlog.log_info(source="snmp-probe", message=summary)
+    except Exception:
+        pass
     return {
         "results": results,
         "saved": saved,
@@ -1749,12 +1772,25 @@ def probe_devices_api(body: ApiProbeRequest):
         max_workers=body.max_workers,
     )
     canceled = API_PROBE_CANCEL.is_set()
-    # Task 37: ثبت دستگاه‌های ناموفق در لاگ خطا (برگهٔ راهبری سیستم)
+    # Task 37: ثبت دستگاه‌های ناموفق در لاگ خطا (برگهٔ راهبری سیستم) — با سقف per-run
     try:
+        _logged = 0
         for _r in results:
+            if _logged >= _LOG_PER_RUN_CAP:
+                break
             if not _r.get("ok"):
                 errorlog.log_error(source="probe-api", ip=str(_r.get("ip") or ""),
                                    message=str(_r.get("error") or "خواندن API ناموفق"))
+                _logged += 1
+        if results:  # خلاصهٔ اجرا (Task 37 ادامه)
+            ok_n = sum(1 for _r in results if _r.get("ok"))
+            fail_n = len(results) - ok_n
+            summary = (f"خواندن با RouterOS API: {ok_n} موفق، {fail_n} ناموفق "
+                       f"از {len(results)} دستگاه") + (" — متوقف شد" if canceled else "")
+            if fail_n:
+                errorlog.log_warn(source="probe-api", message=summary)
+            else:
+                errorlog.log_info(source="probe-api", message=summary)
     except Exception:
         pass
     active_db = db.get_active_db_name()
@@ -1902,18 +1938,23 @@ class ErrorLogToggleBody(BaseModel):
 
 @app.get("/api/errorlog")
 def errorlog_list(limit: int = Query(default=200, ge=1, le=2000),
-                  source: str = Query(default="", max_length=40)):
+                  source: str = Query(default="", max_length=40),
+                  level: str = Query(default="", max_length=16),
+                  q: str = Query(default="", max_length=200)):
     """رویدادهای ثبت‌شدهٔ لاگ خطا (جدیدترین اول) + وضعیت کلید ثبت.
 
     خطاهای پشتیبان‌گیری rsc و خواندن API با زمان/منبع/IP/علت در
     mik_log/errorlog.jsonl نوشته می‌شوند تا برخلاف جعبهٔ خطای موقت UI، علت شکست
     بعداً هم قابل مرور باشد؛ کلید فعال/خاموش در mik_log/config.json ماندگار است.
+    فیلترهای Task 37 (ادامه): level (error/warn/info) و q (جستجوی آزاد
+    در پیام/IP/منبع/متن خام).
     """
     return {
         "enabled": errorlog.is_enabled(),
         "count": errorlog.count(),
         "folder": str(errorlog.LOG_DIR),
-        "entries": errorlog.read_errors(limit=limit, source=source.strip()),
+        "entries": errorlog.read_errors(limit=limit, source=source.strip(),
+                                        level=level.strip(), q=q.strip()),
     }
 
 
@@ -1930,6 +1971,34 @@ def errorlog_clear():
     """پاک‌کردن همهٔ رویدادهای لاگ خطا (تنظیمات دست نمی‌خورد)."""
     errorlog.clear()
     return {"cleared": True, "message": "همهٔ رویدادهای لاگ خطا پاک شد"}
+
+
+@app.get("/api/errorlog/csv")
+def errorlog_csv(limit: int = Query(default=5000, ge=1, le=5000),
+                 source: str = Query(default="", max_length=40),
+                 level: str = Query(default="", max_length=16),
+                 q: str = Query(default="", max_length=200)):
+    """خروجی CSV لاگ خطا (Task 37 ادامه) — با BOM برای اکسل فارسی و مهر زمانی.
+
+    فیلترهای همان /api/errorlog را می‌پذیرد؛ ستون‌ها: زمان، سطح، منبع،
+    IP دستگاه، مرحله، پیام، جزئیات خام.
+    """
+    entries = errorlog.read_errors(limit=limit, source=source.strip(),
+                                   level=level.strip(), q=q.strip())
+    buf = io.StringIO()
+    w = csv.writer(buf)
+    w.writerow(["زمان", "سطح", "منبع", "IP دستگاه", "مرحله", "پیام", "جزئیات خام"])
+    for e in entries:
+        w.writerow([e.get("time") or e.get("ts", ""), e.get("level") or "error",
+                    e.get("source", ""), e.get("ip", ""), e.get("stage", ""),
+                    e.get("message", ""), e.get("raw", "")])
+    data = "\ufeff" + buf.getvalue()  # BOM
+    filename = f"error_log_{file_stamp()}.csv"
+    return Response(
+        content=data.encode("utf-8"),
+        media_type="text/csv; charset=utf-8",
+        headers={"Content-Disposition": f"attachment; filename={filename}"},
+    )
 
 
 # ===================== گزارش مسیر تا روتر مرکزی (توپولوژی PDF) =====================
@@ -2361,6 +2430,29 @@ CFG_PUSH_STATE: dict = {"running": False, "total": 0, "done": 0, "ok": 0, "faile
                         "results": None}
 
 
+def _log_push_failures(results: list) -> None:
+    """خطاهای per-device + خلاصهٔ اجرای انتقال کانفیگ در لاگ خطا (Task 37 ادامه)."""
+    try:
+        n = 0
+        for r in results or []:
+            if n >= _LOG_PER_RUN_CAP:
+                break
+            if not (r or {}).get("ok"):
+                errorlog.log_error(source="push-config", ip=str(r.get("ip") or ""),
+                                   message=str(r.get("error") or r.get("reason") or "انتقال ناموفق"))
+                n += 1
+        if results:
+            ok_n = sum(1 for r in results if r.get("ok"))
+            fail_n = len(results) - ok_n
+            summary = f"انتقال کانفیگ گروهی: {ok_n} موفق، {fail_n} ناموفق از {len(results)} دستگاه"
+            if fail_n:
+                errorlog.log_warn(source="push-config", message=summary)
+            else:
+                errorlog.log_info(source="push-config", message=summary)
+    except Exception:
+        pass
+
+
 def _cfg_push_worker(ips: list[str], username: str, password: str, script: str,
                      port: int, timeout: float, max_workers: int) -> None:
     """انتقال کانفیگ در پس‌زمینه؛ مالک انحصاری فلگ running (درس Task 16)."""
@@ -2374,8 +2466,10 @@ def _cfg_push_worker(ips: list[str], username: str, password: str, script: str,
         )
         if CFG_PUSH_CANCEL.is_set():
             st.update(phase="canceled", canceled=True, results=results)
+            _log_push_failures(results)
             return
         st.update(phase="done", results=results, error=None)
+        _log_push_failures(results)
     except Exception as e:  # هر خطایی → در progress دیده می‌شود
         st.update(error=str(e)[:500], phase="error")
     finally:

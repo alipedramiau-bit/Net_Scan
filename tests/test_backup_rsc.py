@@ -344,7 +344,34 @@ def test_friendly_error_read_timeout_slow_export():
 
 def test_friendly_error_login_hint():
     msg = backup_rsc._friendly_error(backup_rsc._ros.RouterOSError("cannot log in"), "login")
-    assert "ورود API ناموفق" in msg and "policy" in msg
+    assert "ورود API" in msg and "policy" in msg and "Winbox" in msg
+
+
+def test_friendly_error_login_invalid_creds_six():
+    """پیام خام روتر «invalid user name or password (6)» (اسکرین‌شات کاربر) —
+    باید سه علت رایج + مسیر رفع Winbox/System→Users داده شود (Task 37 ادامه)."""
+    msg = backup_rsc._friendly_error(
+        backup_rsc._ros.RouterOSError("invalid user name or password (6)"), "login")
+    assert "ورود API از سمت روتر رد شد" in msg and "(6)" in msg
+    assert "policy «api»" in msg
+    assert "Winbox" in msg and "System → Users" in msg
+    assert "RADIUS" in msg
+
+
+def test_backup_run_summary_logged_warn_and_info(monkeypatch, backup_dir):
+    """خلاصهٔ هر اجرای پشتیبان‌گیری در لاگ ثبت می‌شود: warn با خطا، info بدون خطا."""
+    seen = []
+    monkeypatch.setattr(backup_rsc, "_errorlog",
+                        type("EL", (), {"log_error": staticmethod(lambda **kw: None),
+                                        "log_warn": staticmethod(lambda **kw: seen.append(("warn", kw["message"]))),
+                                        "log_info": staticmethod(lambda **kw: seen.append(("info", kw["message"])))})())
+    _patch_client(monkeypatch, replies=[["!done", "=ret=# c\n"]])
+    backup_rsc.backup_devices([_dev("10.0.0.2", "A", 1)], "u", "p")
+    assert seen and seen[0][0] == "info" and "1 موفق" in seen[0][1]
+    seen.clear()
+    _patch_client(monkeypatch, fail="connection refused")
+    backup_rsc.backup_devices([_dev("10.0.0.3", "B", 2)], "u", "p")
+    assert seen and seen[0][0] == "warn" and "1 ناموفق" in seen[0][1]
 
 
 def test_export_failure_classifies_stage(monkeypatch):

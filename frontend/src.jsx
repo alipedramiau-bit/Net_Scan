@@ -222,6 +222,24 @@ function ErrorLogCard({onNotify}){
   useEffect(()=>{refresh()},[]);
   async function toggle(){const v=!enabled;setEnabled(v);try{await fetch(API+"/api/errorlog/toggle",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({enabled:v})});onNotify&&onNotify(v?"ثبت لاگ خطا فعال شد":"ثبت لاگ خطا خاموش شد")}catch(e){setEnabled(!v)}}
   async function clearAll(){if(!confirm("همهٔ رویدادهای لاگ خطا پاک شوند؟"))return;try{await fetch(API+"/api/errorlog/clear",{method:"POST"})}catch(e){}refresh()}
+  async function downloadCsv(){ // خروجی CSV لاگ خطا (Task 37 ادامه) — با مهر زمانی و BOM
+    try{
+      const r=await fetch(API+"/api/errorlog/csv");
+      if(!r.ok){let detail="دریافت CSV لاگ ناموفق بود";try{const d=await r.json();detail=typeof d.detail==="string"?d.detail:detail}catch(e){}throw Error(detail)}
+      const blob=await r.blob();
+      const cd=r.headers.get("Content-Disposition")||"";
+      let filename="error_log_"+csvStamp()+".csv";
+      const m=cd.match(/filename="?([^"]+)"?/i);
+      if(m)filename=m[1];
+      const url=URL.createObjectURL(blob);
+      const a=document.createElement("a");
+      a.href=url;a.download=filename;
+      document.body.appendChild(a);a.click();a.remove();
+      URL.revokeObjectURL(url);
+      onNotify&&onNotify("فایل "+filename+" ذخیره شد");
+    }catch(e){onNotify&&onNotify(e.message||"دریافت CSV ناموفق بود")}
+  }
+  const levelLabel={error:"خطا",warn:"هشدار",info:"اطلاع"};
   const list=useMemo(()=>{const s=(q||"").trim().toLowerCase();if(!s)return entries;return (entries||[]).filter(e=>(((e.ip||"")+" "+(e.source||"")+" "+(e.message||"")).toLowerCase().includes(s)))},[entries,q]);
   return <section className="panel errorlog-card">
     <div className="report-heading"><h2>لاگ خطاها (ثبت خطاها)</h2></div>
@@ -230,14 +248,15 @@ function ErrorLogCard({onNotify}){
       <label className="errorlog-toggle"><input type="checkbox" checked={enabled} onChange={toggle}/><span>ثبت لاگ خطا فعال باشد</span></label>
       <button type="button" className="tool-btn" onClick={()=>setOpen(o=>!o)}>{open?"بستن فهرست":"نمایش لاگ"}</button>
       <button type="button" className="tool-btn" onClick={refresh} disabled={busy}>{busy?"…":"به‌روزرسانی"}</button>
+      <button type="button" className="tool-btn" onClick={downloadCsv} disabled={busy||!count}>خروجی CSV</button>
       <button type="button" className="tool-btn danger" onClick={clearAll} disabled={busy||!count}>پاک کردن</button>
       <span className="errorlog-count">{(count||0).toLocaleString("fa-IR")} رویداد</span>
     </div>
     {open&&<div>
       <input className="errorlog-filter" value={q} onChange={e=>setQ(e.target.value)} placeholder="فیلتر: IP، منبع یا علت…"/>
       {list.length===0?<p className="errorlog-empty">رویدادی ثبت نشده است — خطایی نبوده یا ثبت خاموش است.</p>:
-      <div className="tablewrap"><table className="errorlog-table"><thead><tr><th>زمان</th><th>منبع</th><th>دستگاه</th><th>علت خطا</th></tr></thead><tbody>
-        {list.map((e,i)=><tr key={i}><td dir="ltr" className="errorlog-time">{e.time}</td><td>{e.source||"—"}</td><td dir="ltr">{e.ip||"—"}</td><td className="errorlog-msg">{e.message}{e.raw&&e.raw!==e.message?<span className="errorlog-raw"> — {e.raw}</span>:null}</td></tr>)}
+      <div className="tablewrap"><table className="errorlog-table"><thead><tr><th>زمان</th><th>سطح</th><th>منبع</th><th>دستگاه</th><th>علت خطا</th></tr></thead><tbody>
+        {list.map((e,i)=><tr key={i}><td dir="ltr" className="errorlog-time">{e.time}</td><td><span className={"errorlog-badge errorlog-badge-"+(e.level||"error")}>{levelLabel[e.level]||"خطا"}</span></td><td>{e.source||"—"}</td><td dir="ltr">{e.ip||"—"}</td><td className="errorlog-msg">{e.message}{e.raw&&e.raw!==e.message?<span className="errorlog-raw"> — {e.raw}</span>:null}</td></tr>)}
       </tbody></table></div>}
     </div>}
   </section>;

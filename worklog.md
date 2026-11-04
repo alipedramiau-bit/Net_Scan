@@ -715,3 +715,22 @@ Work Log:
 Stage Summary:
 - حالا هر خطای پشتیبان‌گیری/خواندن API در برگهٔ راهبری سیستم قابل مرور است: کارت «لاگ خطاها» با کلید فعال/خاموش، فیلتر و جدول زمان/منبع/دستگاه/علت — داده‌ها در mik_log/errorlog.jsonl می‌مانند و با ری‌استارت برنامه از بین نمی‌روند
 - دو علت واقعی شکستِ «با یوزر/رمز درست» رفع یا شفاف شد: (۱) خروجی خالی /export روی RouterOS 6 — حالا با روش فایل خودکار جبران می‌شود (تا سقف ~۴KB که خودِ RouterOS می‌گذارد؛ پیام خطا اندازهٔ فایل را می‌گوید)؛ (۲) ورود (6) روی ROS قدیمی — روش چالش-پاسخ روی اتصال تازه دوباره امتحان می‌شود؛ اگر گروه کاربر مجوز «api» نداشته باشد، پیام دقیقاً می‌گوید چه policy‌ای لازم است
+
+---
+Task ID: 37 (ادامه — ادغام دلتا روی نسخهٔ ریموت)
+Agent: main (Z.ai)
+Task: همگام‌سازی با کامیت موازی 34aa550 (نشست دیگر همان درخواست را اجرا و push کرده بود) + افزودن مکمل‌ها بدون تکرار
+
+Work Log:
+- وضعیت: push این نشست reject شد چون کامیت 34aa550 («feat(errorlog): error log card in system tab + two-step rsc export (file method) + fresh-connection login retry») پیش‌تر روی ریموت بود — همان درخواست کاربر با معماری دیگری (errorlog.py در mik_log/، endpointهای /api/errorlog، ErrorLogCard، روش دو‌مرحله‌ای export=file برای ROS 6). به‌جای تحمیل دو پیاده‌سازی موازی: reset به 34aa550 و افزودن «دلتای مکمل» به‌صورت یک کامیت تمیز (نسخهٔ کامل این نشست در شاخهٔ محلی task37-alt-backup حفظ شد)
+- مکمل‌های افزوده‌شده روی معماری ریموت:
+  1) `_friendly_error` مرحلهٔ login: پیام «(6)» حالا سه علت رایج + مسیر رفع (Winbox ← System → Users ← رمز یکسان/مجوز api و read/RADIUS) می‌دهد — تجربهٔ کاربر: همان یوزر/رمز روی 172.18.1.106/107 ورود موفق داشته پس رد شدن ۵۰ دستگاه دیگر سمت روتر است
+  2) errorlog.py: پارامتر level (پیش‌فرض error — سازگار با فراخوانی‌های موجود) + helperهای log_warn/log_info + فیلتر level و جستجوی آزاد q در read_errors (case-insensitive روی message/raw/ip/source)
+  3) main.py: GET /api/errorlog پارامترهای level/q گرفت؛ endpoint جدید GET /api/errorlog/csv (BOM + filename=error_log_<file_stamp>.csv + ۷ ستون فارسی)؛ هوک لاگ برای انتقال کانفیگ گروهی (_log_push_failures در _cfg_push_worker شامل مسیر لغو) و خواندن SNMP + سقف per-run (_LOG_PER_RUN_CAP=500) + خلاصهٔ اجرا برای probe-api/SNMP/push/backup
+  4) backup_rsc.py: خلاصهٔ هر اجرای پشتیبان‌گیری همیشه ثبت می‌شود — warn اگر خطا داشته، info اگر کاملاً موفق (قبلاً فقط در صورت خطا و با level=error)
+  5) frontend/src.jsx — ErrorLogCard: ستون «سطح» با بج رنگی (خطا/هشدار/اطلاع) + دکمهٔ «خروجی CSV» (نام از Content-Disposition با fallback csvStamp)؛ style.css: کلاس‌های errorlog-badge-*؛ dist بازسازی شد (index-D2ahaQqg.js / index-CCzi-HrQ.css)
+  6) تست‌ها: tests/test_login_protocol.py (۶ تست سوکتی با سرور API تقلبی — روی login نسخهٔ ریموت هم پاس: plaintext/رمز غلط (6)/چالش-پاسخ v6/اتصال تازه/بی‌چالش/اتصال دوم معیوب)؛ tests/test_errorlog_delta.py (۶ تست: سطوح/پیش‌فرض error برای ردیف قدیمی/فیلتر q/endpoint فیلترها/CSV با BOM و مهر/401)؛ به‌روزرسانی test_friendly_error_login_hint + ۲ تست جدید ((6) و سطح خلاصهٔ اجرا) در test_backup_rsc.py
+  7) رگرسیون: pytest tests/ کل = ۱۳۶ PASS + scripts/test_errorlog_ui.py (30 بررسی — بدون تغییر پاس) + build dist موفق
+
+Stage Summary:
+- مخزن حالا یک پیاده‌سازی منسجم دارد (نه دو موازی): معماری errorlog ریموت + عیب‌یابی سه‌علتهٔ ورود، سطح‌بندی warn/info، جستجوی سرورساید، خروجی CSV و پوشش لاگ برای هر چهار عملیات (پشتیبان‌گیری/خواندن API/انتقال کانفیگ/SNMP)

@@ -74,18 +74,24 @@ def set_enabled(value: bool) -> bool:
 
 # ------------------------------- نوشتن --------------------------------------
 def log_error(source: str, message: str, ip: str = "", raw: str = "",
-              stage: str = "") -> dict | None:
-    """یک رویداد خطا ثبت می‌کند؛ اگر ثبت غیرفعال باشد None برمی‌گرداند.
+              stage: str = "", level: str = "error") -> dict | None:
+    """یک رویداد ثبت می‌کند؛ اگر ثبت غیرفعال باشد None برمی‌گرداند.
 
     source: منبع خطا (backup-rsc / probe-api / …)؛ message: علت فارسیِ آمادهٔ
     نمایش؛ raw: متن خام خطا (اگر جدا از message معنا دارد)؛ stage: مرحلهٔ شکست
-    (connect/login/read).
+    (connect/login/read)؛ level: «error»/«warn»/«info» (Task 37 ادامه: خلاصهٔ
+    اجراها به‌صورت warn/info ثبت می‌شوند تا لاگ فقط خطا نباشد؛ پیش‌فرض error است
+    تا فراخوانی‌های قبلی بدون تغییر معنا بمانند).
     """
     if not is_enabled():
         return None
+    lvl = (level or "error").strip().lower()
+    if lvl not in ("error", "warn", "info"):
+        lvl = "error"
     entry = {
         "ts": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "time": _fa_time(time.time()),
+        "level": lvl,
         "source": str(source or "")[:40],
         "ip": str(ip or "")[:64],
         "stage": str(stage or "")[:24],
@@ -104,6 +110,18 @@ def log_error(source: str, message: str, ip: str = "", raw: str = "",
     return entry
 
 
+def log_warn(source: str, message: str, ip: str = "", raw: str = "",
+             stage: str = "") -> dict | None:
+    """رویداد هشدار (مثل خلاصهٔ اجرایی که شامل خطا بوده) — Task 37 ادامه."""
+    return log_error(source, message, ip=ip, raw=raw, stage=stage, level="warn")
+
+
+def log_info(source: str, message: str, ip: str = "", raw: str = "",
+             stage: str = "") -> dict | None:
+    """رویداد اطلاعی (مثل خلاصهٔ اجرای تماماً موفق) — Task 37 ادامه."""
+    return log_error(source, message, ip=ip, raw=raw, stage=stage, level="info")
+
+
 def _rotate() -> None:
     """فایل بزرگ → فقط KEEP_ON_ROTATE رویداد آخر می‌ماند."""
     try:
@@ -117,14 +135,19 @@ def _rotate() -> None:
 
 
 # ------------------------------- خواندن/پاک کردن ----------------------------
-def read_errors(limit: int = 200, source: str = "") -> list[dict]:
-    """رویدادهای اخیر (جدیدترین اول) — سقف limit؛ فیلتر منبع اختیاری."""
+def read_errors(limit: int = 200, source: str = "", level: str = "", q: str = "") -> list[dict]:
+    """رویدادهای اخیر (جدیدترین اول) — سقف limit؛ فیلتر منبع/سطح/جستجوی آزاد.
+
+    q (Task 37 ادامه): جستجوی case-insensitive در پیام/IP/منبع/متن خام.
+    """
     try:
         lines = LOG_FILE.read_text("utf-8").splitlines()
     except OSError:
         return []
     out: list[dict] = []
     want = max(1, min(int(limit or 200), 5000))
+    level = (level or "").strip().lower()
+    needle = (q or "").strip().casefold()
     for ln in reversed(lines):
         if len(out) >= want:
             break
@@ -137,6 +160,13 @@ def read_errors(limit: int = 200, source: str = "") -> list[dict]:
             continue
         if source and e.get("source") != source:
             continue
+        if level and (e.get("level") or "error") != level:
+            continue
+        if needle:
+            hay = " ".join([e.get("message") or "", e.get("raw") or "",
+                            e.get("ip") or "", e.get("source") or ""]).casefold()
+            if needle not in hay:
+                continue
         out.append(e)
     return out
 

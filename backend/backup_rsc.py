@@ -134,6 +134,17 @@ def _friendly_error(e: Exception, stage: str) -> str:
     if stage == "login":
         if timed:
             return "پاسخ ورود API دیر رسید (" + raw + ") — دستگاه شلوغ یا شبکه کند است؛ دوباره تلاش کنید"
+        if "invalid user name or password" in low or "cannot log in" in low or "invalid username" in low:
+            # Task 37 (ادامه): پیام (6) ردِ سمت خودِ روتر است — تجربهٔ واقعی کاربر:
+            # همان یوزر/رمز روی برخی دستگاه‌ها ورود موفق داشته و فقط روی بقیه رد شده؛
+            # یعنی مشکل از تنظیم همان دستگاه‌هاست (کاربر محلی/مجوز گروه/RADIUS).
+            return ("ورود API از سمت روتر رد شد (" + raw + ") — سه علت رایج: "
+                    "۱) روی «این دستگاه» رمز این کاربر چیز دیگری ست شده یا کاربر وجود ندارد "
+                    "(هر روتر کاربرانِ محلی خودش را دارد)؛ "
+                    "۲) گروهِ کاربر مجوز policy «api» ندارد؛ "
+                    "۳) احراز هویت از RADIUS/سرور مرکزی انجام می‌شود و آن سمت رد کرده. "
+                    "با Winbox وارد شوید ← System → Users ← کاربر را بررسی/رمز را یکسان کنید "
+                    "و گروه باید مجوز api و read داشته باشد")
         return ("ورود API ناموفق (" + raw
                 + ") — نام کاربری/رمز را بررسی کنید؛ اگر درست است، گروهِ کاربر باید مجوز policy «api» داشته باشد")
     if stage == "read":
@@ -373,14 +384,19 @@ def backup_devices(devices: list[dict], username: str, password: str,
     prog["running"] = False
     prog["canceled"] = cancel.is_set()
     prog["percent"] = 100 if prog["done"] >= prog["total"] and prog["total"] else prog["percent"]
-    if prog["failed"]:  # Task 37: خلاصهٔ پایان کار فقط وقتی شکست داشته‌ایم
-        try:
-            _errorlog.log_error(
-                source="backup-rsc", ip="",
-                message=(f"پشتیبان‌گیری rsc پایان یافت: {prog['ok']} موفق، "
-                         f"{prog['failed']} ناموفق از {prog['total']} دستگاه"))
-        except Exception:
-            pass
+    # Task 37 (ادامه): خلاصهٔ هر اجرا همیشه ثبت می‌شود — با سطح warn (شکست داشته)
+    # یا info (تماماً موفق) تا لاگ فقط خطا نباشد و مرور تاریخچه ممکن باشد
+    try:
+        summary = (f"پشتیبان‌گیری rsc پایان یافت: {prog['ok']} موفق، "
+                   f"{prog['failed']} ناموفق از {prog['total']} دستگاه (پوشهٔ mik_backup/)")
+        if cancel.is_set():
+            summary += " — متوقف شد"
+        if prog["failed"]:
+            _errorlog.log_warn(source="backup-rsc", ip="", message=summary)
+        else:
+            _errorlog.log_info(source="backup-rsc", ip="", message=summary)
+    except Exception:
+        pass
     out = [r for r in results if r is not None]
     return out
 
