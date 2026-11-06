@@ -580,6 +580,21 @@ def wireless_antenna_report(devices, days_back=5, now=None):
                 "raw_line": line.strip(),
             })
     events.sort(key=lambda item: (item["datetime"], item["antenna_ip"], item["station_mac"]), reverse=True)
+    # Task 44: هر MAC فقط یک بار در گزارش بیاید — لیست جدیدترین‌اول است، پس
+    # از هر MAC تنها جدیدترین رکورد نگه داشته می‌شود و تکراری‌ها حذف می‌شوند.
+    # رکوردهای بدون MAC هویتی برای ادغام ندارند و سر جایشان می‌مانند.
+    seen_mac = set()
+    deduped = []
+    duplicate_mac_count = 0
+    for event in events:
+        mac_key = _mac_key(event["station_mac"]) if event["station_mac"] else ""
+        if mac_key:
+            if mac_key in seen_mac:
+                duplicate_mac_count += 1
+                continue
+            seen_mac.add(mac_key)
+        deduped.append(event)
+    events = deduped
     for index, event in enumerate(events, 1):
         event["row"] = index
     return {
@@ -587,6 +602,7 @@ def wireless_antenna_report(devices, days_back=5, now=None):
         "events": events,
         "event_count": len(events),
         "days": int(days_back),
+        "duplicate_mac_count": duplicate_mac_count,
         "unmatched_mac_count": len({e["station_mac"] for e in events if e["station_mac"] and not e["matched_device_ip"]}),
     }
 
